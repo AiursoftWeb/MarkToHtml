@@ -1,0 +1,18 @@
+using System.Diagnostics;
+using Aiursoft.MarkToHtml.Models.ErrorViewModels;
+using Aiursoft.MarkToHtml.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Aiursoft.MarkToHtml.Controllers;
+
+/// <summary>
+/// This controller is used to show error pages.
+/// </summary>
+public class ErrorController : Controller
+{
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return this.StackView(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
