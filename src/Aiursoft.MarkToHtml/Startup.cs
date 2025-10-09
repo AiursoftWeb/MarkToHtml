@@ -1,14 +1,16 @@
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools.Switchable;
-using Aiursoft.Scanner;
 using Aiursoft.MarkToHtml.Configuration;
-using Aiursoft.WebTools.Abstractions.Models;
 using Aiursoft.MarkToHtml.InMemory;
 using Aiursoft.MarkToHtml.MySql;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.MarkToHtml.Sqlite;
+using Aiursoft.Scanner;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
+using Aiursoft.WebTools.Abstractions.Models;
+using Ganss.Xss;
+using Markdig;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -17,7 +19,11 @@ namespace Aiursoft.MarkToHtml;
 
 public class Startup : IWebStartup
 {
-    public void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
+    public void ConfigureServices(
+        IConfiguration configuration,
+        IWebHostEnvironment environment,
+        IServiceCollection services
+    )
     {
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
@@ -25,14 +31,15 @@ public class Startup : IWebStartup
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
         services.AddSwitchableRelationalDatabase(
-            dbType: EntryExtends.IsInUnitTests() ? "InMemory": dbType,
+            dbType: EntryExtends.IsInUnitTests() ? "InMemory" : dbType,
             connectionString: connectionString,
             supportedDbs:
             [
                 new MySqlSupportedDb(allowCache: allowCache, splitQuery: false),
                 new SqliteSupportedDb(allowCache: allowCache, splitQuery: true),
-                new InMemorySupportedDb()
-            ]);
+                new InMemorySupportedDb(),
+            ]
+        );
 
         // Authentication and Authorization
         services.AddTemplateAuth(configuration);
@@ -44,7 +51,8 @@ public class Startup : IWebStartup
         services.AddSingleton<NavigationState<Startup>>();
 
         // Controllers and localization
-        services.AddControllersWithViews()
+        services
+            .AddControllersWithViews()
             .AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
@@ -54,6 +62,11 @@ public class Startup : IWebStartup
             .AddApplicationPart(typeof(UiStackLayoutViewModel).Assembly)
             .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
             .AddDataAnnotationsLocalization();
+
+        // Add the markdown pipeline and HTML sanitizer
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+        services.AddSingleton(pipeline);
+        services.AddSingleton<HtmlSanitizer>();
     }
 
     public void Configure(WebApplication app)

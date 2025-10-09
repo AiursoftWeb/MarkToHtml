@@ -21,4 +21,9 @@ public static class AppPermissionNames
     // System Management
     public const string CanViewSystemContext = nameof(CanViewSystemContext);
     public const string CanRebootThisApp = nameof(CanRebootThisApp);
+
+    // Document Management
+    public const string CanReadAllDocuments = nameof(CanReadAllDocuments);
+    public const string CanDeleteAnyDocument = nameof(CanDeleteAnyDocument);
+    public const string CanEditAnyDocument = nameof(CanEditAnyDocument);
 }

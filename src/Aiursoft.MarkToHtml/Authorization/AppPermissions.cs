@@ -57,7 +57,16 @@ public class AppPermissions
                 localizer["Allows viewing system-level information and settings."]),
             new(AppPermissionNames.CanRebootThisApp,
                 localizer["Reboot This App"],
-                localizer["Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded."])
+                localizer["Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded."]),
+            new(AppPermissionNames.CanReadAllDocuments,
+                localizer["Read All Documents"],
+                localizer["Allows viewing all documents in the system, regardless of ownership."]),
+            new(AppPermissionNames.CanDeleteAnyDocument,
+                localizer["Delete Any Document"],
+                localizer["Allows deletion of any document, regardless of ownership."]),
+            new(AppPermissionNames.CanEditAnyDocument,
+                localizer["Edit Any Document"],
+                localizer["Allows editing of any document, regardless of ownership."]),
         ];
         return allPermission;
     }

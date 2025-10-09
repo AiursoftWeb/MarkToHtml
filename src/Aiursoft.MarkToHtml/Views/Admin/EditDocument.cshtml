@@ -1,0 +1,139 @@
+@using Aiursoft.MarkToHtml.Controllers
+@using Aiursoft.MarkToHtml.Authorization
+@using Microsoft.AspNetCore.Authorization
+@model Aiursoft.MarkToHtml.Models.AdminViewModels.EditDocumentViewModel
+@inject IViewLocalizer Localizer
+@inject IAuthorizationService AuthorizationService
+@{
+    var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Edit Document"]</h3>
+        <p class="mb-0 text-muted">@Localizer["Modify document content, title, and owner."]</p>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+            <a asp-action="DeleteDocument" asp-route-id="@Model.DocumentId" class="btn btn-danger">
+                @if (canDeleteAnyDocument)
+                {
+                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                }
+            </a>
+    </div>
+</div>
+
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="d-flex">
+            <div class="alert-icon pe-3">
+                <i class="align-middle" data-lucide="alert-triangle"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Success!"]</strong>
+                @Localizer["Document updated successfully."]
+            </div>
+        </div>
+    </div>
+}
+
+<form asp-action="EditDocument" method="post">
+    <input type="hidden" asp-for="DocumentId" />
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">
+                <i class="align-middle" data-lucide="file-pen-line">&nbsp;</i>
+                @Localizer["Document Details"]
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">@Localizer["Document Title (optional)"]</label>
+                <input asp-for="Title" class="form-control form-control-lg" placeholder="@Localizer["Enter the document title"]" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SelectedUserId" class="form-label"></label>
+                <select asp-for="SelectedUserId" asp-items="@Model.AllUsers" class="form-select form-select-lg">
+                    <option value="">@Localizer["-- Select an Owner --"]</option>
+                </select>
+                <span asp-validation-for="SelectedUserId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="InputMarkdown" class="form-label">@Localizer["Markdown Content"]</label>
+                <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
+                          placeholder="@Localizer["Type your Markdown here..."]"></textarea>
+                <span asp-validation-for="InputMarkdown" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col text-center">
+            <a asp-action="AllDocuments" class="btn btn-outline-secondary btn-lg me-2">
+                <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
+                @Localizer["Back to List"]
+            </a>
+
+            <button type="submit" class="btn btn-primary btn-lg">
+                <i class="align-middle" data-lucide="save">&nbsp;</i>
+                @Localizer["Save Changes"]
+            </button>
+        </div>
+    </div>
+</form>
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var theme = isDarkMode ? "material" : "eclipse";
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
+    <style>
+        .CodeMirror {
+            border: 1px solid #dee2e6;
+            height: 60vh;
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // --- jQuery Validation Setup ---
+            if ($.validator) {
+                $.validator.setDefaults({
+                    ignore: []
+                });
+            }
+
+            // --- CodeMirror Initialization ---
+            if (typeof CodeMirror !== 'undefined') {
+                const editorElement = document.getElementById('markdown-editor');
+                if (editorElement && !editorElement.CodeMirror) {
+                    const markdownEditorInstance = CodeMirror.fromTextArea(editorElement, {
+                        lineNumbers: true,
+                        mode: 'markdown',
+                        theme: '@(theme)',
+                        viewportMargin: Infinity
+                    });
+
+                    markdownEditorInstance.on('change', function() {
+                        markdownEditorInstance.save();
+                    });
+                }
+            }
+        });
+    </script>
+}

@@ -1,204 +1,349 @@
-<div class="text-center mt-5">
-    <h1 class="display-4">@Localizer["Hello World!"]</h1>
-    <p>@Localizer["This is a template project, where we start the voyager..."]</p>
+@using Aiursoft.MarkToHtml.Controllers
+@model Aiursoft.MarkToHtml.Models.HomeViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Markdown to HTML Converter"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <p class="mb-0 text-muted">@Localizer["A simple tool to convert your Markdown into clean, sanitized HTML."]</p>
+    </div>
 </div>
 
-<div class="container-fluid p-5">
-    <div class="row mb-2 mb-xl-3">
-        <div class="col-auto d-none d-sm-block">
-            <h3>@Localizer["Welcome"]</h3>
-        </div>
-
-        <div class="col-auto ms-auto text-end mt-n1">
-            <a href="https://template-docs.aiursoft.cn/Tutorial/before.html" class="btn btn-primary me-2 shadow-sm" target="_blank">
-                <i class="align-middle" data-lucide="rocket"></i> @Localizer["Start a new project"]
-            </a>
-            <a href="https://template-docs.aiursoft.cn/" class="btn btn-outline-primary shadow-sm" target="_blank">
-                <i class="align-middle" data-lucide="book"></i> @Localizer["Read the document"]
-            </a>
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="d-flex">
+            <div class="alert-icon pe-3">
+                <i class="align-middle" data-lucide="alert-triangle"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Success!"]</strong>
+                @Localizer["Document updated successfully."]
+            </div>
         </div>
     </div>
+}
 
+<form asp-action="Index" method="post" id="markdown-form">
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        @* Left Column: Markdown Input *@
+        <div class="col-lg-6 d-flex">
+            <div class="card flex-fill">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">@Localizer["Why use the Aiursoft Template?"]</h5>
-                    <p class="mb-0 text-muted mt-2">@Localizer["A modern, feature-rich, and highly extensible foundation for your next web application."]</p>
+                    <h5 class="card-title mb-0">
+                        <i class="align-middle" data-lucide="markdown">&nbsp;</i>
+                        @Localizer["Markdown Input"]
+                    </h5>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="database"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Multiple Database Support"]</h5>
-                                    <p>@Localizer["Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing."]</p>
-                                </div>
-                            </div>
+                <div class="card-body p-2">
+                    @* Add this block for editing title if in editing mode *@
+                    @if (Model.IsEditing)
+                    {
+                        <input type="hidden" asp-for="DocumentId" />
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">@Localizer["Document Title (optional)"]</label>
+                            <input asp-for="Title" class="form-control form-control-lg"
+                                placeholder="@Localizer["Document Title (optional)"]" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
+                    }
 
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="key-round"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["OpenID Connect Integration"]</h5>
-                                    <p>@Localizer["Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="shield-check"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["RBAC Authorization"]</h5>
-                                    <p>@Localizer["A built-in Role-Based Access Control (RBAC) system for fine-grained permission management."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="navigation"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Dynamic Navigation Bar"]</h5>
-                                    <p>@Localizer["The navigation bar automatically adjusts based on user roles and permissions."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="languages"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["AI-Powered Translations"]</h5>
-                                    <p>@Localizer["Automatic, AI-driven translation into 28 languages for global reach."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="book-open-text"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Comprehensive Documentation"]</h5>
-                                    <p>@Localizer["Includes extensive documentation and practical examples to get you started quickly."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="user-cog"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Built-in User Management"]</h5>
-                                    <p>@Localizer["A complete solution for user authentication and profile management right out of the box."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="zap"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Automatic Dependency Injection"]</h5>
-                                    <p>@Localizer["All dependencies are automatically registered and always available via constructor injection."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="folder-archive"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Integrated File Management"]</h5>
-                                    <p>@Localizer["Features a built-in file management system with automatic avatar compression."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="airplay"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Responsive Design"]</h5>
-                                    <p>@Localizer["A fully responsive layout that looks great on both desktop and mobile devices."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="moon"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Automatic Dark Mode"]</h5>
-                                    <p>@Localizer["Smart dark mode that automatically adapts to the user's system settings."]</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4 d-flex">
-                            <div class="d-flex align-items-start py-3">
-                                <div class="d-inline-block me-3">
-                                    <div class="stat">
-                                        <i class="align-middle" data-lucide="ship"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h5 class="mt-0">@Localizer["Dockerized for Deployment"]</h5>
-                                    <p>@Localizer["Comes with full Docker support for simplified, consistent, and reliable deployments."]</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
+                        placeholder="@Localizer["Type your Markdown here..."]"></textarea>
+                    <span asp-validation-for="InputMarkdown" class="text-danger"></span>
                 </div>
             </div>
         </div>
     </div>
 
-</div>
+    @* Right Column: Standalone Tab Component *@
+    <div class="col-lg-6 d-flex flex-column">
+        @* The tab component now stands alone and fills the available space *@
+        <div class="tab flex-grow-1">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    @* The 'active' class is now on the link (<a>), not the list item (<li>) *@
+                    <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
+                        <i class="align-middle" data-lucide="code-2">&nbsp;</i>
+                        @Localizer["Code"]
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
+                        <i class="align-middle" data-lucide="eye">&nbsp;</i>
+                        @Localizer["Preview"]
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content pt-3">
+                @* Code Pane *@
+                <div class="tab-pane active show" id="code" role="tabpanel">
+                    <button type="button" id="copy-button" class="btn btn-outline-primary mb-2"
+                        title="@Localizer["Copy HTML to clipboard"]">
+                        <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy"]
+                    </button>
+                    <textarea class="form-control" rows="25" id="html-output" readonly>@Model.OutputHtml</textarea>
+                </div>
+                @* Preview Pane *@
+                <div class="tab-pane" id="preview" role="tabpanel">
+                    @if (!string.IsNullOrEmpty(Model.OutputHtml))
+                    {
+                        <button type="button" id="print-button" class="btn btn-outline-info mb-2"
+                            title="@Localizer["Print Preview"]">
+                            <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
+                        </button>
+
+                        <div id="printable-area">
+                            @Html.Raw(Model.OutputHtml)
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center p-5">
+                            <p class="text-muted">@Localizer["HTML preview will appear here after conversion."]</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    @* Submit Button Row *@
+    <div class="row mt-3">
+        <div class="col text-center">
+            @* Add the back button *@
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <a asp-action="History" class="btn btn-outline-secondary btn-lg mr-2">
+                    <i class="align-middle" data-lucide="file-text">&nbsp;</i>
+                    @Localizer["My Documents"]
+                </a>
+            }
+
+            <button type="submit" class="btn btn-primary btn-lg">
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <i class="align-middle" data-lucide="check-circle">&nbsp;</i>
+                    @Localizer["Convert and save"]
+                }
+                else
+                {
+                    <i class="align-middle" data-lucide="chevrons-right">&nbsp;</i>
+                    @Localizer["Convert to HTML"]
+                }
+            </button>
+        </div>
+    </div>
+</form>
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var theme = isDarkMode ? "material" : "eclipse";
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
+    <style>
+        .CodeMirror,
+        #preview {
+            max-height: 70vh;
+        }
+
+        #preview {
+            overflow-y: auto;
+        }
+
+        .CodeMirror {
+            border: 1px solid #dee2e6;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .CodeMirror-scroll {
+            flex-grow: 1;
+            overflow: auto !important;
+            position: relative;
+        }
+
+        @@media print {
+            @@page {
+                margin-top: 2cm;
+                margin-bottom: 2cm;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #printable-area,
+            #printable-area * {
+                visibility: visible;
+            }
+
+            #printable-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 1.2cm;
+            }
+
+            #printable-area pre,
+            #printable-area code {
+                white-space: pre-wrap !important;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                color: #222 !important;
+            }
+
+            #printable-area {
+                font-family: Georgia, "Times New Roman", serif;
+                font-size: 12pt;
+                line-height: 1.5;
+                color: #000 !important;
+            }
+
+            #printable-area strong,
+            #printable-area b {
+                font-weight: 700 !important;
+                /* Use a heavy font-weight */
+                color: inherit !important;
+            }
+
+            #printable-area h1,
+            #printable-area h2,
+            #printable-area h3 {
+                margin-top: 24pt;
+                margin-bottom: 12pt;
+            }
+
+            #printable-area a[href]::after {
+                content: " (" attr(href) ")";
+                font-size: 9pt;
+                color: #555;
+            }
+
+            #printable-area table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1rem;
+                font-size: 11pt;
+            }
+
+            #printable-area th,
+            #printable-area td {
+                border: 1px solid #ccc;
+                padding: 0.5rem;
+                text-align: left;
+            }
+        }
+    </style>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
+    <script src="~/node_modules/codemirror/mode/xml/xml.js"></script>
+    <script src="~/node_modules/codemirror/addon/edit/closebrackets.js"></script>
+    <script src="~/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let markdownEditorInstance;
+            let htmlOutputInstance;
+
+            // --- jQuery Validation Setup. Don't ignore hidden fields (CodeMirror will hide the original textarea) ---
+            if ($.validator) {
+                $.validator.setDefaults({
+                    ignore: []
+                });
+            }
+
+            // --- CodeMirror Initialization ---
+            if (typeof CodeMirror !== 'undefined') {
+                if (!document.getElementById('markdown-editor').CodeMirror) {
+                    markdownEditorInstance = CodeMirror.fromTextArea(document.getElementById('markdown-editor'), {
+                        lineNumbers: true,
+                        mode: 'markdown',
+                        theme: '@(theme)',
+                        viewportMargin: Infinity
+                    });
+
+                    markdownEditorInstance.on('change', function () {
+                        // For validator to work, we need to update the underlying textarea
+                        markdownEditorInstance.save();
+                    });
+                }
+                if (!document.getElementById('html-output').CodeMirror) {
+                    htmlOutputInstance = CodeMirror.fromTextArea(document.getElementById('html-output'), {
+                        lineNumbers: true,
+                        mode: 'xml',
+                        readOnly: true,
+                        theme: '@(theme)',
+                        viewportMargin: Infinity
+                    });
+                }
+            }
+
+            // --- Copy to Clipboard Handling ---
+            const copyButton = document.getElementById('copy-button');
+            if (copyButton && htmlOutputInstance) {
+                copyButton.addEventListener('click', function () {
+                    const codeToCopy = htmlOutputInstance.getValue();
+                    if (!codeToCopy) {
+                        return;
+                    }
+                    navigator.clipboard.writeText(codeToCopy).then(function () {
+                        copyButton.innerHTML = `@Localizer["Copied!"]`;
+                    }, function (err) {
+                        console.error('Could not copy text: ', err);
+                        alert('@Localizer["Failed to copy text."]');
+                    });
+                });
+            }
+
+            // --- Theme Toggle Handling ---
+            const themeToggleButton = document.querySelector('.js-theme-toggle');
+            const markdownForm = document.getElementById('markdown-form');
+            if (themeToggleButton && markdownForm) {
+                themeToggleButton.addEventListener('click', function () {
+                    // Submit the form after switching theme to refresh CodeMirror themes
+                    setTimeout(() => {
+                        markdownForm.submit();
+                    }, 1000);
+                });
+            }
+
+            // --- Styling Tables in the Preview Pane ---
+            function stylePreviewTables() {
+                const previewArea = document.getElementById('preview');
+                if (!previewArea) return;
+                const tables = previewArea.querySelectorAll('table');
+                tables.forEach(table => {
+                    table.classList.add('table', 'table-striped', 'table-bordered');
+                    if (!table.parentElement.classList.contains('table-responsive')) {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'table-responsive';
+                        table.parentNode.insertBefore(wrapper, table);
+                        wrapper.appendChild(table);
+                    }
+                });
+            }
+            stylePreviewTables();
+
+            // --- Print Button Handling ---
+            const printButton = document.getElementById('print-button');
+            if (printButton) {
+                printButton.addEventListener('click', function () {
+                    window.print();
+                });
+            }
+        });
+    </script>
+}

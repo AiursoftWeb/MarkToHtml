@@ -11,4 +11,6 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public virtual  Task<bool> CanConnectAsync() =>
         Database.CanConnectAsync();
+
+    public DbSet<MarkdownDocument> MarkdownDocuments => Set<MarkdownDocument>();
 }

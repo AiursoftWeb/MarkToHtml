@@ -1,0 +1,118 @@
+@using Aiursoft.WebTools
+@using Microsoft.AspNetCore.Authorization
+@using Aiursoft.MarkToHtml.Authorization
+@model Aiursoft.MarkToHtml.Models.AdminViewModels.AllDocumentsViewModel
+@inject IViewLocalizer Localizer
+@inject IAuthorizationService AuthorizationService
+
+@{
+    var canEditAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
+    var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
+}
+
+<style>
+    .clickable-row {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["All Documents"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <p class="mb-0 text-muted">@Localizer["View and manage all documents across the entire system."]</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Document List"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["A list of all documents from all users in the system."]</h6>
+    </div>
+    @if (!Model.AllDocuments.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                @Localizer["No documents found in the system."]
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col">@Localizer["Title"]</th>
+                        <th scope="col">@Localizer["Owner"]</th>
+                        <th scope="col">@Localizer["Creation Time"]</th>
+                        <th scope="col" class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var doc in Model.AllDocuments)
+                    {
+                        // Use the edit action for the clickable row, if the user has permission.
+                        var rowHref = canEditAnyDocument ? Url.Action("EditDocument", new { id = doc.Id }) : null;
+                        <tr class="@(rowHref != null ? "clickable-row" : "")" data-href="@rowHref">
+                            <td>
+                                @if (string.IsNullOrWhiteSpace(doc.Title))
+                                {
+                                    <span class="text-muted">@Localizer["(no title)"]</span>
+                                }
+                                else
+                                {
+                                    @doc.Title
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="UserDocuments" asp-route-id="@doc.UserId">
+                                    @doc.User.DisplayName
+                                </a>
+                            </td>
+                            <td>
+                                <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
+                            </td>
+                            <td class="text-end">
+                                @if (canEditAnyDocument)
+                                {
+                                    <a asp-action="EditDocument" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                        <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                    </a>
+                                }
+                                @if (canDeleteAnyDocument)
+                                {
+                                    <a asp-action="DeleteDocument" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
+                                        <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                // Ensure the row has a href to go to
+                if (row.dataset.href) {
+                    row.addEventListener("click", function (event) {
+                        const target = event.target;
+                        // Prevent navigation if a link or button was clicked inside the row
+                        if (!target.matches('a, a *, button, button *')) {
+                            window.location.href = row.dataset.href;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

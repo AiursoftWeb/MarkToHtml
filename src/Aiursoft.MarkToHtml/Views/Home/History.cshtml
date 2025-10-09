@@ -1,0 +1,87 @@
+@using Aiursoft.WebTools
+@model Aiursoft.MarkToHtml.Models.HomeViewModels.HistoryViewModel
+@inject IViewLocalizer Localizer
+
+<style>
+    .clickable-row {
+        cursor: pointer;
+    }
+</style>
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["My Documents"]</h3>
+    </div>
+
+    <div class="col-auto ms-auto mt-n1">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+            <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Create a new document"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["All My Documents"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["A list of all documents you have created."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Title"]</th>
+                <th>@Localizer["Creation Time"]</th>
+                <th>@Localizer["Length"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var doc in Model.MyDocuments)
+            {
+                <tr class="clickable-row" data-href="@Url.Action("Edit", new { id = doc.Id })">
+                    <td>
+                        @if (string.IsNullOrWhiteSpace(doc.Title))
+                        {
+                            <label class="text-muted">(no title)</label>
+                        }
+                        else
+                        {
+                            @doc.Title
+                        }
+                    </td>
+                    <td>
+                        <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
+                    </td>
+                    <td>@(doc.Content?.Length ?? 0)</td>
+                    <td class="text-end">
+                        <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                            <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
+                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                row.addEventListener("click", function (event) {
+                    const target = event.target;
+                    // Prevent navigation if a link or button was clicked inside the row
+                    if (!target.matches('a, a *, button, button *')) {
+                        window.location.href = row.dataset.href;
+                    }
+                });
+            });
+        });
+    </script>
+}
