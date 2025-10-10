@@ -1,6 +1,6 @@
 using Aiursoft.Scanner.Abstractions;
 
-namespace Aiursoft.MarkToHtml.Services;
+namespace Aiursoft.MarkToHtml.Services.FileStorage;
 
 /// <summary>
 /// Responsible for determining the correct physical paths for

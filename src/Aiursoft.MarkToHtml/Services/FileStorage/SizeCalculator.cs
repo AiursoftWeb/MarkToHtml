@@ -1,4 +1,4 @@
-namespace Aiursoft.MarkToHtml.Services;
+namespace Aiursoft.MarkToHtml.Services.FileStorage;
 
 /// <summary>
 /// Provides functionality to calculate size based on powers of two.

@@ -126,5 +126,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Cài đặt Hồ sơ</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Tài liệu của tôi</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Tất Cả Tài Liệu</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Không được ủy quyền</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Chuyển đổi Tài liệu</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Tài liệu</value>
+  </data>
 
 </root>

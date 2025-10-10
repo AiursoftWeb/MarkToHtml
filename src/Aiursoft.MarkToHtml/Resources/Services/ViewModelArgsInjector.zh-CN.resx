@@ -126,5 +126,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>资料设置</value>
   </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>未经授权</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>所有文档</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>我的文档</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>转换文档</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>文档</value>
+  </data>
 
 </root>

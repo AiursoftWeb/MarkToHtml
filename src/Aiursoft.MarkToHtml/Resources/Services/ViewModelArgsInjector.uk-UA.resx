@@ -123,5 +123,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Налаштування профілю</value>
   </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Неавторизовано</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Усі документи</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Конвертувати документ</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Мої документи</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Документи</value>
+  </data>
 
 </root>

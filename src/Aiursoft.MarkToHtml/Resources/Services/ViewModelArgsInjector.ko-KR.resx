@@ -126,5 +126,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>프로필 설정</value>
   </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>권한 없음</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>내 문서</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>문서 변환</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>모든 문서</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>문서</value>
+  </data>
 
 </root>

@@ -123,5 +123,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Ρυθμίσεις Προφίλ</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Μη Εξουσιοδοτημένος</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Τα Έγγραφά Μου</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Έγγραφα</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Μετατροπή Εγγράφου</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Όλα τα Έγγραφα</value>
+  </data>
 
 </root>

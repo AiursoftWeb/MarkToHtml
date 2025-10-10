@@ -1,6 +1,6 @@
 using Aiursoft.Scanner.Abstractions;
 
-namespace Aiursoft.MarkToHtml.Services;
+namespace Aiursoft.MarkToHtml.Services.FileStorage;
 
 /// <summary>
 /// Represents a service for storing and managing files.

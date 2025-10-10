@@ -126,5 +126,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>プロフィール設定</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>権限がありません</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>マイドキュメント</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>すべてのドキュメント</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>ドキュメント変換</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>ドキュメント</value>
+  </data>
 
 </root>

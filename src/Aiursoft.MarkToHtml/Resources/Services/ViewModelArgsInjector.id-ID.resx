@@ -123,5 +123,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Pengaturan Profil</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Kesalahan</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Dokumen Saya</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Semua Dokumen</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Konversi Dokumen</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Tidak Diizinkan</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Dokumen</value>
+  </data>
 
 </root>

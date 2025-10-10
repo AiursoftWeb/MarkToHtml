@@ -2,7 +2,6 @@
 @using Aiursoft.MarkToHtml.Authorization
 @using Microsoft.AspNetCore.Authorization
 @model Aiursoft.MarkToHtml.Models.AdminViewModels.EditDocumentViewModel
-@inject IViewLocalizer Localizer
 @inject IAuthorizationService AuthorizationService
 @{
     var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;

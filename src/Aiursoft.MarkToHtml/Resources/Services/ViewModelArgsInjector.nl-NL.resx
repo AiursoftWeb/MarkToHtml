@@ -123,5 +123,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Profielinstellingen</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fout</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Mijn documenten</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Niet geautoriseerd</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Alle documenten</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Document converteren</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documenten</value>
+  </data>
 
 </root>

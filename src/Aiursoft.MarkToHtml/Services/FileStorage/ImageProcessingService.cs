@@ -2,7 +2,7 @@ using Aiursoft.Scanner.Abstractions;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 
-namespace Aiursoft.MarkToHtml.Services;
+namespace Aiursoft.MarkToHtml.Services.FileStorage;
 
 public class ImageProcessingService(
     PathResolver pathResolver,

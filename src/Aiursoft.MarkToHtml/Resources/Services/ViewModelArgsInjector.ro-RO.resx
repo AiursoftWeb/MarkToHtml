@@ -123,5 +123,23 @@
   <data name="Profile Settings" xml:space="preserve">
     <value>Setări Profil</value>
   </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Documentele mele</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Neautorizat</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>Toate documentele</value>
+  </data>
+  <data name="Convert Document" xml:space="preserve">
+    <value>Convertează Document</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>Documente</value>
+  </data>
 
 </root>

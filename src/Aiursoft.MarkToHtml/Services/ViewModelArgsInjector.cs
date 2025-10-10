@@ -2,6 +2,8 @@ using Aiursoft.Scanner.Abstractions;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Controllers;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Services.Authentication;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.UiStack.Views.Shared.Components.FooterMenu;
@@ -60,6 +62,12 @@ public class ViewModelArgsInjector(
         _ = localizer["Settings"];
         _ = localizer["Profile Settings"];
         _ = localizer["Personal"];
+        _ = localizer["Unauthorized"];
+        _ = localizer["Error"];
+        _ = localizer["Convert Document"];
+        _ = localizer["My documents"];
+        _ = localizer["All Documents"];
+        _ = localizer["Documents"];
     }
 
     public void Inject(
@@ -181,11 +189,11 @@ public class ViewModelArgsInjector(
 
         if (signInManager.IsSignedIn(context.User))
         {
-            var avatarPath = context.User.Claims.First(c => c.Type == TemplateClaimsPrincipalFactory.AvatarClaimType)
+            var avatarPath = context.User.Claims.First(c => c.Type == UserClaimsPrincipalFactory.AvatarClaimType)
                 .Value;
             toInject.Navbar.UserDropdown = new UserDropdownViewModel
             {
-                UserName = context.User.Claims.First(c => c.Type == TemplateClaimsPrincipalFactory.DisplayNameClaimType).Value,
+                UserName = context.User.Claims.First(c => c.Type == UserClaimsPrincipalFactory.DisplayNameClaimType).Value,
                 UserAvatarUrl = $"{storageService.RelativePathToInternetUrl(avatarPath)}?w=100&square=true",
                 IconLinkGroups =
                 [
