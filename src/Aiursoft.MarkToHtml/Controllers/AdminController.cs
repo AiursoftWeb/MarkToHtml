@@ -18,7 +18,7 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// </summary>
 [Authorize]
 public class AdminController(
-    IStringLocalizer<ManageController> localizer,
+    IStringLocalizer<AdminController> localizer,
     UserManager<User> userManager,
     TemplateDbContext context)
     : Controller
