@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>يمنح الإذن بإعادة تشغيل نسخة التطبيق. قد يتسبب ذلك في انقطاعات في التوفر ولكن سيتم إعادة تحميل جميع الإعدادات والذاكرة المؤقتة.</value>
   </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>تعديل أي مستند</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>يسمح بتعديل أي مستند، بغض النظر عن الملكية.</value>
+  </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>حذف أي مستند</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>قراءة جميع المستندات</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>يسمح بحذف أي مستند، بغض النظر عن المالك.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>يسمح بعرض جميع المستندات في النظام، بغض النظر عن المالك.</value>
+  </data>
 
 </root>

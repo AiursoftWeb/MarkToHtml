@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Acesta este un proiect tipic, de unde începem călătoria...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Succes!</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Cod</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Titlul documentului (opțional)</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Intrare Markdown</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Documentul a fost actualizat cu succes.</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Introduceți Markdown-ul aici...</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Un instrument simplu pentru a converti Markdown-ul tău în HTML curat și sânatizat.</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Convertor Markdown în HTML</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiază</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Copiază HTML în clipboard</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Previzualizare</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Tipărire</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Documentele mele</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Previzualizare tipărire</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Previzualizarea HTML va apărea aici după conversie.</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Convertește și salvează</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copiat!</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Convertește în HTML</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Nu s-a putut copia textul.</value>
+  </data>
 
 </root>

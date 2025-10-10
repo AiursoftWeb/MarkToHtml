@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Este é um projeto modelo, onde iniciamos a viagem...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sucesso!</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Conversor de Markdown para HTML</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Título do Documento (opcional)</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Escreva o seu Markdown aqui...</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Entrada Markdown</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Documento atualizado com sucesso.</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Uma ferramenta simples para converter o seu Markdown em HTML limpo e sanitizado.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pré-visualização</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Copiar HTML para a área de transferência</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pré-visualização de Impressão</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Converter e guardar</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Converter para HTML</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Os Meus Documentos</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>A pré-visualização do HTML aparecerá aqui após a conversão.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Falha ao copiar o texto.</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copiado!</value>
+  </data>
 
 </root>

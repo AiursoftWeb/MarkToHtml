@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dit is een templateproject, waar we de verkenning beginnen...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Gelukt!</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Document succesvol bijgewerkt.</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Typ hier je Markdown...</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Documenttitel (optioneel)</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown naar HTML-converter</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Een eenvoudig hulpmiddel om uw Markdown om te zetten in schone, gesanitiseerde HTML.</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown-invoer</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiëren</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Afdrukvoorbeeld</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Afdrukken</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML naar klembord kopiëren</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Voorbeeld</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Converteren en opslaan</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>De HTML-voorvertoning verschijnt hier na conversie.</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Mijn documenten</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Converteren naar HTML</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Tekst kopiëren mislukt.</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Gekopieerd!</value>
+  </data>
 
 </root>

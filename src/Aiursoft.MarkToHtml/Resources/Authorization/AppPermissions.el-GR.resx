@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Παρέχει άδεια για επανεκκίνηση της εφαρμογής. Μπορεί να προκαλέσει διακοπές στη διαθεσιμότητα, αλλά όλες οι ρυθμίσεις και η προσωρινή μνήμη θα φορτωθούν εκ νέου.</value>
   </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Διαγραφή Οποιουδήποτε Εγγράφου</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Ανάγνωση Όλων των Εγγράφων</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Επεξεργασία Οποιουδήποτε Εγγράφου</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Επιτρέπει την προβολή όλων των εγγράφων στο σύστημα, ανεξάρτητα από την ιδιοκτησία.</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Επιτρέπει τη διαγραφή οποιουδήποτε εγγράφου, ανεξάρτητα από την ιδιοκτησία.</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Επιτρέπει την επεξεργασία οποιουδήποτε εγγράφου, ανεξάρτητα από την ιδιοκτησία.</value>
+  </data>
 
 </root>

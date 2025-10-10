@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Надає дозвіл на перезапуск екземпляра програми. Може призвести до перерв у доступності, але всі налаштування та кеш буде перезавантажено.</value>
   </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Перегляд усіх документів</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Дозволяє видалення будь-якого документа незалежно від прав власності.</value>
+  </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Видалити будь-який документ</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Дозволяє перегляд усіх документів у системі, незалежно від власності.</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Редагувати будь-який документ</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Дозволяє редагування будь-якого документа незалежно від прав власності.</value>
+  </data>
 
 </root>
