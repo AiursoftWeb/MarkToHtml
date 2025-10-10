@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>นี่คือโครงการเทมเพลต ซึ่งเป็นจุดเริ่มต้นของการเดินทาง...</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>ตัวแปลงมาร์กดาวน์เป็น HTML</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>โค้ด</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>ชื่อเอกสาร (ไม่จำเป็น)</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>พิมพ์ Markdown ของคุณที่นี่...</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>สำเร็จ!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>ป้อนข้อมูล Markdown</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>เครื่องมือง่ายๆ สำหรับแปลง Markdown ของคุณให้เป็น HTML ที่สะอาดและปลอดภัย</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>อัปเดตเอกสารเรียบร้อยแล้ว</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>แสดงตัวอย่าง</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>ตัวอย่างก่อนพิมพ์</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>พิมพ์...</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>เอกสารของฉัน</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>คัดลอก HTML ไปยังคลิปบอร์ด</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>ตัวอย่าง HTML จะปรากฏที่นี่หลังการแปลง</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>แปลงและบันทึก</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>แปลงเป็น HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>คัดลอกแล้ว!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>คัดลอกข้อความไม่สำเร็จ</value>
+  </data>
 
 </root>

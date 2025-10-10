@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Это шаблонный проект, с которого мы начинаем путешествие...</value>
   </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успех!</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Название документа (необязательно)</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Введите ваш Markdown здесь...</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Ввод Markdown</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Документ успешно обновлён.</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Конвертер Markdown в HTML</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Простой инструмент для преобразования вашего Markdown в чистый, обеззараженный HTML.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Просмотр</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Скопировать HTML в буфер обмена</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Печать</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Мои документы</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Предпросмотр печати</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Преобразовать и сохранить</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Преобразовать в HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Скопировано!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не удалось скопировать текст.</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Здесь появится HTML-превью после преобразования.</value>
+  </data>
 
 </root>

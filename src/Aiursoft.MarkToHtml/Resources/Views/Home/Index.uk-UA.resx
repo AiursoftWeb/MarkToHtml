@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Це шаблонний проект, з якого ми починаємо нашу подорож...</value>
   </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успіх!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Вхідні дані Markdown</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Введіть ваш Markdown тут...</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Назва документа (необов’язково)</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Конвертер Markdown у HTML</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Документ успішно оновлено.</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Простий інструмент для перетворення вашого Markdown у чистий, безпечний HTML.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Попередній перегляд</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Попередній перегляд друку</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Друк</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Скопіювати HTML у буфер обміну</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Попередній перегляд HTML з’явиться тут після конвертації.</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Конвертувати та зберегти</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Мої документи</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Скопійовано!</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Конвертувати в HTML</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не вдалося скопіювати текст.</value>
+  </data>
 
 </root>

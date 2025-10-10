@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Ini adalah proyek templat, tempat kami memulai perjalanan...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Berhasil!</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Judul Dokumen (opsional)</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Masukan Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Konverter Markdown ke HTML</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Ketik Markdown Anda di sini...</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumen berhasil diperbarui.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Alat sederhana untuk mengubah Markdown Anda menjadi HTML yang bersih dan terjamin keamanannya.</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pratinjau Cetak</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Salin HTML ke papan klip</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Cetak</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Dokumen Saya</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konversi ke HTML</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konversi dan simpan</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Tersalin!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Gagal menyalin teks.</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Pratinjau HTML akan muncul di sini setelah konversi.</value>
+  </data>
 
 </root>

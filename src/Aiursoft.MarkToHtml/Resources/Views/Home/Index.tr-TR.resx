@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Bu, yolculuğa başladığımız bir şablon projedir...</value>
   </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Belge başarıyla güncellendi.</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown Girişi</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Markdown&apos;ınızı buraya yazın...</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Belge Başlığı (isteğe bağlı)</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Markdown&apos;ınızı temiz, güvenli HTML&apos;ye dönüştürmek için basit bir araç.</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Başarılı!</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML&apos;yi panoya kopyala</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Yazdır</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Önizleme</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Yazdırma Önizleme</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Belgelerim</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML önizlemesi dönüşümden sonra burada görünecektir.</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Dönüştür ve kaydet</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopyalandı!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Metin kopyalanamadı.</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTML&apos;ye Dönüştür</value>
+  </data>
 
 </root>

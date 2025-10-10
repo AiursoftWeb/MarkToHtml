@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>这是一个模板项目，我们将从这里开启探索之旅...</value>
   </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>文档更新成功。</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>成功！</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>文档标题（可选）</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown 转 HTML 转换器</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>在此输入您的 Markdown 内容...</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>一款将 Markdown 转换为洁净、安全的 HTML 的简易工具。</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown 输入</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>打印预览</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>我的文档</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>转换后，HTML 预览将在此处显示。</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>转换并保存</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>复制 HTML 到剪贴板</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>复制文本失败。</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>转换为HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>已复制！</value>
+  </data>
 
 </root>

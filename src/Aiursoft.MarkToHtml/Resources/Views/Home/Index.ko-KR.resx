@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>이것은 템플릿 프로젝트로, 여기서 우리의 항해를 시작합니다...</value>
   </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>여기에 Markdown을 입력하세요...</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>문서가 성공적으로 업데이트되었습니다.</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>코드</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>마크다운 입력</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Markdown을 깔끔하고 안전한 HTML로 변환해주는 간단한 도구입니다.</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>마크다운에서 HTML로 변환기</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>문서 제목 (선택 사항)</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>성공!</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>인쇄</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>변환 후 저장</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>인쇄 미리보기</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>변환 후 HTML 미리보기가 여기에 나타납니다.</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML을 클립보드에 복사</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>내 문서</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTML로 변환</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>복사됨!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>텍스트 복사에 실패했습니다.</value>
+  </data>
 
 </root>
