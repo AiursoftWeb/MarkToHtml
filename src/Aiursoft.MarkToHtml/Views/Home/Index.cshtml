@@ -56,55 +56,55 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    @* Right Column: Standalone Tab Component *@
-    <div class="col-lg-6 d-flex flex-column">
-        @* The tab component now stands alone and fills the available space *@
-        <div class="tab flex-grow-1">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    @* The 'active' class is now on the link (<a>), not the list item (<li>) *@
-                    <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
-                        <i class="align-middle" data-lucide="code-2">&nbsp;</i>
-                        @Localizer["Code"]
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
-                        <i class="align-middle" data-lucide="eye">&nbsp;</i>
-                        @Localizer["Preview"]
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content pt-3">
-                @* Code Pane *@
-                <div class="tab-pane active show" id="code" role="tabpanel">
-                    <button type="button" id="copy-button" class="btn btn-outline-primary mb-2"
-                        title="@Localizer["Copy HTML to clipboard"]">
-                        <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy"]
-                    </button>
-                    <textarea class="form-control" rows="25" id="html-output" readonly>@Model.OutputHtml</textarea>
-                </div>
-                @* Preview Pane *@
-                <div class="tab-pane" id="preview" role="tabpanel">
-                    @if (!string.IsNullOrEmpty(Model.OutputHtml))
-                    {
-                        <button type="button" id="print-button" class="btn btn-outline-info mb-2"
-                            title="@Localizer["Print Preview"]">
-                            <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
+        @* Right Column: Standalone Tab Component *@
+        <div class="col-lg-6 d-flex flex-column">
+            @* The tab component now stands alone and fills the available space *@
+            <div class="tab flex-grow-1">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        @* The 'active' class is now on the link (<a>), not the list item (<li>) *@
+                        <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
+                            <i class="align-middle" data-lucide="code-2">&nbsp;</i>
+                            @Localizer["Code"]
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
+                            <i class="align-middle" data-lucide="eye">&nbsp;</i>
+                            @Localizer["Preview"]
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content pt-3">
+                    @* Code Pane *@
+                    <div class="tab-pane active show" id="code" role="tabpanel">
+                        <button type="button" id="copy-button" class="btn btn-outline-primary mb-2"
+                            title="@Localizer["Copy HTML to clipboard"]">
+                            <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy"]
                         </button>
+                        <textarea class="form-control" rows="25" id="html-output" readonly>@Model.OutputHtml</textarea>
+                    </div>
+                    @* Preview Pane *@
+                    <div class="tab-pane" id="preview" role="tabpanel">
+                        @if (!string.IsNullOrEmpty(Model.OutputHtml))
+                        {
+                            <button type="button" id="print-button" class="btn btn-outline-info mb-2"
+                                title="@Localizer["Print Preview"]">
+                                <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
+                            </button>
 
-                        <div id="printable-area">
-                            @Html.Raw(Model.OutputHtml)
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="text-center p-5">
-                            <p class="text-muted">@Localizer["HTML preview will appear here after conversion."]</p>
-                        </div>
-                    }
+                            <div id="printable-area">
+                                @Html.Raw(Model.OutputHtml)
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center p-5">
+                                <p class="text-muted">@Localizer["HTML preview will appear here after conversion."]</p>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
