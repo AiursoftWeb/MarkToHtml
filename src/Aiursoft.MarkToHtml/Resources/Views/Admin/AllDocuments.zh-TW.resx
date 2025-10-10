@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Creation Time" xml:space="preserve">
+    <value>建立時間</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>所有文件</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>文件清單</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>系統中找不到任何文件。</value>
+  </data>
+  <data name="A list of all documents from all users in the system." xml:space="preserve">
+    <value>系統中所有使用者的文件清單。</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>檢視並管理整個系統中的所有文件。</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>擁有者</value>
+  </data>
+  <data name="(no title)" xml:space="preserve">
+    <value>（無標題）</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+
+</root>

@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Uygulama örneğini yeniden başlatma iznini verir. Kullanılabilirlik kesintilerine neden olabilir ancak tüm ayarlar ve önbellek yeniden yüklenecektir.</value>
   </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Herhangi Bir Belgeyi Sil</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Tüm Belgeleri Oku</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Herhangi Bir Belgeyi Düzenle</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Herhangi bir belgenin, sahipliğine bakılmaksızın silinmesine izin verir.</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Sahiplik durumuna bakılmaksızın, herhangi bir belgenin düzenlenmesine izin verir.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Sistemdeki tüm belgelerin sahipliğine bakılmaksızın görüntülenmesine izin verir.</value>
+  </data>
 
 </root>

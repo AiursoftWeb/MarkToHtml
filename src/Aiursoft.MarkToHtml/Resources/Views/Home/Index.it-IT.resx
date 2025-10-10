@@ -114,5 +114,62 @@
   <data name="Start a new project" xml:space="preserve">
     <value>Avvia un nuovo progetto</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Convertitore da Markdown a HTML</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Codice</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Documento aggiornato con successo.</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Successo!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Input Markdown</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Uno strumento semplice per convertire il tuo Markdown in HTML pulito e sanificato.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Anteprima</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Titolo del documento (opzionale)</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Copia HTML negli appunti</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Stampa</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Digita il tuo Markdown qui...</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Anteprima di stampa</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Converti in HTML</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Converti e salva</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copiato!</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>I miei documenti</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Impossibile copiare il testo.</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>L&apos;anteprima HTML apparirà qui dopo la conversione.</value>
+  </data>
 
 </root>

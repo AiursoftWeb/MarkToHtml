@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>To jest projekt szablonowy, od którego rozpoczynamy naszą podróż...</value>
   </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sukces!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Wejście Markdown</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokument został pomyślnie zaktualizowany.</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Konwerter Markdown do HTML</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Tytuł dokumentu (opcjonalny)</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Wpisz tutaj swój Markdown...</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Proste narzędzie do konwersji Markdown na czysty, odkażony HTML.</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Kopiuj HTML do schowka</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Drukuj</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Moje Dokumenty</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Podgląd wydruku</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Podgląd HTML pojawi się tutaj po konwersji.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiuj</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konwertuj na HTML</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konwertuj i zapisz</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Nie udało się skopiować tekstu.</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Skopiowano!</value>
+  </data>
 
 </root>

@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Ger tillstånd att starta om applikationsinstansen. Kan orsaka tillgänglighetsavbrott men alla inställningar och cacheminnen kommer att laddas om.</value>
   </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Redigera valfritt dokument</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Tillåter radering av alla dokument, oavsett ägarskap.</value>
+  </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Radera valfritt dokument</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Läsa alla dokument</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Tillåter redigering av alla dokument, oavsett ägare.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Ger behörighet att visa alla dokument i systemet, oavsett ägarskap.</value>
+  </data>
 
 </root>

@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>यह एक टेम्पलेट प्रोजेक्ट है, जहाँ से हम वॉयजर की शुरुआत करते हैं...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>सफलता!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>मार्कडाउन इनपुट</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>मार्कडाउन से HTML कन्वर्टर</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>कोड</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>दस्तावेज़ शीर्षक (वैकल्पिक)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>दस्तावेज़ सफलतापूर्वक अपडेट किया गया।</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>अपना मार्कडाउन यहाँ टाइप करें...</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>आपके मार्कडाउन को स्वच्छ, सुरक्षित HTML में बदलने के लिए एक सरल टूल।</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>पूर्वावलोकन</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>प्रिंट करें</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML को क्लिपबोर्ड पर कॉपी करें</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>कन्वर्ट करें और सहेजें</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>रूपांतरण के बाद HTML पूर्वावलोकन यहां दिखाई देगा।</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>मेरे दस्तावेज़</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>कॉपी करें</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>प्रिंट पूर्वावलोकन</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTML में बदलें</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>कॉपी किया गया!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
+  </data>
 
 </root>

@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Antaa luvan sovelluksen uudelleenkäynnistämiseen. Saattaa aiheuttaa käyttökatkoksia, mutta kaikki asetukset ja välimuisti ladataan uudelleen.</value>
   </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Poista mikä tahansa asiakirja</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Muokkaa mitä tahansa dokumenttia</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Lue kaikkia asiakirjoja</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Sallii minkä tahansa asiakirjan poistamisen omistajuudesta riippumatta.</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Mahdollistaa minkä tahansa asiakirjan muokkaamisen omistajuudesta riippumatta.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Mahdollistaa kaikkien järjestelmän dokumenttien katselun riippumatta omistajuudesta.</value>
+  </data>
 
 </root>

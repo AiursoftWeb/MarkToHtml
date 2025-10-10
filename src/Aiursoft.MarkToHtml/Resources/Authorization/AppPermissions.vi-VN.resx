@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Cấp quyền khởi động lại phiên bản ứng dụng. Có thể gây ra gián đoạn về tính khả dụng nhưng tất cả cài đặt và bộ nhớ đệm sẽ được tải lại.</value>
   </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Xóa Mọi Tài Liệu</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Đọc Tất Cả Tài Liệu</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Chỉnh sửa Mọi Tài liệu</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Cho phép xóa bất kỳ tài liệu nào, bất kể quyền sở hữu.</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Cho phép chỉnh sửa mọi tài liệu, bất kể quyền sở hữu.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Cho phép xem tất cả tài liệu trong hệ thống, bất kể quyền sở hữu.</value>
+  </data>
 
 </root>

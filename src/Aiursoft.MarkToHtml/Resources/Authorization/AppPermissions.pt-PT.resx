@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Concede permissão para reiniciar a instância da aplicação. Pode causar interrupções na disponibilidade, mas todas as definições e a cache serão recarregadas.</value>
   </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>Editar Qualquer Documento</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>Ler Todos os Documentos</value>
+  </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>Eliminar Qualquer Documento</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>Permite a edição de qualquer documento, independentemente da propriedade.</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>Permite a eliminação de qualquer documento, independentemente da propriedade.</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>Permite visualizar todos os documentos no sistema, independentemente da propriedade.</value>
+  </data>
 
 </root>

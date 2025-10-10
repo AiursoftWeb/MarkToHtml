@@ -84,5 +84,23 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>アプリケーションインスタンスの再起動を許可します。可用性の中断を引き起こす可能性がありますが、すべての設定とキャッシュは再読み込みされます。</value>
   </data>
+  <data name="Delete Any Document" xml:space="preserve">
+    <value>任意のドキュメントを削除</value>
+  </data>
+  <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
+    <value>所有権に関係なく、任意のドキュメントを削除できます。</value>
+  </data>
+  <data name="Edit Any Document" xml:space="preserve">
+    <value>任意のドキュメントを編集</value>
+  </data>
+  <data name="Read All Documents" xml:space="preserve">
+    <value>すべてのドキュメントを閲覧</value>
+  </data>
+  <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
+    <value>所有権に関係なく、あらゆる文書の編集を許可します。</value>
+  </data>
+  <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
+    <value>システム内の全ドキュメントを所有権に関わらず閲覧できます。</value>
+  </data>
 
 </root>

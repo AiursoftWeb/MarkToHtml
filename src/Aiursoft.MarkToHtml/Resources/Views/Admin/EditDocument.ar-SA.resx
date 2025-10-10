@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Success!" xml:space="preserve">
+    <value>تم بنجاح!</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>تم تحديث المستند بنجاح.</value>
+  </data>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>أدخل عنوان المستند</value>
+  </data>
+  <data name="Document Details" xml:space="preserve">
+    <value>تفاصيل المستند</value>
+  </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>تعديل المستند</value>
+  </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>تعديل محتوى المستند والعنوان والمالك.</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>عنوان المستند (اختياري)</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>العودة إلى القائمة</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>حفظ التغييرات</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>اكتب Markdown هنا...</value>
+  </data>
+  <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- اختر مالكًا --</value>
+  </data>
+  <data name="Markdown Content" xml:space="preserve">
+    <value>محتوى ماركداون</value>
+  </data>
+
+</root>

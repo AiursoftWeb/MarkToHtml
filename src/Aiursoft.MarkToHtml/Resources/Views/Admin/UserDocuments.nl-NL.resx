@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Document List" xml:space="preserve">
+    <value>Documentenlijst</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Profielgegevens</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>Documenten van</value>
+  </data>
+  <data name="A list of all documents created by this user." xml:space="preserve">
+    <value>Een lijst van alle documenten die door deze gebruiker zijn aangemaakt.</value>
+  </data>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>Terug naar Alle Documenten</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Gebruikersnaam</value>
+  </data>
+  <data name="Total Docs" xml:space="preserve">
+    <value>Totaal aantal documenten</value>
+  </data>
+  <data name="This user has not created any documents yet." xml:space="preserve">
+    <value>Deze gebruiker heeft nog geen documenten aangemaakt.</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Aanmaaktijd</value>
+  </data>
+  <data name="(no title)" xml:space="preserve">
+    <value>(geen titel)</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+
+</root>

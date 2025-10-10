@@ -114,5 +114,62 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Tämä on malliprojekti, josta aloitamme matkan...</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Onnistui!</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Koodi</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdownista HTML:ksi -muunnin</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumentti päivitetty onnistuneesti.</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Kirjoita Markdown-täällä...</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown-syöte</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Yksinkertainen työkalu Markdownin muuntamiseksi puhtaaksi, siistiksi HTML:ksi.</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Asiakirjan otsikko (valinnainen)</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Esikatselu</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopioi</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Kopioi HTML leikepöydälle</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Tulostuksen esikatselu</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Omat asiakirjat</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Tulosta</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Muunna ja tallenna</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopioitu!</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Muunna HTML:ksi</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML-esikatselu tulee näkyviin tässä muunnoksen jälkeen.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Tekstin kopiointi epäonnistui.</value>
+  </data>
 
 </root>
