@@ -9,6 +9,8 @@ A simple tool to convert your Markdown into clean, sanitized HTML.
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FmarkToHtml.aiursoft.cn)](https://markToHtml.aiursoft.cn)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/markToHtml.svg)](https://hub.docker.com/r/aiursoft/markToHtml)
 
+![screenshot](./screenshot.png)
+
 Default user name is `admin@default.com` and default password is `admin123`.
 
 ## Try
