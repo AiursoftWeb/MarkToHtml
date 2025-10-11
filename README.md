@@ -1,4 +1,6 @@
-# MarkToHtml - A sample project
+# MarkToHtml
+
+A simple tool to convert your Markdown into clean, sanitized HTML.
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/aiursoft/markToHtml/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.cn/aiursoft/markToHtml/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/markToHtml/-/pipelines)
@@ -6,8 +8,6 @@
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/markToHtml.svg)](https://gitlab.aiursoft.cn/aiursoft/markToHtml/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FmarkToHtml.aiursoft.cn)](https://markToHtml.aiursoft.cn)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/markToHtml.svg)](https://hub.docker.com/r/aiursoft/markToHtml)
-
-MarkToHtml is a sample project.
 
 Default user name is `admin@default.com` and default password is `admin123`.
 
@@ -66,7 +66,7 @@ The docker image has the following context:
 
 | Properties  | Value                           |
 |-------------|---------------------------------|
-| Image       | aiursoft2019/markToHtml |
+| Image       | aiursoft2019/markToHtml         |
 | Ports       | 5000                            |
 | Binary path | /app                            |
 | Data path   | /data                           |
