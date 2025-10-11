@@ -144,5 +144,8 @@
   <data name="Documents" xml:space="preserve">
     <value>เอกสาร</value>
   </data>
+  <data name="Markdown to HTML converter" xml:space="preserve">
+    <value>ตัวแปลง Markdown เป็น HTML</value>
+  </data>
 
 </root>

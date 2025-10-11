@@ -141,5 +141,8 @@
   <data name="Documents" xml:space="preserve">
     <value>Belgeler</value>
   </data>
+  <data name="Markdown to HTML converter" xml:space="preserve">
+    <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
+  </data>
 
 </root>

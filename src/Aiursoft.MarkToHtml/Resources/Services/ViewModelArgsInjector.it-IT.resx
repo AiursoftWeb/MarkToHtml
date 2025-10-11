@@ -141,5 +141,8 @@
   <data name="Documents" xml:space="preserve">
     <value>Documenti</value>
   </data>
+  <data name="Markdown to HTML converter" xml:space="preserve">
+    <value>Convertitore da Markdown a HTML</value>
+  </data>
 
 </root>

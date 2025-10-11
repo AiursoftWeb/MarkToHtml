@@ -141,5 +141,8 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Muunna asiakirja</value>
   </data>
+  <data name="Markdown to HTML converter" xml:space="preserve">
+    <value>Markdownista HTML:ksi -muunnin</value>
+  </data>
 
 </root>

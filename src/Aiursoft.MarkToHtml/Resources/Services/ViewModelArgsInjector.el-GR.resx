@@ -141,5 +141,8 @@
   <data name="All Documents" xml:space="preserve">
     <value>Όλα τα Έγγραφα</value>
   </data>
+  <data name="Markdown to HTML converter" xml:space="preserve">
+    <value>Μετατροπέας Markdown σε HTML</value>
+  </data>
 
 </root>
