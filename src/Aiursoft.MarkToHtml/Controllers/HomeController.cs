@@ -46,7 +46,6 @@ public class HomeController(
         NavGroupName = "Features",
         NavGroupOrder = 1,
         CascadedLinksGroupName = "Home",
-        CascadedLinksIcon = "diagram-3",
         CascadedLinksOrder = 3,
         LinkText = "Mermaid",
         LinkOrder = 3
