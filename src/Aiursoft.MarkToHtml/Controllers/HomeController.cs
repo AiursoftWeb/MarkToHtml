@@ -104,7 +104,7 @@ public class HomeController(
             {
                 logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
                 model.DocumentId = Guid.NewGuid();
-                var newDocument = new MarkdownDocument
+                var newDocument = new Document
                 {
                     Id = model.DocumentId,
                     Content = model.InputMarkdown.SafeSubstring(65535),

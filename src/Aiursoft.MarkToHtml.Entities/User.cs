@@ -20,6 +20,6 @@ public class User : IdentityUser
     public DateTime CreationTime { get; init; } = DateTime.UtcNow;
 
     [JsonIgnore]
-    [InverseProperty(nameof(MarkdownDocument.User))]
-    public IEnumerable<MarkdownDocument> CreatedDocuments { get; set; } = new List<MarkdownDocument>();
+    [InverseProperty(nameof(Document.User))]
+    public IEnumerable<Document> CreatedDocuments { get; set; } = new List<Document>();
 }

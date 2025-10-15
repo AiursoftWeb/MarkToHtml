@@ -10,5 +10,5 @@ public class HistoryViewModel : UiStackLayoutViewModel
         PageTitle = "My Documents History";
     }
 
-    public IEnumerable<MarkdownDocument> MyDocuments { get; set; } = new List<MarkdownDocument>();
+    public IEnumerable<Document> MyDocuments { get; set; } = new List<Document>();
 }

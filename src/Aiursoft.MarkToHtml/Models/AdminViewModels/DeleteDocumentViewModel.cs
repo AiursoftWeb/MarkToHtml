@@ -5,5 +5,5 @@ namespace Aiursoft.MarkToHtml.Models.AdminViewModels;
 
 public class DeleteDocumentViewModel : UiStackLayoutViewModel
 {
-    public required MarkdownDocument Document { get; set; }
+    public required Document Document { get; set; }
 }

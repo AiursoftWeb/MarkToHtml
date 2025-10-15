@@ -17,12 +17,12 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.Document", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,6 +34,9 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<int>("DocumentType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)
@@ -260,7 +263,7 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.Document", b =>
                 {
                     b.HasOne("Aiursoft.MarkToHtml.Entities.User", "User")
                         .WithMany("CreatedDocuments")

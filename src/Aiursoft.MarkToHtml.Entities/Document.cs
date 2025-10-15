@@ -4,7 +4,14 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Aiursoft.MarkToHtml.Entities;
 
-public class MarkdownDocument
+public enum DocumentType
+{
+    Markdown = 0,
+    Mermaid = 1,
+    LaTeX = 2
+}
+
+public class Document
 {
     [Key]
     public Guid Id { get; set; }
@@ -14,6 +21,8 @@ public class MarkdownDocument
 
     [MaxLength(65535)]
     public string? Content { get; set; }
+
+    public DocumentType DocumentType { get; set; } = DocumentType.Markdown;
 
     public DateTime CreationTime { get; init; } = DateTime.UtcNow;
 
