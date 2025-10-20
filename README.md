@@ -7,7 +7,7 @@ A simple tool to convert your Markdown into clean, sanitized HTML.
 [![Test Coverage](https://gitlab.aiursoft.cn/aiursoft/markToHtml/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/markToHtml/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/aiursoft/markToHtml.svg)](https://gitlab.aiursoft.cn/aiursoft/markToHtml/-/commits/master?ref_type=heads)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2FmarkToHtml.aiursoft.cn)](https://markToHtml.aiursoft.cn)
-[![Docker](https://img.shields.io/docker/pulls/aiursoft/markToHtml.svg)](https://hub.docker.com/r/aiursoft/markToHtml)
+[![Docker](https://img.shields.io/docker/pulls/aiursoft/marktohtml.svg)](https://hub.docker.com/r/aiursoft/marktohtml)
 
 ![screenshot](./screenshot.png)
 
