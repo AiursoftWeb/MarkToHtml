@@ -6,7 +6,7 @@ A simple tool to convert your Markdown into clean, sanitized HTML.
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/markToHtml/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/markToHtml/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/pipelines)
 [![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/aiursoft/markToHtml.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/commits/master?ref_type=heads)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2FmarkToHtml.aiursoft.cn)](https://markToHtml.aiursoft.cn)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fmarktohtml.aiursoft.com)](https://marktohtml.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/marktohtml.svg)](https://hub.docker.com/r/aiursoft/marktohtml)
 
 ![screenshot](./screenshot.png)
@@ -15,7 +15,7 @@ Default user name is `admin@default.com` and default password is `admin123`.
 
 ## Try
 
-Try a running MarkToHtml [here](https://markToHtml.aiursoft.cn).
+Try a running MarkToHtml [here](https://marktohtml.aiursoft.com).
 
 ## Run in Ubuntu
 
