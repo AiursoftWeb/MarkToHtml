@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Aiursoft.MarkToHtml.MySql\Aiursoft.MarkToHtml.MySql.csproj" />
     <ProjectReference Include="..\Aiursoft.MarkToHtml.Sqlite\Aiursoft.MarkToHtml.Sqlite.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\HomeViewModels\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
 </Project>

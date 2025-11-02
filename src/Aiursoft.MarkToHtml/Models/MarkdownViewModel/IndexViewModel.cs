@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.MarkToHtml.Attributes;
 
-namespace Aiursoft.MarkToHtml.Models.HomeViewModels;
+namespace Aiursoft.MarkToHtml.Models.MermaidViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
