@@ -25,7 +25,7 @@ public class MermaidController(
         NavGroupOrder = 1,
         CascadedLinksGroupName = "Home",
         CascadedLinksOrder = 3,
-        LinkText = "Mermaid",
+        LinkText = "Convert Mermaid Charts",
         LinkOrder = 3
     )]
     public IActionResult Index()
@@ -122,7 +122,7 @@ public class MermaidController(
         CascadedLinksGroupName = "Home",
         CascadedLinksIcon = "history",
         CascadedLinksOrder = 4,
-        LinkText = "My mermaid charts",
+        LinkText = "My Mermaid Charts",
         LinkOrder = 4)]
     public async Task<IActionResult> History()
     {

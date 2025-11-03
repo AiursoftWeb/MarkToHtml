@@ -27,7 +27,7 @@ public class MarkdownController(
         CascadedLinksGroupName = "Home",
         CascadedLinksIcon = "home",
         CascadedLinksOrder = 1,
-        LinkText = "Convert Document",
+        LinkText = "Convert Markdown Document",
         LinkOrder = 1
     )]
     public IActionResult Index()
@@ -124,7 +124,7 @@ public class MarkdownController(
     CascadedLinksGroupName = "Home",
     CascadedLinksIcon = "history",
     CascadedLinksOrder = 2,
-    LinkText = "My documents",
+    LinkText = "My Markdown Documents",
     LinkOrder = 2)]
     public async Task<IActionResult> History()
     {
