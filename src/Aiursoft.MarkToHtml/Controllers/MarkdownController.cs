@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
-using Aiursoft.MarkToHtml.Models.MarkdownViewModels;
+using Aiursoft.MarkToHtml.Models.MarkdownViewModel;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;

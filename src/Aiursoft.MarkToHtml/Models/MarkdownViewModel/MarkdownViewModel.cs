@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.MarkToHtml.Attributes;
 
-namespace Aiursoft.MarkToHtml.Models.MarkdownViewModels;
+namespace Aiursoft.MarkToHtml.Models.MarkdownViewModel;
 
 public class MarkdownViewModel : UiStackLayoutViewModel
 {

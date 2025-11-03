@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
-using Aiursoft.MarkToHtml.Models.MermaidViewModels;
+using Aiursoft.MarkToHtml.Models.MermaidViewModel;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;

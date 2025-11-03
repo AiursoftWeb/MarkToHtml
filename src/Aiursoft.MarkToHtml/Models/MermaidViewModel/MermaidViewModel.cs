@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.MarkToHtml.Attributes;
 
-namespace Aiursoft.MarkToHtml.Models.MermaidViewModels;
+namespace Aiursoft.MarkToHtml.Models.MermaidViewModel;
 
 public class MermaidViewModel : UiStackLayoutViewModel
 {
