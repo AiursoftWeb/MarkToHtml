@@ -1,7 +1,7 @@
 using Aiursoft.UiStack.Layout;
 using Aiursoft.MarkToHtml.Entities;
 
-namespace Aiursoft.MarkToHtml.Models.MermaidViewModels;
+namespace Aiursoft.MarkToHtml.Models.MarkdownViewModels;
 
 public class DeleteViewModel : UiStackLayoutViewModel
 {
