@@ -28,7 +28,7 @@ public class MermaidController(
         LinkText = "Mermaid",
         LinkOrder = 3
     )]
-    public IActionResult Mermaid()
+    public IActionResult Index()
     {
         if (!User.Identity!.IsAuthenticated && !appSettings.Value.AllowAnonymousUsage)
         {
@@ -40,7 +40,7 @@ public class MermaidController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Mermaid(MermaidViewModel model)
+    public async Task<IActionResult> Index(MermaidViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -112,7 +112,7 @@ public class MermaidController(
             SavedSuccessfully = saved ?? false
         };
 
-        return this.StackView(model: model, viewName: nameof(Mermaid));
+        return this.StackView(model: model, viewName: nameof(Index));
     }
 
     [Authorize]
