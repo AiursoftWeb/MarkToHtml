@@ -4,9 +4,9 @@ using Aiursoft.MarkToHtml.Attributes;
 
 namespace Aiursoft.MarkToHtml.Models.MermaidViewModels;
 
-public class IndexViewModel : UiStackLayoutViewModel
+public class MarkdownViewModel : UiStackLayoutViewModel
 {
-    public IndexViewModel()
+    public MarkdownViewModel()
     {
         PageTitle = "Markdown to HTML Converter";
     }

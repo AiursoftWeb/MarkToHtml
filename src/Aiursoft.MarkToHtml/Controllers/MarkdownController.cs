@@ -37,12 +37,12 @@ public class MarkdownController(
             logger.LogWarning("Anonymous user trying to access the home page. But it is not allowed.");
             return Challenge();
         }
-        return this.StackView(new IndexViewModel());
+        return this.StackView(new MarkdownViewModel());
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(IndexViewModel model)
+    public async Task<IActionResult> Index(MarkdownViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -104,7 +104,7 @@ public class MarkdownController(
             return NotFound("The document was not found or you do not have permission to edit it.");
         }
 
-        var model = new IndexViewModel
+        var model = new MarkdownViewModel
         {
             DocumentId = document.Id,
             Title = document.Title,
