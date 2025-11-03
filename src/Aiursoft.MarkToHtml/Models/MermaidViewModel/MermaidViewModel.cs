@@ -23,6 +23,17 @@ public class MermaidViewModel : UiStackLayoutViewModel
                                       """;
 
     public string OutputHtml { get; set; } = string.Empty;
+
+    [Required(ErrorMessage = "Something went wrong, please try again later.")]
+    public Guid DocumentId { get; set; } = Guid.NewGuid();
+
+    public bool IsEditing { get; init; }
+
+    [MaxLength(100)]
+    [NoBadWords(ErrorMessage = "The diagram title contains sensitive words.")]
+    public string? Title { get; set; }
+
+    public bool SavedSuccessfully { get; set; }
 }
 
 

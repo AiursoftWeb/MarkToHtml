@@ -10,6 +10,22 @@
     </div>
 </div>
 
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="d-flex">
+            <div class="alert-icon pe-3">
+                <i class="align-middle" data-lucide="alert-triangle"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Success!"]</strong>
+                @Localizer["Diagram updated successfully."]
+            </div>
+        </div>
+    </div>
+}
+
 <form asp-action="Mermaid" method="post" id="mermaid-form">
     <div class="row">
         <div class="col-lg-6 d-flex">
@@ -21,6 +37,17 @@
                     </h5>
                 </div>
                 <div class="card-body p-2">
+                    @if (Model.IsEditing)
+                    {
+                        <input type="hidden" asp-for="DocumentId" />
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">@Localizer["Diagram Title (optional)"]</label>
+                            <input asp-for="Title" class="form-control form-control-lg"
+                                   placeholder="@Localizer["Diagram Title (optional)"]" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    }
+
                     <textarea asp-for="InputMermaid" class="form-control" id="mermaid-editor"
                         placeholder="@Localizer["Type your Mermaid here..."]"></textarea>
                     <span asp-validation-for="InputMermaid" class="text-danger"></span>
@@ -65,9 +92,25 @@
 
     <div class="row mt-3">
         <div class="col text-center">
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <a asp-action="History" class="btn btn-outline-secondary btn-lg mr-2">
+                    <i class="align-middle" data-lucide="workflow">&nbsp;</i>
+                    @Localizer["My Mermaid Charts"]
+                </a>
+            }
+
             <button type="submit" class="btn btn-primary btn-lg">
-                <i class="align-middle" data-lucide="chevrons-right">&nbsp;</i>
-                @Localizer["Convert to SVG"]
+                @if (User.Identity?.IsAuthenticated ?? false)
+                {
+                    <i class="align-middle" data-lucide="check-circle">&nbsp;</i>
+                    @Localizer["Convert and save"]
+                }
+                else
+                {
+                    <i class="align-middle" data-lucide="chevrons-right">&nbsp;</i>
+                    @Localizer["Convert to SVG"]
+                }
             </button>
         </div>
     </div>
