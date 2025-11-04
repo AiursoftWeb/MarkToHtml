@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>텍스트 복사에 실패했습니다.</value>
   </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>내 마크다운</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>MarkToHtml에 오신 것을 환영합니다</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>마크다운</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>마크다운 시작</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>마크다운을 변환하고 Mermaid 다이어그램을 쉽게 그리세요.</value>
+  </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>메르마이드</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Mermaid 구문을 입력하고 SVG를 즉시 미리 볼 수 있습니다. 로그인하면 다이어그램을 저장하고 관리할 수 있습니다.</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>왼쪽에서 Markdown을 작성하고, 오른쪽에서 정제된 HTML을 미리 보며, 로그인 시 문서를 저장할 수 있습니다.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Mermaid 시작하기</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>내 Mermaid</value>
+  </data>
 
 </root>

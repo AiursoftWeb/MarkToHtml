@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Mermaid Input" xml:space="preserve">
+    <value>Είσοδος Mermaid</value>
+  </data>
+  <data name="Type your Mermaid here..." xml:space="preserve">
+    <value>Πληκτρολογήστε τον κώδικά σας σε Mermaid εδώ...</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Επιτυχία!</value>
+  </data>
+  <data name="Diagram updated successfully." xml:space="preserve">
+    <value>Το διάγραμμα ενημερώθηκε με επιτυχία.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Προεπισκόπηση</value>
+  </data>
+  <data name="Type Mermaid on the left, see SVG preview on the right." xml:space="preserve">
+    <value>Πληκτρολογήστε Mermaid στα αριστερά, δείτε την προεπισκόπηση SVG στα δεξιά.</value>
+  </data>
+  <data name="Mermaid to HTML Converter" xml:space="preserve">
+    <value>Μετατροπέας Mermaid σε HTML</value>
+  </data>
+  <data name="Diagram Title (optional)" xml:space="preserve">
+    <value>Τίτλος Διαγράμματος (προαιρετικό)</value>
+  </data>
+  <data name="Download SVG" xml:space="preserve">
+    <value>Λήψη SVG</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Μετατροπή και αποθήκευση</value>
+  </data>
+  <data name="Convert to SVG" xml:space="preserve">
+    <value>Μετατροπή σε SVG</value>
+  </data>
+  <data name="My Mermaid Charts" xml:space="preserve">
+    <value>Τα Διαγράμματά Μου Mermaid</value>
+  </data>
+  <data name="Preview will appear here after conversion." xml:space="preserve">
+    <value>Η προεπισκόπηση θα εμφανιστεί εδώ μετά τη μετατροπή.</value>
+  </data>
+
+</root>

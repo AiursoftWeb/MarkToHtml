@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Kunne ikke kopiere tekst.</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>Mermaid</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>Start Markdown</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>Velkommen til MarkToHtml</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>Min Markdown</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>Konverter Markdown og tegn Mermaid-diagrammer nemt.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Start Mermaid</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Skriv Mermaid-syntaks og forhåndsvis SVG med det samme. Gem og administrer dine diagrammer, når du er logget ind.</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>Min Mermaid</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>Skriv Markdown til venstre, forhåndsvis renset HTML til højre, og gem dokumenter når du er logget ind.</value>
+  </data>
 
 </root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Preview" xml:space="preserve">
+    <value>Xem trước</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Thành công!</value>
+  </data>
+  <data name="Mermaid Input" xml:space="preserve">
+    <value>Đầu vào Mermaid</value>
+  </data>
+  <data name="Diagram updated successfully." xml:space="preserve">
+    <value>Biểu đồ đã được cập nhật thành công.</value>
+  </data>
+  <data name="Mermaid to HTML Converter" xml:space="preserve">
+    <value>Công cụ Chuyển đổi Mermaid sang HTML</value>
+  </data>
+  <data name="Diagram Title (optional)" xml:space="preserve">
+    <value>Tiêu đề biểu đồ (tùy chọn)</value>
+  </data>
+  <data name="Type your Mermaid here..." xml:space="preserve">
+    <value>Nhập Mermaid của bạn vào đây...</value>
+  </data>
+  <data name="Type Mermaid on the left, see SVG preview on the right." xml:space="preserve">
+    <value>Nhập Mermaid bên trái, xem trước SVG bên phải.</value>
+  </data>
+  <data name="Download SVG" xml:space="preserve">
+    <value>Tải xuống SVG</value>
+  </data>
+  <data name="My Mermaid Charts" xml:space="preserve">
+    <value>Biểu đồ Mermaid của tôi</value>
+  </data>
+  <data name="Preview will appear here after conversion." xml:space="preserve">
+    <value>Bản xem trước sẽ xuất hiện ở đây sau khi chuyển đổi.</value>
+  </data>
+  <data name="Convert to SVG" xml:space="preserve">
+    <value>Chuyển đổi sang SVG</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Chuyển đổi và lưu</value>
+  </data>
+
+</root>

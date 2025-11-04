@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>मर्मेड</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>मार्कडाउन</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>MarkToHtml में आपका स्वागत है</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>मार्कडाउन प्रारंभ करें</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>मेरा मार्कडाउन</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>मार्कडाउन को परिवर्तित करें और Mermaid डायग्राम आसानी से बनाएं।</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Mermaid सिंटैक्स टाइप करें और तुरंत SVG प्रीव्यू देखें। साइन इन करने पर अपने डायग्राम को सेव और मैनेज करें।</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>मर्मैड शुरू करें</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>बाईं ओर Markdown लिखें, दाईं ओर सैनिटाइज़ किया गया HTML प्रीव्यू करें, और साइन इन होने पर दस्तावेज़ सहेजें।</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>मेरी मरमेड</value>
+  </data>
 
 </root>

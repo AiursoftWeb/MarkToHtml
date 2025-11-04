@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Konverter Markdown ke HTML</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Judul Dokumen (opsional)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumen berhasil diperbarui.</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Berhasil!</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Input Markdown</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Ketik Markdown Anda di sini...</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Alat sederhana untuk mengubah Markdown Anda menjadi HTML yang bersih dan terjamin keamanannya.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pratinjau Cetak</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Dokumen Saya</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Cetak</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Salin HTML ke papan klip</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Pratinjau HTML akan muncul di sini setelah konversi.</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konversi dan simpan</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Gagal menyalin teks.</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konversi ke HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Tersalin!</value>
+  </data>
+
+</root>

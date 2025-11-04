@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Skriv din Markdown her...</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumentet blev opdateret.</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown-input</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Succes!</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown til HTML-konverter</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Et simpelt værktøj til at konvertere din Markdown til ren, sikker HTML.</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Dokumenttitel (valgfri)</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopier</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Kopier HTML til udklipsholder</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Udskriv</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Mine dokumenter</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Udskriv forhåndsvisning</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konverter og gem</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML-eksemplet vil blive vist her efter konvertering.</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopieret!</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Kunne ikke kopiere tekst.</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konverter til HTML</value>
+  </data>
+
+</root>

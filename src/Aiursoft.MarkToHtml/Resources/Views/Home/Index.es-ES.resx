@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>No se pudo copiar el texto.</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>Mermaid</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>Bienvenido a MarkToHtml</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>Mi Markdown</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>Iniciar Markdown</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>Convierte Markdown y dibuja diagramas Mermaid fácilmente.</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>Escribe Markdown a la izquierda, previsualiza HTML saneado a la derecha y guarda documentos cuando hayas iniciado sesión.</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Escribe sintaxis Mermaid y obtén una vista previa del SVG al instante. Guarda y gestiona tus diagramas cuando inicies sesión.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Iniciar Mermaid</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>Mis diagramas Mermaid</value>
+  </data>
 
 </root>

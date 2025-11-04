@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Αποτυχία αντιγραφής κειμένου.</value>
   </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>Τα Markdown μου</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>Καλώς ήρθατε στο MarkToHtml</value>
+  </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>Μερμέηδα</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>Ξεκινήστε με Markdown</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>Γράψτε Markdown στα αριστερά, δείτε τον καθαρισμένο HTML στα δεξιά και αποθηκεύστε έγγραφα όταν είστε συνδεδεμένοι.</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>Μετατρέψτε Markdown και σχεδιάστε Mermaid διαγράμματα εύκολα.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Ξεκινήστε το Mermaid</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Πληκτρολογήστε σύνταξη Mermaid και δείτε αμέσως SVG. Αποθηκεύστε και διαχειριστείτε τα διαγράμματά σας όταν είστε συνδεδεμένοι.</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>Τα Mermaid μου</value>
+  </data>
 
 </root>

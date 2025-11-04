@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Title" xml:space="preserve">
+    <value>หัวเรื่อง</value>
+  </data>
+  <data name="Create a new chart" xml:space="preserve">
+    <value>สร้างแผนภูมิใหม่</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>เวลาที่สร้าง</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>ความยาว</value>
+  </data>
+  <data name="My Mermaid Charts" xml:space="preserve">
+    <value>แผนภูมิ Mermaid ของฉัน</value>
+  </data>
+  <data name="All My Charts" xml:space="preserve">
+    <value>แผนภูมิทั้งหมดของฉัน</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="A list of all mermaid charts you have created." xml:space="preserve">
+    <value>รายการแผนภูมิ Mermaid ทั้งหมดที่คุณได้สร้างขึ้น</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+
+</root>

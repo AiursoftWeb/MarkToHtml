@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Không thể sao chép văn bản.</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>Mermaid</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>Chào mừng bạn đến với MarkToHtml</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>Bắt đầu Markdown</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>Chuyển đổi Markdown và vẽ biểu đồ Mermaid một cách dễ dàng.</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>Markdown của tôi</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Bắt Đầu Mermaid</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>Biểu đồ Mermaid của tôi</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Nhập cú pháp Mermaid và xem trước SVG ngay lập tức. Lưu và quản lý sơ đồ của bạn khi đã đăng nhập.</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>Viết Markdown ở bên trái, xem trước HTML đã được lọc sạch ở bên phải và lưu tài liệu khi đã đăng nhập.</value>
+  </data>
 
 </root>

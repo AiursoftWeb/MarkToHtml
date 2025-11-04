@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Success!" xml:space="preserve">
+    <value>성공!</value>
+  </data>
+  <data name="Type your Mermaid here..." xml:space="preserve">
+    <value>Mermaid 코드를 여기에 입력하세요...</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Mermaid Input" xml:space="preserve">
+    <value>머메이드 입력</value>
+  </data>
+  <data name="Diagram Title (optional)" xml:space="preserve">
+    <value>다이어그램 제목 (선택 사항)</value>
+  </data>
+  <data name="Type Mermaid on the left, see SVG preview on the right." xml:space="preserve">
+    <value>왼쪽에 Mermaid를 입력하고 오른쪽에서 SVG 미리보기를 확인하세요.</value>
+  </data>
+  <data name="Diagram updated successfully." xml:space="preserve">
+    <value>다이어그램이 성공적으로 업데이트되었습니다.</value>
+  </data>
+  <data name="Mermaid to HTML Converter" xml:space="preserve">
+    <value>Mermaid에서 HTML로 변환기</value>
+  </data>
+  <data name="Download SVG" xml:space="preserve">
+    <value>SVG 다운로드</value>
+  </data>
+  <data name="My Mermaid Charts" xml:space="preserve">
+    <value>내 Mermaid 차트</value>
+  </data>
+  <data name="Convert to SVG" xml:space="preserve">
+    <value>SVG로 변환</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>변환 후 저장</value>
+  </data>
+  <data name="Preview will appear here after conversion." xml:space="preserve">
+    <value>변환 후 미리보기가 여기에 나타납니다.</value>
+  </data>
+
+</root>

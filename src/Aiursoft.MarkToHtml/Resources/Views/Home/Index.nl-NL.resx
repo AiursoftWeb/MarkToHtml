@@ -171,5 +171,35 @@
   <data name="Copied!" xml:space="preserve">
     <value>Gekopieerd!</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>Mermaid</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>Start Markdown</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>Mijn Markdown</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>Welkom bij MarkToHtml</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>Zet eenvoudig Markdown om en teken Mermaid-diagrammen.</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>Typ Mermaid-syntax en bekijk direct SVG. Bewaar en beheer je diagrammen wanneer je bent ingelogd.</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>Schrijf Markdown aan de linkerkant, bekijk de gesanitiseerde HTML aan de rechterkant en sla documenten op wanneer je bent ingelogd.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>Start Mermaid</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>Mijn Mermaid</value>
+  </data>
 
 </root>

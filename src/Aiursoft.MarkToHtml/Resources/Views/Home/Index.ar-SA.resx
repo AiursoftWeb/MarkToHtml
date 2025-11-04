@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>فشل نسخ النص.</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>ميرميد</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>ماركداون</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>بدء ماركداون</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>مرحباً بك في MarkToHtml</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>عرض ماركداون الخاص بي</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>حوّل Markdown ورسم مخططات Mermaid بسهولة.</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>ابدأ Mermaid</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>اكتب صيغة Mermaid واطلع على SVG فورًا. احفظ وادرس مخططاتك عند تسجيل الدخول.</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>اكتب Markdown على اليسار، واعرض HTML المُنقّى على اليمين، واحفظ المستندات عند تسجيل الدخول.</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>ميرميد الخاصة بي</value>
+  </data>
 
 </root>

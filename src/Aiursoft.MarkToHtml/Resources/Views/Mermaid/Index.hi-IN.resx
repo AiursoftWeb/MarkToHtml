@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Preview" xml:space="preserve">
+    <value>पूर्वावलोकन</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>सफलता!</value>
+  </data>
+  <data name="Type your Mermaid here..." xml:space="preserve">
+    <value>अपना Mermaid यहाँ टाइप करें...</value>
+  </data>
+  <data name="Diagram Title (optional)" xml:space="preserve">
+    <value>आरेख शीर्षक (वैकल्पिक)</value>
+  </data>
+  <data name="Mermaid to HTML Converter" xml:space="preserve">
+    <value>मर्मैड से HTML कन्वर्टर</value>
+  </data>
+  <data name="Mermaid Input" xml:space="preserve">
+    <value>मरमेड इनपुट</value>
+  </data>
+  <data name="Diagram updated successfully." xml:space="preserve">
+    <value>आरेख सफलतापूर्वक अद्यतन किया गया।</value>
+  </data>
+  <data name="Type Mermaid on the left, see SVG preview on the right." xml:space="preserve">
+    <value>बाईं ओर Mermaid टाइप करें, दाईं ओर SVG पूर्वावलोकन देखें।</value>
+  </data>
+  <data name="Convert to SVG" xml:space="preserve">
+    <value>SVG में बदलें</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>कन्वर्ट करें और सहेजें</value>
+  </data>
+  <data name="My Mermaid Charts" xml:space="preserve">
+    <value>मेरे मरमेड चार्ट्स</value>
+  </data>
+  <data name="Download SVG" xml:space="preserve">
+    <value>SVG डाउनलोड करें</value>
+  </data>
+  <data name="Preview will appear here after conversion." xml:space="preserve">
+    <value>रूपांतरण के बाद यहां पूर्वावलोकन दिखाई देगा।</value>
+  </data>
+
+</root>

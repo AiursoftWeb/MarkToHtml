@@ -171,5 +171,35 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>複製文字失敗。</value>
   </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>美人魚</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>我的 Markdown</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>開始 Markdown</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>歡迎使用 MarkToHtml</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>輕鬆轉換 Markdown 並繪製 Mermaid 圖表。</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>輸入 Mermaid 語法並即時預覽 SVG。登入後可儲存及管理你的圖表。</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>喺左邊編寫 Markdown，右邊預覽已淨化嘅 HTML，登入後即可儲存文件。</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>開始 Mermaid</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>我嘅美人魚圖</value>
+  </data>
 
 </root>

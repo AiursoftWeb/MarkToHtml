@@ -171,5 +171,35 @@
   <data name="Copied!" xml:space="preserve">
     <value>已复制！</value>
   </data>
+  <data name="My Markdown" xml:space="preserve">
+    <value>我的 Markdown</value>
+  </data>
+  <data name="Start Markdown" xml:space="preserve">
+    <value>开始使用 Markdown</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Mermaid" xml:space="preserve">
+    <value>美人鱼</value>
+  </data>
+  <data name="Convert Markdown and draw Mermaid diagrams easily." xml:space="preserve">
+    <value>轻松转换 Markdown 并绘制 Mermaid 图表。</value>
+  </data>
+  <data name="Welcome to MarkToHtml" xml:space="preserve">
+    <value>欢迎使用 MarkToHtml</value>
+  </data>
+  <data name="Write Markdown on the left, preview sanitized HTML on the right, and save documents when signed in." xml:space="preserve">
+    <value>在左侧编写 Markdown，在右侧预览经过净化的 HTML，登录后即可保存文档。</value>
+  </data>
+  <data name="Type Mermaid syntax and preview SVG instantly. Save and manage your diagrams when signed in." xml:space="preserve">
+    <value>输入 Mermaid 语法并即时预览 SVG 图像。登录后可保存和管理图表。</value>
+  </data>
+  <data name="Start Mermaid" xml:space="preserve">
+    <value>开始使用 Mermaid</value>
+  </data>
+  <data name="My Mermaid" xml:space="preserve">
+    <value>我的 Mermaid</value>
+  </data>
 
 </root>
