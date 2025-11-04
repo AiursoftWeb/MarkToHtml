@@ -12,6 +12,6 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        return RedirectToAction("Index", "Markdown");
+        return this.StackView(new HomeViewModel());
     }
 }
