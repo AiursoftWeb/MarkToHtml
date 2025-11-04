@@ -53,7 +53,7 @@ public class MermaidController(
             // Save to DB and redirect to edit
             logger.LogTrace("Authenticated user submitted a mermaid with ID: '{Id}'. Save it to the database.",
                 model.DocumentId);
-            var documentInDb = await context.MarkdownDocuments
+            var documentInDb = await context.Documents
                 .FirstOrDefaultAsync(d => d.Id == model.DocumentId && d.UserId == userId && d.DocumentType == DocumentType.Mermaid);
             var isExistingDocument = documentInDb != null;
             if (documentInDb != null)
@@ -74,7 +74,7 @@ public class MermaidController(
                     UserId = userId,
                     DocumentType = DocumentType.Mermaid
                 };
-                context.MarkdownDocuments.Add(newDocument);
+                context.Documents.Add(newDocument);
             }
 
             await context.SaveChangesAsync();
@@ -93,7 +93,7 @@ public class MermaidController(
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId && d.DocumentType == DocumentType.Mermaid);
 
         if (document == null)
@@ -127,7 +127,7 @@ public class MermaidController(
     public async Task<IActionResult> History()
     {
         var userId = userManager.GetUserId(User);
-        var documents = await context.MarkdownDocuments
+        var documents = await context.Documents
             .Where(d => d.UserId == userId && d.DocumentType == DocumentType.Mermaid)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
@@ -148,7 +148,7 @@ public class MermaidController(
         }
 
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId && d.DocumentType == DocumentType.Mermaid);
 
         if (document == null)
@@ -168,7 +168,7 @@ public class MermaidController(
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId && d.DocumentType == DocumentType.Mermaid);
 
         if (document == null)
@@ -176,7 +176,7 @@ public class MermaidController(
             return NotFound();
         }
 
-        context.MarkdownDocuments.Remove(document);
+        context.Documents.Remove(document);
         await context.SaveChangesAsync();
 
         logger.LogInformation("Mermaid document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);

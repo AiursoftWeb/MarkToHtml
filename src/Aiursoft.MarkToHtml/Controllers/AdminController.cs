@@ -40,7 +40,7 @@ public class AdminController(
         LinkOrder = 1)]
     public async Task<IActionResult> AllDocuments()
     {
-        var allDocuments = await context.MarkdownDocuments
+        var allDocuments = await context.Documents
             .Include(d => d.User)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
@@ -69,7 +69,7 @@ public class AdminController(
             return NotFound("User not found.");
         }
 
-        var documents = await context.MarkdownDocuments
+        var documents = await context.Documents
             .Where(d => d.UserId == id)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
@@ -90,7 +90,7 @@ public class AdminController(
     [Authorize(Policy = AppPermissionNames.CanEditAnyDocument)]
     public async Task<IActionResult> EditDocument([FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
@@ -146,7 +146,7 @@ public class AdminController(
             return this.StackView(model);
         }
 
-        var documentInDb = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == model.DocumentId);
+        var documentInDb = await context.Documents.FirstOrDefaultAsync(d => d.Id == model.DocumentId);
         if (documentInDb == null)
         {
             return NotFound("Document not found.");
@@ -166,7 +166,7 @@ public class AdminController(
     [Authorize(Policy = AppPermissionNames.CanDeleteAnyDocument)]
     public async Task<IActionResult> DeleteDocument([FromRoute] Guid id)
     {
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .Include(d => d.User)
             .FirstOrDefaultAsync(d => d.Id == id);
 
@@ -190,13 +190,13 @@ public class AdminController(
     [Authorize(Policy = AppPermissionNames.CanDeleteAnyDocument)]
     public async Task<IActionResult> DeleteDocumentConfirmed([FromRoute] Guid id)
     {
-        var document = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == id);
+        var document = await context.Documents.FirstOrDefaultAsync(d => d.Id == id);
         if (document == null)
         {
             return NotFound("Document not found.");
         }
 
-        context.MarkdownDocuments.Remove(document);
+        context.Documents.Remove(document);
         await context.SaveChangesAsync();
 
         return RedirectToAction(nameof(AllDocuments));

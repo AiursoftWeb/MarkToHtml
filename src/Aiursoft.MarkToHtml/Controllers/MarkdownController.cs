@@ -56,7 +56,7 @@ public class MarkdownController(
             // And go to the edit page.
             logger.LogTrace("Authenticated user submitted a document with ID: '{Id}'. Save it to the database.",
                 model.DocumentId);
-            var documentInDb = await context.MarkdownDocuments
+            var documentInDb = await context.Documents
                 .FirstOrDefaultAsync(d => d.Id == model.DocumentId && d.UserId == userId);
             var isExistingDocument = documentInDb != null;
             if (documentInDb != null)
@@ -74,9 +74,10 @@ public class MarkdownController(
                     Id = model.DocumentId,
                     Content = model.InputMarkdown.SafeSubstring(65535),
                     Title = model.InputMarkdown.SafeSubstring(40),
-                    UserId = userId
+                    UserId = userId,
+                    DocumentType = DocumentType.Markdown
                 };
-                context.MarkdownDocuments.Add(newDocument);
+                context.Documents.Add(newDocument);
             }
 
             await context.SaveChangesAsync();
@@ -97,7 +98,7 @@ public class MarkdownController(
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+        var document = await context.Documents.FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
 
         if (document == null)
         {
@@ -129,7 +130,7 @@ public class MarkdownController(
     public async Task<IActionResult> History()
     {
         var userId = userManager.GetUserId(User);
-        var documents = await context.MarkdownDocuments
+        var documents = await context.Documents
             .Where(d => d.UserId == userId)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
@@ -151,7 +152,7 @@ public class MarkdownController(
         }
 
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
 
         if (document == null)
@@ -173,7 +174,7 @@ public class MarkdownController(
     public async Task<IActionResult> DeleteConfirmed(Guid id)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments
+        var document = await context.Documents
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
 
         if (document == null)
@@ -181,7 +182,7 @@ public class MarkdownController(
             return NotFound();
         }
 
-        context.MarkdownDocuments.Remove(document);
+        context.Documents.Remove(document);
         await context.SaveChangesAsync();
 
         logger.LogInformation("Document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);
