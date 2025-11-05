@@ -4,6 +4,7 @@ using Aiursoft.MarkToHtml.Models.ManageViewModels;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.MarkToHtml.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
+using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// This controller is used to handle user related actions like change password, change avatar.
 /// </summary>
 [Authorize]
+[LimitPerMin]
 public class ManageController(
     ImageProcessingService image,
     StorageService storageService,

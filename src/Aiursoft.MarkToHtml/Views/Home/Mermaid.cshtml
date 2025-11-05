@@ -78,6 +78,7 @@
     var theme = isDarkMode ? "material" : "eclipse";
 }
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
@@ -106,6 +107,7 @@
     </style>
 }
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
     <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>

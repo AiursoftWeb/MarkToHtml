@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
 using Aiursoft.MarkToHtml.Models.AdminViewModels;
+using Aiursoft.WebTools.Attributes;
 
 namespace Aiursoft.MarkToHtml.Controllers;
 
@@ -17,6 +18,7 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// This controller is used for administrative actions related to documents.
 /// </summary>
 [Authorize]
+[LimitPerMin]
 public class AdminController(
     IStringLocalizer<AdminController> localizer,
     UserManager<User> userManager,

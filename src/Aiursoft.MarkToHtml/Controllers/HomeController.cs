@@ -10,10 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.WebTools.Attributes;
 
 
 namespace Aiursoft.MarkToHtml.Controllers;
 
+[LimitPerMin]
 public class HomeController(
     IOptions<AppSettings> appSettings,
     ILogger<HomeController> logger,
