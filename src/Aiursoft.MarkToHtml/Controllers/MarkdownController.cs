@@ -131,7 +131,7 @@ public class MarkdownController(
     {
         var userId = userManager.GetUserId(User);
         var documents = await context.Documents
-            .Where(d => d.UserId == userId)
+            .Where(d => d.UserId == userId && d.DocumentType == DocumentType.Markdown)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
