@@ -9,7 +9,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<MySqlConte
     public MySqlContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<MySqlContext>();
-        var dummyConnectionString = "Server=dummy;Database=dummy;Uid=dummy;Pwd=dummy;";
+        var dummyConnectionString = "Server=localhost;Database=template;Uid=template;Pwd=template_password;";
         optionsBuilder.UseMySql(dummyConnectionString, ServerVersion.AutoDetect(dummyConnectionString));
         return new MySqlContext(optionsBuilder.Options);
     }
