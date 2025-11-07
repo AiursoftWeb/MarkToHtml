@@ -12,7 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Aiursoft.DbTools.Switchable" Version="9.0.21" />
     <PackageReference Include="Aiursoft.Scanner" Version="9.0.11" />
-    <PackageReference Include="Aiursoft.UiStack" Version="9.0.24" />
+    <PackageReference Include="Aiursoft.UiStack" Version="9.0.25" />
     <PackageReference Include="HtmlSanitizer" Version="9.0.886" />
     <PackageReference Include="Markdig" Version="0.43.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.10" />
