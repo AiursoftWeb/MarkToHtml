@@ -66,7 +66,7 @@ public class Startup : IWebStartup
         // Add the markdown pipeline and HTML sanitizer
         var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
         services.AddSingleton(pipeline);
-        services.AddSingleton(provider =>
+        services.AddSingleton(_ =>
         {
             var sanitizer = new HtmlSanitizer();
             sanitizer.AllowedAttributes.Add("class");
