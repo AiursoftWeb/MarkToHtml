@@ -33,7 +33,7 @@
             <div class="card flex-fill">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="align-middle" data-lucide="markdown">&nbsp;</i>
+                        <i class="align-middle" data-lucide="file-text">&nbsp;</i>
                         @Localizer["Markdown Input"]
                     </h5>
                 </div>
@@ -170,6 +170,13 @@
             position: relative;
         }
 
+        .mermaid svg,
+        svg[id^="m-"] {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
         @@media print {
             @@page {
                 margin-top: 2cm;
@@ -203,7 +210,7 @@
 
             #printable-area {
                 font-family: Georgia, "Times New Roman", serif;
-                font-size: 12pt;
+                font-size: 12pt;svg[id^="m-"],
                 line-height: 1.5;
                 color: #000 !important;
             }
@@ -229,7 +236,7 @@
             }
 
             #printable-area table {
-                width: 100%;
+                width: 100%;svg[id^="m-"],
                 border-collapse: collapse;
                 margin-top: 1rem;
                 font-size: 11pt;
@@ -252,6 +259,7 @@
     <script src="~/node_modules/codemirror/mode/xml/xml.js"></script>
     <script src="~/node_modules/codemirror/addon/edit/closebrackets.js"></script>
     <script src="~/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let markdownEditorInstance;
@@ -335,6 +343,59 @@
                 });
             }
             stylePreviewTables();
+
+            // --- Mermaid initialization and rendering in Preview ---
+            if (window.mermaid) {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: '@(isDarkMode ? "dark" : "default")',
+                    flowchart: { useMaxWidth: true },
+                    sequence: { useMaxWidth: true }
+                });
+            }
+
+            function renderMermaidInPreview() {
+                const previewPane = document.getElementById('preview');
+                if (!previewPane || !window.mermaid) return;
+                const mermaidBlocks = previewPane.querySelectorAll('pre.mermaid, .mermaid');
+                if (mermaidBlocks.length === 0) return;
+                // Render each block
+                mermaidBlocks.forEach((block, index) => {
+                    const code = block.textContent || '';
+                    const id = 'm-' + (index + 1) + '-' + Math.random().toString(36).slice(2);
+                    try {
+                        mermaid.parse(code);
+                        mermaid.render(id, code).then(({ svg }) => {
+                            const wrapper = document.createElement('div');
+                            wrapper.innerHTML = svg;
+                            block.replaceWith(wrapper);
+                        }).catch(err => {
+                            const errPre = document.createElement('pre');
+                            errPre.className = 'text-danger';
+                            errPre.textContent = (err && (err.message || err)) || 'Mermaid render error';
+                            block.replaceWith(errPre);
+                        });
+                    } catch (e) {
+                        const errPre = document.createElement('pre');
+                        errPre.className = 'text-danger';
+                        errPre.textContent = (e && (e.message || e)) || 'Mermaid parse error';
+                        block.replaceWith(errPre);
+                    }
+                });
+            }
+
+            // Render when switching to Preview tab and on load (if already active)
+            const previewTabLink = document.querySelector('a[href="#preview"][data-bs-toggle="tab"]');
+            if (previewTabLink) {
+                previewTabLink.addEventListener('shown.bs.tab', function () {
+                    renderMermaidInPreview();
+                });
+            }
+            // If the preview tab is active on load, render immediately
+            const previewPane = document.getElementById('preview');
+            if (previewPane && previewPane.classList.contains('active')) {
+                renderMermaidInPreview();
+            }
 
             // --- Print Button Handling ---
             const printButton = document.getElementById('print-button');

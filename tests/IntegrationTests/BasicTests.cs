@@ -5,6 +5,8 @@ using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
 using static Aiursoft.WebTools.Extends;
 
+[assembly: DoNotParallelize]
+
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
 [TestClass]
