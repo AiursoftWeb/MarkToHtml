@@ -26,6 +26,15 @@ public class IndexViewModel : UiStackLayoutViewModel
                                                 | February | $80     |
                                                 | March    | $420    |
 
+                                                ```mermaid
+                                                graph TD
+                                                A[Start] --> B{Is it working?}
+                                                B -- Yes --> C[Great]
+                                                B -- No  --> D[Fix it]
+                                                D --> B
+                                                C --> E[Finish]
+                                                ```
+
                                                 """;
 
     public string OutputHtml { get; set; } = string.Empty;
