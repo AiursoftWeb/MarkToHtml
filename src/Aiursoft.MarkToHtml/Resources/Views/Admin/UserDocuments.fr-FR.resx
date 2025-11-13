@@ -60,5 +60,20 @@
   <data name="Delete" xml:space="preserve">
     <value>Supprimer</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Rechercher des documents...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Aucun document ne correspond à votre recherche.</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Rechercher des documents</value>
+  </data>
 
 </root>

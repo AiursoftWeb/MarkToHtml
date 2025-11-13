@@ -54,5 +54,20 @@
   <data name="Edit" xml:space="preserve">
     <value>Редагувати</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Очистити</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Жоден документ не відповідає вашому запиту.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Пошук</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Пошук документів</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Пошук документів...</value>
+  </data>
 
 </root>

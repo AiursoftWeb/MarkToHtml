@@ -48,5 +48,23 @@
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
   </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Er komen geen documenten overeen met uw zoekopdracht.</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wissen</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Zoeken</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Doorzoek mijn documenten</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Doorzoek mijn documenten...</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>U heeft nog geen documenten aangemaakt.</value>
+  </data>
 
 </root>

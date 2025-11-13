@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Belgelerimde ara...</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Belgelerimde ara</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Henüz hiç belge oluşturmadınız.</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Aramanızla eşleşen belge bulunamadı.</value>
+  </data>
 
 </root>

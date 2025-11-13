@@ -54,5 +54,20 @@
   <data name="Actions" xml:space="preserve">
     <value>Действия</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Поиск документов...</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Поиск документов</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>По вашему запросу документов не найдено.</value>
+  </data>
 
 </root>

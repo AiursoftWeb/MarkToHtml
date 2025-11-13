@@ -60,5 +60,20 @@
   <data name="(no title)" xml:space="preserve">
     <value>(без названия)</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Поиск документов</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Ни один документ не соответствует вашему поиску.</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Поиск документов...</value>
+  </data>
 
 </root>

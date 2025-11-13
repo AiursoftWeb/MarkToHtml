@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>Hapus</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cari</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Cari dokumen saya</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Cari dokumen saya...</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Anda belum membuat dokumen apa pun.</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Tidak ada dokumen yang cocok dengan pencarian Anda.</value>
+  </data>
 
 </root>

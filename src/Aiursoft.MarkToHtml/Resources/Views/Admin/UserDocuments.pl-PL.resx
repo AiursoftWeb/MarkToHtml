@@ -60,5 +60,20 @@
   <data name="Creation Time" xml:space="preserve">
     <value>Czas utworzenia</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Wyszukaj dokumenty</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Szukaj dokumentów...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Nie znaleziono dokumentów pasujących do wyszukiwania.</value>
+  </data>
 
 </root>
