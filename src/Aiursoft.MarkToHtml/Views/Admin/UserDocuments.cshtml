@@ -65,14 +65,52 @@
     <div class="col-md-8 col-xl-9">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">@Localizer["Document List"]</h5>
-                <h6 class="card-subtitle text-muted">@Localizer["A list of all documents created by this user."]</h6>
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
+                    <div>
+                        <h5 class="card-title mb-1">@Localizer["Document List"]</h5>
+                        <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all documents created by this user."]</h6>
+                    </div>
+                    <form method="get"
+                          asp-action="UserDocuments"
+                          asp-route-id="@Model.User.Id"
+                          class="ms-md-auto w-100 w-md-auto"
+                          role="search">
+                        <div class="input-group">
+                            <input type="search"
+                                   name="search"
+                                   value="@Model.SearchQuery"
+                                   class="form-control"
+                                   placeholder="@Localizer["Search documents..."]"
+                                   aria-label="@Localizer["Search documents"]" />
+                            @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+                            {
+                                <a asp-action="UserDocuments"
+                                   asp-route-id="@Model.User.Id"
+                                   class="btn btn-outline-secondary">
+                                    <i class="align-middle" data-lucide="x-circle"></i>
+                                    <span class="d-none d-lg-inline">@Localizer["Clear"]</span>
+                                </a>
+                            }
+                            <button class="btn btn-primary" type="submit">
+                                <i class="align-middle" data-lucide="search"></i>
+                                <span class="d-none d-sm-inline">@Localizer["Search"]</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
             @if (!Model.UserDocuments.Any())
             {
                 <div class="card-body">
                     <div class="alert alert-info mb-0" role="alert">
-                        @Localizer["This user has not created any documents yet."]
+                        @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
+                        {
+                            @Localizer["This user has not created any documents yet."]
+                        }
+                        else
+                        {
+                            @Localizer["No documents match your search."]
+                        }
                     </div>
                 </div>
             }
