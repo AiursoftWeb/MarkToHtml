@@ -52,8 +52,8 @@ public class AdminController(
             documentsQuery = documentsQuery.Where(d =>
                 (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
                 (d.Content != null && EF.Functions.Like(d.Content!, likePattern)) ||
-                (d.User != null && (
-                    (d.User.DisplayName != null && EF.Functions.Like(d.User.DisplayName, likePattern)) ||
+                ((
+                    (EF.Functions.Like(d.User.DisplayName, likePattern)) ||
                     (d.User.UserName != null && EF.Functions.Like(d.User.UserName, likePattern)))));
         }
 
