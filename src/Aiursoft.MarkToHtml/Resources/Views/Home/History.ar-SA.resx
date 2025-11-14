@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>حذف</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>ابحث في مستنداتي...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>لا توجد مستندات تطابق بحثك.</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>ابحث في مستنداتي</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>لم تقم بإنشاء أي مستندات حتى الآن.</value>
+  </data>
 
 </root>

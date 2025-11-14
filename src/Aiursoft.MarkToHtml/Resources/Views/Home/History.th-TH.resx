@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>ล้าง</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>ค้นหาเอกสารของฉัน</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>คุณยังไม่ได้สร้างเอกสารใดๆ</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>ค้นหาเอกสารของฉัน...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>ไม่พบเอกสารที่ตรงกับการค้นหาของคุณ</value>
+  </data>
 
 </root>

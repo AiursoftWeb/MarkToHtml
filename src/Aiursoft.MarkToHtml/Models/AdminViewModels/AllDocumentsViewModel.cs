@@ -6,4 +6,5 @@ namespace Aiursoft.MarkToHtml.Models.AdminViewModels;
 public class AllDocumentsViewModel : UiStackLayoutViewModel
 {
     public required List<MarkdownDocument> AllDocuments { get; set; }
+    public string? SearchQuery { get; set; }
 }

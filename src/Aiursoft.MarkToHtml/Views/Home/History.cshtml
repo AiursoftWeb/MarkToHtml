@@ -21,50 +21,96 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">@Localizer["All My Documents"]</h5>
-        <h6 class="card-subtitle text-muted">@Localizer["A list of all documents you have created."]</h6>
+        <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
+            <div>
+                <h5 class="card-title mb-1">@Localizer["All My Documents"]</h5>
+                <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all documents you have created."]</h6>
+            </div>
+            <form method="get"
+                  asp-action="History"
+                  class="ms-md-auto w-100 w-md-auto"
+                  role="search">
+                <div class="input-group">
+                    <input type="search"
+                           name="search"
+                           value="@Model.SearchQuery"
+                           class="form-control"
+                           placeholder="@Localizer["Search my documents..."]"
+                           aria-label="@Localizer["Search my documents"]" />
+                    @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
+                    {
+                        <a asp-action="History" class="btn btn-outline-secondary">
+                            <i class="align-middle" data-lucide="x-circle"></i>
+                            <span class="d-none d-lg-inline">@Localizer["Clear"]</span>
+                        </a>
+                    }
+                    <button class="btn btn-primary" type="submit">
+                        <i class="align-middle" data-lucide="search"></i>
+                        <span class="d-none d-sm-inline">@Localizer["Search"]</span>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
-            <tr>
-                <th>@Localizer["Title"]</th>
-                <th>@Localizer["Creation Time"]</th>
-                <th>@Localizer["Length"]</th>
-                <th class="text-end">@Localizer["Actions"]</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var doc in Model.MyDocuments)
-            {
-                <tr class="clickable-row" data-href="@Url.Action("Edit", new { id = doc.Id })">
-                    <td>
-                        @if (string.IsNullOrWhiteSpace(doc.Title))
-                        {
-                            <label class="text-muted">(no title)</label>
-                        }
-                        else
-                        {
-                            @doc.Title
-                        }
-                    </td>
-                    <td>
-                        <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
-                    </td>
-                    <td>@(doc.Content?.Length ?? 0)</td>
-                    <td class="text-end">
-                        <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
-                            <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                        </a>
-                        <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
-                            <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                        </a>
-                    </td>
+    @if (!Model.MyDocuments.Any())
+    {
+        <div class="card-body">
+            <div class="alert alert-info mb-0" role="alert">
+                @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
+                {
+                    @Localizer["You have not created any documents yet."]
+                }
+                else
+                {
+                    @Localizer["No documents match your search."]
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                <tr>
+                    <th>@Localizer["Title"]</th>
+                    <th>@Localizer["Creation Time"]</th>
+                    <th>@Localizer["Length"]</th>
+                    <th class="text-end">@Localizer["Actions"]</th>
                 </tr>
-            }
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                @foreach (var doc in Model.MyDocuments)
+                {
+                    <tr class="clickable-row" data-href="@Url.Action("Edit", new { id = doc.Id })">
+                        <td>
+                            @if (string.IsNullOrWhiteSpace(doc.Title))
+                            {
+                                <label class="text-muted">(no title)</label>
+                            }
+                            else
+                            {
+                                @doc.Title
+                            }
+                        </td>
+                        <td>
+                            <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
+                        </td>
+                        <td>@(doc.Content?.Length ?? 0)</td>
+                        <td class="text-end">
+                            <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
+                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
 </div>
 
 @* ReSharper disable once Razor.SectionNotResolved *@

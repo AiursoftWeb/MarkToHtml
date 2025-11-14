@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Очистить</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Вы еще не создали ни одного документа.</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Поиск в моих документах...</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Поиск в моих документах</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>По вашему запросу документов не найдено.</value>
+  </data>
 
 </root>

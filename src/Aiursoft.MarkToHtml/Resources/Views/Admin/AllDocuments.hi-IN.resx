@@ -54,5 +54,20 @@
   <data name="Delete" xml:space="preserve">
     <value>हटाएँ</value>
   </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>दस्तावेज़ खोजें</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>दस्तावेज़ खोजें...</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>साफ़ करें</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>आपकी खोज से कोई भी दस्तावेज़ मेल नहीं खाता।</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजें</value>
+  </data>
 
 </root>

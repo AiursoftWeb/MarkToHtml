@@ -7,4 +7,5 @@ public class UserDocumentsViewModel : UiStackLayoutViewModel
 {
     public required User User { get; set; }
     public required List<MarkdownDocument> UserDocuments { get; set; }
+    public string? SearchQuery { get; set; }
 }

@@ -60,5 +60,20 @@
   <data name="(no title)" xml:space="preserve">
     <value>（无标题）</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>搜索文档...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>没有找到匹配的文档。</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>搜索文档</value>
+  </data>
 
 </root>

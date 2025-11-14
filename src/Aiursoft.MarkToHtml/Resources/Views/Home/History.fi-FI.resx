@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>Poista</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Tyhjennä</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Hae</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Hae dokumenteistani...</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Etsi asiakirjoistani...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Hakutuloksia ei löytynyt.</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Et ole vielä luonut yhtään dokumenttia.</value>
+  </data>
 
 </root>

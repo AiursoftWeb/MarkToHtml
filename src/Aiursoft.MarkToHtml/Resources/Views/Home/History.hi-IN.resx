@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>हटाएँ</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>साफ़ करें</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजें</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>मेरे दस्तावेज़ खोजें</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>मेरे दस्तावेज़ खोजें...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>आपकी खोज से कोई भी दस्तावेज़ मेल नहीं खाता।</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>आपने अभी तक कोई दस्तावेज़ नहीं बनाया है।</value>
+  </data>
 
 </root>

@@ -48,5 +48,23 @@
   <data name="Creation Time" xml:space="preserve">
     <value>Oprettelsestidspunkt</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Ryd</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Søg i mine dokumenter</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Søg i mine dokumenter...</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Ingen dokumenter matcher din søgning.</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Du har ikke oprettet nogen dokumenter endnu.</value>
+  </data>
 
 </root>

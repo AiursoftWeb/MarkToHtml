@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>Διαγραφή</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Αναζήτηση</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Αναζήτηση στα έγγραφά μου</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Αναζήτηση στα έγγραφά μου...</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Καθαρισμός</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Δεν έχετε δημιουργήσει ακόμα κανένα έγγραφο.</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Δεν βρέθηκαν έγγραφα που να αντιστοιχούν στην αναζήτησή σας.</value>
+  </data>
 
 </root>

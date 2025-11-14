@@ -60,5 +60,20 @@
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Καθαρισμός</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Αναζήτηση</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Αναζήτηση εγγράφων</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Αναζήτηση εγγράφων...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Δεν βρέθηκαν έγγραφα που να αντιστοιχούν στην αναζήτησή σας.</value>
+  </data>
 
 </root>
