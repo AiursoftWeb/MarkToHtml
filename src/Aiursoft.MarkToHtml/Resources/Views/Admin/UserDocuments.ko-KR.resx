@@ -60,5 +60,20 @@
   <data name="Creation Time" xml:space="preserve">
     <value>생성 시간</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>검색</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>문서 검색</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>지우기</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>문서 검색...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>검색 조건과 일치하는 문서가 없습니다.</value>
+  </data>
 
 </root>

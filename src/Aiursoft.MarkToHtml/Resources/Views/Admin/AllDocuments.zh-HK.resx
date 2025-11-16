@@ -54,5 +54,20 @@
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>搜尋文件</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>搜尋文件...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>沒有文件符合你的搜尋。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
 
 </root>

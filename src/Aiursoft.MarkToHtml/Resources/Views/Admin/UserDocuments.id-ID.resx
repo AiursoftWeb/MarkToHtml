@@ -60,5 +60,20 @@
   <data name="Creation Time" xml:space="preserve">
     <value>Waktu Pembuatan</value>
   </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Cari dokumen</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cari</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Cari dokumen...</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Tidak ada dokumen yang cocok dengan pencarian Anda.</value>
+  </data>
 
 </root>

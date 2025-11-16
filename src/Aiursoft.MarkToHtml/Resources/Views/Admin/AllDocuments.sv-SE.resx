@@ -54,5 +54,20 @@
   <data name="View and manage all documents across the entire system." xml:space="preserve">
     <value>Visa och hantera alla dokument i hela systemet.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Rensa</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Sök dokument</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Sök dokument...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Inga dokument matchar din sökning.</value>
+  </data>
 
 </root>

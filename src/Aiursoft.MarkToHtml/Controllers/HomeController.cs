@@ -128,17 +128,30 @@ public class HomeController(
     CascadedLinksOrder = 2,
     LinkText = "My documents",
     LinkOrder = 2)]
-    public async Task<IActionResult> History()
+    public async Task<IActionResult> History([FromQuery] string? search)
     {
         var userId = userManager.GetUserId(User);
-        var documents = await context.MarkdownDocuments
-            .Where(d => d.UserId == userId)
+        var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
+
+        var documentsQuery = context.MarkdownDocuments
+            .Where(d => d.UserId == userId);
+
+        if (trimmedSearch != null)
+        {
+            var likePattern = $"%{trimmedSearch}%";
+            documentsQuery = documentsQuery.Where(d =>
+                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
+                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)));
+        }
+
+        var documents = await documentsQuery
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
         var model = new HistoryViewModel
         {
-            MyDocuments = documents
+            MyDocuments = documents,
+            SearchQuery = trimmedSearch
         };
         return this.StackView(model);
     }

@@ -38,16 +38,33 @@ public class AdminController(
         CascadedLinksOrder = 1,
         LinkText = "All Documents",
         LinkOrder = 1)]
-    public async Task<IActionResult> AllDocuments()
+    public async Task<IActionResult> AllDocuments([FromQuery] string? search)
     {
-        var allDocuments = await context.MarkdownDocuments
+        var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
+
+        var documentsQuery = context.MarkdownDocuments
             .Include(d => d.User)
+            .AsQueryable();
+
+        if (trimmedSearch != null)
+        {
+            var likePattern = $"%{trimmedSearch}%";
+            documentsQuery = documentsQuery.Where(d =>
+                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
+                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)) ||
+                ((
+                    (EF.Functions.Like(d.User.DisplayName, likePattern)) ||
+                    (d.User.UserName != null && EF.Functions.Like(d.User.UserName, likePattern)))));
+        }
+
+        var allDocuments = await documentsQuery
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
         return this.StackView(new AllDocumentsViewModel
         {
-            AllDocuments = allDocuments
+            AllDocuments = allDocuments,
+            SearchQuery = trimmedSearch
         });
     }
 
@@ -56,7 +73,7 @@ public class AdminController(
     /// This action requires the 'CanReadAllDocuments' permission.
     /// </summary>
     [Authorize(Policy = AppPermissionNames.CanReadAllDocuments)]
-    public async Task<IActionResult> UserDocuments([FromRoute] string? id)
+    public async Task<IActionResult> UserDocuments([FromRoute] string? id, [FromQuery] string? search)
     {
         if (string.IsNullOrWhiteSpace(id))
         {
@@ -69,15 +86,28 @@ public class AdminController(
             return NotFound("User not found.");
         }
 
-        var documents = await context.MarkdownDocuments
-            .Where(d => d.UserId == id)
+        var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
+
+        var documentsQuery = context.MarkdownDocuments
+            .Where(d => d.UserId == id);
+
+        if (trimmedSearch != null)
+        {
+            var likePattern = $"%{trimmedSearch}%";
+            documentsQuery = documentsQuery.Where(d =>
+                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
+                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)));
+        }
+
+        var documents = await documentsQuery
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
         var model = new UserDocumentsViewModel
         {
             User = user,
-            UserDocuments = documents
+            UserDocuments = documents,
+            SearchQuery = trimmedSearch
         };
 
         return this.StackView(model);

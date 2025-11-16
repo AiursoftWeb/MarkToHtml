@@ -54,5 +54,20 @@
   <data name="(no title)" xml:space="preserve">
     <value>(nessun titolo)</value>
   </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Cerca documenti</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Cancella</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cerca</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Cerca documenti...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Nessun documento corrisponde alla tua ricerca.</value>
+  </data>
 
 </root>

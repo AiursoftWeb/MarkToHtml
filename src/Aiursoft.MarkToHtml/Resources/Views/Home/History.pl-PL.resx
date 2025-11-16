@@ -48,5 +48,23 @@
   <data name="A list of all documents you have created." xml:space="preserve">
     <value>Lista wszystkich dokumentów, które utworzyłeś.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Wyczyść</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Przeszukaj moje dokumenty</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Przeszukaj moje dokumenty...</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Nie utworzyłeś jeszcze żadnych dokumentów.</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Nie znaleziono dokumentów pasujących do wyszukiwania.</value>
+  </data>
 
 </root>

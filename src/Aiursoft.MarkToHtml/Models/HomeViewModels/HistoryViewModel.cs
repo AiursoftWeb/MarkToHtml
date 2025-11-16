@@ -11,4 +11,5 @@ public class HistoryViewModel : UiStackLayoutViewModel
     }
 
     public IEnumerable<MarkdownDocument> MyDocuments { get; set; } = new List<MarkdownDocument>();
+    public string? SearchQuery { get; set; }
 }

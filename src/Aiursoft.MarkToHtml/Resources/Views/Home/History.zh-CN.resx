@@ -48,5 +48,23 @@
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>搜索我的文档</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>您尚未创建任何文档。</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>搜索我的文档...</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>没有找到匹配的文档。</value>
+  </data>
 
 </root>
