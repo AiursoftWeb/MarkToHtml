@@ -108,10 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>阅读文档</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>开始新项目</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>这是一个模板项目，我们将从这里开启探索之旅...</value>
   </data>
   <data name="Document updated successfully." xml:space="preserve">

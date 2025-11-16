@@ -108,10 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Прочитать документацию</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Начать новый проект</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Это шаблонный проект, с которого мы начинаем путешествие...</value>
   </data>
   <data name="Code" xml:space="preserve">

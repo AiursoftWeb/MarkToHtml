@@ -111,10 +111,7 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Questo è un progetto template, da cui iniziamo il viaggio...</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Avvia un nuovo progetto</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
+   <data name="Success!" xml:space="preserve">
     <value>Successo!</value>
   </data>
   <data name="Document Title (optional)" xml:space="preserve">
