@@ -48,5 +48,21 @@ public class IndexViewModel : UiStackLayoutViewModel
     [NoBadWords(ErrorMessage = "The document title contains sensitive words.")]
     public string? Title { get; set; }
 
+    /// <summary>
+    /// Public ID for sharing the document. Generated when the document is made public.
+    /// </summary>
+    public Guid? PublicId { get; set; }
+
+    /// <summary>
+    /// Indicates whether the document is publicly accessible.
+    /// </summary>
+    public bool IsPublic => PublicId.HasValue;
+
+    /// <summary>
+    /// The public link to view this document.
+    /// </summary>
+    public string? PublicLink { get; set; }
+
+
     public bool SavedSuccessfully { get; set; }
 }

@@ -1,0 +1,229 @@
+@using Aiursoft.MarkToHtml.Controllers
+@model Aiursoft.MarkToHtml.Models.PublicViewModels.PublicDocumentViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.DocumentTitle</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <p class="mb-0 text-muted">
+            <i class="align-middle" data-lucide="user"></i> @Model.AuthorName
+        </p>
+        <p class="mb-0 text-muted text-sm">
+            <i class="align-middle" data-lucide="calendar"></i> @Model.CreationTime.ToString("yyyy-MM-dd HH:mm")
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle" data-lucide="eye"></i>
+                    @Localizer["Document Preview"]
+                </h5>
+                <div>
+                    <button type="button" id="print-button" class="btn btn-outline-info btn-sm"
+                        title="@Localizer["Print Preview"]">
+                        <i class="align-middle" data-lucide="printer"></i>
+                        @Localizer["Print"]
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="printable-area" class="markdown-content">
+                    @Html.Raw(Model.Content)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .markdown-content {
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3,
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+    }
+
+    .markdown-content h1 {
+        font-size: 2em;
+        border-bottom: 2px solid #eaecef;
+        padding-bottom: 0.3em;
+    }
+
+    .markdown-content h2 {
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 0.3em;
+    }
+
+    .markdown-content h3 {
+        font-size: 1.25em;
+    }
+
+    .markdown-content p {
+        margin-bottom: 0.5em;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+        margin: 0.5em 0 0.5em 2em;
+    }
+
+    .markdown-content li {
+        margin-bottom: 0.25em;
+    }
+
+    .markdown-content blockquote {
+        border-left: 4px solid #ddd;
+        margin: 0.5em 0;
+        padding-left: 1em;
+        color: #666;
+    }
+
+    .markdown-content code {
+        background-color: #f5f5f5;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+    }
+
+    .markdown-content pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 3px;
+        overflow-x: auto;
+        margin: 0.5em 0;
+    }
+
+    .markdown-content pre code {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .markdown-content table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .markdown-content table th,
+    .markdown-content table td {
+        border: 1px solid #ddd;
+        padding: 0.75em;
+        text-align: left;
+    }
+
+    .markdown-content table th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+    }
+
+    .markdown-content a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .markdown-content a:hover {
+        text-decoration: underline;
+    }
+
+    .markdown-content img {
+        max-width: 100%;
+        height: auto;
+        margin: 0.5em 0;
+    }
+</style>
+
+<style>
+    @@media print {
+        .card-header {
+            display: none;
+        }
+
+        #print-button {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const printButton = document.getElementById('print-button');
+        if (printButton) {
+            printButton.addEventListener('click', function () {
+                window.print();
+            });
+        }
+    });
+</script>
+
+@{
+    // Determine dark mode from cookie for mermaid theme selection
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@* Load mermaid and render mermaid blocks inside printable area for public view *@
+@section scripts {
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (window.mermaid) {
+                    mermaid.initialize({
+                        startOnLoad: false,
+                        theme: '@(isDarkMode ? "dark" : "default")',
+                        flowchart: { useMaxWidth: true },
+                        sequence: { useMaxWidth: true }
+                    });
+
+                    const printable = document.getElementById('printable-area');
+                    if (printable) {
+                        const mermaidBlocks = printable.querySelectorAll('pre.mermaid, .mermaid');
+                        if (mermaidBlocks.length > 0) {
+                            mermaidBlocks.forEach((block, index) => {
+                                const code = block.textContent || '';
+                                const id = 'm-public-' + (index + 1) + '-' + Math.random().toString(36).slice(2);
+                                try {
+                                    mermaid.parse(code);
+                                    mermaid.render(id, code).then(({ svg }) => {
+                                        const wrapper = document.createElement('div');
+                                        wrapper.innerHTML = svg;
+                                        block.replaceWith(wrapper);
+                                    }).catch(err => {
+                                        const errPre = document.createElement('pre');
+                                        errPre.className = 'text-danger';
+                                        errPre.textContent = (err && (err.message || err)) || 'Mermaid render error';
+                                        block.replaceWith(errPre);
+                                    });
+                                } catch (e) {
+                                    const errPre = document.createElement('pre');
+                                    errPre.className = 'text-danger';
+                                    errPre.textContent = (e && (e.message || e)) || 'Mermaid parse error';
+                                    block.replaceWith(errPre);
+                                }
+                            });
+                        }
+                    }
+                }
+            } catch (ex) {
+                // swallow errors, don't break public page
+                console.error('Mermaid init/render error on public page:', ex);
+            }
+        });
+    </script>
+}

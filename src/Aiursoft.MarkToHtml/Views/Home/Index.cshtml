@@ -59,6 +59,7 @@
 
         @* Right Column: Standalone Tab Component *@
         <div class="col-lg-6 d-flex flex-column">
+
             @* The tab component now stands alone and fills the available space *@
             <div class="tab flex-grow-1">
                 <ul class="nav nav-tabs" role="tablist">
@@ -107,6 +108,57 @@
                     </div>
                 </div>
             </div>
+
+            @* Public Sharing Section *@
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-end">
+                            <div class="card border-info share-card" style="min-width:260px;">
+                                <div class="card-header bg-light">
+                                    <h5 class="card-title mb-0">
+                                        <i class="align-middle" data-lucide="share-2"></i>
+                                        @Localizer["Share Publicly"]
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-muted mb-2">@Localizer["Share this document publicly with a unique link                                    that anyone can access without logging in."]</p>
+                                    @if (Model.IsPublic && Model.PublicId.HasValue)
+                                    {
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="public-link" readonly
+                                                value="@Model.PublicLink" />
+                                            <button class="btn btn-outline-info" type="button" id="copy-link-button"
+                                                title="@Localizer["Copy link to clipboard"]">
+                                                <i class="align-middle" data-lucide="copy"></i>
+                                                @Localizer["Copy Link"]
+                                            </button>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-outline-danger btn-sm" type="button"
+                                                id="make-private-button">
+                                                <i class="align-middle" data-lucide="lock"></i>
+                                                @Localizer["Make Private"]
+                                            </button>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-info" type="button" id="make-public-button">
+                                                <i class="align-middle" data-lucide="unlock"></i>
+                                                @Localizer["Make Public"]
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
         </div>
     </div>
 
@@ -136,6 +188,8 @@
             </button>
         </div>
     </div>
+
+    @* Public Sharing Section moved to the right column above Code/Preview tabs *@
 </form>
 
 @{
@@ -143,10 +197,34 @@
     var theme = isDarkMode ? "material" : "eclipse";
 }
 
+@* Confirmation modal for making a document private *@
+<div class="modal fade" id="confirmPrivateModal" tabindex="-1" aria-labelledby="confirmPrivateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmPrivateModalLabel">@Localizer["Make document private"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>@Localizer["After making this document private, the existing public link will no longer work. Are you sure you want to proceed?"]</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                <button type="button" class="btn btn-danger" id="confirm-make-private">@Localizer["Make Private"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
+    <style>
+        .share-card {
+            width: 100%;
+        }
+    </style>
     <style>
         .CodeMirror,
         #preview {
@@ -210,7 +288,8 @@
 
             #printable-area {
                 font-family: Georgia, "Times New Roman", serif;
-                font-size: 12pt;svg[id^="m-"];
+                font-size: 12pt;
+                svg[id^="m-"];
                 line-height: 1.5;
                 color: #000 !important;
             }
@@ -236,7 +315,8 @@
             }
 
             #printable-area table {
-                width: 100%;svg[id^="m-"];
+                width: 100%;
+                svg[id^="m-"];
                 border-collapse: collapse;
                 margin-top: 1rem;
                 font-size: 11pt;
@@ -402,6 +482,109 @@
             if (printButton) {
                 printButton.addEventListener('click', function () {
                     window.print();
+                });
+            }
+
+            // --- Public/Private Share Handling ---
+            const makePublicButton = document.getElementById('make-public-button');
+            const makePrivateButton = document.getElementById('make-private-button');
+            const copyLinkButton = document.getElementById('copy-link-button');
+            const publicLinkInput = document.getElementById('public-link');
+            const documentId = document.querySelector('input[name="DocumentId"]')?.value;
+
+            if (makePublicButton) {
+                makePublicButton.addEventListener('click', async function () {
+                    try {
+                        const response = await fetch('@Url.Action("MakePublic", "Home")/' + documentId, {
+                            method: 'POST',
+                            headers: {
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '',
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            // Reload the page to show the public link
+                            window.location.reload();
+                        } else {
+                            alert('@Localizer["Failed to make document public. Please try again."]');
+                        }
+                    } catch (error) {
+                        console.error('Error making document public:', error);
+                        alert('@Localizer["An error occurred. Please try again."]');
+                    }
+                });
+            }
+
+            if (makePrivateButton) {
+                // Show bootstrap modal for confirmation instead of native confirm
+                makePrivateButton.addEventListener('click', function () {
+                    const modalEl = document.getElementById('confirmPrivateModal');
+                    if (modalEl && window.bootstrap && bootstrap.Modal) {
+                        const modal = new bootstrap.Modal(modalEl);
+                        modal.show();
+                    } else {
+                        // Fallback to confirm if bootstrap/modal not available
+                        if (!confirm('@Localizer["Are you sure you want to make this document private?"]')) {
+                            return;
+                        }
+                        // proceed with making private
+                        doMakePrivate();
+                    }
+                });
+            }
+
+            const confirmMakePrivateBtn = document.getElementById('confirm-make-private');
+            if (confirmMakePrivateBtn) {
+                confirmMakePrivateBtn.addEventListener('click', function () {
+                    // disable button to prevent double submit
+                    confirmMakePrivateBtn.disabled = true;
+                    doMakePrivate().finally(() => {
+                        confirmMakePrivateBtn.disabled = false;
+                    });
+                });
+            }
+
+            async function doMakePrivate() {
+                try {
+                    const response = await fetch('@Url.Action("MakePrivate", "Home")/' + documentId, {
+                        method: 'POST',
+                        headers: {
+                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // hide modal if present then reload
+                        const modalEl = document.getElementById('confirmPrivateModal');
+                        if (modalEl && window.bootstrap && bootstrap.Modal) {
+                            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                            modal.hide();
+                        }
+                        window.location.reload();
+                    } else {
+                        alert('@Localizer["Failed to make document private. Please try again."]');
+                    }
+                } catch (error) {
+                    console.error('Error making document private:', error);
+                    alert('@Localizer["An error occurred. Please try again."]');
+                }
+            }
+
+            if (copyLinkButton && publicLinkInput) {
+                copyLinkButton.addEventListener('click', function () {
+                    publicLinkInput.select();
+                    navigator.clipboard.writeText(publicLinkInput.value).then(function () {
+                        copyLinkButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`;
+                        setTimeout(function () {
+                            copyLinkButton.innerHTML = `<i class="align-middle" data-lucide="copy"></i> @Localizer["Copy Link"]`;
+                        }, 2000);
+                    }, function (err) {
+                        console.error('Could not copy link: ', err);
+                        alert('@Localizer["Failed to copy link."]');
+                    });
                 });
             }
         });
