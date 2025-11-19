@@ -12,7 +12,6 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// This controller allows anonymous users to view documents that have been made public.
 /// </summary>
 [Route("public/{publicId}")]
-[ApiExplorerSettings(IgnoreApi = true)]
 public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
