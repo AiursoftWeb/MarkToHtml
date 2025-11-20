@@ -48,7 +48,7 @@ public class PublicController(
             DocumentTitle = document.Title ?? "Untitled Document",
             Content = outputHtml,
             MarkdownContent = document.Content ?? string.Empty,
-            AuthorName = document.User?.UserName ?? "Unknown Author",
+            AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime
         };
 

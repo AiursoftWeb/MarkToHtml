@@ -235,8 +235,7 @@ public class HomeController(
                 id, document.PublicId, userId);
         }
 
-        var publicLink = Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme);
-        return Ok(new { publicId = document.PublicId, publicLink = publicLink });
+        return Ok(new { publicId = document.PublicId });
     }
 
     /// <summary>
