@@ -57,6 +57,12 @@
                                 <i class="align-middle" data-lucide="copy"></i>
                                 @Localizer["Copy"]
                             </button>
+                            <a href="@Url.Action("Raw", "Public", new { publicId = ViewBag.PublicId })" class="btn btn-outline-secondary btn-sm"
+                                target="_blank"
+                                title="@Localizer["View raw Markdown"]">
+                                <i class="align-middle" data-lucide="external-link"></i>
+                                @Localizer["Raw"]
+                            </a>
                         </div>
                         <textarea class="form-control markdown-textarea" id="markdown-viewer" readonly
                             rows="25">@Model.MarkdownContent</textarea>

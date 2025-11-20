@@ -52,6 +52,7 @@ public class PublicController(
             CreationTime = document.CreationTime
         };
 
+        ViewBag.PublicId = publicId;
         return this.StackView(model);
     }
 
