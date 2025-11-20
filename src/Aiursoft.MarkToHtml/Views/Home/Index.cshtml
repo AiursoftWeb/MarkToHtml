@@ -152,13 +152,13 @@
 
                         @* --- Preview Pane --- *@
                         <div class="tab-pane flex-column h-100" id="preview" role="tabpanel">
-                            <div class="toolbar-container bg-light border-bottom p-2 d-flex align-items-center justify-content-end flex-shrink-0">
+                            <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-end flex-shrink-0">
                                 <button type="button" id="print-button" class="btn btn-sm btn-white border shadow-sm text-info">
                                     <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
                                 </button>
                             </div>
 
-                            <div class="flex-grow-1 overflow-auto p-4 bg-white" id="printable-area">
+                            <div class="flex-grow-1 overflow-auto p-4 bg-white markdown-content" id="printable-area">
                                 @Html.Raw(Model.OutputHtml)
                             </div>
                         </div>
@@ -222,26 +222,10 @@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
-    <style>
-        /* Layout & Scroll Fixes */
-        .toolbar-container { height: 50px; overflow: hidden; }
-        .editor-wrapper .CodeMirror {
-            height: 100% !important; position: absolute; top: 0; left: 0; width: 100%;
-            border-radius: 0; border: none;
-        }
-        .card-header-tabs { margin-bottom: -1px; border-bottom: 0; }
-        .tab-pane.active { display: flex !important; }
-        .mermaid svg, svg[id^="m-"] { width: 100%; max-width: 100%; height: auto; }
-        
-        /* Print Fixes */
-        @@media print {
-            @@page { margin: 1cm; }
-            body * { visibility: hidden; }
-            #printable-area, #printable-area * { visibility: visible; }
-            #printable-area { position: absolute; left: 0; top: 0; width: 100%; padding: 0; margin: 0; }
-            .row, .col-lg-6, .card, .tab-content, .tab-pane { height: auto !important; display: block !important; }
-        }
-    </style>
+
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
 }
 
 @section scripts {

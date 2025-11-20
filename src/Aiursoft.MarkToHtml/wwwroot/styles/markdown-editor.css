@@ -1,0 +1,49 @@
+/* markdown-editor.css */
+
+/* 1. 工具栏固定高度，防止塌陷 */
+.toolbar-container {
+    height: 50px;
+    overflow: hidden;
+}
+
+/* 2. Tab 样式微调，去除多余边框 */
+.card-header-tabs {
+    margin-bottom: -1px;
+    border-bottom: 0;
+}
+
+/* 3. 修复 Bootstrap tab-pane 在 active 时的 display 属性 */
+/* 这是一个关键修复，让 flex-column 布局在 tab 中生效 */
+.tab-pane.active {
+    display: flex !important;
+}
+
+/* 4. CodeMirror 编辑器容器强制填满 */
+/* 用于 Index 页面 */
+.editor-wrapper .CodeMirror {
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+}
+
+/* 5. 原生 Textarea 查看器样式 */
+/* 用于 Public 页面 */
+.markdown-textarea {
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    background-color: #f8f9fa;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border: 0;
+    resize: none;
+    /* 禁止手动拖拽大小，由 flex 控制 */
+}
+
+.markdown-textarea:focus {
+    box-shadow: none;
+    background-color: #fff;
+}
