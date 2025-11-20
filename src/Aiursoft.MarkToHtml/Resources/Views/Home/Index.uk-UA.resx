@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Прочитати документацію</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Це шаблонний проект, з якого ми починаємо нашу подорож...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Не вдалося скопіювати текст.</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Копіювати посилання</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Скопіювати посилання в буфер обміну</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Зробити приватним</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Зробити документ приватним</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Поділитися публічно</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Зробити публічним</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Поділіться цим документом публічно за допомогою унікального посилання, яке будь-хто зможе відкрити без входу в систему.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Не вдалося скопіювати посилання.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Виникла помилка. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Не вдалося оприлюднити документ. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Не вдалося зробити документ приватним. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Ви впевнені, що хочете зробити цей документ приватним?</value>
   </data>
 
 </root>

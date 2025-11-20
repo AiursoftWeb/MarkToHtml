@@ -105,7 +105,7 @@
   <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
     <value>Bietet vollständige Docker-Unterstützung für vereinfachte, konsistente und zuverlässige Bereitstellungen.</value>
   </data>
-   <data name="Read the document" xml:space="preserve">
+  <data name="Read the document" xml:space="preserve">
     <value>Dokumentation lesen</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>In HTML konvertieren</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Öffentlich machen</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Dokument privat machen</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Link kopieren</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Öffentlich teilen</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Privat machen</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Link in die Zwischenablage kopieren</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Teilen Sie dieses Dokument öffentlich mit einem eindeutigen Link, auf den jeder ohne Anmeldung zugreifen kann.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Wenn Sie dieses Dokument privat machen, funktioniert der bestehende öffentliche Link nicht mehr. Sind Sie sicher, dass Sie fortfahren möchten?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Das Dokument konnte nicht veröffentlicht werden. Bitte versuchen Sie es erneut.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Das Dokument konnte nicht auf privat gestellt werden. Bitte versuchen Sie es erneut.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Link konnte nicht kopiert werden.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Sind Sie sicher, dass Sie dieses Dokument privat machen möchten?</value>
   </data>
 
 </root>

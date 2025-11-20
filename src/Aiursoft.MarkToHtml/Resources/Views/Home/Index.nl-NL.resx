@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Lees het document</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dit is een templateproject, waar we de verkenning beginnen...</value>
   </data>
   <data name="Success!" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Copied!" xml:space="preserve">
     <value>Gekopieerd!</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Link naar klembord kopiëren</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Document privé maken</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Privé maken</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Link kopiëren</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Openbaar maken</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Openbaar delen</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Deel dit document openbaar met een unieke link die iedereen zonder inloggen kan openen.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Nadat u dit document privé heeft gemaakt, zal de bestaande openbare link niet meer werken. Weet u zeker dat u door wilt gaan?</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Weet u zeker dat u dit document privé wilt maken?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Kan link niet kopiëren.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Er is een fout opgetreden. Probeer het opnieuw.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Het is niet gelukt om het document openbaar te maken. Probeer het opnieuw.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Het is niet gelukt om het document privé te maken. Probeer het opnieuw.</value>
   </data>
 
 </root>

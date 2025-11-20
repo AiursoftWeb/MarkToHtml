@@ -17,7 +17,7 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "10.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -34,6 +34,9 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<Guid?>("PublicId")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)

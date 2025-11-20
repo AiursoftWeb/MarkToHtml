@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Διαβάστε το έγγραφο</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Αυτό είναι ένα πρότυπο έργο, από όπου ξεκινάμε το ταξίδι...</value>
   </data>
   <data name="Success!" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Αποτυχία αντιγραφής κειμένου.</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Κάνε το έγγραφο ιδιωτικό</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Αντιγραφή συνδέσμου στο πρόχειρο</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Κάντε Ιδιωτικό</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Αντιγραφή Συνδέσμου</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Δημοσιοποίηση</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Διαμοιραστείτε Δημόσια</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Μοιραστείτε δημόσια αυτό το έγγραφο με έναν μοναδικό σύνδεσμο που μπορεί να προσεγγίσει οποιοσδήποτε χωρίς να χρειαστεί σύνδεση.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Αφού κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος δεν θα λειτουργεί πλέον. Είστε σίγουροι ότι θέλετε να συνεχίσετε;</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Προέκυψε σφάλμα. Παρακαλώ δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Αποτυχία αντιγραφής συνδέσμου.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Αποτυχία δημοσίευσης εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Είστε σίγουροι ότι θέλετε να κάνετε αυτό το έγγραφο ιδιωτικό;</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Αποτυχία κατά την απενεργοποίηση της δημόσιας πρόσβασης του εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
   </data>
 
 </root>

@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>दस्तावेज़ पढ़ें</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>यह एक टेम्पलेट प्रोजेक्ट है, जहाँ से हम वॉयजर की शुरुआत करते हैं...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>सार्वजनिक करें</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>निजी बनाएं</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>दस्तावेज़ निजी बनाएं</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>सार्वजनिक रूप से साझा करें</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>लिंक कॉपी करें</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>लिंक को क्लिपबोर्ड पर कॉपी करें</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>इस दस्तावेज़ को सार्वजनिक रूप से एक अद्वितीय लिंक के साथ साझा करें जिसे कोई भी बिना लॉग इन किए एक्सेस कर सकता है।</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>इस दस्तावेज़ को निजी बनाने के बाद, मौजूदा सार्वजनिक लिंक काम नहीं करेगा। क्या आप वाकई आगे बढ़ना चाहते हैं?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>एक त्रुटि हुई। कृपया पुनः प्रयास करें।</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>लिंक कॉपी करने में विफल।</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>दस्तावेज़ को निजी बनाने में विफल। कृपया पुनः प्रयास करें।</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>दस्तावेज़ को सार्वजनिक बनाने में विफल। कृपया पुनः प्रयास करें।</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>क्या आप वाकई इस दस्तावेज़ को निजी बनाना चाहते हैं?</value>
   </data>
 
 </root>

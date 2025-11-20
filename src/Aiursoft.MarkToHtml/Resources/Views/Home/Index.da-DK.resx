@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Læs dokumentationen</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dette er et skabelonprojekt, hvor vi starter rejsen...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Kunne ikke kopiere tekst.</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Kopier link</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Kopier link til udklipsholder</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Del offentligt</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Gør privat</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Gør offentlig</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Gør dokument privat</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Del dette dokument offentligt med et unikt link, som alle kan tilgå uden at logge ind.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Efter at gøre dette dokument privat, vil den eksisterende offentlige link ikke længere virke. Er du sikker på, at du vil fortsætte?</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Der opstod en fejl. Prøv venligst igen.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Kunne ikke gøre dokumentet offentligt. Prøv venligst igen.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Kunne ikke kopiere linket.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Kunne ikke gøre dokumentet privat. Prøv venligst igen.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Er du sikker på, at du vil gøre dette dokument privat?</value>
   </data>
 
 </root>

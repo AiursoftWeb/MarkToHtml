@@ -106,6 +106,10 @@ public class HomeController(
             return NotFound("The document was not found or you do not have permission to edit it.");
         }
 
+        var publicLink = document.PublicId.HasValue
+            ? Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme)
+            : null;
+
         var model = new IndexViewModel
         {
             DocumentId = document.Id,
@@ -113,7 +117,9 @@ public class HomeController(
             InputMarkdown = document.Content ?? string.Empty,
             OutputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty),
             IsEditing = true,
-            SavedSuccessfully = saved ?? false
+            SavedSuccessfully = saved ?? false,
+            PublicId = document.PublicId,
+            PublicLink = publicLink
         };
 
         return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
@@ -202,5 +208,62 @@ public class HomeController(
         logger.LogInformation("Document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);
 
         return RedirectToAction(nameof(History));
+    }
+
+    /// <summary>
+    /// Make a document public by generating a PublicId.
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> MakePublic([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        if (!document.PublicId.HasValue)
+        {
+            document.PublicId = Guid.NewGuid();
+            await context.SaveChangesAsync();
+            logger.LogInformation("Document with ID: '{DocumentId}' was made public with PublicId: '{PublicId}' by user: '{UserId}'.",
+                id, document.PublicId, userId);
+        }
+
+        return Ok(new { publicId = document.PublicId });
+    }
+
+    /// <summary>
+    /// Make a document private by removing its PublicId.
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> MakePrivate([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        if (document.PublicId.HasValue)
+        {
+            var publicId = document.PublicId;
+            document.PublicId = null;
+            await context.SaveChangesAsync();
+            logger.LogInformation("Document with ID: '{DocumentId}' was made private (removed PublicId: '{PublicId}') by user: '{UserId}'.",
+                id, publicId, userId);
+        }
+
+        return Ok();
     }
 }

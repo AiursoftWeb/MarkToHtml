@@ -105,7 +105,7 @@
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>智慧深色模式，可自動適應使用者的系統設定。</value>
   </data>
-   <data name="Read the document" xml:space="preserve">
+  <data name="Read the document" xml:space="preserve">
     <value>閱讀文件</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>複製文字失敗。</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>設為私人</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>設為私人文件</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>複製連結到剪貼簿</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>設為公開</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>複製連結</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>公開分享</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>透過獨特的連結公開分享此文件，無需登入即可讓任何人存取。</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>將此文件設為私有後，現有的公開連結將失效。您確定要繼續嗎？</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>無法將文件設為私密。請再試一次。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>您確定要將此文件設為私人嗎？</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>無法將文件設為公開。請再試一次。</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>發生錯誤，請再試一次。</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>複製連結失敗。</value>
   </data>
 
 </root>

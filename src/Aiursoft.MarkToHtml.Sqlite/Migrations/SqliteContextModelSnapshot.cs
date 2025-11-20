@@ -15,7 +15,7 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
                 {
@@ -28,6 +28,9 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid?>("PublicId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")

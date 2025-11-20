@@ -23,4 +23,10 @@ public class MarkdownDocument
     [ForeignKey(nameof(UserId))]
     [NotNull]
     public User? User { get; set; }
+
+    /// <summary>
+    /// Public identifier (UUID) for sharing the document publicly.
+    /// If null, the document is private.
+    /// </summary>
+    public Guid? PublicId { get; set; }
 }

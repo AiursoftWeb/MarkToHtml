@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>文件預覽</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>列印預覽</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>複製文字失敗。</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>原始碼</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>檢視原始 Markdown</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>複製 Markdown 到剪貼簿</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>已複製！</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>預覽</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+
+</root>

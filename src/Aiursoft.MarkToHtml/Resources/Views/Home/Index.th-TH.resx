@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>อ่านเอกสาร</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>นี่คือโครงการเทมเพลต ซึ่งเป็นจุดเริ่มต้นของการเดินทาง...</value>
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>คัดลอกข้อความไม่สำเร็จ</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>แชร์สาธารณะ</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>คัดลอกลิงก์</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>ทำให้เอกสารเป็นส่วนตัว</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>เปิดให้สาธารณะ</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>ตั้งค่าเป็นส่วนตัว</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>คัดลอกลิงก์ไปยังคลิปบอร์ด</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>หลังจากที่ทำให้เอกสารถูกตั้งค่าเป็นส่วนตัวแล้ว ลิงก์สาธารณะที่มีอยู่จะใช้งานไม่ได้อีกต่อไป คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>แชร์เอกสารนี้แบบสาธารณะด้วยลิงก์เฉพาะที่ทุกคนสามารถเข้าถึงได้โดยไม่ต้องเข้าสู่ระบบ</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>เกิดข้อผิดพลาด กรุณาลองอีกครั้ง</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>ไม่สามารถทำให้เอกสารเป็นสาธารณะได้ กรุณาลองอีกครั้ง</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>ไม่สามารถตั้งค่าเอกสารเป็นส่วนตัวได้ กรุณาลองอีกครั้ง</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>ไม่สามารถคัดลอกลิงก์ได้</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการทำให้เอกสารนี้เป็นแบบส่วนตัว?</value>
   </data>
 
 </root>

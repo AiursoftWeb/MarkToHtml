@@ -1,0 +1,299 @@
+@using Aiursoft.MarkToHtml.Controllers
+@model Aiursoft.MarkToHtml.Models.PublicViewModels.PublicDocumentViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Model.DocumentTitle</h3>
+    </div>
+    <div class="col-auto ms-auto text-end mt-n1">
+        <p class="mb-0 text-muted">
+            <i class="align-middle" data-lucide="user"></i> @Model.AuthorName
+        </p>
+        <p class="mb-0 text-muted text-sm">
+            <i class="align-middle" data-lucide="calendar"></i> @Model.CreationTime.ToString("yyyy-MM-dd HH:mm")
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="true">
+                            <i class="align-middle" data-lucide="eye"></i>
+                            @Localizer["Preview"]
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="#markdown" data-bs-toggle="tab" role="tab" aria-selected="false">
+                            <i class="align-middle" data-lucide="file-text"></i>
+                            @Localizer["Markdown"]
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    @* Preview Pane *@
+                    <div class="tab-pane active show" id="preview" role="tabpanel">
+                        <button type="button" id="print-button" class="btn btn-outline-info btn-sm"
+                            title="@Localizer["Print Preview"]">
+                            <i class="align-middle" data-lucide="printer"></i>
+                            @Localizer["Print"]
+                        </button>
+                        <div id="printable-area" class="markdown-content">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+                    @* Markdown Pane *@
+                    <div class="tab-pane" id="markdown" role="tabpanel">
+                        <div class="mb-3">
+                            <button type="button" id="copy-markdown-button" class="btn btn-outline-primary btn-sm"
+                                title="@Localizer["Copy Markdown to clipboard"]">
+                                <i class="align-middle" data-lucide="copy"></i>
+                                @Localizer["Copy"]
+                            </button>
+                            <a href="@Url.Action("Raw", "Public", new { publicId = ViewBag.PublicId })" class="btn btn-outline-secondary btn-sm"
+                                target="_blank"
+                                title="@Localizer["View raw Markdown"]">
+                                <i class="align-middle" data-lucide="external-link"></i>
+                                @Localizer["Raw"]
+                            </a>
+                        </div>
+                        <textarea class="form-control markdown-textarea" id="markdown-viewer" readonly
+                            rows="25">@Model.MarkdownContent</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .markdown-content {
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .markdown-content h1,
+    .markdown-content h2,
+    .markdown-content h3,
+    .markdown-content h4,
+    .markdown-content h5,
+    .markdown-content h6 {
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        font-weight: 600;
+    }
+
+    .markdown-content h1 {
+        font-size: 2em;
+        border-bottom: 2px solid #eaecef;
+        padding-bottom: 0.3em;
+    }
+
+    .markdown-content h2 {
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 0.3em;
+    }
+
+    .markdown-content h3 {
+        font-size: 1.25em;
+    }
+
+    .markdown-content p {
+        margin-bottom: 0.5em;
+    }
+
+    .markdown-content ul,
+    .markdown-content ol {
+        margin: 0.5em 0 0.5em 2em;
+    }
+
+    .markdown-content li {
+        margin-bottom: 0.25em;
+    }
+
+    .markdown-content blockquote {
+        border-left: 4px solid #ddd;
+        margin: 0.5em 0;
+        padding-left: 1em;
+        color: #666;
+    }
+
+    .markdown-content code {
+        background-color: #f5f5f5;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+    }
+
+    .markdown-content pre {
+        background-color: #f5f5f5;
+        padding: 1em;
+        border-radius: 3px;
+        overflow-x: auto;
+        margin: 0.5em 0;
+    }
+
+    .markdown-content pre code {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .markdown-content table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .markdown-content table th,
+    .markdown-content table td {
+        border: 1px solid #ddd;
+        padding: 0.75em;
+        text-align: left;
+    }
+
+    .markdown-content table th {
+        background-color: #f5f5f5;
+        font-weight: 600;
+    }
+
+    .markdown-content a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .markdown-content a:hover {
+        text-decoration: underline;
+    }
+
+    .markdown-content img {
+        max-width: 100%;
+        height: auto;
+        margin: 0.5em 0;
+    }
+
+    .markdown-textarea {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        min-height: 300px;
+    }
+</style>
+
+<style>
+    @@media print {
+        .card-header {
+            display: none;
+        }
+
+        #print-button {
+            display: none;
+        }
+
+        .nav-tabs {
+            display: none;
+        }
+
+        .tab-pane {
+            display: block !important;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Print button
+        const printButton = document.getElementById('print-button');
+        if (printButton) {
+            printButton.addEventListener('click', function () {
+                window.print();
+            });
+        }
+
+        // Copy markdown button
+        const copyMarkdownButton = document.getElementById('copy-markdown-button');
+        if (copyMarkdownButton) {
+            copyMarkdownButton.addEventListener('click', function () {
+                const markdownViewer = document.getElementById('markdown-viewer');
+                if (markdownViewer) {
+                    navigator.clipboard.writeText(markdownViewer.value).then(function () {
+                        const originalText = copyMarkdownButton.innerHTML;
+                        copyMarkdownButton.innerHTML = '<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]';
+                        setTimeout(function () {
+                            copyMarkdownButton.innerHTML = originalText;
+                        }, 2000);
+                    }, function (err) {
+                        console.error('Could not copy text: ', err);
+                        confirm('@Localizer["Failed to copy text."]');
+                    });
+                }
+            });
+        }
+    });
+</script>
+
+@{
+    // Determine dark mode from cookie for mermaid theme selection
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@* Load mermaid and render mermaid blocks inside printable area for public view *@
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (window.mermaid) {
+                    mermaid.initialize({
+                        startOnLoad: false,
+                        theme: '@(isDarkMode ? "dark" : "default")',
+                        flowchart: { useMaxWidth: true },
+                        sequence: { useMaxWidth: true }
+                    });
+
+                    const printable = document.getElementById('printable-area');
+                    if (printable) {
+                        const mermaidBlocks = printable.querySelectorAll('pre.mermaid, .mermaid');
+                        if (mermaidBlocks.length > 0) {
+                            mermaidBlocks.forEach((block, index) => {
+                                const code = block.textContent || '';
+                                const id = 'm-public-' + (index + 1) + '-' + Math.random().toString(36).slice(2);
+                                try {
+                                    mermaid.parse(code);
+                                    mermaid.render(id, code).then(({ svg }) => {
+                                        const wrapper = document.createElement('div');
+                                        wrapper.innerHTML = svg;
+                                        block.replaceWith(wrapper);
+                                    }).catch(err => {
+                                        const errPre = document.createElement('pre');
+                                        errPre.className = 'text-danger';
+                                        errPre.textContent = (err && (err.message || err)) || 'Mermaid render error';
+                                        block.replaceWith(errPre);
+                                    });
+                                } catch (e) {
+                                    const errPre = document.createElement('pre');
+                                    errPre.className = 'text-danger';
+                                    errPre.textContent = (e && (e.message || e)) || 'Mermaid parse error';
+                                    block.replaceWith(errPre);
+                                }
+                            });
+                        }
+                    }
+                }
+            } catch (ex) {
+                // swallow errors, don't break public page
+                console.error('Mermaid init/render error on public page:', ex);
+            }
+        });
+    </script>
+}

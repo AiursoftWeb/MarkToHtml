@@ -105,7 +105,7 @@
   <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
     <value>完全なDockerサポートにより、簡素化された一貫性のある信頼性の高いデプロイが可能です。</value>
   </data>
-   <data name="Read the document" xml:space="preserve">
+  <data name="Read the document" xml:space="preserve">
     <value>ドキュメントを読む</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>テキストのコピーに失敗しました。</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>ドキュメントを非公開にする</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>リンクをコピー</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>非公開にする</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>公開する</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>公開共有</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>このドキュメントを一意のリンクで公開し、ログインなしで誰でもアクセスできるように共有します。</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>リンクをクリップボードにコピー</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>この文書を非公開にすると、既存の公開リンクは機能しなくなります。続行してもよろしいですか？</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>エラーが発生しました。もう一度お試しください。</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>ドキュメントを非公開にできませんでした。もう一度お試しください。</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>ドキュメントを公開できませんでした。もう一度お試しください。</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>このドキュメントを非公開にしてもよろしいですか？</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>リンクのコピーに失敗しました。</value>
   </data>
 
 </root>
