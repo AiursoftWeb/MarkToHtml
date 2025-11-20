@@ -390,7 +390,7 @@
                         copyButton.innerHTML = `@Localizer["Copied!"]`;
                     }, function (err) {
                         console.error('Could not copy text: ', err);
-                        alert('@Localizer["Failed to copy text."]');
+                        confirm('@Localizer["Failed to copy text."]');
                     });
                 });
             }
@@ -508,11 +508,11 @@
                             // Reload the page to show the public link
                             window.location.reload();
                         } else {
-                            alert('@Localizer["Failed to make document public. Please try again."]');
+                            confirm('@Localizer["Failed to make document public. Please try again."]');
                         }
                     } catch (error) {
-                        console.error('Error making document public:', error);
-                        alert('@Localizer["An error occurred. Please try again."]');
+                        console.error('Error making document private:', error);
+                        confirm('@Localizer["An error occurred. Please try again."]');
                     }
                 });
             }
@@ -565,11 +565,11 @@
                         }
                         window.location.reload();
                     } else {
-                        alert('@Localizer["Failed to make document private. Please try again."]');
+                        confirm('@Localizer["Failed to make document private. Please try again."]');
                     }
                 } catch (error) {
                     console.error('Error making document private:', error);
-                    alert('@Localizer["An error occurred. Please try again."]');
+                    confirm('@Localizer["An error occurred. Please try again."]');
                 }
             }
 
@@ -583,7 +583,7 @@
                         }, 2000);
                     }, function (err) {
                         console.error('Could not copy link: ', err);
-                        alert('@Localizer["Failed to copy link."]');
+                        confirm('@Localizer["Failed to copy link."]');
                     });
                 });
             }

@@ -233,7 +233,7 @@
                         }, 2000);
                     }, function (err) {
                         console.error('Could not copy text: ', err);
-                        alert('@Localizer["Failed to copy text."]');
+                        confirm('@Localizer["Failed to copy text."]');
                     });
                 }
             });
