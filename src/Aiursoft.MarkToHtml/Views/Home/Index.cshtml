@@ -27,169 +27,172 @@
 }
 
 <form asp-action="Index" method="post" id="markdown-form">
-    <div class="row">
-        @* Left Column: Markdown Input *@
-        <div class="col-lg-6 d-flex">
-            <div class="card flex-fill">
-                <div class="card-header">
+    <div class="row" style="height: calc(100vh - 240px); min-height: 500px;">
+        
+        @* --- Left Column: Markdown Input --- *@
+        <div class="col-lg-6 h-100 pb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header border-bottom">
                     <h5 class="card-title mb-0">
                         <i class="align-middle" data-lucide="file-text">&nbsp;</i>
                         @Localizer["Markdown Input"]
                     </h5>
                 </div>
-                <div class="card-body p-2">
-                    @* Add this block for editing title if in editing mode *@
-                    @if (Model.IsEditing)
-                    {
-                        <input type="hidden" asp-for="DocumentId" />
-                        <div class="mb-3">
-                            <label asp-for="Title" class="form-label">@Localizer["Document Title (optional)"]</label>
-                            <input asp-for="Title" class="form-control form-control-lg"
-                                placeholder="@Localizer["Document Title (optional)"]" />
-                            <span asp-validation-for="Title" class="text-danger"></span>
-                        </div>
-                    }
-
-                    <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
-                        placeholder="@Localizer["Type your Markdown here..."]"></textarea>
-                    <span asp-validation-for="InputMarkdown" class="text-danger"></span>
-                </div>
-            </div>
-        </div>
-
-        @* Right Column: Standalone Tab Component *@
-        <div class="col-lg-6 d-flex flex-column">
-
-            @* The tab component now stands alone and fills the available space *@
-            <div class="tab flex-grow-1">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        @* The 'active' class is now on the link (<a>), not the list item (<li>) *@
-                        <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
-                            <i class="align-middle" data-lucide="code-2">&nbsp;</i>
-                            @Localizer["Code"]
-                        </a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
-                            <i class="align-middle" data-lucide="eye">&nbsp;</i>
-                            @Localizer["Preview"]
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content pt-3">
-                    @* Code Pane *@
-                    <div class="tab-pane active show" id="code" role="tabpanel">
-                        <button type="button" id="copy-button" class="btn btn-outline-primary mb-2"
-                            title="@Localizer["Copy HTML to clipboard"]">
-                            <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy"]
-                        </button>
-                        <textarea class="form-control" rows="25" id="html-output" readonly>@Model.OutputHtml</textarea>
-                    </div>
-                    @* Preview Pane *@
-                    <div class="tab-pane" id="preview" role="tabpanel">
-                        @if (!string.IsNullOrEmpty(Model.OutputHtml))
+                <div class="card-body p-0 d-flex flex-column h-100">
+                    
+                    <div class="toolbar-container border-bottom p-2 d-flex align-items-center flex-shrink-0">
+                        @if (Model.IsEditing)
                         {
-                            <button type="button" id="print-button" class="btn btn-outline-info mb-2"
-                                title="@Localizer["Print Preview"]">
-                                <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
-                            </button>
-
-                            <div id="printable-area">
-                                @Html.Raw(Model.OutputHtml)
+                            <input type="hidden" asp-for="DocumentId" />
+                            <div class="input-group input-group-sm w-100">
+                                <span class="input-group-text bg-white text-muted">@Localizer["Title"]</span>
+                                <input asp-for="Title" class="form-control" placeholder="@Localizer["Untitled Document"]" />
                             </div>
                         }
                         else
                         {
-                            <div class="text-center p-5">
-                                <p class="text-muted">@Localizer["HTML preview will appear here after conversion."]</p>
-                            </div>
+                            <span class="text-muted small ms-2">@Localizer["Create a new document..."]</span>
                         }
                     </div>
+                    
+                    @* 编辑器区域 *@
+                    <div class="flex-grow-1 position-relative editor-wrapper">
+                        <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
+                            placeholder="@Localizer["Type your Markdown here..."]"></textarea>
+                    </div>
+                    <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
                 </div>
             </div>
+        </div>
 
-            @* Public Sharing Section *@
-            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
-            {
-                <div class="row mb-3">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-end">
-                            <div class="card border-info share-card" style="min-width:260px;">
-                                <div class="card-header bg-light">
-                                    <h5 class="card-title mb-0">
-                                        <i class="align-middle" data-lucide="share-2"></i>
-                                        @Localizer["Share Publicly"]
-                                    </h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="text-muted mb-2">@Localizer["Share this document publicly with a unique link that anyone can access without logging in."]</p>
-                                    @if (Model.IsPublic && Model.PublicId.HasValue)
+        @* --- Right Column: Output & Settings --- *@
+        <div class="col-lg-6 h-100 pb-3">
+            <div class="card h-100 shadow-sm">
+                @* 右侧 Header *@
+                <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
+                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
+                            </a>
+                        </li>
+                    </ul>
+
+                    @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+                    {
+                        @* 修复：使用 Bootstrap Dropdown 替代原生 Select 以避免定位 bug *@
+                        <div class="dropdown ms-auto mb-2">
+                            <button class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center justify-content-between" 
+                                    type="button" 
+                                    id="privacyDropdownBtn" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false" 
+                                    style="min-width: 140px;">
+                                @if (Model.PublicId.HasValue)
+                                {
+                                    <span class="text-success fw-bold"><i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]</span>
+                                }
+                                else
+                                {
+                                    <span class="text-secondary"><i class="align-middle" data-lucide="lock"></i> @Localizer["Private"]</span>
+                                }
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privacyDropdownBtn">
+                                <li>
+                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="private">
+                                        <i class="align-middle me-1" data-lucide="lock"></i> @Localizer["Private - Only you"]
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="public">
+                                        <i class="align-middle me-1" data-lucide="globe"></i> @Localizer["Public - Anyone with link"]
+                                    </button>
+                                </li>
+                            </ul>
+                            @* 隐藏域存储当前状态供 JS 读取 *@
+                            <input type="hidden" id="current-privacy-state" value="@(Model.PublicId.HasValue ? "public" : "private")" />
+                        </div>
+                    }
+                </div>
+
+                <div class="card-body p-0 d-flex flex-column overflow-hidden">
+                    
+                    <div class="tab-content flex-grow-1 d-flex flex-column p-0" style="height: 100%;">
+                        
+                        @* --- Code Pane --- *@
+                        <div class="tab-pane active show flex-column h-100" id="code" role="tabpanel">
+                             
+                             @* 右侧工具栏 *@
+                             <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
+                                <div class="small text-muted flex-grow-1 me-2">
+                                    @if (Model.PublicId.HasValue)
                                     {
-                                        <div class="input-group mb-2">
-                                            <input type="text" class="form-control" id="public-link" readonly
-                                                value="@Model.PublicLink" />
-                                            <button class="btn btn-outline-info" type="button" id="copy-link-button"
-                                                title="@Localizer["Copy link to clipboard"]">
-                                                <i class="align-middle" data-lucide="copy"></i>
-                                                @Localizer["Copy Link"]
-                                            </button>
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <button class="btn btn-outline-danger btn-sm" type="button"
-                                                id="make-private-button">
-                                                <i class="align-middle" data-lucide="lock"></i>
-                                                @Localizer["Make Private"]
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control bg-white" id="public-link" readonly value="@Model.PublicLink" />
+                                            <button class="btn btn-outline-secondary" type="button" id="copy-link-button" title="@Localizer["Copy Link"]">
+                                                <i class="align-middle" data-lucide="link"></i>
                                             </button>
                                         </div>
                                     }
-                                    else
-                                    {
-                                        <div class="d-flex justify-content-end">
-                                            <button class="btn btn-info" type="button" id="make-public-button">
-                                                <i class="align-middle" data-lucide="unlock"></i>
-                                                @Localizer["Make Public"]
-                                            </button>
-                                        </div>
-                                    }
                                 </div>
+                                <button type="button" id="copy-button" class="btn btn-sm btn-white border shadow-sm text-primary flex-shrink-0">
+                                    <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy HTML"]
+                                </button>
+                            </div>
+
+                            <div class="flex-grow-1 position-relative editor-wrapper">
+                                <textarea class="form-control" id="html-output" readonly>@Model.OutputHtml</textarea>
+                            </div>
+                        </div>
+
+                        @* --- Preview Pane --- *@
+                        <div class="tab-pane flex-column h-100" id="preview" role="tabpanel">
+                            <div class="toolbar-container bg-light border-bottom p-2 d-flex align-items-center justify-content-end flex-shrink-0">
+                                <button type="button" id="print-button" class="btn btn-sm btn-white border shadow-sm text-info">
+                                    <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
+                                </button>
+                            </div>
+
+                            <div class="flex-grow-1 overflow-auto p-4 bg-white" id="printable-area">
+                                @Html.Raw(Model.OutputHtml)
                             </div>
                         </div>
                     </div>
                 </div>
-            }
-
+            </div>
         </div>
     </div>
 
     @* Submit Button Row *@
     <div class="row mt-3">
         <div class="col text-center">
-            @* Add the back button *@
             @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
             {
                 <a asp-action="History" class="btn btn-outline-secondary btn-lg mr-2">
-                    <i class="align-middle" data-lucide="file-text">&nbsp;</i>
+                    <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
                     @Localizer["My Documents"]
                 </a>
             }
 
-            <button type="submit" class="btn btn-primary btn-lg">
+            <button type="submit" class="btn btn-primary btn-lg shadow">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
-                    <i class="align-middle" data-lucide="check-circle">&nbsp;</i>
-                    @Localizer["Convert and save"]
+                    <i class="align-middle" data-lucide="save">&nbsp;</i>
+                    @Localizer["Save Changes"]
                 }
                 else
                 {
-                    <i class="align-middle" data-lucide="chevrons-right">&nbsp;</i>
+                    <i class="align-middle" data-lucide="play">&nbsp;</i>
                     @Localizer["Convert to HTML"]
                 }
             </button>
         </div>
     </div>
-
-    @* Public Sharing Section moved to the right column above Code/Preview tabs *@
 </form>
 
 @{
@@ -197,142 +200,50 @@
     var theme = isDarkMode ? "material" : "eclipse";
 }
 
-@* Confirmation modal for making a document private *@
-<div class="modal fade" id="confirmPrivateModal" tabindex="-1" aria-labelledby="confirmPrivateModalLabel" aria-hidden="true">
+@* Confirmation modal *@
+<div class="modal fade" id="confirmPrivateModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmPrivateModalLabel">@Localizer["Make document private"]</h5>
+                <h5 class="modal-title">@Localizer["Change to Private?"]</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>@Localizer["After making this document private, the existing public link will no longer work. Are you sure you want to proceed?"]</p>
+                <p>@Localizer["If you make this document private, the existing public link will immediately stop working for everyone."] @Localizer["Are you sure?"]</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
-                <button type="button" class="btn btn-danger" id="confirm-make-private">@Localizer["Make Private"]</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel-private-action">@Localizer["Cancel"]</button>
+                <button type="button" class="btn btn-danger" id="confirm-make-private">@Localizer["Yes, Make Private"]</button>
             </div>
         </div>
     </div>
 </div>
 
-@* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
     <style>
-        .share-card {
-            width: 100%;
+        /* Layout & Scroll Fixes */
+        .toolbar-container { height: 50px; overflow: hidden; }
+        .editor-wrapper .CodeMirror {
+            height: 100% !important; position: absolute; top: 0; left: 0; width: 100%;
+            border-radius: 0; border: none;
         }
-    </style>
-    <style>
-        .CodeMirror,
-        #preview {
-            max-height: 70vh;
-        }
-
-        #preview {
-            overflow-y: auto;
-        }
-
-        .CodeMirror {
-            border: 1px solid #dee2e6;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .CodeMirror-scroll {
-            flex-grow: 1;
-            overflow: auto !important;
-            position: relative;
-        }
-
-        .mermaid svg,
-        svg[id^="m-"] {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-        }
-
+        .card-header-tabs { margin-bottom: -1px; border-bottom: 0; }
+        .tab-pane.active { display: flex !important; }
+        .mermaid svg, svg[id^="m-"] { width: 100%; max-width: 100%; height: auto; }
+        
+        /* Print Fixes */
         @@media print {
-            @@page {
-                margin-top: 2cm;
-                margin-bottom: 2cm;
-            }
-
-            body * {
-                visibility: hidden;
-            }
-
-            #printable-area,
-            #printable-area * {
-                visibility: visible;
-            }
-
-            #printable-area {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                padding: 1.2cm;
-            }
-
-            #printable-area pre,
-            #printable-area code {
-                white-space: pre-wrap !important;
-                overflow-wrap: break-word;
-                word-wrap: break-word;
-                color: #222 !important;
-            }
-
-            #printable-area {
-                font-family: Georgia, "Times New Roman", serif;
-                font-size: 12pt;
-                svg[id^="m-"];
-                line-height: 1.5;
-                color: #000 !important;
-            }
-
-            #printable-area strong,
-            #printable-area b {
-                font-weight: 700 !important;
-                /* Use a heavy font-weight */
-                color: inherit !important;
-            }
-
-            #printable-area h1,
-            #printable-area h2,
-            #printable-area h3 {
-                margin-top: 24pt;
-                margin-bottom: 12pt;
-            }
-
-            #printable-area a[href]::after {
-                content: " (" attr(href) ")";
-                font-size: 9pt;
-                color: #555;
-            }
-
-            #printable-area table {
-                width: 100%;
-                svg[id^="m-"];
-                border-collapse: collapse;
-                margin-top: 1rem;
-                font-size: 11pt;
-            }
-
-            #printable-area th,
-            #printable-area td {
-                border: 1px solid #ccc;
-                padding: 0.5rem;
-                text-align: left;
-            }
+            @@page { margin: 1cm; }
+            body * { visibility: hidden; }
+            #printable-area, #printable-area * { visibility: visible; }
+            #printable-area { position: absolute; left: 0; top: 0; width: 100%; padding: 0; margin: 0; }
+            .row, .col-lg-6, .card, .tab-content, .tab-pane { height: auto !important; display: block !important; }
         }
     </style>
 }
 
-@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
     <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
@@ -342,248 +253,133 @@
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let markdownEditorInstance;
-            let htmlOutputInstance;
+            let markdownEditorInstance, htmlOutputInstance;
+            if ($.validator) $.validator.setDefaults({ ignore: [] });
 
-            // --- jQuery Validation Setup. Don't ignore hidden fields (CodeMirror will hide the original textarea) ---
-            if ($.validator) {
-                $.validator.setDefaults({
-                    ignore: []
-                });
-            }
-
-            // --- CodeMirror Initialization ---
+            // --- CodeMirror Setup ---
             if (typeof CodeMirror !== 'undefined') {
                 if (!document.getElementById('markdown-editor').CodeMirror) {
                     markdownEditorInstance = CodeMirror.fromTextArea(document.getElementById('markdown-editor'), {
-                        lineNumbers: true,
-                        mode: 'markdown',
-                        theme: '@(theme)',
-                        viewportMargin: Infinity
+                        lineNumbers: true, mode: 'markdown', theme: '@(theme)', viewportMargin: Infinity
                     });
-
-                    markdownEditorInstance.on('change', function () {
-                        // For validator to work, we need to update the underlying textarea
-                        markdownEditorInstance.save();
-                    });
+                    markdownEditorInstance.on('change', () => markdownEditorInstance.save());
                 }
                 if (!document.getElementById('html-output').CodeMirror) {
                     htmlOutputInstance = CodeMirror.fromTextArea(document.getElementById('html-output'), {
-                        lineNumbers: true,
-                        mode: 'xml',
-                        readOnly: true,
-                        theme: '@(theme)',
-                        viewportMargin: Infinity
+                        lineNumbers: true, mode: 'xml', readOnly: true, theme: '@(theme)', viewportMargin: Infinity
                     });
                 }
             }
 
-            // --- Copy to Clipboard Handling ---
+            // --- Copy & Print Utils ---
             const copyButton = document.getElementById('copy-button');
             if (copyButton && htmlOutputInstance) {
                 copyButton.addEventListener('click', function () {
-                    const codeToCopy = htmlOutputInstance.getValue();
-                    if (!codeToCopy) {
-                        return;
-                    }
-                    navigator.clipboard.writeText(codeToCopy).then(function () {
-                        copyButton.innerHTML = `@Localizer["Copied!"]`;
-                    }, function (err) {
-                        console.error('Could not copy text: ', err);
-                        confirm('@Localizer["Failed to copy text."]');
-                    });
+                    const val = htmlOutputInstance.getValue();
+                    if (!val) return;
+                    navigator.clipboard.writeText(val).then(
+                        () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                        (err) => console.error(err)
+                    );
                 });
             }
+            const themeBtn = document.querySelector('.js-theme-toggle');
+            if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
+            const printBtn = document.getElementById('print-button');
+            if (printBtn) printBtn.addEventListener('click', () => window.print());
 
-            // --- Theme Toggle Handling ---
-            const themeToggleButton = document.querySelector('.js-theme-toggle');
-            const markdownForm = document.getElementById('markdown-form');
-            if (themeToggleButton && markdownForm) {
-                themeToggleButton.addEventListener('click', function () {
-                    // Submit the form after switching theme to refresh CodeMirror themes
-                    setTimeout(() => {
-                        markdownForm.submit();
-                    }, 1000);
-                });
-            }
-
-            // --- Styling Tables in the Preview Pane ---
+            // --- Table & Mermaid Rendering ---
             function stylePreviewTables() {
-                const previewArea = document.getElementById('preview');
-                if (!previewArea) return;
-                const tables = previewArea.querySelectorAll('table');
-                tables.forEach(table => {
-                    table.classList.add('table', 'table-striped', 'table-bordered');
-                    if (!table.parentElement.classList.contains('table-responsive')) {
-                        const wrapper = document.createElement('div');
-                        wrapper.className = 'table-responsive';
-                        table.parentNode.insertBefore(wrapper, table);
-                        wrapper.appendChild(table);
+                const p = document.getElementById('preview');
+                if(!p) return;
+                p.querySelectorAll('table').forEach(t => {
+                    t.classList.add('table', 'table-striped', 'table-bordered');
+                    if (!t.parentElement.classList.contains('table-responsive')) {
+                        const w = document.createElement('div'); w.className = 'table-responsive';
+                        t.parentNode.insertBefore(w, t); w.appendChild(t);
                     }
                 });
             }
             stylePreviewTables();
-
-            // --- Mermaid initialization and rendering in Preview ---
-            if (window.mermaid) {
-                mermaid.initialize({
-                    startOnLoad: false,
-                    theme: '@(isDarkMode ? "dark" : "default")',
-                    flowchart: { useMaxWidth: true },
-                    sequence: { useMaxWidth: true }
-                });
-            }
-
-            function renderMermaidInPreview() {
-                const previewPane = document.getElementById('preview');
-                if (!previewPane || !window.mermaid) return;
-                const mermaidBlocks = previewPane.querySelectorAll('pre.mermaid, .mermaid');
-                if (mermaidBlocks.length === 0) return;
-                // Render each block
-                mermaidBlocks.forEach((block, index) => {
-                    const code = block.textContent || '';
-                    const id = 'm-' + (index + 1) + '-' + Math.random().toString(36).slice(2);
+            if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+            function renderMermaid() {
+                const p = document.getElementById('preview');
+                if (!p || !window.mermaid) return;
+                p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
+                    const code = b.textContent || '';
+                    const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
                     try {
                         mermaid.parse(code);
                         mermaid.render(id, code).then(({ svg }) => {
-                            const wrapper = document.createElement('div');
-                            wrapper.innerHTML = svg;
-                            block.replaceWith(wrapper);
-                        }).catch(err => {
-                            const errPre = document.createElement('pre');
-                            errPre.className = 'text-danger';
-                            errPre.textContent = (err && (err.message || err)) || 'Mermaid render error';
-                            block.replaceWith(errPre);
-                        });
-                    } catch (e) {
-                        const errPre = document.createElement('pre');
-                        errPre.className = 'text-danger';
-                        errPre.textContent = (e && (e.message || e)) || 'Mermaid parse error';
-                        block.replaceWith(errPre);
-                    }
+                            const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
+                        }).catch(e => console.error(e));
+                    } catch (e) { console.error(e); }
                 });
             }
+            const prevTab = document.querySelector('a[href="#preview"]');
+            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
+            if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
 
-            // Render when switching to Preview tab and on load (if already active)
-            const previewTabLink = document.querySelector('a[href="#preview"][data-bs-toggle="tab"]');
-            if (previewTabLink) {
-                previewTabLink.addEventListener('shown.bs.tab', function () {
-                    renderMermaidInPreview();
-                });
-            }
-            // If the preview tab is active on load, render immediately
-            const previewPane = document.getElementById('preview');
-            if (previewPane && previewPane.classList.contains('active')) {
-                renderMermaidInPreview();
-            }
+            // --- Privacy Dropdown Logic (Updated) ---
+            const modalEl = document.getElementById('confirmPrivateModal');
+            const docId = document.querySelector('input[name="DocumentId"]')?.value;
+            const currentStateEl = document.getElementById('current-privacy-state');
+            
+            // Listen for clicks on Dropdown Items
+            document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const newValue = this.getAttribute('data-value');
+                    const currentValue = currentStateEl ? currentStateEl.value : 'private';
+                    
+                    if (newValue === currentValue) return; // No change
 
-            // --- Print Button Handling ---
-            const printButton = document.getElementById('print-button');
-            if (printButton) {
-                printButton.addEventListener('click', function () {
-                    window.print();
-                });
-            }
-
-            // --- Public/Private Share Handling ---
-            const makePublicButton = document.getElementById('make-public-button');
-            const makePrivateButton = document.getElementById('make-private-button');
-            const copyLinkButton = document.getElementById('copy-link-button');
-            const publicLinkInput = document.getElementById('public-link');
-            const documentId = document.querySelector('input[name="DocumentId"]')?.value;
-
-            if (makePublicButton) {
-                makePublicButton.addEventListener('click', async function () {
-                    try {
-                        const response = await fetch('@Url.Action("MakePublic", "Home")/' + documentId, {
-                            method: 'POST',
-                            headers: {
-                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '',
-                                'Content-Type': 'application/json'
-                            }
-                        });
-
-                        if (response.ok) {
-                            const data = await response.json();
-                            // Reload the page to show the public link
-                            window.location.reload();
-                        } else {
-                            confirm('@Localizer["Failed to make document public. Please try again."]');
-                        }
-                    } catch (error) {
-                        console.error('Error making document private:', error);
-                        confirm('@Localizer["An error occurred. Please try again."]');
-                    }
-                });
-            }
-
-            if (makePrivateButton) {
-                // Show bootstrap modal for confirmation instead of native confirm
-                makePrivateButton.addEventListener('click', function () {
-                    const modalEl = document.getElementById('confirmPrivateModal');
-                    if (modalEl && window.bootstrap && bootstrap.Modal) {
-                        const modal = new bootstrap.Modal(modalEl);
-                        modal.show();
+                    if (newValue === 'public') {
+                        changeVis(true);
                     } else {
-                        // Fallback to confirm if bootstrap/modal not available
-                        if (!confirm('@Localizer["Are you sure you want to make this document private?"]')) {
-                            return;
+                        // Switching to private -> Show warning
+                        if (window.bootstrap && bootstrap.Modal) {
+                            new bootstrap.Modal(modalEl).show();
+                        } else if (confirm('@Localizer["Are you sure?"]')) {
+                            changeVis(false);
                         }
-                        // proceed with making private
-                        doMakePrivate();
                     }
                 });
-            }
+            });
 
-            const confirmMakePrivateBtn = document.getElementById('confirm-make-private');
-            if (confirmMakePrivateBtn) {
-                confirmMakePrivateBtn.addEventListener('click', function () {
-                    // disable button to prevent double submit
-                    confirmMakePrivateBtn.disabled = true;
-                    doMakePrivate().finally(() => {
-                        confirmMakePrivateBtn.disabled = false;
-                    });
-                });
-            }
+            // Modal Confirm Button
+            document.getElementById('confirm-make-private')?.addEventListener('click', function() {
+                this.disabled = true;
+                changeVis(false).finally(() => this.disabled = false);
+            });
 
-            async function doMakePrivate() {
+            async function changeVis(isPublic) {
+                const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
                 try {
-                    const response = await fetch('@Url.Action("MakePrivate", "Home")/' + documentId, {
-                        method: 'POST',
-                        headers: {
-                            'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '',
-                            'Content-Type': 'application/json'
-                        }
+                    const res = await fetch(url, { 
+                        method: 'POST', 
+                        headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' } 
                     });
-
-                    if (response.ok) {
-                        // hide modal if present then reload
-                        const modalEl = document.getElementById('confirmPrivateModal');
-                        if (modalEl && window.bootstrap && bootstrap.Modal) {
-                            const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-                            modal.hide();
-                        }
-                        window.location.reload();
-                    } else {
-                        confirm('@Localizer["Failed to make document private. Please try again."]');
+                    if (res.ok) { 
+                        window.location.reload(); 
+                    } else { 
+                        alert('@Localizer["Failed to update privacy settings."]'); 
                     }
-                } catch (error) {
-                    console.error('Error making document private:', error);
-                    confirm('@Localizer["An error occurred. Please try again."]');
+                } catch (e) { 
+                    console.error(e); 
+                    alert('@Localizer["An error occurred."]'); 
                 }
             }
 
-            if (copyLinkButton && publicLinkInput) {
-                copyLinkButton.addEventListener('click', function () {
-                    publicLinkInput.select();
-                    navigator.clipboard.writeText(publicLinkInput.value).then(function () {
-                        copyLinkButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`;
-                        setTimeout(function () {
-                            copyLinkButton.innerHTML = `<i class="align-middle" data-lucide="copy"></i> @Localizer["Copy Link"]`;
-                        }, 2000);
-                    }, function (err) {
-                        console.error('Could not copy link: ', err);
-                        confirm('@Localizer["Failed to copy link."]');
+            // --- Public Link Copy ---
+            const cpLink = document.getElementById('copy-link-button');
+            const pubInp = document.getElementById('public-link');
+            if (cpLink && pubInp) {
+                cpLink.addEventListener('click', () => {
+                    pubInp.select();
+                    navigator.clipboard.writeText(pubInp.value).then(() => {
+                        let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
+                        setTimeout(() => cpLink.innerHTML = h, 2000);
                     });
                 });
             }

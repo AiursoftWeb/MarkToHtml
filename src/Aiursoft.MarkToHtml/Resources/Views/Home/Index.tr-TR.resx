@@ -210,5 +210,50 @@
   <data name="Are you sure you want to make this document private?" xml:space="preserve">
     <value>Bu belgeyi gizli yapmak istediğinizden emin misiniz?</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>Herkese Açık</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Özel</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Herkese Açık - Bağlantısı olan herkes</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>HTML&apos;yi Kopyala</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Başlıksız Belge</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Yeni bir belge oluştur...</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Özel - Sadece siz</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Evet, Gizli Yap</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Emin misiniz?</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Değişiklikleri Kaydet</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Bir hata oluştu.</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Gizli&apos;ye değiştirilsin mi?</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Gizlilik ayarları güncellenemedi.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
+  </data>
 
 </root>

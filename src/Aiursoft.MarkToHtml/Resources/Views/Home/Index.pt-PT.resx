@@ -210,5 +210,50 @@
   <data name="Failed to make document private. Please try again." xml:space="preserve">
     <value>Falha ao tornar o documento privado. Por favor, tente novamente.</value>
   </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Documento Sem Título</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Copiar HTML</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Criar um novo documento...</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Público - Qualquer pessoa com o link</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Privado - Apenas você</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Guardar Alterações</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Sim, Tornar Privado</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Alterar para Privado?</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Ocorreu um erro.</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Tem a certeza?</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Falha ao atualizar as definições de privacidade.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Se tornar este documento privado, a ligação pública existente deixará de funcionar imediatamente para todos.</value>
+  </data>
 
 </root>

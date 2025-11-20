@@ -210,5 +210,50 @@
   <data name="An error occurred. Please try again." xml:space="preserve">
     <value>A apărut o eroare. Vă rugăm să încercați din nou.</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titlu</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Copiază HTML</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Privat - Doar tu</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Document fără Titlu</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Public - Oricine cu link</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Creează un document nou...</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Sigur doriți?</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Schimbiți în Privat?</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Salvează modificările</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Da, fă-l privat</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>A apărut o eroare.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Dacă faci acest document privat, linkul public existent va înceta să funcționeze imediat pentru toată lumea.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Nu s-au putut actualiza setările de confidențialitate.</value>
+  </data>
 
 </root>

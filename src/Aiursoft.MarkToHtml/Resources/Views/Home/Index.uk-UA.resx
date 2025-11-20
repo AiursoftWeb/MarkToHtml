@@ -210,5 +210,50 @@
   <data name="Are you sure you want to make this document private?" xml:space="preserve">
     <value>Ви впевнені, що хочете зробити цей документ приватним?</value>
   </data>
+  <data name="Title" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Документ без назви</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Створити новий документ...</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Приватний</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Копіювати HTML</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Публічний</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Публічний - доступний за посиланням</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Приватний - Тільки ви</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Так, зробити приватним</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Ви впевнені?</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Змінити на приватним?</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Зберегти зміни</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Не вдалося оновити налаштування приватності.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Якщо ви зробите цей документ приватним, наявне публічне посилання негайно припинить працювати для всіх.</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Сталася помилка.</value>
+  </data>
 
 </root>

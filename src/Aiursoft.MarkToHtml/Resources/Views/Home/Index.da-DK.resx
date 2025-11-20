@@ -210,5 +210,50 @@
   <data name="Are you sure you want to make this document private?" xml:space="preserve">
     <value>Er du sikker på, at du vil gøre dette dokument privat?</value>
   </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Kopier HTML</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Opret et nyt dokument...</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Privat - Kun dig</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Offentlig - Alle med linket</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Uden titel</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Skift til privat?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Er du sikker?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Ja, gør privat</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Der opstod en fejl.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Kunne ikke opdatere privatindstillinger.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Hvis du gør dette dokument privat, vil den eksisterende offentlige link straks stoppe med at virke for alle.</value>
+  </data>
 
 </root>

@@ -210,5 +210,50 @@
   <data name="Failed to make document private. Please try again." xml:space="preserve">
     <value>未能將文件設為私人。請再試一次。</value>
   </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>複製 HTML</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>私人 - 只有你</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>標題</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>公開 - 任何有連結嘅人都可以存取</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>私人</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>建立新文件...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>未命名文件</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>你確定嗎？</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>儲存變更</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>轉為私人？</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>私隱設定更新失敗。</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>是的，設為私人</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>發生錯誤。</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>如果你將此文件設為私人，現有的公開連結將會立即失效，所有人都無法再存取。</value>
+  </data>
 
 </root>

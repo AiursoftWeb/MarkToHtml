@@ -210,5 +210,50 @@
   <data name="Are you sure you want to make this document private?" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการทำให้เอกสารนี้เป็นแบบส่วนตัว?</value>
   </data>
+  <data name="Private" xml:space="preserve">
+    <value>ส่วนตัว</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>สาธารณะ</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>หัวเรื่อง</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>เอกสารที่ยังไม่ได้ตั้งชื่อ</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>สร้างเอกสารใหม่...</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>ส่วนตัว - เฉพาะคุณเท่านั้น</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>คัดลอก HTML</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>สาธารณะ - ทุกคนที่มีลิงก์</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>บันทึกการเปลี่ยนแปลง</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่?</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>เปลี่ยนเป็นส่วนตัว?</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>ไม่สามารถอัปเดตการตั้งค่าความเป็นส่วนตัวได้</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>ใช่, ตั้งค่าเป็นส่วนตัว</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>เกิดข้อผิดพลาด</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>หากคุณเปลี่ยนเอกสารนี้เป็นแบบส่วนตัว ลิงก์สาธารณะที่มีอยู่จะหยุดทำงานสำหรับทุกคนในทันที</value>
+  </data>
 
 </root>
