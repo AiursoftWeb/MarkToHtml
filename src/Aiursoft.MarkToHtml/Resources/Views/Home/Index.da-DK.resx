@@ -186,7 +186,7 @@
   <data name="Make document private" xml:space="preserve">
     <value>Gør dokument privat</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Del dette dokument offentligt med et unikt link, som alle kan tilgå uden at logge ind.</value>
   </data>
   <data name="Cancel" xml:space="preserve">

@@ -183,7 +183,7 @@
   <data name="Make document private" xml:space="preserve">
     <value>Tee dokumentista yksityinen</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Jaa tämä dokumentti julkisesti yksilöllisellä linkillä, jota kuka tahansa voi käyttää ilman kirjautumista.</value>
   </data>
   <data name="Copy link to clipboard" xml:space="preserve">

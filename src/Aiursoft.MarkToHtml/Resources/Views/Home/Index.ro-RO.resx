@@ -186,7 +186,7 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Copiază link-ul în clipboard</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Partajați public acest document cu un link unic pe care oricine îl poate accesa fără a fi nevoie să se autentifice.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

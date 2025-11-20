@@ -192,7 +192,7 @@
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>แชร์เอกสารนี้แบบสาธารณะด้วยลิงก์เฉพาะที่ทุกคนสามารถเข้าถึงได้โดยไม่ต้องเข้าสู่ระบบ</value>
   </data>
   <data name="An error occurred. Please try again." xml:space="preserve">

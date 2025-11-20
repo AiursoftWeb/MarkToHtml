@@ -189,7 +189,7 @@
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Μοιραστείτε δημόσια αυτό το έγγραφο με έναν μοναδικό σύνδεσμο που μπορεί να προσεγγίσει οποιοσδήποτε χωρίς να χρειαστεί σύνδεση.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

@@ -186,7 +186,7 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Kopiuj link</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Udostępnij ten dokument publicznie za pomocą unikalnego linku, do którego każdy może uzyskać dostęp bez logowania.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

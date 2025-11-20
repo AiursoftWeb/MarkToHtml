@@ -183,7 +183,7 @@
   <data name="Copy Link" xml:space="preserve">
     <value>複製連結</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>使用獨特連結公開分享此文件，任何人無需登入即可存取。</value>
   </data>
   <data name="Copy link to clipboard" xml:space="preserve">

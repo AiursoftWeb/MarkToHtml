@@ -186,7 +186,7 @@
   <data name="Share Publicly" xml:space="preserve">
     <value>公開分享</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>透過獨特的連結公開分享此文件，無需登入即可讓任何人存取。</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

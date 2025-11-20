@@ -183,7 +183,7 @@
   <data name="Copy Link" xml:space="preserve">
     <value>Kopiera länk</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Dela detta dokument offentligt med en unik länk som vem som helst kan komma åt utan att logga in.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

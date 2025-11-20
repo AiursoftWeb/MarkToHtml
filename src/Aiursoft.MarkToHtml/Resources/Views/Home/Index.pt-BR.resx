@@ -186,7 +186,7 @@
   <data name="Make document private" xml:space="preserve">
     <value>Tornar documento privado</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Compartilhe este documento publicamente com um link único que qualquer pessoa pode acessar sem fazer login.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

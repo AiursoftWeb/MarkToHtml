@@ -186,7 +186,7 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Link in die Zwischenablage kopieren</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Teilen Sie dieses Dokument öffentlich mit einem eindeutigen Link, auf den jeder ohne Anmeldung zugreifen kann.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

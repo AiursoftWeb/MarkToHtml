@@ -189,7 +189,7 @@
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Bu belgeyi, herkesin giriş yapmadan erişebileceği benzersiz bir bağlantı ile herkese açık olarak paylaşın.</value>
   </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">

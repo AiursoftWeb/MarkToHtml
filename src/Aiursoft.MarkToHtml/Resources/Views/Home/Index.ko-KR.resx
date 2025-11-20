@@ -189,7 +189,7 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 더 이상 작동하지 않습니다. 계속 진행하시겠습니까?</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>로그인 없이 누구나 접근할 수 있는 고유 링크로 이 문서를 공개적으로 공유하세요.</value>
   </data>
   <data name="Cancel" xml:space="preserve">

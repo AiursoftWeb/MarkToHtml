@@ -192,7 +192,7 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
   </data>
-  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>Поділіться цим документом публічно за допомогою унікального посилання, яке будь-хто зможе відкрити без входу в систему.</value>
   </data>
   <data name="Failed to copy link." xml:space="preserve">
