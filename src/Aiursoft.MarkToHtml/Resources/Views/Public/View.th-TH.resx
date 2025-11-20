@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>ตัวอย่างก่อนพิมพ์</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>ต้นฉบับ</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>คัดลอกแล้ว!</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>ดูมาร์กดาวน์แบบดิบ</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>มาร์กดาวน์</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>ไม่สามารถคัดลอกข้อความได้</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>แสดงตัวอย่าง</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>คัดลอก Markdown ไปยังคลิปบอร์ด</value>
+  </data>
 
 </root>

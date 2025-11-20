@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Previzualizare imprimare</value>
   </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Text brut</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copiat!</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiază</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Previzualizare</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Copiază Markdown în clipboard</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Nu s-a putut copia textul.</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Vizualizează Markdown brut</value>
+  </data>
 
 </root>

@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Προεπισκόπηση εκτύπωσης</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Ακατέργαστο</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Αντιγράφτηκε!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Αντιγραφή</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Προβολή ακατέργαστου Markdown</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Αντιγραφή Markdown στο πρόχειρο</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Προεπισκόπηση</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Αποτυχία αντιγραφής κειμένου.</value>
+  </data>
 
 </root>

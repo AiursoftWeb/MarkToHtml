@@ -27,5 +27,29 @@
   <data name="Document Preview" xml:space="preserve">
     <value>Dokumentförhandsvisning</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiera</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Förhandsgranska</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopierad!</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Visa rå Markdown</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Kopiera Markdown till urklipp</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Rå</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Det gick inte att kopiera text.</value>
+  </data>
 
 </root>

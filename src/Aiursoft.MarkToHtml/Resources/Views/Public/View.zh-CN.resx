@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>打印预览</value>
   </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>复制文本失败。</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>原始</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>预览</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>已复制！</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>将 Markdown 复制到剪贴板</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>查看原始 Markdown</value>
+  </data>
 
 </root>

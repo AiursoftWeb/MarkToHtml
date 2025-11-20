@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Попередній перегляд друку</value>
   </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Необроблений</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Попередній перегляд</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Скопійовано!</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не вдалося скопіювати текст.</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Скопіювати Markdown у буфер обміну</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Переглянути оригінальний Markdown</value>
+  </data>
 
 </root>

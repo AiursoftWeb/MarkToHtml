@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Podgląd wydruku</value>
   </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Nieprzetworzony</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiuj</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Nie udało się skopiować tekstu.</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Wyświetl surowy Markdown</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Skopiuj Markdown do schowka</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Skopiowano!</value>
+  </data>
 
 </root>

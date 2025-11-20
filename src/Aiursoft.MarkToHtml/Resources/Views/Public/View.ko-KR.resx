@@ -27,5 +27,29 @@
   <data name="Document Preview" xml:space="preserve">
     <value>문서 미리보기</value>
   </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>원시 마크다운 보기</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>원본</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>복사됨!</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>마크다운을 클립보드에 복사</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>마크다운</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>텍스트 복사에 실패했습니다.</value>
+  </data>
 
 </root>

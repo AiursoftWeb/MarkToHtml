@@ -27,5 +27,29 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Pratinjau Cetak</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Disalin!</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Mentah</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Lihat Markdown mentah</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Salin Markdown ke papan klip</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Gagal menyalin teks.</value>
+  </data>
 
 </root>

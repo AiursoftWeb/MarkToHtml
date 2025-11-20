@@ -27,5 +27,29 @@
   <data name="Document Preview" xml:space="preserve">
     <value>दस्तावेज़ पूर्वावलोकन</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>मार्कडाउन</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>कॉपी करें</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>पूर्वावलोकन</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>असंसाधित</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>कॉपी किया गया!</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>अनियंत्रित मार्कडाउन देखें</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>मार्कडाउन को क्लिपबोर्ड पर कॉपी करें</value>
+  </data>
 
 </root>

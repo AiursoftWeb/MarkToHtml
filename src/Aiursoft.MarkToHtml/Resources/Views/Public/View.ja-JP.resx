@@ -27,5 +27,29 @@
   <data name="Document Preview" xml:space="preserve">
     <value>ドキュメントプレビュー</value>
   </data>
+  <data name="Raw" xml:space="preserve">
+    <value>未加工</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>コピーしました</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>生のMarkdownを表示</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>テキストのコピーに失敗しました。</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Markdownをクリップボードにコピー</value>
+  </data>
 
 </root>
