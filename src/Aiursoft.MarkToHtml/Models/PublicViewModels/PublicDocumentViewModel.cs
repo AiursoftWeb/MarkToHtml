@@ -23,6 +23,11 @@ public class PublicDocumentViewModel : UiStackLayoutViewModel
     public string Content { get; set; } = string.Empty;
 
     /// <summary>
+    /// The raw Markdown content of the document.
+    /// </summary>
+    public string MarkdownContent { get; set; } = string.Empty;
+
+    /// <summary>
     /// The name of the author who created and shared this document.
     /// </summary>
     public string AuthorName { get; set; } = "Unknown Author";
