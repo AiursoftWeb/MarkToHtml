@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>По вашему запросу документов не найдено.</value>
   </data>
+  <data name="Private" xml:space="preserve">
+    <value>Приватный</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Видимость</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Общедоступный</value>
+  </data>
 
 </root>

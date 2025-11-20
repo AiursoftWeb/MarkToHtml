@@ -66,5 +66,14 @@
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>您尚未建立任何文件。</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可見性</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>私人</value>
+  </data>
 
 </root>

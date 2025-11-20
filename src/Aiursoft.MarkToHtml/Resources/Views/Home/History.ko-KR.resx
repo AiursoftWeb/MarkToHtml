@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>검색 조건과 일치하는 문서가 없습니다.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>공개 상태</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>비공개</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>공개</value>
+  </data>
 
 </root>

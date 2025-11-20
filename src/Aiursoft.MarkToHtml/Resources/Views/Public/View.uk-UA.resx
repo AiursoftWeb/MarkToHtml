@@ -51,5 +51,11 @@
   <data name="View raw Markdown" xml:space="preserve">
     <value>Переглянути оригінальний Markdown</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Джерело</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Переглянути необроблений текст</value>
+  </data>
 
 </root>

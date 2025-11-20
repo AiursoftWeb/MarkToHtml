@@ -51,5 +51,11 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Gagal menyalin teks.</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Sumber</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Lihat Mentah</value>
+  </data>
 
 </root>

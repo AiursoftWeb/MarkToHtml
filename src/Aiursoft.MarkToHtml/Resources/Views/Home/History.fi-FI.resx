@@ -66,5 +66,14 @@
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Et ole vielä luonut yhtään dokumenttia.</value>
   </data>
+  <data name="Private" xml:space="preserve">
+    <value>Yksityinen</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Näkyvyys</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Julkinen</value>
+  </data>
 
 </root>

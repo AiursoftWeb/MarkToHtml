@@ -51,5 +51,11 @@
   <data name="Copy" xml:space="preserve">
     <value>Copiar</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Fonte</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Ver Fonte</value>
+  </data>
 
 </root>

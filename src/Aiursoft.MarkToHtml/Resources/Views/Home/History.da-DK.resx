@@ -66,5 +66,14 @@
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>Du har ikke oprettet nogen dokumenter endnu.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Synlighed</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
 
 </root>

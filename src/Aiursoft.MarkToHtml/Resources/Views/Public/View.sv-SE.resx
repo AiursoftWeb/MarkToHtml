@@ -51,5 +51,11 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Det gick inte att kopiera text.</value>
   </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Visa rådata</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Källa</value>
+  </data>
 
 </root>

@@ -66,5 +66,14 @@
   <data name="Search" xml:space="preserve">
     <value>Pesquisar</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidade</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
 
 </root>

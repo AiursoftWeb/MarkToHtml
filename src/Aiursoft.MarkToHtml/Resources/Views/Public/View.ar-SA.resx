@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>نسخ Markdown إلى الحافظة</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>المصدر</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>عرض النص الخام</value>
+  </data>
 
 </root>

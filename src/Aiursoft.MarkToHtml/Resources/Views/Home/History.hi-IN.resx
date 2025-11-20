@@ -66,5 +66,14 @@
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>आपने अभी तक कोई दस्तावेज़ नहीं बनाया है।</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>दृश्यता</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>निजी</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>सार्वजनिक</value>
+  </data>
 
 </root>

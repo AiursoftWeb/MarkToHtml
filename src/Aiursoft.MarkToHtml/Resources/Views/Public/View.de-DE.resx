@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Markdown in die Zwischenablage kopieren</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Quelltext</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Rohdaten anzeigen</value>
+  </data>
 
 </root>

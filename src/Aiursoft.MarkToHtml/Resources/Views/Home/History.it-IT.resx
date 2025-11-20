@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Nessun documento corrisponde alla tua ricerca.</value>
   </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privato</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilità</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Pubblico</value>
+  </data>
 
 </root>

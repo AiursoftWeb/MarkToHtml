@@ -66,5 +66,14 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Meine Dokumente durchsuchen...</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>Öffentlich</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Sichtbarkeit</value>
+  </data>
 
 </root>

@@ -51,5 +51,11 @@
   <data name="View raw Markdown" xml:space="preserve">
     <value>查看原始 Markdown</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>源代码</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>查看原始内容</value>
+  </data>
 
 </root>

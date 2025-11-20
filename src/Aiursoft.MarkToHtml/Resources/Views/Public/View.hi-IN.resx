@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>मार्कडाउन को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>स्रोत</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>कच्चा दृश्य</value>
+  </data>
 
 </root>

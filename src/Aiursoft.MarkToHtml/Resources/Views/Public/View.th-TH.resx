@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>คัดลอก Markdown ไปยังคลิปบอร์ด</value>
   </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>ดูต้นฉบับ</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ซอร์สโค้ด</value>
+  </data>
 
 </root>

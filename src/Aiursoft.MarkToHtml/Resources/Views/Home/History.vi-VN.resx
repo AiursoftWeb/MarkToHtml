@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Không có tài liệu nào phù hợp với tìm kiếm của bạn.</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Riêng tư</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Mức độ hiển thị</value>
+  </data>
 
 </root>

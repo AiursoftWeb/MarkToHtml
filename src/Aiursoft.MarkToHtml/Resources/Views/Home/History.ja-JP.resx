@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>検索条件に一致するドキュメントはありません。</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>公開範囲</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>非公開</value>
+  </data>
 
 </root>

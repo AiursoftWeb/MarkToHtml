@@ -66,5 +66,14 @@
   <data name="You have not created any documents yet." xml:space="preserve">
     <value>U heeft nog geen documenten aangemaakt.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Zichtbaarheid</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Openbaar</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privé</value>
+  </data>
 
 </root>

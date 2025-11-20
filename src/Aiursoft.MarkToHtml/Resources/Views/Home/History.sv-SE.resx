@@ -66,5 +66,14 @@
   <data name="Search my documents" xml:space="preserve">
     <value>Sök i mina dokument</value>
   </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Synlighet</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
 
 </root>

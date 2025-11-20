@@ -74,6 +74,7 @@
                 <thead>
                 <tr>
                     <th>@Localizer["Title"]</th>
+                    <th>@Localizer["Visibility"]</th> @* 新增列：可见性 *@
                     <th>@Localizer["Creation Time"]</th>
                     <th>@Localizer["Length"]</th>
                     <th class="text-end">@Localizer["Actions"]</th>
@@ -91,6 +92,20 @@
                             else
                             {
                                 @doc.Title
+                            }
+                        </td>
+                        <td>
+                            @if (doc.PublicId.HasValue)
+                            {
+                                <span class="badge bg-success-subtle text-success border border-success">
+                                    <i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-muted small">
+                                    <i class="align-middle" data-lucide="lock"></i> @Localizer["Private"]
+                                </span>
                             }
                         </td>
                         <td>

@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Sao chép Markdown vào bộ nhớ tạm</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Mã nguồn</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>Xem Nội Dung Thô</value>
+  </data>
 
 </root>

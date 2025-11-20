@@ -66,5 +66,14 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>No se han encontrado documentos que coincidan con su búsqueda.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidad</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
 
 </root>

@@ -51,5 +51,11 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Markdownをクリップボードにコピー</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
+  </data>
+  <data name="View Raw" xml:space="preserve">
+    <value>生の表示</value>
+  </data>
 
 </root>
