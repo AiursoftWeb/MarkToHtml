@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Baca dokumen</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Ini adalah proyek templat, tempat kami memulai perjalanan...</value>
   </data>
   <data name="Success!" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Pratinjau HTML akan muncul di sini setelah konversi.</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Jadikan dokumen privat</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Salin Tautan</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Jadikan Pribadi</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Bagikan Secara Publik</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Publikasikan</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Bagikan dokumen ini secara publik dengan tautan unik yang dapat diakses siapa saja tanpa perlu masuk log.</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Salin tautan ke papan klip</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Setelah dokumen ini dijadikan privat, tautan publik yang ada tidak akan berfungsi lagi. Apakah Anda yakin ingin melanjutkan?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Apakah Anda yakin ingin membuat dokumen ini menjadi privat?</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Gagal menyalin tautan.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Gagal membuat dokumen menjadi pribadi. Silakan coba lagi.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Terjadi kesalahan. Silakan coba lagi.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Gagal membuat dokumen menjadi publik. Silakan coba lagi.</value>
   </data>
 
 </root>

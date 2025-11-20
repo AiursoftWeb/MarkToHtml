@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Đọc tài liệu</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Đây là một dự án mẫu, nơi chúng ta bắt đầu hành trình khám phá...</value>
   </data>
   <data name="Document Title (optional)" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Không thể sao chép văn bản.</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Chuyển thành Riêng tư</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Sao chép Liên kết</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Chia sẻ Công khai</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Sao chép liên kết vào bộ nhớ tạm</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Chuyển tài liệu thành riêng tư</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Chia sẻ tài liệu này công khai bằng một liên kết duy nhất mà bất kỳ ai cũng có thể truy cập mà không cần đăng nhập.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Không thể công khai tài liệu. Vui lòng thử lại.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Đã xảy ra lỗi. Vui lòng thử lại.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Không thể sao chép liên kết.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn chuyển tài liệu này thành riêng tư không?</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Không thể chuyển tài liệu thành riêng tư. Vui lòng thử lại.</value>
   </data>
 
 </root>

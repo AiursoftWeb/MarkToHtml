@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Citește documentația</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Acesta este un proiect tipic, de unde începem călătoria...</value>
   </data>
   <data name="Success!" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Nu s-a putut copia textul.</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Faceți-l privat</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Faceți documentul privat</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Faceți public</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Copiază Linkul</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Partajează public</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Copiază link-ul în clipboard</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Partajați public acest document cu un link unic pe care oricine îl poate accesa fără a fi nevoie să se autentifice.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>După ce acest document devine privat, linkul public existent nu va mai funcționa. Sigur doriți să continuați?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Sigur doriți să faceți acest document privat?</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Nu s-a putut copia linkul.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Nu s-a putut face documentul public. Vă rugăm să încercați din nou.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Nu s-a putut face documentul privat. Vă rugăm să încercați din nou.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>A apărut o eroare. Vă rugăm să încercați din nou.</value>
   </data>
 
 </root>

@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>阅读文档</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>这是一个模板项目，我们将从这里开启探索之旅...</value>
   </data>
   <data name="Document updated successfully." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Copied!" xml:space="preserve">
     <value>已复制！</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>复制链接</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>设为私有</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>设为私有</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>复制链接到剪贴板</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>公开分享</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>公开分享</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>通过唯一链接公开分享此文档，任何人都无需登录即可访问。</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>将此文档设为私有后，现有的公开链接将失效。确定要继续吗？</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>您确定要将此文档设为私有吗？</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>复制链接失败。</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>未能将文档设为私有，请重试。</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>发生错误，请重试。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>文档公开失败，请重试。</value>
   </data>
 
 </root>

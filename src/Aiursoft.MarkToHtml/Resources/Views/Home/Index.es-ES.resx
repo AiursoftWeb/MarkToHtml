@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Leer la documentación</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Este es un proyecto plantilla, donde comenzamos el viaje...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>No se pudo copiar el texto.</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Compartir públicamente</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Copiar enlace</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Hacer Público</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Hacer privado</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Hacer documento privado</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Copiar enlace al portapapeles</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Después de hacer este documento privado, el enlace público existente dejará de funcionar. ¿Está seguro de que desea continuar?</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Comparte este documento públicamente con un enlace único que cualquiera pueda acceder sin iniciar sesión.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>No se pudo copiar el enlace.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>¿Estás seguro de que quieres hacer este documento privado?</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Se ha producido un error. Por favor, inténtelo de nuevo.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>No se pudo hacer público el documento. Por favor, inténtelo de nuevo.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>No se pudo hacer privado el documento. Por favor, inténtelo de nuevo.</value>
   </data>
 
 </root>

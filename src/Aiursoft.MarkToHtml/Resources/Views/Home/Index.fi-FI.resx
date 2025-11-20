@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Lue dokumentti</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Tämä on malliprojekti, josta aloitamme matkan...</value>
   </data>
   <data name="Document updated successfully." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>Muunna HTML:ksi</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Tee julkiseksi</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Kopioi linkki</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Jaa julkisesti</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Tee yksityiseksi</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Tee dokumentista yksityinen</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Jaa tämä dokumentti julkisesti yksilöllisellä linkillä, jota kuka tahansa voi käyttää ilman kirjautumista.</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Kopioi linkki leikepöydälle</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Kun teet tästä dokumentista yksityisen, olemassa oleva julkinen linkki lakkaa toimimasta. Oletko varma, että haluat jatkaa?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Peruuta</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Asiakirjan julkistaminen epäonnistui. Yritä uudelleen.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Asiakirjan tekeminen yksityiseksi epäonnistui. Yritä uudelleen.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Tapahtui virhe. Yritä uudelleen.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Oletko varma, että haluat tehdä tästä dokumentista yksityisen?</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Linkin kopiointi epäonnistui.</value>
   </data>
 
 </root>

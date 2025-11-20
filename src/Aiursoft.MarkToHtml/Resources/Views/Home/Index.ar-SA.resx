@@ -105,7 +105,7 @@
   <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
     <value>يأتي مع دعم كامل لـ Docker لنشر مبسط وموثوق ومتناسق.</value>
   </data>
-   <data name="Read the document" xml:space="preserve">
+  <data name="Read the document" xml:space="preserve">
     <value>اقرأ المستند</value>
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>فشل نسخ النص.</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>جعل المستند خاصًا</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>مشاركة عامة</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>نسخ الرابط</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>جعل خاص</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>جعلها عامة</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>نسخ الرابط إلى الحافظة</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>شارك هذا المستند علنًا برابط فريد يمكن لأي شخص الوصول إليه دون الحاجة لتسجيل الدخول.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>بعد جعل هذا المستند خاصًا، لن يعمل الرابط العام الحالي بعد الآن. هل أنت متأكد أنك تريد المتابعة؟</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>فشل نسخ الرابط.</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>حدث خطأ. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>فشل جعل المستند خاصًا. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>فشل جعل المستند عامًا. يرجى المحاولة مرة أخرى.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد جعل هذا المستند خاصًا؟</value>
   </data>
 
 </root>

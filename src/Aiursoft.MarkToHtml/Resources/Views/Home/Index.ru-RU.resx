@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Прочитать документацию</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Это шаблонный проект, с которого мы начинаем путешествие...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Здесь появится HTML-превью после преобразования.</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Опубликовать</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Поделиться публично</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Скопировать ссылку в буфер обмена</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Скопировать ссылку</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Сделать документ приватным</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Поделитесь этим документом публично с помощью уникальной ссылки, которую любой может открыть без входа в систему.</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Сделать приватным</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>После того как документ станет приватным, существующая публичная ссылка перестанет работать. Вы уверены, что хотите продолжить?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Вы уверены, что хотите сделать этот документ приватным?</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Произошла ошибка. Пожалуйста, попробуйте снова.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Не удалось сделать документ публичным. Пожалуйста, попробуйте снова.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Не удалось скопировать ссылку.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Не удалось сделать документ приватным. Пожалуйста, попробуйте снова.</value>
   </data>
 
 </root>

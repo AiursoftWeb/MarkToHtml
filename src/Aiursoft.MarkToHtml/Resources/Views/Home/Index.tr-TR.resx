@@ -108,7 +108,7 @@
   <data name="Read the document" xml:space="preserve">
     <value>Belgeyi okuyun</value>
   </data>
-   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Bu, yolculuğa başladığımız bir şablon projedir...</value>
   </data>
   <data name="Code" xml:space="preserve">
@@ -167,6 +167,48 @@
   </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>HTML&apos;ye Dönüştür</value>
+  </data>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Herkese Açık Paylaş</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Belgeyi Gizli Yap</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Gizle</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Herkese Açık Yap</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Bağlantıyı Kopyala</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Bağlantıyı panoya kopyala</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Share this document publicly with a unique link                                    that anyone can access without logging in." xml:space="preserve">
+    <value>Bu belgeyi, herkesin giriş yapmadan erişebileceği benzersiz bir bağlantı ile herkese açık olarak paylaşın.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Bir hata oluştu. Lütfen tekrar deneyin.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Belge gizli yapılamadı. Lütfen tekrar deneyin.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Belge herkese açık yapılamadı. Lütfen tekrar deneyin.</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Bağlantı kopyalanamadı.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Bu belgeyi gizli yapmak istediğinizden emin misiniz?</value>
   </data>
 
 </root>
