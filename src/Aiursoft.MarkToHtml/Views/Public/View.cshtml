@@ -137,18 +137,20 @@
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
-    
+
     <style>
         #markdown-viewer {
-            min-height: 600px; 
+            min-height: 600px;
         }
     </style>
 }
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>

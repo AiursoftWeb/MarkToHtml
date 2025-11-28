@@ -28,7 +28,7 @@
 
 <form asp-action="Index" method="post" id="markdown-form">
     <div class="row" style="height: calc(100vh - 240px); min-height: 500px;">
-        
+
         @* --- Left Column: Markdown Input --- *@
         <div class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
@@ -39,7 +39,7 @@
                     </h5>
                 </div>
                 <div class="card-body p-0 d-flex flex-column h-100">
-                    
+
                     <div class="toolbar-container border-bottom p-2 d-flex align-items-center flex-shrink-0">
                         @if (Model.IsEditing)
                         {
@@ -54,7 +54,7 @@
                             <span class="text-muted small ms-2">@Localizer["Create a new document..."]</span>
                         }
                     </div>
-                    
+
                     @* 编辑器区域 *@
                     <div class="flex-grow-1 position-relative editor-wrapper">
                         <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
@@ -87,11 +87,11 @@
                     {
                         @* 修复：使用 Bootstrap Dropdown 替代原生 Select 以避免定位 bug *@
                         <div class="dropdown ms-auto mb-2">
-                            <button class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center justify-content-between" 
-                                    type="button" 
-                                    id="privacyDropdownBtn" 
-                                    data-bs-toggle="dropdown" 
-                                    aria-expanded="false" 
+                            <button class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center justify-content-between"
+                                    type="button"
+                                    id="privacyDropdownBtn"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
                                     style="min-width: 140px;">
                                 @if (Model.PublicId.HasValue)
                                 {
@@ -121,12 +121,12 @@
                 </div>
 
                 <div class="card-body p-0 d-flex flex-column overflow-hidden">
-                    
+
                     <div class="tab-content flex-grow-1 d-flex flex-column p-0" style="height: 100%;">
-                        
+
                         @* --- Code Pane --- *@
                         <div class="tab-pane active show flex-column h-100" id="code" role="tabpanel">
-                             
+
                              @* 右侧工具栏 *@
                              <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
                                 <div class="small text-muted flex-grow-1 me-2">
@@ -219,6 +219,7 @@
     </div>
 </div>
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
@@ -228,6 +229,7 @@
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
 }
 
+@* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
     <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
@@ -308,14 +310,14 @@
             const modalEl = document.getElementById('confirmPrivateModal');
             const docId = document.querySelector('input[name="DocumentId"]')?.value;
             const currentStateEl = document.getElementById('current-privacy-state');
-            
+
             // Listen for clicks on Dropdown Items
             document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const newValue = this.getAttribute('data-value');
                     const currentValue = currentStateEl ? currentStateEl.value : 'private';
-                    
+
                     if (newValue === currentValue) return; // No change
 
                     if (newValue === 'public') {
@@ -340,18 +342,18 @@
             async function changeVis(isPublic) {
                 const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
                 try {
-                    const res = await fetch(url, { 
-                        method: 'POST', 
-                        headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' } 
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
                     });
-                    if (res.ok) { 
-                        window.location.reload(); 
-                    } else { 
-                        alert('@Localizer["Failed to update privacy settings."]'); 
+                    if (res.ok) {
+                        window.location.reload();
+                    } else {
+                        alert('@Localizer["Failed to update privacy settings."]');
                     }
-                } catch (e) { 
-                    console.error(e); 
-                    alert('@Localizer["An error occurred."]'); 
+                } catch (e) {
+                    console.error(e);
+                    alert('@Localizer["An error occurred."]');
                 }
             }
 
