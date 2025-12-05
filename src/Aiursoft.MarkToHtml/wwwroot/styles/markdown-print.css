@@ -5,7 +5,7 @@
     @page {
         margin: 1.5cm;
     }
-    
+
     body {
         background-color: white !important;
         color: black !important;
@@ -45,7 +45,7 @@
     }
 
     /* 隐藏源代码/编辑器 Tab */
-    #markdown, 
+    #markdown,
     #code {
         display: none !important;
     }
@@ -55,12 +55,17 @@
         display: block !important; /* 覆盖 bootstrap 的 display:none */
     }
 
-    #preview, 
+    #preview,
     #printable-area {
         display: block !important;
         visibility: visible !important;
         position: static !important;
         overflow: visible !important;
+    }
+
+    .markdown-content {
+        background-color: white !important;
+        color: black !important;
     }
 
     .markdown-content a {
