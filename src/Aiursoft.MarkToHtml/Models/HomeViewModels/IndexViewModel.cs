@@ -35,6 +35,8 @@ public class IndexViewModel : UiStackLayoutViewModel
                                                 C --> E[Finish]
                                                 ```
 
+                                                * **Level 3（底层公理）：** $F = G \frac{m_1 m_2}{r^2}$。
+
                                                 """;
 
     public string OutputHtml { get; set; } = string.Empty;

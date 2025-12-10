@@ -236,6 +236,17 @@
     <script src="~/node_modules/codemirror/mode/xml/xml.js"></script>
     <script src="~/node_modules/codemirror/addon/edit/closebrackets.js"></script>
     <script src="~/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -305,6 +316,16 @@
             const prevTab = document.querySelector('a[href="#preview"]');
             if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
             if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
+
+            // --- MathJax Rendering ---
+            function renderMath() {
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    const preview = document.getElementById('preview');
+                    if(preview) window.MathJax.typesetPromise([preview]);
+                }
+            }
+            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
+            if (document.getElementById('preview')?.classList.contains('active')) renderMath();
 
             // --- Privacy Dropdown Logic (Updated) ---
             const modalEl = document.getElementById('confirmPrivateModal');

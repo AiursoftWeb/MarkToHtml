@@ -152,6 +152,17 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -187,6 +198,16 @@
 
                 // Re-check on tab switch just in case
                 document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMermaid);
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('printable-area');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+                renderMath();
+                document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMath);
             }
         });
     </script>
