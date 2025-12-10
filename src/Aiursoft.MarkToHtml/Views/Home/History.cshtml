@@ -83,7 +83,8 @@
                 <tbody>
                 @foreach (var doc in Model.MyDocuments)
                 {
-                    <tr class="clickable-row" data-href="@Url.Action("Edit", new { id = doc.Id })">
+                    var rowUrl = doc.PublicId.HasValue ? Url.Action("View", "Public", new { publicId = doc.PublicId }) : Url.Action("Edit", new { id = doc.Id });
+                    <tr class="clickable-row" data-href="@rowUrl">
                         <td>
                             @if (string.IsNullOrWhiteSpace(doc.Title))
                             {
