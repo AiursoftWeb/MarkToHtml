@@ -30,9 +30,19 @@
     <div class="row" style="height: calc(100vh - 240px); min-height: 500px;">
 
         @* --- Left Column: Markdown Input --- *@
-        <div class="col-lg-6 h-100 pb-3">
+        <div id="editor-column" class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
-                <div class="card-header border-bottom">
+                <div class="card-header border-bottom d-flex align-items-center">
+                    <div class="btn-group btn-group-sm me-3" role="group" aria-label="View mode" id="view-mode-switcher-left">
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-split-left" value="split" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="view-split-left" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-editor-left" value="editor" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="view-editor-left" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-preview-left" value="preview" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="view-preview-left" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
+                    </div>
                     <h5 class="card-title mb-0">
                         <i class="align-middle" data-lucide="file-text">&nbsp;</i>
                         @Localizer["Markdown Input"]
@@ -66,22 +76,36 @@
         </div>
 
         @* --- Right Column: Output & Settings --- *@
-        <div class="col-lg-6 h-100 pb-3">
+        <div id="preview-column" class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
                 @* 右侧 Header *@
                 <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
-                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
-                            </a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="d-flex align-items-center">
+                        @* Right Switcher (Visible only in Preview Mode) *@
+                        <div class="btn-group btn-group-sm me-3 d-none" role="group" aria-label="View mode" id="view-mode-switcher-right">
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-split-right" value="split" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-split-right" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-editor-right" value="editor" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-editor-right" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-preview-right" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-right" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                    <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                    <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
                     @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
                     {
@@ -251,6 +275,65 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let markdownEditorInstance, htmlOutputInstance;
+
+            // --- View Mode Switcher ---
+            const editorCol = document.getElementById('editor-column');
+            const previewCol = document.getElementById('preview-column');
+            const radiosLeft = document.querySelectorAll('input[name="view-mode-left"]');
+            const radiosRight = document.querySelectorAll('input[name="view-mode-right"]');
+            const switcherRight = document.getElementById('view-mode-switcher-right');
+
+            function setViewMode(mode) {
+                if (!editorCol || !previewCol) return;
+                localStorage.setItem('markdown-view-mode', mode);
+
+                // Sync Radios
+                const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
+                if (leftRadio) leftRadio.checked = true;
+                const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
+                if (rightRadio) rightRadio.checked = true;
+
+                // Visibility Logic
+                if (mode === 'split') {
+                    editorCol.classList.remove('d-none', 'col-lg-12');
+                    editorCol.classList.add('col-lg-6');
+                    previewCol.classList.remove('d-none', 'col-lg-12');
+                    previewCol.classList.add('col-lg-6');
+                    if (switcherRight) switcherRight.classList.add('d-none');
+                } else if (mode === 'editor') {
+                    editorCol.classList.remove('d-none', 'col-lg-6');
+                    editorCol.classList.add('col-lg-12');
+                    previewCol.classList.add('d-none');
+                    // Right switcher hidden because previewCol is hidden
+                } else if (mode === 'preview') {
+                    editorCol.classList.add('d-none');
+                    previewCol.classList.remove('d-none', 'col-lg-6');
+                    previewCol.classList.add('col-lg-12');
+                    if (switcherRight) switcherRight.classList.remove('d-none');
+
+                    // Auto-switch to Preview tab
+                    const previewTabLink = document.querySelector('a[href="#preview"]');
+                    if (previewTabLink) {
+                        if (window.bootstrap && window.bootstrap.Tab) {
+                            bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
+                        } else {
+                            previewTabLink.click();
+                        }
+                    }
+                }
+
+                setTimeout(() => {
+                    if (markdownEditorInstance) markdownEditorInstance.refresh();
+                    if (htmlOutputInstance) htmlOutputInstance.refresh();
+                }, 150);
+            }
+
+            radiosLeft.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+            radiosRight.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+
+            const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
+            setViewMode(savedMode);
+
             if ($.validator) $.validator.setDefaults({ ignore: [] });
 
             // --- CodeMirror Setup ---
