@@ -67,8 +67,8 @@
 
                     @* 编辑器区域 *@
                     <div class="flex-grow-1 position-relative editor-wrapper">
-                        <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
-                            placeholder="@Localizer["Type your Markdown here..."]"></textarea>
+                        <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
+                        <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
                     </div>
                     <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
                 </div>
@@ -170,7 +170,8 @@
                             </div>
 
                             <div class="flex-grow-1 position-relative editor-wrapper">
-                                <textarea class="form-control" id="html-output" readonly>@Model.OutputHtml</textarea>
+                                <div id="html-output-container" style="width: 100%; height: 100%;"></div>
+                                <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
                             </div>
                         </div>
 
@@ -221,7 +222,6 @@
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-    var theme = isDarkMode ? "material" : "eclipse";
 }
 
 @* Confirmation modal *@
@@ -245,9 +245,6 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
-    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
-
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
@@ -255,11 +252,8 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
-    <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
-    <script src="~/node_modules/codemirror/mode/xml/xml.js"></script>
-    <script src="~/node_modules/codemirror/addon/edit/closebrackets.js"></script>
-    <script src="~/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js"></script>
     <script>
         window.MathJax = {
             tex: {
@@ -274,205 +268,213 @@
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let markdownEditorInstance, htmlOutputInstance;
+            require(['vs/editor/editor.main'], function () {
+                let markdownEditorInstance, htmlOutputInstance;
+                const markdownEditorElement = document.getElementById('markdown-editor');
+                const htmlOutputElement = document.getElementById('html-output');
+                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
 
-            // --- View Mode Switcher ---
-            const editorCol = document.getElementById('editor-column');
-            const previewCol = document.getElementById('preview-column');
-            const radiosLeft = document.querySelectorAll('input[name="view-mode-left"]');
-            const radiosRight = document.querySelectorAll('input[name="view-mode-right"]');
-            const switcherRight = document.getElementById('view-mode-switcher-right');
+                // --- Monaco Editor Setup ---
+                if (markdownEditorElement) {
+                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
+                        value: markdownEditorElement.value,
+                        language: 'markdown',
+                        theme: monacoTheme,
+                        automaticLayout: true,
+                        wordWrap: 'on',
+                        'semanticHighlighting.enabled': true
+                    });
+                    markdownEditorInstance.onDidChangeModelContent(() => {
+                        const currentValue = markdownEditorInstance.getValue();
+                        markdownEditorElement.value = currentValue;
+                        markdownEditorElement.dispatchEvent(new Event('change'));
+                    });
+                }
 
-            function setViewMode(mode) {
-                if (!editorCol || !previewCol) return;
-                localStorage.setItem('markdown-view-mode', mode);
+                if (htmlOutputElement) {
+                    htmlOutputInstance = monaco.editor.create(document.getElementById('html-output-container'), {
+                        value: htmlOutputElement.value,
+                        language: 'html',
+                        theme: monacoTheme,
+                        readOnly: true,
+                        automaticLayout: true,
+                        wordWrap: 'on'
+                    });
+                }
 
-                // Sync Radios
-                const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
-                if (leftRadio) leftRadio.checked = true;
-                const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
-                if (rightRadio) rightRadio.checked = true;
+                // --- View Mode Switcher ---
+                const editorCol = document.getElementById('editor-column');
+                const previewCol = document.getElementById('preview-column');
+                const radiosLeft = document.querySelectorAll('input[name="view-mode-left"]');
+                const radiosRight = document.querySelectorAll('input[name="view-mode-right"]');
+                const switcherRight = document.getElementById('view-mode-switcher-right');
 
-                // Visibility Logic
-                if (mode === 'split') {
-                    editorCol.classList.remove('d-none', 'col-lg-12');
-                    editorCol.classList.add('col-lg-6');
-                    previewCol.classList.remove('d-none', 'col-lg-12');
-                    previewCol.classList.add('col-lg-6');
-                    if (switcherRight) switcherRight.classList.add('d-none');
-                } else if (mode === 'editor') {
-                    editorCol.classList.remove('d-none', 'col-lg-6');
-                    editorCol.classList.add('col-lg-12');
-                    previewCol.classList.add('d-none');
-                    // Right switcher hidden because previewCol is hidden
-                } else if (mode === 'preview') {
-                    editorCol.classList.add('d-none');
-                    previewCol.classList.remove('d-none', 'col-lg-6');
-                    previewCol.classList.add('col-lg-12');
-                    if (switcherRight) switcherRight.classList.remove('d-none');
+                function setViewMode(mode) {
+                    if (!editorCol || !previewCol) return;
+                    localStorage.setItem('markdown-view-mode', mode);
 
-                    // Auto-switch to Preview tab
-                    const previewTabLink = document.querySelector('a[href="#preview"]');
-                    if (previewTabLink) {
-                        if (window.bootstrap && window.bootstrap.Tab) {
-                            bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
+                    // Sync Radios
+                    const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
+                    if (leftRadio) leftRadio.checked = true;
+                    const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
+                    if (rightRadio) rightRadio.checked = true;
+
+                    // Visibility Logic
+                    if (mode === 'split') {
+                        editorCol.classList.remove('d-none', 'col-lg-12');
+                        editorCol.classList.add('col-lg-6');
+                        previewCol.classList.remove('d-none', 'col-lg-12');
+                        previewCol.classList.add('col-lg-6');
+                        if (switcherRight) switcherRight.classList.add('d-none');
+                    } else if (mode === 'editor') {
+                        editorCol.classList.remove('d-none', 'col-lg-6');
+                        editorCol.classList.add('col-lg-12');
+                        previewCol.classList.add('d-none');
+                    } else if (mode === 'preview') {
+                        editorCol.classList.add('d-none');
+                        previewCol.classList.remove('d-none', 'col-lg-6');
+                        previewCol.classList.add('col-lg-12');
+                        if (switcherRight) switcherRight.classList.remove('d-none');
+
+                        const previewTabLink = document.querySelector('a[href="#preview"]');
+                        if (previewTabLink) {
+                            if (window.bootstrap && window.bootstrap.Tab) {
+                                bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
+                            } else {
+                                previewTabLink.click();
+                            }
+                        }
+                    }
+                }
+
+                radiosLeft.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+                radiosRight.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+
+                const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
+                setViewMode(savedMode);
+
+                if ($.validator) $.validator.setDefaults({ ignore: [] });
+
+                // --- Copy & Print Utils ---
+                const copyButton = document.getElementById('copy-button');
+                if (copyButton && htmlOutputInstance) {
+                    copyButton.addEventListener('click', function () {
+                        const val = htmlOutputInstance.getValue();
+                        if (!val) return;
+                        navigator.clipboard.writeText(val).then(
+                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                            (err) => console.error(err)
+                        );
+                    });
+                }
+                const themeBtn = document.querySelector('.js-theme-toggle');
+                if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
+                const printBtn = document.getElementById('print-button');
+                if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+                // --- Table & Mermaid Rendering ---
+                function stylePreviewTables() {
+                    const p = document.getElementById('preview');
+                    if(!p) return;
+                    p.querySelectorAll('table').forEach(t => {
+                        t.classList.add('table', 'table-striped', 'table-bordered');
+                        if (!t.parentElement.classList.contains('table-responsive')) {
+                            const w = document.createElement('div'); w.className = 'table-responsive';
+                            t.parentNode.insertBefore(w, t); w.appendChild(t);
+                        }
+                    });
+                }
+                stylePreviewTables();
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                function renderMermaid() {
+                    const p = document.getElementById('preview');
+                    if (!p || !window.mermaid) return;
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
+                        const code = b.textContent || '';
+                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
+                            }).catch(e => console.error(e));
+                        } catch (e) { console.error(e); }
+                    });
+                }
+                const prevTab = document.querySelector('a[href="#preview"]');
+                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
+                if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('preview');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
+                if (document.getElementById('preview')?.classList.contains('active')) renderMath();
+
+                // --- Privacy Dropdown Logic (Updated) ---
+                const modalEl = document.getElementById('confirmPrivateModal');
+                const docId = document.querySelector('input[name="DocumentId"]')?.value;
+                const currentStateEl = document.getElementById('current-privacy-state');
+
+                document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const newValue = this.getAttribute('data-value');
+                        const currentValue = currentStateEl ? currentStateEl.value : 'private';
+
+                        if (newValue === currentValue) return;
+
+                        if (newValue === 'public') {
+                            changeVis(true);
                         } else {
-                            previewTabLink.click();
+                            if (window.bootstrap && bootstrap.Modal) {
+                                new bootstrap.Modal(modalEl).show();
+                            } else if (confirm('@Localizer["Are you sure?"]')) {
+                                changeVis(false);
+                            }
                         }
-                    }
-                }
-
-                setTimeout(() => {
-                    if (markdownEditorInstance) markdownEditorInstance.refresh();
-                    if (htmlOutputInstance) htmlOutputInstance.refresh();
-                }, 150);
-            }
-
-            radiosLeft.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
-            radiosRight.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
-
-            const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
-            setViewMode(savedMode);
-
-            if ($.validator) $.validator.setDefaults({ ignore: [] });
-
-            // --- CodeMirror Setup ---
-            if (typeof CodeMirror !== 'undefined') {
-                if (!document.getElementById('markdown-editor').CodeMirror) {
-                    markdownEditorInstance = CodeMirror.fromTextArea(document.getElementById('markdown-editor'), {
-                        lineNumbers: true, mode: 'markdown', theme: '@(theme)', viewportMargin: Infinity
                     });
-                    markdownEditorInstance.on('change', () => markdownEditorInstance.save());
-                }
-                if (!document.getElementById('html-output').CodeMirror) {
-                    htmlOutputInstance = CodeMirror.fromTextArea(document.getElementById('html-output'), {
-                        lineNumbers: true, mode: 'xml', readOnly: true, theme: '@(theme)', viewportMargin: Infinity
-                    });
-                }
-            }
-
-            // --- Copy & Print Utils ---
-            const copyButton = document.getElementById('copy-button');
-            if (copyButton && htmlOutputInstance) {
-                copyButton.addEventListener('click', function () {
-                    const val = htmlOutputInstance.getValue();
-                    if (!val) return;
-                    navigator.clipboard.writeText(val).then(
-                        () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
-                        (err) => console.error(err)
-                    );
                 });
-            }
-            const themeBtn = document.querySelector('.js-theme-toggle');
-            if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
-            const printBtn = document.getElementById('print-button');
-            if (printBtn) printBtn.addEventListener('click', () => window.print());
 
-            // --- Table & Mermaid Rendering ---
-            function stylePreviewTables() {
-                const p = document.getElementById('preview');
-                if(!p) return;
-                p.querySelectorAll('table').forEach(t => {
-                    t.classList.add('table', 'table-striped', 'table-bordered');
-                    if (!t.parentElement.classList.contains('table-responsive')) {
-                        const w = document.createElement('div'); w.className = 'table-responsive';
-                        t.parentNode.insertBefore(w, t); w.appendChild(t);
-                    }
+                document.getElementById('confirm-make-private')?.addEventListener('click', function() {
+                    this.disabled = true;
+                    changeVis(false).finally(() => this.disabled = false);
                 });
-            }
-            stylePreviewTables();
-            if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
-            function renderMermaid() {
-                const p = document.getElementById('preview');
-                if (!p || !window.mermaid) return;
-                p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                    const code = b.textContent || '';
-                    const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+
+                async function changeVis(isPublic) {
+                    const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
                     try {
-                        mermaid.parse(code);
-                        mermaid.render(id, code).then(({ svg }) => {
-                            const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                        }).catch(e => console.error(e));
-                    } catch (e) { console.error(e); }
-                });
-            }
-            const prevTab = document.querySelector('a[href="#preview"]');
-            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
-            if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
-
-            // --- MathJax Rendering ---
-            function renderMath() {
-                if (window.MathJax && window.MathJax.typesetPromise) {
-                    const preview = document.getElementById('preview');
-                    if(preview) window.MathJax.typesetPromise([preview]);
-                }
-            }
-            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
-            if (document.getElementById('preview')?.classList.contains('active')) renderMath();
-
-            // --- Privacy Dropdown Logic (Updated) ---
-            const modalEl = document.getElementById('confirmPrivateModal');
-            const docId = document.querySelector('input[name="DocumentId"]')?.value;
-            const currentStateEl = document.getElementById('current-privacy-state');
-
-            // Listen for clicks on Dropdown Items
-            document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const newValue = this.getAttribute('data-value');
-                    const currentValue = currentStateEl ? currentStateEl.value : 'private';
-
-                    if (newValue === currentValue) return; // No change
-
-                    if (newValue === 'public') {
-                        changeVis(true);
-                    } else {
-                        // Switching to private -> Show warning
-                        if (window.bootstrap && bootstrap.Modal) {
-                            new bootstrap.Modal(modalEl).show();
-                        } else if (confirm('@Localizer["Are you sure?"]')) {
-                            changeVis(false);
+                        const res = await fetch(url, {
+                            method: 'POST',
+                            headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
+                        });
+                        if (res.ok) {
+                            window.location.reload();
+                        } else {
+                            alert('@Localizer["Failed to update privacy settings."]');
                         }
+                    } catch (e) {
+                        console.error(e);
+                        alert('@Localizer["An error occurred."]');
                     }
-                });
-            });
-
-            // Modal Confirm Button
-            document.getElementById('confirm-make-private')?.addEventListener('click', function() {
-                this.disabled = true;
-                changeVis(false).finally(() => this.disabled = false);
-            });
-
-            async function changeVis(isPublic) {
-                const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
-                try {
-                    const res = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
-                    });
-                    if (res.ok) {
-                        window.location.reload();
-                    } else {
-                        alert('@Localizer["Failed to update privacy settings."]');
-                    }
-                } catch (e) {
-                    console.error(e);
-                    alert('@Localizer["An error occurred."]');
                 }
-            }
 
-            // --- Public Link Copy ---
-            const cpLink = document.getElementById('copy-link-button');
-            const pubInp = document.getElementById('public-link');
-            if (cpLink && pubInp) {
-                cpLink.addEventListener('click', () => {
-                    pubInp.select();
-                    navigator.clipboard.writeText(pubInp.value).then(() => {
-                        let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
-                        setTimeout(() => cpLink.innerHTML = h, 2000);
+                // --- Public Link Copy ---
+                const cpLink = document.getElementById('copy-link-button');
+                const pubInp = document.getElementById('public-link');
+                if (cpLink && pubInp) {
+                    cpLink.addEventListener('click', () => {
+                        pubInp.select();
+                        navigator.clipboard.writeText(pubInp.value).then(() => {
+                            let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
+                            setTimeout(() => cpLink.innerHTML = h, 2000);
+                        });
                     });
-                });
-            }
+                }
+            });
         });
     </script>
 }
