@@ -43,7 +43,7 @@ public class PublicController(
 
         var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
 
-        var model = new PublicDocumentViewModel
+        var model = new PublicDocumentViewModel(document.Title ?? "Untitled Document")
         {
             DocumentTitle = document.Title ?? "Untitled Document",
             Content = outputHtml,

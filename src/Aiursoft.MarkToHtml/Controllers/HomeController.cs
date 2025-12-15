@@ -39,7 +39,7 @@ public class HomeController(
             logger.LogWarning("Anonymous user trying to access the home page. But it is not allowed.");
             return Challenge();
         }
-        return this.StackView(new IndexViewModel());
+        return this.StackView(new IndexViewModel("Untitled Document"));
     }
 
     [HttpPost]
@@ -110,7 +110,7 @@ public class HomeController(
             ? Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme)
             : null;
 
-        var model = new IndexViewModel
+        var model = new IndexViewModel(document.Title ?? "Empty Document")
         {
             DocumentId = document.Id,
             Title = document.Title,

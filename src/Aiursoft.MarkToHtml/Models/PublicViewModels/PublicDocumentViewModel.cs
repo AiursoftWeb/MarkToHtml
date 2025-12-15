@@ -7,9 +7,9 @@ namespace Aiursoft.MarkToHtml.Models.PublicViewModels;
 /// </summary>
 public class PublicDocumentViewModel : UiStackLayoutViewModel
 {
-    public PublicDocumentViewModel()
+    public PublicDocumentViewModel(string articleTitle)
     {
-        PageTitle = "Shared Document";
+        PageTitle = $"{articleTitle} - Shared Document";
     }
 
     /// <summary>

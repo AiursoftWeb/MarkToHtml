@@ -6,9 +6,9 @@ namespace Aiursoft.MarkToHtml.Models.HomeViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
-    public IndexViewModel()
+    public IndexViewModel(string articleTitle)
     {
-        PageTitle = "Markdown to HTML Converter";
+        PageTitle = $"{articleTitle} - Markdown to HTML Converter";
     }
 
     [Required(ErrorMessage = "Please input your markdown content!")]
