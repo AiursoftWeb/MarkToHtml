@@ -289,6 +289,143 @@
                         markdownEditorElement.value = currentValue;
                         markdownEditorElement.dispatchEvent(new Event('change'));
                     });
+
+                    // --- Markdown All In One Features ---
+
+                    // 1. Enter Key Handler for List Continuation
+                    markdownEditorInstance.onKeyDown((e) => {
+                        if (e.keyCode === monaco.KeyCode.Enter && !e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const unorderedMatch = lineContent.match(/^(\s*)([\-\*\+])\s(.*)$/);
+                            const orderedMatch = lineContent.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+
+                            if (unorderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = unorderedMatch[1];
+                                const marker = unorderedMatch[2];
+                                const content = unorderedMatch[3];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const insertText = `\n${indent}${marker} `;
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    }]);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            } else if (orderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = orderedMatch[1];
+                                const number = parseInt(orderedMatch[2]);
+                                const dot = orderedMatch[3];
+                                const content = orderedMatch[4];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const edits = [];
+                                    const nextNumber = number + 1;
+                                    const insertText = `\n${indent}${nextNumber}${dot} `;
+
+                                    // Insert the new list item
+                                    edits.push({
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    });
+
+                                    // Renumber subsequent list items
+                                    for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
+                                        const nextLine = model.getLineContent(i);
+                                        const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+                                        if (nextLineMatch && nextLineMatch[1] === indent) {
+                                            const oldNum = parseInt(nextLineMatch[2]);
+                                            const newNum = oldNum + 1;
+                                            const newLineText = `${indent}${newNum}${dot} ${nextLineMatch[4]}`;
+                                            edits.push({
+                                                range: new monaco.Range(i, 1, i, nextLine.length + 1),
+                                                text: newLineText
+                                            });
+                                        } else {
+                                            break; // Not a list item or different indentation
+                                        }
+                                    }
+
+                                    markdownEditorInstance.executeEdits('markdown-list-renumber', edits);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            }
+                        }
+                    });
+
+                    // 2. Shortcuts
+
+                    function wrapSelection(startStr, endStr) {
+                        const selection = markdownEditorInstance.getSelection();
+                        const model = markdownEditorInstance.getModel();
+                        const text = model.getValueInRange(selection);
+
+                        markdownEditorInstance.executeEdits('markdown-shortcut', [{
+                            range: selection,
+                            text: `${startStr}${text}${endStr}`,
+                            forceMoveMarkers: true
+                        }]);
+                    }
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, () => wrapSelection('**', '**'));
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, () => wrapSelection('*', '*'));
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, () => {
+                        const selection = markdownEditorInstance.getSelection();
+                        if (selection.startLineNumber !== selection.endLineNumber) {
+                            wrapSelection('```\n', '\n```');
+                        } else {
+                            wrapSelection('`', '`');
+                        }
+                    });
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => wrapSelection('[', '](url)'));
+
+                    for (let i = 1; i <= 6; i++) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | (monaco.KeyCode.Digit0 + i), () => {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const cleanContent = lineContent.replace(/^#+\s*/, '');
+                            const hashes = '#'.repeat(i) + ' ';
+
+                            markdownEditorInstance.executeEdits('markdown-heading', [{
+                                range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                text: hashes + cleanContent,
+                                forceMoveMarkers: true
+                            }]);
+                        });
+                    }
                 }
 
                 if (htmlOutputElement) {
@@ -302,6 +439,34 @@
                     });
                 }
 
+                // --- Markdown Completion Provider ---
+                monaco.languages.registerCompletionItemProvider('markdown', {
+                    provideCompletionItems: function(model, position) {
+                        const word = model.getWordUntilPosition(position);
+                        const range = {
+                            startLineNumber: position.lineNumber,
+                            endLineNumber: position.lineNumber,
+                            startColumn: word.startColumn,
+                            endColumn: word.endColumn
+                        };
+                        return {
+                            suggestions: [{
+                                label: 'table',
+                                kind: monaco.languages.CompletionItemKind.Snippet,
+                                insertText: [
+                                    '| ${1:Header1} | ${2:Header2} |',
+                                    '|---|---|',
+                                    '| ${3:Content1} | ${4:Content2} |',
+                                    ''
+                                ].join('\\n'),
+                                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+                                documentation: 'Table',
+                                range: range
+                            }]
+                        };
+                    }
+                });
+
                 // --- View Mode Switcher ---
                 const editorCol = document.getElementById('editor-column');
                 const previewCol = document.getElementById('preview-column');
@@ -313,13 +478,11 @@
                     if (!editorCol || !previewCol) return;
                     localStorage.setItem('markdown-view-mode', mode);
 
-                    // Sync Radios
                     const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
                     if (leftRadio) leftRadio.checked = true;
                     const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
                     if (rightRadio) rightRadio.checked = true;
 
-                    // Visibility Logic
                     if (mode === 'split') {
                         editorCol.classList.remove('d-none', 'col-lg-12');
                         editorCol.classList.add('col-lg-6');
