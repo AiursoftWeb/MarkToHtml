@@ -608,9 +608,9 @@
                 });
 
                 async function changeVis(isPublic) {
-                    const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
+                    const url = isPublic ? '@Url.Action("MakePublic", "Home")' : '@Url.Action("MakePrivate", "Home")';
                     try {
-                        const res = await fetch(url, {
+                        const res = await fetch(`${url}/${docId}`, {
                             method: 'POST',
                             headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
                         });
