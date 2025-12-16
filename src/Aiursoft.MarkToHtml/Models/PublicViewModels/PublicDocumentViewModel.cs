@@ -9,6 +9,10 @@ public class PublicDocumentViewModel : UiStackLayoutViewModel
 {
     public PublicDocumentViewModel(string articleTitle)
     {
+        if (string.IsNullOrWhiteSpace(articleTitle))
+        {
+            articleTitle = "Untitled Document";
+        }
         PageTitle = $"{articleTitle} - Shared Document";
     }
 

@@ -6,8 +6,12 @@ namespace Aiursoft.MarkToHtml.Models.HomeViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
-    public IndexViewModel(string articleTitle)
+    public IndexViewModel(string? articleTitle = null)
     {
+        if (string.IsNullOrWhiteSpace(articleTitle))
+        {
+            articleTitle = "Untitled Document";
+        }
         PageTitle = $"{articleTitle} - Markdown to HTML Converter";
     }
 
