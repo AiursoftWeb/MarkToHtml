@@ -255,5 +255,14 @@
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>Nu s-au putut actualiza setările de confidențialitate.</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Doar Editor</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Vizualizare Împărțită</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Doar Previzualizare</value>
+  </data>
 
 </root>

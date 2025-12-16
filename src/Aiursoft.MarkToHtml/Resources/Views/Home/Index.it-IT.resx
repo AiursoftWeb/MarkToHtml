@@ -255,5 +255,14 @@
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Sì, rendi privato</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Solo editor</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Solo Anteprima</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Vista divisa</value>
+  </data>
 
 </root>

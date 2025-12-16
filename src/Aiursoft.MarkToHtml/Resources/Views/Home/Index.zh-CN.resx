@@ -255,5 +255,14 @@
   <data name="An error occurred." xml:space="preserve">
     <value>发生错误。</value>
   </data>
+  <data name="Split View" xml:space="preserve">
+    <value>分屏视图</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>仅编辑器</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>仅预览</value>
+  </data>
 
 </root>

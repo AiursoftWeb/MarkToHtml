@@ -255,5 +255,14 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>如果你將此文件設為私人，現有的公開連結將會立即失效，所有人都無法再存取。</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>只限預覽</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>分割視窗</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>只限編輯器</value>
+  </data>
 
 </root>

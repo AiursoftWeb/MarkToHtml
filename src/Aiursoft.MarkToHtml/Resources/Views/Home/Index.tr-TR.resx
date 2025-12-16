@@ -255,5 +255,14 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Yalnızca Önizleme</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Bölünmüş Görünüm</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Sadece Düzenleyici</value>
+  </data>
 
 </root>

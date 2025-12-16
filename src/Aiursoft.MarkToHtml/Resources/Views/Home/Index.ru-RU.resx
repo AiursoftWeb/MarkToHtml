@@ -255,5 +255,14 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Если вы сделаете этот документ приватным, существующая публичная ссылка немедленно перестанет работать для всех.</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Только редактор</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Разделенный вид</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Только предпросмотр</value>
+  </data>
 
 </root>

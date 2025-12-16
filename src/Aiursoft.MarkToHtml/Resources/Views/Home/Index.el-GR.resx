@@ -255,5 +255,14 @@
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>Αποτυχία ενημέρωσης ρυθμίσεων απορρήτου.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Μόνο Προεπισκόπηση</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Μόνο Επεξεργαστής</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Διαχωρισμένη Προβολή</value>
+  </data>
 
 </root>
