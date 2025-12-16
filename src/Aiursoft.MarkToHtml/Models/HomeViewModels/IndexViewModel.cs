@@ -6,6 +6,13 @@ namespace Aiursoft.MarkToHtml.Models.HomeViewModels;
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
+    // ReSharper disable once UnusedMember.Global
+    [Obsolete("This constructor is only used for framework!", true)]
+    public IndexViewModel()
+    {
+        PageTitle = "Markdown to HTML Converter";
+    }
+
     public IndexViewModel(string? articleTitle = null)
     {
         if (string.IsNullOrWhiteSpace(articleTitle))

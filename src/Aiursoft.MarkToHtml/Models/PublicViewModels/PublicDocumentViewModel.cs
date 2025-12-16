@@ -7,6 +7,13 @@ namespace Aiursoft.MarkToHtml.Models.PublicViewModels;
 /// </summary>
 public class PublicDocumentViewModel : UiStackLayoutViewModel
 {
+    // ReSharper disable once UnusedMember.Global
+    [Obsolete("This constructor is only used for framework!", true)]
+    public PublicDocumentViewModel()
+    {
+        PageTitle = "Shared Document";
+    }
+
     public PublicDocumentViewModel(string articleTitle)
     {
         if (string.IsNullOrWhiteSpace(articleTitle))
