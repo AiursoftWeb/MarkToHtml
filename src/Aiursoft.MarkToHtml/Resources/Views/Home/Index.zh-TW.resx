@@ -255,5 +255,14 @@
   <data name="Save Changes" xml:space="preserve">
     <value>儲存變更</value>
   </data>
+  <data name="Split View" xml:space="preserve">
+    <value>分割檢視</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>僅限預覽</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>僅編輯器</value>
+  </data>
 
 </root>

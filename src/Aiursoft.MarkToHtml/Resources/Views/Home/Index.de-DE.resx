@@ -255,5 +255,14 @@
   <data name="An error occurred." xml:space="preserve">
     <value>Ein Fehler ist aufgetreten.</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Nur Editor</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Geteilte Ansicht</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Nur Vorschau</value>
+  </data>
 
 </root>

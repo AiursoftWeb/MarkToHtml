@@ -255,5 +255,14 @@
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>Nie udało się zaktualizować ustawień prywatności.</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Tylko edytor</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Tylko podgląd</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Podzielony widok</value>
+  </data>
 
 </root>

@@ -30,9 +30,19 @@
     <div class="row" style="height: calc(100vh - 240px); min-height: 500px;">
 
         @* --- Left Column: Markdown Input --- *@
-        <div class="col-lg-6 h-100 pb-3">
+        <div id="editor-column" class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
-                <div class="card-header border-bottom">
+                <div class="card-header border-bottom d-flex align-items-center">
+                    <div class="btn-group btn-group-sm me-3" role="group" aria-label="View mode" id="view-mode-switcher-left">
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-split-left" value="split" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="view-split-left" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-editor-left" value="editor" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="view-editor-left" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                        <input type="radio" class="btn-check" name="view-mode-left" id="view-preview-left" value="preview" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="view-preview-left" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
+                    </div>
                     <h5 class="card-title mb-0">
                         <i class="align-middle" data-lucide="file-text">&nbsp;</i>
                         @Localizer["Markdown Input"]
@@ -57,8 +67,8 @@
 
                     @* 编辑器区域 *@
                     <div class="flex-grow-1 position-relative editor-wrapper">
-                        <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
-                            placeholder="@Localizer["Type your Markdown here..."]"></textarea>
+                        <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
+                        <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
                     </div>
                     <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
                 </div>
@@ -66,22 +76,36 @@
         </div>
 
         @* --- Right Column: Output & Settings --- *@
-        <div class="col-lg-6 h-100 pb-3">
+        <div id="preview-column" class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
                 @* 右侧 Header *@
                 <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
-                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
-                            </a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="d-flex align-items-center">
+                        @* Right Switcher (Visible only in Preview Mode) *@
+                        <div class="btn-group btn-group-sm me-3 d-none" role="group" aria-label="View mode" id="view-mode-switcher-right">
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-split-right" value="split" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-split-right" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-editor-right" value="editor" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-editor-right" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-right" id="view-preview-right" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-right" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
+                                    <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
+                                    <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
                     @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
                     {
@@ -146,7 +170,8 @@
                             </div>
 
                             <div class="flex-grow-1 position-relative editor-wrapper">
-                                <textarea class="form-control" id="html-output" readonly>@Model.OutputHtml</textarea>
+                                <div id="html-output-container" style="width: 100%; height: 100%;"></div>
+                                <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
                             </div>
                         </div>
 
@@ -197,7 +222,6 @@
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-    var theme = isDarkMode ? "material" : "eclipse";
 }
 
 @* Confirmation modal *@
@@ -221,9 +245,6 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
-    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" />
-
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
@@ -231,11 +252,8 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script src="~/node_modules/codemirror/lib/codemirror.js"></script>
-    <script src="~/node_modules/codemirror/mode/markdown/markdown.js"></script>
-    <script src="~/node_modules/codemirror/mode/xml/xml.js"></script>
-    <script src="~/node_modules/codemirror/addon/edit/closebrackets.js"></script>
-    <script src="~/node_modules/codemirror/addon/edit/matchbrackets.js"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js"></script>
     <script>
         window.MathJax = {
             tex: {
@@ -250,146 +268,376 @@
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let markdownEditorInstance, htmlOutputInstance;
-            if ($.validator) $.validator.setDefaults({ ignore: [] });
+            require(['vs/editor/editor.main'], function () {
+                let markdownEditorInstance, htmlOutputInstance;
+                const markdownEditorElement = document.getElementById('markdown-editor');
+                const htmlOutputElement = document.getElementById('html-output');
+                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
 
-            // --- CodeMirror Setup ---
-            if (typeof CodeMirror !== 'undefined') {
-                if (!document.getElementById('markdown-editor').CodeMirror) {
-                    markdownEditorInstance = CodeMirror.fromTextArea(document.getElementById('markdown-editor'), {
-                        lineNumbers: true, mode: 'markdown', theme: '@(theme)', viewportMargin: Infinity
+                // --- Monaco Editor Setup ---
+                if (markdownEditorElement) {
+                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
+                        value: markdownEditorElement.value,
+                        language: 'markdown',
+                        theme: monacoTheme,
+                        automaticLayout: true,
+                        wordWrap: 'on',
+                        'semanticHighlighting.enabled': true
                     });
-                    markdownEditorInstance.on('change', () => markdownEditorInstance.save());
+                    markdownEditorInstance.onDidChangeModelContent(() => {
+                        const currentValue = markdownEditorInstance.getValue();
+                        markdownEditorElement.value = currentValue;
+                        markdownEditorElement.dispatchEvent(new Event('change'));
+                    });
+
+                    // --- Markdown All In One Features ---
+
+                    // 1. Enter Key Handler for List Continuation
+                    markdownEditorInstance.onKeyDown((e) => {
+                        if (e.keyCode === monaco.KeyCode.Enter && !e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const unorderedMatch = lineContent.match(/^(\s*)([\-\*\+])\s(.*)$/);
+                            const orderedMatch = lineContent.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+
+                            if (unorderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = unorderedMatch[1];
+                                const marker = unorderedMatch[2];
+                                const content = unorderedMatch[3];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const insertText = `\n${indent}${marker} `;
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    }]);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            } else if (orderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = orderedMatch[1];
+                                const number = parseInt(orderedMatch[2]);
+                                const dot = orderedMatch[3];
+                                const content = orderedMatch[4];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const edits = [];
+                                    const nextNumber = number + 1;
+                                    const insertText = `\n${indent}${nextNumber}${dot} `;
+
+                                    // Insert the new list item
+                                    edits.push({
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    });
+
+                                    // Renumber subsequent list items
+                                    for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
+                                        const nextLine = model.getLineContent(i);
+                                        const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+                                        if (nextLineMatch && nextLineMatch[1] === indent) {
+                                            const oldNum = parseInt(nextLineMatch[2]);
+                                            const newNum = oldNum + 1;
+                                            const newLineText = `${indent}${newNum}${dot} ${nextLineMatch[4]}`;
+                                            edits.push({
+                                                range: new monaco.Range(i, 1, i, nextLine.length + 1),
+                                                text: newLineText
+                                            });
+                                        } else {
+                                            break; // Not a list item or different indentation
+                                        }
+                                    }
+
+                                    markdownEditorInstance.executeEdits('markdown-list-renumber', edits);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            }
+                        }
+                    });
+
+                    // 2. Shortcuts
+
+                    function wrapSelection(startStr, endStr) {
+                        const selection = markdownEditorInstance.getSelection();
+                        const model = markdownEditorInstance.getModel();
+                        const text = model.getValueInRange(selection);
+
+                        markdownEditorInstance.executeEdits('markdown-shortcut', [{
+                            range: selection,
+                            text: `${startStr}${text}${endStr}`,
+                            forceMoveMarkers: true
+                        }]);
+                    }
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, () => wrapSelection('**', '**'));
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, () => wrapSelection('*', '*'));
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, () => {
+                        const selection = markdownEditorInstance.getSelection();
+                        if (selection.startLineNumber !== selection.endLineNumber) {
+                            wrapSelection('```\n', '\n```');
+                        } else {
+                            wrapSelection('`', '`');
+                        }
+                    });
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => wrapSelection('[', '](url)'));
+
+                    for (let i = 1; i <= 6; i++) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | (monaco.KeyCode.Digit0 + i), () => {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const cleanContent = lineContent.replace(/^#+\s*/, '');
+                            const hashes = '#'.repeat(i) + ' ';
+
+                            markdownEditorInstance.executeEdits('markdown-heading', [{
+                                range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                text: hashes + cleanContent,
+                                forceMoveMarkers: true
+                            }]);
+                        });
+                    }
                 }
-                if (!document.getElementById('html-output').CodeMirror) {
-                    htmlOutputInstance = CodeMirror.fromTextArea(document.getElementById('html-output'), {
-                        lineNumbers: true, mode: 'xml', readOnly: true, theme: '@(theme)', viewportMargin: Infinity
+
+                if (htmlOutputElement) {
+                    htmlOutputInstance = monaco.editor.create(document.getElementById('html-output-container'), {
+                        value: htmlOutputElement.value,
+                        language: 'html',
+                        theme: monacoTheme,
+                        readOnly: true,
+                        automaticLayout: true,
+                        wordWrap: 'on'
                     });
                 }
-            }
 
-            // --- Copy & Print Utils ---
-            const copyButton = document.getElementById('copy-button');
-            if (copyButton && htmlOutputInstance) {
-                copyButton.addEventListener('click', function () {
-                    const val = htmlOutputInstance.getValue();
-                    if (!val) return;
-                    navigator.clipboard.writeText(val).then(
-                        () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
-                        (err) => console.error(err)
-                    );
-                });
-            }
-            const themeBtn = document.querySelector('.js-theme-toggle');
-            if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
-            const printBtn = document.getElementById('print-button');
-            if (printBtn) printBtn.addEventListener('click', () => window.print());
-
-            // --- Table & Mermaid Rendering ---
-            function stylePreviewTables() {
-                const p = document.getElementById('preview');
-                if(!p) return;
-                p.querySelectorAll('table').forEach(t => {
-                    t.classList.add('table', 'table-striped', 'table-bordered');
-                    if (!t.parentElement.classList.contains('table-responsive')) {
-                        const w = document.createElement('div'); w.className = 'table-responsive';
-                        t.parentNode.insertBefore(w, t); w.appendChild(t);
+                // --- Markdown Completion Provider ---
+                monaco.languages.registerCompletionItemProvider('markdown', {
+                    provideCompletionItems: function(model, position) {
+                        const word = model.getWordUntilPosition(position);
+                        const range = {
+                            startLineNumber: position.lineNumber,
+                            endLineNumber: position.lineNumber,
+                            startColumn: word.startColumn,
+                            endColumn: word.endColumn
+                        };
+                        return {
+                            suggestions: [{
+                                label: 'table',
+                                kind: monaco.languages.CompletionItemKind.Snippet,
+                                insertText: [
+                                    '| ${1:Header1} | ${2:Header2} |',
+                                    '|---|---|',
+                                    '| ${3:Content1} | ${4:Content2} |',
+                                    ''
+                                ].join('\\n'),
+                                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+                                documentation: 'Table',
+                                range: range
+                            }]
+                        };
                     }
                 });
-            }
-            stylePreviewTables();
-            if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
-            function renderMermaid() {
-                const p = document.getElementById('preview');
-                if (!p || !window.mermaid) return;
-                p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                    const code = b.textContent || '';
-                    const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                    try {
-                        mermaid.parse(code);
-                        mermaid.render(id, code).then(({ svg }) => {
-                            const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                        }).catch(e => console.error(e));
-                    } catch (e) { console.error(e); }
-                });
-            }
-            const prevTab = document.querySelector('a[href="#preview"]');
-            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
-            if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
 
-            // --- MathJax Rendering ---
-            function renderMath() {
-                if (window.MathJax && window.MathJax.typesetPromise) {
-                    const preview = document.getElementById('preview');
-                    if(preview) window.MathJax.typesetPromise([preview]);
-                }
-            }
-            if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
-            if (document.getElementById('preview')?.classList.contains('active')) renderMath();
+                // --- View Mode Switcher ---
+                const editorCol = document.getElementById('editor-column');
+                const previewCol = document.getElementById('preview-column');
+                const radiosLeft = document.querySelectorAll('input[name="view-mode-left"]');
+                const radiosRight = document.querySelectorAll('input[name="view-mode-right"]');
+                const switcherRight = document.getElementById('view-mode-switcher-right');
 
-            // --- Privacy Dropdown Logic (Updated) ---
-            const modalEl = document.getElementById('confirmPrivateModal');
-            const docId = document.querySelector('input[name="DocumentId"]')?.value;
-            const currentStateEl = document.getElementById('current-privacy-state');
+                function setViewMode(mode) {
+                    if (!editorCol || !previewCol) return;
+                    localStorage.setItem('markdown-view-mode', mode);
 
-            // Listen for clicks on Dropdown Items
-            document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const newValue = this.getAttribute('data-value');
-                    const currentValue = currentStateEl ? currentStateEl.value : 'private';
+                    const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
+                    if (leftRadio) leftRadio.checked = true;
+                    const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
+                    if (rightRadio) rightRadio.checked = true;
 
-                    if (newValue === currentValue) return; // No change
+                    if (mode === 'split') {
+                        editorCol.classList.remove('d-none', 'col-lg-12');
+                        editorCol.classList.add('col-lg-6');
+                        previewCol.classList.remove('d-none', 'col-lg-12');
+                        previewCol.classList.add('col-lg-6');
+                        if (switcherRight) switcherRight.classList.add('d-none');
+                    } else if (mode === 'editor') {
+                        editorCol.classList.remove('d-none', 'col-lg-6');
+                        editorCol.classList.add('col-lg-12');
+                        previewCol.classList.add('d-none');
+                    } else if (mode === 'preview') {
+                        editorCol.classList.add('d-none');
+                        previewCol.classList.remove('d-none', 'col-lg-6');
+                        previewCol.classList.add('col-lg-12');
+                        if (switcherRight) switcherRight.classList.remove('d-none');
 
-                    if (newValue === 'public') {
-                        changeVis(true);
-                    } else {
-                        // Switching to private -> Show warning
-                        if (window.bootstrap && bootstrap.Modal) {
-                            new bootstrap.Modal(modalEl).show();
-                        } else if (confirm('@Localizer["Are you sure?"]')) {
-                            changeVis(false);
+                        const previewTabLink = document.querySelector('a[href="#preview"]');
+                        if (previewTabLink) {
+                            if (window.bootstrap && window.bootstrap.Tab) {
+                                bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
+                            } else {
+                                previewTabLink.click();
+                            }
                         }
                     }
-                });
-            });
-
-            // Modal Confirm Button
-            document.getElementById('confirm-make-private')?.addEventListener('click', function() {
-                this.disabled = true;
-                changeVis(false).finally(() => this.disabled = false);
-            });
-
-            async function changeVis(isPublic) {
-                const url = '@Url.Action("ActionPlaceholder", "Home")'.replace('ActionPlaceholder', isPublic ? 'MakePublic' : 'MakePrivate') + '/' + docId;
-                try {
-                    const res = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
-                    });
-                    if (res.ok) {
-                        window.location.reload();
-                    } else {
-                        alert('@Localizer["Failed to update privacy settings."]');
-                    }
-                } catch (e) {
-                    console.error(e);
-                    alert('@Localizer["An error occurred."]');
                 }
-            }
 
-            // --- Public Link Copy ---
-            const cpLink = document.getElementById('copy-link-button');
-            const pubInp = document.getElementById('public-link');
-            if (cpLink && pubInp) {
-                cpLink.addEventListener('click', () => {
-                    pubInp.select();
-                    navigator.clipboard.writeText(pubInp.value).then(() => {
-                        let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
-                        setTimeout(() => cpLink.innerHTML = h, 2000);
+                radiosLeft.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+                radiosRight.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
+
+                const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
+                setViewMode(savedMode);
+
+                if ($.validator) $.validator.setDefaults({ ignore: [] });
+
+                // --- Copy & Print Utils ---
+                const copyButton = document.getElementById('copy-button');
+                if (copyButton && htmlOutputInstance) {
+                    copyButton.addEventListener('click', function () {
+                        const val = htmlOutputInstance.getValue();
+                        if (!val) return;
+                        navigator.clipboard.writeText(val).then(
+                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                            (err) => console.error(err)
+                        );
+                    });
+                }
+                const themeBtn = document.querySelector('.js-theme-toggle');
+                if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
+                const printBtn = document.getElementById('print-button');
+                if (printBtn) printBtn.addEventListener('click', () => window.print());
+
+                // --- Table & Mermaid Rendering ---
+                function stylePreviewTables() {
+                    const p = document.getElementById('preview');
+                    if(!p) return;
+                    p.querySelectorAll('table').forEach(t => {
+                        t.classList.add('table', 'table-striped', 'table-bordered');
+                        if (!t.parentElement.classList.contains('table-responsive')) {
+                            const w = document.createElement('div'); w.className = 'table-responsive';
+                            t.parentNode.insertBefore(w, t); w.appendChild(t);
+                        }
+                    });
+                }
+                stylePreviewTables();
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                function renderMermaid() {
+                    const p = document.getElementById('preview');
+                    if (!p || !window.mermaid) return;
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
+                        const code = b.textContent || '';
+                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
+                            }).catch(e => console.error(e));
+                        } catch (e) { console.error(e); }
+                    });
+                }
+                const prevTab = document.querySelector('a[href="#preview"]');
+                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
+                if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('preview');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
+                if (document.getElementById('preview')?.classList.contains('active')) renderMath();
+
+                // --- Privacy Dropdown Logic (Updated) ---
+                const modalEl = document.getElementById('confirmPrivateModal');
+                const docId = document.querySelector('input[name="DocumentId"]')?.value;
+                const currentStateEl = document.getElementById('current-privacy-state');
+
+                document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const newValue = this.getAttribute('data-value');
+                        const currentValue = currentStateEl ? currentStateEl.value : 'private';
+
+                        if (newValue === currentValue) return;
+
+                        if (newValue === 'public') {
+                            changeVis(true);
+                        } else {
+                            if (window.bootstrap && bootstrap.Modal) {
+                                new bootstrap.Modal(modalEl).show();
+                            } else if (confirm('@Localizer["Are you sure?"]')) {
+                                changeVis(false);
+                            }
+                        }
                     });
                 });
-            }
+
+                document.getElementById('confirm-make-private')?.addEventListener('click', function() {
+                    this.disabled = true;
+                    changeVis(false).finally(() => this.disabled = false);
+                });
+
+                async function changeVis(isPublic) {
+                    const url = isPublic ? '@Url.Action("MakePublic", "Home")' : '@Url.Action("MakePrivate", "Home")';
+                    try {
+                        const res = await fetch(`${url}/${docId}`, {
+                            method: 'POST',
+                            headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
+                        });
+                        if (res.ok) {
+                            window.location.reload();
+                        } else {
+                            alert('@Localizer["Failed to update privacy settings."]');
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        alert('@Localizer["An error occurred."]');
+                    }
+                }
+
+                // --- Public Link Copy ---
+                const cpLink = document.getElementById('copy-link-button');
+                const pubInp = document.getElementById('public-link');
+                if (cpLink && pubInp) {
+                    cpLink.addEventListener('click', () => {
+                        pubInp.select();
+                        navigator.clipboard.writeText(pubInp.value).then(() => {
+                            let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
+                            setTimeout(() => cpLink.innerHTML = h, 2000);
+                        });
+                    });
+                }
+            });
         });
     </script>
 }
