@@ -62,16 +62,8 @@
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            @if (document.User != null)
-                                            {
-                                                <img src="@(StorageService.RelativePathToInternetUrl(document.User.AvatarRelativePath))?w=128&square=true" alt="@document.User.DisplayName" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
-                                                <span>@document.User.DisplayName</span>
-                                            }
-                                            else
-                                            {
-                                                <i class="align-middle me-2" data-lucide="user"></i>
-                                                <span class="text-muted">@Localizer["Unknown"]</span>
-                                            }
+                                            <img src="@(StorageService.RelativePathToInternetUrl(document.User.AvatarRelativePath))?w=128&square=true" alt="@document.User.DisplayName" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                                            <span>@document.User.DisplayName</span>
                                         </div>
                                     </td>
                                     <td>

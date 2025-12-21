@@ -4,8 +4,8 @@ using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
+
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
@@ -343,7 +343,7 @@ public class DocumentSharingTests
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Public Document", "# Content");
-        var publicId = await MakeDocumentPublic(documentId);
+        _ = await MakeDocumentPublic(documentId);
         await Logout();
         
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
@@ -433,7 +433,7 @@ public class DocumentSharingTests
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Owner's Document", "# Content");
-        var viewerId = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
+        _ = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
         await Logout();
         
         // Login as owner
