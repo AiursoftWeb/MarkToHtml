@@ -4,6 +4,8 @@ using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
 
 
@@ -464,5 +466,88 @@ public class DocumentSharingTests
         // Act & Assert - Can delete
         var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, deletePageResponse.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task ComplexPermissionScenario_RoleAndDirectShare_PermissionPriority()
+    {
+        // Arrange: Create owner and document
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Complex Permission Test", "# Content");
+        
+        // Create user who will be in a role
+        await Logout();
+        var userId = await RegisterAndLoginUser($"user-{Guid.NewGuid()}@test.com", "Password123!");
+        
+        // Create role and add user to it
+        string roleId;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            
+            var role = new IdentityRole { Id = Guid.NewGuid().ToString(), Name = $"TestRole-{Guid.NewGuid()}" };
+            await roleManager.CreateAsync(role);
+            roleId = role.Id;
+            
+            var user = await userManager.FindByIdAsync(userId);
+            await userManager.AddToRoleAsync(user!, role.Name!);
+        }
+
+        // Share document: Direct share (Editable) + Role share (ReadOnly)
+        await CreateShare(documentId, userId, null, SharePermission.Editable); // Direct: Editable
+        await CreateShare(documentId, null, roleId, SharePermission.ReadOnly); // Role: ReadOnly
+
+        // Test 1: User can edit (has Editable permission from direct share, even though role is ReadOnly)
+        var editResponse1 = await _http.GetAsync($"/Home/Edit/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, editResponse1.StatusCode, "User should be able to edit with direct Editable permission");
+
+        // Test 2: Remove user from role
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var user = await userManager.FindByIdAsync(userId);
+            var role = await roleManager.FindByIdAsync(roleId);
+            await userManager.RemoveFromRoleAsync(user!, role!.Name!);
+        }
+
+        // User should still be able to edit (still has direct Editable share)
+        var editResponse2 = await _http.GetAsync($"/Home/Edit/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, editResponse2.StatusCode, "User should still be able to edit with direct share after leaving role");
+
+        // Test 3: Add user back to role
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var user = await userManager.FindByIdAsync(userId);
+            var role = await roleManager.FindByIdAsync(roleId);
+            await userManager.AddToRoleAsync(user!, role!.Name!);
+        }
+
+        // User should still be able to edit
+        var editResponse3 = await _http.GetAsync($"/Home/Edit/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, editResponse3.StatusCode, "User should be able to edit after rejoining role");
+
+        // Test 4: Remove direct share (keep only role share which is ReadOnly)
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var directShare = await db.DocumentShares
+                .FirstOrDefaultAsync(s => s.DocumentId == documentId && s.SharedWithUserId == userId);
+            if (directShare != null)
+            {
+                db.DocumentShares.Remove(directShare);
+                await db.SaveChangesAsync();
+            }
+        }
+
+        // User should now only be able to view (lost Editable permission, only has ReadOnly from role)
+        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode, "User should be able to view with role ReadOnly permission");
+
+        var editResponse4 = await _http.GetAsync($"/Home/Edit/{documentId}");
+        Assert.AreEqual(HttpStatusCode.Forbidden, editResponse4.StatusCode, "User should NOT be able to edit with only role ReadOnly permission");
     }
 }

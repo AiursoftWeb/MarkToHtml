@@ -75,5 +75,8 @@
   <data name="Public" xml:space="preserve">
     <value>공개</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>공유</value>
+  </data>
 
 </root>

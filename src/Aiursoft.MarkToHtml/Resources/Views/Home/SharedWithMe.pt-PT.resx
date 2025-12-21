@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Shared Via" xml:space="preserve">
+    <value>Partilhado Via</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Permissão</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Partilhado Por</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Documento</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Partilhado Comigo</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Sem documentos partilhados</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Documentos que foram partilhados consigo ou com os seus grupos.</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Quando alguém partilha um documento consigo ou com a sua função, ele aparecerá aqui.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>caracteres</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Partilhado Em</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>Através de Função</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Documento Sem Título</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editável</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Apenas Leitura</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partilha Direta</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Ver</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+
+</root>

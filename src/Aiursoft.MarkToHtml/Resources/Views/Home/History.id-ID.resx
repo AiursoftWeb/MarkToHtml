@@ -75,5 +75,8 @@
   <data name="Private" xml:space="preserve">
     <value>Pribadi</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Bagikan</value>
+  </data>
 
 </root>

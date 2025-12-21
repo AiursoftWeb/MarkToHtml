@@ -147,5 +147,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown을 HTML로 변환하는 도구</value>
   </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>나와 공유됨</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>공유하기</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>공유 관리</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>제목 없음 문서</value>
+  </data>
 
 </root>

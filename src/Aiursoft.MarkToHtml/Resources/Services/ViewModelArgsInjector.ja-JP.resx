@@ -147,5 +147,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>MarkdownからHTMLへの変換ツール</value>
   </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>無題のドキュメント</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>共有する</value>
+  </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>共有されたファイル</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>共有の管理</value>
+  </data>
 
 </root>

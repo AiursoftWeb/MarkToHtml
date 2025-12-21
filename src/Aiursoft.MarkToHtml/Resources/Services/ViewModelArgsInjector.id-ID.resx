@@ -144,5 +144,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Konverter Markdown ke HTML</value>
   </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Bagikan dengan</value>
+  </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Dibagikan dengan saya</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Kelola berbagi</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Dokumen Tanpa Judul</value>
+  </data>
 
 </root>

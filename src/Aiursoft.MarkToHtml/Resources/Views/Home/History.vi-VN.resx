@@ -75,5 +75,8 @@
   <data name="Visibility" xml:space="preserve">
     <value>Mức độ hiển thị</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Chia sẻ</value>
+  </data>
 
 </root>

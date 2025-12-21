@@ -144,5 +144,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Конвертер Markdown у HTML</value>
   </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Надані мені</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Поділитися з</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Документ без назви</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Керувати спільним доступом</value>
+  </data>
 
 </root>
