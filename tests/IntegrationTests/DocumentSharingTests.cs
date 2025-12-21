@@ -293,4 +293,176 @@ public class DocumentSharingTests
         var editResponse = await _http.GetAsync($"/Home/Edit/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, editResponse.StatusCode);
     }
+
+    [TestMethod]
+    public async Task SharedUser_CannotManageShares_EvenWithEditablePermission()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Shared Document", "# Content");
+        await Logout();
+        
+        var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editorId, null, SharePermission.Editable);
+
+        // Act - Try to access ManageShares
+        var manageSharesResponse = await _http.GetAsync($"/Home/ManageShares/{documentId}");
+
+        // Assert - Should be forbidden
+        Assert.AreEqual(HttpStatusCode.NotFound, manageSharesResponse.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task SharedUser_CannotMakeDocumentPublic_EvenWithEditablePermission()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Private Document", "# Content");
+        await Logout();
+        
+        var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editorId, null, SharePermission.Editable);
+
+        // Act - Try to make document public
+        var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
+        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", token }
+            }));
+
+        // Assert - Should be forbidden or not found
+        Assert.IsTrue(
+            makePublicResponse.StatusCode == HttpStatusCode.NotFound || 
+            makePublicResponse.StatusCode == HttpStatusCode.Forbidden);
+    }
+
+    [TestMethod]
+    public async Task SharedUser_CannotMakeDocumentPrivate_EvenWithEditablePermission()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Public Document", "# Content");
+        var publicId = await MakeDocumentPublic(documentId);
+        await Logout();
+        
+        var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editorId, null, SharePermission.Editable);
+
+        // Act - Try to make document private
+        var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
+        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", token }
+            }));
+
+        // Assert - Should be forbidden or not found
+        Assert.IsTrue(
+            makePrivateResponse.StatusCode == HttpStatusCode.NotFound || 
+            makePrivateResponse.StatusCode == HttpStatusCode.Forbidden);
+    }
+
+    [TestMethod]
+    public async Task SharedUser_CannotDeleteDocument_EvenWithEditablePermission()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Document to Delete", "# Content");
+        await Logout();
+        
+        var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editorId, null, SharePermission.Editable);
+
+        // Act - Try to access delete page
+        var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
+        Assert.AreEqual(HttpStatusCode.NotFound, deletePageResponse.StatusCode);
+
+        // Act - Try to delete document directly
+        var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
+        var deleteResponse = await _http.PostAsync($"/Home/Delete/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", token }
+            }));
+
+        // Assert - Should be forbidden or not found
+        Assert.IsTrue(
+            deleteResponse.StatusCode == HttpStatusCode.NotFound || 
+            deleteResponse.StatusCode == HttpStatusCode.Forbidden);
+    }
+
+    [TestMethod]
+    public async Task SharedUser_CannotAddMoreShares_ToDocument()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Shared Document", "# Content");
+        await Logout();
+        
+        var editor1Id = await RegisterAndLoginUser($"editor1-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editor1Id, null, SharePermission.Editable);
+        
+        // Create another user to share with
+        await Logout();
+        var editor2Id = await RegisterAndLoginUser($"editor2-{Guid.NewGuid()}@test.com", "Password123!");
+        await Logout();
+        
+        // Login as editor1 (who has Editable permission but is not the owner)
+        await RegisterAndLoginUser($"editor1-{Guid.NewGuid()}@test.com", "Password123!");
+
+        // Act - Try to add a new share
+        var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
+        var addShareResponse = await _http.PostAsync($"/Home/AddShare/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "TargetUserId", editor2Id },
+                { "Permission", "1" }, // Editable
+                { "__RequestVerificationToken", token }
+            }));
+
+        // Assert - Should be forbidden or not found (can't access ManageShares)
+        Assert.IsTrue(
+            addShareResponse.StatusCode == HttpStatusCode.NotFound || 
+            addShareResponse.StatusCode == HttpStatusCode.Forbidden);
+    }
+
+    [TestMethod]
+    public async Task Owner_CanManageAll_SharingAndPrivacySettings()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Owner's Document", "# Content");
+        var viewerId = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
+        await Logout();
+        
+        // Login as owner
+        await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+
+        // Act & Assert - Can access ManageShares
+        var manageSharesResponse = await _http.GetAsync($"/Home/ManageShares/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, manageSharesResponse.StatusCode);
+
+        // Act & Assert - Can make public
+        var token1 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
+        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", token1 }
+            }));
+        Assert.AreEqual(HttpStatusCode.OK, makePublicResponse.StatusCode);
+
+        // Act & Assert - Can make private
+        var token2 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
+        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "__RequestVerificationToken", token2 }
+            }));
+        Assert.AreEqual(HttpStatusCode.OK, makePrivateResponse.StatusCode);
+
+        // Act & Assert - Can delete
+        var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, deletePageResponse.StatusCode);
+    }
 }
