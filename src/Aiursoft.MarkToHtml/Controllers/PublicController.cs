@@ -161,6 +161,6 @@ public class PublicController(
         };
 
         ViewBag.DocumentId = id;
-        return this.StackView(model);
+        return this.StackView(model, viewName: nameof(View)); // Reuse the View.cshtml
     }
 }
