@@ -426,7 +426,7 @@ public class HomeController(
         CascadedLinksGroupName = "Home",
         CascadedLinksIcon = "share-2",
         CascadedLinksOrder = 3,
-        LinkText = "Shared with Me",
+        LinkText = "Shared with me",
         LinkOrder = 3)]
     public async Task<IActionResult> SharedWithMe()
     {
