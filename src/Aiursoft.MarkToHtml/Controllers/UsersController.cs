@@ -2,12 +2,14 @@ using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.UsersViewModels;
 using Aiursoft.MarkToHtml.Services;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+
 
 namespace Aiursoft.MarkToHtml.Controllers;
 
@@ -19,7 +21,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class UsersController(
     RoleManager<IdentityRole> roleManager,
     UserManager<User> userManager,
-    TemplateDbContext context)
+    TemplateDbContext context,
+    StorageService storageService)
     : Controller
 {
     [Authorize(Policy = AppPermissionNames.CanReadUsers)]
@@ -236,5 +239,39 @@ public class UsersController(
         }
         await userManager.DeleteAsync(user);
         return RedirectToAction(nameof(Index));
+    }
+
+    /// <summary>
+    /// API: Search users by username or display name
+    /// </summary>
+    /// <param name="query">Search query (min 3 characters)</param>
+    /// <returns>JSON array of matching users with Id, UserName, DisplayName, AvatarPath</returns>
+    [HttpGet("/api/users/search")]
+    public async Task<IActionResult> SearchUsers(string query)
+    {
+        if (!User.Identity?.IsAuthenticated ?? true)
+        {
+            return Unauthorized();
+        }
+        
+        if (string.IsNullOrWhiteSpace(query) || query.Length < 3)
+        {
+            return Json(new List<object>());
+        }
+
+        var users = await context.Users
+            .Where(u => u.UserName!.Contains(query) || u.DisplayName.Contains(query))
+            .Take(10)
+            .ToListAsync();
+
+        var result = users.Select(u => new
+        {
+            id = u.Id,
+            userName = u.UserName,
+            displayName = u.DisplayName,
+            avatarUrl = storageService.RelativePathToInternetUrl(u.AvatarRelativePath) + "?w=128&square=true"
+        });
+
+        return Json(result);
     }
 }

@@ -117,6 +117,9 @@
                             <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
                                 <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
                             </a>
+                            <a asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
+                                <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
+                            </a>
                             <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
                                 <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
                             </a>

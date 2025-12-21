@@ -13,4 +13,6 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
         Database.CanConnectAsync();
 
     public DbSet<MarkdownDocument> MarkdownDocuments => Set<MarkdownDocument>();
+
+    public DbSet<DocumentShare> DocumentShares => Set<DocumentShare>();
 }

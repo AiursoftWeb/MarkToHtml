@@ -29,4 +29,7 @@ public class MarkdownDocument
     /// If null, the document is private.
     /// </summary>
     public Guid? PublicId { get; set; }
+
+    [InverseProperty(nameof(DocumentShare.Document))]
+    public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
 }

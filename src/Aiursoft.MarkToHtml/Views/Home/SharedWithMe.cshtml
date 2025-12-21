@@ -1,0 +1,137 @@
+@using Aiursoft.WebTools
+@model Aiursoft.MarkToHtml.Models.HomeViewModels.SharedWithMeViewModel
+@inject IViewLocalizer Localizer
+@inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService StorageService
+
+
+
+<div class="row mb-3">
+    <div class="col-12">
+        <h3>@Localizer["Shared with Me"]</h3>
+        <p class="text-muted">@Localizer["Documents that have been shared with you or your groups."]</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                @if (!Model.Shares.Any())
+                {
+                    <div class="text-center text-muted py-5">
+                        <i class="align-middle" data-lucide="inbox" style="width: 64px; height: 64px;"></i>
+                        <h5 class="mt-3">@Localizer["No shared documents"]</h5>
+                        <p>@Localizer["When someone shares a document with you or your role, it will appear here."]</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                            <tr>
+                                <th>@Localizer["Document"]</th>
+                                <th>@Localizer["Shared By"]</th>
+                                <th>@Localizer["Shared Via"]</th>
+                                <th>@Localizer["Permission"]</th>
+                                <th>@Localizer["Shared At"]</th>
+                                <th class="text-end">@Localizer["Actions"]</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var share in Model.Shares)
+                            {
+                                var document = share.Document;
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-column">
+                                            <strong>
+                                                @if (string.IsNullOrWhiteSpace(document.Title))
+                                                {
+                                                    <span class="text-muted">(@Localizer["Untitled Document"])</span>
+                                                }
+                                                else
+                                                {
+                                                    @document.Title
+                                                }
+                                            </strong>
+                                            <small class="text-muted">
+                                                @(document.Content?.Length ?? 0) @Localizer["characters"]
+                                            </small>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            @if (document.User != null)
+                                            {
+                                                <img src="@(StorageService.RelativePathToInternetUrl(document.User.AvatarRelativePath))?w=128&square=true" alt="@document.User.DisplayName" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                                                <span>@document.User.DisplayName</span>
+                                            }
+                                            else
+                                            {
+                                                <i class="align-middle me-2" data-lucide="user"></i>
+                                                <span class="text-muted">@Localizer["Unknown"]</span>
+                                            }
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (share.SharedWithUserId != null)
+                                        {
+                                            <div class="d-flex align-items-center">
+                                                <i class="align-middle me-2 text-info" data-lucide="user"></i>
+                                                <span class="badge bg-info">@Localizer["Direct Share"]</span>
+                                            </div>
+                                        }
+                                        else if (share.SharedWithRoleId != null)
+                                        {
+                                            var roleName = Model.RoleNames.GetValueOrDefault(share.SharedWithRoleId, share.SharedWithRoleId);
+                                            <div class="d-flex align-items-center">
+                                                <i class="align-middle me-2 text-primary" data-lucide="users"></i>
+                                                <div>
+                                                    <div class="badge bg-primary mb-1">@Localizer["Via Role"]</div>
+                                                    <div class="small text-muted">@roleName</div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (share.Permission == Aiursoft.MarkToHtml.Entities.SharePermission.ReadOnly)
+                                        {
+                                            <span class="badge bg-secondary">
+                                                <i class="align-middle" data-lucide="eye"></i> @Localizer["Read Only"]
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">
+                                                <i class="align-middle" data-lucide="edit-3"></i> @Localizer["Editable"]
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <label class="text-muted" data-utc-time="@share.CreationTime.ToHtmlDateTime()"></label>
+                                    </td>
+                                    <td class="text-end">
+                                        @if (share.Permission == Aiursoft.MarkToHtml.Entities.SharePermission.ReadOnly)
+                                        {
+                                            <a href="/view/@document.Id" class="btn btn-sm btn-outline-primary">
+                                                <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Edit" asp-route-id="@document.Id" class="btn btn-sm btn-outline-success">
+                                                <i class="align-middle" data-lucide="edit-3"></i> @Localizer["Edit"]
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
