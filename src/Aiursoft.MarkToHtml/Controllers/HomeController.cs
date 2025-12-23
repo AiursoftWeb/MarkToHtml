@@ -371,11 +371,29 @@ public class HomeController(
             return BadRequest(ModelState);
         }
 
+        var targetUserId = string.IsNullOrWhiteSpace(model.TargetUserId) ? null : model.TargetUserId;
+        var targetRoleId = string.IsNullOrWhiteSpace(model.TargetRoleId) ? null : model.TargetRoleId;
+
+        if (targetUserId == null && targetRoleId == null)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
+        }
+
+        var exists = await context.DocumentShares
+            .AnyAsync(s => s.DocumentId == document.Id &&
+                           ((targetUserId != null && s.SharedWithUserId == targetUserId) ||
+                            (targetRoleId != null && s.SharedWithRoleId == targetRoleId)));
+
+        if (exists)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "duplicate" });
+        }
+
         var share = new DocumentShare
         {
             DocumentId = document.Id,
-            SharedWithUserId = string.IsNullOrWhiteSpace(model.TargetUserId) ? null : model.TargetUserId,
-            SharedWithRoleId = string.IsNullOrWhiteSpace(model.TargetRoleId) ? null : model.TargetRoleId,
+            SharedWithUserId = targetUserId,
+            SharedWithRoleId = targetRoleId,
             Permission = model.Permission
         };
 
