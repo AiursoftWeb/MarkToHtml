@@ -75,5 +75,8 @@
   <data name="Visibility" xml:space="preserve">
     <value>Visibilité</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Partager</value>
+  </data>
 
 </root>

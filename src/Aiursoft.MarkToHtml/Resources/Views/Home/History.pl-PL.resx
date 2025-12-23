@@ -75,5 +75,8 @@
   <data name="Private" xml:space="preserve">
     <value>Prywatny</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Udostępnij</value>
+  </data>
 
 </root>

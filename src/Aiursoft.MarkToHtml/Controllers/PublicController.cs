@@ -83,4 +83,84 @@ public class PublicController(
         // Return raw markdown as plain text
         return Content(document.Content ?? string.Empty, "text/plain; charset=utf-8");
     }
+
+    /// <summary>
+    /// View a document by its ID (requires authentication and proper permissions).
+    /// User must be the owner or have the document shared with them.
+    /// </summary>
+    /// <param name="id">The document ID.</param>
+    /// <returns>The document view.</returns>
+    [HttpGet("/view/{id:guid}")]
+    public async Task<IActionResult> ViewById([Required][FromRoute] Guid id)
+    {
+        if (!User.Identity?.IsAuthenticated ?? true)
+        {
+            return Challenge();
+        }
+
+        var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userId))
+        {
+            return Unauthorized();
+        }
+
+        logger.LogTrace("User '{UserId}' attempting to view document with ID: '{DocumentId}'", userId, id);
+
+        var document = await context.MarkdownDocuments
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            logger.LogWarning("Document with ID: '{DocumentId}' was not found.", id);
+            return NotFound("The document was not found.");
+        }
+
+        // Check if user is the owner
+        if (document.UserId == userId)
+        {
+            logger.LogInformation("Document owner '{UserId}' accessing document '{DocumentId}'", userId, id);
+        }
+        else
+        {
+            // Check if document is shared with the user (directly or via role)
+            var user = await context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            var hasAccess = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+            if (!hasAccess)
+            {
+                logger.LogWarning("User '{UserId}' attempted to access document '{DocumentId}' without permission", userId, id);
+                return Forbid();
+            }
+
+            logger.LogInformation("User '{UserId}' accessing shared document '{DocumentId}'", userId, id);
+        }
+
+        var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
+
+        var model = new PublicDocumentViewModel(document.Title ?? "Untitled Document")
+        {
+            DocumentTitle = document.Title ?? "Untitled Document",
+            Content = outputHtml,
+            MarkdownContent = document.Content ?? string.Empty,
+            AuthorName = document.User.UserName ?? "Unknown Author",
+            CreationTime = document.CreationTime
+        };
+
+        ViewBag.DocumentId = id;
+        return this.StackView(model, viewName: nameof(View)); // Reuse the View.cshtml
+    }
 }

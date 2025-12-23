@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>Somente Editor</value>
   </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Interno - Usuários/funções específicos</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Interno</value>
+  </data>
 
 </root>

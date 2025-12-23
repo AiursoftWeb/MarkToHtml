@@ -75,5 +75,8 @@
   <data name="Visibility" xml:space="preserve">
     <value>Видимість</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поділитися</value>
+  </data>
 
 </root>

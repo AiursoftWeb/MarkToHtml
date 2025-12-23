@@ -75,5 +75,8 @@
   <data name="Public" xml:space="preserve">
     <value>Общедоступный</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
 
 </root>

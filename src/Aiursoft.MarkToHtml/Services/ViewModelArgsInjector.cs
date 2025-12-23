@@ -68,6 +68,10 @@ public class ViewModelArgsInjector(
         _ = localizer["My documents"];
         _ = localizer["All Documents"];
         _ = localizer["Documents"];
+        _ = localizer["Manage shares"];
+        _ = localizer["Shared with me"];
+        _ = localizer["Share with"];
+        _ = localizer["Untitled Document"];
     }
 
     public void Inject(

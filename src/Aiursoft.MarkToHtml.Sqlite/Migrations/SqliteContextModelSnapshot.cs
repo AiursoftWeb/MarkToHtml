@@ -15,7 +15,39 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.1");
+
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.DocumentShare", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("DocumentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Permission")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SharedWithRoleId")
+                        .HasMaxLength(450)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SharedWithUserId")
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId");
+
+                    b.HasIndex("SharedWithUserId");
+
+                    b.ToTable("DocumentShares");
+                });
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
                 {
@@ -254,6 +286,23 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.DocumentShare", b =>
+                {
+                    b.HasOne("Aiursoft.MarkToHtml.Entities.MarkdownDocument", "Document")
+                        .WithMany("DocumentShares")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Aiursoft.MarkToHtml.Entities.User", "SharedWithUser")
+                        .WithMany("SharedWithMe")
+                        .HasForeignKey("SharedWithUserId");
+
+                    b.Navigation("Document");
+
+                    b.Navigation("SharedWithUser");
+                });
+
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
                 {
                     b.HasOne("Aiursoft.MarkToHtml.Entities.User", "User")
@@ -316,9 +365,16 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
+                {
+                    b.Navigation("DocumentShares");
+                });
+
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.User", b =>
                 {
                     b.Navigation("CreatedDocuments");
+
+                    b.Navigation("SharedWithMe");
                 });
 #pragma warning restore 612, 618
         }

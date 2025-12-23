@@ -121,6 +121,10 @@
                                 {
                                     <span class="text-success fw-bold"><i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]</span>
                                 }
+                                else if (Model.HasInternalShares)
+                                {
+                                    <span class="text-info fw-bold"><i class="align-middle" data-lucide="users"></i> @Localizer["Internal"]</span>
+                                }
                                 else
                                 {
                                     <span class="text-secondary"><i class="align-middle" data-lucide="lock"></i> @Localizer["Private"]</span>
@@ -133,13 +137,18 @@
                                     </button>
                                 </li>
                                 <li>
+                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="internal">
+                                        <i class="align-middle me-1" data-lucide="users"></i> @Localizer["Internal - Specific users/roles"]
+                                    </button>
+                                </li>
+                                <li>
                                     <button class="dropdown-item" type="button" data-action="set-privacy" data-value="public">
                                         <i class="align-middle me-1" data-lucide="globe"></i> @Localizer["Public - Anyone with link"]
                                     </button>
                                 </li>
                             </ul>
                             @* 隐藏域存储当前状态供 JS 读取 *@
-                            <input type="hidden" id="current-privacy-state" value="@(Model.PublicId.HasValue ? "public" : "private")" />
+                            <input type="hidden" id="current-privacy-state" value="@(Model.PublicId.HasValue ? "public" : Model.HasInternalShares ? "internal" : "private")" />
                         </div>
                     }
                 </div>
@@ -587,6 +596,11 @@
                         e.preventDefault();
                         const newValue = this.getAttribute('data-value');
                         const currentValue = currentStateEl ? currentStateEl.value : 'private';
+
+                        if (newValue === 'internal') {
+                            window.location.href = '@Url.Action("ManageShares", "Home")/' + docId;
+                            return;
+                        }
 
                         if (newValue === currentValue) return;
 

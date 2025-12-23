@@ -75,5 +75,8 @@
   <data name="Public" xml:space="preserve">
     <value>Public</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Partajează</value>
+  </data>
 
 </root>

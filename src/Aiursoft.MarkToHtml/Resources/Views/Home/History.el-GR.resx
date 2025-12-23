@@ -75,5 +75,8 @@
   <data name="Visibility" xml:space="preserve">
     <value>Ορατότητα</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Κοινοποίηση</value>
+  </data>
 
 </root>

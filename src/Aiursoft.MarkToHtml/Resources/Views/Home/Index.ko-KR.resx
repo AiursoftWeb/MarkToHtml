@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>편집기만</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>내부</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>내부 - 특정 사용자/역할</value>
+  </data>
 
 </root>

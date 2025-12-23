@@ -144,5 +144,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
   </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Başlıksız Belge</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Paylaş</value>
+  </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Benimle Paylaşılan</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Paylaşımları Yönet</value>
+  </data>
 
 </root>

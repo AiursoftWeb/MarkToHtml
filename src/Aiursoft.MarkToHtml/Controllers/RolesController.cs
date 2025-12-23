@@ -3,12 +3,14 @@ using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.RolesViewModels;
 using Aiursoft.MarkToHtml.Services;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace Aiursoft.MarkToHtml.Controllers;
 
@@ -20,7 +22,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class RolesController(
     UserManager<User> userManager,
     TemplateDbContext context,
-    RoleManager<IdentityRole> roleManager)
+    RoleManager<IdentityRole> roleManager,
+    StorageService storageService)
     : Controller
 {
     // GET: Roles
@@ -229,5 +232,45 @@ public class RolesController(
 
         await roleManager.DeleteAsync(role);
         return RedirectToAction(nameof(Index));
+    }
+
+    /// <summary>
+    /// API: Get role information including total member count and preview of first 4 members.
+    /// </summary>
+    /// <param name="roleId">The ID of the role to query.</param>
+    /// <returns>JSON with role info: Id, Name, TotalMembers, PreviewMembers (Id, DisplayName, AvatarPath)</returns>
+    [HttpGet("/api/roles/{roleId}/info")]
+    public async Task<IActionResult> GetRoleInfo(string roleId)
+    {
+        if (!User.Identity?.IsAuthenticated ?? true)
+        {
+            return Unauthorized();
+        }
+        
+        var role = await roleManager.FindByIdAsync(roleId);
+        if (role == null)
+        {
+            return NotFound(new { error = "Role not found" });
+        }
+
+        var usersInRole = await userManager.GetUsersInRoleAsync(role.Name!);
+        var totalMembers = usersInRole.Count;
+        var previewMembers = usersInRole
+            .Take(4)
+            .Select(u => new
+            {
+                id = u.Id,
+                displayName = u.DisplayName,
+                avatarUrl = storageService.RelativePathToInternetUrl(u.AvatarRelativePath) + "?w=128&square=true"
+            })
+            .ToList();
+
+        return Json(new
+        {
+            id = role.Id,
+            name = role.Name,
+            totalMembers,
+            previewMembers
+        });
     }
 }

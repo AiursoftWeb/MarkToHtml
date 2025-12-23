@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>Chỉ Biên tập</value>
   </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Nội bộ - Người dùng/Vai trò cụ thể</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Nội bộ</value>
+  </data>
 
 </root>

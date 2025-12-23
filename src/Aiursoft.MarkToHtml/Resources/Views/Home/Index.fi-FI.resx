@@ -264,5 +264,11 @@
   <data name="Split View" xml:space="preserve">
     <value>Jaettu näkymä</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Sisäinen</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Sisäinen - Tietyt käyttäjät/roolit</value>
+  </data>
 
 </root>

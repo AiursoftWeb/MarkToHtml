@@ -144,5 +144,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown til HTML konverter</value>
   </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Administrer delinger</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Uden titel dokument</value>
+  </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Delt med mig</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Del med</value>
+  </data>
 
 </root>

@@ -147,5 +147,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Convertisseur de Markdown en HTML</value>
   </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Partagé avec moi</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Gérer les partages</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Partager avec</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Document sans titre</value>
+  </data>
 
 </root>

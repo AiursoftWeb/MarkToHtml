@@ -75,5 +75,8 @@
   <data name="Public" xml:space="preserve">
     <value>Julkinen</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Jaa</value>
+  </data>
 
 </root>

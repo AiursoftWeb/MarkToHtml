@@ -144,5 +144,17 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Μετατροπέας Markdown σε HTML</value>
   </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Μοιραστείτε με</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Άτιτο Έγγραφο</value>
+  </data>
+  <data name="Shared with me" xml:space="preserve">
+    <value>Μοιρασμένα με εμένα</value>
+  </data>
+  <data name="Manage shares" xml:space="preserve">
+    <value>Διαχείριση κοινόχρηστων</value>
+  </data>
 
 </root>

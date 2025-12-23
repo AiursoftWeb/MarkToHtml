@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>Hanya Editor</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Internal</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Internal - Pengguna/peran tertentu</value>
+  </data>
 
 </root>

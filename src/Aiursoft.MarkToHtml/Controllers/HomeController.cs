@@ -59,10 +59,35 @@ public class HomeController(
             logger.LogTrace("Authenticated user submitted a document with ID: '{Id}'. Save it to the database.",
                 model.DocumentId);
             var documentInDb = await context.MarkdownDocuments
-                .FirstOrDefaultAsync(d => d.Id == model.DocumentId && d.UserId == userId);
+                .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
             var isExistingDocument = documentInDb != null;
+
             if (documentInDb != null)
             {
+                // Check permissions for existing document
+                bool isOwner = documentInDb.UserId == userId;
+                bool canEdit = isOwner;
+
+                if (!isOwner)
+                {
+                    // Check if user has Editable permission
+                    var userRoles = await context.UserRoles
+                        .Where(ur => ur.UserId == userId)
+                        .Select(ur => ur.RoleId)
+                        .ToListAsync();
+
+                    canEdit = await context.DocumentShares
+                        .AnyAsync(s => s.DocumentId == model.DocumentId &&
+                                      s.Permission == SharePermission.Editable &&
+                                      (s.SharedWithUserId == userId ||
+                                       (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+                }
+
+                if (!canEdit)
+                {
+                    return Forbid();
+                }
+
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
                 documentInDb.Title = model.Title;
@@ -99,11 +124,37 @@ public class HomeController(
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.DocumentShares)
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
         {
-            return NotFound("The document was not found or you do not have permission to edit it.");
+            return NotFound("The document was not found.");
+        }
+
+        // Check if user is the owner
+        bool isOwner = document.UserId == userId;
+        bool canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            // Check if document is shared with the user with Editable permission
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+        }
+
+        if (!canEdit)
+        {
+            return Forbid();
         }
 
         var publicLink = document.PublicId.HasValue
@@ -119,7 +170,8 @@ public class HomeController(
             IsEditing = true,
             SavedSuccessfully = saved ?? false,
             PublicId = document.PublicId,
-            PublicLink = publicLink
+            PublicLink = publicLink,
+            HasInternalShares = document.DocumentShares.Any()
         };
 
         return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
@@ -265,5 +317,175 @@ public class HomeController(
         }
 
         return Ok();
+    }
+
+    /// <summary>
+    /// GET: Manage shares for a specific document
+    /// </summary>
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> ManageShares([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.DocumentShares)
+                .ThenInclude(s => s.SharedWithUser)
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        var allRoles = await context.Roles.ToListAsync();
+        var model = new ManageSharesViewModel(document.Title ?? "Untitled Document")
+        {
+            DocumentId = document.Id,
+            DocumentTitle = document.Title ?? "Untitled Document",
+            ExistingShares = document.DocumentShares.ToList(),
+            AvailableRoles = allRoles
+        };
+
+        return this.StackView(model);
+    }
+
+    /// <summary>
+    /// POST: Add a new share for a document
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddShare([Required][FromRoute] Guid id, AddShareViewModel model)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var targetUserId = string.IsNullOrWhiteSpace(model.TargetUserId) ? null : model.TargetUserId;
+        var targetRoleId = string.IsNullOrWhiteSpace(model.TargetRoleId) ? null : model.TargetRoleId;
+
+        if (targetUserId == null && targetRoleId == null)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "invalid" });
+        }
+
+        var exists = await context.DocumentShares
+            .AnyAsync(s => s.DocumentId == document.Id &&
+                           ((targetUserId != null && s.SharedWithUserId == targetUserId) ||
+                            (targetRoleId != null && s.SharedWithRoleId == targetRoleId)));
+
+        if (exists)
+        {
+            return RedirectToAction(nameof(ManageShares), new { id, error = "duplicate" });
+        }
+
+        var share = new DocumentShare
+        {
+            DocumentId = document.Id,
+            SharedWithUserId = targetUserId,
+            SharedWithRoleId = targetRoleId,
+            Permission = model.Permission
+        };
+
+        context.DocumentShares.Add(share);
+        await context.SaveChangesAsync();
+
+        logger.LogInformation("Document with ID: '{DocumentId}' was shared by user: '{UserId}'.", id, userId);
+
+        return RedirectToAction(nameof(ManageShares), new { id });
+    }
+
+    /// <summary>
+    /// POST: Remove a share
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RemoveShare([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var share = await context.DocumentShares
+            .Include(s => s.Document)
+            .FirstOrDefaultAsync(s => s.Id == id);
+
+        if (share == null)
+        {
+            return NotFound("Share not found.");
+        }
+
+        if (share.Document.UserId != userId)
+        {
+            return Forbid();
+        }
+
+        context.DocumentShares.Remove(share);
+        await context.SaveChangesAsync();
+
+        logger.LogInformation("Share with ID: '{ShareId}' was removed by user: '{UserId}'.", id, userId);
+
+        return RedirectToAction(nameof(ManageShares), new { id = share.DocumentId });
+    }
+
+    /// <summary>
+    /// GET: View documents shared with me
+    /// </summary>
+    [HttpGet]
+    [Authorize]
+    [RenderInNavBar(
+        NavGroupName = "Features",
+        NavGroupOrder = 1,
+        CascadedLinksGroupName = "Home",
+        CascadedLinksIcon = "share-2",
+        CascadedLinksOrder = 3,
+        LinkText = "Shared with me",
+        LinkOrder = 3)]
+    public async Task<IActionResult> SharedWithMe()
+    {
+        var userId = userManager.GetUserId(User);
+        var user = await userManager.FindByIdAsync(userId!);
+
+        if (user == null)
+        {
+            return NotFound("User not found.");
+        }
+
+        // Get user's roles
+        var userRoles = await userManager.GetRolesAsync(user);
+        var userRoleIds = await context.Roles
+            .Where(r => userRoles.Contains(r.Name!))
+            .Select(r => r.Id)
+            .ToListAsync();
+
+        // Get documents shared directly with user or with user's roles
+        var shares = await context.DocumentShares
+            .Include(s => s.Document)
+                .ThenInclude(d => d.User)
+            .Where(s => s.SharedWithUserId == userId || (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+            .OrderByDescending(s => s.CreationTime)
+            .ToListAsync();
+
+        // Get role names
+        var roleIds = shares.Where(s => s.SharedWithRoleId != null).Select(s => s.SharedWithRoleId).Distinct().ToList();
+        var roles = await context.Roles
+            .Where(r => roleIds.Contains(r.Id))
+            .ToDictionaryAsync(r => r.Id, r => r.Name!);
+
+        var model = new SharedWithMeViewModel("Shared with Me")
+        {
+            Shares = shares,
+            RoleNames = roles
+        };
+
+        return this.StackView(model);
     }
 }
