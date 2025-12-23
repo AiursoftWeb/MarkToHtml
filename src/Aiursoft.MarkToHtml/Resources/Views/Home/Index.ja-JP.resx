@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>プレビューのみ</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>内部</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>内部 - 特定のユーザー/ロール</value>
+  </data>
 
 </root>

@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Błąd wyszukiwania użytkowników</value>
   </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Proszę wybrać prawidłowego użytkownika lub rolę.</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Wystąpił błąd podczas przetwarzania Twojego żądania.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Ten użytkownik lub rola ma już dostęp do tego dokumentu.</value>
+  </data>
 
 </root>

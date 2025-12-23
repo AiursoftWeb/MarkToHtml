@@ -93,5 +93,20 @@
   <data name="No users found" xml:space="preserve">
     <value>Nessun utente trovato</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Errore</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Questo utente o ruolo ha già accesso a questo documento.</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Si è verificato un errore durante l&apos;elaborazione della tua richiesta.</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Seleziona un utente o un ruolo valido.</value>
+  </data>
 
 </root>

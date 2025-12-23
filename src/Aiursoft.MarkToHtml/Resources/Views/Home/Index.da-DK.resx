@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>Kun forhåndsvisning</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Internt</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Internt - Specifikke brugere/roller</value>
+  </data>
 
 </root>

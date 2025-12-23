@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>केवल संपादक</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>आंतरिक</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>आंतरिक - विशिष्ट उपयोगकर्ता/भूमिकाएँ</value>
+  </data>
 
 </root>

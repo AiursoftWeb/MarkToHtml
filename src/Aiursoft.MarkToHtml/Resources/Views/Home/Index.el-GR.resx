@@ -264,5 +264,11 @@
   <data name="Split View" xml:space="preserve">
     <value>Διαχωρισμένη Προβολή</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Εσωτερικό</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
+  </data>
 
 </root>

@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>Только предпросмотр</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Внутренний</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Внутренний - Определённые пользователи/роли</value>
+  </data>
 
 </root>

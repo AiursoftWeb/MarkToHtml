@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Lỗi tìm kiếm người dùng</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Đã xảy ra lỗi trong quá trình xử lý yêu cầu của bạn.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Vui lòng chọn một người dùng hoặc vai trò hợp lệ.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Người dùng hoặc vai trò này đã có quyền truy cập vào tài liệu này.</value>
+  </data>
 
 </root>

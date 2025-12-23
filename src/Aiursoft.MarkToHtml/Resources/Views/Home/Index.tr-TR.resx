@@ -264,5 +264,11 @@
   <data name="Editor Only" xml:space="preserve">
     <value>Sadece Düzenleyici</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>İç</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>İç - Belirli kullanıcılar/roller</value>
+  </data>
 
 </root>

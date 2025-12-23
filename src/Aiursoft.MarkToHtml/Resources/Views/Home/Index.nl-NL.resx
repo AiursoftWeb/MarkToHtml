@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>Alleen voorbeeldweergave</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Intern</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Intern - Specifieke gebruikers/rollen</value>
+  </data>
 
 </root>

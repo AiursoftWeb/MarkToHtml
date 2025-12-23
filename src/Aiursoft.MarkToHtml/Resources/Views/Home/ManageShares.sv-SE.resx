@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Fel vid användarsökning</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Stäng</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fel</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Ett fel uppstod när din förfrågan behandlades.</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Välj en giltig användare eller roll.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Den här användaren eller rollen har redan tillgång till detta dokument.</value>
+  </data>
 
 </root>

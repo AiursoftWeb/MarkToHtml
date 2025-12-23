@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>معاينة فقط</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>داخلي</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>داخلي - مستخدمين/أدوار محددة</value>
+  </data>
 
 </root>

@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Σφάλμα αναζήτησης χρηστών</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Αυτός ο χρήστης ή ο ρόλος έχει ήδη πρόσβαση σε αυτό το έγγραφο.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Σφάλμα</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Παρακαλώ επιλέξτε έναν έγκυρο χρήστη ή ρόλο.</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αιτήματός σας.</value>
+  </data>
 
 </root>

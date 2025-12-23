@@ -93,5 +93,20 @@
   <data name="Are you sure you want to remove this share?" xml:space="preserve">
     <value>Are you sure you want to remove this share?</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Please select a valid user or role.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>This user or role already has access to this document.</value>
+  </data>
 
 </root>

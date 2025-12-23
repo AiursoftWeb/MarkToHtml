@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>خطأ في البحث عن المستخدمين</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>حدث خطأ أثناء معالجة طلبك.</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>الرجاء تحديد مستخدم أو دور صالح.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>هذا المستخدم أو الدور لديه بالفعل صلاحية الوصول إلى هذا المستند.</value>
+  </data>
 
 </root>

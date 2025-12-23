@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Ошибка поиска пользователей</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Произошла ошибка при обработке вашего запроса.</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Пожалуйста, выберите действительного пользователя или роль.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Этот пользователь или роль уже имеют доступ к этому документу.</value>
+  </data>
 
 </root>

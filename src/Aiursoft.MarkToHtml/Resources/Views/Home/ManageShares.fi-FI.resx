@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Virhe käyttäjien haussa</value>
   </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Valitse kelvollinen käyttäjä tai rooli.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Pyyntöäsi käsiteltäessä tapahtui virhe.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän asiakirjaan.</value>
+  </data>
 
 </root>

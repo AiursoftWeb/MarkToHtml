@@ -264,5 +264,11 @@
   <data name="Split View" xml:space="preserve">
     <value>Podzielony widok</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Wewnętrzny</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Wewnętrzny - Określeni użytkownicy/role</value>
+  </data>
 
 </root>

@@ -264,5 +264,11 @@
   <data name="Preview Only" xml:space="preserve">
     <value>仅预览</value>
   </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>内部 - 指定用户/角色</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>内部</value>
+  </data>
 
 </root>

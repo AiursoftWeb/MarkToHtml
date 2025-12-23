@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>搜尋用戶時發生錯誤</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>錯誤</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>處理您的請求時發生錯誤。</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>請選擇一個有效的用戶或角色。</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>此用戶或角色已經有權限存取此文件。</value>
+  </data>
 
 </root>

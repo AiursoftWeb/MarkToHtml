@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>사용자 검색 오류</value>
   </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>유효한 사용자 또는 역할을 선택해 주세요.</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>요청을 처리하는 중 오류가 발생했습니다.</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>이 사용자 또는 역할은 이미 이 문서에 대한 접근 권한이 있습니다.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
 
 </root>

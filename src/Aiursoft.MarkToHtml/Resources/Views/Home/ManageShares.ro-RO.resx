@@ -93,5 +93,20 @@
   <data name="Error searching users" xml:space="preserve">
     <value>Eroare la căutarea utilizatorilor</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Vă rugăm să selectați un utilizator sau un rol valid.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Eroare</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Acest utilizator sau rol are deja acces la acest document.</value>
+  </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>A apărut o eroare în timpul procesării cererii dumneavoastră.</value>
+  </data>
 
 </root>
