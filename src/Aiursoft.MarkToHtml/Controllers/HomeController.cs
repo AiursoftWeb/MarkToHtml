@@ -61,7 +61,7 @@ public class HomeController(
             var documentInDb = await context.MarkdownDocuments
                 .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
             var isExistingDocument = documentInDb != null;
-            
+
             if (documentInDb != null)
             {
                 // Check permissions for existing document
@@ -87,7 +87,7 @@ public class HomeController(
                 {
                     return Forbid();
                 }
-                
+
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
                 documentInDb.Title = model.Title;
@@ -124,7 +124,9 @@ public class HomeController(
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
         var userId = userManager.GetUserId(User);
-        var document = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == id);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.DocumentShares)
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
         {
@@ -168,7 +170,8 @@ public class HomeController(
             IsEditing = true,
             SavedSuccessfully = saved ?? false,
             PublicId = document.PublicId,
-            PublicLink = publicLink
+            PublicLink = publicLink,
+            HasInternalShares = document.DocumentShares.Any()
         };
 
         return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
