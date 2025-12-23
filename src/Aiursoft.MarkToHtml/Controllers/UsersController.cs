@@ -245,26 +245,43 @@ public class UsersController(
     /// API: Search users by username or display name
     /// </summary>
     /// <param name="query">Search query (min 3 characters)</param>
-    /// <returns>JSON array of matching users with Id, UserName, DisplayName, AvatarPath</returns>
+    /// <param name="page">Page number (1-based)</param>
+    /// <param name="pageSize">Page size (1-20, default 10)</param>
+    /// <returns>JSON object with users array and pagination info</returns>
     [HttpGet("/api/users/search")]
-    public async Task<IActionResult> SearchUsers(string query)
+    public async Task<IActionResult> SearchUsers(string query, int page = 1, int pageSize = 10)
     {
         if (!User.Identity?.IsAuthenticated ?? true)
         {
             return Unauthorized();
         }
-        
+
         if (string.IsNullOrWhiteSpace(query) || query.Length < 3)
         {
-            return Json(new List<object>());
+            return Json(new { users = new List<object>(), totalCount = 0, page, pageSize });
         }
 
-        var users = await context.Users
-            .Where(u => u.UserName!.Contains(query) || u.DisplayName.Contains(query))
-            .Take(10)
+        if (page < 1)
+        {
+            page = 1;
+        }
+
+        if (pageSize < 1 || pageSize > 20)
+        {
+            pageSize = 10;
+        }
+
+        var queryable = context.Users
+            .Where(u => u.UserName!.Contains(query) || u.DisplayName.Contains(query));
+
+        var totalCount = await queryable.CountAsync();
+
+        var users = await queryable
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
 
-        var result = users.Select(u => new
+        var userList = users.Select(u => new
         {
             id = u.Id,
             userName = u.UserName,
@@ -272,6 +289,13 @@ public class UsersController(
             avatarUrl = storageService.RelativePathToInternetUrl(u.AvatarRelativePath) + "?w=128&square=true"
         });
 
-        return Json(result);
+        return Json(new
+        {
+            users = userList,
+            totalCount,
+            page,
+            pageSize,
+            totalPages = (int)Math.Ceiling(totalCount / (double)pageSize)
+        });
     }
 }

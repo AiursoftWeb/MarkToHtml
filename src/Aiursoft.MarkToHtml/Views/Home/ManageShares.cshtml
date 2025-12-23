@@ -263,6 +263,11 @@
             const clearSelectedUser = document.getElementById('clearSelectedUser');
 
             let searchTimeout;
+            let currentPage = 1;
+            let isLoading = false;
+            let hasMore = true;
+            let currentQuery = '';
+            const pageSize = 10;
 
             // Toggle between role and user selection
             shareTypeRole.addEventListener('change', function() {
@@ -337,6 +342,7 @@
             // User search autocomplete
             userSearch.addEventListener('input', function() {
                 const query = this.value.trim();
+                currentQuery = query;
 
                 clearTimeout(searchTimeout);
 
@@ -346,60 +352,106 @@
                     return;
                 }
 
-                searchTimeout = setTimeout(async () => {
-                    try {
-                        const response = await fetch(`/api/users/search?query=${encodeURIComponent(query)}`);
-                        if (!response.ok) throw new Error('Search failed');
+                // Reset pagination
+                currentPage = 1;
+                hasMore = true;
+                userSearchResults.innerHTML = '';
+                userSearchResults.scrollTop = 0;
 
-                        const users = await response.json();
+                searchTimeout = setTimeout(() => loadUsers(query, 1), 300);
+            });
 
-                        if (users.length === 0) {
-                            userSearchResults.innerHTML = '<div class="p-3 text-muted">@Localizer["No users found"]</div>';
-                            userSearchResults.classList.remove('d-none');
-                            return;
-                        }
+            async function loadUsers(query, page) {
+                if (isLoading || !hasMore) return;
+                isLoading = true;
 
-                        let html = '';
-                        users.forEach(user => {
-                            html += `
-                                <div class="user-search-item p-2 d-flex align-items-center" style="cursor: pointer;" data-user-id="${user.id}" data-user-name="${user.displayName}" data-user-username="${user.userName}" data-user-avatar="${user.avatarUrl}">
-                                    <img src="${user.avatarUrl}" alt="${user.displayName}" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
-                                    <div>
-                                        <div class="fw-bold">${user.displayName}</div>
-                                        <div class="small text-muted">${user.userName}</div>
-                                    </div>
-                                </div>
-                            `;
-                        });
+                try {
+                    const response = await fetch(`/api/users/search?query=${encodeURIComponent(query)}&page=${page}&pageSize=${pageSize}`);
+                    if (!response.ok) throw new Error('Search failed');
 
-                        userSearchResults.innerHTML = html;
+                    const data = await response.json();
+                    const users = data.users;
+
+                    if (users.length < pageSize || page >= data.totalPages) {
+                        hasMore = false;
+                    }
+
+                    if (page === 1 && users.length === 0) {
+                        userSearchResults.innerHTML = '<div class="p-3 text-muted">@Localizer["No users found"]</div>';
                         userSearchResults.classList.remove('d-none');
+                        isLoading = false;
+                        return;
+                    }
 
-                        // Add click handlers
-                        document.querySelectorAll('.user-search-item').forEach(item => {
-                            item.addEventListener('click', function() {
-                                selectUser(
-                                    this.dataset.userId,
-                                    this.dataset.userName,
-                                    this.dataset.userUsername,
-                                    this.dataset.userAvatar
-                                );
-                            });
+                    let html = '';
+                    users.forEach(user => {
+                        html += `
+                            <div class="user-search-item p-2 d-flex align-items-center" style="cursor: pointer;" data-user-id="${user.id}" data-user-name="${user.displayName}" data-user-username="${user.userName}" data-user-avatar="${user.avatarUrl}">
+                                <img src="${user.avatarUrl}" alt="${user.displayName}" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold">${user.displayName}</div>
+                                    <div class="small text-muted">${user.userName}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
 
-                            item.addEventListener('mouseenter', function() {
-                                this.style.backgroundColor = '#f8f9fa';
-                            });
+                    if (page === 1) {
+                        userSearchResults.innerHTML = html;
+                    } else {
+                        // Append
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = html;
+                        while (tempDiv.firstChild) {
+                            userSearchResults.appendChild(tempDiv.firstChild);
+                        }
+                    }
 
-                            item.addEventListener('mouseleave', function() {
-                                this.style.backgroundColor = '';
-                            });
-                        });
-                    } catch (error) {
-                        console.error('Error searching users:', error);
+                    userSearchResults.classList.remove('d-none');
+
+                } catch (error) {
+                    console.error('Error searching users:', error);
+                    if (page === 1) {
                         userSearchResults.innerHTML = '<div class="p-3 text-danger">@Localizer["Error searching users"]</div>';
                         userSearchResults.classList.remove('d-none');
                     }
-                }, 300);
+                } finally {
+                    isLoading = false;
+                }
+            }
+
+            // Scroll handler for infinite scroll
+            userSearchResults.addEventListener('scroll', function() {
+                if (this.scrollTop + this.clientHeight >= this.scrollHeight - 20) {
+                    if (hasMore && !isLoading) {
+                        currentPage++;
+                        loadUsers(currentQuery, currentPage);
+                    }
+                }
+            });
+
+            // Event delegation for clicking items
+            userSearchResults.addEventListener('click', function(e) {
+                const item = e.target.closest('.user-search-item');
+                if (item) {
+                    selectUser(
+                        item.dataset.userId,
+                        item.dataset.userName,
+                        item.dataset.userUsername,
+                        item.dataset.userAvatar
+                    );
+                }
+            });
+
+            // Hover effects via delegation
+            userSearchResults.addEventListener('mouseover', function(e) {
+                const item = e.target.closest('.user-search-item');
+                if (item) item.style.backgroundColor = '#f8f9fa';
+            });
+
+            userSearchResults.addEventListener('mouseout', function(e) {
+                const item = e.target.closest('.user-search-item');
+                if (item) item.style.backgroundColor = '';
             });
 
             function selectUser(id, name, username, avatar) {
