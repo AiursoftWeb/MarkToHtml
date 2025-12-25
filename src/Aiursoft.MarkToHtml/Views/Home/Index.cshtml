@@ -293,10 +293,42 @@
                         wordWrap: 'on',
                         'semanticHighlighting.enabled': true
                     });
+
+                    // --- Unsaved Changes Warning ---
+                    let isDirty = false;
+                    const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
+
+                    if (isAuthenticated) {
+                        window.addEventListener('beforeunload', function (e) {
+                            if (isDirty) {
+                                e.preventDefault();
+                                e.returnValue = '';
+                            }
+                        });
+
+                        const form = document.getElementById('markdown-form');
+                        if (form) {
+                            form.addEventListener('submit', () => {
+                                isDirty = false;
+                            });
+                        }
+
+                        const titleInput = document.getElementById('Title');
+                        if (titleInput) {
+                            titleInput.addEventListener('input', () => {
+                                isDirty = true;
+                            });
+                        }
+                    }
+
                     markdownEditorInstance.onDidChangeModelContent(() => {
                         const currentValue = markdownEditorInstance.getValue();
                         markdownEditorElement.value = currentValue;
                         markdownEditorElement.dispatchEvent(new Event('change'));
+
+                        if (isAuthenticated) {
+                            isDirty = true;
+                        }
                     });
 
                     // --- Markdown All In One Features ---
