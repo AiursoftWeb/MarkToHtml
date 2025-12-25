@@ -60,15 +60,15 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<bool>("AllowAnonymousView")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Content")
                         .HasMaxLength(65535)
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<Guid?>("PublicId")
-                        .HasColumnType("char(36)");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)

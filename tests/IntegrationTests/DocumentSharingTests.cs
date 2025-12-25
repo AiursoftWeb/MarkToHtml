@@ -90,7 +90,7 @@ public class DocumentSharingTests
     {
         using var scope = _server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        
+
         var document = new MarkdownDocument
         {
             Id = Guid.NewGuid(),
@@ -99,10 +99,10 @@ public class DocumentSharingTests
             UserId = userId,
             CreationTime = DateTime.UtcNow
         };
-        
+
         db.MarkdownDocuments.Add(document);
         await db.SaveChangesAsync();
-        
+
         return document.Id;
     }
 
@@ -110,7 +110,7 @@ public class DocumentSharingTests
     {
         using var scope = _server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        
+
         var share = new DocumentShare
         {
             Id = Guid.NewGuid(),
@@ -120,23 +120,21 @@ public class DocumentSharingTests
             Permission = permission,
             CreationTime = DateTime.UtcNow
         };
-        
+
         db.DocumentShares.Add(share);
         await db.SaveChangesAsync();
     }
 
-    private async Task<Guid> MakeDocumentPublic(Guid documentId)
+    private async Task MakeDocumentPublic(Guid documentId)
     {
         using var scope = _server!.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        
+
         var document = await db.MarkdownDocuments.FindAsync(documentId);
         Assert.IsNotNull(document);
-        
-        document.PublicId = Guid.NewGuid();
+
+        document.AllowAnonymousView = true;
         await db.SaveChangesAsync();
-        
-        return document.PublicId.Value;
     }
 
     private async Task Logout()
@@ -170,7 +168,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Private Document", "# Secret");
         await Logout();
-        
+
         await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
 
         // Act
@@ -178,7 +176,7 @@ public class DocumentSharingTests
 
         // Assert - Could be Forbidden or redirect to login
         Assert.IsTrue(
-            viewResponse.StatusCode == HttpStatusCode.Forbidden || 
+            viewResponse.StatusCode == HttpStatusCode.Forbidden ||
             viewResponse.StatusCode == HttpStatusCode.Found,
             $"Expected Forbidden or Found, got {viewResponse.StatusCode}");
     }
@@ -190,7 +188,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Private Document", "# Secret");
         await Logout();
-        
+
         await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
 
         // Act
@@ -198,7 +196,7 @@ public class DocumentSharingTests
 
         // Assert - Could be Forbidden or redirect to login
         Assert.IsTrue(
-            editResponse.StatusCode == HttpStatusCode.Forbidden || 
+            editResponse.StatusCode == HttpStatusCode.Forbidden ||
             editResponse.StatusCode == HttpStatusCode.Found,
             $"Expected Forbidden or Found, got {editResponse.StatusCode}");
     }
@@ -210,7 +208,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Shared Document", "# Shared Content");
         await Logout();
-        
+
         var viewerId = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, viewerId, null, SharePermission.ReadOnly);
 
@@ -221,7 +219,7 @@ public class DocumentSharingTests
         // Act - Cannot edit
         var editResponse = await _http.GetAsync($"/Home/Edit/{documentId}");
         Assert.IsTrue(
-            editResponse.StatusCode == HttpStatusCode.Forbidden || 
+            editResponse.StatusCode == HttpStatusCode.Forbidden ||
             editResponse.StatusCode == HttpStatusCode.Found,
             $"Expected Forbidden or Found, got {editResponse.StatusCode}");
     }
@@ -233,7 +231,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Editable Document", "# Content");
         await Logout();
-        
+
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
@@ -252,30 +250,14 @@ public class DocumentSharingTests
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Public Document", "# Public Content");
-        var publicId = await MakeDocumentPublic(documentId);
-        await Logout();
-
-        // Act
-        var viewResponse = await _http.GetAsync($"/public/{publicId}");
-
-        // Assert
-        Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
-    }
-
-    [TestMethod]
-    public async Task AnonymousUser_CannotView_DocumentByIdEvenIfPublic()
-    {
-        // Arrange
-        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
-        var documentId = await CreateDocument(ownerId, "Public Document", "# Public Content");
         await MakeDocumentPublic(documentId);
         await Logout();
 
         // Act
         var viewResponse = await _http.GetAsync($"/view/{documentId}");
 
-        // Assert - Should redirect to login (Challenge)
-        Assert.AreEqual(HttpStatusCode.Redirect, viewResponse.StatusCode);
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
     }
 
     [TestMethod]
@@ -284,18 +266,18 @@ public class DocumentSharingTests
         // Arrange
         var sharedUserEmail = $"shared-{Guid.NewGuid()}@test.com";
         var password = "Password123!";
-        
+
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", password);
         var documentId = await CreateDocument(ownerId, "Public and Shared", "# Content");
-        var publicId = await MakeDocumentPublic(documentId);
+        await MakeDocumentPublic(documentId);
         await Logout();
-        
+
         var sharedUserId = await RegisterAndLoginUser(sharedUserEmail, password);
         await CreateShare(documentId, sharedUserId, null, SharePermission.Editable);
 
         // Act - Can view via public link (logout first)
         await Logout();
-        var publicViewResponse = await _http.GetAsync($"/public/{publicId}");
+        var publicViewResponse = await _http.GetAsync($"/view/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, publicViewResponse.StatusCode);
 
         // Act - Shared user can view and edit via document ID (login as shared user)
@@ -308,10 +290,10 @@ public class DocumentSharingTests
         });
         var loginResponse = await _http.PostAsync("/Account/Login", loginContent);
         Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
-        
+
         var viewResponse = await _http.GetAsync($"/view/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
-        
+
         var editResponse = await _http.GetAsync($"/Home/Edit/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, editResponse.StatusCode);
     }
@@ -323,7 +305,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Shared Document", "# Content");
         await Logout();
-        
+
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
@@ -341,13 +323,13 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Private Document", "# Content");
         await Logout();
-        
+
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
         // Act - Try to make document public
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
-        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}", 
+        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "__RequestVerificationToken", token }
@@ -355,7 +337,7 @@ public class DocumentSharingTests
 
         // Assert - Should be forbidden or not found
         Assert.IsTrue(
-            makePublicResponse.StatusCode == HttpStatusCode.NotFound || 
+            makePublicResponse.StatusCode == HttpStatusCode.NotFound ||
             makePublicResponse.StatusCode == HttpStatusCode.Forbidden);
     }
 
@@ -365,15 +347,15 @@ public class DocumentSharingTests
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Public Document", "# Content");
-        _ = await MakeDocumentPublic(documentId);
+        await MakeDocumentPublic(documentId);
         await Logout();
-        
+
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
         // Act - Try to make document private
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
-        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
+        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "__RequestVerificationToken", token }
@@ -381,7 +363,7 @@ public class DocumentSharingTests
 
         // Assert - Should be forbidden or not found
         Assert.IsTrue(
-            makePrivateResponse.StatusCode == HttpStatusCode.NotFound || 
+            makePrivateResponse.StatusCode == HttpStatusCode.NotFound ||
             makePrivateResponse.StatusCode == HttpStatusCode.Forbidden);
     }
 
@@ -392,7 +374,7 @@ public class DocumentSharingTests
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Document to Delete", "# Content");
         await Logout();
-        
+
         var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
@@ -402,7 +384,7 @@ public class DocumentSharingTests
 
         // Act - Try to delete document directly
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
-        var deleteResponse = await _http.PostAsync($"/Home/Delete/{documentId}", 
+        var deleteResponse = await _http.PostAsync($"/Home/Delete/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "__RequestVerificationToken", token }
@@ -410,7 +392,7 @@ public class DocumentSharingTests
 
         // Assert - Should be forbidden or not found
         Assert.IsTrue(
-            deleteResponse.StatusCode == HttpStatusCode.NotFound || 
+            deleteResponse.StatusCode == HttpStatusCode.NotFound ||
             deleteResponse.StatusCode == HttpStatusCode.Forbidden);
     }
 
@@ -421,19 +403,19 @@ public class DocumentSharingTests
         var email1 = $"editor1-{Guid.NewGuid()}@test.com";
         var email2 = $"editor2-{Guid.NewGuid()}@test.com";
         var password = "Password123!";
-        
+
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", password);
         var documentId = await CreateDocument(ownerId, "Shared Document", "# Content");
         await Logout();
-        
+
         var editor1Id = await RegisterAndLoginUser(email1, password);
         await CreateShare(documentId, editor1Id, null, SharePermission.Editable);
-        
+
         // Create another user to share with
         await Logout();
         var editor2Id = await RegisterAndLoginUser(email2, password);
         await Logout();
-        
+
         // Login as editor1 (who has Editable permission but is not the owner)
         // We need to actually login, not register a new user!
         var loginToken = await GetAntiCsrfToken("/Account/Login");
@@ -448,7 +430,7 @@ public class DocumentSharingTests
 
         // Act - Try to add a new share
         var token = await GetAntiCsrfToken($"/Home/Edit/{documentId}");
-        var addShareResponse = await _http.PostAsync($"/Home/AddShare/{documentId}", 
+        var addShareResponse = await _http.PostAsync($"/Home/AddShare/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "TargetUserId", editor2Id },
@@ -458,7 +440,7 @@ public class DocumentSharingTests
 
         // Assert - Should be forbidden or not found (can't access ManageShares)
         Assert.IsTrue(
-            addShareResponse.StatusCode == HttpStatusCode.NotFound || 
+            addShareResponse.StatusCode == HttpStatusCode.NotFound ||
             addShareResponse.StatusCode == HttpStatusCode.Forbidden);
     }
 
@@ -468,12 +450,12 @@ public class DocumentSharingTests
         // Arrange
        var ownerEmail = $"owner-{Guid.NewGuid()}@test.com";
         var password = "Password123!";
-        
+
         var ownerId = await RegisterAndLoginUser(ownerEmail, password);
         var documentId = await CreateDocument(ownerId, "Owner's Document", "# Content");
         _ = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", password);
         await Logout();
-        
+
         // Login as owner
         var loginToken = await GetAntiCsrfToken("/Account/Login");
         var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
@@ -491,7 +473,7 @@ public class DocumentSharingTests
 
         // Act & Assert - Can make public
         var token1 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
-        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}", 
+        var makePublicResponse = await _http.PostAsync($"/Home/MakePublic/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "__RequestVerificationToken", token1 }
@@ -500,7 +482,7 @@ public class DocumentSharingTests
 
         // Act & Assert - Can make private
         var token2 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
-        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
+        var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}",
             new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 { "__RequestVerificationToken", token2 }
@@ -518,22 +500,22 @@ public class DocumentSharingTests
         // Arrange: Create owner and document
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Complex Permission Test", "# Content");
-        
+
         // Create user who will be in a role
         await Logout();
         var userId = await RegisterAndLoginUser($"user-{Guid.NewGuid()}@test.com", "Password123!");
-        
+
         // Create role and add user to it
         string roleId;
         using (var scope = _server!.Services.CreateScope())
         {
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-            
+
             var role = new IdentityRole { Id = Guid.NewGuid().ToString(), Name = $"TestRole-{Guid.NewGuid()}" };
             await roleManager.CreateAsync(role);
             roleId = role.Id;
-            
+
             var user = await userManager.FindByIdAsync(userId);
             await userManager.AddToRoleAsync(user!, role.Name!);
         }
@@ -594,7 +576,7 @@ public class DocumentSharingTests
         var editResponse4 = await _http.GetAsync($"/Home/Edit/{documentId}");
         // Could be Forbidden or Found (redirect to login) depending on session state after DB modification
         Assert.IsTrue(
-            editResponse4.StatusCode == HttpStatusCode.Forbidden || 
+            editResponse4.StatusCode == HttpStatusCode.Forbidden ||
             editResponse4.StatusCode == HttpStatusCode.Found,
             $"User should NOT be able to edit with only role ReadOnly permission. Actual status: {editResponse4.StatusCode}");
     }

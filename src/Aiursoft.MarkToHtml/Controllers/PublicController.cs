@@ -11,100 +11,21 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// Controller for publicly shared documents.
 /// This controller allows anonymous users to view documents that have been made public.
 /// </summary>
-[Route("public/{publicId}")]
+[Route("view/{id:guid}")]
 public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
     MarkToHtmlService mtohService) : Controller
 {
     /// <summary>
-    /// View a publicly shared document.
-    /// </summary>
-    /// <param name="publicId">The public ID of the document to view.</param>
-    /// <returns>The public view of the document.</returns>
-    [HttpGet]
-    public async Task<IActionResult> View([Required][FromRoute] Guid publicId)
-    {
-        logger.LogTrace("Attempting to view public document with ID: '{PublicId}'", publicId);
-
-        var document = await context.MarkdownDocuments
-            .Include(d => d.User)
-            .FirstOrDefaultAsync(d => d.PublicId == publicId);
-
-        if (document == null)
-        {
-            logger.LogWarning("Public document with ID: '{PublicId}' was not found.", publicId);
-            return NotFound("The public document was not found.");
-        }
-
-        logger.LogInformation(
-            "Public document with ID: '{PublicId}' accessed by anonymous user. Document ID: '{DocumentId}'",
-            publicId, document.Id);
-
-        var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
-
-        var model = new PublicDocumentViewModel(document.Title ?? "Untitled Document")
-        {
-            DocumentTitle = document.Title ?? "Untitled Document",
-            Content = outputHtml,
-            MarkdownContent = document.Content ?? string.Empty,
-            AuthorName = document.User.UserName ?? "Unknown Author",
-            CreationTime = document.CreationTime
-        };
-
-        ViewBag.PublicId = publicId;
-        return this.StackView(model);
-    }
-
-    /// <summary>
-    /// View the raw Markdown content of a publicly shared document.
-    /// </summary>
-    /// <param name="publicId">The public ID of the document to view.</param>
-    /// <returns>The raw Markdown content of the document.</returns>
-    [HttpGet("raw")]
-    public async Task<IActionResult> Raw([Required][FromRoute] Guid publicId)
-    {
-        logger.LogTrace("Attempting to view raw markdown for public document with ID: '{PublicId}'", publicId);
-
-        var document = await context.MarkdownDocuments
-            .Include(d => d.User)
-            .FirstOrDefaultAsync(d => d.PublicId == publicId);
-
-        if (document == null)
-        {
-            logger.LogWarning("Public document with ID: '{PublicId}' was not found.", publicId);
-            return NotFound("The public document was not found.");
-        }
-
-        logger.LogInformation(
-            "Raw markdown for public document with ID: '{PublicId}' accessed by user. Document ID: '{DocumentId}'",
-            publicId, document.Id);
-
-        // Return raw markdown as plain text
-        return Content(document.Content ?? string.Empty, "text/plain; charset=utf-8");
-    }
-
-    /// <summary>
-    /// View a document by its ID (requires authentication and proper permissions).
-    /// User must be the owner or have the document shared with them.
+    /// View a document by its ID.
     /// </summary>
     /// <param name="id">The document ID.</param>
     /// <returns>The document view.</returns>
-    [HttpGet("/view/{id:guid}")]
-    public async Task<IActionResult> ViewById([Required][FromRoute] Guid id)
+    [HttpGet]
+    public async Task<IActionResult> View([Required][FromRoute] Guid id)
     {
-        if (!User.Identity?.IsAuthenticated ?? true)
-        {
-            return Challenge();
-        }
-
-        var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-        if (string.IsNullOrEmpty(userId))
-        {
-            return Unauthorized();
-        }
-
-        logger.LogTrace("User '{UserId}' attempting to view document with ID: '{DocumentId}'", userId, id);
+        logger.LogTrace("Attempting to view document with ID: '{Id}'", id);
 
         var document = await context.MarkdownDocuments
             .Include(d => d.User)
@@ -112,41 +33,62 @@ public class PublicController(
 
         if (document == null)
         {
-            logger.LogWarning("Document with ID: '{DocumentId}' was not found.", id);
+            logger.LogWarning("Document with ID: '{Id}' was not found.", id);
             return NotFound("The document was not found.");
         }
 
-        // Check if user is the owner
-        if (document.UserId == userId)
+        bool hasAccess = false;
+
+        // 1. Check if public
+        if (document.AllowAnonymousView)
         {
-            logger.LogInformation("Document owner '{UserId}' accessing document '{DocumentId}'", userId, id);
+            hasAccess = true;
+            logger.LogInformation("Document '{Id}' is public. Access granted.", id);
         }
-        else
+        else if (User.Identity?.IsAuthenticated == true)
         {
-            // Check if document is shared with the user (directly or via role)
-            var user = await context.Users.FindAsync(userId);
-            if (user == null)
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (!string.IsNullOrEmpty(userId))
             {
-                return Unauthorized();
+                // 2. Check if owner
+                if (document.UserId == userId)
+                {
+                    hasAccess = true;
+                    logger.LogInformation("User '{UserId}' is the owner of document '{Id}'. Access granted.", userId, id);
+                }
+                else
+                {
+                    // 3. Check if shared
+                    var userRoles = await context.UserRoles
+                        .Where(ur => ur.UserId == userId)
+                        .Select(ur => ur.RoleId)
+                        .ToListAsync();
+
+                    hasAccess = await context.DocumentShares
+                        .AnyAsync(s => s.DocumentId == id &&
+                                      (s.SharedWithUserId == userId ||
+                                       (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+                    if (hasAccess)
+                    {
+                        logger.LogInformation("User '{UserId}' has shared access to document '{Id}'. Access granted.", userId, id);
+                    }
+                }
             }
+        }
 
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            var hasAccess = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == id &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (!hasAccess)
+        if (!hasAccess)
+        {
+            if (User.Identity?.IsAuthenticated == true)
             {
-                logger.LogWarning("User '{UserId}' attempted to access document '{DocumentId}' without permission", userId, id);
+                logger.LogWarning("User attempted to access document '{Id}' without permission", id);
                 return Forbid();
             }
-
-            logger.LogInformation("User '{UserId}' accessing shared document '{DocumentId}'", userId, id);
+            else
+            {
+                logger.LogWarning("Anonymous user attempted to access private document '{Id}'", id);
+                return Challenge();
+            }
         }
 
         var outputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
@@ -161,6 +103,75 @@ public class PublicController(
         };
 
         ViewBag.DocumentId = id;
-        return this.StackView(model, viewName: nameof(View)); // Reuse the View.cshtml
+        return this.StackView(model);
+    }
+
+    /// <summary>
+    /// View the raw Markdown content of a document.
+    /// </summary>
+    /// <param name="id">The document ID.</param>
+    /// <returns>The raw Markdown content of the document.</returns>
+    [HttpGet("raw")]
+    public async Task<IActionResult> Raw([Required][FromRoute] Guid id)
+    {
+        logger.LogTrace("Attempting to view raw markdown for document with ID: '{Id}'", id);
+
+        var document = await context.MarkdownDocuments
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            logger.LogWarning("Document with ID: '{Id}' was not found.", id);
+            return NotFound("The document was not found.");
+        }
+
+        bool hasAccess = false;
+
+        // 1. Check if public
+        if (document.AllowAnonymousView)
+        {
+            hasAccess = true;
+        }
+        else if (User.Identity?.IsAuthenticated == true)
+        {
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (!string.IsNullOrEmpty(userId))
+            {
+                // 2. Check if owner
+                if (document.UserId == userId)
+                {
+                    hasAccess = true;
+                }
+                else
+                {
+                    // 3. Check if shared
+                    var userRoles = await context.UserRoles
+                        .Where(ur => ur.UserId == userId)
+                        .Select(ur => ur.RoleId)
+                        .ToListAsync();
+
+                    hasAccess = await context.DocumentShares
+                        .AnyAsync(s => s.DocumentId == id &&
+                                      (s.SharedWithUserId == userId ||
+                                       (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+                }
+            }
+        }
+
+        if (!hasAccess)
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Forbid();
+            }
+            else
+            {
+                return Challenge();
+            }
+        }
+
+        // Return raw markdown as plain text
+        return Content(document.Content ?? string.Empty, "text/plain; charset=utf-8");
     }
 }

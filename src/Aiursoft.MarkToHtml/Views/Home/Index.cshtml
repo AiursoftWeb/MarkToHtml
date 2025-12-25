@@ -117,7 +117,7 @@
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                     style="min-width: 140px;">
-                                @if (Model.PublicId.HasValue)
+                                @if (Model.AllowAnonymousView)
                                 {
                                     <span class="text-success fw-bold"><i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]</span>
                                 }
@@ -148,7 +148,7 @@
                                 </li>
                             </ul>
                             @* 隐藏域存储当前状态供 JS 读取 *@
-                            <input type="hidden" id="current-privacy-state" value="@(Model.PublicId.HasValue ? "public" : Model.HasInternalShares ? "internal" : "private")" />
+                            <input type="hidden" id="current-privacy-state" value="@(Model.AllowAnonymousView ? "public" : Model.HasInternalShares ? "internal" : "private")" />
                         </div>
                     }
                 </div>
@@ -163,7 +163,7 @@
                              @* 右侧工具栏 *@
                              <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
                                 <div class="small text-muted flex-grow-1 me-2">
-                                    @if (Model.PublicId.HasValue)
+                                    @if (Model.AllowAnonymousView)
                                     {
                                         <div class="input-group input-group-sm">
                                             <input type="text" class="form-control bg-white" id="public-link" readonly value="@Model.PublicLink" />

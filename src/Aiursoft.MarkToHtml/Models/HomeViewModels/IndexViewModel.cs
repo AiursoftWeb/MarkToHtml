@@ -62,14 +62,9 @@ public class IndexViewModel : UiStackLayoutViewModel
     public string? Title { get; set; }
 
     /// <summary>
-    /// Public ID for sharing the document. Generated when the document is made public.
-    /// </summary>
-    public Guid? PublicId { get; set; }
-
-    /// <summary>
     /// Indicates whether the document is publicly accessible.
     /// </summary>
-    public bool IsPublic => PublicId.HasValue;
+    public bool AllowAnonymousView { get; set; }
 
     /// <summary>
     /// The public link to view this document.
