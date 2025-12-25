@@ -109,47 +109,9 @@
 
                     @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
                     {
-                        @* 修复：使用 Bootstrap Dropdown 替代原生 Select 以避免定位 bug *@
-                        <div class="dropdown ms-auto mb-2">
-                            <button class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center justify-content-between"
-                                    type="button"
-                                    id="privacyDropdownBtn"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                    style="min-width: 140px;">
-                                @if (Model.PublicId.HasValue)
-                                {
-                                    <span class="text-success fw-bold"><i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]</span>
-                                }
-                                else if (Model.HasInternalShares)
-                                {
-                                    <span class="text-info fw-bold"><i class="align-middle" data-lucide="users"></i> @Localizer["Internal"]</span>
-                                }
-                                else
-                                {
-                                    <span class="text-secondary"><i class="align-middle" data-lucide="lock"></i> @Localizer["Private"]</span>
-                                }
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="privacyDropdownBtn">
-                                <li>
-                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="private">
-                                        <i class="align-middle me-1" data-lucide="lock"></i> @Localizer["Private - Only you"]
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="internal">
-                                        <i class="align-middle me-1" data-lucide="users"></i> @Localizer["Internal - Specific users/roles"]
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="dropdown-item" type="button" data-action="set-privacy" data-value="public">
-                                        <i class="align-middle me-1" data-lucide="globe"></i> @Localizer["Public - Anyone with link"]
-                                    </button>
-                                </li>
-                            </ul>
-                            @* 隐藏域存储当前状态供 JS 读取 *@
-                            <input type="hidden" id="current-privacy-state" value="@(Model.PublicId.HasValue ? "public" : Model.HasInternalShares ? "internal" : "private")" />
-                        </div>
+                        <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-light border ms-auto mb-2" target="_blank">
+                            <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
+                        </a>
                     }
                 </div>
 
@@ -232,25 +194,6 @@
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
 }
-
-@* Confirmation modal *@
-<div class="modal fade" id="confirmPrivateModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">@Localizer["Change to Private?"]</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>@Localizer["If you make this document private, the existing public link will immediately stop working for everyone."] @Localizer["Are you sure?"]</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancel-private-action">@Localizer["Cancel"]</button>
-                <button type="button" class="btn btn-danger" id="confirm-make-private">@Localizer["Yes, Make Private"]</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
@@ -617,59 +560,6 @@
                 }
                 if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
                 if (document.getElementById('preview')?.classList.contains('active')) renderMath();
-
-                // --- Privacy Dropdown Logic (Updated) ---
-                const modalEl = document.getElementById('confirmPrivateModal');
-                const docId = document.querySelector('input[name="DocumentId"]')?.value;
-                const currentStateEl = document.getElementById('current-privacy-state');
-
-                document.querySelectorAll('[data-action="set-privacy"]').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const newValue = this.getAttribute('data-value');
-                        const currentValue = currentStateEl ? currentStateEl.value : 'private';
-
-                        if (newValue === 'internal') {
-                            window.location.href = '@Url.Action("ManageShares", "Home")/' + docId;
-                            return;
-                        }
-
-                        if (newValue === currentValue) return;
-
-                        if (newValue === 'public') {
-                            changeVis(true);
-                        } else {
-                            if (window.bootstrap && bootstrap.Modal) {
-                                new bootstrap.Modal(modalEl).show();
-                            } else if (confirm('@Localizer["Are you sure?"]')) {
-                                changeVis(false);
-                            }
-                        }
-                    });
-                });
-
-                document.getElementById('confirm-make-private')?.addEventListener('click', function() {
-                    this.disabled = true;
-                    changeVis(false).finally(() => this.disabled = false);
-                });
-
-                async function changeVis(isPublic) {
-                    const url = isPublic ? '@Url.Action("MakePublic", "Home")' : '@Url.Action("MakePrivate", "Home")';
-                    try {
-                        const res = await fetch(`${url}/${docId}`, {
-                            method: 'POST',
-                            headers: { 'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value || '', 'Content-Type': 'application/json' }
-                        });
-                        if (res.ok) {
-                            window.location.reload();
-                        } else {
-                            alert('@Localizer["Failed to update privacy settings."]');
-                        }
-                    } catch (e) {
-                        console.error(e);
-                        alert('@Localizer["An error occurred."]');
-                    }
-                }
 
                 // --- Public Link Copy ---
                 const cpLink = document.getElementById('copy-link-button');

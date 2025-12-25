@@ -13,6 +13,8 @@ public class ManageSharesViewModel : UiStackLayoutViewModel
 
     public required Guid DocumentId { get; init; }
     public required string DocumentTitle { get; init; }
+    public required bool IsPublic { get; init; }
+    public string? PublicLink { get; init; }
     public required List<DocumentShare> ExistingShares { get; init; }
     public required List<IdentityRole> AvailableRoles { get; init; }
 }

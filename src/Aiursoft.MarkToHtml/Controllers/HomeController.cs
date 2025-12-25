@@ -203,6 +203,7 @@ public class HomeController(
         }
 
         var documents = await documentsQuery
+            .Include(d => d.DocumentShares)
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
@@ -320,6 +321,47 @@ public class HomeController(
     }
 
     /// <summary>
+    /// Update document visibility (Public or Private)
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateVisibility([Required][FromRoute] Guid id, [FromForm] bool publicAccess)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found or you do not have permission to modify it.");
+        }
+
+        if (publicAccess)
+        {
+            if (!document.PublicId.HasValue)
+            {
+                document.PublicId = Guid.NewGuid();
+                logger.LogInformation("Document with ID: '{DocumentId}' was made public with PublicId: '{PublicId}' by user: '{UserId}'.",
+                    id, document.PublicId, userId);
+            }
+        }
+        else
+        {
+            if (document.PublicId.HasValue)
+            {
+                var publicId = document.PublicId;
+                document.PublicId = null;
+                logger.LogInformation("Document with ID: '{DocumentId}' was made private (removed PublicId: '{PublicId}') by user: '{UserId}'.",
+                    id, publicId, userId);
+            }
+        }
+
+        await context.SaveChangesAsync();
+        return RedirectToAction(nameof(ManageShares), new { id });
+    }
+
+    /// <summary>
     /// GET: Manage shares for a specific document
     /// </summary>
     [HttpGet]
@@ -342,6 +384,10 @@ public class HomeController(
         {
             DocumentId = document.Id,
             DocumentTitle = document.Title ?? "Untitled Document",
+            IsPublic = document.PublicId.HasValue,
+            PublicLink = document.PublicId.HasValue
+                ? Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme)
+                : null,
             ExistingShares = document.DocumentShares.ToList(),
             AvailableRoles = allRoles
         };
