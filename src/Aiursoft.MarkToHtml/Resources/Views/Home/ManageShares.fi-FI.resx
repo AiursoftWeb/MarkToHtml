@@ -108,5 +108,23 @@
   <data name="This user or role already has access to this document." xml:space="preserve">
     <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän asiakirjaan.</value>
   </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>Julkinen linkki</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>Salli anonyymi katselu (Julkinen)</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Näkyvyys</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>Kieltää anonyymi katselu (Yksityinen / Jaettu)</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>Kuka tahansa, jolla on linkki, voi tarkastella tätä dokumenttia.</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>Vain sinä ja alla luetellut tietyt käyttäjät/roolit voivat tarkastella tätä dokumenttia.</value>
+  </data>
 
 </root>

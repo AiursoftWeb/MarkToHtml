@@ -108,5 +108,23 @@
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>Bei der Verarbeitung Ihrer Anfrage ist ein Fehler aufgetreten.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Sichtbarkeit</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>Öffentlicher Link</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>Jeder mit dem Link kann dieses Dokument einsehen.</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>Anonymes Anzeigen erlauben (Öffentlich)</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>Anonymes Ansehen verbieten (Privat / Geteilt)</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>Nur Sie und die unten aufgeführten spezifischen Benutzer/Rollen können dieses Dokument einsehen.</value>
+  </data>
 
 </root>

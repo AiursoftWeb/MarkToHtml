@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>Jaa</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Sisäinen</value>
+  </data>
 
 </root>

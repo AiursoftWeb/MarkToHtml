@@ -108,5 +108,23 @@
   <data name="This user or role already has access to this document." xml:space="preserve">
     <value>此使用者或角色已經擁有此文件的存取權限。</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可見性</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>禁止匿名檢視（私人/已分享）</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>公開連結</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>只有您以及下方列出的特定使用者/角色可以檢視此文件。</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>任何擁有此連結的人都可以檢視這份文件。</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>允許匿名檢視 (公開)</value>
+  </data>
 
 </root>

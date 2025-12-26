@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>Κοινοποίηση</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Εσωτερικό</value>
+  </data>
 
 </root>

@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>आंतरिक</value>
+  </data>
 
 </root>

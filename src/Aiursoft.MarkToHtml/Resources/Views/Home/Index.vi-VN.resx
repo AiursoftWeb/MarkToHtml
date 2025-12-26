@@ -270,5 +270,8 @@
   <data name="Internal" xml:space="preserve">
     <value>Nội bộ</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Chia sẻ</value>
+  </data>
 
 </root>

@@ -270,5 +270,8 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Внутренний - Определённые пользователи/роли</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
 
 </root>
