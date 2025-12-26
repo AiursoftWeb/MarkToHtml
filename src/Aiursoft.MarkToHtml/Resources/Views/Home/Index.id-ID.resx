@@ -270,5 +270,8 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Internal - Pengguna/peran tertentu</value>
   </data>
+  <data name="Share" xml:space="preserve">
+    <value>Bagikan</value>
+  </data>
 
 </root>

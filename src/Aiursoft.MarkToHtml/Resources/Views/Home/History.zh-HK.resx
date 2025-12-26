@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>分享</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>內部</value>
+  </data>
 
 </root>

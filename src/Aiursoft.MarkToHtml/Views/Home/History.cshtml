@@ -102,6 +102,12 @@
                                     <i class="align-middle" data-lucide="globe"></i> @Localizer["Public"]
                                 </span>
                             }
+                            else if (doc.DocumentShares.Any())
+                            {
+                                <span class="badge bg-info-subtle text-info border border-info">
+                                    <i class="align-middle" data-lucide="users"></i> @Localizer["Internal"]
+                                </span>
+                            }
                             else
                             {
                                 <span class="text-muted small">

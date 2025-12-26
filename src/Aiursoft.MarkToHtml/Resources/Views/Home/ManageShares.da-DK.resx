@@ -108,5 +108,23 @@
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>Der opstod en fejl under behandlingen af din anmodning.</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Synlighed</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>Offentligt link</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>Forbud anonym visning (Privat / Delt)</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>Alle med linket kan se dette dokument.</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>Tillad anonym visning (Offentlig)</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>Kun dig og specifikke brugere/roller nævnt nedenfor kan se dette dokument.</value>
+  </data>
 
 </root>

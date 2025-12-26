@@ -108,5 +108,23 @@
   <data name="Please select a valid user or role." xml:space="preserve">
     <value>请选择一个有效的用户或角色。</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可见性</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>公开链接</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>允许匿名查看（公开）</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>禁止匿名查看（私有/共享）</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>任何拥有此链接的人都可以查看此文档。</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>只有您和下方列出的特定用户/角色可以查看此文档。</value>
+  </data>
 
 </root>

@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>Dela</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Intern</value>
+  </data>
 
 </root>

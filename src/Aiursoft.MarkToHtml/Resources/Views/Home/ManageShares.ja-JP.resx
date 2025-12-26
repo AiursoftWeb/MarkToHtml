@@ -108,5 +108,23 @@
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>リクエストの処理中にエラーが発生しました。</value>
   </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>公開リンク</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>公開範囲</value>
+  </data>
+  <data name="Allow anonymous viewing (Public)" xml:space="preserve">
+    <value>匿名での閲覧を許可する（公開）</value>
+  </data>
+  <data name="Anyone with the link can view this document." xml:space="preserve">
+    <value>リンクを持っている人は誰でもこのドキュメントを閲覧できます。</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>匿名での閲覧を禁止する（非公開 / 共有）</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>このドキュメントを閲覧できるのは、あなたと以下にリストされた特定のユーザー/ロールのみです。</value>
+  </data>
 
 </root>

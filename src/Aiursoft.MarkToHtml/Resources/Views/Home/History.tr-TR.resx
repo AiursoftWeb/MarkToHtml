@@ -78,5 +78,8 @@
   <data name="Share" xml:space="preserve">
     <value>Paylaş</value>
   </data>
+  <data name="Internal" xml:space="preserve">
+    <value>İç</value>
+  </data>
 
 </root>
