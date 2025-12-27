@@ -157,8 +157,8 @@ public class HomeController(
             return Forbid();
         }
 
-        var publicLink = document.PublicId.HasValue
-            ? Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme)
+        var publicLink = document.IsPublic
+            ? Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme)
             : null;
 
         var model = new IndexViewModel(document.Title ?? "Empty Document")
@@ -169,7 +169,7 @@ public class HomeController(
             OutputHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty),
             IsEditing = true,
             SavedSuccessfully = saved ?? false,
-            PublicId = document.PublicId,
+            IsPublic = document.IsPublic,
             PublicLink = publicLink,
             HasInternalShares = document.DocumentShares.Any()
         };
@@ -264,7 +264,7 @@ public class HomeController(
     }
 
     /// <summary>
-    /// Make a document public by generating a PublicId.
+    /// Make a document public.
     /// </summary>
     [HttpPost]
     [Authorize]
@@ -280,19 +280,19 @@ public class HomeController(
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
 
-        if (!document.PublicId.HasValue)
+        if (!document.IsPublic)
         {
-            document.PublicId = Guid.NewGuid();
+            document.IsPublic = true;
             await context.SaveChangesAsync();
-            logger.LogInformation("Document with ID: '{DocumentId}' was made public with PublicId: '{PublicId}' by user: '{UserId}'.",
-                id, document.PublicId, userId);
+            logger.LogInformation("Document with ID: '{DocumentId}' was made public by user: '{UserId}'.",
+                id, userId);
         }
 
-        return Ok(new { publicId = document.PublicId });
+        return Ok();
     }
 
     /// <summary>
-    /// Make a document private by removing its PublicId.
+    /// Make a document private.
     /// </summary>
     [HttpPost]
     [Authorize]
@@ -308,13 +308,12 @@ public class HomeController(
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
 
-        if (document.PublicId.HasValue)
+        if (document.IsPublic)
         {
-            var publicId = document.PublicId;
-            document.PublicId = null;
+            document.IsPublic = false;
             await context.SaveChangesAsync();
-            logger.LogInformation("Document with ID: '{DocumentId}' was made private (removed PublicId: '{PublicId}') by user: '{UserId}'.",
-                id, publicId, userId);
+            logger.LogInformation("Document with ID: '{DocumentId}' was made private by user: '{UserId}'.",
+                id, userId);
         }
 
         return Ok();
@@ -337,25 +336,9 @@ public class HomeController(
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
 
-        if (publicAccess)
-        {
-            if (!document.PublicId.HasValue)
-            {
-                document.PublicId = Guid.NewGuid();
-                logger.LogInformation("Document with ID: '{DocumentId}' was made public with PublicId: '{PublicId}' by user: '{UserId}'.",
-                    id, document.PublicId, userId);
-            }
-        }
-        else
-        {
-            if (document.PublicId.HasValue)
-            {
-                var publicId = document.PublicId;
-                document.PublicId = null;
-                logger.LogInformation("Document with ID: '{DocumentId}' was made private (removed PublicId: '{PublicId}') by user: '{UserId}'.",
-                    id, publicId, userId);
-            }
-        }
+        document.IsPublic = publicAccess;
+        logger.LogInformation("Document with ID: '{DocumentId}' visibility updated to {IsPublic} by user: '{UserId}'.",
+            id, document.IsPublic, userId);
 
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(ManageShares), new { id });
@@ -384,9 +367,9 @@ public class HomeController(
         {
             DocumentId = document.Id,
             DocumentTitle = document.Title ?? "Untitled Document",
-            IsPublic = document.PublicId.HasValue,
-            PublicLink = document.PublicId.HasValue
-                ? Url.Action(nameof(PublicController.View), "Public", new { publicId = document.PublicId }, Request.Scheme)
+            IsPublic = document.IsPublic,
+            PublicLink = document.IsPublic
+                ? Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme)
                 : null,
             ExistingShares = document.DocumentShares.ToList(),
             AvailableRoles = allRoles

@@ -52,7 +52,7 @@
                     @* Group 2: Markdown Actions (Hidden by default) *@
                     <div id="markdown-actions" class="action-group d-none">
                         <div class="btn-group">
-                            <a href="@Url.Action("Raw", "Public", new { publicId = ViewBag.PublicId })"
+                            <a href="@Url.Action("Raw", "Public", new { id = ViewBag.DocumentId })"
                                 class="btn btn-sm btn-outline-secondary" target="_blank" title="@Localizer["View Raw"]">
                                 <i class="align-middle" data-lucide="external-link"></i> <span
                                     class="d-none d-sm-inline">@Localizer["Raw"]</span>

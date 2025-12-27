@@ -25,10 +25,9 @@ public class MarkdownDocument
     public User? User { get; set; }
 
     /// <summary>
-    /// Public identifier (UUID) for sharing the document publicly.
-    /// If null, the document is private.
+    /// Whether the document is public for everyone to view.
     /// </summary>
-    public Guid? PublicId { get; set; }
+    public bool IsPublic { get; set; }
 
     [InverseProperty(nameof(DocumentShare.Document))]
     public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
