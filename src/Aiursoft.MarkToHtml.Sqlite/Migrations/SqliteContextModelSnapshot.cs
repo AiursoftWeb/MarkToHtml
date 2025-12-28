@@ -62,8 +62,8 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("PublicId")
-                        .HasColumnType("TEXT");
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .HasMaxLength(100)

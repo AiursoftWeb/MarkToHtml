@@ -133,10 +133,10 @@ public class DocumentSharingTests
         var document = await db.MarkdownDocuments.FindAsync(documentId);
         Assert.IsNotNull(document);
         
-        document.PublicId = Guid.NewGuid();
+        document.IsPublic = true;
         await db.SaveChangesAsync();
         
-        return document.PublicId.Value;
+        return document.Id;
     }
 
     private async Task Logout()
@@ -174,7 +174,7 @@ public class DocumentSharingTests
         await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", "Password123!");
 
         // Act
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
 
         // Assert - Could be Forbidden or redirect to login
         Assert.IsTrue(
@@ -215,7 +215,7 @@ public class DocumentSharingTests
         await CreateShare(documentId, viewerId, null, SharePermission.ReadOnly);
 
         // Act - Can view
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
 
         // Act - Cannot edit
@@ -238,7 +238,7 @@ public class DocumentSharingTests
         await CreateShare(documentId, editorId, null, SharePermission.Editable);
 
         // Act - Can view
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
 
         // Act - Can edit
@@ -252,11 +252,11 @@ public class DocumentSharingTests
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Public Document", "# Public Content");
-        var publicId = await MakeDocumentPublic(documentId);
+        _ = await MakeDocumentPublic(documentId);
         await Logout();
 
         // Act
-        var viewResponse = await _http.GetAsync($"/public/{publicId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
 
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
@@ -265,6 +265,10 @@ public class DocumentSharingTests
     [TestMethod]
     public async Task AnonymousUser_CannotView_DocumentByIdEvenIfPublic()
     {
+        // Note: This test is no longer applicable as /view/{id} and /public/{publicId} are unified to /share/{id}.
+        // But /view/{id} was moved to /share/{id} and now it CHECKS IsPublic.
+        // So anonymous user CAN view public document by its ID now.
+
         // Arrange
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
         var documentId = await CreateDocument(ownerId, "Public Document", "# Public Content");
@@ -272,10 +276,10 @@ public class DocumentSharingTests
         await Logout();
 
         // Act
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
 
-        // Assert - Should redirect to login (Challenge)
-        Assert.AreEqual(HttpStatusCode.Redirect, viewResponse.StatusCode);
+        // Assert - Should NOT redirect to login anymore, should be OK because it's public
+        Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
     }
 
     [TestMethod]
@@ -287,7 +291,7 @@ public class DocumentSharingTests
         
         var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", password);
         var documentId = await CreateDocument(ownerId, "Public and Shared", "# Content");
-        var publicId = await MakeDocumentPublic(documentId);
+        _ = await MakeDocumentPublic(documentId);
         await Logout();
         
         var sharedUserId = await RegisterAndLoginUser(sharedUserEmail, password);
@@ -295,7 +299,7 @@ public class DocumentSharingTests
 
         // Act - Can view via public link (logout first)
         await Logout();
-        var publicViewResponse = await _http.GetAsync($"/public/{publicId}");
+        var publicViewResponse = await _http.GetAsync($"/share/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, publicViewResponse.StatusCode);
 
         // Act - Shared user can view and edit via document ID (login as shared user)
@@ -309,7 +313,7 @@ public class DocumentSharingTests
         var loginResponse = await _http.PostAsync("/Account/Login", loginContent);
         Assert.AreEqual(HttpStatusCode.Found, loginResponse.StatusCode);
         
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode);
         
         var editResponse = await _http.GetAsync($"/Home/Edit/{documentId}");
@@ -588,7 +592,7 @@ public class DocumentSharingTests
         }
 
         // User should now only be able to view (lost Editable permission, only has ReadOnly from role)
-        var viewResponse = await _http.GetAsync($"/view/{documentId}");
+        var viewResponse = await _http.GetAsync($"/share/{documentId}");
         Assert.AreEqual(HttpStatusCode.OK, viewResponse.StatusCode, "User should be able to view with role ReadOnly permission");
 
         var editResponse4 = await _http.GetAsync($"/Home/Edit/{documentId}");
