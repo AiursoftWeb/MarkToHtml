@@ -69,5 +69,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>검색 조건과 일치하는 문서가 없습니다.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>공유 관리</value>
+  </data>
 
 </root>

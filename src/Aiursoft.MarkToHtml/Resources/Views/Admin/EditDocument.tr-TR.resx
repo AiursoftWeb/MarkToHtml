@@ -57,5 +57,8 @@
   <data name="Markdown Content" xml:space="preserve">
     <value>Markdown İçeriği</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Paylaşımları Yönet</value>
+  </data>
 
 </root>

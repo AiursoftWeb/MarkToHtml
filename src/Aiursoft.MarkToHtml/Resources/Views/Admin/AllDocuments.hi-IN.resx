@@ -69,5 +69,8 @@
   <data name="Search" xml:space="preserve">
     <value>खोजें</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>शेयर प्रबंधित करें</value>
+  </data>
 
 </root>

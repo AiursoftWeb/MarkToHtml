@@ -75,5 +75,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Inga dokument matchar din sökning.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hantera delningar</value>
+  </data>
 
 </root>

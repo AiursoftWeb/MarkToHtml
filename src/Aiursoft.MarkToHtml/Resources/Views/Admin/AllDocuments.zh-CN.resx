@@ -69,5 +69,8 @@
   <data name="Search documents..." xml:space="preserve">
     <value>搜索文档...</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>管理分享</value>
+  </data>
 
 </root>

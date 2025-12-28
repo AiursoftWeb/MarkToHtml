@@ -69,5 +69,8 @@
   <data name="Clear" xml:space="preserve">
     <value>Limpar</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gerir Partilhas</value>
+  </data>
 
 </root>
