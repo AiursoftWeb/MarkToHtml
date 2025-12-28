@@ -102,5 +102,11 @@
   <data name="Allows editing of any document, regardless of ownership." xml:space="preserve">
     <value>किसी भी दस्तावेज़ को स्वामित्व की परवाह किए बिना संपादित करने की अनुमति देता है।</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>किसी भी शेयर को प्रबंधित करें</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>किसी भी दस्तावेज़ के लिए, स्वामित्व की परवाह किए बिना, शेयर प्रबंधित करने की अनुमति देता है। इसमें सार्वजनिक पहुंच को टॉगल करना शामिल है।</value>
+  </data>
 
 </root>

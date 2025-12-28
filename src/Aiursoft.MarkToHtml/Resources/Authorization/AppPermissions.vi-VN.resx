@@ -102,5 +102,11 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Cho phép xem tất cả tài liệu trong hệ thống, bất kể quyền sở hữu.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Quản Lý Bất Kỳ Chia Sẻ Nào</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Cho phép quản lý chia sẻ cho bất kỳ tài liệu nào, bất kể quyền sở hữu. Bao gồm bật/tắt truy cập công khai.</value>
+  </data>
 
 </root>

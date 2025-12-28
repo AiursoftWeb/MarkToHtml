@@ -67,6 +67,9 @@ public class AppPermissions
             new(AppPermissionNames.CanEditAnyDocument,
                 localizer["Edit Any Document"],
                 localizer["Allows editing of any document, regardless of ownership."]),
+            new(AppPermissionNames.CanManageAnyShare,
+                localizer["Manage Any Share"],
+                localizer["Allows managing shares for any document, regardless of ownership. Includes toggling public access."]),
         ];
         return allPermission;
     }

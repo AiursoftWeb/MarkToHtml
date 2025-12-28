@@ -102,5 +102,11 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>يسمح بعرض جميع المستندات في النظام، بغض النظر عن المالك.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>إدارة أي مشاركة</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>يسمح بإدارة المشاركات لأي مستند، بغض النظر عن الملكية. يتضمن تبديل الوصول العام.</value>
+  </data>
 
 </root>

@@ -102,5 +102,11 @@
   <data name="Read All Documents" xml:space="preserve">
     <value>Baca Semua Dokumen</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Kelola Bagikan Apa Saja</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Memungkinkan pengelolaan berbagi untuk dokumen apa pun, terlepas dari kepemilikannya. Termasuk mengaktifkan atau menonaktifkan akses publik.</value>
+  </data>
 
 </root>

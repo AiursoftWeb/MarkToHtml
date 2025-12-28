@@ -102,5 +102,11 @@
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permet la suppression de n&apos;importe quel document, indépendamment de son propriétaire.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Gérer n&apos;importe quel partage</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Permet de gérer les partages pour n&apos;importe quel document, indépendamment de la propriété. Inclut l&apos;activation/désactivation de l&apos;accès public.</value>
+  </data>
 
 </root>

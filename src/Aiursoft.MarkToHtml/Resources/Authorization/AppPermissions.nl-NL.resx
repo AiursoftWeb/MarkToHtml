@@ -102,5 +102,11 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Staat het bekijken van alle documenten in het systeem toe, ongeacht het eigendom.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Beheer Alle Delingen</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Staat het beheren van shares toe voor elk document, ongeacht het eigendom. Inclusief het in- en uitschakelen van openbare toegang.</value>
+  </data>
 
 </root>

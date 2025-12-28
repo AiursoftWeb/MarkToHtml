@@ -102,5 +102,11 @@
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>允許刪除任何文件，無論所有權歸屬。</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>管理任何分享</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>允許管理任何文件的分享，不論所有權歸屬。包含切換公開存取權限。</value>
+  </data>
 
 </root>
