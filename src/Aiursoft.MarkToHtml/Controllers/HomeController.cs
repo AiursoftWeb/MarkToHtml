@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.WebTools.Attributes;
+using Aiursoft.MarkToHtml.Authorization;
 
 
 namespace Aiursoft.MarkToHtml.Controllers;
@@ -21,7 +22,8 @@ public class HomeController(
     ILogger<HomeController> logger,
     UserManager<User> userManager,
     TemplateDbContext context,
-    MarkToHtmlService mtohService) : Controller
+    MarkToHtmlService mtohService,
+    IAuthorizationService authorizationService) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",
@@ -271,11 +273,19 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePublic([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -299,11 +309,19 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> MakePrivate([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -327,11 +345,19 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateVisibility([Required][FromRoute] Guid id, [FromForm] bool publicAccess)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -351,13 +377,21 @@ public class HomeController(
     [Authorize]
     public async Task<IActionResult> ManageShares([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .Include(d => d.DocumentShares)
                 .ThenInclude(s => s.SharedWithUser)
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -386,11 +420,19 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> AddShare([Required][FromRoute] Guid id, AddShareViewModel model)
     {
-        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
-            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+            .FirstOrDefaultAsync(d => d.Id == id);
 
         if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -442,7 +484,6 @@ public class HomeController(
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RemoveShare([Required][FromRoute] Guid id)
     {
-        var userId = userManager.GetUserId(User);
         var share = await context.DocumentShares
             .Include(s => s.Document)
             .FirstOrDefaultAsync(s => s.Id == id);
@@ -452,7 +493,11 @@ public class HomeController(
             return NotFound("Share not found.");
         }
 
-        if (share.Document.UserId != userId)
+        var userId = userManager.GetUserId(User);
+        var isOwner = share.Document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return Forbid();
         }

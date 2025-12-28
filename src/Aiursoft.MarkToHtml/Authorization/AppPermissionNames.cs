@@ -26,4 +26,5 @@ public static class AppPermissionNames
     public const string CanReadAllDocuments = nameof(CanReadAllDocuments);
     public const string CanDeleteAnyDocument = nameof(CanDeleteAnyDocument);
     public const string CanEditAnyDocument = nameof(CanEditAnyDocument);
+    public const string CanManageAnyShare = nameof(CanManageAnyShare);
 }

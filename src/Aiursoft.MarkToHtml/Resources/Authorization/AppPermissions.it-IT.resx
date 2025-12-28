@@ -102,5 +102,11 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Consente di visualizzare tutti i documenti nel sistema, indipendentemente dalla proprietà.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Gestisci qualsiasi condivisione</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Consente di gestire le condivisioni per qualsiasi documento, indipendentemente dalla proprietà. Include l&apos;attivazione/disattivazione dell&apos;accesso pubblico.</value>
+  </data>
 
 </root>

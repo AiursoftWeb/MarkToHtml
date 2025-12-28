@@ -102,5 +102,11 @@
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Tillader sletning af ethvert dokument, uanset ejerskab.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Administrer enhver deling</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Giver mulighed for at administrere delinger for ethvert dokument, uanset ejerskab. Inkluderer at slå offentlig adgang til og fra.</value>
+  </data>
 
 </root>

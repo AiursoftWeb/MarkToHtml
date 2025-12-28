@@ -102,5 +102,11 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>允許檢視系統內所有文件，不論文件擁有者是誰。</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>管理任何分享</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>允許管理任何文件的分享，不論擁有權。包括切換公開存取。</value>
+  </data>
 
 </root>

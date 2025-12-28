@@ -102,5 +102,11 @@
   <data name="Allows deletion of any document, regardless of ownership." xml:space="preserve">
     <value>Permite ștergerea oricărui document, indiferent de proprietar.</value>
   </data>
+  <data name="Manage Any Share" xml:space="preserve">
+    <value>Gestionează Orice Partajare</value>
+  </data>
+  <data name="Allows managing shares for any document, regardless of ownership. Includes toggling public access." xml:space="preserve">
+    <value>Permite gestionarea partajărilor pentru orice document, indiferent de proprietate. Include activarea/dezactivarea accesului public.</value>
+  </data>
 
 </root>
