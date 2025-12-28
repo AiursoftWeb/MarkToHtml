@@ -71,6 +71,8 @@
     </div>
 </div>
 
+@if (!Model.IsPublic)
+{
 @* Add New Share Card *@
 <div class="row mb-4">
     <div class="col-12">
@@ -275,6 +277,7 @@
         </div>
     </div>
 </div>
+}
 
 @* Error Modal *@
 <div class="modal fade" id="errorModal" tabindex="-1" aria-hidden="true">
