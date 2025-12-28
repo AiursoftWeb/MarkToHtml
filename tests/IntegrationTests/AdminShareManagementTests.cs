@@ -315,21 +315,21 @@ public class AdminShareManagementTests
         var allDocsHtml = await allDocsResponse.Content.ReadAsStringAsync();
         
         // Assert: Should contain Manage Shares link
-        Assert.IsTrue(allDocsHtml.Contains($"/Home/ManageShares/{documentId}"), "Manage Shares button should be present in All Documents view");
-        Assert.IsTrue(allDocsHtml.Contains("Manage Shares"), "Button text 'Manage Shares' should be present");
+        Assert.Contains($"/Home/ManageShares/{documentId}", allDocsHtml);
+        Assert.Contains("Manage Shares", allDocsHtml);
 
         // Act 2: Check User Documents view
         var userDocsResponse = await _http.GetAsync($"/Admin/UserDocuments/{ownerId}");
         var userDocsHtml = await userDocsResponse.Content.ReadAsStringAsync();
         
         // Assert: Should contain Manage Shares link
-        Assert.IsTrue(userDocsHtml.Contains($"/Home/ManageShares/{documentId}"), "Manage Shares button should be present in User Documents view");
+        Assert.Contains($"/Home/ManageShares/{documentId}", userDocsHtml);
 
         // Act 3: Check Edit Document view
         var editDocResponse = await _http.GetAsync($"/Admin/EditDocument/{documentId}");
         var editDocHtml = await editDocResponse.Content.ReadAsStringAsync();
         
         // Assert: Should contain Manage Shares link
-        Assert.IsTrue(editDocHtml.Contains($"/Home/ManageShares/{documentId}"), "Manage Shares button should be present in Edit Document view");
+        Assert.Contains($"/Home/ManageShares/{documentId}", editDocHtml);
     }
 }
