@@ -69,5 +69,8 @@
   <data name="Search documents" xml:space="preserve">
     <value>Etsi asiakirjoja</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hallitse jakoja</value>
+  </data>
 
 </root>

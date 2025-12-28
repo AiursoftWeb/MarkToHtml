@@ -75,5 +75,8 @@
   <data name="Search documents" xml:space="preserve">
     <value>ابحث في المستندات</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>إدارة المشاركات</value>
+  </data>
 
 </root>

@@ -5,6 +5,7 @@
 @inject IAuthorizationService AuthorizationService
 @{
     var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
+    var canManageAnyShare = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -13,12 +14,18 @@
         <p class="mb-0 text-muted">@Localizer["Modify document content, title, and owner."]</p>
     </div>
     <div class="col-auto ms-auto text-end mt-n1">
-            <a asp-action="DeleteDocument" asp-route-id="@Model.DocumentId" class="btn btn-danger">
-                @if (canDeleteAnyDocument)
-                {
-                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                }
+        @if (canManageAnyShare)
+        {
+            <a asp-controller="Home" asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-outline-info me-1">
+                <i class="align-middle" data-lucide="share-2"></i> @Localizer["Manage Shares"]
             </a>
+        }
+        @if (canDeleteAnyDocument)
+        {
+            <a asp-action="DeleteDocument" asp-route-id="@Model.DocumentId" class="btn btn-danger">
+                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+            </a>
+        }
     </div>
 </div>
 

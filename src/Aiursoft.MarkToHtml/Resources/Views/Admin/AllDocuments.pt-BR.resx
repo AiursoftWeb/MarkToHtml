@@ -69,5 +69,8 @@
   <data name="Search documents" xml:space="preserve">
     <value>Pesquisar documentos</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gerenciar Compartilhamentos</value>
+  </data>
 
 </root>

@@ -57,5 +57,8 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Gem ændringer</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Administrer delinger</value>
+  </data>
 
 </root>

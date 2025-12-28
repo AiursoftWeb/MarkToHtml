@@ -9,6 +9,7 @@
 @{
     var canEditAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanEditAnyDocument)).Succeeded;
     var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
+    var canManageAnyShare = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
 }
 
 <!--suppress CssUnusedSymbol -->
@@ -144,6 +145,12 @@
                                         <label class="text-muted" data-utc-time="@doc.CreationTime.ToHtmlDateTime()"></label>
                                     </td>
                                     <td class="text-end">
+                                        @if (canManageAnyShare)
+                                        {
+                                            <a asp-controller="Home" asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
+                                                <i class="align-middle" data-lucide="share-2"></i> @Localizer["Manage Shares"]
+                                            </a>
+                                        }
                                         @if (canEditAnyDocument)
                                         {
                                             <a asp-action="EditDocument" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">

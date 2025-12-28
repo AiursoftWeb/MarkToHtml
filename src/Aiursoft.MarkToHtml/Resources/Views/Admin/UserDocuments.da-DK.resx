@@ -75,5 +75,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Ingen dokumenter matcher din søgning.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Administrer delinger</value>
+  </data>
 
 </root>

@@ -57,5 +57,8 @@
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>共有の管理</value>
+  </data>
 
 </root>

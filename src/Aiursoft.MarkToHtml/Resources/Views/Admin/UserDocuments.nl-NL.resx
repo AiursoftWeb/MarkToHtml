@@ -75,5 +75,8 @@
   <data name="Search documents..." xml:space="preserve">
     <value>Documenten zoeken...</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Delen beheren</value>
+  </data>
 
 </root>

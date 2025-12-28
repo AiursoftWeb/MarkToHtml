@@ -281,4 +281,55 @@ public class AdminShareManagementTests
             Assert.IsNull(share);
         }
     }
+
+    [TestMethod]
+    public async Task Admin_CanSeeManageSharesButton_InAdminViews()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Document to Manage", "# Content");
+        await Logout();
+        
+        var adminEmail = $"admin-{Guid.NewGuid()}@test.com";
+        var adminPassword = "Password123!";
+        var adminId = await RegisterAndLoginUser(adminEmail, adminPassword);
+        
+        // Grant permissions
+        await GrantPermissionToUser(adminId, AppPermissionNames.CanReadAllDocuments);
+        await GrantPermissionToUser(adminId, AppPermissionNames.CanManageAnyShare);
+        await GrantPermissionToUser(adminId, AppPermissionNames.CanEditAnyDocument);
+        
+        // Re-login as admin
+        await Logout();
+        var loginToken = await GetAntiCsrfToken("/Account/Login");
+        var loginContent = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "EmailOrUserName", adminEmail },
+            { "Password", adminPassword },
+            { "__RequestVerificationToken", loginToken }
+        });
+        await _http.PostAsync("/Account/Login", loginContent);
+
+        // Act 1: Check All Documents view
+        var allDocsResponse = await _http.GetAsync("/Admin/AllDocuments");
+        var allDocsHtml = await allDocsResponse.Content.ReadAsStringAsync();
+        
+        // Assert: Should contain Manage Shares link
+        Assert.Contains($"/Home/ManageShares/{documentId}", allDocsHtml);
+        Assert.Contains("Manage Shares", allDocsHtml);
+
+        // Act 2: Check User Documents view
+        var userDocsResponse = await _http.GetAsync($"/Admin/UserDocuments/{ownerId}");
+        var userDocsHtml = await userDocsResponse.Content.ReadAsStringAsync();
+        
+        // Assert: Should contain Manage Shares link
+        Assert.Contains($"/Home/ManageShares/{documentId}", userDocsHtml);
+
+        // Act 3: Check Edit Document view
+        var editDocResponse = await _http.GetAsync($"/Admin/EditDocument/{documentId}");
+        var editDocHtml = await editDocResponse.Content.ReadAsStringAsync();
+        
+        // Assert: Should contain Manage Shares link
+        Assert.Contains($"/Home/ManageShares/{documentId}", editDocHtml);
+    }
 }

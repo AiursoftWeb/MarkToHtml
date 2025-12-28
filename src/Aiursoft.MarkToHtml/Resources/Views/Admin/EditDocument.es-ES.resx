@@ -57,5 +57,8 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Guardar Cambios</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gestionar Comparticiones</value>
+  </data>
 
 </root>

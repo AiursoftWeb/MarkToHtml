@@ -57,5 +57,8 @@
   <data name="-- Select an Owner --" xml:space="preserve">
     <value>-- Select an Owner --</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Manage Shares</value>
+  </data>
 
 </root>

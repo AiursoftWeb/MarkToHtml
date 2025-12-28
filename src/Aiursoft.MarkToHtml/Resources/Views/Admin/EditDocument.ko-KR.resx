@@ -57,5 +57,8 @@
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>여기에 Markdown을 입력하세요...</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>공유 관리</value>
+  </data>
 
 </root>

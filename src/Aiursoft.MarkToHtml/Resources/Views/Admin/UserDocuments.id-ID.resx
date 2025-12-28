@@ -75,5 +75,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Tidak ada dokumen yang cocok dengan pencarian Anda.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Kelola Berbagi</value>
+  </data>
 
 </root>

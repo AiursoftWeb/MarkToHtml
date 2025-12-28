@@ -57,5 +57,8 @@
   <data name="Save Changes" xml:space="preserve">
     <value>حفظ التغييرات</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>إدارة المشاركات</value>
+  </data>
 
 </root>

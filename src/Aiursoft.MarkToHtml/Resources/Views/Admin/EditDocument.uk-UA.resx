@@ -57,5 +57,8 @@
   <data name="Markdown Content" xml:space="preserve">
     <value>Вміст Markdown</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Керувати спільним доступом</value>
+  </data>
 
 </root>

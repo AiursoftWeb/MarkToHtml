@@ -69,5 +69,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Er zijn geen documenten die overeenkomen met uw zoekopdracht.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Delen beheren</value>
+  </data>
 
 </root>

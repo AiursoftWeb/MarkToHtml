@@ -75,5 +75,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Δεν βρέθηκαν έγγραφα που να αντιστοιχούν στην αναζήτησή σας.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Διαχείριση Κοινών Χρήσεων</value>
+  </data>
 
 </root>

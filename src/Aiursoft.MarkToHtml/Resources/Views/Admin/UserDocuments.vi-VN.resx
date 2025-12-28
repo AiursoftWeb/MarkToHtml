@@ -75,5 +75,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>Không có tài liệu nào phù hợp với tìm kiếm của bạn.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Quản lý Chia sẻ</value>
+  </data>
 
 </root>

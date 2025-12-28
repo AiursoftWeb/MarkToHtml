@@ -69,5 +69,8 @@
   <data name="No documents match your search." xml:space="preserve">
     <value>По вашему запросу документов не найдено.</value>
   </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Управление доступом</value>
+  </data>
 
 </root>
