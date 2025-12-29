@@ -106,7 +106,7 @@
                                     <td class="text-end">
                                         @if (share.Permission == Aiursoft.MarkToHtml.Entities.SharePermission.ReadOnly)
                                         {
-                                            <a href="/view/@document.Id" class="btn btn-sm btn-outline-primary">
+                                            <a asp-controller="Public" asp-action="View" asp-route-id="@document.Id" class="btn btn-sm btn-outline-primary">
                                                 <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
                                             </a>
                                         }
