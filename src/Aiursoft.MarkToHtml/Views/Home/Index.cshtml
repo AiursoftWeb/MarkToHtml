@@ -27,44 +27,81 @@
 }
 
 <form asp-action="Index" method="post" id="markdown-form">
-    <div class="row" style="height: calc(100vh - 240px); min-height: 500px;">
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        @* Desktop View Switcher *@
+                        <div class="btn-group btn-group-sm me-3 d-none d-lg-inline-block" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
+                            <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-desktop" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        @* Mobile View Switcher *@
+                        <div class="btn-group btn-group-sm me-3 d-lg-none" role="group" aria-label="Mobile view mode" id="view-mode-switcher-mobile">
+                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-editor-mobile" value="editor" autocomplete="off" checked>
+                            <label class="btn btn-outline-secondary" for="view-editor-mobile" title="@Localizer["Editor"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+
+                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-preview-mobile" value="preview" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="view-preview-mobile" title="@Localizer["Preview"]"><i class="align-middle" data-lucide="eye"></i></label>
+                        </div>
+
+                        <div class="flex-grow-1">
+                            @if (Model.IsEditing)
+                            {
+                                <div class="input-group input-group-sm">
+                                    <span class="input-group-text bg-white text-muted">@Localizer["Title"]</span>
+                                    <input asp-for="Title" class="form-control" placeholder="@Localizer["Untitled Document"]" />
+                                    <input type="hidden" asp-for="DocumentId" />
+                                </div>
+                            }
+                            else
+                            {
+                                <span class="text-muted small ms-2">@Localizer["Create a new document..."]</span>
+                            }
+                        </div>
+
+                        <div class="ms-auto">
+                            @if (User.Identity?.IsAuthenticated ?? false)
+                            {
+                                if (Model.IsEditing)
+                                {
+                                    <a asp-action="History" class="btn btn-sm btn-outline-secondary me-1">
+                                        <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
+                                        <span class="d-none d-md-inline">@Localizer["My Documents"]</span>
+                                    </a>
+                                }
+                                <button type="submit" class="btn btn-sm btn-primary shadow-sm">
+                                    <i class="align-middle" data-lucide="save">&nbsp;</i>
+                                    <span class="d-none d-md-inline">@Localizer["Save Changes"]</span>
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-sm btn-primary shadow-sm">
+                                    <i class="align-middle" data-lucide="play">&nbsp;</i>
+                                    @Localizer["Convert to HTML"]
+                                </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: calc(100vh - 320px); min-height: 420px;">
 
         @* --- Left Column: Markdown Input --- *@
         <div id="editor-column" class="col-lg-6 h-100 pb-3">
             <div class="card h-100 shadow-sm">
-                <div class="card-header border-bottom d-flex align-items-center">
-                    <div class="btn-group btn-group-sm me-3" role="group" aria-label="View mode" id="view-mode-switcher-left">
-                        <input type="radio" class="btn-check" name="view-mode-left" id="view-split-left" value="split" autocomplete="off" checked>
-                        <label class="btn btn-outline-secondary" for="view-split-left" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
-
-                        <input type="radio" class="btn-check" name="view-mode-left" id="view-editor-left" value="editor" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="view-editor-left" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
-
-                        <input type="radio" class="btn-check" name="view-mode-left" id="view-preview-left" value="preview" autocomplete="off">
-                        <label class="btn btn-outline-secondary" for="view-preview-left" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
-                    </div>
-                    <h5 class="card-title mb-0">
-                        <i class="align-middle" data-lucide="file-text">&nbsp;</i>
-                        @Localizer["Markdown Input"]
-                    </h5>
-                </div>
                 <div class="card-body p-0 d-flex flex-column h-100">
-
-                    <div class="toolbar-container border-bottom p-2 d-flex align-items-center flex-shrink-0">
-                        @if (Model.IsEditing)
-                        {
-                            <input type="hidden" asp-for="DocumentId" />
-                            <div class="input-group input-group-sm w-100">
-                                <span class="input-group-text bg-white text-muted">@Localizer["Title"]</span>
-                                <input asp-for="Title" class="form-control" placeholder="@Localizer["Untitled Document"]" />
-                            </div>
-                        }
-                        else
-                        {
-                            <span class="text-muted small ms-2">@Localizer["Create a new document..."]</span>
-                        }
-                    </div>
-
                     @* 编辑器区域 *@
                     <div class="flex-grow-1 position-relative editor-wrapper">
                         <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
@@ -81,18 +118,6 @@
                 @* 右侧 Header *@
                 <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
                     <div class="d-flex align-items-center">
-                        @* Right Switcher (Visible only in Preview Mode) *@
-                        <div class="btn-group btn-group-sm me-3 d-none" role="group" aria-label="View mode" id="view-mode-switcher-right">
-                            <input type="radio" class="btn-check" name="view-mode-right" id="view-split-right" value="split" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-split-right" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
-
-                            <input type="radio" class="btn-check" name="view-mode-right" id="view-editor-right" value="editor" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-editor-right" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
-
-                            <input type="radio" class="btn-check" name="view-mode-right" id="view-preview-right" value="preview" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-preview-right" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
-                        </div>
-
                         <ul class="nav nav-tabs card-header-tabs" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
@@ -122,8 +147,8 @@
                         @* --- Code Pane --- *@
                         <div class="tab-pane active show flex-column h-100" id="code" role="tabpanel">
 
-                             @* 右侧工具栏 *@
-                             <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
+                            @* 右侧工具栏 *@
+                            <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
                                 <div class="small text-muted flex-grow-1 me-2">
                                     @if (Model.IsPublic)
                                     {
@@ -163,32 +188,6 @@
             </div>
         </div>
     </div>
-
-    @* Submit Button Row *@
-    <div class="row mt-3">
-        <div class="col text-center">
-            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
-            {
-                <a asp-action="History" class="btn btn-outline-secondary btn-lg mr-2">
-                    <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
-                    @Localizer["My Documents"]
-                </a>
-            }
-
-            <button type="submit" class="btn btn-primary btn-lg shadow">
-                @if (User.Identity?.IsAuthenticated ?? false)
-                {
-                    <i class="align-middle" data-lucide="save">&nbsp;</i>
-                    @Localizer["Save Changes"]
-                }
-                else
-                {
-                    <i class="align-middle" data-lucide="play">&nbsp;</i>
-                    @Localizer["Convert to HTML"]
-                }
-            </button>
-        </div>
-    </div>
 </form>
 
 @{
@@ -200,6 +199,20 @@
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    <style>
+        @@media (max-width: 991.98px) {
+            #editor-column,
+            #preview-column {
+                width: 100%;
+                display: none;
+            }
+
+            .view-mode-editor #editor-column,
+            .view-mode-preview #preview-column {
+                display: block;
+            }
+        }
+    </style>
 }
 
 @* ReSharper disable once Razor.SectionNotResolved *@
@@ -454,51 +467,71 @@
                 // --- View Mode Switcher ---
                 const editorCol = document.getElementById('editor-column');
                 const previewCol = document.getElementById('preview-column');
-                const radiosLeft = document.querySelectorAll('input[name="view-mode-left"]');
-                const radiosRight = document.querySelectorAll('input[name="view-mode-right"]');
-                const switcherRight = document.getElementById('view-mode-switcher-right');
+                const formRoot = document.getElementById('markdown-form');
+                const radiosDesktop = document.querySelectorAll('input[name="view-mode-desktop"]');
+                const radiosMobile = document.querySelectorAll('input[name="view-mode-mobile"]');
 
-                function setViewMode(mode) {
-                    if (!editorCol || !previewCol) return;
+                function isMobile() {
+                    return window.innerWidth < 992;
+                }
+
+                function setViewMode(mode, fromMobile) {
+                    if (!editorCol || !previewCol || !formRoot) return;
+                    
+                    if (isMobile() && mode === 'split') {
+                        mode = 'editor';
+                    }
+                    
                     localStorage.setItem('markdown-view-mode', mode);
 
-                    const leftRadio = document.querySelector(`input[name="view-mode-left"][value="${mode}"]`);
-                    if (leftRadio) leftRadio.checked = true;
-                    const rightRadio = document.querySelector(`input[name="view-mode-right"][value="${mode}"]`);
-                    if (rightRadio) rightRadio.checked = true;
+                    // Sync radio buttons
+                    const desktopRadio = document.querySelector(`input[name="view-mode-desktop"][value="${mode}"]`);
+                    if (desktopRadio) desktopRadio.checked = true;
+                    const mobileRadio = document.querySelector(`input[name="view-mode-mobile"][value="${mode}"]`);
+                    if (mobileRadio) mobileRadio.checked = true;
 
-                    if (mode === 'split') {
-                        editorCol.classList.remove('d-none', 'col-lg-12');
-                        editorCol.classList.add('col-lg-6');
-                        previewCol.classList.remove('d-none', 'col-lg-12');
-                        previewCol.classList.add('col-lg-6');
-                        if (switcherRight) switcherRight.classList.add('d-none');
-                    } else if (mode === 'editor') {
-                        editorCol.classList.remove('d-none', 'col-lg-6');
-                        editorCol.classList.add('col-lg-12');
-                        previewCol.classList.add('d-none');
-                    } else if (mode === 'preview') {
-                        editorCol.classList.add('d-none');
-                        previewCol.classList.remove('d-none', 'col-lg-6');
-                        previewCol.classList.add('col-lg-12');
-                        if (switcherRight) switcherRight.classList.remove('d-none');
-
-                        const previewTabLink = document.querySelector('a[href="#preview"]');
-                        if (previewTabLink) {
-                            if (window.bootstrap && window.bootstrap.Tab) {
+                    // Apply classes for desktop
+                    if (!isMobile()) {
+                        formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                        if (mode === 'split') {
+                            editorCol.classList.remove('d-none', 'col-lg-12');
+                            editorCol.classList.add('col-lg-6');
+                            previewCol.classList.remove('d-none', 'col-lg-12');
+                            previewCol.classList.add('col-lg-6');
+                        } else if (mode === 'editor') {
+                            editorCol.classList.remove('d-none', 'col-lg-6');
+                            editorCol.classList.add('col-lg-12');
+                            previewCol.classList.add('d-none');
+                        } else if (mode === 'preview') {
+                            editorCol.classList.add('d-none');
+                            previewCol.classList.remove('d-none', 'col-lg-6');
+                            previewCol.classList.add('col-lg-12');
+                            
+                            const previewTabLink = document.querySelector('a[href="#preview"]');
+                            if (previewTabLink) {
                                 bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
-                            } else {
-                                previewTabLink.click();
                             }
                         }
                     }
+
+                    // Apply classes for mobile
+                    if (isMobile()) {
+                         editorCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                         previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
+                         formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+                         formRoot.classList.add(`view-mode-${mode}`);
+                    }
+                }
+                
+                function applyInitialViewMode() {
+                    const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
+                    setViewMode(savedMode);
                 }
 
-                radiosLeft.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
-                radiosRight.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value)));
-
-                const savedMode = localStorage.getItem('markdown-view-mode') || 'split';
-                setViewMode(savedMode);
+                radiosDesktop.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, false)));
+                radiosMobile.forEach(r => r.addEventListener('change', (e) => setViewMode(e.target.value, true)));
+                window.addEventListener('resize', applyInitialViewMode);
+                applyInitialViewMode();
 
                 if ($.validator) $.validator.setDefaults({ ignore: [] });
 
