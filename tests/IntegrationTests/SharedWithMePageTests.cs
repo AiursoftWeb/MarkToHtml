@@ -3,9 +3,6 @@ using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -114,8 +111,8 @@ public class SharedWithMePageTests
         var html = await response.Content.ReadAsStringAsync();
         
         // 6. Verify it contains the correct share link (NOT /view/)
-        Assert.IsTrue(html.Contains($"/share/{documentId}"), "Page should contain the correct share link.");
-        Assert.IsFalse(html.Contains($"/view/{documentId}"), "Page should NOT contain the outdated /view/ link.");
+        Assert.Contains($"/share/{documentId}", html);
+        Assert.DoesNotContain($"/view/{documentId}", html);
         
         // 7. Verify the link actually works
         var linkResponse = await _http.GetAsync($"/share/{documentId}");
