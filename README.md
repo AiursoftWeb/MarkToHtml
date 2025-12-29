@@ -17,6 +17,20 @@ Default user name is `admin@default.com` and default password is `admin123`.
 
 Try a running MarkToHtml [here](https://marktohtml.aiursoft.com).
 
+## Why MarkToHtml for Your Organization
+
+MarkToHtml is a production-ready, enterprise-grade knowledge base platform designed for teams that value simplicity without sacrificing essential features. While commercial solutions like Notion charge $10+ per user monthly and lack self-hosting options, MarkToHtml delivers a comprehensive document collaboration system that deploys in minutes and costs nothing to run on your own infrastructure.
+
+Key enterprise features include:
+
+**Flexible Data Infrastructure.** Seamlessly switch between SQLite for quick deployment, MySQL for scalability, SQL Server for enterprise environments, or in-memory databases for testing. No complex configuration required.
+
+**Enterprise Authentication.** Native OpenID Connect integration allows seamless connection to your existing identity provider with automatic role synchronization. Built-in user management provides a complete authentication solution out of the box.
+
+**Fine-Grained Access Control.** Role-Based Access Control system with comprehensive permissions for users, roles, and documents. Dynamic navigation automatically adapts to user permissions, ensuring users only see what they should.
+
+**Global-Ready Platform.** AI-powered translation supporting 27 languages enables worldwide team collaboration without language barriers. Comprehensive localization coverage ensures consistent user experience across cultures.
+
 ## Run in Ubuntu
 
 The following script will install\update this app on your Ubuntu server. Supports Ubuntu 25.04.
