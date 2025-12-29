@@ -273,5 +273,8 @@
   <data name="Share" xml:space="preserve">
     <value>Поділитися</value>
   </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Редактор</value>
+  </data>
 
 </root>
