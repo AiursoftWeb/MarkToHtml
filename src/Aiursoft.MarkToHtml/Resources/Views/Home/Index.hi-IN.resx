@@ -273,5 +273,8 @@
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
+  <data name="Editor" xml:space="preserve">
+    <value>संपादक</value>
+  </data>
 
 </root>
