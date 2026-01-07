@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Shared with Me" xml:space="preserve">
-    <value>แชร์กับฉัน</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>เอกสาร</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>สิทธิ์</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>แชร์ผ่าน</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>แชร์โดย</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>ไม่มีเอกสารที่แชร์</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>เอกสารที่ถูกแชร์กับคุณหรือกลุ่มของคุณ</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>เมื่อมีคนแชร์เอกสารกับคุณหรือบทบาทของคุณ เอกสารนั้นจะปรากฏที่นี่</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>แชร์เมื่อ</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>แก้ไขได้</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>ผ่านบทบาท</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>อ่านอย่างเดียว</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>ตัวอักษร</value>
   </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>แชร์โดยตรง</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>เอกสาร</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>เอกสารที่ถูกแชร์กับคุณหรือกลุ่มของคุณ</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>แก้ไขได้</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>ไม่มีเอกสารที่แชร์</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>สิทธิ์</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>อ่านอย่างเดียว</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>แชร์เมื่อ</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>แชร์โดย</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>แชร์ผ่าน</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>แชร์กับฉัน</value>
+  </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>(เอกสารไม่มีชื่อเรื่อง)</value>
   </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>แชร์โดยตรง</value>
+  <data name="Via Role" xml:space="preserve">
+    <value>ผ่านบทบาท</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>ดู</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>แก้ไข</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>เมื่อมีคนแชร์เอกสารกับคุณหรือบทบาทของคุณ เอกสารนั้นจะปรากฏที่นี่</value>
   </data>
 
 </root>

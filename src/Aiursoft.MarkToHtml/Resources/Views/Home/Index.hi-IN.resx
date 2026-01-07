@@ -18,50 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>स्वागत है</value>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>अनुमति प्रबंधन के लिए एक अंतर्निहित रोल-आधारित एक्सेस कंट्रोल (RBAC) प्रणाली।</value>
   </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>यह एक टेम्पलेट प्रोजेक्ट है</value>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>बॉक्स से बाहर निकलते ही उपयोगकर्ता प्रमाणीकरण और प्रोफ़ाइल प्रबंधन के लिए एक संपूर्ण समाधान।</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>नमस्ते दुनिया!</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>एकाधिक डेटाबेस समर्थन</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC प्राधिकरण</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>ओपनआईडी कनेक्ट एकीकरण</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Aiursoft टेम्पलेट का उपयोग क्यों करें?</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>किसी भी OpenID Connect प्रदाता के साथ सहज एकीकरण, स्वचालित भूमिका सिंक्रनाइज़ेशन के साथ।</value>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>एक पूरी तरह से उत्तरदायी लेआउट जो डेस्कटॉप और मोबाइल डिवाइस दोनों पर शानदार दिखता है।</value>
   </data>
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>आपके अगले वेब एप्लिकेशन के लिए एक आधुनिक, सुविधा-संपन्न, और अत्यधिक विस्तार योग्य आधारशिला।</value>
   </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>SQLite, MySQL, SQL Server जैसे प्रदाताओं और परीक्षण के लिए इन-मेमोरी डेटाबेस के बीच आसानी से स्विच करें।</value>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>आपके मार्कडाउन को स्वच्छ, सुरक्षित HTML में बदलने के लिए एक सरल उपकरण।</value>
   </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>डायनामिक नेविगेशन बार</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>इस दस्तावेज़ को निजी बनाने के बाद, मौजूदा सार्वजनिक लिंक काम नहीं करेगा। क्या आप वाकई आगे बढ़ना चाहते हैं?</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-संचालित अनुवाद</value>
   </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
-    <value>अनुमति प्रबंधन के लिए एक अंतर्निहित रोल-आधारित एक्सेस कंट्रोल (RBAC) प्रणाली।</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>सभी निर्भरताएँ स्वचालित रूप से पंजीकृत होती हैं और कंस्ट्रक्टर इंजेक्शन के माध्यम से हमेशा उपलब्ध रहती हैं।</value>
   </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>व्यापक प्रलेखन</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>एक त्रुटि हुई।</value>
   </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>नेविगेशन बार स्वचालित रूप से उपयोगकर्ता की भूमिकाओं और अनुमतियों के आधार पर समायोजित होता है।</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>एक त्रुटि हुई। कृपया पुनः प्रयास करें।</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>क्या आप वाकई इस दस्तावेज़ को निजी बनाना चाहते हैं?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>क्या आप सुनिश्चित हैं?</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>स्वचालित डार्क मोड</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>स्वचालित निर्भरता इंजेक्शन</value>
   </data>
   <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
     <value>वैश्विक पहुंच के लिए 28 भाषाओं में स्वचालित, AI-संचालित अनुवाद।</value>
@@ -69,116 +66,38 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>अंतर्निहित उपयोगकर्ता प्रबंधन</value>
   </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>स्वचालित निर्भरता इंजेक्शन</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>विस्तृत दस्तावेज़ीकरण और व्यावहारिक उदाहरण शामिल हैं ताकि आप जल्दी शुरुआत कर सकें।</value>
-  </data>
-  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
-    <value>बॉक्स से बाहर निकलते ही उपयोगकर्ता प्रमाणीकरण और प्रोफ़ाइल प्रबंधन के लिए एक संपूर्ण समाधान।</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>एकीकृत फ़ाइल प्रबंधन</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>उत्तरदायी डिज़ाइन</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>स्वचालित अवतार संपीड़न के साथ एक अंतर्निहित फ़ाइल प्रबंधन प्रणाली की सुविधा।</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>सभी निर्भरताएँ स्वचालित रूप से पंजीकृत होती हैं और कंस्ट्रक्टर इंजेक्शन के माध्यम से हमेशा उपलब्ध रहती हैं।</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>स्वचालित डार्क मोड</value>
-  </data>
-  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
-    <value>एक पूरी तरह से उत्तरदायी लेआउट जो डेस्कटॉप और मोबाइल डिवाइस दोनों पर शानदार दिखता है।</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>डॉकराइज्ड डिप्लॉयमेंट के लिए</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>स्मार्ट डार्क मोड जो स्वचालित रूप से उपयोगकर्ता की सिस्टम सेटिंग्स के अनुकूल हो जाता है।</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>पूर्ण Docker समर्थन के साथ आता है, जो सरल, सुसंगत और विश्वसनीय डेप्लॉयमेंट के लिए है।</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>दस्तावेज़ पढ़ें</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>यह एक टेम्पलेट प्रोजेक्ट है, जहाँ से हम वॉयजर की शुरुआत करते हैं...</value>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>निजी में बदलें?</value>
   </data>
   <data name="Code" xml:space="preserve">
     <value>कोड</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>सफलता!</value>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>पूर्ण Docker समर्थन के साथ आता है, जो सरल, सुसंगत और विश्वसनीय डेप्लॉयमेंट के लिए है।</value>
   </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>दस्तावेज़ शीर्षक (वैकल्पिक)</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>अपना मार्कडाउन यहाँ टाइप करें...</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>मार्कडाउन इनपुट</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>दस्तावेज़ सफलतापूर्वक अपडेट किया गया।</value>
-  </data>
-  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
-    <value>आपके मार्कडाउन को स्वच्छ, सुरक्षित HTML में बदलने के लिए एक सरल उपकरण।</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>मार्कडाउन से HTML कन्वर्टर</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>प्रिंट पूर्वावलोकन</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>पूर्वावलोकन</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>कॉपी करें</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>प्रिंट करें</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>मेरे दस्तावेज़</value>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>व्यापक प्रलेखन</value>
   </data>
   <data name="Convert and save" xml:space="preserve">
     <value>कन्वर्ट करें और सहेजें</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>रूपांतरण के बाद HTML पूर्वावलोकन यहां दिखाई देगा।</value>
-  </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>HTML में बदलें</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>HTML को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
   <data name="Copied!" xml:space="preserve">
     <value>कॉपी किया गया!</value>
   </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
+  <data name="Copy" xml:space="preserve">
+    <value>कॉपी करें</value>
   </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>सार्वजनिक करें</value>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>HTML कॉपी करें</value>
   </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>निजी बनाएं</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>दस्तावेज़ निजी बनाएं</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>सार्वजनिक रूप से साझा करें</value>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
   <data name="Copy Link" xml:space="preserve">
     <value>लिंक कॉपी करें</value>
@@ -186,20 +105,35 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>लिंक को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>इस दस्तावेज़ को सार्वजनिक रूप से एक अद्वितीय लिंक के साथ साझा करें जिसे कोई भी बिना लॉग इन किए एक्सेस कर सकता है।</value>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>नया दस्तावेज़ बनाएं...</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>इस दस्तावेज़ को निजी बनाने के बाद, मौजूदा सार्वजनिक लिंक काम नहीं करेगा। क्या आप वाकई आगे बढ़ना चाहते हैं?</value>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>डॉकराइज्ड डिप्लॉयमेंट के लिए</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>रद्द करें</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>दस्तावेज़ शीर्षक (वैकल्पिक)</value>
   </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>एक त्रुटि हुई। कृपया पुनः प्रयास करें।</value>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>दस्तावेज़ सफलतापूर्वक अपडेट किया गया।</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>डायनामिक नेविगेशन बार</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>SQLite, MySQL, SQL Server जैसे प्रदाताओं और परीक्षण के लिए इन-मेमोरी डेटाबेस के बीच आसानी से स्विच करें।</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>संपादक</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>केवल संपादक</value>
   </data>
   <data name="Failed to copy link." xml:space="preserve">
     <value>लिंक कॉपी करने में विफल।</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
   </data>
   <data name="Failed to make document private. Please try again." xml:space="preserve">
     <value>दस्तावेज़ को निजी बनाने में विफल। कृपया पुनः प्रयास करें।</value>
@@ -207,62 +141,26 @@
   <data name="Failed to make document public. Please try again." xml:space="preserve">
     <value>दस्तावेज़ को सार्वजनिक बनाने में विफल। कृपया पुनः प्रयास करें।</value>
   </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>क्या आप वाकई इस दस्तावेज़ को निजी बनाना चाहते हैं?</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>सार्वजनिक</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>शीर्षक</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>निजी - केवल आप</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>निजी</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>HTML कॉपी करें</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>अनामांकित दस्तावेज़</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>नया दस्तावेज़ बनाएं...</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>सार्वजनिक - लिंक वाला कोई भी व्यक्ति</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>परिवर्तन सहेजें</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>निजी में बदलें?</value>
-  </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>हाँ, निजी बनाएं</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>क्या आप सुनिश्चित हैं?</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>एक त्रुटि हुई।</value>
-  </data>
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>गोपनीयता सेटिंग्स अपडेट करने में विफल।</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>स्वचालित अवतार संपीड़न के साथ एक अंतर्निहित फ़ाइल प्रबंधन प्रणाली की सुविधा।</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>नमस्ते दुनिया!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>रूपांतरण के बाद HTML पूर्वावलोकन यहां दिखाई देगा।</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>यदि आप इस दस्तावेज़ को निजी बना देते हैं, तो मौजूदा सार्वजनिक लिंक तुरंत सभी के लिए काम करना बंद कर देगा।</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>विभाजित दृश्य</value>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>विस्तृत दस्तावेज़ीकरण और व्यावहारिक उदाहरण शामिल हैं ताकि आप जल्दी शुरुआत कर सकें।</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>केवल पूर्वावलोकन</value>
-  </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>केवल संपादक</value>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>एकीकृत फ़ाइल प्रबंधन</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>आंतरिक</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>आंतरिक - विशिष्ट उपयोगकर्ता/भूमिकाएँ</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>दस्तावेज़ निजी बनाएं</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>निजी बनाएं</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>सार्वजनिक करें</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>मार्कडाउन इनपुट</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>मार्कडाउन से HTML कन्वर्टर</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>एकाधिक डेटाबेस समर्थन</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>मेरे दस्तावेज़</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>ओपनआईडी कनेक्ट एकीकरण</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>पूर्वावलोकन</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>केवल पूर्वावलोकन</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>प्रिंट करें</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>प्रिंट पूर्वावलोकन</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>निजी</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>निजी - केवल आप</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>सार्वजनिक</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>सार्वजनिक - लिंक वाला कोई भी व्यक्ति</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC प्राधिकरण</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>दस्तावेज़ पढ़ें</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>उत्तरदायी डिज़ाइन</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>परिवर्तन सहेजें</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>किसी भी OpenID Connect प्रदाता के साथ सहज एकीकरण, स्वचालित भूमिका सिंक्रनाइज़ेशन के साथ।</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>संपादक</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>सार्वजनिक रूप से साझा करें</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>इस दस्तावेज़ को सार्वजनिक रूप से एक अद्वितीय लिंक के साथ साझा करें जिसे कोई भी बिना लॉग इन किए एक्सेस कर सकता है।</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>स्मार्ट डार्क मोड जो स्वचालित रूप से उपयोगकर्ता की सिस्टम सेटिंग्स के अनुकूल हो जाता है।</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>विभाजित दृश्य</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>सफलता!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>नेविगेशन बार स्वचालित रूप से उपयोगकर्ता की भूमिकाओं और अनुमतियों के आधार पर समायोजित होता है।</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>यह एक टेम्पलेट प्रोजेक्ट है</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>यह एक टेम्पलेट प्रोजेक्ट है, जहाँ से हम वॉयजर की शुरुआत करते हैं...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>शीर्षक</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>अपना मार्कडाउन यहाँ टाइप करें...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>अनामांकित दस्तावेज़</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>स्वागत है</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Aiursoft टेम्पलेट का उपयोग क्यों करें?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>हाँ, निजी बनाएं</value>
   </data>
 
 </root>

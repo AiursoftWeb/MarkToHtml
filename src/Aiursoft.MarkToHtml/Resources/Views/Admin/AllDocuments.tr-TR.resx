@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="All Documents" xml:space="preserve">
-    <value>Tüm Belgeler</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Sahibi</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Oluşturulma Zamanı</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Belge Listesi</value>
-  </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>Sistemde hiçbir belge bulunamadı.</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Başlık</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(başlık yok)</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>Sistemdeki tüm kullanıcılara ait tüm belgelerin listesi.</value>
   </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>Sistem genelindeki tüm belgeleri görüntüleyin ve yönetin.</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(başlık yok)</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Düzenle</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Sil</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Ara</value>
+  <data name="All Documents" xml:space="preserve">
+    <value>Tüm Belgeler</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Temizle</value>
   </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Belgeleri ara...</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Oluşturulma Zamanı</value>
   </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>Belgeleri ara</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Belge Listesi</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Paylaşımları Yönet</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>Sistemde hiçbir belge bulunamadı.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Aramanızla eşleşen belge bulunamadı.</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Paylaşımları Yönet</value>
+  <data name="Owner" xml:space="preserve">
+    <value>Sahibi</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Belgeleri ara</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Belgeleri ara...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>Sistem genelindeki tüm belgeleri görüntüleyin ve yönetin.</value>
   </data>
 
 </root>

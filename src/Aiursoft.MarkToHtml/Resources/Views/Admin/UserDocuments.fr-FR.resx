@@ -18,65 +18,65 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Documents by" xml:space="preserve">
-    <value>Documents de</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Liste des documents</value>
-  </data>
-  <data name="Profile Details" xml:space="preserve">
-    <value>Détails du profil</value>
-  </data>
-  <data name="Back to All Documents" xml:space="preserve">
-    <value>Retour à tous les documents</value>
-  </data>
-  <data name="This user has not created any documents yet." xml:space="preserve">
-    <value>Cet utilisateur n&apos;a pas encore créé de documents.</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(sans titre)</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>Liste de tous les documents créés par cet utilisateur.</value>
   </data>
-  <data name="Username" xml:space="preserve">
-    <value>Nom d&apos;utilisateur</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>Total des documents</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Date de création</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titre</value>
-  </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(sans titre)</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Supprimer</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Rechercher</value>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>Retour à tous les documents</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Effacer</value>
   </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Rechercher des documents...</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Date de création</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Liste des documents</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>Documents de</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gérer les partages</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Aucun document ne correspond à votre recherche.</value>
   </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Détails du profil</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
   <data name="Search documents" xml:space="preserve">
     <value>Rechercher des documents</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Gérer les partages</value>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Rechercher des documents...</value>
+  </data>
+  <data name="This user has not created any documents yet." xml:space="preserve">
+    <value>Cet utilisateur n&apos;a pas encore créé de documents.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="Total Docs" xml:space="preserve">
+    <value>Total des documents</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nom d&apos;utilisateur</value>
   </data>
 
 </root>

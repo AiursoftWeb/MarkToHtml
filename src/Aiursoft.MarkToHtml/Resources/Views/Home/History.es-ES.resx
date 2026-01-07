@@ -18,11 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Título</value>
-  </data>
-  <data name="Length" xml:space="preserve">
-    <value>Longitud</value>
+      <data name="A list of all documents you have created." xml:space="preserve">
+    <value>Una lista de todos los documentos que has creado.</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>Acciones</value>
@@ -30,44 +27,32 @@
   <data name="All My Documents" xml:space="preserve">
     <value>Todos mis documentos</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Mis Documentos</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Fecha de creación</value>
+  <data name="Clear" xml:space="preserve">
+    <value>Limpiar</value>
   </data>
   <data name="Create a new document" xml:space="preserve">
     <value>Crear un nuevo documento</value>
   </data>
-  <data name="A list of all documents you have created." xml:space="preserve">
-    <value>Una lista de todos los documentos que has creado.</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Editar</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Fecha de creación</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Eliminar</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Buscar</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Limpiar</value>
+  <data name="Internal" xml:space="preserve">
+    <value>Interno</value>
   </data>
-  <data name="Search my documents..." xml:space="preserve">
-    <value>Buscar en mis documentos...</value>
+  <data name="Length" xml:space="preserve">
+    <value>Longitud</value>
   </data>
-  <data name="Search my documents" xml:space="preserve">
-    <value>Buscar en mis documentos</value>
-  </data>
-  <data name="You have not created any documents yet." xml:space="preserve">
-    <value>Aún no has creado ningún documento.</value>
+  <data name="My Documents" xml:space="preserve">
+    <value>Mis Documentos</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>No se han encontrado documentos que coincidan con su búsqueda.</value>
-  </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>Visibilidad</value>
   </data>
   <data name="Private" xml:space="preserve">
     <value>Privado</value>
@@ -75,11 +60,26 @@
   <data name="Public" xml:space="preserve">
     <value>Público</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Buscar en mis documentos</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Buscar en mis documentos...</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Compartir</value>
   </data>
-  <data name="Internal" xml:space="preserve">
-    <value>Interno</value>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidad</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Aún no has creado ningún documento.</value>
   </data>
 
 </root>

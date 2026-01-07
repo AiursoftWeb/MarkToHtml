@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
+    <value>Скопировано!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Скопировать Markdown в буфер обмена</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Предпросмотр документа</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не удалось скопировать текст.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Просмотр</value>
+  </data>
+  <data name="Print" xml:space="preserve">
     <value>Печать</value>
   </data>
   <data name="Print Preview" xml:space="preserve">
     <value>Предварительный просмотр</value>
   </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Предпросмотр документа</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Копировать</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Скопировано!</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Просмотр</value>
-  </data>
   <data name="Raw" xml:space="preserve">
     <value>Исходный текст</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Скопировать Markdown в буфер обмена</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Не удалось скопировать текст.</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Просмотреть исходный Markdown</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Исходный код</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Просмотреть исходный текст</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Просмотреть исходный Markdown</value>
   </data>
 
 </root>

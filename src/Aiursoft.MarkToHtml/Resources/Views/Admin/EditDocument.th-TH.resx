@@ -18,20 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Delete" xml:space="preserve">
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- เลือกเจ้าของ --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>กลับไปยังรายการ</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
     <value>ลบ</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>สำเร็จ!</value>
-  </data>
-  <data name="Edit Document" xml:space="preserve">
-    <value>แก้ไขเอกสาร</value>
   </data>
   <data name="Document Details" xml:space="preserve">
     <value>รายละเอียดเอกสาร</value>
-  </data>
-  <data name="Enter the document title" xml:space="preserve">
-    <value>ป้อนชื่อเอกสาร</value>
   </data>
   <data name="Document Title (optional)" xml:space="preserve">
     <value>ชื่อเอกสาร (ไม่บังคับ)</value>
@@ -39,26 +36,29 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>อัปเดตเอกสารเรียบร้อยแล้ว</value>
   </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>แก้ไขเนื้อหาเอกสาร ชื่อเรื่อง และเจ้าของ</value>
+  <data name="Edit Document" xml:space="preserve">
+    <value>แก้ไขเอกสาร</value>
   </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- เลือกเจ้าของ --</value>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>ป้อนชื่อเอกสาร</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>จัดการการแชร์</value>
   </data>
   <data name="Markdown Content" xml:space="preserve">
     <value>เนื้อหา Markdown</value>
   </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>แก้ไขเนื้อหาเอกสาร ชื่อเรื่อง และเจ้าของ</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>บันทึกการเปลี่ยนแปลง</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>สำเร็จ!</value>
+  </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>พิมพ์ Markdown ของคุณที่นี่...</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>กลับไปยังรายการ</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>จัดการการแชร์</value>
   </data>
 
 </root>

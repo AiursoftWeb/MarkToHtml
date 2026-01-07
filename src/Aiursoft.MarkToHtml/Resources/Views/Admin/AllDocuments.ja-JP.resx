@@ -18,50 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Owner" xml:space="preserve">
-    <value>所有者</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>ドキュメント一覧</value>
-  </data>
-  <data name="All Documents" xml:space="preserve">
-    <value>すべてのドキュメント</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>作成日時</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>タイトル</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>（タイトルなし）</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>システム内の全ユーザーが作成した全ドキュメントの一覧。</value>
   </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>システム内にドキュメントが見つかりませんでした。</value>
-  </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>システム全体のすべてのドキュメントを表示および管理します。</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>編集</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>削除</value>
-  </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>（タイトルなし）</value>
+  <data name="All Documents" xml:space="preserve">
+    <value>すべてのドキュメント</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>クリア</value>
   </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>ドキュメントを検索...</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>作成日時</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>ドキュメント一覧</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>共有の管理</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>システム内にドキュメントが見つかりませんでした。</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>検索条件に一致するドキュメントはありません。</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>検索</value>
@@ -69,8 +63,14 @@
   <data name="Search documents" xml:space="preserve">
     <value>ドキュメントを検索</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>共有の管理</value>
+  <data name="Search documents..." xml:space="preserve">
+    <value>ドキュメントを検索...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>システム全体のすべてのドキュメントを表示および管理します。</value>
   </data>
 
 </root>

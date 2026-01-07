@@ -18,155 +18,86 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Ласкаво просимо</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Це шаблонний проєкт</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Привіт, Світе!</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Чому варто використовувати шаблон Aiursoft?</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>Авторизація RBAC</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>Інтеграція OpenID Connect</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Підтримка кількох баз даних</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Сучасна, багатофункціональна та високо розширювана основа для вашої наступної веб-програми.</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Безперешкодна інтеграція з будь-яким постачальником OpenID Connect із автоматичною синхронізацією ролей.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Легко перемикайтеся між провайдерами, такими як SQLite, MySQL, SQL Server, та оперативною пам&apos;яттю для тестування.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Динамічна навігаційна панель</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Детальна документація</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Вбудована система контролю доступу на основі ролей (RBAC) для деталізованого управління дозволами.</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Панель навігації автоматично адаптується відповідно до ролей та дозволів користувача.</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Переклади на основі ШІ</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Вбудоване керування користувачами</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Автоматичний переклад за допомогою штучного інтелекту на 28 мов для глобального охоплення.</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Містить детальну документацію та практичні приклади, щоб ви могли швидко розпочати роботу.</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Автоматична ін&apos;єкція залежностей</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Адаптивний дизайн</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію конструктора.</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Автоматичний темний режим</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Повне рішення для аутентифікації користувачів та управління профілями, готове до використання відразу після встановлення.</value>
   </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Інтегроване управління файлами</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Містить вбудовану систему керування файлами з автоматичним стисненням аватарів.</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Адаптивний макет, який чудово виглядає як на настільних комп&apos;ютерах, так і на мобільних пристроях.</value>
   </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Підготовлено для розгортання в Docker</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Має повну підтримку Docker для спрощених, стабільних та надійних розгортань.</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Розумний темний режим, який автоматично адаптується до системних налаштувань користувача.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Прочитати документацію</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Це шаблонний проект, з якого ми починаємо нашу подорож...</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>Код</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Успіх!</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Вхідні дані Markdown</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Введіть ваш Markdown тут...</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Назва документа (необов’язково)</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Конвертер Markdown у HTML</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Документ успішно оновлено.</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Сучасна, багатофункціональна та високо розширювана основа для вашої наступної веб-програми.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Простий інструмент для перетворення вашого Markdown у чистий, безпечний HTML.</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Попередній перегляд</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Попередній перегляд друку</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Переклади на основі ШІ</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>Друк</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію конструктора.</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Копіювати</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Сталася помилка.</value>
   </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Скопіювати HTML у буфер обміну</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Виникла помилка. Будь ласка, спробуйте ще раз.</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>Попередній перегляд HTML з’явиться тут після конвертації.</value>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Ви впевнені, що хочете зробити цей документ приватним?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Ви впевнені?</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Автоматичний темний режим</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Автоматична ін&apos;єкція залежностей</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Автоматичний переклад за допомогою штучного інтелекту на 28 мов для глобального охоплення.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Вбудоване керування користувачами</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Змінити на приватним?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Код</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Має повну підтримку Docker для спрощених, стабільних та надійних розгортань.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Детальна документація</value>
   </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Конвертувати та зберегти</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Мої документи</value>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Конвертувати в HTML</value>
   </data>
   <data name="Copied!" xml:space="preserve">
     <value>Скопійовано!</value>
   </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>Конвертувати в HTML</value>
+  <data name="Copy" xml:space="preserve">
+    <value>Копіювати</value>
   </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Не вдалося скопіювати текст.</value>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Копіювати HTML</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Скопіювати HTML у буфер обміну</value>
   </data>
   <data name="Copy Link" xml:space="preserve">
     <value>Копіювати посилання</value>
@@ -174,95 +105,62 @@
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>Скопіювати посилання в буфер обміну</value>
   </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Зробити приватним</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Зробити документ приватним</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Поділитися публічно</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Зробити публічним</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Скасувати</value>
-  </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Поділіться цим документом публічно за допомогою унікального посилання, яке будь-хто зможе відкрити без входу в систему.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Не вдалося скопіювати посилання.</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Виникла помилка. Будь ласка, спробуйте ще раз.</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Не вдалося оприлюднити документ. Будь ласка, спробуйте ще раз.</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Не вдалося зробити документ приватним. Будь ласка, спробуйте ще раз.</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Ви впевнені, що хочете зробити цей документ приватним?</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Назва</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Документ без назви</value>
-  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Створити новий документ...</value>
   </data>
-  <data name="Private" xml:space="preserve">
-    <value>Приватний</value>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Підготовлено для розгортання в Docker</value>
   </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>Копіювати HTML</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Назва документа (необов’язково)</value>
   </data>
-  <data name="Public" xml:space="preserve">
-    <value>Публічний</value>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Документ успішно оновлено.</value>
   </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Публічний - доступний за посиланням</value>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Динамічна навігаційна панель</value>
   </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Приватний - Тільки ви</value>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Легко перемикайтеся між провайдерами, такими як SQLite, MySQL, SQL Server, та оперативною пам&apos;яттю для тестування.</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Так, зробити приватним</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Ви впевнені?</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Змінити на приватним?</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Зберегти зміни</value>
-  </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Не вдалося оновити налаштування приватності.</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Якщо ви зробите цей документ приватним, наявне публічне посилання негайно припинить працювати для всіх.</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Сталася помилка.</value>
-  </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Тільки перегляд</value>
+  <data name="Editor" xml:space="preserve">
+    <value>Редактор</value>
   </data>
   <data name="Editor Only" xml:space="preserve">
     <value>Тільки редактор</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Поділений перегляд</value>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Не вдалося скопіювати посилання.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не вдалося скопіювати текст.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Не вдалося зробити документ приватним. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Не вдалося оприлюднити документ. Будь ласка, спробуйте ще раз.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Не вдалося оновити налаштування приватності.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Містить вбудовану систему керування файлами з автоматичним стисненням аватарів.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Привіт, Світе!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Попередній перегляд HTML з’явиться тут після конвертації.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Якщо ви зробите цей документ приватним, наявне публічне посилання негайно припинить працювати для всіх.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Містить детальну документацію та практичні приклади, щоб ви могли швидко розпочати роботу.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Інтегроване управління файлами</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>Внутрішній</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Внутрішній - Конкретні користувачі/ролі</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Зробити документ приватним</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Зробити приватним</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Зробити публічним</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Вхідні дані Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Конвертер Markdown у HTML</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Підтримка кількох баз даних</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Мої документи</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>Інтеграція OpenID Connect</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Попередній перегляд</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Тільки перегляд</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Друк</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Попередній перегляд друку</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Приватний</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Приватний - Тільки ви</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Публічний</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Публічний - доступний за посиланням</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Авторизація RBAC</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Прочитати документацію</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Адаптивний дизайн</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Зберегти зміни</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Безперешкодна інтеграція з будь-яким постачальником OpenID Connect із автоматичною синхронізацією ролей.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Поділитися</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>Редактор</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Поділитися публічно</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Поділіться цим документом публічно за допомогою унікального посилання, яке будь-хто зможе відкрити без входу в систему.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Розумний темний режим, який автоматично адаптується до системних налаштувань користувача.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Поділений перегляд</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Успіх!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Панель навігації автоматично адаптується відповідно до ролей та дозволів користувача.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Це шаблонний проєкт</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Це шаблонний проект, з якого ми починаємо нашу подорож...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Введіть ваш Markdown тут...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Документ без назви</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Ласкаво просимо</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Чому варто використовувати шаблон Aiursoft?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Так, зробити приватним</value>
   </data>
 
 </root>

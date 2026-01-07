@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>Stampa</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>Copiato!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Copia Markdown negli appunti</value>
   </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Anteprima del documento</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Impossibile copiare il testo.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Anteprima</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Stampa</value>
   </data>
   <data name="Print Preview" xml:space="preserve">
     <value>Anteprima di stampa</value>
@@ -30,32 +48,14 @@
   <data name="Raw" xml:space="preserve">
     <value>Testo grezzo</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copia</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Visualizza Markdown grezzo</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Copia Markdown negli appunti</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Impossibile copiare il testo.</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Anteprima</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Copiato!</value>
-  </data>
   <data name="Source" xml:space="preserve">
     <value>Sorgente</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Visualizza Raw</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Visualizza Markdown grezzo</value>
   </data>
 
 </root>

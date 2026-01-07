@@ -18,11 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document Details" xml:space="preserve">
-    <value>Detalii Document</value>
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- Selectați un Proprietar --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Înapoi la Listă</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Șterge</value>
+  </data>
+  <data name="Document Details" xml:space="preserve">
+    <value>Detalii Document</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Titlul documentului (opțional)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Documentul a fost actualizat cu succes.</value>
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Editează Documentul</value>
@@ -30,35 +42,23 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>Introduceți titlul documentului</value>
   </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Documentul a fost actualizat cu succes.</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Succes!</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Titlul documentului (opțional)</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>Modifică conținutul documentului, titlul și proprietarul.</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gestionează Partajările</value>
   </data>
   <data name="Markdown Content" xml:space="preserve">
     <value>Conținut Markdown</value>
   </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- Selectați un Proprietar --</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Înapoi la Listă</value>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>Modifică conținutul documentului, titlul și proprietarul.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Salvează modificările</value>
   </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Succes!</value>
+  </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Introduceți Markdown-ul aici...</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Gestionează Partajările</value>
   </data>
 
 </root>

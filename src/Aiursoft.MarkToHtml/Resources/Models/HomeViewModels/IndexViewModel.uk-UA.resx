@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Something went wrong, please try again later." xml:space="preserve">
-    <value>Щось пішло не так, будь ласка, спробуйте пізніше.</value>
-  </data>
-  <data name="The document title contains sensitive words." xml:space="preserve">
-    <value>У назві документа містяться слова, що не відповідають правилам спільноти.</value>
-  </data>
-  <data name="Please input your markdown content!" xml:space="preserve">
+      <data name="Please input your markdown content!" xml:space="preserve">
     <value>Будь ласка, введіть ваш вміст у форматі Markdown!</value>
+  </data>
+  <data name="Something went wrong, please try again later." xml:space="preserve">
+    <value>Щось пішло не так, будь ласка, спробуйте пізніше.</value>
   </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
     <value>У вмісті документа містяться слова, що не відповідають нормам.</value>
+  </data>
+  <data name="The document title contains sensitive words." xml:space="preserve">
+    <value>У назві документа містяться слова, що не відповідають правилам спільноти.</value>
   </data>
 
 </root>

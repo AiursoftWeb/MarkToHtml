@@ -18,32 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Titlu</value>
-  </data>
-  <data name="(no title)" xml:space="preserve">
+      <data name="(no title)" xml:space="preserve">
     <value>(fără titlu)</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Data creării</value>
   </data>
   <data name="Are you sure?" xml:space="preserve">
     <value>Sunteți sigur?</value>
   </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Da, ștergeți acest document</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
   </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Proprietar</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Data creării</value>
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Ștergere Document</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Proprietar</value>
+  </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Această acțiune este ireversibilă. Sunteți pe cale să ștergeți definitiv următorul document:</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Anulează</value>
+  <data name="Title" xml:space="preserve">
+    <value>Titlu</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Da, ștergeți acest document</value>
   </data>
 
 </root>

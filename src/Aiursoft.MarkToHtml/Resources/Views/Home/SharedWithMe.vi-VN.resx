@@ -18,11 +18,41 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>ký tự</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Chia sẻ trực tiếp</value>
+  </data>
+  <data name="Document" xml:space="preserve">
     <value>Tài liệu</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Các tài liệu đã được chia sẻ với bạn hoặc nhóm của bạn.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Có thể chỉnh sửa</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Không có tài liệu được chia sẻ</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>Quyền</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Chỉ Đọc</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Được chia sẻ lúc</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Được chia sẻ bởi</value>
   </data>
   <data name="Shared Via" xml:space="preserve">
     <value>Chia sẻ qua</value>
@@ -30,47 +60,17 @@
   <data name="Shared with Me" xml:space="preserve">
     <value>Được chia sẻ với tôi</value>
   </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Không có tài liệu được chia sẻ</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Được chia sẻ bởi</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Các tài liệu đã được chia sẻ với bạn hoặc nhóm của bạn.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Khi ai đó chia sẻ tài liệu với bạn hoặc vai trò của bạn, nó sẽ xuất hiện ở đây.</value>
-  </data>
-  <data name="characters" xml:space="preserve">
-    <value>ký tự</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Hành động</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Được chia sẻ lúc</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Chia sẻ trực tiếp</value>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Tài liệu chưa đặt tên</value>
   </data>
   <data name="Via Role" xml:space="preserve">
     <value>Thông qua Vai trò</value>
   </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Tài liệu chưa đặt tên</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Chỉ Đọc</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Có thể chỉnh sửa</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>Xem</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Chỉnh sửa</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Khi ai đó chia sẻ tài liệu với bạn hoặc vai trò của bạn, nó sẽ xuất hiện ở đây.</value>
   </data>
 
 </root>

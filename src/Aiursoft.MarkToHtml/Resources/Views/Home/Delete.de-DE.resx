@@ -24,20 +24,20 @@
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Erstellungszeit</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Dokument löschen</value>
+  </data>
+  <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
+    <value>Diese Aktion ist unwiderruflich. Sie sind dabei, das folgende Dokument endgültig zu löschen:</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Titel</value>
   </data>
   <data name="Yes, delete this document" xml:space="preserve">
     <value>Ja, dieses Dokument löschen</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Erstellungszeit</value>
-  </data>
-  <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
-    <value>Diese Aktion ist unwiderruflich. Sie sind dabei, das folgende Dokument endgültig zu löschen:</value>
   </data>
 
 </root>

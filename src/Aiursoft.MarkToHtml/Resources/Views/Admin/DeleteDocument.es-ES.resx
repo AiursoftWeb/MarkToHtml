@@ -18,14 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Delete Document" xml:space="preserve">
-    <value>Eliminar documento</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(sin título)</value>
   </data>
   <data name="Are you sure?" xml:space="preserve">
     <value>¿Estás seguro?</value>
   </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Sí, eliminar este documento</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Fecha de creación</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Eliminar documento</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Propietario</value>
@@ -36,14 +42,8 @@
   <data name="Title" xml:space="preserve">
     <value>Título</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(sin título)</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Fecha de creación</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Sí, eliminar este documento</value>
   </data>
 
 </root>

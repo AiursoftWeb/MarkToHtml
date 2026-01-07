@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Owner" xml:space="preserve">
-    <value>Owner</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Document List</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Creation Time</value>
-  </data>
-  <data name="All Documents" xml:space="preserve">
-    <value>All Documents</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>No documents found in the system.</value>
-  </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>View and manage all documents throughout the entire system.</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(no title)</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>A list of all documents from all users in the system.</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(no title)</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Search documents...</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>No documents match your search.</value>
+  <data name="All Documents" xml:space="preserve">
+    <value>All Documents</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>Search documents</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Creation Time</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Document List</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Manage Shares</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>No documents found in the system.</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>No documents match your search.</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Search documents</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Search documents...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>View and manage all documents throughout the entire system.</value>
   </data>
 
 </root>

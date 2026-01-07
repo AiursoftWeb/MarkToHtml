@@ -18,7 +18,40 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Shared By" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>tegn</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Direkte deling</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Dokumenter, der er delt med dig eller dine grupper.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Rediger</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Redigerbar</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Ingen delte dokumenter</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Tilladelse</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Kun læseadgang</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Delt den</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
     <value>Delt af</value>
   </data>
   <data name="Shared Via" xml:space="preserve">
@@ -27,50 +60,17 @@
   <data name="Shared with Me" xml:space="preserve">
     <value>Delt med mig</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Ingen delte dokumenter</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Tilladelse</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Dokumenter, der er delt med dig eller dine grupper.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Når nogen deler et dokument med dig eller din rolle, vil det blive vist her.</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Delt den</value>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Uden titel</value>
   </data>
   <data name="Via Role" xml:space="preserve">
     <value>Via Rolle</value>
   </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Handlinger</value>
-  </data>
-  <data name="characters" xml:space="preserve">
-    <value>tegn</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Uden titel</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Direkte deling</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Kun læseadgang</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Redigerbar</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Rediger</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>Vis</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Når nogen deler et dokument med dig eller din rolle, vil det blive vist her.</value>
   </data>
 
 </root>

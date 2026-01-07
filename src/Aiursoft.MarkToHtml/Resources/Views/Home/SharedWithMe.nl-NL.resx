@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Shared Via" xml:space="preserve">
-    <value>Gedeeld via</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Document</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Rechten</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Gedeeld door</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>Gedeeld met mij</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Geen gedeelde documenten</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Documenten die met jou of je groepen zijn gedeeld.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Wanneer iemand een document met jou of jouw rol deelt, verschijnt het hier.</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Gedeeld op</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Acties</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Ongetiteld document</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>tekens</value>
   </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>Via Rol</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>Direct delen</value>
   </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Alleen-lezen</value>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Documenten die met jou of je groepen zijn gedeeld.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>Bewerkbaar</value>
   </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Geen gedeelde documenten</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Rechten</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Alleen-lezen</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Gedeeld op</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Gedeeld door</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>Gedeeld via</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Gedeeld met mij</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Ongetiteld document</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>Via Rol</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>Bekijken</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Bewerken</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Wanneer iemand een document met jou of jouw rol deelt, verschijnt het hier.</value>
   </data>
 
 </root>

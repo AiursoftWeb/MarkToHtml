@@ -24,26 +24,26 @@
   <data name="Are you sure?" xml:space="preserve">
     <value>Êtes-vous sûr ?</value>
   </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Propriétaire</value>
-  </data>
-  <data name="Delete Document" xml:space="preserve">
-    <value>Supprimer le document</value>
-  </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Oui, supprimer ce document</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titre</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Date de création</value>
   </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Supprimer le document</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Propriétaire</value>
+  </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Cette action est irréversible. Vous êtes sur le point de supprimer définitivement le document suivant :</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Annuler</value>
+  <data name="Title" xml:space="preserve">
+    <value>Titre</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Oui, supprimer ce document</value>
   </data>
 
 </root>

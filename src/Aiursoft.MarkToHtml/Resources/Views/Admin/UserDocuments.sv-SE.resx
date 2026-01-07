@@ -18,32 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Profile Details" xml:space="preserve">
-    <value>Profildetaljer</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Dokumentlista</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>Totalt antal dokument</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>Användarnamn</value>
-  </data>
-  <data name="Back to All Documents" xml:space="preserve">
-    <value>Tillbaka till alla dokument</value>
-  </data>
-  <data name="Documents by" xml:space="preserve">
-    <value>Dokument av</value>
-  </data>
-  <data name="This user has not created any documents yet." xml:space="preserve">
-    <value>Den här användaren har inte skapat några dokument ännu.</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(ingen titel)</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>En lista över alla dokument som skapats av den här användaren.</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(ingen titel)</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Åtgärder</value>
+  </data>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>Tillbaka till alla dokument</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Rensa</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Skapad</value>
@@ -51,32 +39,44 @@
   <data name="Delete" xml:space="preserve">
     <value>Radera</value>
   </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Dokumentlista</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>Dokument av</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Redigera</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Åtgärder</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Sök</value>
-  </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Rensa</value>
-  </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Sök dokument...</value>
-  </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>Sök dokument</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hantera delningar</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Inga dokument matchar din sökning.</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Hantera delningar</value>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Profildetaljer</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Sök dokument</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Sök dokument...</value>
+  </data>
+  <data name="This user has not created any documents yet." xml:space="preserve">
+    <value>Den här användaren har inte skapat några dokument ännu.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Total Docs" xml:space="preserve">
+    <value>Totalt antal dokument</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Användarnamn</value>
   </data>
 
 </root>

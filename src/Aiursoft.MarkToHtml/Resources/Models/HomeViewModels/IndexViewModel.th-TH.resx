@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Something went wrong, please try again later." xml:space="preserve">
+      <data name="Please input your markdown content!" xml:space="preserve">
+    <value>กรุณากรอกเนื้อหา Markdown ของคุณ!</value>
+  </data>
+  <data name="Something went wrong, please try again later." xml:space="preserve">
     <value>เกิดข้อผิดพลาด กรุณาลองอีกครั้งในภายหลัง</value>
   </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
@@ -26,9 +29,6 @@
   </data>
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>ชื่อเอกสารประกอบด้วยคำที่ไม่เหมาะสม</value>
-  </data>
-  <data name="Please input your markdown content!" xml:space="preserve">
-    <value>กรุณากรอกเนื้อหา Markdown ของคุณ!</value>
   </data>
 
 </root>

@@ -21,14 +21,14 @@
       <data name="Markdown Content" xml:space="preserve">
     <value>Markdown-sisältö</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Omistaja</value>
+  </data>
   <data name="Please input your markdown content!" xml:space="preserve">
     <value>Syötä markdown-sisältösi!</value>
   </data>
   <data name="Please select the owner of this document!" xml:space="preserve">
     <value>Valitse asiakirjan omistaja!</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Omistaja</value>
   </data>
 
 </root>

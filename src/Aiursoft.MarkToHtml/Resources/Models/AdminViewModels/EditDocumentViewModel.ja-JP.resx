@@ -24,11 +24,11 @@
   <data name="Owner" xml:space="preserve">
     <value>所有者</value>
   </data>
-  <data name="Please select the owner of this document!" xml:space="preserve">
-    <value>このドキュメントの所有者を選択してください！</value>
-  </data>
   <data name="Please input your markdown content!" xml:space="preserve">
     <value>Markdownコンテンツを入力してください！</value>
+  </data>
+  <data name="Please select the owner of this document!" xml:space="preserve">
+    <value>このドキュメントの所有者を選択してください！</value>
   </data>
 
 </root>

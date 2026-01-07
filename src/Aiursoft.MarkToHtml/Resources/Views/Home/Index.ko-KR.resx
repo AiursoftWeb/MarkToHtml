@@ -18,188 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>환영합니다</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>이것은 템플릿 프로젝트입니다.</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>안녕하세요 세계!</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>다중 데이터베이스 지원</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>OpenID Connect 연동</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Aiursoft 템플릿을 사용하는 이유</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>어떤 OpenID Connect 공급자와도 원활하게 통합되며, 자동 역할 동기화를 지원합니다.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>SQLite, MySQL, SQL Server 및 테스트용 인메모리 데이터베이스와 같은 프로바이더 간에 쉽게 전환할 수 있습니다.</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>현대적이고, 기능이 풍부하며, 매우 확장 가능한 기반을 제공하여 차세대 웹 애플리케이션을 구축할 수 있습니다.</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC 인증</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>동적 내비게이션 바</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>포괄적인 문서</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AI 기반 번역</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>전 세계를 대상으로 28개 언어로 자동, AI 기반 번역을 제공합니다.</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>네비게이션 바는 사용자 역할과 권한에 따라 자동으로 조정됩니다.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>세분화된 권한 관리를 위한 내장형 역할 기반 접근 제어(RBAC) 시스템.</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>내장된 사용자 관리</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>풍부한 문서와 실용적인 예제를 포함하여 빠르게 시작할 수 있도록 합니다.</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>자동 의존성 주입</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>사용자 인증 및 프로필 관리를 위한 완벽한 솔루션을 바로 사용할 수 있습니다.</value>
   </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>통합 파일 관리</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>모든 종속성은 자동으로 등록되며 생성자 주입을 통해 항상 사용할 수 있습니다.</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>반응형 디자인</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>자동 아바타 압축 기능이 포함된 내장 파일 관리 시스템을 갖추고 있습니다.</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>자동 다크 모드</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>배포를 위한 Docker화</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>데스크톱과 모바일 기기 모두에서 훌륭하게 보이는 완전 반응형 레이아웃.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>사용자의 시스템 설정에 자동으로 적응하는 스마트 다크 모드.</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>완전한 Docker 지원을 통해 단순화되고 일관성 있으며 신뢰할 수 있는 배포가 가능합니다.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>문서 읽기</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>이것은 템플릿 프로젝트로, 여기서 우리의 항해를 시작합니다...</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>여기에 Markdown을 입력하세요...</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>문서가 성공적으로 업데이트되었습니다.</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>코드</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>마크다운 입력</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>현대적이고, 기능이 풍부하며, 매우 확장 가능한 기반을 제공하여 차세대 웹 애플리케이션을 구축할 수 있습니다.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdown을 깔끔하고 안전한 HTML로 변환해주는 간단한 도구입니다.</value>
   </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>마크다운에서 HTML로 변환기</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>문서 제목 (선택 사항)</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>성공!</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>미리보기</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>인쇄</value>
-  </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>변환 후 저장</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>인쇄 미리보기</value>
-  </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>변환 후 HTML 미리보기가 여기에 나타납니다.</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>HTML을 클립보드에 복사</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>내 문서</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>복사</value>
-  </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>HTML로 변환</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>복사됨!</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>텍스트 복사에 실패했습니다.</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>비공개로 전환</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>공개하기</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>문서 비공개로 전환</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>링크를 클립보드에 복사</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>링크 복사</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>공개적으로 공유</value>
-  </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 더 이상 작동하지 않습니다. 계속 진행하시겠습니까?</value>
   </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>로그인 없이 누구나 접근할 수 있는 고유 링크로 이 문서를 공개적으로 공유하세요.</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI 기반 번역</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>취소</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>모든 종속성은 자동으로 등록되며 생성자 주입을 통해 항상 사용할 수 있습니다.</value>
   </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>문서를 공개로 설정하지 못했습니다. 다시 시도해 주세요.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>링크 복사에 실패했습니다.</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>오류가 발생했습니다.</value>
   </data>
   <data name="An error occurred. Please try again." xml:space="preserve">
     <value>오류가 발생했습니다. 다시 시도해 주세요.</value>
@@ -207,62 +51,116 @@
   <data name="Are you sure you want to make this document private?" xml:space="preserve">
     <value>이 문서를 비공개로 설정하시겠습니까?</value>
   </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>문서를 비공개로 설정하지 못했습니다. 다시 시도해 주세요.</value>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>확실합니까?</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>제목</value>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>자동 다크 모드</value>
   </data>
-  <data name="Public" xml:space="preserve">
-    <value>공개</value>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>자동 의존성 주입</value>
   </data>
-  <data name="Private" xml:space="preserve">
-    <value>비공개</value>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>전 세계를 대상으로 28개 언어로 자동, AI 기반 번역을 제공합니다.</value>
   </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>공개 - 링크가 있는 모든 사용자</value>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>내장된 사용자 관리</value>
   </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>비공개 - 나만 볼 수 있음</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>HTML 복사</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>새 문서 만들기...</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>제목 없음 문서</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
   </data>
   <data name="Change to Private?" xml:space="preserve">
     <value>비공개로 전환하시겠습니까?</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>변경 사항 저장</value>
+  <data name="Code" xml:space="preserve">
+    <value>코드</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>확실합니까?</value>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>완전한 Docker 지원을 통해 단순화되고 일관성 있으며 신뢰할 수 있는 배포가 가능합니다.</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>네, 비공개로 전환</value>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>포괄적인 문서</value>
   </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>오류가 발생했습니다.</value>
+  <data name="Convert and save" xml:space="preserve">
+    <value>변환 후 저장</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTML로 변환</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>복사됨!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>HTML 복사</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML을 클립보드에 복사</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>링크 복사</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>링크를 클립보드에 복사</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>새 문서 만들기...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>배포를 위한 Docker화</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>문서 제목 (선택 사항)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>문서가 성공적으로 업데이트되었습니다.</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>동적 내비게이션 바</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>SQLite, MySQL, SQL Server 및 테스트용 인메모리 데이터베이스와 같은 프로바이더 간에 쉽게 전환할 수 있습니다.</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>에디터</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>편집기만</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>링크 복사에 실패했습니다.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>텍스트 복사에 실패했습니다.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>문서를 비공개로 설정하지 못했습니다. 다시 시도해 주세요.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>문서를 공개로 설정하지 못했습니다. 다시 시도해 주세요.</value>
   </data>
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>개인정보 설정을 업데이트하지 못했습니다.</value>
   </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>자동 아바타 압축 기능이 포함된 내장 파일 관리 시스템을 갖추고 있습니다.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>안녕하세요 세계!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>변환 후 HTML 미리보기가 여기에 나타납니다.</value>
+  </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 모든 사용자에게 즉시 작동을 멈춥니다.</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>미리보기 전용</value>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>풍부한 문서와 실용적인 예제를 포함하여 빠르게 시작할 수 있도록 합니다.</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>분할 보기</value>
-  </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>편집기만</value>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>통합 파일 관리</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>내부</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>내부 - 특정 사용자/역할</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>문서 비공개로 전환</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>비공개로 전환</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>공개하기</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>마크다운 입력</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>마크다운에서 HTML로 변환기</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>다중 데이터베이스 지원</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>내 문서</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect 연동</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>미리보기 전용</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>인쇄</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>인쇄 미리보기</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>비공개</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>비공개 - 나만 볼 수 있음</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>공개</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>공개 - 링크가 있는 모든 사용자</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC 인증</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>문서 읽기</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>반응형 디자인</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>변경 사항 저장</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>어떤 OpenID Connect 공급자와도 원활하게 통합되며, 자동 역할 동기화를 지원합니다.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>공유</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>에디터</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>공개적으로 공유</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>로그인 없이 누구나 접근할 수 있는 고유 링크로 이 문서를 공개적으로 공유하세요.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>사용자의 시스템 설정에 자동으로 적응하는 스마트 다크 모드.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>분할 보기</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>성공!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>네비게이션 바는 사용자 역할과 권한에 따라 자동으로 조정됩니다.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>이것은 템플릿 프로젝트입니다.</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>이것은 템플릿 프로젝트로, 여기서 우리의 항해를 시작합니다...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>제목</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>여기에 Markdown을 입력하세요...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>제목 없음 문서</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>환영합니다</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Aiursoft 템플릿을 사용하는 이유</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>네, 비공개로 전환</value>
   </data>
 
 </root>

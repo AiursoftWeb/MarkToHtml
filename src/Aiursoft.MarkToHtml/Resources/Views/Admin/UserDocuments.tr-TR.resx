@@ -18,23 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document List" xml:space="preserve">
-    <value>Belge Listesi</value>
-  </data>
-  <data name="Profile Details" xml:space="preserve">
-    <value>Profil Detayları</value>
-  </data>
-  <data name="Back to All Documents" xml:space="preserve">
-    <value>Tüm Belgeler&apos;e Geri Dön</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>Kullanıcı Adı</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>Toplam Doküman</value>
-  </data>
-  <data name="Documents by" xml:space="preserve">
-    <value>Tarafından Oluşturulan Belgeler</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(başlık yok)</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>Bu kullanıcı tarafından oluşturulan tüm belgelerin listesi.</value>
@@ -42,8 +27,44 @@
   <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>Tüm Belgeler&apos;e Geri Dön</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Oluşturulma Zamanı</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Belge Listesi</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>Tarafından Oluşturulan Belgeler</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Paylaşımları Yönet</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Aramanızla eşleşen belge bulunamadı.</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Profil Detayları</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Belgeleri ara</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Belgelerde ara...</value>
   </data>
   <data name="This user has not created any documents yet." xml:space="preserve">
     <value>Bu kullanıcı henüz hiç belge oluşturmadı.</value>
@@ -51,32 +72,11 @@
   <data name="Title" xml:space="preserve">
     <value>Başlık</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Düzenle</value>
+  <data name="Total Docs" xml:space="preserve">
+    <value>Toplam Doküman</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(başlık yok)</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Sil</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Ara</value>
-  </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Temizle</value>
-  </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Belgelerde ara...</value>
-  </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>Aramanızla eşleşen belge bulunamadı.</value>
-  </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>Belgeleri ara</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Paylaşımları Yönet</value>
+  <data name="Username" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
   </data>
 
 </root>

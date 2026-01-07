@@ -18,11 +18,41 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>caractere</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Partajare Directă</value>
+  </data>
+  <data name="Document" xml:space="preserve">
     <value>Document</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Documentele care au fost partajate cu tine sau cu grupurile tale.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editează</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editabil</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Nu există documente partajate</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>Permisiune</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Doar Citire</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Partajat la</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Partajat de</value>
   </data>
   <data name="Shared Via" xml:space="preserve">
     <value>Partajat prin</value>
@@ -30,47 +60,17 @@
   <data name="Shared with Me" xml:space="preserve">
     <value>Partajat cu mine</value>
   </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Nu există documente partajate</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Partajat de</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Documentele care au fost partajate cu tine sau cu grupurile tale.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Când cineva partajează un document cu tine sau cu rolul tău, acesta va apărea aici.</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Partajat la</value>
-  </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Document fără titlu</value>
-  </data>
-  <data name="characters" xml:space="preserve">
-    <value>caractere</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Acțiuni</value>
   </data>
   <data name="Via Role" xml:space="preserve">
     <value>Prin Rol</value>
   </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Doar Citire</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Editabil</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Partajare Directă</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>Vizualizează</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Editează</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Când cineva partajează un document cu tine sau cu rolul tău, acesta va apărea aici.</value>
   </data>
 
 </root>

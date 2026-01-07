@@ -18,113 +18,113 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Role" xml:space="preserve">
-    <value>역할</value>
-  </data>
-  <data name="Document:" xml:space="preserve">
-    <value>문서:</value>
-  </data>
-  <data name="Specific User" xml:space="preserve">
-    <value>특정 사용자</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>공유 관리</value>
-  </data>
-  <data name="Share with" xml:space="preserve">
-    <value>공유 대상</value>
-  </data>
-  <data name="Add New Share" xml:space="preserve">
-    <value>새 공유 추가</value>
-  </data>
-  <data name="Select a role..." xml:space="preserve">
-    <value>역할 선택...</value>
-  </data>
-  <data name="Back to Document" xml:space="preserve">
-    <value>문서로 돌아가기</value>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>추가</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>편집 가능</value>
-  </data>
-  <data name="Existing Shares" xml:space="preserve">
-    <value>기존 공유</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>권한</value>
-  </data>
-  <data name="members" xml:space="preserve">
-    <value>멤버</value>
-  </data>
-  <data name="Type to search users..." xml:space="preserve">
-    <value>사용자 검색...</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>읽기 전용</value>
-  </data>
-  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
-    <value>아직 공유가 없습니다. 위에서 하나를 추가하여 이 문서를 공유하세요.</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>작업</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>사용자</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>유형</value>
-  </data>
-  <data name="No users found" xml:space="preserve">
-    <value>사용자를 찾을 수 없습니다.</value>
-  </data>
-  <data name="Shared With" xml:space="preserve">
-    <value>공유 대상</value>
-  </data>
-  <data name="Created" xml:space="preserve">
-    <value>생성됨</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>제거</value>
-  </data>
-  <data name="Are you sure you want to remove this share?" xml:space="preserve">
-    <value>이 공유를 삭제하시겠습니까?</value>
-  </data>
-  <data name="Error searching users" xml:space="preserve">
-    <value>사용자 검색 오류</value>
-  </data>
-  <data name="Please select a valid user or role." xml:space="preserve">
-    <value>유효한 사용자 또는 역할을 선택해 주세요.</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>닫기</value>
-  </data>
-  <data name="An error occurred while processing your request." xml:space="preserve">
-    <value>요청을 처리하는 중 오류가 발생했습니다.</value>
-  </data>
-  <data name="This user or role already has access to this document." xml:space="preserve">
-    <value>이 사용자 또는 역할은 이미 이 문서에 대한 접근 권한이 있습니다.</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>오류</value>
-  </data>
-  <data name="Public Link" xml:space="preserve">
-    <value>공개 링크</value>
+  <data name="Add New Share" xml:space="preserve">
+    <value>새 공유 추가</value>
   </data>
   <data name="Allow anonymous viewing (Public)" xml:space="preserve">
     <value>익명 보기 허용 (공개)</value>
   </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>공개 범위</value>
-  </data>
-  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
-    <value>익명 보기 금지 (비공개 / 공유됨)</value>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>요청을 처리하는 중 오류가 발생했습니다.</value>
   </data>
   <data name="Anyone with the link can view this document." xml:space="preserve">
     <value>링크가 있는 누구나 이 문서를 볼 수 있습니다.</value>
   </data>
+  <data name="Are you sure you want to remove this share?" xml:space="preserve">
+    <value>이 공유를 삭제하시겠습니까?</value>
+  </data>
+  <data name="Back to Document" xml:space="preserve">
+    <value>문서로 돌아가기</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>생성됨</value>
+  </data>
+  <data name="Document:" xml:space="preserve">
+    <value>문서:</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>편집 가능</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="Error searching users" xml:space="preserve">
+    <value>사용자 검색 오류</value>
+  </data>
+  <data name="Existing Shares" xml:space="preserve">
+    <value>기존 공유</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>익명 보기 금지 (비공개 / 공유됨)</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>공유 관리</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>멤버</value>
+  </data>
+  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
+    <value>아직 공유가 없습니다. 위에서 하나를 추가하여 이 문서를 공유하세요.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>사용자를 찾을 수 없습니다.</value>
+  </data>
   <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
     <value>아래에 나열된 특정 사용자/역할과 귀하만 이 문서를 볼 수 있습니다.</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>권한</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>유효한 사용자 또는 역할을 선택해 주세요.</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>공개 링크</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>읽기 전용</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>역할</value>
+  </data>
+  <data name="Select a role..." xml:space="preserve">
+    <value>역할 선택...</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>공유 대상</value>
+  </data>
+  <data name="Shared With" xml:space="preserve">
+    <value>공유 대상</value>
+  </data>
+  <data name="Specific User" xml:space="preserve">
+    <value>특정 사용자</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>이 사용자 또는 역할은 이미 이 문서에 대한 접근 권한이 있습니다.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>유형</value>
+  </data>
+  <data name="Type to search users..." xml:space="preserve">
+    <value>사용자 검색...</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>사용자</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>공개 범위</value>
   </data>
 
 </root>

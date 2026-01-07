@@ -21,14 +21,14 @@
       <data name="Please input your markdown content!" xml:space="preserve">
     <value>Por favor, insira seu conteúdo em markdown!</value>
   </data>
-  <data name="The document title contains sensitive words." xml:space="preserve">
-    <value>O título do documento contém palavras sensíveis.</value>
+  <data name="Something went wrong, please try again later." xml:space="preserve">
+    <value>Algo deu errado, por favor tente novamente mais tarde.</value>
   </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
     <value>O conteúdo do documento contém palavras sensíveis.</value>
   </data>
-  <data name="Something went wrong, please try again later." xml:space="preserve">
-    <value>Algo deu errado, por favor tente novamente mais tarde.</value>
+  <data name="The document title contains sensitive words." xml:space="preserve">
+    <value>O título do documento contém palavras sensíveis.</value>
   </data>
 
 </root>

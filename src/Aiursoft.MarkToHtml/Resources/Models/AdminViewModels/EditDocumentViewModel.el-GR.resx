@@ -21,14 +21,14 @@
       <data name="Markdown Content" xml:space="preserve">
     <value>Περιεχόμενο Markdown</value>
   </data>
-  <data name="Please select the owner of this document!" xml:space="preserve">
-    <value>Παρακαλώ επιλέξτε τον κάτοχο αυτού του εγγράφου!</value>
+  <data name="Owner" xml:space="preserve">
+    <value>Κάτοχος</value>
   </data>
   <data name="Please input your markdown content!" xml:space="preserve">
     <value>Παρακαλώ εισάγετε το περιεχόμενό σας σε μορφή markdown!</value>
   </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Κάτοχος</value>
+  <data name="Please select the owner of this document!" xml:space="preserve">
+    <value>Παρακαλώ επιλέξτε τον κάτοχο αυτού του εγγράφου!</value>
   </data>
 
 </root>

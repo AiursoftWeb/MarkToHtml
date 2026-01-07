@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
+    <value>コピーしました</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Markdownをクリップボードにコピー</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>ドキュメントプレビュー</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>テキストのコピーに失敗しました。</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="Print" xml:space="preserve">
     <value>印刷</value>
   </data>
   <data name="Print Preview" xml:space="preserve">
     <value>印刷プレビュー</value>
   </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>ドキュメントプレビュー</value>
-  </data>
   <data name="Raw" xml:space="preserve">
     <value>未加工</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>コピーしました</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>プレビュー</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>生のMarkdownを表示</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>コピー</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>テキストのコピーに失敗しました。</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Markdownをクリップボードにコピー</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>ソース</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>生の表示</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>生のMarkdownを表示</value>
   </data>
 
 </root>

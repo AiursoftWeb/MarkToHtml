@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>พิมพ์</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>ตัวอย่างเอกสาร</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>ตัวอย่างก่อนพิมพ์</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>คัดลอกแล้ว!</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>คัดลอก</value>
   </data>
-  <data name="Raw" xml:space="preserve">
-    <value>ต้นฉบับ</value>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>คัดลอก Markdown ไปยังคลิปบอร์ด</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>คัดลอกแล้ว!</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>ดูมาร์กดาวน์แบบดิบ</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>มาร์กดาวน์</value>
+  <data name="Document Preview" xml:space="preserve">
+    <value>ตัวอย่างเอกสาร</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>ไม่สามารถคัดลอกข้อความได้</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>มาร์กดาวน์</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>แสดงตัวอย่าง</value>
   </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>คัดลอก Markdown ไปยังคลิปบอร์ด</value>
+  <data name="Print" xml:space="preserve">
+    <value>พิมพ์</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>ตัวอย่างก่อนพิมพ์</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>ต้นฉบับ</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ซอร์สโค้ด</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>ดูต้นฉบับ</value>
   </data>
-  <data name="Source" xml:space="preserve">
-    <value>ซอร์สโค้ด</value>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>ดูมาร์กดาวน์แบบดิบ</value>
   </data>
 
 </root>

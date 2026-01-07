@@ -18,14 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Delete" xml:space="preserve">
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- Chọn Chủ Sở Hữu --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Quay lại Danh sách</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Thành công!</value>
+  <data name="Document Details" xml:space="preserve">
+    <value>Chi tiết Tài liệu</value>
   </data>
   <data name="Document Title (optional)" xml:space="preserve">
     <value>Tiêu đề tài liệu (tùy chọn)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Tài liệu đã được cập nhật thành công.</value>
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Chỉnh sửa Tài liệu</value>
@@ -33,32 +42,23 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>Nhập tiêu đề tài liệu</value>
   </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Tài liệu đã được cập nhật thành công.</value>
-  </data>
-  <data name="Document Details" xml:space="preserve">
-    <value>Chi tiết Tài liệu</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>Chỉnh sửa nội dung tài liệu, tiêu đề và chủ sở hữu.</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Quản lý Chia sẻ</value>
   </data>
   <data name="Markdown Content" xml:space="preserve">
     <value>Nội dung Markdown</value>
   </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- Chọn Chủ Sở Hữu --</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Quay lại Danh sách</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Nhập Markdown của bạn tại đây...</value>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>Chỉnh sửa nội dung tài liệu, tiêu đề và chủ sở hữu.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Lưu thay đổi</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Quản lý Chia sẻ</value>
+  <data name="Success!" xml:space="preserve">
+    <value>Thành công!</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Nhập Markdown của bạn tại đây...</value>
   </data>
 
 </root>

@@ -18,29 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>Yazdır</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Yazdırma Önizleme</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Belge Önizleme</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
     <value>Kopyalandı!</value>
-  </data>
-  <data name="Raw" xml:space="preserve">
-    <value>Ham</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Kopyala</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Önizleme</value>
-  </data>
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Markdown&apos;u panoya kopyala</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Belge Önizleme</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Metin kopyalanamadı.</value>
@@ -48,14 +36,26 @@
   <data name="Markdown" xml:space="preserve">
     <value>Markdown</value>
   </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Ham Markdown&apos;i Görüntüle</value>
+  <data name="Preview" xml:space="preserve">
+    <value>Önizleme</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Yazdır</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Yazdırma Önizleme</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Ham</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Kaynak</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Ham Görünüm</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Ham Markdown&apos;i Görüntüle</value>
   </data>
 
 </root>

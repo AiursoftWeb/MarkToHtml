@@ -18,56 +18,143 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Välkommen</value>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>Ett inbyggt rollbaserat åtkomstkontrollsystem (RBAC) för detaljerad behörighetshantering.</value>
   </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Det här är ett mallprojekt</value>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>En komplett lösning för användarautentisering och profilanpassning direkt ur lådan.</value>
   </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Stöd för flera databaser</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Hej Världen!</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Varför använda Aiursoft Template?</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC-auktorisering</value>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>En helt responsiv layout som ser bra ut på både skrivbord och mobila enheter.</value>
   </data>
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>En modern, funktionsrik och mycket utbyggbar grund för din nästa webbapplikation.</value>
   </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>OpenID Connect-integrering</value>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Ett enkelt verktyg för att konvertera din Markdown till ren, saniterad HTML.</value>
   </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Enkelt växla mellan leverantörer som SQLite, MySQL, SQL Server och ett minnesbaserat databassystem för testning.</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Integrera sömlöst med vilken OpenID Connect-leverantör som helst, med automatisk rollsynkronisering.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Dynamiskt navigeringsfält</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Om du gör detta dokument privat kommer den befintliga publika länken inte längre att fungera. Är du säker på att du vill fortsätta?</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-drivna översättningar</value>
   </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Omfattande dokumentation</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Alla beroenden registreras automatiskt och är alltid tillgängliga via konstruktorinjektion.</value>
   </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
-    <value>Ett inbyggt rollbaserat åtkomstkontrollsystem (RBAC) för detaljerad behörighetshantering.</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Ett fel uppstod.</value>
   </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Inbyggd användarhantering</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Ett fel uppstod. Var god försök igen.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Är du säker på att du vill göra detta dokument privat?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Är du säker?</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Automatiskt mörkt läge</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Automatisk beroendeinjektion</value>
   </data>
   <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
     <value>Automatisk, AI-driven översättning till 28 språk för global räckvidd.</value>
   </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Navigeringsfältet anpassas automatiskt baserat på användarroller och behörigheter.</value>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Inbyggd användarhantering</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Ändra till privat?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Levererar fullt Docker-stöd för förenklade, konsekventa och pålitliga distributioner.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Omfattande dokumentation</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konvertera och spara</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konvertera till HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopierad!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiera</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Kopiera HTML</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Kopiera HTML till urklipp</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Kopiera länk</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Kopiera länk till urklipp</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Skapa ett nytt dokument...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Dockeriserad för distribution</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Dokumenttitel (valfri)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumentet har uppdaterats.</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Dynamiskt navigeringsfält</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Enkelt växla mellan leverantörer som SQLite, MySQL, SQL Server och ett minnesbaserat databassystem för testning.</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>redigerare</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Endast redigerare</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Det gick inte att kopiera länken.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Det gick inte att kopiera text.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Det gick inte att göra dokumentet privat. Försök igen.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Det gick inte att göra dokumentet offentligt. Vänligen försök igen.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Det gick inte att uppdatera sekretessinställningarna.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Har ett inbyggt filhanteringssystem med automatisk komprimering av avatarer.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Hej Världen!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML-förhandsgranskning visas här efter konvertering.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Om du gör detta dokument privat kommer den befintliga publika länken omedelbart att sluta fungera för alla.</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Inkluderar omfattande dokumentation och praktiska exempel för att du snabbt ska komma igång.</value>
@@ -75,74 +162,41 @@
   <data name="Integrated File Management" xml:space="preserve">
     <value>Integrerad filhantering</value>
   </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Automatisk beroendeinjektion</value>
+  <data name="Internal" xml:space="preserve">
+    <value>Intern</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Alla beroenden registreras automatiskt och är alltid tillgängliga via konstruktorinjektion.</value>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Intern - Specifika användare/roller</value>
   </data>
-  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
-    <value>En komplett lösning för användarautentisering och profilanpassning direkt ur lådan.</value>
+  <data name="Make document private" xml:space="preserve">
+    <value>Gör dokument privat</value>
   </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Responsiv Design</value>
+  <data name="Make Private" xml:space="preserve">
+    <value>Gör privat</value>
   </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Automatiskt mörkt läge</value>
-  </data>
-  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
-    <value>En helt responsiv layout som ser bra ut på både skrivbord och mobila enheter.</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Har ett inbyggt filhanteringssystem med automatisk komprimering av avatarer.</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Dockeriserad för distribution</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Smart mörkt läge som automatiskt anpassar sig efter användarens systeminställningar.</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Levererar fullt Docker-stöd för förenklade, konsekventa och pålitliga distributioner.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Läs dokumentet</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Det här är ett mallprojekt, där vi startar resan...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Framgång!</value>
+  <data name="Make Public" xml:space="preserve">
+    <value>Gör publik</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown-inmatning</value>
   </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Dokumentet har uppdaterats.</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Dokumenttitel (valfri)</value>
-  </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown till HTML-omvandlare</value>
   </data>
-  <data name="Code" xml:space="preserve">
-    <value>Kod</value>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Stöd för flera databaser</value>
   </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Skriv din Markdown här...</value>
+  <data name="My Documents" xml:space="preserve">
+    <value>Mina dokument</value>
   </data>
-  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
-    <value>Ett enkelt verktyg för att konvertera din Markdown till ren, saniterad HTML.</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Kopiera</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Kopiera HTML till urklipp</value>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect-integrering</value>
   </data>
   <data name="Preview" xml:space="preserve">
     <value>Förhandsgranska</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Endast förhandsgranskning</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Skriv ut</value>
@@ -150,131 +204,77 @@
   <data name="Print Preview" xml:space="preserve">
     <value>Förhandsgranska utskrift</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>HTML-förhandsgranskning visas här efter konvertering.</value>
-  </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>Konvertera till HTML</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Mina dokument</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Kopierad!</value>
-  </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>Konvertera och spara</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Det gick inte att kopiera text.</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Dela offentligt</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Gör privat</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Gör dokument privat</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Gör publik</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Kopiera länk</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Dela detta dokument offentligt med en unik länk som vem som helst kan komma åt utan att logga in.</value>
-  </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Om du gör detta dokument privat kommer den befintliga publika länken inte längre att fungera. Är du säker på att du vill fortsätta?</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Kopiera länk till urklipp</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Avbryt</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Är du säker på att du vill göra detta dokument privat?</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Det gick inte att göra dokumentet offentligt. Vänligen försök igen.</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Det gick inte att göra dokumentet privat. Försök igen.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Det gick inte att kopiera länken.</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Ett fel uppstod. Var god försök igen.</value>
-  </data>
   <data name="Private" xml:space="preserve">
     <value>Privat</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Offentlig</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>Kopiera HTML</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Namnlöst dokument</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>Skapa ett nytt dokument...</value>
   </data>
   <data name="Private - Only you" xml:space="preserve">
     <value>Privat - Endast du</value>
   </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
   <data name="Public - Anyone with link" xml:space="preserve">
     <value>Offentlig - Alla med länk</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Är du säker?</value>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC-auktorisering</value>
   </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Det gick inte att uppdatera sekretessinställningarna.</value>
+  <data name="Read the document" xml:space="preserve">
+    <value>Läs dokumentet</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Ja, gör privat</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Ändra till privat?</value>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Responsiv Design</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Spara ändringar</value>
   </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Ett fel uppstod.</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Om du gör detta dokument privat kommer den befintliga publika länken omedelbart att sluta fungera för alla.</value>
-  </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>Endast redigerare</value>
-  </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Delad vy</value>
-  </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Endast förhandsgranskning</value>
-  </data>
-  <data name="Internal" xml:space="preserve">
-    <value>Intern</value>
-  </data>
-  <data name="Internal - Specific users/roles" xml:space="preserve">
-    <value>Intern - Specifika användare/roller</value>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Integrera sömlöst med vilken OpenID Connect-leverantör som helst, med automatisk rollsynkronisering.</value>
   </data>
   <data name="Share" xml:space="preserve">
     <value>Dela</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>redigerare</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Dela offentligt</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Dela detta dokument offentligt med en unik länk som vem som helst kan komma åt utan att logga in.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Smart mörkt läge som automatiskt anpassar sig efter användarens systeminställningar.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Delad vy</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Framgång!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Navigeringsfältet anpassas automatiskt baserat på användarroller och behörigheter.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Det här är ett mallprojekt</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Det här är ett mallprojekt, där vi startar resan...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Skriv din Markdown här...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Namnlöst dokument</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Välkommen</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Varför använda Aiursoft Template?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Ja, gör privat</value>
   </data>
 
 </root>

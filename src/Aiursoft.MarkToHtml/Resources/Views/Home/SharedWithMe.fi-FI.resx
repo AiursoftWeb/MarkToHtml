@@ -18,32 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>merkkiä</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Suora jako</value>
+  </data>
+  <data name="Document" xml:space="preserve">
     <value>Asiakirja</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Ei jaettuja dokumentteja</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Jaettu käyttäjän</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>Jaettu kanssani</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Käyttöoikeus</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>Jaettu kautta</value>
   </data>
   <data name="Documents that have been shared with you or your groups." xml:space="preserve">
     <value>Sinulle tai ryhmillesi jaetut dokumentit.</value>
   </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Kun joku jakaa asiakirjan sinulle tai roolillesi, se ilmestyy tänne.</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
   </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>Roolin kautta</value>
+  <data name="Editable" xml:space="preserve">
+    <value>Muokattava</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Ei jaettuja dokumentteja</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Käyttöoikeus</value>
   </data>
   <data name="Read Only" xml:space="preserve">
     <value>Vain luku</value>
@@ -51,26 +51,26 @@
   <data name="Shared At" xml:space="preserve">
     <value>Jaettu</value>
   </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Suora jako</value>
+  <data name="Shared By" xml:space="preserve">
+    <value>Jaettu käyttäjän</value>
   </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Toiminnot</value>
+  <data name="Shared Via" xml:space="preserve">
+    <value>Jaettu kautta</value>
   </data>
-  <data name="characters" xml:space="preserve">
-    <value>merkkiä</value>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Jaettu kanssani</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Nimetön asiakirja</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Muokattava</value>
+  <data name="Via Role" xml:space="preserve">
+    <value>Roolin kautta</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Katso</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Muokkaa</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Kun joku jakaa asiakirjan sinulle tai roolillesi, se ilmestyy tänne.</value>
   </data>
 
 </root>

@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document Preview" xml:space="preserve">
-    <value>Document Preview</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Print Preview</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>Print</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
     <value>Copied!</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copy</value>
   </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Copy Markdown to clipboard</value>
   </data>
-  <data name="Raw" xml:space="preserve">
-    <value>Raw</value>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Document Preview</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Failed to copy text.</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Preview</value>
   </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>View raw Markdown</value>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Copy Markdown to clipboard</value>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Print Preview</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Raw</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Source</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>View Raw</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>View raw Markdown</value>
   </data>
 
 </root>

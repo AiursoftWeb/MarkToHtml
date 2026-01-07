@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>In</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Xem trước Tài liệu</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Xem trước khi in</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Raw" xml:space="preserve">
-    <value>Thô</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>Đã sao chép!</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Sao chép</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Đã sao chép!</value>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Sao chép Markdown vào bộ nhớ tạm</value>
   </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Xem Markdown thô</value>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Xem trước Tài liệu</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Không thể sao chép văn bản.</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Xem trước</value>
   </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Sao chép Markdown vào bộ nhớ tạm</value>
+  <data name="Print" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Xem trước khi in</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Thô</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Mã nguồn</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Xem Nội Dung Thô</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Xem Markdown thô</value>
   </data>
 
 </root>

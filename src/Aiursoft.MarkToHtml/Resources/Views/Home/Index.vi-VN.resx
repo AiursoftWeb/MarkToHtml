@@ -18,98 +18,98 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Chào mừng</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Đây là một dự án mẫu</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>Tích hợp OpenID Connect</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Xin chào thế giới!</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Hỗ trợ Đa Cơ sở Dữ liệu</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Tại sao nên sử dụng Mẫu Aiursoft?</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Một nền tảng hiện đại, giàu tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Tích hợp liền mạch với bất kỳ nhà cung cấp OpenID Connect nào, đồng thời tự động đồng bộ hóa vai trò.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Dễ dàng chuyển đổi giữa các nhà cung cấp như SQLite, MySQL, SQL Server và cơ sở dữ liệu trong bộ nhớ để kiểm thử.</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>Ủy quyền RBAC</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Thanh Điều Hướng Động</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Thanh điều hướng tự động điều chỉnh dựa trên vai trò và quyền của người dùng.</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Tài liệu Toàn diện</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Tự động dịch thuật bằng AI sang 28 ngôn ngữ để tiếp cận toàn cầu.</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Hệ thống Kiểm soát Truy cập Dựa trên Vai trò (RBAC) được tích hợp sẵn để quản lý quyền chi tiết.</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Quản lý Người dùng Tích hợp sẵn</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Tiêm phụ thuộc Tự động</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Quản lý Tập tin Tích hợp</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Một giải pháp hoàn chỉnh cho xác thực người dùng và quản lý hồ sơ ngay lập tức, không cần cấu hình thêm.</value>
   </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>Bố cục hoàn toàn thích ứng, hiển thị đẹp mắt trên cả thiết bị máy tính để bàn và thiết bị di động.</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Một nền tảng hiện đại, giàu tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
+  </data>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>Một công cụ đơn giản để chuyển đổi Markdown của bạn thành HTML sạch và an toàn.</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
+  </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Tất cả các dependency đều được tự động đăng ký và luôn sẵn sàng thông qua constructor injection.</value>
   </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Tích hợp hệ thống quản lý tập tin với tính năng nén ảnh đại diện tự động.</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Đã xảy ra lỗi.</value>
   </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Thiết kế đáp ứng</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Đã xảy ra lỗi. Vui lòng thử lại.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn chuyển tài liệu này thành riêng tư không?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Bạn có chắc chắn không?</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Chế độ Tối Tự động</value>
   </data>
-  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
-    <value>Bố cục hoàn toàn thích ứng, hiển thị đẹp mắt trên cả thiết bị máy tính để bàn và thiết bị di động.</value>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Tiêm phụ thuộc Tự động</value>
   </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Đã được Docker hóa để Triển khai</value>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Tự động dịch thuật bằng AI sang 28 ngôn ngữ để tiếp cận toàn cầu.</value>
   </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Chế độ tối thông minh tự động điều chỉnh theo cài đặt hệ thống của người dùng.</value>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Quản lý Người dùng Tích hợp sẵn</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Chuyển thành Riêng tư?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Mã</value>
   </data>
   <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
     <value>Đi kèm với hỗ trợ Docker đầy đủ để triển khai đơn giản, nhất quán và đáng tin cậy.</value>
   </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Đọc tài liệu</value>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Tài liệu Toàn diện</value>
   </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Đây là một dự án mẫu, nơi chúng ta bắt đầu hành trình khám phá...</value>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Chuyển đổi và lưu</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Chuyển đổi sang HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Đã sao chép!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Sao chép HTML</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Sao chép HTML vào bộ nhớ tạm</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Sao chép Liên kết</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Sao chép liên kết vào bộ nhớ tạm</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Tạo tài liệu mới...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Đã được Docker hóa để Triển khai</value>
   </data>
   <data name="Document Title (optional)" xml:space="preserve">
     <value>Tiêu đề tài liệu (tùy chọn)</value>
@@ -117,164 +117,164 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>Tài liệu đã được cập nhật thành công.</value>
   </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Đầu vào Markdown</value>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Thanh Điều Hướng Động</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Thành công!</value>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Dễ dàng chuyển đổi giữa các nhà cung cấp như SQLite, MySQL, SQL Server và cơ sở dữ liệu trong bộ nhớ để kiểm thử.</value>
   </data>
-  <data name="Code" xml:space="preserve">
-    <value>Mã</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Công cụ Chuyển đổi Markdown sang HTML</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Nhập Markdown của bạn tại đây...</value>
-  </data>
-  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
-    <value>Một công cụ đơn giản để chuyển đổi Markdown của bạn thành HTML sạch và an toàn.</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>In</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Sao chép</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Xem trước</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Tài liệu của tôi</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Xem trước khi in</value>
-  </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>Bản xem trước HTML sẽ xuất hiện ở đây sau khi chuyển đổi.</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Sao chép HTML vào bộ nhớ tạm</value>
-  </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>Chuyển đổi và lưu</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Đã sao chép!</value>
-  </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>Chuyển đổi sang HTML</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Không thể sao chép văn bản.</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Công khai</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Chuyển thành Riêng tư</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Sao chép Liên kết</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Chia sẻ Công khai</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Sao chép liên kết vào bộ nhớ tạm</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Chuyển tài liệu thành riêng tư</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Hủy</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Chia sẻ tài liệu này công khai bằng một liên kết duy nhất mà bất kỳ ai cũng có thể truy cập mà không cần đăng nhập.</value>
-  </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Không thể công khai tài liệu. Vui lòng thử lại.</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Đã xảy ra lỗi. Vui lòng thử lại.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Không thể sao chép liên kết.</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Bạn có chắc chắn muốn chuyển tài liệu này thành riêng tư không?</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Không thể chuyển tài liệu thành riêng tư. Vui lòng thử lại.</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Công khai</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Tiêu đề</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Riêng tư</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>Sao chép HTML</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>Tạo tài liệu mới...</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Tài liệu chưa đặt tên</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Riêng tư - Chỉ bạn</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Công khai - Bất kỳ ai có liên kết</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Chuyển thành Riêng tư?</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Bạn có chắc chắn không?</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Đã xảy ra lỗi.</value>
-  </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Có, Chuyển thành Riêng tư</value>
-  </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Không thể cập nhật cài đặt quyền riêng tư.</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Lưu thay đổi</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Nếu bạn chuyển tài liệu này thành riêng tư, liên kết công khai hiện tại sẽ ngay lập tức ngừng hoạt động với mọi người.</value>
-  </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Chỉ Xem Trước</value>
-  </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Chế độ chia đôi</value>
+  <data name="Editor" xml:space="preserve">
+    <value>Trình soạn thảo</value>
   </data>
   <data name="Editor Only" xml:space="preserve">
     <value>Chỉ Biên tập</value>
   </data>
-  <data name="Internal - Specific users/roles" xml:space="preserve">
-    <value>Nội bộ - Người dùng/Vai trò cụ thể</value>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Không thể sao chép liên kết.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Không thể sao chép văn bản.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Không thể chuyển tài liệu thành riêng tư. Vui lòng thử lại.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Không thể công khai tài liệu. Vui lòng thử lại.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Không thể cập nhật cài đặt quyền riêng tư.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Tích hợp hệ thống quản lý tập tin với tính năng nén ảnh đại diện tự động.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Xin chào thế giới!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Bản xem trước HTML sẽ xuất hiện ở đây sau khi chuyển đổi.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Nếu bạn chuyển tài liệu này thành riêng tư, liên kết công khai hiện tại sẽ ngay lập tức ngừng hoạt động với mọi người.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Quản lý Tập tin Tích hợp</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>Nội bộ</value>
   </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>Nội bộ - Người dùng/Vai trò cụ thể</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Chuyển tài liệu thành riêng tư</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Chuyển thành Riêng tư</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Đầu vào Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Công cụ Chuyển đổi Markdown sang HTML</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Hỗ trợ Đa Cơ sở Dữ liệu</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Tài liệu của tôi</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>Tích hợp OpenID Connect</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Xem trước</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Chỉ Xem Trước</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>In</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Xem trước khi in</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Riêng tư</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Riêng tư - Chỉ bạn</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Công khai - Bất kỳ ai có liên kết</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Ủy quyền RBAC</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Đọc tài liệu</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Thiết kế đáp ứng</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Lưu thay đổi</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Tích hợp liền mạch với bất kỳ nhà cung cấp OpenID Connect nào, đồng thời tự động đồng bộ hóa vai trò.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Chia sẻ</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>Trình soạn thảo</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Chia sẻ Công khai</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Chia sẻ tài liệu này công khai bằng một liên kết duy nhất mà bất kỳ ai cũng có thể truy cập mà không cần đăng nhập.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Chế độ tối thông minh tự động điều chỉnh theo cài đặt hệ thống của người dùng.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Chế độ chia đôi</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Thành công!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Thanh điều hướng tự động điều chỉnh dựa trên vai trò và quyền của người dùng.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Đây là một dự án mẫu</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Đây là một dự án mẫu, nơi chúng ta bắt đầu hành trình khám phá...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Nhập Markdown của bạn tại đây...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Tài liệu chưa đặt tên</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Chào mừng</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Tại sao nên sử dụng Mẫu Aiursoft?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Có, Chuyển thành Riêng tư</value>
   </data>
 
 </root>

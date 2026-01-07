@@ -18,11 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>İşlemler</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>karakter</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Doğrudan Paylaşım</value>
+  </data>
+  <data name="Document" xml:space="preserve">
     <value>Belge</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Sizinle veya gruplarınızla paylaşılmış belgeler.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Düzenlenebilir</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Paylaşılan belge yok</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>İzin</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Salt Okunur</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Paylaşılma Tarihi</value>
   </data>
   <data name="Shared By" xml:space="preserve">
     <value>Paylaşan</value>
@@ -30,32 +57,8 @@
   <data name="Shared Via" xml:space="preserve">
     <value>Paylaşım Yolu</value>
   </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Paylaşılan belge yok</value>
-  </data>
   <data name="Shared with Me" xml:space="preserve">
     <value>Benimle Paylaşılan</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Sizinle veya gruplarınızla paylaşılmış belgeler.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Birisi sizinle veya rolünüzle bir belge paylaştığında, burada görünecektir.</value>
-  </data>
-  <data name="characters" xml:space="preserve">
-    <value>karakter</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>İşlemler</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Paylaşılma Tarihi</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Doğrudan Paylaşım</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Salt Okunur</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Başlıksız Belge</value>
@@ -63,14 +66,11 @@
   <data name="Via Role" xml:space="preserve">
     <value>Rol Yoluyla</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Düzenlenebilir</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Düzenle</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>Görüntüle</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Birisi sizinle veya rolünüzle bir belge paylaştığında, burada görünecektir.</value>
   </data>
 
 </root>

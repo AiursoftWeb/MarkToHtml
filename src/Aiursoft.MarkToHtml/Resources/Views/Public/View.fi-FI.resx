@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
+    <value>Kopioitu!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopioi</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Kopioi Markdown leikepöydälle</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Dokumentin esikatselu</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Tekstin kopiointi epäonnistui.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Esikatselu</value>
+  </data>
+  <data name="Print" xml:space="preserve">
     <value>Tulosta</value>
   </data>
   <data name="Print Preview" xml:space="preserve">
     <value>Tulostuksen esikatselu</value>
   </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Dokumentin esikatselu</value>
-  </data>
   <data name="Raw" xml:space="preserve">
     <value>Raaka</value>
   </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Kopioitu!</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Esikatselu</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Näytä raaka Markdown</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Tekstin kopiointi epäonnistui.</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Kopioi Markdown leikepöydälle</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Kopioi</value>
+  <data name="Source" xml:space="preserve">
+    <value>Lähdekoodi</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Näytä raakana</value>
   </data>
-  <data name="Source" xml:space="preserve">
-    <value>Lähdekoodi</value>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Näytä raaka Markdown</value>
   </data>
 
 </root>

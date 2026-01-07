@@ -18,44 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Shared Via" xml:space="preserve">
-    <value>Shared Via</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Document</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>Shared with Me</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Permission</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Shared By</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>No shared documents</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Documents that have been shared with you or your groups.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>When someone shares a document with you or your role, it will appear here.</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Read Only</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>Direct Share</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Shared On</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>characters</value>
   </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Actions</value>
+  <data name="Direct Share" xml:space="preserve">
+    <value>Direct Share</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Documents that have been shared with you or your groups.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>No shared documents</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Permission</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Shared On</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Shared By</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>Shared Via</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Shared with Me</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Untitled Document</value>
@@ -63,14 +66,11 @@
   <data name="Via Role" xml:space="preserve">
     <value>Via Role</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Editable</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="View" xml:space="preserve">
     <value>View</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>When someone shares a document with you or your role, it will appear here.</value>
   </data>
 
 </root>

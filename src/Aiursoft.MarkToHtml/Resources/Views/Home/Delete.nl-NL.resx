@@ -18,26 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Creation Time" xml:space="preserve">
-    <value>Aanmaaktijd</value>
-  </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Ja, verwijder dit document</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
+      <data name="Are you sure?" xml:space="preserve">
     <value>Weet je het zeker?</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titel</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Aanmaaktijd</value>
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Document verwijderen</value>
   </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Deze actie kan niet ongedaan worden gemaakt. U staat op het punt het volgende document permanent te verwijderen:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Ja, verwijder dit document</value>
   </data>
 
 </root>
