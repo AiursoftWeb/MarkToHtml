@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>Tipărire</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>Copiat!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiază</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Copiază Markdown în clipboard</value>
   </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Previzualizare Document</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Nu s-a putut copia textul.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Previzualizare</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Tipărire</value>
   </data>
   <data name="Print Preview" xml:space="preserve">
     <value>Previzualizare imprimare</value>
@@ -30,32 +48,14 @@
   <data name="Raw" xml:space="preserve">
     <value>Text brut</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Copiat!</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copiază</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Previzualizare</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Copiază Markdown în clipboard</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Nu s-a putut copia textul.</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Vizualizează Markdown brut</value>
-  </data>
   <data name="Source" xml:space="preserve">
     <value>Sursă</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Vezi Original</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Vizualizează Markdown brut</value>
   </data>
 
 </root>

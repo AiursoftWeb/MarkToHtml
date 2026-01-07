@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Permission" xml:space="preserve">
-    <value>Izin</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>Dibagikan kepada Saya</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>Dibagikan Melalui</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Dibagikan Oleh</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Tidak ada dokumen yang dibagikan</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Dokumen yang telah dibagikan dengan Anda atau grup Anda.</value>
-  </data>
-  <data name="Document" xml:space="preserve">
-    <value>Dokumen</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Ketika seseorang membagikan dokumen kepada Anda atau peran Anda, dokumen tersebut akan muncul di sini.</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>Melalui Peran</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Dokumen Tanpa Judul</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>karakter</value>
   </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Dibagikan Pada</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>Berbagi Langsung</value>
   </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Hanya Baca</value>
+  <data name="Document" xml:space="preserve">
+    <value>Dokumen</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Dapat Diedit</value>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Dokumen yang telah dibagikan dengan Anda atau grup Anda.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Dapat Diedit</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Tidak ada dokumen yang dibagikan</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Izin</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Hanya Baca</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Dibagikan Pada</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Dibagikan Oleh</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>Dibagikan Melalui</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Dibagikan kepada Saya</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Dokumen Tanpa Judul</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>Melalui Peran</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>Lihat</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Ketika seseorang membagikan dokumen kepada Anda atau peran Anda, dokumen tersebut akan muncul di sini.</value>
   </data>
 
 </root>

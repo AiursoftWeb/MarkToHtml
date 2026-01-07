@@ -21,14 +21,14 @@
       <data name="Please input your markdown content!" xml:space="preserve">
     <value>Syötä markdown-sisältösi!</value>
   </data>
-  <data name="The document title contains sensitive words." xml:space="preserve">
-    <value>Asiakirjan otsikko sisältää arkaluontoisia sanoja.</value>
-  </data>
   <data name="Something went wrong, please try again later." xml:space="preserve">
     <value>Jotain meni pieleen, yritä myöhemmin uudelleen.</value>
   </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
     <value>Dokumentin sisältö sisältää arkaluonteisia sanoja.</value>
+  </data>
+  <data name="The document title contains sensitive words." xml:space="preserve">
+    <value>Asiakirjan otsikko sisältää arkaluontoisia sanoja.</value>
   </data>
 
 </root>

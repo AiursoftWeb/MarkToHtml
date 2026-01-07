@@ -21,14 +21,14 @@
       <data name="Please input your markdown content!" xml:space="preserve">
     <value>Vă rugăm să introduceți conținutul markdown!</value>
   </data>
+  <data name="Something went wrong, please try again later." xml:space="preserve">
+    <value>Ceva nu a funcționat corect, vă rugăm să încercați din nou mai târziu.</value>
+  </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
     <value>Conținutul documentului conține cuvinte sensibile.</value>
   </data>
   <data name="The document title contains sensitive words." xml:space="preserve">
     <value>Titlul documentului conține cuvinte sensibile.</value>
-  </data>
-  <data name="Something went wrong, please try again later." xml:space="preserve">
-    <value>Ceva nu a funcționat corect, vă rugăm să încercați din nou mai târziu.</value>
   </data>
 
 </root>

@@ -18,158 +18,155 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Hoş Geldiniz</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Bu bir şablon projedir</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC Yetkilendirmesi</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Merhaba Dünya!</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Çoklu Veritabanı Desteği</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>OpenID Connect Entegrasyonu</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Neden Aiursoft Template Kullanmalısınız?</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Herhangi bir OpenID Connect sağlayıcısıyla sorunsuz bir şekilde entegre olun, otomatik rol senkronizasyonu ile.</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Modern, zengin özelliklere sahip ve bir sonraki web uygulamanız için oldukça genişletilebilir bir temel.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>SQLite, MySQL, SQL Server gibi sağlayıcılar ile testler için kullanılan bellek içi veritabanı arasında kolayca geçiş yapın.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Dinamik Gezinti Çubuğu</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Gezinme çubuğu, kullanıcı rollerine ve izinlerine göre otomatik olarak ayarlanır.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>İnce taneli izin yönetimi için yerleşik bir Rol Tabanlı Erişim Kontrolü (RBAC) sistemi.</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Kapsamlı Dokümantasyon</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Yapay Zeka Destekli Çeviriler</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Dahili Kullanıcı Yönetimi</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Küresel erişim için 28 dile otomatik, yapay zeka destekli çeviri.</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Kapsamlı belgeler ve hızlı bir şekilde başlamanızı sağlayacak pratik örnekler içerir.</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Otomatik Bağımlılık Enjeksiyonu</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Entegre Dosya Yönetimi</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Kutudan çıkar çıkmaz kullanıma hazır, kullanıcı kimlik doğrulama ve profil yönetimi için eksiksiz bir çözüm.</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Tüm bağımlılıklar otomatik olere kaydedilir ve constructor injection yoluyla her zaman kullanılabilir.</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Duyarlı Tasarım</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Otomatik Karanlık Mod</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Hem masaüstü hem de mobil cihazlarda harika görünen tamamen duyarlı bir düzen.</value>
   </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Otomatik avatar sıkıştırmalı, dahili bir dosya yönetim sistemi özelliği sunar.</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Docker ile Dağıtıma Hazır</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Basitleştirilmiş, tutarlı ve güvenilir dağıtımlar için tam Docker desteği ile birlikte gelir.</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Kullanıcının sistem ayarlarına otomatik olarak uyum sağlayan akıllı karanlık mod.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Belgeyi okuyun</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Bu, yolculuğa başladığımız bir şablon projedir...</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>Kod</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Belge başarıyla güncellendi.</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Markdown Girişi</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Markdown&apos;ınızı buraya yazın...</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Belge Başlığı (isteğe bağlı)</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Modern, zengin özelliklere sahip ve bir sonraki web uygulamanız için oldukça genişletilebilir bir temel.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdown&apos;ınızı temiz, güvenli HTML&apos;ye dönüştürmek için basit bir araç.</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Başarılı!</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
   </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>HTML&apos;yi panoya kopyala</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Yapay Zeka Destekli Çeviriler</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Kopyala</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Tüm bağımlılıklar otomatik olere kaydedilir ve constructor injection yoluyla her zaman kullanılabilir.</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>Yazdır</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Bir hata oluştu.</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Önizleme</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Bir hata oluştu. Lütfen tekrar deneyin.</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Yazdırma Önizleme</value>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Bu belgeyi gizli yapmak istediğinizden emin misiniz?</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Belgelerim</value>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Emin misiniz?</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>HTML önizlemesi dönüşümden sonra burada görünecektir.</value>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Otomatik Karanlık Mod</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Otomatik Bağımlılık Enjeksiyonu</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Küresel erişim için 28 dile otomatik, yapay zeka destekli çeviri.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Dahili Kullanıcı Yönetimi</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Gizli&apos;ye değiştirilsin mi?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kod</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Basitleştirilmiş, tutarlı ve güvenilir dağıtımlar için tam Docker desteği ile birlikte gelir.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Kapsamlı Dokümantasyon</value>
   </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Dönüştür ve kaydet</value>
   </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTML&apos;ye Dönüştür</value>
+  </data>
   <data name="Copied!" xml:space="preserve">
     <value>Kopyalandı!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopyala</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>HTML&apos;yi Kopyala</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTML&apos;yi panoya kopyala</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Bağlantıyı Kopyala</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Bağlantıyı panoya kopyala</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Yeni bir belge oluştur...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Docker ile Dağıtıma Hazır</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Belge Başlığı (isteğe bağlı)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Belge başarıyla güncellendi.</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Dinamik Gezinti Çubuğu</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>SQLite, MySQL, SQL Server gibi sağlayıcılar ile testler için kullanılan bellek içi veritabanı arasında kolayca geçiş yapın.</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editör</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Sadece Düzenleyici</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Bağlantı kopyalanamadı.</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Metin kopyalanamadı.</value>
   </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>HTML&apos;ye Dönüştür</value>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Belge gizli yapılamadı. Lütfen tekrar deneyin.</value>
   </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Herkese Açık Paylaş</value>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Belge herkese açık yapılamadı. Lütfen tekrar deneyin.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Gizlilik ayarları güncellenemedi.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Otomatik avatar sıkıştırmalı, dahili bir dosya yönetim sistemi özelliği sunar.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Merhaba Dünya!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML önizlemesi dönüşümden sonra burada görünecektir.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Kapsamlı belgeler ve hızlı bir şekilde başlamanızı sağlayacak pratik örnekler içerir.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Entegre Dosya Yönetimi</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>İç</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>İç - Belirli kullanıcılar/roller</value>
   </data>
   <data name="Make document private" xml:space="preserve">
     <value>Belgeyi Gizli Yap</value>
@@ -180,101 +177,104 @@
   <data name="Make Public" xml:space="preserve">
     <value>Herkese Açık Yap</value>
   </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Bağlantıyı Kopyala</value>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown Girişi</value>
   </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Bağlantıyı panoya kopyala</value>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>İptal</value>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Çoklu Veritabanı Desteği</value>
   </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Bu belgeyi, herkesin giriş yapmadan erişebileceği benzersiz bir bağlantı ile herkese açık olarak paylaşın.</value>
+  <data name="My Documents" xml:space="preserve">
+    <value>Belgelerim</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect Entegrasyonu</value>
   </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Bir hata oluştu. Lütfen tekrar deneyin.</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Belge gizli yapılamadı. Lütfen tekrar deneyin.</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Belge herkese açık yapılamadı. Lütfen tekrar deneyin.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Bağlantı kopyalanamadı.</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Bu belgeyi gizli yapmak istediğinizden emin misiniz?</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Herkese Açık</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Özel</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Herkese Açık - Bağlantısı olan herkes</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>HTML&apos;yi Kopyala</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Başlık</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Başlıksız Belge</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>Yeni bir belge oluştur...</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Özel - Sadece siz</value>
-  </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Evet, Gizli Yap</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Emin misiniz?</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Değişiklikleri Kaydet</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Bir hata oluştu.</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Gizli&apos;ye değiştirilsin mi?</value>
-  </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Gizlilik ayarları güncellenemedi.</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
+  <data name="Preview" xml:space="preserve">
+    <value>Önizleme</value>
   </data>
   <data name="Preview Only" xml:space="preserve">
     <value>Yalnızca Önizleme</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Bölünmüş Görünüm</value>
+  <data name="Print" xml:space="preserve">
+    <value>Yazdır</value>
   </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>Sadece Düzenleyici</value>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Yazdırma Önizleme</value>
   </data>
-  <data name="Internal" xml:space="preserve">
-    <value>İç</value>
+  <data name="Private" xml:space="preserve">
+    <value>Özel</value>
   </data>
-  <data name="Internal - Specific users/roles" xml:space="preserve">
-    <value>İç - Belirli kullanıcılar/roller</value>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Özel - Sadece siz</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Herkese Açık</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Herkese Açık - Bağlantısı olan herkes</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC Yetkilendirmesi</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Belgeyi okuyun</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Duyarlı Tasarım</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Değişiklikleri Kaydet</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Herhangi bir OpenID Connect sağlayıcısıyla sorunsuz bir şekilde entegre olun, otomatik rol senkronizasyonu ile.</value>
   </data>
   <data name="Share" xml:space="preserve">
     <value>Paylaş</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>Editör</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Herkese Açık Paylaş</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Bu belgeyi, herkesin giriş yapmadan erişebileceği benzersiz bir bağlantı ile herkese açık olarak paylaşın.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Kullanıcının sistem ayarlarına otomatik olarak uyum sağlayan akıllı karanlık mod.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Bölünmüş Görünüm</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Başarılı!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Gezinme çubuğu, kullanıcı rollerine ve izinlerine göre otomatik olarak ayarlanır.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Bu bir şablon projedir</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Bu, yolculuğa başladığımız bir şablon projedir...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Markdown&apos;ınızı buraya yazın...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Başlıksız Belge</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Hoş Geldiniz</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Neden Aiursoft Template Kullanmalısınız?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Evet, Gizli Yap</value>
   </data>
 
 </root>

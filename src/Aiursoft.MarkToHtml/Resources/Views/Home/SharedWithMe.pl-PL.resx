@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
-    <value>Dokument</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Uprawnienia</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>Udostępnione przez</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>Udostępnione mi</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>Udostępniono przez</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>Brak udostępnionych dokumentów</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>Dokumenty, które zostały udostępnione Tobie lub Twoim grupom.</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>Gdy ktoś udostępni Ci dokument lub Twojej roli, pojawi się on tutaj.</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>Udostępniono</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>znaków</value>
   </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>(Dokument bez tytułu)</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Tylko do odczytu</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>Poprzez rolę</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>Bezpośrednie udostępnienie</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Edytowalny</value>
+  <data name="Document" xml:space="preserve">
+    <value>Dokument</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>Dokumenty, które zostały udostępnione Tobie lub Twoim grupom.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Edytowalny</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>Brak udostępnionych dokumentów</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Uprawnienia</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Tylko do odczytu</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>Udostępniono</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>Udostępnione przez</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>Udostępniono przez</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>Udostępnione mi</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>(Dokument bez tytułu)</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>Poprzez rolę</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>Wyświetl</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>Gdy ktoś udostępni Ci dokument lub Twojej roli, pojawi się on tutaj.</value>
   </data>
 
 </root>

@@ -18,185 +18,122 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>ようこそ</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>これはテンプレートプロジェクトです</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>こんにちは、世界！</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>複数データベースサポート</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC認可</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>OpenID Connect 連携</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Aiursoftテンプレートを使用する理由</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>あらゆるOpenID Connectプロバイダーとシームレスに統合し、自動的なロール同期を実現します。</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>モダンで機能豊富、かつ高度に拡張可能な基盤を、あなたの次のWebアプリケーションに提供します。</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>SQLite、MySQL、SQL Server、およびテスト用のインメモリデータベースなどのプロバイダーを簡単に切り替えられます。</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AIによる翻訳</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>動的ナビゲーションバー</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>きめ細かい権限管理のための組み込みのロールベースアクセス制御（RBAC）システム。</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>ナビゲーションバーは、ユーザーの役割と権限に基づいて自動的に調整されます。</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>AIによる自動翻訳で28言語に対応し、グローバルな展開を実現します。</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>包括的なドキュメント</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>豊富なドキュメントと実用的な例を含んでいるため、すぐに使い始めることができます。</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>組み込みユーザー管理</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>ユーザー認証とプロファイル管理のための完全なソリューションが、すぐに利用できます。</value>
   </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>統合ファイル管理</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>レスポンシブデザイン</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>自動アバター圧縮機能を備えた組み込みファイル管理システムを特徴としています。</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>自動依存性注入</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>すべての依存関係は自動的に登録され、コンストラクタインジェクションを通じて常に利用可能です。</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>自動ダークモード</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>デスクトップとモバイルの両方のデバイスで美しく表示される、完全なレスポンシブレイアウト。</value>
   </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Docker化によるデプロイ</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>ユーザーのシステム設定に自動的に適応するスマートダークモード。</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>完全なDockerサポートにより、簡素化された一貫性のある信頼性の高いデプロイが可能です。</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>ドキュメントを読む</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>これはテンプレートプロジェクトであり、ここからボイジャーの旅が始まります...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>成功しました！</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Markdown入力</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>コード</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>MarkdownからHTMLへの変換ツール</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>ドキュメントが正常に更新されました。</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>ドキュメントタイトル（任意）</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Markdownをここに入力してください...</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>モダンで機能豊富、かつ高度に拡張可能な基盤を、あなたの次のWebアプリケーションに提供します。</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdownをクリーンで安全なHTMLに変換するシンプルなツール。</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>プレビュー</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>この文書を非公開にすると、既存の公開リンクは機能しなくなります。続行してもよろしいですか？</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>コピー</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AIによる翻訳</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>印刷</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>すべての依存関係は自動的に登録され、コンストラクタインジェクションを通じて常に利用可能です。</value>
   </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>HTMLをクリップボードにコピー</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>エラーが発生しました。</value>
   </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>変換して保存</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>エラーが発生しました。もう一度お試しください。</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>印刷プレビュー</value>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>このドキュメントを非公開にしてもよろしいですか？</value>
   </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>HTMLに変換</value>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>よろしいですか？</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>マイドキュメント</value>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>自動ダークモード</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>変換後にHTMLプレビューがここに表示されます。</value>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>自動依存性注入</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>コピーしました</value>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>AIによる自動翻訳で28言語に対応し、グローバルな展開を実現します。</value>
   </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>テキストのコピーに失敗しました。</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>ドキュメントを非公開にする</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>リンクをコピー</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>非公開にする</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>公開する</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>公開共有</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>このドキュメントを一意のリンクで公開し、ログインなしで誰でもアクセスできるように共有します。</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>リンクをクリップボードにコピー</value>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>組み込みユーザー管理</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>この文書を非公開にすると、既存の公開リンクは機能しなくなります。続行してもよろしいですか？</value>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>非公開に変更しますか？</value>
   </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>エラーが発生しました。もう一度お試しください。</value>
+  <data name="Code" xml:space="preserve">
+    <value>コード</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>完全なDockerサポートにより、簡素化された一貫性のある信頼性の高いデプロイが可能です。</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>包括的なドキュメント</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>変換して保存</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>HTMLに変換</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>コピーしました</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>HTMLをコピー</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>HTMLをクリップボードにコピー</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>リンクをコピー</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>リンクをクリップボードにコピー</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>新規ドキュメントを作成...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Docker化によるデプロイ</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>ドキュメントタイトル（任意）</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>ドキュメントが正常に更新されました。</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>動的ナビゲーションバー</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>SQLite、MySQL、SQL Server、およびテスト用のインメモリデータベースなどのプロバイダーを簡単に切り替えられます。</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>エディタ</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>エディターのみ</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>リンクのコピーに失敗しました。</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>テキストのコピーに失敗しました。</value>
   </data>
   <data name="Failed to make document private. Please try again." xml:space="preserve">
     <value>ドキュメントを非公開にできませんでした。もう一度お試しください。</value>
@@ -204,65 +141,26 @@
   <data name="Failed to make document public. Please try again." xml:space="preserve">
     <value>ドキュメントを公開できませんでした。もう一度お試しください。</value>
   </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>このドキュメントを非公開にしてもよろしいですか？</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>リンクのコピーに失敗しました。</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>公開</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>無題ドキュメント</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>非公開</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>非公開 - あなたのみ</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>HTMLをコピー</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>タイトル</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>公開 - リンクを持つ全員</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>新規ドキュメントを作成...</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>変更を保存</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>エラーが発生しました。</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>非公開に変更しますか？</value>
-  </data>
   <data name="Failed to update privacy settings." xml:space="preserve">
     <value>プライバシー設定の更新に失敗しました。</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>よろしいですか？</value>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>自動アバター圧縮機能を備えた組み込みファイル管理システムを特徴としています。</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>はい、非公開にする</value>
+  <data name="Hello World!" xml:space="preserve">
+    <value>こんにちは、世界！</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>変換後にHTMLプレビューがここに表示されます。</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>このドキュメントを非公開に設定すると、既存の公開リンクは直ちに全員に対して機能しなくなります。</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>分割表示</value>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>豊富なドキュメントと実用的な例を含んでいるため、すぐに使い始めることができます。</value>
   </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>エディターのみ</value>
-  </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>プレビューのみ</value>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>統合ファイル管理</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>内部</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>内部 - 特定のユーザー/ロール</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>ドキュメントを非公開にする</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>非公開にする</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>公開する</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown入力</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>MarkdownからHTMLへの変換ツール</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>複数データベースサポート</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>マイドキュメント</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect 連携</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>プレビューのみ</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>印刷</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>印刷プレビュー</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>非公開</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>非公開 - あなたのみ</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>公開 - リンクを持つ全員</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC認可</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>ドキュメントを読む</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>レスポンシブデザイン</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>変更を保存</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>あらゆるOpenID Connectプロバイダーとシームレスに統合し、自動的なロール同期を実現します。</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>共有</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>エディタ</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>公開共有</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>このドキュメントを一意のリンクで公開し、ログインなしで誰でもアクセスできるように共有します。</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>ユーザーのシステム設定に自動的に適応するスマートダークモード。</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>分割表示</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>成功しました！</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>ナビゲーションバーは、ユーザーの役割と権限に基づいて自動的に調整されます。</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>これはテンプレートプロジェクトです</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>これはテンプレートプロジェクトであり、ここからボイジャーの旅が始まります...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Markdownをここに入力してください...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>無題ドキュメント</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>ようこそ</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Aiursoftテンプレートを使用する理由</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>はい、非公開にする</value>
   </data>
 
 </root>

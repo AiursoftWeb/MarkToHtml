@@ -18,29 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Titlu</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Documentele Mele</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Data creării</value>
-  </data>
-  <data name="All My Documents" xml:space="preserve">
-    <value>Toate documentele mele</value>
+      <data name="A list of all documents you have created." xml:space="preserve">
+    <value>O listă cu toate documentele pe care le-ai creat.</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
+  <data name="All My Documents" xml:space="preserve">
+    <value>Toate documentele mele</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Șterge</value>
+  </data>
   <data name="Create a new document" xml:space="preserve">
     <value>Creează un document nou</value>
   </data>
-  <data name="Length" xml:space="preserve">
-    <value>Lungime</value>
-  </data>
-  <data name="A list of all documents you have created." xml:space="preserve">
-    <value>O listă cu toate documentele pe care le-ai creat.</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Data creării</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Șterge</value>
@@ -48,8 +42,23 @@
   <data name="Edit" xml:space="preserve">
     <value>Editează</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Șterge</value>
+  <data name="Internal" xml:space="preserve">
+    <value>Intern</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Lungime</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Documentele Mele</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Nu a fost găsit niciun document care să corespundă căutării.</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Public</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Caută</value>
@@ -60,26 +69,17 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Caută în documentele mele...</value>
   </data>
-  <data name="You have not created any documents yet." xml:space="preserve">
-    <value>Nu ați creat încă niciun document.</value>
+  <data name="Share" xml:space="preserve">
+    <value>Partajează</value>
   </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>Nu a fost găsit niciun document care să corespundă căutării.</value>
+  <data name="Title" xml:space="preserve">
+    <value>Titlu</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Vizibilitate</value>
   </data>
-  <data name="Private" xml:space="preserve">
-    <value>Privat</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Public</value>
-  </data>
-  <data name="Share" xml:space="preserve">
-    <value>Partajează</value>
-  </data>
-  <data name="Internal" xml:space="preserve">
-    <value>Intern</value>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Nu ați creat încă niciun document.</value>
   </data>
 
 </root>

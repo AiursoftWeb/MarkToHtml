@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="The document title contains sensitive words." xml:space="preserve">
-    <value>يحتوي عنوان المستند على كلمات حساسة.</value>
-  </data>
-  <data name="The document content contains sensitive words." xml:space="preserve">
-    <value>يحتوي محتوى المستند على كلمات حساسة.</value>
+      <data name="Please input your markdown content!" xml:space="preserve">
+    <value>الرجاء إدخال محتوى Markdown الخاص بك!</value>
   </data>
   <data name="Something went wrong, please try again later." xml:space="preserve">
     <value>حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا.</value>
   </data>
-  <data name="Please input your markdown content!" xml:space="preserve">
-    <value>الرجاء إدخال محتوى Markdown الخاص بك!</value>
+  <data name="The document content contains sensitive words." xml:space="preserve">
+    <value>يحتوي محتوى المستند على كلمات حساسة.</value>
+  </data>
+  <data name="The document title contains sensitive words." xml:space="preserve">
+    <value>يحتوي عنوان المستند على كلمات حساسة.</value>
   </data>
 
 </root>

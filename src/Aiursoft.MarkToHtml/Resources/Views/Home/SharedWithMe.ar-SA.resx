@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
-    <value>المستند</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>تمت مشاركته معي</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>تمت المشاركة بواسطة</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>لا توجد مستندات مشتركة</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>تم المشاركة عبر</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>الصلاحية</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>عندما يشارك شخص ما مستندًا معك أو مع دورك، سيظهر هنا.</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>المستندات التي تمت مشاركتها معك أو مع مجموعاتك.</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>تم المشاركة في</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>وثيقة بدون عنوان</value>
-  </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>مشاركة مباشرة</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>عبر الدور</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>أحرف</value>
   </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>للقراءة فقط</value>
+  <data name="Direct Share" xml:space="preserve">
+    <value>مشاركة مباشرة</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>المستند</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>المستندات التي تمت مشاركتها معك أو مع مجموعاتك.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
   </data>
   <data name="Editable" xml:space="preserve">
     <value>قابل للتعديل</value>
   </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>لا توجد مستندات مشتركة</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>الصلاحية</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>للقراءة فقط</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>تم المشاركة في</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>تمت المشاركة بواسطة</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>تم المشاركة عبر</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>تمت مشاركته معي</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>وثيقة بدون عنوان</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>عبر الدور</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>عرض</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>تعديل</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>عندما يشارك شخص ما مستندًا معك أو مع دورك، سيظهر هنا.</value>
   </data>
 
 </root>

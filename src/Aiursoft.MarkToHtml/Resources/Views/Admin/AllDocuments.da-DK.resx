@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Oprettelsestid</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Dokumentliste</value>
-  </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>Ingen dokumenter fundet i systemet.</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>Ejer</value>
-  </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>Se og administrer alle dokumenter i hele systemet.</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(ingen titel)</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>En liste over alle dokumenter fra alle brugere i systemet.</value>
   </data>
-  <data name="All Documents" xml:space="preserve">
-    <value>Alle Dokumenter</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>Handlinger</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(ingen titel)</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Slet</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Rediger</value>
+  <data name="All Documents" xml:space="preserve">
+    <value>Alle Dokumenter</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Ryd</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Søg</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Oprettelsestid</value>
   </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Søg i dokumenter...</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Dokumentliste</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Rediger</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Administrer delinger</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>Ingen dokumenter fundet i systemet.</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Ingen dokumenter matcher din søgning.</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Ejer</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
   <data name="Search documents" xml:space="preserve">
     <value>Søg dokumenter</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Administrer delinger</value>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Søg i dokumenter...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>Se og administrer alle dokumenter i hele systemet.</value>
   </data>
 
 </root>

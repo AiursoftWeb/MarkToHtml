@@ -18,59 +18,59 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document" xml:space="preserve">
-    <value>文件</value>
-  </data>
-  <data name="Shared By" xml:space="preserve">
-    <value>分享者</value>
-  </data>
-  <data name="Shared with Me" xml:space="preserve">
-    <value>與我共享</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>權限</value>
-  </data>
-  <data name="Shared Via" xml:space="preserve">
-    <value>分享方式</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>沒有共享的文件</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>已與您或您的群組共享的文件。</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>當有人與您或您的角色分享文件時，它將會出現在此處。</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>未命名文件</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>分享時間</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>唯讀</value>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
   </data>
   <data name="characters" xml:space="preserve">
     <value>字元</value>
   </data>
-  <data name="Actions" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>透過角色</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>可編輯</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>直接分享</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>已與您或您的群組共享的文件。</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
   </data>
+  <data name="Editable" xml:space="preserve">
+    <value>可編輯</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>沒有共享的文件</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>權限</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>唯讀</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>分享時間</value>
+  </data>
+  <data name="Shared By" xml:space="preserve">
+    <value>分享者</value>
+  </data>
+  <data name="Shared Via" xml:space="preserve">
+    <value>分享方式</value>
+  </data>
+  <data name="Shared with Me" xml:space="preserve">
+    <value>與我共享</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>未命名文件</value>
+  </data>
+  <data name="Via Role" xml:space="preserve">
+    <value>透過角色</value>
+  </data>
   <data name="View" xml:space="preserve">
     <value>檢視</value>
+  </data>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>當有人與您或您的角色分享文件時，它將會出現在此處。</value>
   </data>
 
 </root>

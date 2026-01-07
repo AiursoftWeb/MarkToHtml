@@ -18,53 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Documents by" xml:space="preserve">
-    <value>เอกสารโดย</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>เอกสารทั้งหมด</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>ชื่อผู้ใช้</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>รายการเอกสาร</value>
-  </data>
-  <data name="Profile Details" xml:space="preserve">
-    <value>รายละเอียดโปรไฟล์</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(ไม่มีชื่อเรื่อง)</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>รายการของเอกสารทั้งหมดที่สร้างโดยผู้ใช้นี้</value>
   </data>
-  <data name="Back to All Documents" xml:space="preserve">
-    <value>กลับไปยังเอกสารทั้งหมด</value>
-  </data>
-  <data name="This user has not created any documents yet." xml:space="preserve">
-    <value>ผู้ใช้นี้ยังไม่ได้สร้างเอกสารใดๆ</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>หัวข้อ</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>แก้ไข</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>เวลาที่สร้าง</value>
-  </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(ไม่มีชื่อเรื่อง)</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>ลบ</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
+  </data>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>กลับไปยังเอกสารทั้งหมด</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>ล้าง</value>
   </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>ค้นหาเอกสาร...</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>เวลาที่สร้าง</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>รายการเอกสาร</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>เอกสารโดย</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>จัดการการแชร์</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>ไม่พบเอกสารที่ตรงกับการค้นหาของคุณ</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>รายละเอียดโปรไฟล์</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>ค้นหา</value>
@@ -72,11 +63,20 @@
   <data name="Search documents" xml:space="preserve">
     <value>ค้นหาเอกสาร</value>
   </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>ไม่พบเอกสารที่ตรงกับการค้นหาของคุณ</value>
+  <data name="Search documents..." xml:space="preserve">
+    <value>ค้นหาเอกสาร...</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>จัดการการแชร์</value>
+  <data name="This user has not created any documents yet." xml:space="preserve">
+    <value>ผู้ใช้นี้ยังไม่ได้สร้างเอกสารใดๆ</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>หัวข้อ</value>
+  </data>
+  <data name="Total Docs" xml:space="preserve">
+    <value>เอกสารทั้งหมด</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>ชื่อผู้ใช้</value>
   </data>
 
 </root>

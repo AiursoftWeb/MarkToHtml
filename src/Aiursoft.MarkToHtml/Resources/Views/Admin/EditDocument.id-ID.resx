@@ -18,14 +18,20 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Enter the document title" xml:space="preserve">
-    <value>Masukkan judul dokumen</value>
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- Pilih Pemilik --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Kembali ke Daftar</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
   </data>
   <data name="Document Details" xml:space="preserve">
     <value>Detail Dokumen</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Hapus</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Judul Dokumen (opsional)</value>
   </data>
   <data name="Document updated successfully." xml:space="preserve">
     <value>Dokumen berhasil diperbarui.</value>
@@ -33,11 +39,14 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Edit Dokumen</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Berhasil!</value>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>Masukkan judul dokumen</value>
   </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Judul Dokumen (opsional)</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Kelola Berbagi</value>
+  </data>
+  <data name="Markdown Content" xml:space="preserve">
+    <value>Konten Markdown</value>
   </data>
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Ubah konten dokumen, judul, dan pemilik.</value>
@@ -45,20 +54,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>
   </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>Konten Markdown</value>
+  <data name="Success!" xml:space="preserve">
+    <value>Berhasil!</value>
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Ketik Markdown Anda di sini...</value>
-  </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>Kembali ke Daftar</value>
-  </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- Pilih Pemilik --</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Kelola Berbagi</value>
   </data>
 
 </root>

@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print Preview" xml:space="preserve">
-    <value>प्रिंट पूर्वावलोकन</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>प्रिंट करें</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>दस्तावेज़ पूर्वावलोकन</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>मार्कडाउन</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>कॉपी किया गया!</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>कॉपी करें</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>पूर्वावलोकन</value>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>मार्कडाउन को क्लिपबोर्ड पर कॉपी करें</value>
   </data>
-  <data name="Raw" xml:space="preserve">
-    <value>असंसाधित</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>कॉपी किया गया!</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>अनियंत्रित मार्कडाउन देखें</value>
+  <data name="Document Preview" xml:space="preserve">
+    <value>दस्तावेज़ पूर्वावलोकन</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
   </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>मार्कडाउन को क्लिपबोर्ड पर कॉपी करें</value>
+  <data name="Markdown" xml:space="preserve">
+    <value>मार्कडाउन</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>पूर्वावलोकन</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>प्रिंट करें</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>प्रिंट पूर्वावलोकन</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>असंसाधित</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>स्रोत</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>कच्चा दृश्य</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>अनियंत्रित मार्कडाउन देखें</value>
   </data>
 
 </root>

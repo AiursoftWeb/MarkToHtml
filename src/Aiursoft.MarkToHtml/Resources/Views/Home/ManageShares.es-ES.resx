@@ -18,113 +18,113 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Select a role..." xml:space="preserve">
-    <value>Seleccionar un rol...</value>
-  </data>
-  <data name="Back to Document" xml:space="preserve">
-    <value>Volver al documento</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Gestionar Comparticiones</value>
-  </data>
-  <data name="Document:" xml:space="preserve">
-    <value>Documento:</value>
-  </data>
-  <data name="Specific User" xml:space="preserve">
-    <value>Usuario específico</value>
-  </data>
-  <data name="Share with" xml:space="preserve">
-    <value>Compartir con</value>
-  </data>
-  <data name="Role" xml:space="preserve">
-    <value>Rol</value>
-  </data>
-  <data name="Add New Share" xml:space="preserve">
-    <value>Añadir nuevo recurso compartido</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Permiso</value>
-  </data>
-  <data name="Type to search users..." xml:space="preserve">
-    <value>Escribe para buscar usuarios...</value>
-  </data>
-  <data name="members" xml:space="preserve">
-    <value>miembros</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Solo lectura</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Editable</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Añadir</value>
   </data>
-  <data name="Existing Shares" xml:space="preserve">
-    <value>Comparticiones Existentes</value>
-  </data>
-  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
-    <value>Aún no hay comparticiones. Añade una arriba para compartir este documento.</value>
-  </data>
-  <data name="Shared With" xml:space="preserve">
-    <value>Compartido con</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Tipo</value>
-  </data>
-  <data name="Created" xml:space="preserve">
-    <value>Creado</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>Usuario</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Acciones</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Eliminar</value>
-  </data>
-  <data name="Are you sure you want to remove this share?" xml:space="preserve">
-    <value>¿Estás seguro de que quieres eliminar este recurso compartido?</value>
-  </data>
-  <data name="Error searching users" xml:space="preserve">
-    <value>Error al buscar usuarios</value>
-  </data>
-  <data name="No users found" xml:space="preserve">
-    <value>No se encontraron usuarios</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="Please select a valid user or role." xml:space="preserve">
-    <value>Por favor, seleccione un usuario o rol válido.</value>
-  </data>
-  <data name="This user or role already has access to this document." xml:space="preserve">
-    <value>Este usuario o rol ya tiene acceso a este documento.</value>
-  </data>
-  <data name="An error occurred while processing your request." xml:space="preserve">
-    <value>Se ha producido un error al procesar su solicitud.</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Cerrar</value>
-  </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>Visibilidad</value>
-  </data>
-  <data name="Public Link" xml:space="preserve">
-    <value>Enlace público</value>
-  </data>
-  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
-    <value>Prohibir visualización anónima (Privado / Compartido)</value>
-  </data>
-  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
-    <value>Solo tú y los usuarios/roles específicos que aparecen a continuación pueden ver este documento.</value>
+  <data name="Add New Share" xml:space="preserve">
+    <value>Añadir nuevo recurso compartido</value>
   </data>
   <data name="Allow anonymous viewing (Public)" xml:space="preserve">
     <value>Permitir visualización anónima (Público)</value>
   </data>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Se ha producido un error al procesar su solicitud.</value>
+  </data>
   <data name="Anyone with the link can view this document." xml:space="preserve">
     <value>Cualquier persona con el enlace puede ver este documento.</value>
+  </data>
+  <data name="Are you sure you want to remove this share?" xml:space="preserve">
+    <value>¿Estás seguro de que quieres eliminar este recurso compartido?</value>
+  </data>
+  <data name="Back to Document" xml:space="preserve">
+    <value>Volver al documento</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Creado</value>
+  </data>
+  <data name="Document:" xml:space="preserve">
+    <value>Documento:</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Editable</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Error searching users" xml:space="preserve">
+    <value>Error al buscar usuarios</value>
+  </data>
+  <data name="Existing Shares" xml:space="preserve">
+    <value>Comparticiones Existentes</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>Prohibir visualización anónima (Privado / Compartido)</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Gestionar Comparticiones</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>miembros</value>
+  </data>
+  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
+    <value>Aún no hay comparticiones. Añade una arriba para compartir este documento.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>No se encontraron usuarios</value>
+  </data>
+  <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
+    <value>Solo tú y los usuarios/roles específicos que aparecen a continuación pueden ver este documento.</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Permiso</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Por favor, seleccione un usuario o rol válido.</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>Enlace público</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Solo lectura</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rol</value>
+  </data>
+  <data name="Select a role..." xml:space="preserve">
+    <value>Seleccionar un rol...</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Compartir con</value>
+  </data>
+  <data name="Shared With" xml:space="preserve">
+    <value>Compartido con</value>
+  </data>
+  <data name="Specific User" xml:space="preserve">
+    <value>Usuario específico</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Este usuario o rol ya tiene acceso a este documento.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Type to search users..." xml:space="preserve">
+    <value>Escribe para buscar usuarios...</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibilidad</value>
   </data>
 
 </root>

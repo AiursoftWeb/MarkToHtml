@@ -18,47 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Edit Document" xml:space="preserve">
-    <value>Edytuj Dokument</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Usuń</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Dokument został pomyślnie zaktualizowany.</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Tytuł dokumentu (opcjonalny)</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>Zmodyfikuj zawartość dokumentu, tytuł i właściciela.</value>
-  </data>
-  <data name="Document Details" xml:space="preserve">
-    <value>Szczegóły dokumentu</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Sukces!</value>
-  </data>
-  <data name="Enter the document title" xml:space="preserve">
-    <value>Wprowadź tytuł dokumentu</value>
-  </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>Zawartość Markdown</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Wprowadź swój Markdown tutaj...</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Zapisz zmiany</value>
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- Wybierz właściciela --</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Powrót do listy</value>
   </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- Wybierz właściciela --</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Document Details" xml:space="preserve">
+    <value>Szczegóły dokumentu</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Tytuł dokumentu (opcjonalny)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokument został pomyślnie zaktualizowany.</value>
+  </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Edytuj Dokument</value>
+  </data>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>Wprowadź tytuł dokumentu</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Zarządzaj udostępnieniami</value>
+  </data>
+  <data name="Markdown Content" xml:space="preserve">
+    <value>Zawartość Markdown</value>
+  </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>Zmodyfikuj zawartość dokumentu, tytuł i właściciela.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Zapisz zmiany</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sukces!</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Wprowadź swój Markdown tutaj...</value>
   </data>
 
 </root>

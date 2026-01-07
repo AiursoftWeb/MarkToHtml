@@ -18,41 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="All Documents" xml:space="preserve">
-    <value>所有文档</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>（无标题）</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>系统中所有用户的文档列表。</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>标题</value>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="All Documents" xml:space="preserve">
+    <value>所有文档</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>创建时间</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="Document List" xml:space="preserve">
     <value>文档列表</value>
-  </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>系统中未找到任何文档。</value>
-  </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>查看并管理系统中的所有文档。</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>所有者</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>（无标题）</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>管理分享</value>
   </data>
-  <data name="Actions" xml:space="preserve">
-    <value>操作</value>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>系统中未找到任何文档。</value>
   </data>
-  <data name="Delete" xml:space="preserve">
-    <value>删除</value>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>未找到匹配搜索条件的文档。</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>所有者</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
@@ -60,17 +63,14 @@
   <data name="Search documents" xml:space="preserve">
     <value>搜索文档</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>清除</value>
-  </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>未找到匹配搜索条件的文档。</value>
-  </data>
   <data name="Search documents..." xml:space="preserve">
     <value>搜索文档...</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>管理分享</value>
+  <data name="Title" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>查看并管理系统中的所有文档。</value>
   </data>
 
 </root>

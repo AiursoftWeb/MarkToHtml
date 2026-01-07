@@ -18,47 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Enter the document title" xml:space="preserve">
-    <value>Kirjoita asiakirjan otsikko</value>
-  </data>
-  <data name="Document Details" xml:space="preserve">
-    <value>Asiakirjan tiedot</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Poista</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Onnistui!</value>
-  </data>
-  <data name="Edit Document" xml:space="preserve">
-    <value>Muokkaa dokumenttia</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Asiakirja päivitetty onnistuneesti.</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Asiakirjan otsikko (valinnainen)</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>Muokkaa asiakirjan sisältöä, otsikkoa ja omistajaa.</value>
-  </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
+      <data name="-- Select an Owner --" xml:space="preserve">
     <value>-- Valitse omistaja --</value>
-  </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>Markdown-sisältö</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Tallenna muutokset</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Takaisin listaan</value>
   </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Kirjoita Markdown-koodi tähän...</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Document Details" xml:space="preserve">
+    <value>Asiakirjan tiedot</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Asiakirjan otsikko (valinnainen)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Asiakirja päivitetty onnistuneesti.</value>
+  </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Muokkaa dokumenttia</value>
+  </data>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>Kirjoita asiakirjan otsikko</value>
   </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Hallitse jakoja</value>
+  </data>
+  <data name="Markdown Content" xml:space="preserve">
+    <value>Markdown-sisältö</value>
+  </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>Muokkaa asiakirjan sisältöä, otsikkoa ja omistajaa.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Tallenna muutokset</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Onnistui!</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Kirjoita Markdown-koodi tähän...</value>
   </data>
 
 </root>

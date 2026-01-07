@@ -18,8 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>शीर्षक</value>
+      <data name="Are you sure?" xml:space="preserve">
+    <value>क्या आप सुनिश्चित हैं?</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
@@ -30,14 +30,14 @@
   <data name="Delete Document" xml:space="preserve">
     <value>दस्तावेज़ हटाएं</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>क्या आप सुनिश्चित हैं?</value>
+  <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
+    <value>यह क्रिया अपरिवर्तनीय है। आप निम्नलिखित दस्तावेज़ को स्थायी रूप से हटाने वाले हैं:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>शीर्षक</value>
   </data>
   <data name="Yes, delete this document" xml:space="preserve">
     <value>हाँ, इस दस्तावेज़ को हटाएं</value>
-  </data>
-  <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
-    <value>यह क्रिया अपरिवर्तनीय है। आप निम्नलिखित दस्तावेज़ को स्थायी रूप से हटाने वाले हैं:</value>
   </data>
 
 </root>

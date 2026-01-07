@@ -21,14 +21,14 @@
       <data name="Markdown Content" xml:space="preserve">
     <value>마크다운 콘텐츠</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>소유자</value>
+  </data>
   <data name="Please input your markdown content!" xml:space="preserve">
     <value>마크다운 내용을 입력해 주세요!</value>
   </data>
   <data name="Please select the owner of this document!" xml:space="preserve">
     <value>문서의 소유자를 선택해 주세요!</value>
-  </data>
-  <data name="Owner" xml:space="preserve">
-    <value>소유자</value>
   </data>
 
 </root>

@@ -18,29 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Creation Time" xml:space="preserve">
-    <value>Thời gian tạo</value>
-  </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>Tạo tài liệu mới</value>
+      <data name="A list of all documents you have created." xml:space="preserve">
+    <value>Danh sách tất cả tài liệu bạn đã tạo.</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
-  <data name="Length" xml:space="preserve">
-    <value>Độ dài</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Tài liệu của tôi</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Tiêu đề</value>
-  </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Tất Cả Tài Liệu Của Tôi</value>
   </data>
-  <data name="A list of all documents you have created." xml:space="preserve">
-    <value>Danh sách tất cả tài liệu bạn đã tạo.</value>
+  <data name="Clear" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Tạo tài liệu mới</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Thời gian tạo</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Xóa</value>
@@ -48,38 +42,44 @@
   <data name="Edit" xml:space="preserve">
     <value>Chỉnh sửa</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Xóa</value>
+  <data name="Internal" xml:space="preserve">
+    <value>Nội bộ</value>
   </data>
-  <data name="Search my documents" xml:space="preserve">
-    <value>Tìm kiếm tài liệu của tôi</value>
+  <data name="Length" xml:space="preserve">
+    <value>Độ dài</value>
   </data>
-  <data name="You have not created any documents yet." xml:space="preserve">
-    <value>Bạn chưa tạo tài liệu nào.</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Tìm kiếm</value>
-  </data>
-  <data name="Search my documents..." xml:space="preserve">
-    <value>Tìm kiếm tài liệu của tôi...</value>
+  <data name="My Documents" xml:space="preserve">
+    <value>Tài liệu của tôi</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Không có tài liệu nào phù hợp với tìm kiếm của bạn.</value>
   </data>
-  <data name="Public" xml:space="preserve">
-    <value>Công khai</value>
-  </data>
   <data name="Private" xml:space="preserve">
     <value>Riêng tư</value>
   </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>Mức độ hiển thị</value>
+  <data name="Public" xml:space="preserve">
+    <value>Công khai</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Tìm kiếm tài liệu của tôi</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Tìm kiếm tài liệu của tôi...</value>
   </data>
   <data name="Share" xml:space="preserve">
     <value>Chia sẻ</value>
   </data>
-  <data name="Internal" xml:space="preserve">
-    <value>Nội bộ</value>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Mức độ hiển thị</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Bạn chưa tạo tài liệu nào.</value>
   </data>
 
 </root>

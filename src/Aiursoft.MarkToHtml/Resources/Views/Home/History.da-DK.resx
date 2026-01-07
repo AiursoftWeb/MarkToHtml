@@ -18,38 +18,50 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
-    <value>Handlinger</value>
+      <data name="A list of all documents you have created." xml:space="preserve">
+    <value>En liste over alle dokumenter, du har oprettet.</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Mine dokumenter</value>
+  <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
   </data>
   <data name="All My Documents" xml:space="preserve">
     <value>Alle mine dokumenter</value>
   </data>
-  <data name="A list of all documents you have created." xml:space="preserve">
-    <value>En liste over alle dokumenter, du har oprettet.</value>
+  <data name="Clear" xml:space="preserve">
+    <value>Ryd</value>
   </data>
   <data name="Create a new document" xml:space="preserve">
     <value>Opret et nyt dokument</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Rediger</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-  <data name="Length" xml:space="preserve">
-    <value>Længde</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Oprettelsestidspunkt</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Slet</value>
   </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Oprettelsestidspunkt</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Rediger</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Ryd</value>
+  <data name="Internal" xml:space="preserve">
+    <value>Internt</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Længde</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Mine dokumenter</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>Ingen dokumenter matcher din søgning.</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Offentlig</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
   </data>
   <data name="Search my documents" xml:space="preserve">
     <value>Søg i mine dokumenter</value>
@@ -57,29 +69,17 @@
   <data name="Search my documents..." xml:space="preserve">
     <value>Søg i mine dokumenter...</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Søg</value>
+  <data name="Share" xml:space="preserve">
+    <value>Del</value>
   </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>Ingen dokumenter matcher din søgning.</value>
-  </data>
-  <data name="You have not created any documents yet." xml:space="preserve">
-    <value>Du har ikke oprettet nogen dokumenter endnu.</value>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Synlighed</value>
   </data>
-  <data name="Public" xml:space="preserve">
-    <value>Offentlig</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Privat</value>
-  </data>
-  <data name="Share" xml:space="preserve">
-    <value>Del</value>
-  </data>
-  <data name="Internal" xml:space="preserve">
-    <value>Internt</value>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Du har ikke oprettet nogen dokumenter endnu.</value>
   </data>
 
 </root>

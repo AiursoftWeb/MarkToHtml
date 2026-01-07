@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print" xml:space="preserve">
-    <value>Cetak</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Pratinjau Dokumen</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Pratinjau Cetak</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
     <value>Disalin!</value>
-  </data>
-  <data name="Raw" xml:space="preserve">
-    <value>Mentah</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Salin</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Pratinjau</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Lihat Markdown mentah</value>
-  </data>
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Salin Markdown ke papan klip</value>
   </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Pratinjau Dokumen</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Gagal menyalin teks.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Cetak</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pratinjau Cetak</value>
+  </data>
+  <data name="Raw" xml:space="preserve">
+    <value>Mentah</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Sumber</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Lihat Mentah</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Lihat Markdown mentah</value>
   </data>
 
 </root>

@@ -18,65 +18,65 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Profile Details" xml:space="preserve">
-    <value>Detail Profil</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>Daftar Dokumen</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>Total Dokumen</value>
-  </data>
-  <data name="Documents by" xml:space="preserve">
-    <value>Dokumen oleh</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>Nama Pengguna</value>
-  </data>
-  <data name="This user has not created any documents yet." xml:space="preserve">
-    <value>Pengguna ini belum membuat dokumen apa pun.</value>
-  </data>
-  <data name="Back to All Documents" xml:space="preserve">
-    <value>Kembali ke Semua Dokumen</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(tidak ada judul)</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>Daftar semua dokumen yang dibuat oleh pengguna ini.</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Judul</value>
-  </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="Actions" xml:space="preserve">
     <value>Tindakan</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(tidak ada judul)</value>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>Kembali ke Semua Dokumen</value>
   </data>
-  <data name="Delete" xml:space="preserve">
+  <data name="Clear" xml:space="preserve">
     <value>Hapus</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Waktu Pembuatan</value>
   </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>Cari dokumen</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Cari</value>
-  </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>Cari dokumen...</value>
-  </data>
-  <data name="Clear" xml:space="preserve">
+  <data name="Delete" xml:space="preserve">
     <value>Hapus</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>Daftar Dokumen</value>
+  </data>
+  <data name="Documents by" xml:space="preserve">
+    <value>Dokumen oleh</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Kelola Berbagi</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Tidak ada dokumen yang cocok dengan pencarian Anda.</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Kelola Berbagi</value>
+  <data name="Profile Details" xml:space="preserve">
+    <value>Detail Profil</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cari</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>Cari dokumen</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>Cari dokumen...</value>
+  </data>
+  <data name="This user has not created any documents yet." xml:space="preserve">
+    <value>Pengguna ini belum membuat dokumen apa pun.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Judul</value>
+  </data>
+  <data name="Total Docs" xml:space="preserve">
+    <value>Total Dokumen</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nama Pengguna</value>
   </data>
 
 </root>

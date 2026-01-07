@@ -18,8 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Título</value>
+      <data name="Are you sure?" xml:space="preserve">
+    <value>¿Estás seguro?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Fecha de creación</value>
@@ -27,17 +30,14 @@
   <data name="Delete Document" xml:space="preserve">
     <value>Eliminar documento</value>
   </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Sí, eliminar este documento</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>¿Estás seguro?</value>
-  </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Esta acción es irreversible. Está a punto de eliminar permanentemente el siguiente documento:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Sí, eliminar este documento</value>
   </data>
 
 </root>

@@ -18,113 +18,113 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Role" xml:space="preserve">
-    <value>Rooli</value>
-  </data>
-  <data name="Document:" xml:space="preserve">
-    <value>Asiakirja:</value>
-  </data>
-  <data name="Select a role..." xml:space="preserve">
-    <value>Valitse rooli...</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Hallitse jakoja</value>
-  </data>
-  <data name="Add New Share" xml:space="preserve">
-    <value>Lisää uusi jako</value>
-  </data>
-  <data name="Specific User" xml:space="preserve">
-    <value>Tietty käyttäjä</value>
-  </data>
-  <data name="Back to Document" xml:space="preserve">
-    <value>Takaisin asiakirjaan</value>
-  </data>
-  <data name="Share with" xml:space="preserve">
-    <value>Jaa käyttäjällä</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>Lisää</value>
   </data>
-  <data name="Editable" xml:space="preserve">
-    <value>Muokattava</value>
-  </data>
-  <data name="members" xml:space="preserve">
-    <value>jäsenet</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>Vain luku</value>
-  </data>
-  <data name="Permission" xml:space="preserve">
-    <value>Käyttöoikeus</value>
-  </data>
-  <data name="Type to search users..." xml:space="preserve">
-    <value>Kirjoita etsiäksesi käyttäjiä...</value>
-  </data>
-  <data name="Existing Shares" xml:space="preserve">
-    <value>Olemassa olevat jaot</value>
-  </data>
-  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
-    <value>Ei vielä jaettuja. Lisää yksi yllä jakaksesi tämän dokumentin.</value>
-  </data>
-  <data name="Shared With" xml:space="preserve">
-    <value>Jaettu käyttäjälle</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>Käyttäjä</value>
-  </data>
-  <data name="Created" xml:space="preserve">
-    <value>Luotu</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Poista</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Toiminnot</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Tyyppi</value>
-  </data>
-  <data name="Are you sure you want to remove this share?" xml:space="preserve">
-    <value>Oletko varma, että haluat poistaa tämän jaon?</value>
-  </data>
-  <data name="No users found" xml:space="preserve">
-    <value>Käyttäjiä ei löytynyt</value>
-  </data>
-  <data name="Error searching users" xml:space="preserve">
-    <value>Virhe käyttäjien haussa</value>
-  </data>
-  <data name="Please select a valid user or role." xml:space="preserve">
-    <value>Valitse kelvollinen käyttäjä tai rooli.</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Sulje</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Virhe</value>
-  </data>
-  <data name="An error occurred while processing your request." xml:space="preserve">
-    <value>Pyyntöäsi käsiteltäessä tapahtui virhe.</value>
-  </data>
-  <data name="This user or role already has access to this document." xml:space="preserve">
-    <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän asiakirjaan.</value>
-  </data>
-  <data name="Public Link" xml:space="preserve">
-    <value>Julkinen linkki</value>
+  <data name="Add New Share" xml:space="preserve">
+    <value>Lisää uusi jako</value>
   </data>
   <data name="Allow anonymous viewing (Public)" xml:space="preserve">
     <value>Salli anonyymi katselu (Julkinen)</value>
   </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>Näkyvyys</value>
-  </data>
-  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
-    <value>Kieltää anonyymi katselu (Yksityinen / Jaettu)</value>
+  <data name="An error occurred while processing your request." xml:space="preserve">
+    <value>Pyyntöäsi käsiteltäessä tapahtui virhe.</value>
   </data>
   <data name="Anyone with the link can view this document." xml:space="preserve">
     <value>Kuka tahansa, jolla on linkki, voi tarkastella tätä dokumenttia.</value>
   </data>
+  <data name="Are you sure you want to remove this share?" xml:space="preserve">
+    <value>Oletko varma, että haluat poistaa tämän jaon?</value>
+  </data>
+  <data name="Back to Document" xml:space="preserve">
+    <value>Takaisin asiakirjaan</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Sulje</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Luotu</value>
+  </data>
+  <data name="Document:" xml:space="preserve">
+    <value>Asiakirja:</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>Muokattava</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
+  <data name="Error searching users" xml:space="preserve">
+    <value>Virhe käyttäjien haussa</value>
+  </data>
+  <data name="Existing Shares" xml:space="preserve">
+    <value>Olemassa olevat jaot</value>
+  </data>
+  <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
+    <value>Kieltää anonyymi katselu (Yksityinen / Jaettu)</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Hallitse jakoja</value>
+  </data>
+  <data name="members" xml:space="preserve">
+    <value>jäsenet</value>
+  </data>
+  <data name="No shares yet. Add one above to share this document." xml:space="preserve">
+    <value>Ei vielä jaettuja. Lisää yksi yllä jakaksesi tämän dokumentin.</value>
+  </data>
+  <data name="No users found" xml:space="preserve">
+    <value>Käyttäjiä ei löytynyt</value>
+  </data>
   <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
     <value>Vain sinä ja alla luetellut tietyt käyttäjät/roolit voivat tarkastella tätä dokumenttia.</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
+    <value>Käyttöoikeus</value>
+  </data>
+  <data name="Please select a valid user or role." xml:space="preserve">
+    <value>Valitse kelvollinen käyttäjä tai rooli.</value>
+  </data>
+  <data name="Public Link" xml:space="preserve">
+    <value>Julkinen linkki</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>Vain luku</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Poista</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Rooli</value>
+  </data>
+  <data name="Select a role..." xml:space="preserve">
+    <value>Valitse rooli...</value>
+  </data>
+  <data name="Share with" xml:space="preserve">
+    <value>Jaa käyttäjällä</value>
+  </data>
+  <data name="Shared With" xml:space="preserve">
+    <value>Jaettu käyttäjälle</value>
+  </data>
+  <data name="Specific User" xml:space="preserve">
+    <value>Tietty käyttäjä</value>
+  </data>
+  <data name="This user or role already has access to this document." xml:space="preserve">
+    <value>Tällä käyttäjällä tai roolilla on jo pääsy tähän asiakirjaan.</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tyyppi</value>
+  </data>
+  <data name="Type to search users..." xml:space="preserve">
+    <value>Kirjoita etsiäksesi käyttäjiä...</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Käyttäjä</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Näkyvyys</value>
   </data>
 
 </root>

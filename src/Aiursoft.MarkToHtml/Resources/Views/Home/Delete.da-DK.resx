@@ -18,26 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Titel</value>
+      <data name="Are you sure?" xml:space="preserve">
+    <value>Er du sikker?</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuller</value>
   </data>
-  <data name="Delete Document" xml:space="preserve">
-    <value>Slet dokument</value>
-  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Oprettelsestidspunkt</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Er du sikker?</value>
-  </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Ja, slet dette dokument</value>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Slet dokument</value>
   </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Denne handling kan ikke fortrydes. Du er ved at slette følgende dokument permanent:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Ja, slet dette dokument</value>
   </data>
 
 </root>

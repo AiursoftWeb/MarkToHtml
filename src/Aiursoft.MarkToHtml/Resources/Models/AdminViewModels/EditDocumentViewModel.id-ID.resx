@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Please select the owner of this document!" xml:space="preserve">
-    <value>Silakan pilih pemilik dokumen ini!</value>
+      <data name="Markdown Content" xml:space="preserve">
+    <value>Konten Markdown</value>
   </data>
   <data name="Owner" xml:space="preserve">
     <value>Pemilik</value>
   </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>Konten Markdown</value>
-  </data>
   <data name="Please input your markdown content!" xml:space="preserve">
     <value>Harap masukkan konten markdown Anda!</value>
+  </data>
+  <data name="Please select the owner of this document!" xml:space="preserve">
+    <value>Silakan pilih pemilik dokumen ini!</value>
   </data>
 
 </root>

@@ -18,137 +18,68 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Bem-vindo</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Este é um projeto modelo</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Olá Mundo!</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>Autorização RBAC</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>Integração OpenID Connect</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Porquê usar o Template Aiursoft?</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Suporte a Múltiplas Bases de Dados</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Uma base moderna, rica em funcionalidades e altamente extensível para a sua próxima aplicação web.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Altere facilmente entre fornecedores como SQLite, MySQL, SQL Server e uma base de dados em memória para testes.</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Integre-se perfeitamente com qualquer fornecedor OpenID Connect, com sincronização automática de funções.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Barra de Navegação Dinâmica</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>A barra de navegação ajusta-se automaticamente com base nas funções e permissões do utilizador.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Um sistema integrado de Controlo de Acesso Baseado em Funções (RBAC) para gestão de permissões de granularidade fina.</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Documentação Abrangente</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Gestão de Utilizadores Integrada</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Traduções com Inteligência Artificial</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Inclui documentação extensa e exemplos práticos para começar rapidamente.</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Tradução automática, orientada por IA, para 28 idiomas para alcance global.</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Injeção Automática de Dependências</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Design Responsivo</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Gestão Integrada de Ficheiros</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Uma solução completa para autenticação de utilizadores e gestão de perfis, pronta a usar.</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Todas as dependências são registadas automaticamente e estão sempre disponíveis através de injeção por construtor.</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Inclui um sistema de gestão de ficheiros integrado com compressão automática de avatares.</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Modo Escuro Automático</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Um layout totalmente responsivo que tem um aspeto excelente tanto em dispositivos de computador como em dispositivos móveis.</value>
   </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Dockerizado para Implementação</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Inclui suporte completo para Docker para implementações simplificadas, consistentes e fiáveis.</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Modo escuro inteligente que se adapta automaticamente às definições do sistema do utilizador.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Ler o documento</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Este é um projeto modelo, onde iniciamos a viagem...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Sucesso!</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Conversor de Markdown para HTML</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>Código</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Título do Documento (opcional)</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Escreva o seu Markdown aqui...</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Entrada Markdown</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Documento atualizado com sucesso.</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Uma base moderna, rica em funcionalidades e altamente extensível para a sua próxima aplicação web.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Uma ferramenta simples para converter o seu Markdown em HTML limpo e sanitizado.</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Copiar</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Depois de tornar este documento privado, a ligação pública existente deixará de funcionar. Tem a certeza de que pretende prosseguir?</value>
   </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Pré-visualização</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Traduções com Inteligência Artificial</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>Imprimir</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Todas as dependências são registadas automaticamente e estão sempre disponíveis através de injeção por construtor.</value>
   </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Copiar HTML para a área de transferência</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Ocorreu um erro.</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Pré-visualização de Impressão</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Ocorreu um erro. Por favor, tente novamente.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Tem a certeza de que pretende tornar este documento privado?</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Tem a certeza?</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Modo Escuro Automático</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Injeção Automática de Dependências</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Tradução automática, orientada por IA, para 28 idiomas para alcance global.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Gestão de Utilizadores Integrada</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Alterar para Privado?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Inclui suporte completo para Docker para implementações simplificadas, consistentes e fiáveis.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Documentação Abrangente</value>
   </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Converter e guardar</value>
@@ -156,113 +87,80 @@
   <data name="Convert to HTML" xml:space="preserve">
     <value>Converter para HTML</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Os Meus Documentos</value>
-  </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>A pré-visualização do HTML aparecerá aqui após a conversão.</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Falha ao copiar o texto.</value>
-  </data>
   <data name="Copied!" xml:space="preserve">
     <value>Copiado!</value>
   </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Tornar Privado</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Partilhar Publicamente</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Tornar Público</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Copiar Ligação</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Tornar documento privado</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Copiar ligação para a área de transferência</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Partilhe este documento publicamente com uma ligação única que qualquer pessoa pode aceder sem iniciar sessão.</value>
-  </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Depois de tornar este documento privado, a ligação pública existente deixará de funcionar. Tem a certeza de que pretende prosseguir?</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Tem a certeza de que pretende tornar este documento privado?</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Falha ao tornar o documento público. Por favor, tente novamente.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Falha ao copiar a ligação.</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Ocorreu um erro. Por favor, tente novamente.</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Falha ao tornar o documento privado. Por favor, tente novamente.</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Documento Sem Título</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Privado</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Título</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Público</value>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiar</value>
   </data>
   <data name="Copy HTML" xml:space="preserve">
     <value>Copiar HTML</value>
   </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Copiar HTML para a área de transferência</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Copiar Ligação</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Copiar ligação para a área de transferência</value>
+  </data>
   <data name="Create a new document..." xml:space="preserve">
     <value>Criar um novo documento...</value>
   </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Público - Qualquer pessoa com o link</value>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Dockerizado para Implementação</value>
   </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Privado - Apenas você</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Título do Documento (opcional)</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Guardar Alterações</value>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Documento atualizado com sucesso.</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Sim, Tornar Privado</value>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Barra de Navegação Dinâmica</value>
   </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Alterar para Privado?</value>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Altere facilmente entre fornecedores como SQLite, MySQL, SQL Server e uma base de dados em memória para testes.</value>
   </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Ocorreu um erro.</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Tem a certeza?</value>
-  </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Falha ao atualizar as definições de privacidade.</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Se tornar este documento privado, a ligação pública existente deixará de funcionar imediatamente para todos.</value>
+  <data name="Editor" xml:space="preserve">
+    <value>editor</value>
   </data>
   <data name="Editor Only" xml:space="preserve">
     <value>Apenas Editor</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Vista Dividida</value>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Falha ao copiar a ligação.</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Apenas Pré-visualização</value>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Falha ao copiar o texto.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Falha ao tornar o documento privado. Por favor, tente novamente.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Falha ao tornar o documento público. Por favor, tente novamente.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Falha ao atualizar as definições de privacidade.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Inclui um sistema de gestão de ficheiros integrado com compressão automática de avatares.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Olá Mundo!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>A pré-visualização do HTML aparecerá aqui após a conversão.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Se tornar este documento privado, a ligação pública existente deixará de funcionar imediatamente para todos.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Inclui documentação extensa e exemplos práticos para começar rapidamente.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Gestão Integrada de Ficheiros</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>Interno</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Interno - Utilizadores/funções específicos</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Tornar documento privado</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Tornar Privado</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Tornar Público</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Entrada Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Conversor de Markdown para HTML</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Suporte a Múltiplas Bases de Dados</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Os Meus Documentos</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>Integração OpenID Connect</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pré-visualização</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Apenas Pré-visualização</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pré-visualização de Impressão</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privado</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Privado - Apenas você</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Público</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Público - Qualquer pessoa com o link</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Autorização RBAC</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Ler o documento</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Design Responsivo</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Guardar Alterações</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Integre-se perfeitamente com qualquer fornecedor OpenID Connect, com sincronização automática de funções.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Partilhar</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>editor</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Partilhar Publicamente</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Partilhe este documento publicamente com uma ligação única que qualquer pessoa pode aceder sem iniciar sessão.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Modo escuro inteligente que se adapta automaticamente às definições do sistema do utilizador.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Vista Dividida</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Sucesso!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>A barra de navegação ajusta-se automaticamente com base nas funções e permissões do utilizador.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Este é um projeto modelo</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Este é um projeto modelo, onde iniciamos a viagem...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Escreva o seu Markdown aqui...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Documento Sem Título</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bem-vindo</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Porquê usar o Template Aiursoft?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Sim, Tornar Privado</value>
   </data>
 
 </root>

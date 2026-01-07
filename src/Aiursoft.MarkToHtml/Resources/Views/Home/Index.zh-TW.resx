@@ -18,44 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>歡迎</value>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>內建的角色型存取控制（RBAC）系統，用於細粒度的權限管理。</value>
   </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>這是一個範本專案</value>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>一套完整的用戶認證與個人檔案管理解決方案，開箱即用。</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>哈囉世界！</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>OpenID Connect 整合</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>RBAC 授權</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>多種資料庫支援</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>為什麼使用 Aiursoft 模板？</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>無縫整合任何 OpenID Connect 提供者，並自動同步角色權限。</value>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>完全響應式佈局，在桌面和行動裝置上都能呈現絕佳外觀。</value>
   </data>
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>一個現代化、功能豐富且高度可擴展的基礎架構，為您的下一個網頁應用程式提供堅實根基。</value>
   </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>可輕鬆切換不同的資料庫供應商，例如 SQLite、MySQL、SQL Server 以及用於測試的記憶體資料庫。</value>
+  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
+    <value>一款簡單的工具，可將您的 Markdown 轉換為乾淨、安全的 HTML。</value>
   </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>動態導覽列</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>將此文件設為私有後，現有的公開連結將失效。您確定要繼續嗎？</value>
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI 驅動翻譯</value>
   </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>導覽列會根據使用者角色和權限自動調整顯示內容。</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>所有依賴項都會自動註冊，並始終可透過建構函式注入使用。</value>
+  </data>
+  <data name="An error occurred." xml:space="preserve">
+    <value>發生錯誤。</value>
+  </data>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>發生錯誤，請再試一次。</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>您確定要將此文件設為私人嗎？</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>您確定嗎？</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>自動深色模式</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>自動依賴注入</value>
   </data>
   <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
     <value>自動化、AI 驅動的翻譯，支援 28 種語言，助您觸及全球市場。</value>
@@ -63,125 +66,173 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>內建使用者管理</value>
   </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>完整說明文件</value>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
   </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
-    <value>內建的角色型存取控制（RBAC）系統，用於細粒度的權限管理。</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>包含豐富的文件與實用範例，助您快速上手。</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>自動依賴注入</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>響應式設計</value>
-  </data>
-  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
-    <value>一套完整的用戶認證與個人檔案管理解決方案，開箱即用。</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>整合式檔案管理</value>
-  </data>
-  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
-    <value>完全響應式佈局，在桌面和行動裝置上都能呈現絕佳外觀。</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>具備內建檔案管理系統，並支援自動頭像壓縮功能。</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>所有依賴項都會自動註冊，並始終可透過建構函式注入使用。</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>自動深色模式</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>容器化部署</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>提供完整的 Docker 支援，實現簡化、一致且可靠的部署流程。</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>智慧深色模式，可自動適應使用者的系統設定。</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>閱讀文件</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>這是一個模板專案，我們從這裡開啟航程...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>成功！</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>在此輸入您的 Markdown...</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Markdown 輸入</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>文件標題 (選填)</value>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>變更為私人文件？</value>
   </data>
   <data name="Code" xml:space="preserve">
     <value>程式碼</value>
   </data>
-  <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
-    <value>一款簡單的工具，可將您的 Markdown 轉換為乾淨、安全的 HTML。</value>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>提供完整的 Docker 支援，實現簡化、一致且可靠的部署流程。</value>
   </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Markdown 轉 HTML 轉換器</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>文件更新成功。</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>複製 HTML 到剪貼簿</value>
-  </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>列印預覽</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>列印</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>複製</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>預覽</value>
-  </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>HTML 預覽將在轉換後顯示於此。</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>我的文件</value>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>完整說明文件</value>
   </data>
   <data name="Convert and save" xml:space="preserve">
     <value>轉換並儲存</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>已複製！</value>
-  </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>轉換為 HTML</value>
   </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>複製文字失敗。</value>
+  <data name="Copied!" xml:space="preserve">
+    <value>已複製！</value>
   </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>設為私人</value>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>設為私人文件</value>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>複製 HTML</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>複製 HTML 到剪貼簿</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>複製連結</value>
   </data>
   <data name="Copy link to clipboard" xml:space="preserve">
     <value>複製連結到剪貼簿</value>
   </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>建立新文件...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>容器化部署</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>文件標題 (選填)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>文件更新成功。</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>動態導覽列</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>可輕鬆切換不同的資料庫供應商，例如 SQLite、MySQL、SQL Server 以及用於測試的記憶體資料庫。</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>編輯器</value>
+  </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>僅編輯器</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>複製連結失敗。</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>複製文字失敗。</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>無法將文件設為私密。請再試一次。</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>無法將文件設為公開。請再試一次。</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>隱私設定更新失敗。</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>具備內建檔案管理系統，並支援自動頭像壓縮功能。</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>哈囉世界！</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>HTML 預覽將在轉換後顯示於此。</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>如果您將此文件設為私密，現有的公開連結將立即對所有人失效。</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>包含豐富的文件與實用範例，助您快速上手。</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>整合式檔案管理</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>內部</value>
+  </data>
+  <data name="Internal - Specific users/roles" xml:space="preserve">
+    <value>內部 - 特定使用者/角色</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>設為私人文件</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>設為私人</value>
+  </data>
   <data name="Make Public" xml:space="preserve">
     <value>設為公開</value>
   </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>複製連結</value>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Markdown 輸入</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown 轉 HTML 轉換器</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>多種資料庫支援</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>我的文件</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect 整合</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>預覽</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>僅限預覽</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>列印預覽</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>私人</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>私人 - 僅限您</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>公開</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>公開 - 擁有連結的任何人</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC 授權</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>閱讀文件</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>響應式設計</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>儲存變更</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>無縫整合任何 OpenID Connect 提供者，並自動同步角色權限。</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>分享</value>
   </data>
   <data name="Share Publicly" xml:space="preserve">
     <value>公開分享</value>
@@ -189,92 +240,41 @@
   <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
     <value>透過獨特的連結公開分享此文件，無需登入即可讓任何人存取。</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>將此文件設為私有後，現有的公開連結將失效。您確定要繼續嗎？</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>無法將文件設為私密。請再試一次。</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>您確定要將此文件設為私人嗎？</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>無法將文件設為公開。請再試一次。</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>發生錯誤，請再試一次。</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>複製連結失敗。</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>標題</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>私人</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>公開 - 擁有連結的任何人</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>公開</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>複製 HTML</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>建立新文件...</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>私人 - 僅限您</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>未命名文件</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>您確定嗎？</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>如果您將此文件設為私密，現有的公開連結將立即對所有人失效。</value>
-  </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>發生錯誤。</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>變更為私人文件？</value>
-  </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>隱私設定更新失敗。</value>
-  </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>是，設為私人</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>儲存變更</value>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>智慧深色模式，可自動適應使用者的系統設定。</value>
   </data>
   <data name="Split View" xml:space="preserve">
     <value>分割檢視</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>僅限預覽</value>
+  <data name="Success!" xml:space="preserve">
+    <value>成功！</value>
   </data>
-  <data name="Editor Only" xml:space="preserve">
-    <value>僅編輯器</value>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>導覽列會根據使用者角色和權限自動調整顯示內容。</value>
   </data>
-  <data name="Internal - Specific users/roles" xml:space="preserve">
-    <value>內部 - 特定使用者/角色</value>
+  <data name="This is a template project" xml:space="preserve">
+    <value>這是一個範本專案</value>
   </data>
-  <data name="Internal" xml:space="preserve">
-    <value>內部</value>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>這是一個模板專案，我們從這裡開啟航程...</value>
   </data>
-  <data name="Share" xml:space="preserve">
-    <value>分享</value>
+  <data name="Title" xml:space="preserve">
+    <value>標題</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>編輯器</value>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>在此輸入您的 Markdown...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>未命名文件</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>歡迎</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>為什麼使用 Aiursoft 模板？</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>是，設為私人</value>
   </data>
 
 </root>

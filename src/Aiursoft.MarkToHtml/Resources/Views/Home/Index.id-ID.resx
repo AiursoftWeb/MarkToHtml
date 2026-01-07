@@ -18,251 +18,149 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Selamat datang</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Ini adalah proyek templat</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Halo Dunia!</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Sebuah fondasi yang modern, kaya fitur, dan sangat dapat diperluas untuk aplikasi web Anda berikutnya.</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>Otorisasi RBAC</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>Integrasi OpenID Connect</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Dukungan Banyak Basis Data</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Mengapa Menggunakan Template Aiursoft?</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Terintegrasi dengan mulus bersama penyedia OpenID Connect apa pun, dengan sinkronisasi peran otomatis.</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Dengan mudah beralih di antara penyedia seperti SQLite, MySQL, SQL Server, dan database dalam memori untuk pengujian.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Sistem Role-Based Access Control (RBAC) bawaan untuk manajemen izin yang terperinci.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Bilah Navigasi Dinamis</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Terjemahan Berbasis AI</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Dokumentasi Komprehensif</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Terjemahan otomatis berbasis AI ke dalam 28 bahasa untuk jangkauan global.</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Bilah navigasi secara otomatis menyesuaikan berdasarkan peran dan izin pengguna.</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Termasuk dokumentasi yang luas dan contoh praktis untuk memulai dengan cepat.</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Manajemen Pengguna Bawaan</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Solusi lengkap untuk autentikasi pengguna dan manajemen profil yang siap pakai.</value>
   </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Desain Responsif</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Injeksi Dependensi Otomatis</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Manajemen File Terintegrasi</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Fitur sistem manajemen file bawaan dengan kompresi avatar otomatis.</value>
-  </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Semua dependensi terdaftar secara otomatis dan selalu tersedia melalui constructor injection.</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Tata letak yang sepenuhnya responsif dan terlihat bagus di perangkat desktop maupun seluler.</value>
   </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Mode Gelap Otomatis</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Mode gelap cerdas yang secara otomatis menyesuaikan dengan pengaturan sistem pengguna.</value>
-  </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Terdockerisasi untuk Deployment</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Dilengkapi dengan dukungan Docker penuh untuk penyebaran yang disederhanakan, konsisten, dan andal.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Baca dokumen</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Ini adalah proyek templat, tempat kami memulai perjalanan...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Berhasil!</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Judul Dokumen (opsional)</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Masukan Markdown</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Konverter Markdown ke HTML</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>Kode</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Ketik Markdown Anda di sini...</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Dokumen berhasil diperbarui.</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Salin</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Pratinjau</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Sebuah fondasi yang modern, kaya fitur, dan sangat dapat diperluas untuk aplikasi web Anda berikutnya.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Alat sederhana untuk mengubah Markdown Anda menjadi HTML yang bersih dan terjamin keamanannya.</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Pratinjau Cetak</value>
-  </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Salin HTML ke papan klip</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>Cetak</value>
-  </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Dokumen Saya</value>
-  </data>
-  <data name="Convert to HTML" xml:space="preserve">
-    <value>Konversi ke HTML</value>
-  </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>Konversi dan simpan</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Tersalin!</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Gagal menyalin teks.</value>
-  </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>Pratinjau HTML akan muncul di sini setelah konversi.</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Jadikan dokumen privat</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Salin Tautan</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Jadikan Pribadi</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Bagikan Secara Publik</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Publikasikan</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Bagikan dokumen ini secara publik dengan tautan unik yang dapat diakses siapa saja tanpa perlu masuk log.</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Salin tautan ke papan klip</value>
-  </data>
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Setelah dokumen ini dijadikan privat, tautan publik yang ada tidak akan berfungsi lagi. Apakah Anda yakin ingin melanjutkan?</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Batal</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Terjemahan Berbasis AI</value>
   </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Apakah Anda yakin ingin membuat dokumen ini menjadi privat?</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Gagal menyalin tautan.</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Gagal membuat dokumen menjadi pribadi. Silakan coba lagi.</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Terjadi kesalahan. Silakan coba lagi.</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Gagal membuat dokumen menjadi publik. Silakan coba lagi.</value>
-  </data>
-  <data name="Copy HTML" xml:space="preserve">
-    <value>Salin HTML</value>
-  </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Pribadi - Hanya Anda</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Judul</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>Buat dokumen baru...</value>
-  </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Publik - Siapa pun dengan tautan</value>
-  </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Simpan Perubahan</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Dokumen Tanpa Judul</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Publik</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Pribadi</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Apakah Anda yakin?</value>
-  </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Ubah ke Privat?</value>
-  </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Jika Anda mengubah dokumen ini menjadi privat, tautan publik yang ada akan segera berhenti berfungsi untuk semua orang.</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Semua dependensi terdaftar secara otomatis dan selalu tersedia melalui constructor injection.</value>
   </data>
   <data name="An error occurred." xml:space="preserve">
     <value>Terjadi kesalahan.</value>
   </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Gagal memperbarui pengaturan privasi.</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Terjadi kesalahan. Silakan coba lagi.</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Ya, Buat Pribadi</value>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Apakah Anda yakin ingin membuat dokumen ini menjadi privat?</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Pratinjau Saja</value>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Apakah Anda yakin?</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Tampilan Terbagi</value>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Mode Gelap Otomatis</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Injeksi Dependensi Otomatis</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Terjemahan otomatis berbasis AI ke dalam 28 bahasa untuk jangkauan global.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Manajemen Pengguna Bawaan</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Ubah ke Privat?</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Kode</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Dilengkapi dengan dukungan Docker penuh untuk penyebaran yang disederhanakan, konsisten, dan andal.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Dokumentasi Komprehensif</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Konversi dan simpan</value>
+  </data>
+  <data name="Convert to HTML" xml:space="preserve">
+    <value>Konversi ke HTML</value>
+  </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Tersalin!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Copy HTML" xml:space="preserve">
+    <value>Salin HTML</value>
+  </data>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Salin HTML ke papan klip</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Salin Tautan</value>
+  </data>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Salin tautan ke papan klip</value>
+  </data>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Buat dokumen baru...</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Terdockerisasi untuk Deployment</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Judul Dokumen (opsional)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Dokumen berhasil diperbarui.</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Bilah Navigasi Dinamis</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Dengan mudah beralih di antara penyedia seperti SQLite, MySQL, SQL Server, dan database dalam memori untuk pengujian.</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Editor</value>
   </data>
   <data name="Editor Only" xml:space="preserve">
     <value>Hanya Editor</value>
+  </data>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Gagal menyalin tautan.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Gagal menyalin teks.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Gagal membuat dokumen menjadi pribadi. Silakan coba lagi.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Gagal membuat dokumen menjadi publik. Silakan coba lagi.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Gagal memperbarui pengaturan privasi.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Fitur sistem manajemen file bawaan dengan kompresi avatar otomatis.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Halo Dunia!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Pratinjau HTML akan muncul di sini setelah konversi.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Jika Anda mengubah dokumen ini menjadi privat, tautan publik yang ada akan segera berhenti berfungsi untuk semua orang.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Termasuk dokumentasi yang luas dan contoh praktis untuk memulai dengan cepat.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Manajemen File Terintegrasi</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>Internal</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Internal - Pengguna/peran tertentu</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Jadikan dokumen privat</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Jadikan Pribadi</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Publikasikan</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Masukan Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Konverter Markdown ke HTML</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Dukungan Banyak Basis Data</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Dokumen Saya</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>Integrasi OpenID Connect</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Pratinjau Saja</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Cetak</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Pratinjau Cetak</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Pribadi</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Pribadi - Hanya Anda</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Publik</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Publik - Siapa pun dengan tautan</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Otorisasi RBAC</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Baca dokumen</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Desain Responsif</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Simpan Perubahan</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Terintegrasi dengan mulus bersama penyedia OpenID Connect apa pun, dengan sinkronisasi peran otomatis.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Bagikan</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>Editor</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Bagikan Secara Publik</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Bagikan dokumen ini secara publik dengan tautan unik yang dapat diakses siapa saja tanpa perlu masuk log.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Mode gelap cerdas yang secara otomatis menyesuaikan dengan pengaturan sistem pengguna.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Tampilan Terbagi</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Berhasil!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Bilah navigasi secara otomatis menyesuaikan berdasarkan peran dan izin pengguna.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Ini adalah proyek templat</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Ini adalah proyek templat, tempat kami memulai perjalanan...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Judul</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Ketik Markdown Anda di sini...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Dokumen Tanpa Judul</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Selamat datang</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Mengapa Menggunakan Template Aiursoft?</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Ya, Buat Pribadi</value>
   </data>
 
 </root>

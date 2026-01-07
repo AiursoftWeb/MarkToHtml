@@ -21,14 +21,14 @@
       <data name="Please input your markdown content!" xml:space="preserve">
     <value>Vui lòng nhập nội dung markdown của bạn!</value>
   </data>
-  <data name="The document title contains sensitive words." xml:space="preserve">
-    <value>Tiêu đề tài liệu chứa từ ngữ nhạy cảm.</value>
+  <data name="Something went wrong, please try again later." xml:space="preserve">
+    <value>Đã xảy ra lỗi, vui lòng thử lại sau.</value>
   </data>
   <data name="The document content contains sensitive words." xml:space="preserve">
     <value>Nội dung tài liệu chứa từ ngữ nhạy cảm.</value>
   </data>
-  <data name="Something went wrong, please try again later." xml:space="preserve">
-    <value>Đã xảy ra lỗi, vui lòng thử lại sau.</value>
+  <data name="The document title contains sensitive words." xml:space="preserve">
+    <value>Tiêu đề tài liệu chứa từ ngữ nhạy cảm.</value>
   </data>
 
 </root>

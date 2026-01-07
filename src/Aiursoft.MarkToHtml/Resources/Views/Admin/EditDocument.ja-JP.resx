@@ -18,47 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Delete" xml:space="preserve">
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- 所有者を選択 --</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>一覧に戻る</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
     <value>削除</value>
   </data>
   <data name="Document Details" xml:space="preserve">
     <value>ドキュメントの詳細</value>
   </data>
-  <data name="Enter the document title" xml:space="preserve">
-    <value>ドキュメントのタイトルを入力</value>
-  </data>
-  <data name="Edit Document" xml:space="preserve">
-    <value>ドキュメントの編集</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>文書の内容、タイトル、所有者を変更します。</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>ドキュメントタイトル（任意）</value>
   </data>
   <data name="Document updated successfully." xml:space="preserve">
     <value>ドキュメントが正常に更新されました。</value>
   </data>
-  <data name="Success!" xml:space="preserve">
-    <value>成功しました！</value>
+  <data name="Edit Document" xml:space="preserve">
+    <value>ドキュメントの編集</value>
   </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>ドキュメントタイトル（任意）</value>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>ドキュメントのタイトルを入力</value>
   </data>
-  <data name="Back to List" xml:space="preserve">
-    <value>一覧に戻る</value>
-  </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- 所有者を選択 --</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Markdownをここに入力してください...</value>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>共有の管理</value>
   </data>
   <data name="Markdown Content" xml:space="preserve">
     <value>Markdownコンテンツ</value>
   </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>文書の内容、タイトル、所有者を変更します。</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>共有の管理</value>
+  <data name="Success!" xml:space="preserve">
+    <value>成功しました！</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Markdownをここに入力してください...</value>
   </data>
 
 </root>

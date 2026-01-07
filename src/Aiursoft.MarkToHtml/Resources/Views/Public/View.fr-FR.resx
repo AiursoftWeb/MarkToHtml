@@ -18,44 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Print Preview" xml:space="preserve">
-    <value>Aperçu avant impression</value>
-  </data>
-  <data name="Print" xml:space="preserve">
-    <value>Imprimer</value>
-  </data>
-  <data name="Document Preview" xml:space="preserve">
-    <value>Aperçu du document</value>
+      <data name="Copied!" xml:space="preserve">
+    <value>Copié !</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copier</value>
   </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Copié !</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Aperçu</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Copier le Markdown dans le presse-papiers</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
+    <value>Aperçu du document</value>
   </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Échec de la copie du texte.</value>
   </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Aperçu avant impression</value>
+  </data>
   <data name="Raw" xml:space="preserve">
     <value>Brut</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Afficher le Markdown brut</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Source</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Voir le code source</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Afficher le Markdown brut</value>
   </data>
 
 </root>

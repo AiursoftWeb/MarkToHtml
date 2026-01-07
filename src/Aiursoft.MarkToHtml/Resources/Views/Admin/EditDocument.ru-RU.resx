@@ -18,47 +18,47 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Edit Document" xml:space="preserve">
-    <value>Редактировать документ</value>
-  </data>
-  <data name="Document Details" xml:space="preserve">
-    <value>Сведения о документе</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Успех!</value>
-  </data>
-  <data name="Enter the document title" xml:space="preserve">
-    <value>Введите название документа</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Документ успешно обновлён.</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Название документа (необязательно)</value>
-  </data>
-  <data name="Modify document content, title, and owner." xml:space="preserve">
-    <value>Изменение содержимого документа, заголовка и владельца.</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Введите ваш Markdown здесь...</value>
-  </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>Содержимое Markdown</value>
+      <data name="-- Select an Owner --" xml:space="preserve">
+    <value>-- Выберите владельца --</value>
   </data>
   <data name="Back to List" xml:space="preserve">
     <value>Назад к списку</value>
   </data>
-  <data name="-- Select an Owner --" xml:space="preserve">
-    <value>-- Выберите владельца --</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Document Details" xml:space="preserve">
+    <value>Сведения о документе</value>
+  </data>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Название документа (необязательно)</value>
+  </data>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Документ успешно обновлён.</value>
+  </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Редактировать документ</value>
+  </data>
+  <data name="Enter the document title" xml:space="preserve">
+    <value>Введите название документа</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>Управление доступом</value>
+  </data>
+  <data name="Markdown Content" xml:space="preserve">
+    <value>Содержимое Markdown</value>
+  </data>
+  <data name="Modify document content, title, and owner." xml:space="preserve">
+    <value>Изменение содержимого документа, заголовка и владельца.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Сохранить изменения</value>
   </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>Управление доступом</value>
+  <data name="Success!" xml:space="preserve">
+    <value>Успех!</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Введите ваш Markdown здесь...</value>
   </data>
 
 </root>

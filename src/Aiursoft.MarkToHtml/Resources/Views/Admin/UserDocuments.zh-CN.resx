@@ -18,26 +18,53 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to All Documents" xml:space="preserve">
-    <value>返回所有文档</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>文档列表</value>
-  </data>
-  <data name="Total Docs" xml:space="preserve">
-    <value>文档总数</value>
-  </data>
-  <data name="Username" xml:space="preserve">
-    <value>用户名</value>
-  </data>
-  <data name="Profile Details" xml:space="preserve">
-    <value>个人资料详情</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>（无标题）</value>
   </data>
   <data name="A list of all documents created by this user." xml:space="preserve">
     <value>此用户创建的所有文档列表。</value>
   </data>
+  <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Back to All Documents" xml:space="preserve">
+    <value>返回所有文档</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>文档列表</value>
+  </data>
   <data name="Documents by" xml:space="preserve">
     <value>由...创建的文档</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>管理分享</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>没有找到匹配的文档。</value>
+  </data>
+  <data name="Profile Details" xml:space="preserve">
+    <value>个人资料详情</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Search documents" xml:space="preserve">
+    <value>搜索文档</value>
+  </data>
+  <data name="Search documents..." xml:space="preserve">
+    <value>搜索文档...</value>
   </data>
   <data name="This user has not created any documents yet." xml:space="preserve">
     <value>该用户尚未创建任何文档。</value>
@@ -45,38 +72,11 @@
   <data name="Title" xml:space="preserve">
     <value>标题</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>编辑</value>
+  <data name="Total Docs" xml:space="preserve">
+    <value>文档总数</value>
   </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>创建时间</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="Delete" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>（无标题）</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>搜索</value>
-  </data>
-  <data name="Clear" xml:space="preserve">
-    <value>清除</value>
-  </data>
-  <data name="Search documents..." xml:space="preserve">
-    <value>搜索文档...</value>
-  </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>没有找到匹配的文档。</value>
-  </data>
-  <data name="Search documents" xml:space="preserve">
-    <value>搜索文档</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>管理分享</value>
+  <data name="Username" xml:space="preserve">
+    <value>用户名</value>
   </data>
 
 </root>

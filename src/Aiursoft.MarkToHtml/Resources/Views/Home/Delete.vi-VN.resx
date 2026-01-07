@@ -18,26 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Title" xml:space="preserve">
-    <value>Tiêu đề</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>Thời gian tạo</value>
+      <data name="Are you sure?" xml:space="preserve">
+    <value>Bạn có chắc chắn không?</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Bạn có chắc chắn không?</value>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Thời gian tạo</value>
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Xóa Tài liệu</value>
   </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>Có, xóa tài liệu này</value>
-  </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>Hành động này không thể hoàn tác. Bạn sắp xóa vĩnh viễn tài liệu sau:</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tiêu đề</value>
+  </data>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>Có, xóa tài liệu này</value>
   </data>
 
 </root>

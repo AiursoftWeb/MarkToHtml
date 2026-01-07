@@ -18,8 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Document Preview" xml:space="preserve">
+      <data name="Copied!" xml:space="preserve">
+    <value>Скопійовано!</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копіювати</value>
+  </data>
+  <data name="Copy Markdown to clipboard" xml:space="preserve">
+    <value>Скопіювати Markdown у буфер обміну</value>
+  </data>
+  <data name="Document Preview" xml:space="preserve">
     <value>Попередній перегляд документа</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Не вдалося скопіювати текст.</value>
+  </data>
+  <data name="Markdown" xml:space="preserve">
+    <value>Markdown</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Попередній перегляд</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Друк</value>
@@ -30,32 +48,14 @@
   <data name="Raw" xml:space="preserve">
     <value>Необроблений</value>
   </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Копіювати</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Попередній перегляд</value>
-  </data>
-  <data name="Copied!" xml:space="preserve">
-    <value>Скопійовано!</value>
-  </data>
-  <data name="Markdown" xml:space="preserve">
-    <value>Markdown</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Не вдалося скопіювати текст.</value>
-  </data>
-  <data name="Copy Markdown to clipboard" xml:space="preserve">
-    <value>Скопіювати Markdown у буфер обміну</value>
-  </data>
-  <data name="View raw Markdown" xml:space="preserve">
-    <value>Переглянути оригінальний Markdown</value>
-  </data>
   <data name="Source" xml:space="preserve">
     <value>Джерело</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Переглянути необроблений текст</value>
+  </data>
+  <data name="View raw Markdown" xml:space="preserve">
+    <value>Переглянути оригінальний Markdown</value>
   </data>
 
 </root>

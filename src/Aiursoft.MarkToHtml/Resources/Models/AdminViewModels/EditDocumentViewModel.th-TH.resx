@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Owner" xml:space="preserve">
+      <data name="Markdown Content" xml:space="preserve">
+    <value>เนื้อหามาร์กดาวน์</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
     <value>เจ้าของ</value>
   </data>
   <data name="Please input your markdown content!" xml:space="preserve">
@@ -26,9 +29,6 @@
   </data>
   <data name="Please select the owner of this document!" xml:space="preserve">
     <value>กรุณาเลือกเจ้าของเอกสารนี้!</value>
-  </data>
-  <data name="Markdown Content" xml:space="preserve">
-    <value>เนื้อหามาร์กดาวน์</value>
   </data>
 
 </root>

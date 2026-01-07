@@ -18,26 +18,8 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Owner" xml:space="preserve">
-    <value>मालिक</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>शीर्षक</value>
-  </data>
-  <data name="All Documents" xml:space="preserve">
-    <value>सभी दस्तावेज़</value>
-  </data>
-  <data name="Creation Time" xml:space="preserve">
-    <value>निर्माण समय</value>
-  </data>
-  <data name="Document List" xml:space="preserve">
-    <value>दस्तावेज़ सूची</value>
-  </data>
-  <data name="No documents found in the system." xml:space="preserve">
-    <value>सिस्टम में कोई दस्तावेज़ नहीं मिला।</value>
-  </data>
-  <data name="View and manage all documents across the entire system." xml:space="preserve">
-    <value>सिस्टम भर में सभी दस्तावेज़ों को देखें और प्रबंधित करें।</value>
+      <data name="(no title)" xml:space="preserve">
+    <value>(कोई शीर्षक नहीं)</value>
   </data>
   <data name="A list of all documents from all users in the system." xml:space="preserve">
     <value>सिस्टम में सभी उपयोगकर्ताओं के सभी दस्तावेज़ों की एक सूची।</value>
@@ -45,14 +27,38 @@
   <data name="Actions" xml:space="preserve">
     <value>कार्रवाइयाँ</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>संपादित करें</value>
+  <data name="All Documents" xml:space="preserve">
+    <value>सभी दस्तावेज़</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(कोई शीर्षक नहीं)</value>
+  <data name="Clear" xml:space="preserve">
+    <value>साफ़ करें</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>निर्माण समय</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>हटाएँ</value>
+  </data>
+  <data name="Document List" xml:space="preserve">
+    <value>दस्तावेज़ सूची</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
+  </data>
+  <data name="Manage Shares" xml:space="preserve">
+    <value>शेयर प्रबंधित करें</value>
+  </data>
+  <data name="No documents found in the system." xml:space="preserve">
+    <value>सिस्टम में कोई दस्तावेज़ नहीं मिला।</value>
+  </data>
+  <data name="No documents match your search." xml:space="preserve">
+    <value>आपकी खोज से कोई भी दस्तावेज़ मेल नहीं खाता।</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>मालिक</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजें</value>
   </data>
   <data name="Search documents" xml:space="preserve">
     <value>दस्तावेज़ खोजें</value>
@@ -60,17 +66,11 @@
   <data name="Search documents..." xml:space="preserve">
     <value>दस्तावेज़ खोजें...</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>साफ़ करें</value>
+  <data name="Title" xml:space="preserve">
+    <value>शीर्षक</value>
   </data>
-  <data name="No documents match your search." xml:space="preserve">
-    <value>आपकी खोज से कोई भी दस्तावेज़ मेल नहीं खाता।</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>खोजें</value>
-  </data>
-  <data name="Manage Shares" xml:space="preserve">
-    <value>शेयर प्रबंधित करें</value>
+  <data name="View and manage all documents across the entire system." xml:space="preserve">
+    <value>सिस्टम भर में सभी दस्तावेज़ों को देखें और प्रबंधित करें।</value>
   </data>
 
 </root>

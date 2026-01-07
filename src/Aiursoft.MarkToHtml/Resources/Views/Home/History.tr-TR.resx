@@ -18,23 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="All My Documents" xml:space="preserve">
-    <value>Tüm Belgelerim</value>
+      <data name="A list of all documents you have created." xml:space="preserve">
+    <value>Oluşturduğunuz tüm belgelerin listesi.</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Belgelerim</value>
+  <data name="All My Documents" xml:space="preserve">
+    <value>Tüm Belgelerim</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Başlık</value>
-  </data>
-  <data name="Length" xml:space="preserve">
-    <value>Uzunluk</value>
-  </data>
-  <data name="A list of all documents you have created." xml:space="preserve">
-    <value>Oluşturduğunuz tüm belgelerin listesi.</value>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
   </data>
   <data name="Create a new document" xml:space="preserve">
     <value>Yeni bir belge oluştur</value>
@@ -42,26 +36,20 @@
   <data name="Creation Time" xml:space="preserve">
     <value>Oluşturulma Zamanı</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>Düzenle</value>
-  </data>
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Ara</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
   </data>
-  <data name="Clear" xml:space="preserve">
-    <value>Temizle</value>
+  <data name="Internal" xml:space="preserve">
+    <value>İç</value>
   </data>
-  <data name="Search my documents..." xml:space="preserve">
-    <value>Belgelerimde ara...</value>
+  <data name="Length" xml:space="preserve">
+    <value>Uzunluk</value>
   </data>
-  <data name="Search my documents" xml:space="preserve">
-    <value>Belgelerimde ara</value>
-  </data>
-  <data name="You have not created any documents yet." xml:space="preserve">
-    <value>Henüz hiç belge oluşturmadınız.</value>
+  <data name="My Documents" xml:space="preserve">
+    <value>Belgelerim</value>
   </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Aramanızla eşleşen belge bulunamadı.</value>
@@ -69,17 +57,29 @@
   <data name="Private" xml:space="preserve">
     <value>Özel</value>
   </data>
-  <data name="Visibility" xml:space="preserve">
-    <value>Görünürlük</value>
-  </data>
   <data name="Public" xml:space="preserve">
     <value>Herkese Açık</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Search my documents" xml:space="preserve">
+    <value>Belgelerimde ara</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Belgelerimde ara...</value>
   </data>
   <data name="Share" xml:space="preserve">
     <value>Paylaş</value>
   </data>
-  <data name="Internal" xml:space="preserve">
-    <value>İç</value>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Görünürlük</value>
+  </data>
+  <data name="You have not created any documents yet." xml:space="preserve">
+    <value>Henüz hiç belge oluşturmadınız.</value>
   </data>
 
 </root>

@@ -18,143 +18,71 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Welcome" xml:space="preserve">
-    <value>Καλώς ήρθατε</value>
-  </data>
-  <data name="This is a template project" xml:space="preserve">
-    <value>Αυτό είναι ένα πρότυπο έργο</value>
-  </data>
-  <data name="RBAC Authorization" xml:space="preserve">
-    <value>Εξουσιοδότηση RBAC</value>
-  </data>
-  <data name="OpenID Connect Integration" xml:space="preserve">
-    <value>Ενσωμάτωση OpenID Connect</value>
-  </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Γεια σου Κόσμε!</value>
-  </data>
-  <data name="Why use the Aiursoft Template?" xml:space="preserve">
-    <value>Γιατί να χρησιμοποιήσετε το Πρότυπο Aiursoft;</value>
-  </data>
-  <data name="Multiple Database Support" xml:space="preserve">
-    <value>Υποστήριξη Πολλαπλών Βάσεων Δεδομένων</value>
-  </data>
-  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
-    <value>Εύκολη εναλλαγή μεταξύ παρόχων όπως SQLite, MySQL, SQL Server και μιας βάσης δεδομένων στη μνήμη για δοκιμές.</value>
-  </data>
-  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
-    <value>Μια σύγχρονη, πλούσια σε λειτουργίες και εξαιρετικά επεκτάσιμη βάση για την επόμενη εφαρμογή σας web.</value>
-  </data>
-  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
-    <value>Απολαύστε απρόσκοπτη ενσωμάτωση με οποιονδήποτε πάροχο OpenID Connect, με αυτόματο συγχρονισμό ρόλων.</value>
-  </data>
-  <data name="Dynamic Navigation Bar" xml:space="preserve">
-    <value>Δυναμική Γραμμή Πλοήγησης</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Μεταφράσεις με Τεχνητή Νοημοσύνη</value>
-  </data>
-  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
-    <value>Η γραμμή πλοήγησης προσαρμόζεται αυτόματα με βάση τους ρόλους και τα δικαιώματα των χρηστών.</value>
-  </data>
-  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
-    <value>Αυτόματη, τεχνητή νοημοσύνη μετάφραση σε 28 γλώσσες για παγκόσμια εμβέλεια.</value>
-  </data>
-  <data name="Comprehensive Documentation" xml:space="preserve">
-    <value>Πληρέστερη Τεκμηρίωση</value>
-  </data>
-  <data name="Built-in User Management" xml:space="preserve">
-    <value>Ενσωματωμένη Διαχείριση Χρηστών</value>
-  </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Περιλαμβάνει εκτενή τεκμηρίωση και πρακτικά παραδείγματα για να ξεκινήσετε γρήγορα.</value>
-  </data>
-  <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Ένα ενσωματωμένο σύστημα Ελέγχου Πρόσβασης Βάσει Ρόλων (RBAC) για λεπτομερή διαχείριση δικαιωμάτων.</value>
-  </data>
-  <data name="Automatic Dependency Injection" xml:space="preserve">
-    <value>Αυτόματη Ενσωμάτωση Εξαρτήσεων</value>
-  </data>
-  <data name="Integrated File Management" xml:space="preserve">
-    <value>Ενσωματωμένη Διαχείριση Αρχείων</value>
   </data>
   <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
     <value>Μια ολοκληρωμένη λύση για την πιστοποίηση χρηστών και τη διαχείριση προφίλ, έτοιμη προς χρήση.</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Όλες οι εξαρτήσεις εγγράφονται αυτόματα και είναι πάντα διαθέσιμες μέσω της εισαγωγής από κατασκευαστή.</value>
-  </data>
-  <data name="Responsive Design" xml:space="preserve">
-    <value>Αποκρισιμό Σχεδιασμό</value>
-  </data>
-  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
-    <value>Διαθέτει ενσωματωμένο σύστημα διαχείρισης αρχείων με αυτόματη συμπίεση avatar.</value>
-  </data>
-  <data name="Automatic Dark Mode" xml:space="preserve">
-    <value>Αυτόματη Λειτουργία Σκούρου Θέματος</value>
-  </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Μια πλήρως ανταποκρινόμενη διάταξη που φαίνεται εξαιρετική τόσο σε επιτραπέζιους υπολογιστές όσο και σε κινητές συσκευές.</value>
   </data>
-  <data name="Dockerized for Deployment" xml:space="preserve">
-    <value>Σε Docker για Ανάπτυξη</value>
-  </data>
-  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
-    <value>Έξυπνη λειτουργία σκούρου θέματος που προσαρμόζεται αυτόματα στις ρυθμίσεις συστήματος του χρήστη.</value>
-  </data>
-  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
-    <value>Διαθέτει πλήρη υποστήριξη Docker για απλοποιημένες, συνεπείς και αξιόπιστες αναπτύξεις.</value>
-  </data>
-  <data name="Read the document" xml:space="preserve">
-    <value>Διαβάστε το έγγραφο</value>
-  </data>
-  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
-    <value>Αυτό είναι ένα πρότυπο έργο, από όπου ξεκινάμε το ταξίδι...</value>
-  </data>
-  <data name="Success!" xml:space="preserve">
-    <value>Επιτυχία!</value>
-  </data>
-  <data name="Document Title (optional)" xml:space="preserve">
-    <value>Τίτλος Εγγράφου (προαιρετικό)</value>
-  </data>
-  <data name="Markdown Input" xml:space="preserve">
-    <value>Είσοδος Markdown</value>
-  </data>
-  <data name="Markdown to HTML Converter" xml:space="preserve">
-    <value>Μετατροπέας Markdown σε HTML</value>
-  </data>
-  <data name="Document updated successfully." xml:space="preserve">
-    <value>Το έγγραφο ενημερώθηκε με επιτυχία.</value>
-  </data>
-  <data name="Code" xml:space="preserve">
-    <value>Κώδικας</value>
-  </data>
-  <data name="Type your Markdown here..." xml:space="preserve">
-    <value>Πληκτρολογήστε το Markdown σας εδώ...</value>
-  </data>
-  <data name="Copy" xml:space="preserve">
-    <value>Αντιγραφή</value>
-  </data>
-  <data name="Preview" xml:space="preserve">
-    <value>Προεπισκόπηση</value>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Μια σύγχρονη, πλούσια σε λειτουργίες και εξαιρετικά επεκτάσιμη βάση για την επόμενη εφαρμογή σας web.</value>
   </data>
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Ένα απλό εργαλείο για τη μετατροπή του Markdown σε καθαρό, ασφαλές HTML.</value>
   </data>
-  <data name="Copy HTML to clipboard" xml:space="preserve">
-    <value>Αντιγραφή HTML στο πρόχειρο</value>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Αφού κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος δεν θα λειτουργεί πλέον. Είστε σίγουροι ότι θέλετε να συνεχίσετε;</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>Εκτύπωση</value>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Μεταφράσεις με Τεχνητή Νοημοσύνη</value>
   </data>
-  <data name="HTML preview will appear here after conversion." xml:space="preserve">
-    <value>Η προεπισκόπηση HTML θα εμφανιστεί εδώ μετά τη μετατροπή.</value>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Όλες οι εξαρτήσεις εγγράφονται αυτόματα και είναι πάντα διαθέσιμες μέσω της εισαγωγής από κατασκευαστή.</value>
   </data>
-  <data name="My Documents" xml:space="preserve">
-    <value>Τα Έγγραφά Μου</value>
+  <data name="An error occurred." xml:space="preserve">
+    <value>Προέκυψε ένα σφάλμα.</value>
   </data>
-  <data name="Print Preview" xml:space="preserve">
-    <value>Προεπισκόπηση εκτύπωσης</value>
+  <data name="An error occurred. Please try again." xml:space="preserve">
+    <value>Προέκυψε σφάλμα. Παρακαλώ δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Are you sure you want to make this document private?" xml:space="preserve">
+    <value>Είστε σίγουροι ότι θέλετε να κάνετε αυτό το έγγραφο ιδιωτικό;</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>Είστε σίγουρος/η;</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Αυτόματη Λειτουργία Σκούρου Θέματος</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Αυτόματη Ενσωμάτωση Εξαρτήσεων</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Αυτόματη, τεχνητή νοημοσύνη μετάφραση σε 28 γλώσσες για παγκόσμια εμβέλεια.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Ενσωματωμένη Διαχείριση Χρηστών</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Change to Private?" xml:space="preserve">
+    <value>Αλλαγή σε Ιδιωτικό;</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Κώδικας</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Διαθέτει πλήρη υποστήριξη Docker για απλοποιημένες, συνεπείς και αξιόπιστες αναπτύξεις.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Πληρέστερη Τεκμηρίωση</value>
+  </data>
+  <data name="Convert and save" xml:space="preserve">
+    <value>Μετατροπή και αποθήκευση</value>
   </data>
   <data name="Convert to HTML" xml:space="preserve">
     <value>Μετατροπή σε HTML</value>
@@ -162,107 +90,77 @@
   <data name="Copied!" xml:space="preserve">
     <value>Αντιγράφτηκε!</value>
   </data>
-  <data name="Convert and save" xml:space="preserve">
-    <value>Μετατροπή και αποθήκευση</value>
-  </data>
-  <data name="Failed to copy text." xml:space="preserve">
-    <value>Αποτυχία αντιγραφής κειμένου.</value>
-  </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Κάνε το έγγραφο ιδιωτικό</value>
-  </data>
-  <data name="Copy link to clipboard" xml:space="preserve">
-    <value>Αντιγραφή συνδέσμου στο πρόχειρο</value>
-  </data>
-  <data name="Make Private" xml:space="preserve">
-    <value>Κάντε Ιδιωτικό</value>
-  </data>
-  <data name="Copy Link" xml:space="preserve">
-    <value>Αντιγραφή Συνδέσμου</value>
-  </data>
-  <data name="Make Public" xml:space="preserve">
-    <value>Δημοσιοποίηση</value>
-  </data>
-  <data name="Share Publicly" xml:space="preserve">
-    <value>Διαμοιραστείτε Δημόσια</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Ακύρωση</value>
-  </data>
-  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
-    <value>Μοιραστείτε δημόσια αυτό το έγγραφο με έναν μοναδικό σύνδεσμο που μπορεί να προσεγγίσει οποιοσδήποτε χωρίς να χρειαστεί σύνδεση.</value>
-  </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Αφού κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος δεν θα λειτουργεί πλέον. Είστε σίγουροι ότι θέλετε να συνεχίσετε;</value>
-  </data>
-  <data name="An error occurred. Please try again." xml:space="preserve">
-    <value>Προέκυψε σφάλμα. Παρακαλώ δοκιμάστε ξανά.</value>
-  </data>
-  <data name="Failed to copy link." xml:space="preserve">
-    <value>Αποτυχία αντιγραφής συνδέσμου.</value>
-  </data>
-  <data name="Failed to make document public. Please try again." xml:space="preserve">
-    <value>Αποτυχία δημοσίευσης εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
-  </data>
-  <data name="Are you sure you want to make this document private?" xml:space="preserve">
-    <value>Είστε σίγουροι ότι θέλετε να κάνετε αυτό το έγγραφο ιδιωτικό;</value>
-  </data>
-  <data name="Failed to make document private. Please try again." xml:space="preserve">
-    <value>Αποτυχία κατά την απενεργοποίηση της δημόσιας πρόσβασης του εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
-  </data>
-  <data name="Public" xml:space="preserve">
-    <value>Δημόσιο</value>
-  </data>
-  <data name="Private" xml:space="preserve">
-    <value>Ιδιωτικό</value>
-  </data>
-  <data name="Create a new document..." xml:space="preserve">
-    <value>Δημιουργήστε ένα νέο έγγραφο...</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Τίτλος</value>
-  </data>
-  <data name="Untitled Document" xml:space="preserve">
-    <value>Έγγραφο χωρίς τίτλο</value>
+  <data name="Copy" xml:space="preserve">
+    <value>Αντιγραφή</value>
   </data>
   <data name="Copy HTML" xml:space="preserve">
     <value>Αντιγραφή HTML</value>
   </data>
-  <data name="Public - Anyone with link" xml:space="preserve">
-    <value>Δημόσιο - Όποιος έχει τον σύνδεσμο</value>
+  <data name="Copy HTML to clipboard" xml:space="preserve">
+    <value>Αντιγραφή HTML στο πρόχειρο</value>
   </data>
-  <data name="Private - Only you" xml:space="preserve">
-    <value>Ιδιωτικό - Μόνο εσείς</value>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Αντιγραφή Συνδέσμου</value>
   </data>
-  <data name="Change to Private?" xml:space="preserve">
-    <value>Αλλαγή σε Ιδιωτικό;</value>
+  <data name="Copy link to clipboard" xml:space="preserve">
+    <value>Αντιγραφή συνδέσμου στο πρόχειρο</value>
   </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>Είστε σίγουρος/η;</value>
+  <data name="Create a new document..." xml:space="preserve">
+    <value>Δημιουργήστε ένα νέο έγγραφο...</value>
   </data>
-  <data name="Save Changes" xml:space="preserve">
-    <value>Αποθήκευση Αλλαγών</value>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Σε Docker για Ανάπτυξη</value>
   </data>
-  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
-    <value>Εάν κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος θα σταματήσει αμέσως να λειτουργεί για όλους.</value>
+  <data name="Document Title (optional)" xml:space="preserve">
+    <value>Τίτλος Εγγράφου (προαιρετικό)</value>
   </data>
-  <data name="Yes, Make Private" xml:space="preserve">
-    <value>Ναι, Κάντε το Ιδιωτικό</value>
+  <data name="Document updated successfully." xml:space="preserve">
+    <value>Το έγγραφο ενημερώθηκε με επιτυχία.</value>
   </data>
-  <data name="An error occurred." xml:space="preserve">
-    <value>Προέκυψε ένα σφάλμα.</value>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Δυναμική Γραμμή Πλοήγησης</value>
   </data>
-  <data name="Failed to update privacy settings." xml:space="preserve">
-    <value>Αποτυχία ενημέρωσης ρυθμίσεων απορρήτου.</value>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Εύκολη εναλλαγή μεταξύ παρόχων όπως SQLite, MySQL, SQL Server και μιας βάσης δεδομένων στη μνήμη για δοκιμές.</value>
   </data>
-  <data name="Preview Only" xml:space="preserve">
-    <value>Μόνο Προεπισκόπηση</value>
+  <data name="Editor" xml:space="preserve">
+    <value>Επεξεργαστής</value>
   </data>
   <data name="Editor Only" xml:space="preserve">
     <value>Μόνο Επεξεργαστής</value>
   </data>
-  <data name="Split View" xml:space="preserve">
-    <value>Διαχωρισμένη Προβολή</value>
+  <data name="Failed to copy link." xml:space="preserve">
+    <value>Αποτυχία αντιγραφής συνδέσμου.</value>
+  </data>
+  <data name="Failed to copy text." xml:space="preserve">
+    <value>Αποτυχία αντιγραφής κειμένου.</value>
+  </data>
+  <data name="Failed to make document private. Please try again." xml:space="preserve">
+    <value>Αποτυχία κατά την απενεργοποίηση της δημόσιας πρόσβασης του εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Failed to make document public. Please try again." xml:space="preserve">
+    <value>Αποτυχία δημοσίευσης εγγράφου. Παρακαλώ δοκιμάστε ξανά.</value>
+  </data>
+  <data name="Failed to update privacy settings." xml:space="preserve">
+    <value>Αποτυχία ενημέρωσης ρυθμίσεων απορρήτου.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Διαθέτει ενσωματωμένο σύστημα διαχείρισης αρχείων με αυτόματη συμπίεση avatar.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Γεια σου Κόσμε!</value>
+  </data>
+  <data name="HTML preview will appear here after conversion." xml:space="preserve">
+    <value>Η προεπισκόπηση HTML θα εμφανιστεί εδώ μετά τη μετατροπή.</value>
+  </data>
+  <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
+    <value>Εάν κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος θα σταματήσει αμέσως να λειτουργεί για όλους.</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Περιλαμβάνει εκτενή τεκμηρίωση και πρακτικά παραδείγματα για να ξεκινήσετε γρήγορα.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Ενσωματωμένη Διαχείριση Αρχείων</value>
   </data>
   <data name="Internal" xml:space="preserve">
     <value>Εσωτερικό</value>
@@ -270,11 +168,113 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
   </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Κάνε το έγγραφο ιδιωτικό</value>
+  </data>
+  <data name="Make Private" xml:space="preserve">
+    <value>Κάντε Ιδιωτικό</value>
+  </data>
+  <data name="Make Public" xml:space="preserve">
+    <value>Δημοσιοποίηση</value>
+  </data>
+  <data name="Markdown Input" xml:space="preserve">
+    <value>Είσοδος Markdown</value>
+  </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Μετατροπέας Markdown σε HTML</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Υποστήριξη Πολλαπλών Βάσεων Δεδομένων</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Τα Έγγραφά Μου</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>Ενσωμάτωση OpenID Connect</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Προεπισκόπηση</value>
+  </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Μόνο Προεπισκόπηση</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Εκτύπωση</value>
+  </data>
+  <data name="Print Preview" xml:space="preserve">
+    <value>Προεπισκόπηση εκτύπωσης</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Ιδιωτικό</value>
+  </data>
+  <data name="Private - Only you" xml:space="preserve">
+    <value>Ιδιωτικό - Μόνο εσείς</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Δημόσιο</value>
+  </data>
+  <data name="Public - Anyone with link" xml:space="preserve">
+    <value>Δημόσιο - Όποιος έχει τον σύνδεσμο</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Εξουσιοδότηση RBAC</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Διαβάστε το έγγραφο</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Αποκρισιμό Σχεδιασμό</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Αποθήκευση Αλλαγών</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Απολαύστε απρόσκοπτη ενσωμάτωση με οποιονδήποτε πάροχο OpenID Connect, με αυτόματο συγχρονισμό ρόλων.</value>
+  </data>
   <data name="Share" xml:space="preserve">
     <value>Κοινοποίηση</value>
   </data>
-  <data name="Editor" xml:space="preserve">
-    <value>Επεξεργαστής</value>
+  <data name="Share Publicly" xml:space="preserve">
+    <value>Διαμοιραστείτε Δημόσια</value>
+  </data>
+  <data name="Share this document publicly with a unique link that anyone can access without logging in." xml:space="preserve">
+    <value>Μοιραστείτε δημόσια αυτό το έγγραφο με έναν μοναδικό σύνδεσμο που μπορεί να προσεγγίσει οποιοσδήποτε χωρίς να χρειαστεί σύνδεση.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Έξυπνη λειτουργία σκούρου θέματος που προσαρμόζεται αυτόματα στις ρυθμίσεις συστήματος του χρήστη.</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Διαχωρισμένη Προβολή</value>
+  </data>
+  <data name="Success!" xml:space="preserve">
+    <value>Επιτυχία!</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Η γραμμή πλοήγησης προσαρμόζεται αυτόματα με βάση τους ρόλους και τα δικαιώματα των χρηστών.</value>
+  </data>
+  <data name="This is a template project" xml:space="preserve">
+    <value>Αυτό είναι ένα πρότυπο έργο</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Αυτό είναι ένα πρότυπο έργο, από όπου ξεκινάμε το ταξίδι...</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Τίτλος</value>
+  </data>
+  <data name="Type your Markdown here..." xml:space="preserve">
+    <value>Πληκτρολογήστε το Markdown σας εδώ...</value>
+  </data>
+  <data name="Untitled Document" xml:space="preserve">
+    <value>Έγγραφο χωρίς τίτλο</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Καλώς ήρθατε</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Γιατί να χρησιμοποιήσετε το Πρότυπο Aiursoft;</value>
+  </data>
+  <data name="Yes, Make Private" xml:space="preserve">
+    <value>Ναι, Κάντε το Ιδιωτικό</value>
   </data>
 
 </root>

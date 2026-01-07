@@ -18,8 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Permission" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>文字</value>
+  </data>
+  <data name="Direct Share" xml:space="preserve">
+    <value>直接共有</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>ドキュメント</value>
+  </data>
+  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
+    <value>あなたまたはあなたのグループと共有されているドキュメント。</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="Editable" xml:space="preserve">
+    <value>編集可能</value>
+  </data>
+  <data name="No shared documents" xml:space="preserve">
+    <value>共有されたドキュメントはありません</value>
+  </data>
+  <data name="Permission" xml:space="preserve">
     <value>権限</value>
+  </data>
+  <data name="Read Only" xml:space="preserve">
+    <value>読み取り専用</value>
+  </data>
+  <data name="Shared At" xml:space="preserve">
+    <value>共有日時</value>
   </data>
   <data name="Shared By" xml:space="preserve">
     <value>共有者</value>
@@ -27,50 +57,20 @@
   <data name="Shared Via" xml:space="preserve">
     <value>共有方法</value>
   </data>
-  <data name="Document" xml:space="preserve">
-    <value>ドキュメント</value>
-  </data>
   <data name="Shared with Me" xml:space="preserve">
     <value>共有されたファイル</value>
-  </data>
-  <data name="No shared documents" xml:space="preserve">
-    <value>共有されたドキュメントはありません</value>
-  </data>
-  <data name="Documents that have been shared with you or your groups." xml:space="preserve">
-    <value>あなたまたはあなたのグループと共有されているドキュメント。</value>
-  </data>
-  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
-    <value>誰かがあなたまたはあなたの役割にドキュメントを共有すると、ここに表示されます。</value>
-  </data>
-  <data name="Shared At" xml:space="preserve">
-    <value>共有日時</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="characters" xml:space="preserve">
-    <value>文字</value>
-  </data>
-  <data name="Via Role" xml:space="preserve">
-    <value>ロール経由</value>
-  </data>
-  <data name="Read Only" xml:space="preserve">
-    <value>読み取り専用</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>無題のドキュメント</value>
   </data>
-  <data name="Direct Share" xml:space="preserve">
-    <value>直接共有</value>
-  </data>
-  <data name="Editable" xml:space="preserve">
-    <value>編集可能</value>
+  <data name="Via Role" xml:space="preserve">
+    <value>ロール経由</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>閲覧</value>
   </data>
-  <data name="Edit" xml:space="preserve">
-    <value>編集</value>
+  <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
+    <value>誰かがあなたまたはあなたの役割にドキュメントを共有すると、ここに表示されます。</value>
   </data>
 
 </root>

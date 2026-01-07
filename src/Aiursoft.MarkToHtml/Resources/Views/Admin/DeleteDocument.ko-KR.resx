@@ -18,20 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Creation Time" xml:space="preserve">
+      <data name="(no title)" xml:space="preserve">
+    <value>(제목 없음)</value>
+  </data>
+  <data name="Are you sure?" xml:space="preserve">
+    <value>확실합니까?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
     <value>생성 시간</value>
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>문서 삭제</value>
   </data>
-  <data name="Yes, delete this document" xml:space="preserve">
-    <value>예, 이 문서를 삭제합니다</value>
-  </data>
   <data name="Owner" xml:space="preserve">
     <value>소유자</value>
-  </data>
-  <data name="Are you sure?" xml:space="preserve">
-    <value>확실합니까?</value>
   </data>
   <data name="This action is irreversible. You are about to permanently delete the following document:" xml:space="preserve">
     <value>이 작업은 되돌릴 수 없습니다. 다음 문서를 영구적으로 삭제하려고 합니다:</value>
@@ -39,11 +42,8 @@
   <data name="Title" xml:space="preserve">
     <value>제목</value>
   </data>
-  <data name="(no title)" xml:space="preserve">
-    <value>(제목 없음)</value>
-  </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>취소</value>
+  <data name="Yes, delete this document" xml:space="preserve">
+    <value>예, 이 문서를 삭제합니다</value>
   </data>
 
 </root>
