@@ -201,11 +201,11 @@
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
-        <link rel="stylesheet" href="~/node_modules/prismjs/themes/prism-tomorrow.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" />
     }
     else
     {
-        <link rel="stylesheet" href="~/node_modules/prismjs/themes/prism.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" />
     }
     <style>
         @@media (max-width: 991.98px) {
@@ -239,13 +239,9 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
-    <script src="~/node_modules/prismjs/components/prism-core.min.js"></script>
-    <script src="~/node_modules/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            if (window.Prism) {
-                Prism.plugins.autoloader.languages_path = '/node_modules/prismjs/components/';
-            }
             require(['vs/editor/editor.main'], function () {
                 let markdownEditorInstance, htmlOutputInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -607,14 +603,14 @@
                 if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
                 if (document.getElementById('preview')?.classList.contains('active')) renderMath();
 
-                // --- Prism Rendering ---
-                function renderPrism() {
-                    if (window.Prism) {
-                        Prism.highlightAll();
+                // --- Highlight.js Rendering ---
+                function renderHighlight() {
+                    if (window.hljs) {
+                        hljs.highlightAll();
                     }
                 }
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderPrism);
-                if (document.getElementById('preview')?.classList.contains('active')) renderPrism();
+                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderHighlight);
+                if (document.getElementById('preview')?.classList.contains('active')) renderHighlight();
 
                 // --- Public Link Copy ---
                 const cpLink = document.getElementById('copy-link-button');

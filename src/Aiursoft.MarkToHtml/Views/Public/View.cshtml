@@ -144,11 +144,11 @@
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
-        <link rel="stylesheet" href="~/node_modules/prismjs/themes/prism-tomorrow.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" />
     }
     else
     {
-        <link rel="stylesheet" href="~/node_modules/prismjs/themes/prism.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" />
     }
 
     <style>
@@ -172,13 +172,9 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
-    <script src="~/node_modules/prismjs/components/prism-core.min.js"></script>
-    <script src="~/node_modules/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.Prism) {
-                Prism.plugins.autoloader.languages_path = '/node_modules/prismjs/components/';
-            }
             if (window.mermaid) {
                 mermaid.initialize({
                     startOnLoad: false,
@@ -221,16 +217,16 @@
                 }
                 renderMath();
                 document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMath);
-                
-                // --- Prism Rendering ---
-                function renderPrism() {
-                    if (window.Prism) {
-                        Prism.highlightAll();
-                    }
-                }
-                renderPrism();
-                document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderPrism);
             }
+
+            // --- Highlight.js Rendering ---
+            function renderHighlight() {
+                if (window.hljs) {
+                    hljs.highlightAll();
+                }
+            }
+            renderHighlight();
+            document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderHighlight);
         });
     </script>
 }
