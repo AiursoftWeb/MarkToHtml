@@ -201,11 +201,11 @@
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
     @if (isDarkMode)
     {
-        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
     }
     else
     {
-        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" />
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
     }
     <style>
         @@media (max-width: 991.98px) {
@@ -226,7 +226,7 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
-    <script src="~/node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
     <script>
         window.MathJax = {
             tex: {
@@ -237,9 +237,9 @@
             }
         };
     </script>
-    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js"></script>
-    <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
-    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js"></script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             require(['vs/editor/editor.main'], function () {
