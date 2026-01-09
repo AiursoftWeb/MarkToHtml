@@ -562,4 +562,18 @@ public class HomeController(
 
         return this.StackView(model);
     }
+
+    [RenderInNavBar(
+        NavGroupName = "Self Host",
+        NavGroupOrder = 10,
+        CascadedLinksGroupName = "Deployment",
+        CascadedLinksIcon = "server",
+        CascadedLinksOrder = 1,
+        LinkText = "Self host a new server",
+        LinkOrder = 1
+    )]
+    public IActionResult SelfHost()
+    {
+        return this.StackView(new SelfHostViewModel("Self host a new server"));
+    }
 }
