@@ -142,6 +142,14 @@
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" />
+    }
 
     <style>
         #markdown-viewer {
@@ -164,6 +172,7 @@
     </script>
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (window.mermaid) {
@@ -209,6 +218,15 @@
                 renderMath();
                 document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderMath);
             }
+
+            // --- Highlight.js Rendering ---
+            function renderHighlight() {
+                if (window.hljs) {
+                    hljs.highlightAll();
+                }
+            }
+            renderHighlight();
+            document.querySelector('a[href="#preview"]')?.addEventListener('shown.bs.tab', renderHighlight);
         });
     </script>
 }
