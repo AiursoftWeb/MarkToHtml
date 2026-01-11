@@ -72,6 +72,10 @@ public class ViewModelArgsInjector(
         _ = localizer["Shared with me"];
         _ = localizer["Share with"];
         _ = localizer["Untitled Document"];
+    
+        _ = localizer["Deployment"];
+        _ = localizer["Self Host"];
+        _ = localizer["Self host a new server"];
     }
 
     public void Inject(
