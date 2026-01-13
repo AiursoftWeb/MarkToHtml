@@ -12,6 +12,9 @@
                 <p class="text-muted">@Localizer["Document:"]: <strong>@Model.DocumentTitle</strong></p>
             </div>
             <div>
+                <button type="button" class="btn btn-outline-primary me-2" onclick="navigator.clipboard.writeText('@Model.PublicLink'); let h = this.innerHTML; this.innerHTML = '<i class=\'align-middle\' data-lucide=\'check\'></i> @Localizer["Copied!"]'; setTimeout(() => this.innerHTML = h, 2000);">
+                    <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy Link"]
+                </button>
                 <a asp-action="Edit" asp-route-id="@Model.DocumentId" class="btn btn-outline-secondary">
                     <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Document"]
                 </a>
@@ -40,10 +43,10 @@
                             </label>
                             <div class="form-text text-muted ms-0">
                                 @Localizer["Anyone with the link can view this document."]
-                                @if (Model.IsPublic && !string.IsNullOrEmpty(Model.PublicLink))
+                                @if (!string.IsNullOrEmpty(Model.PublicLink))
                                 {
                                     <div class="input-group input-group-sm mt-2" style="max-width: 500px;">
-                                        <span class="input-group-text">@Localizer["Public Link"]</span>
+                                        <span class="input-group-text">@Localizer["Share Link"]</span>
                                         <input type="text" class="form-control" value="@Model.PublicLink" readonly id="public-link-input">
                                         <button class="btn btn-outline-secondary" type="button" onclick="navigator.clipboard.writeText(document.getElementById('public-link-input').value); this.innerHTML = '<i class=\'align-middle\' data-lucide=\'check\'></i>'; setTimeout(() => this.innerHTML = '<i class=\'align-middle\' data-lucide=\'copy\'></i>', 2000);">
                                             <i class="align-middle" data-lucide="copy"></i>

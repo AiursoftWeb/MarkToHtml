@@ -159,9 +159,7 @@ public class HomeController(
             return Forbid();
         }
 
-        var publicLink = document.IsPublic
-            ? Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme)
-            : null;
+        var publicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme);
 
         var model = new IndexViewModel(document.Title ?? "Empty Document")
         {
@@ -402,9 +400,7 @@ public class HomeController(
             DocumentId = document.Id,
             DocumentTitle = document.Title ?? "Untitled Document",
             IsPublic = document.IsPublic,
-            PublicLink = document.IsPublic
-                ? Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme)
-                : null,
+            PublicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme),
             ExistingShares = document.DocumentShares.ToList(),
             AvailableRoles = allRoles
         };
