@@ -150,10 +150,10 @@
                             @* 右侧工具栏 *@
                             <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
                                 <div class="small text-muted flex-grow-1 me-2">
-                                    @if (Model.IsPublic)
+                                    @if (!string.IsNullOrEmpty(Model.PublicLink))
                                     {
                                         <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control bg-white" id="public-link" readonly value="@Model.PublicLink" />
+                                            <input type="text" class="form-control bg-white" id="public-link" readonly value="@Model.PublicLink" title="@Localizer["Share Link"]" />
                                             <button class="btn btn-outline-secondary" type="button" id="copy-link-button" title="@Localizer["Copy Link"]">
                                                 <i class="align-middle" data-lucide="link"></i>
                                             </button>
