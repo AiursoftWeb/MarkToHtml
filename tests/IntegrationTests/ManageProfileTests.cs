@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
-using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -102,7 +101,7 @@ public class ManageProfileTests
     public async Task ChangeAvatarTest()
     {
         // 1. Register and Login
-        await RegisterAndLoginAsync();
+        _ = await RegisterAndLoginAsync();
 
         // 2. Upload a valid image (1x1 PNG transparent)
         // 1x1 PNG Bytes
@@ -126,7 +125,7 @@ public class ManageProfileTests
     public async Task ChangeAvatarInvalidImageTest()
     {
         // 1. Register and Login
-        await RegisterAndLoginAsync();
+        _ = await RegisterAndLoginAsync();
 
         // 2. Upload a text file
         var textBytes = System.Text.Encoding.UTF8.GetBytes("This is not an image.");

@@ -5,7 +5,6 @@ using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;

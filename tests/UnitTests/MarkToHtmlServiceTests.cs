@@ -1,7 +1,6 @@
 using Aiursoft.MarkToHtml.Services;
 using Ganss.Xss;
 using Markdig;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Aiursoft.MarkToHtml.Tests.UnitTests;
 
@@ -41,7 +40,7 @@ public class MarkToHtmlServiceTests
         var markdown = "<script>alert('xss')</script>";
         var html = _service.ConvertMarkdownToHtml(markdown);
         
-        Assert.IsFalse(html.Contains("<script>"));
+        Assert.DoesNotContain("<script>", html);
     }
     
     [TestMethod]

@@ -4,7 +4,6 @@ using System.Text.Json;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
-using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;

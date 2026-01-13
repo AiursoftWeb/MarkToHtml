@@ -3,7 +3,6 @@ using System.Net.Http.Headers;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
-using Microsoft.Extensions.DependencyInjection;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -48,7 +47,7 @@ public class FilesTests
         var content = "Hello World content for testing.";
         using var form = new MultipartFormDataContent();
         using var fileContent = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(content));
-        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("text/plain");
+        fileContent.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
         form.Add(fileContent, "file", "test.txt");
 
         var uploadResponse = await _http.PostAsync("/upload/testfolder", form);
