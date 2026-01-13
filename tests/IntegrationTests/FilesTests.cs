@@ -1,4 +1,5 @@
 using System.Net;
+using System.Net.Http.Headers;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
