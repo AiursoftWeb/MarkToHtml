@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Tutup</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Disalin!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Salin Tautan</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Dibuat</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Pilih peran...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Bagikan Tautan</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Bagikan dengan</value>

@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>बंद करें</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>कॉपी किया गया!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>लिंक कॉपी करें</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>बनाया गया</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>एक भूमिका चुनें...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>शेयर लिंक</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>साझा करें</value>

@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Închide</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copiat!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Copiază link</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Creat</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Selectați un rol...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Link de partajare</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Partajează cu</value>

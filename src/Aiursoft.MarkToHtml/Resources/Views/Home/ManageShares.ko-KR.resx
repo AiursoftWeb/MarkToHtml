@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>닫기</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>복사됨!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>링크 복사</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>생성됨</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>역할 선택...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>공유 링크</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>공유 대상</value>

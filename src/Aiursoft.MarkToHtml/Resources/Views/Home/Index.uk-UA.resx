@@ -234,6 +234,9 @@
   <data name="Share" xml:space="preserve">
     <value>Поділитися</value>
   </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Поділитися посиланням</value>
+  </data>
   <data name="Share Publicly" xml:space="preserve">
     <value>Поділитися публічно</value>
   </data>

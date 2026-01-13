@@ -234,6 +234,9 @@
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>शेयर लिंक</value>
+  </data>
   <data name="Share Publicly" xml:space="preserve">
     <value>सार्वजनिक रूप से साझा करें</value>
   </data>

@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>關閉</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>已複製！</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>複製連結</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>建立時間</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>選擇一個角色...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>分享連結</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>分享給</value>
