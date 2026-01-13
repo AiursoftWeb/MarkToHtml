@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Sluiten</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopieer!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Kopieer koppeling</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Aangemaakt</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Selecteer een rol...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Deel link</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Delen met</value>

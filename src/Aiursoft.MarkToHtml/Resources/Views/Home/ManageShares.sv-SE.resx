@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Stäng</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Kopierat!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Kopiera länk</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Skapad</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Välj en roll...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Dela länk</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Dela med</value>

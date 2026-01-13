@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Fermer</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Copié !</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Copier le lien</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Créé</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Sélectionner un rôle...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Lien de partage</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Partager avec</value>

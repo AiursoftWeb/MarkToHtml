@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>閉じる</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>コピーしました！</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>リンクをコピー</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>作成日</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>役割を選択...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>共有リンク</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>共有する</value>

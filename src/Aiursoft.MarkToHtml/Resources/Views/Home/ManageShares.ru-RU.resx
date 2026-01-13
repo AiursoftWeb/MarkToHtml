@@ -45,6 +45,12 @@
   <data name="Close" xml:space="preserve">
     <value>Закрыть</value>
   </data>
+  <data name="Copied!" xml:space="preserve">
+    <value>Скопировано!</value>
+  </data>
+  <data name="Copy Link" xml:space="preserve">
+    <value>Копировать ссылку</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Создано</value>
   </data>
@@ -101,6 +107,9 @@
   </data>
   <data name="Select a role..." xml:space="preserve">
     <value>Выберите роль...</value>
+  </data>
+  <data name="Share Link" xml:space="preserve">
+    <value>Ссылка на общий доступ</value>
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Поделиться с</value>
