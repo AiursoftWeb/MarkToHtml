@@ -72,10 +72,22 @@ public class ViewModelArgsInjector(
         _ = localizer["Shared with me"];
         _ = localizer["Share with"];
         _ = localizer["Untitled Document"];
-    
+
         _ = localizer["Deployment"];
         _ = localizer["Self Host"];
         _ = localizer["Self host a new server"];
+    }
+
+    public void InjectSimple(
+        HttpContext context,
+        UiStackLayoutViewModel toInject)
+    {
+        toInject.PageTitle = localizer[toInject.PageTitle ?? "View"];
+        toInject.AppName = localizer["Template"];
+        toInject.Theme = UiTheme.Light;
+        toInject.SidebarTheme = UiSidebarTheme.Default;
+        toInject.Layout = UiLayout.Fluid;
+        toInject.ContentNoPadding = true;
     }
 
     public void Inject(

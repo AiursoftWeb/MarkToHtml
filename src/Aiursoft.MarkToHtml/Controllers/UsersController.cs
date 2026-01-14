@@ -21,8 +21,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class UsersController(
     RoleManager<IdentityRole> roleManager,
     UserManager<User> userManager,
-    TemplateDbContext context,
-    StorageService storageService)
+    StorageService storageService,
+    TemplateDbContext context)
     : Controller
 {
     [Authorize(Policy = AppPermissionNames.CanReadUsers)]

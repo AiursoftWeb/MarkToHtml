@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.WebTools.Attributes;
 using Aiursoft.MarkToHtml.Authorization;
@@ -18,7 +16,6 @@ namespace Aiursoft.MarkToHtml.Controllers;
 
 [LimitPerMin]
 public class HomeController(
-    IOptions<AppSettings> appSettings,
     ILogger<HomeController> logger,
     UserManager<User> userManager,
     TemplateDbContext context,
@@ -36,11 +33,6 @@ public class HomeController(
     )]
     public IActionResult Index()
     {
-        if (!User.Identity!.IsAuthenticated && !appSettings.Value.AllowAnonymousUsage)
-        {
-            logger.LogWarning("Anonymous user trying to access the home page. But it is not allowed.");
-            return Challenge();
-        }
         return this.StackView(new IndexViewModel("Untitled Document"));
     }
 

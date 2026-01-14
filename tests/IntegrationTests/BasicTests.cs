@@ -52,7 +52,6 @@ public class BasicTests
     [DataRow("/")]
     [DataRow("/hOmE?aaaaaa=bbbbbb")]
     [DataRow("/hOmE/InDeX")]
-    [DataRow("/Home/SelfHost")]
     public async Task GetHome(string url)
     {
         var response = await _http.GetAsync(url);

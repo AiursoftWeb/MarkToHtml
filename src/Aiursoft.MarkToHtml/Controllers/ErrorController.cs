@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using Aiursoft.MarkToHtml.Models.ErrorViewModels;
 using Aiursoft.MarkToHtml.Services;
-using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aiursoft.MarkToHtml.Controllers;
@@ -9,7 +8,6 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// <summary>
 /// This controller is used to show error pages.
 /// </summary>
-[LimitPerMin]
 public class ErrorController : Controller
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -19,6 +17,7 @@ public class ErrorController : Controller
     }
 
     [Route("Error/Unauthorized")]
+    [HttpGet]
     public IActionResult UnauthorizedPage([FromQuery]string returnUrl = "/")
     {
         if (!Url.IsLocalUrl(returnUrl))
