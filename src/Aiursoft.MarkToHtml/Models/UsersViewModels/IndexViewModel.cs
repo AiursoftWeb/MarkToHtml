@@ -1,13 +1,6 @@
-using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.MarkToHtml.Models.UsersViewModels;
-
-public class UserWithRolesViewModel
-{
-    public required User User { get; set; }
-    public required IList<string> Roles { get; set; }
-}
 
 public class IndexViewModel : UiStackLayoutViewModel
 {
