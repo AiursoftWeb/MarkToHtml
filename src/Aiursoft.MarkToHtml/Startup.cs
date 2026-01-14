@@ -1,7 +1,7 @@
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools.Switchable;
-using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.Scanner;
+using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.WebTools.Abstractions.Models;
 using Aiursoft.MarkToHtml.InMemory;
 using Aiursoft.MarkToHtml.MySql;
@@ -27,7 +27,7 @@ public class Startup : IWebStartup
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
         services.AddSwitchableRelationalDatabase(
-            dbType: EntryExtends.IsInUnitTests() ? "InMemory": dbType,
+            dbType: EntryExtends.IsInUnitTests() ? "InMemory" : dbType,
             connectionString: connectionString,
             supportedDbs:
             [
