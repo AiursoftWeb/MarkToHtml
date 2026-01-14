@@ -9,7 +9,6 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// <summary>
 /// This controller is used to show error pages.
 /// </summary>
-[LimitPerMin]
 public class ErrorController : Controller
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -19,6 +18,7 @@ public class ErrorController : Controller
     }
 
     [Route("Error/Unauthorized")]
+    [HttpGet]
     public IActionResult UnauthorizedPage([FromQuery]string returnUrl = "/")
     {
         if (!Url.IsLocalUrl(returnUrl))

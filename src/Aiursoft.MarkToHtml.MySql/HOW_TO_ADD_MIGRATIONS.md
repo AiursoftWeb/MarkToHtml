@@ -15,14 +15,22 @@ This guide explains how to create database migrations for the MySQL provider in 
 
 1. Navigate to the MySQL project directory:
    ```bash
+<<<<<<< HEAD
    cd ./src/Aiursoft.Template.MySql/
+=======
+   cd ./src/Aiursoft.MarkToHtml.MySql/
+>>>>>>> template-upgrade-layer
    ```
 
 2. Create a new migration with a descriptive name:
    ```bash
    dotnet ef migrations add YourMigrationName \
      --context "MySqlContext" \
+<<<<<<< HEAD
      -s ../Aiursoft.Template/Aiursoft.Template.csproj
+=======
+     -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
+>>>>>>> template-upgrade-layer
    ```
 
 3. Review the generated migration file in `./Migrations/` to ensure it matches your expectations.
@@ -30,10 +38,17 @@ This guide explains how to create database migrations for the MySQL provider in 
 ## Example
 
 ```bash
+<<<<<<< HEAD
 cd ./src/Aiursoft.Template.MySql/
 dotnet ef migrations add AddUserProfileTable \
   --context "MySqlContext" \
   -s ../Aiursoft.Template/Aiursoft.Template.csproj
+=======
+cd ./src/Aiursoft.MarkToHtml.MySql/
+dotnet ef migrations add AddUserProfileTable \
+  --context "MySqlContext" \
+  -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
+>>>>>>> template-upgrade-layer
 ```
 
 ## Important Notes
@@ -48,11 +63,19 @@ dotnet ef migrations add AddUserProfileTable \
 If you made a mistake, you can remove the most recent migration:
 
 ```bash
+<<<<<<< HEAD
 dotnet ef migrations remove --context "MySqlContext" -s ../Aiursoft.Template/Aiursoft.Template.csproj
+=======
+dotnet ef migrations remove --context "MySqlContext" -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
+>>>>>>> template-upgrade-layer
 ```
 
 ## After Creating Migrations
 
 After creating migrations for MySQL, remember to:
+<<<<<<< HEAD
 1. Create the corresponding migration for SQLite (see `../Aiursoft.Template.Sqlite/HOW_TO_ADD_MIGRATIONS.md`)
+=======
+1. Create the corresponding migration for SQLite (see `../Aiursoft.MarkToHtml.Sqlite/HOW_TO_ADD_MIGRATIONS.md`)
+>>>>>>> template-upgrade-layer
 2. Create migrations for any other supported databases in your project

@@ -18,9 +18,4 @@ public class AppSettings
     /// Automatically assign the user to this role when they log in.
     /// </summary>
     public string? DefaultRole { get; init; } = string.Empty;
-
-    /// <summary>
-    /// Allow anonymous users to use the application.
-    /// </summary>
-    public bool AllowAnonymousUsage { get; init; } = true;
 }

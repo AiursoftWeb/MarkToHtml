@@ -15,14 +15,14 @@ This guide explains how to create database migrations for the SQLite provider in
 
 1. Navigate to the SQLite project directory:
    ```bash
-   cd ./src/Aiursoft.Template.Sqlite/
+   cd ./src/Aiursoft.MarkToHtml.Sqlite/
    ```
 
 2. Create a new migration with a descriptive name:
    ```bash
    dotnet ef migrations add YourMigrationName \
      --context "SqliteContext" \
-     -s ../Aiursoft.Template/Aiursoft.Template.csproj
+     -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
    ```
 
 3. Review the generated migration file in `./Migrations/` to ensure it matches your expectations.
@@ -30,10 +30,10 @@ This guide explains how to create database migrations for the SQLite provider in
 ## Example
 
 ```bash
-cd ./src/Aiursoft.Template.Sqlite/
+cd ./src/Aiursoft.MarkToHtml.Sqlite/
 dotnet ef migrations add AddUserProfileTable \
   --context "SqliteContext" \
-  -s ../Aiursoft.Template/Aiursoft.Template.csproj
+  -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
 ```
 
 ## Important Notes
@@ -48,11 +48,11 @@ dotnet ef migrations add AddUserProfileTable \
 If you made a mistake, you can remove the most recent migration:
 
 ```bash
-dotnet ef migrations remove --context "SqliteContext" -s ../Aiursoft.Template/Aiursoft.Template.csproj
+dotnet ef migrations remove --context "SqliteContext" -s ../Aiursoft.MarkToHtml/Aiursoft.MarkToHtml.csproj
 ```
 
 ## After Creating Migrations
 
 After creating migrations for SQLite, remember to:
-1. Create the corresponding migration for MySQL (see `../Aiursoft.Template.MySql/HOW_TO_ADD_MIGRATIONS.md`)
+1. Create the corresponding migration for MySQL (see `../Aiursoft.MarkToHtml.MySql/HOW_TO_ADD_MIGRATIONS.md`)
 2. Create migrations for any other supported databases in your project

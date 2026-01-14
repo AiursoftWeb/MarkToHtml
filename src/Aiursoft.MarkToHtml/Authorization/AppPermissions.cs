@@ -52,6 +52,9 @@ public class AppPermissions
             new(AppPermissionNames.CanAssignRoleToUser,
                 localizer["Assign Roles to Users"],
                 localizer["Allows assigning or removing roles for any user."]),
+            new(AppPermissionNames.CanReadPermissions,
+                localizer["Read Permissions"],
+                localizer["Allows viewing the list of all permissions and their assignments to roles and users."]),
             new(AppPermissionNames.CanViewSystemContext,
                 localizer["View System Context"],
                 localizer["Allows viewing system-level information and settings."]),
@@ -70,6 +73,12 @@ public class AppPermissions
             new(AppPermissionNames.CanManageAnyShare,
                 localizer["Manage Any Share"],
                 localizer["Allows managing shares for any document, regardless of ownership. Includes toggling public access."]),
+            new(AppPermissionNames.CanViewBackgroundJobs,
+                localizer["View Background Jobs"],
+                localizer["Allows viewing the background job dashboard and managing jobs."]),
+            new(AppPermissionNames.CanManageGlobalSettings,
+                localizer["Manage Global Settings"],
+                localizer["Allows viewing and modifying global application settings."])
         ];
         return allPermission;
     }

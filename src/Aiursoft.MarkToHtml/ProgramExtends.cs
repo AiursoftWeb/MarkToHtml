@@ -3,6 +3,7 @@ using Aiursoft.MarkToHtml.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Aiursoft.MarkToHtml.Services;
 using Aiursoft.MarkToHtml.Services.FileStorage;
 
 namespace Aiursoft.MarkToHtml;
@@ -53,6 +54,10 @@ public static class ProgramExtends
         var services = scope.ServiceProvider;
         var db = services.GetRequiredService<TemplateDbContext>();
         var logger = services.GetRequiredService<ILogger<Program>>();
+        
+        var settingsService = services.GetRequiredService<GlobalSettingsService>();
+        await settingsService.SeedSettingsAsync();
+
         var shouldSeed = await ShouldSeedAsync(db);
         if (!shouldSeed)
         {

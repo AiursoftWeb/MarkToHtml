@@ -1,6 +1,9 @@
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools.Switchable;
 using Aiursoft.MarkToHtml.Configuration;
+using Aiursoft.Scanner;
+using Aiursoft.MarkToHtml.Configuration;
+using Aiursoft.WebTools.Abstractions.Models;
 using Aiursoft.MarkToHtml.InMemory;
 using Aiursoft.MarkToHtml.MySql;
 using Aiursoft.MarkToHtml.Services.Authentication;
@@ -11,6 +14,8 @@ using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Abstractions.Models;
 using Ganss.Xss;
 using Markdig;
+using Aiursoft.UiStack.Layout;
+using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -19,11 +24,7 @@ namespace Aiursoft.MarkToHtml;
 
 public class Startup : IWebStartup
 {
-    public void ConfigureServices(
-        IConfiguration configuration,
-        IWebHostEnvironment environment,
-        IServiceCollection services
-    )
+    public void ConfigureServices(IConfiguration configuration, IWebHostEnvironment environment, IServiceCollection services)
     {
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
@@ -31,15 +32,14 @@ public class Startup : IWebStartup
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
         services.AddSwitchableRelationalDatabase(
-            dbType: EntryExtends.IsInUnitTests() ? "InMemory" : dbType,
+            dbType: EntryExtends.IsInUnitTests() ? "InMemory": dbType,
             connectionString: connectionString,
             supportedDbs:
             [
                 new MySqlSupportedDb(allowCache: allowCache, splitQuery: false),
                 new SqliteSupportedDb(allowCache: allowCache, splitQuery: true),
-                new InMemorySupportedDb(),
-            ]
-        );
+                new InMemorySupportedDb()
+            ]);
 
         // Authentication and Authorization
         services.AddTemplateAuth(configuration);
@@ -50,13 +50,16 @@ public class Startup : IWebStartup
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddSingleton<NavigationState<Startup>>();
 
+        // Background job queue
+        services.AddSingleton<Services.BackgroundJobs.BackgroundJobQueue>();
+        services.AddHostedService<Services.BackgroundJobs.QueueWorkerService>();
+
         // Controllers and localization
-        services
-            .AddControllersWithViews()
+        services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             })
             .AddApplicationPart(typeof(Startup).Assembly)
             .AddApplicationPart(typeof(UiStackLayoutViewModel).Assembly)
