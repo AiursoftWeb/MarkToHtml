@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>एक अंतर्निर्मित भूमिका-आधारित पहुंच नियंत्रण (RBAC) प्रणाली सूक्ष्म अनुमति प्रबंधन के लिए।</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>बिल्कुल तैयार उपाय उपयोगकर्ता प्रमाणीकरण और प्रोफ़ाइल प्रबंधन के लिए बिना किसी अतिरिक्त काम के तुरंत उपलब्ध है।</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>एक पूरी तरह से अनुकूलित लेआउट जो डेस्कटॉप और मोबाइल डिवाइस दोनों पर शानदार दिखता है।</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>अपने अगले वेब एप्लिकेशन के लिए एक आधुनिक, फीचर-समृद्ध और बहुत अधिक विस्तारयोग्य आधार।</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>एआई-संचालित अनुवाद</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>सभी निर्भरताएँ स्वचालित रूप से पंजीकृत की जाती हैं और कंस्ट्रक्टर इंजेक्शन के माध्यम से हमेशा उपलब्ध रहती हैं।</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>स्वचालित डार्क मोड</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>स्वचालित निर्भरता निवेशन</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>28 भाषाओं में स्वचालित, एआई-चालित अनुवाद वैश्विक पहुंच के लिए।</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>एम्बेडेड उपयोगकर्ता प्रबंधन</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>डॉकर समर्थन के साथ आता है जिससे सरल, संगत और विश्वसनीय डिप्लॉयमेंट की जा सकती है।</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>व्यापक दस्तावेज़न</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>डॉकराइज़्ड डिप्लॉयमेंट के लिए</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>डायनामिक नेविगेशन बार</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>परीक्षण के लिए आसानी से SQLite, MySQL, SQL Server और एक इन-मेमोरी डेटाबेस के प्रदाताओं के बीच स्विच करें।</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>एक स्वचालित अवतार संपीड़न के साथ एक निर्मित फ़ाइल प्रबंधन प्रणाली के साथ विशेषता।</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>नमस्ते दुनिया!</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>शुरुआत करने के लिए व्यापक दस्तावेज़न और व्यावहारिक उदाहरण शामिल हैं।</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>एकीकृत फ़ाइल प्रबंधन</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>बहु-डेटाबेस समर्थन</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID कनेक्ट इंटीग्रेशन</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC प्राधिकरण</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>दस्तावेज़ पढ़ें</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>प्रतिक्रियाशील डिज़ाइन</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>किसी भी OpenID Connect प्रदाता के साथ बिना किसी रुकावट के एकीकृत करें, स्वचालित भूमिका समायोजन के साथ।</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>स्मार्ट डार्क मोड जो उपयोगकर्ता के सिस्टम सेटिंग्स के अनुसार स्वचालित रूप से अनुकूलित होता है।</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>एक नया प्रोजेक्ट शुरू करें</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>नेविगेशन बार उपयोगकर्ता के भूमिकाओं और अनुमतियों के आधार पर स्वचालित रूप से समायोजित होता है।</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>यह एक टेम्पलेट प्रोजेक्ट है, जहां हम यात्री की शुरुआत करते हैं...</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>स्वागत हे</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Aiursoft टेम्पलेट का उपयोग क्यों करें?</value>
+  </data>
+
+</root>

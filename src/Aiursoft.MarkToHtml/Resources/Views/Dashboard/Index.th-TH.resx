@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>ระบบควบคุมการเข้าถึงตามบทบาท (RBAC) แบบฝังในตัว สำหรับการจัดการสิทธิ์อย่างละเอียด</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>โซลูชันครบวงจรสำหรับการยืนยันตัวตนของผู้ใช้และการจัดการโปรไฟล์ทันทีที่เปิดใช้งาน</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>การออกแบบที่ปรับขนาดได้อย่างสมบูรณ์ ซึ่งดูดีทั้งบนเดสก์ท็อปและอุปกรณ์มือถือ</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>พื้นฐานที่ทันสมัย ครบครันด้วยคุณสมบัติ และสามารถขยายได้อย่างสูง สำหรับแอปพลิเคชันเว็บของคุณในครั้งต่อไป</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>การแปลด้วยปัญญาประดิษฐ์</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>การพึ่งพาทั้งหมดจะถูกลงทะเบียนโดยอัตโนมัติและพร้อมใช้งานตลอดเวลาผ่านการส่งผ่านคอนสตรัคเตอร์</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>โหมดมืดอัตโนมัติ</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>การแทรกอัตโนมัติของความพึ่งพา</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>การแปลอัตโนมัติที่ขับเคลื่อนด้วยปัญญาประดิษฐ์ สำหรับ 28 ภาษา เพื่อการเข้าถึงทั่วโลก</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>การจัดการผู้ใช้แบบฝังใน</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>มาพร้อมการรองรับ Docker แบบเต็มรูปแบบเพื่อการปรับใช้งานที่ง่าย สม่ำเสมอ และเชื่อถือได้</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>เอกสารประกอบอย่างละเอียด</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>ใช้งานได้ทันทีด้วย Docker สำหรับการติดตั้ง</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>แถบนำทางแบบไดนามิก</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>สลับระหว่างผู้ให้บริการได้อย่างง่ายดาย เช่น SQLite, MySQL, SQL Server, และฐานข้อมูลในหน่วยความจำสำหรับการทดสอบ</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>มีระบบจัดการไฟล์แบบฝังในพร้อมการบีบอัดภาพโปรไฟล์อัตโนมัติ</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>สวัสดีโลก!</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>มีเอกสารประกอบอย่างละเอียดและตัวอย่างการใช้งานจริงเพื่อช่วยให้คุณเริ่มต้นได้อย่างรวดเร็ว</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>การจัดการไฟล์แบบบูรณาการ</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>รองรับฐานข้อมูลหลายระบบ</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>การผสานระบบ OpenID Connect</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>การยืนยันสิทธิ์ตามบทบาท (RBAC)</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>อ่านเอกสาร</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>การออกแบบที่ปรับตัวได้</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>ผสานเข้ากับผู้ให้บริการ OpenID Connect ใด ๆ ได้อย่างราบรื่น พร้อมการซิงค์บทบาทอัตโนมัติ</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>โหมดมืดอัจฉริยะที่ปรับตัวอัตโนมัติให้เข้ากับการตั้งค่าระบบของผู้ใช้</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>เริ่มโปรเจกต์ใหม่</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>แถบนำทางจะปรับตัวอัตโนมัติตามบทบาทและสิทธิ์ของผู้ใช้</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>นี่คือโครงการต้นแบบ ซึ่งเราเริ่มต้นการเดินทางของนักเดินทาง...</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>ยินดีต้อนรับ</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>ทำไมต้องใช้เทมเพลต Aiursoft?</value>
+  </data>
+
+</root>
