@@ -17,7 +17,7 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.1")
+                .HasAnnotation("ProductVersion", "10.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -52,6 +52,19 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                     b.HasIndex("SharedWithUserId");
 
                     b.ToTable("DocumentShares");
+                });
+
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.GlobalSetting", b =>
+                {
+                    b.Property<string>("Key")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Key");
+
+                    b.ToTable("GlobalSettings");
                 });
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
