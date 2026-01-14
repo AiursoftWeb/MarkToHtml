@@ -36,6 +36,9 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>後台工作</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>更改頭像</value>
   </data>
@@ -84,6 +87,9 @@
   <data name="Features" xml:space="preserve">
     <value>功能</value>
   </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>全域設定</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>首頁</value>
   </data>
@@ -110,6 +116,9 @@
   </data>
   <data name="My documents" xml:space="preserve">
     <value>我的文件</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>權限</value>
   </data>
   <data name="Personal" xml:space="preserve">
     <value>個人</value>

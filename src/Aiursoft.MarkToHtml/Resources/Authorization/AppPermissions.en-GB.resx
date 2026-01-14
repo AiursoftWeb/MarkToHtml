@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Permits viewing all documents in the system, irrespective of ownership.</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Allows viewing and modifying global application settings.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Allows viewing system-level information and settings.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Allows viewing the background job dashboard and managing jobs.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Allows viewing the list of all permissions and their assignments to roles and users.</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>Allows viewing the list of all users.</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>Manage Any Share</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Manage Global Settings</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>View All Documents</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Read Permissions</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>View Roles</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Restart This Application</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>View Background Jobs</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>View System Context</value>

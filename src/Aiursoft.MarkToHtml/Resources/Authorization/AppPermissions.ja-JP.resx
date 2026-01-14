@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>システム内のすべての文書を、所有権に関係なく閲覧できます。</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>グローバルなアプリケーション設定の表示および変更を許可します。</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>システムレベルの情報と設定の表示を許可します。</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>バックグラウンドジョブダッシュボードの表示とジョブの管理を許可します。</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>すべての権限およびそのロールとユーザーへの割り当ての一覧を表示できるようにします。</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>すべてのユーザーのリストを表示することを許可します。</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>任意の共有を管理</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>グローバル設定の管理</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>すべてのドキュメントを閲覧</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>権限の読み取り</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>ロールの閲覧</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>このアプリを再起動</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>バックグラウンドジョブの表示</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>システムコンテキストの表示</value>

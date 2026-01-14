@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>İnce ayarlı izin yönetimi için dahili Rol Temelli Erişim Kontrolü (RBAC) sistemi.</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>Kullanıcı kimlik doğrulama ve profil yönetimi için tam bir çözüm, kutudan hemen çıkar.</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>Tamamen uyarlanabilir bir düzen, hem masaüstü hem de mobil cihazlarda harika görünür.</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Sıradışı, özellik zengini ve çok yönlü bir temel, bir sonraki web uygulamanız için.</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Yapay Zeka Destekli Çeviriler</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Tüm bağımlılıklar otomatik olarak kaydedilir ve her zaman constructor enjeksiyonu aracılığıyla kullanılabilir olur.</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Otomatik Koyu Mod</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Otomatik Bağımlılık Enjeksiyonu</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>28 dilde otomatik, yapay zeka destekli çeviri, küresel erişim için.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Gömülü Kullanıcı Yönetimi</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Tam Docker desteğiyle birlikte gelir, basitleştirilmiş, tutarlı ve güvenilir dağıtımlar için.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Kapsamlı Belgeler</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Dağıtım için Docker ile Kapsülleme</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Dinamik Navigasyon Çubuğu</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>SQLite, MySQL, SQL Server ve test amaçlı bir bellek içi veritabanı gibi sağlayıcılar arasında kolayca geçiş yapın.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Gömülü bir dosya yönetimi sistemi ve otomatik avatar sıkıştırma özelliğine sahiptir.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Merhaba Dünya!</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Hızlı başlamak için kapsamlı belgeler ve uygulamalı örnekler içerir.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Entegre Dosya Yönetimi</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Çoklu Veritabanı Desteği</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect Entegrasyonu</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>RBAC Yetkilendirme</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Belgeyi oku</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Yanıt Veren Tasarım</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Herhangi bir OpenID Connect sağlayıcısıyla sorunsuz entegre olun, otomatik rol senkronizasyonu ile.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Akıllı karanlık mod, kullanıcı sistem ayarlarına otomatik olarak uyar.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Yeni bir proje başlat</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Navigasyon çubuğu kullanıcı rollerine ve izinlerine göre otomatik olarak ayarlanır.</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Bu, bir yolcu başlatılan bir şablon projesidir...</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Neden Aiursoft Şablonunu Kullanmalısınız?</value>
+  </data>
+
+</root>

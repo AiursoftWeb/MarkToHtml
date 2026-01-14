@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>सिस्टम में सभी दस्तावेज़ों को स्वामित्व की परवाह किए बिना देखने की अनुमति देता है।</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>सभी अनुप्रयोग सेटिंग्स को देखने और संपादित करने की अनुमति देता है।</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>सिस्टम-स्तरीय जानकारी और सेटिंग्स देखने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>पृष्ठभूमि कार्य डैशबोर्ड को देखने और कार्यों को प्रबंधित करने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>सभी अनुमतियों और उनके भूमिकाओं और उपयोगकर्ताओं को नियुक्त करने की सूची को देखने की अनुमति देता है।</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>सभी उपयोगकर्ताओं की सूची देखने की अनुमति देता है।</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>किसी भी शेयर को प्रबंधित करें</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>सभी सेटिंग्स का प्रबंधन करें</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>सभी दस्तावेज़ पढ़ें</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>अनुमतियाँ पढ़ें</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>भूमिकाएँ पढ़ें</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>इस ऐप को पुनरारंभ करें</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>बैकग्राउंड जॉब्स देखें</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>सिस्टम संदर्भ देखें</value>

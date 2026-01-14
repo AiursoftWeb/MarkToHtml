@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>Sisäänrakennettu roolipohjainen pääsynhallinta (RBAC) -järjestelmä tarkkaan määritellyn käyttöoikeudenhallinnan tueksi.</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>Täydellinen ratkaisu käyttäjätilien tunnistamiseen ja profiilien hallintaan suoraan laatikosta.</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>Täysin reagoiva ulkoasu, joka näyttää hienolta sekä työasemalla että mobiililaitteilla.</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>Moderni, ominaisuuksiltaan rikas ja korkeasti laajennettava perusta seuraavalle verkkosovelluksellesi.</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI-voimaiset käännökset</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Kaikki riippuvuudet rekisteröidään automaattisesti ja ne ovat aina käytettävissä rakentajan injektion kautta.</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>Automaattinen tumma tila</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>Automaattinen riippuvuuden injektio</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>Automaattinen, tekoälyllä ajettu kääntäminen 28 kielelle maailmanlaajuisen saatavuuden varmistamiseksi.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>Sisäänrakennettu käyttäjänhallinta</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>Tulee mukana täysi Docker-tuki yksinkertaistettuun, johdonmukaiseen ja luotettavaan käyttöönottoon.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>Kattava dokumentaatio</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>Docker-kehittäminen käyttöönottoon</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>Dynaaminen navigointipalkki</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>Vaihda helposti tietokantapalvelimia, kuten SQLitea, MySQL:tä, SQL Serveria ja muistissa olevaa tietokantaa testaukseen.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>Sisältää upotetun tiedostohallintajärjestelmän automaattisen avatarien pakkaamisen kanssa.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Hei maailma!</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Sisältää laajaa dokumentaatiota ja käytännön esimerkkejä, joiden avulla pääset alkuun nopeasti.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>Integroitu tiedostojen hallinta</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>Monen tietokantatuen tuki</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>OpenID Connect -integraatio</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>Roolipohjainen käyttöoikeusvalvonta</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>Lue dokumentti</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>Vastaa suunnittelu</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>Yhdistä sujuvasti mihin tahansa OpenID Connect -tarjoajahan, automaattisen roolin synkronoinnin kanssa.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>Älykäs pimeä tila, joka sopeutuu automaattisesti käyttäjän järjestelmäasetuksiin.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Aloita uusi projekti</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>Navigointipalkki säätää automaattisesti käyttäjän roolien ja oikeuksien mukaan.</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>Tämä on malliprojekti, jossa aloitamme matkustajan...</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Tervetuloa</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>Miksi käyttää Aiursoft-mallipohjaa?</value>
+  </data>
+
+</root>

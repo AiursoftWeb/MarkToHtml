@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Cho phép xem tất cả tài liệu trong hệ thống, bất kể quyền sở hữu.</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Cho phép xem và chỉnh sửa cài đặt ứng dụng toàn cục.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Cho phép xem thông tin và cài đặt ở cấp hệ thống.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Cho phép xem bảng điều khiển công việc nền và quản lý các công việc.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Cho phép xem danh sách tất cả các quyền và việc gán các quyền này cho vai trò và người dùng.</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>Cho phép xem danh sách tất cả người dùng.</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>Quản Lý Bất Kỳ Chia Sẻ Nào</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Quản lý cài đặt toàn cục</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Đọc Tất Cả Tài Liệu</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Xem quyền hạn</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>Xem Vai trò</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Khởi Động Lại Ứng Dụng Này</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Xem Các Nhiệm Vụ Nền</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Xem Ngữ cảnh Hệ thống</value>

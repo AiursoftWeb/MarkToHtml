@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Permite vizualizarea tuturor documentelor din sistem, indiferent de proprietar.</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Permite vizualizarea și modificarea setărilor globale ale aplicației.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Permite vizualizarea informațiilor și setărilor la nivel de sistem.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Permite vizualizarea panoului de control al sarcinilor în fundal și gestionarea acestora.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Permite vizualizarea listei cu toate permisiunile și atribuirile lor către roluri și utilizatori.</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>Permite vizualizarea listei cu toți utilizatorii.</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>Gestionează Orice Partajare</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Gestionează setările globale</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Citește Toate Documentele</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Citește Permisiuni</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>Citește Roluri</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Repornește această aplicație</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Vizualizează sarcinile în fundal</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Vizualizare Context Sistem</value>

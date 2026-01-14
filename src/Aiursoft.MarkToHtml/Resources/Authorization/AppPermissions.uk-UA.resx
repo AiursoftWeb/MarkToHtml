@@ -51,8 +51,17 @@
   <data name="Allows viewing all documents in the system, regardless of ownership." xml:space="preserve">
     <value>Дозволяє перегляд усіх документів у системі, незалежно від власності.</value>
   </data>
+  <data name="Allows viewing and modifying global application settings." xml:space="preserve">
+    <value>Дозволяє переглядати та змінювати глобальні налаштування додатку.</value>
+  </data>
   <data name="Allows viewing system-level information and settings." xml:space="preserve">
     <value>Дозволяє перегляд системної інформації та налаштувань.</value>
+  </data>
+  <data name="Allows viewing the background job dashboard and managing jobs." xml:space="preserve">
+    <value>Дозволяє переглядати панель керування фоновими завданнями та керувати завданнями.</value>
+  </data>
+  <data name="Allows viewing the list of all permissions and their assignments to roles and users." xml:space="preserve">
+    <value>Дозволяє переглядати список усіх дозволів та їхніх призначень ролям і користувачам.</value>
   </data>
   <data name="Allows viewing the list of all users." xml:space="preserve">
     <value>Дозволяє переглядати список усіх користувачів.</value>
@@ -93,8 +102,14 @@
   <data name="Manage Any Share" xml:space="preserve">
     <value>Керувати будь-яким спільним доступом</value>
   </data>
+  <data name="Manage Global Settings" xml:space="preserve">
+    <value>Налаштування глобальних параметрів</value>
+  </data>
   <data name="Read All Documents" xml:space="preserve">
     <value>Перегляд усіх документів</value>
+  </data>
+  <data name="Read Permissions" xml:space="preserve">
+    <value>Перегляд дозволів</value>
   </data>
   <data name="Read Roles" xml:space="preserve">
     <value>Перегляд ролей</value>
@@ -104,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Перезавантажити цей додаток</value>
+  </data>
+  <data name="View Background Jobs" xml:space="preserve">
+    <value>Переглянути фонові завдання</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Перегляд системного контексту</value>

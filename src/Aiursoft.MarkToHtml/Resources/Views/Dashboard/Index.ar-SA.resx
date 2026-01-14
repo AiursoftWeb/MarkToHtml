@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
+    <value>نظام مدمج للتحكم بالوصول القائم على الأدوار (RBAC) لإدارة الصلاحيات بشكل دقيق.</value>
+  </data>
+  <data name="A complete solution for user authentication and profile management right out of the box." xml:space="preserve">
+    <value>حل كامل لإدارة المصادقة للمستخدم وإدارة الملفات الشخصية جاهزًا للعمل مباشرة.</value>
+  </data>
+  <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
+    <value>تصميم متجاوب بالكامل يظهر بشكل ممتاز على كل من أجهزة الكمبيوتر المكتبية والأجهزة المحمولة.</value>
+  </data>
+  <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
+    <value>أساس حديث، غني بالميزات، وقابل للتوسيع بشكل كبير لتطبيق الويب التالي الخاص بك.</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>ترجمات مدعومة بالذكاء الاصطناعي</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>جميع الاعتماديات تُسجَّل تلقائيًا ومتاحة دائمًا عبر التزامن عبر المُنشئ.</value>
+  </data>
+  <data name="Automatic Dark Mode" xml:space="preserve">
+    <value>الوضع الداكن التلقائي</value>
+  </data>
+  <data name="Automatic Dependency Injection" xml:space="preserve">
+    <value>الإدخال التلقائي للاعتماد</value>
+  </data>
+  <data name="Automatic, AI-driven translation into 28 languages for global reach." xml:space="preserve">
+    <value>ترجمة تلقائية مدعومة بالذكاء الاصطناعي إلى 28 لغة للوصول العالمي.</value>
+  </data>
+  <data name="Built-in User Management" xml:space="preserve">
+    <value>إدارة المستخدم المضمنة</value>
+  </data>
+  <data name="Comes with full Docker support for simplified, consistent, and reliable deployments." xml:space="preserve">
+    <value>يأتي مع دعم كامل لـ Docker لتسهيل النشر المتسق والموثوق.</value>
+  </data>
+  <data name="Comprehensive Documentation" xml:space="preserve">
+    <value>توثيق شامل</value>
+  </data>
+  <data name="Dockerized for Deployment" xml:space="preserve">
+    <value>مُضَعَّف بـ Docker للنشر</value>
+  </data>
+  <data name="Dynamic Navigation Bar" xml:space="preserve">
+    <value>شريط التنقل الديناميكي</value>
+  </data>
+  <data name="Easily switch between providers like SQLite, MySQL, SQL Server, and an in-memory database for testing." xml:space="preserve">
+    <value>يمكنك بسهولة التبديل بين مزودي الخدمة مثل SQLite وMySQL وSQL Server وقاعدة بيانات في الذاكرة لاختبار البرامج.</value>
+  </data>
+  <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
+    <value>يتميز بنظام إدارة ملفات مدمج مع ضغط تلقائي للصورة الرمزية.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>مرحبا بالعالم!</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>يشمل وثائق مفصلة وأمثلة عملية للبدء بسرعة.</value>
+  </data>
+  <data name="Integrated File Management" xml:space="preserve">
+    <value>إدارة الملفات المتكاملة</value>
+  </data>
+  <data name="Multiple Database Support" xml:space="preserve">
+    <value>دعم قواعد البيانات المتعددة</value>
+  </data>
+  <data name="OpenID Connect Integration" xml:space="preserve">
+    <value>تكامل OpenID Connect</value>
+  </data>
+  <data name="RBAC Authorization" xml:space="preserve">
+    <value>الصلاحيات بناءً على الأدوار</value>
+  </data>
+  <data name="Read the document" xml:space="preserve">
+    <value>اقرأ الوثيقة</value>
+  </data>
+  <data name="Responsive Design" xml:space="preserve">
+    <value>تصميم متجاوب</value>
+  </data>
+  <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
+    <value>تُدمج بسلاسة مع أي مزود OpenID Connect، مع مزامنة تلقائية للدور.</value>
+  </data>
+  <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
+    <value>وضع داكن ذكي يتكيف تلقائيًا مع إعدادات النظام الخاصة بالمستخدم.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>시작 مشروع جديد</value>
+  </data>
+  <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
+    <value>شريط التنقل يتم تكيّفه تلقائيًا وفقًا لدور المستخدم والصلاحيات.</value>
+  </data>
+  <data name="This is a template project, where we start the voyager..." xml:space="preserve">
+    <value>هذا مشروع نموذجي، حيث نبدأ رحلة الباحث...</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>مرحباً</value>
+  </data>
+  <data name="Why use the Aiursoft Template?" xml:space="preserve">
+    <value>لماذا تستخدم قالب Aiursoft؟</value>
+  </data>
+
+</root>
