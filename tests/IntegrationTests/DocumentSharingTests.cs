@@ -620,6 +620,6 @@ public class DocumentSharingTests
 
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        Assert.IsTrue(html.Contains($"/Home/Edit/{documentId}"), "Edit button link not found on share page for editor");
+        Assert.Contains($"/Home/Edit/{documentId}", html);
     }
 }
