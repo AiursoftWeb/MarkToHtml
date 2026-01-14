@@ -602,4 +602,24 @@ public class DocumentSharingTests
             editResponse4.StatusCode == HttpStatusCode.Found,
             $"User should NOT be able to edit with only role ReadOnly permission. Actual status: {editResponse4.StatusCode}");
     }
+
+    [TestMethod]
+    public async Task User_WithEditableShare_SeesEditButton_OnSharePage()
+    {
+        // Arrange
+        var ownerId = await RegisterAndLoginUser($"owner-{Guid.NewGuid()}@test.com", "Password123!");
+        var documentId = await CreateDocument(ownerId, "Editable Document", "# Content");
+        await Logout();
+        
+        var editorId = await RegisterAndLoginUser($"editor-{Guid.NewGuid()}@test.com", "Password123!");
+        await CreateShare(documentId, editorId, null, SharePermission.Editable);
+
+        // Act
+        var response = await _http.GetAsync($"/share/{documentId}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        Assert.Contains($"/Home/Edit/{documentId}", html);
+    }
 }
