@@ -30,6 +30,9 @@
   <data name="Document Preview" xml:space="preserve">
     <value>Попередній перегляд документа</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Не вдалося скопіювати текст.</value>
   </data>

@@ -30,6 +30,9 @@
   <data name="Document Preview" xml:space="preserve">
     <value>Προεπισκόπηση Εγγράφου</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Αποτυχία αντιγραφής κειμένου.</value>
   </data>
