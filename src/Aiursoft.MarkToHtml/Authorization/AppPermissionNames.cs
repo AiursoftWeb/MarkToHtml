@@ -18,10 +18,6 @@ public static class AppPermissionNames
     public const string CanAddRoles = nameof(CanAddRoles);
     public const string CanEditRoles = nameof(CanEditRoles);
 
-    // System Management
-    public const string CanViewSystemContext = nameof(CanViewSystemContext);
-    public const string CanRebootThisApp = nameof(CanRebootThisApp);
-
     // Document Management
     public const string CanReadAllDocuments = nameof(CanReadAllDocuments);
     public const string CanDeleteAnyDocument = nameof(CanDeleteAnyDocument);

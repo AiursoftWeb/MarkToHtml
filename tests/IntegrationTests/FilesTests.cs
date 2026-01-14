@@ -54,23 +54,23 @@ public class FilesTests
         uploadResponse.EnsureSuccessStatusCode();
 
         var json = await uploadResponse.Content.ReadAsStringAsync();
-        Console.WriteLine($"Upload response: {json}");
+        Console.WriteLine($@"Upload response: {json}");
 
         // Expected JSON: { "path": "...", "internetPath": "..." }
         StringAssert.Contains(json, "path", "Response should contain 'path'");
         StringAssert.Contains(json, "internetPath", "Response should contain 'internetPath'");
-        
+
         // Parse JSON using System.Text.Json
         var jsonDoc = System.Text.Json.JsonDocument.Parse(json);
         var internetPath = jsonDoc.RootElement.GetProperty("internetPath").GetString();
-        
+
         Assert.IsNotNull(internetPath);
-        
+
         // 2. Download the file
         var downloadResponse = await _http.GetAsync(internetPath);
         downloadResponse.EnsureSuccessStatusCode();
         var downloadedContent = await downloadResponse.Content.ReadAsStringAsync();
-        
+
         Assert.AreEqual(content, downloadedContent);
     }
 
@@ -81,7 +81,7 @@ public class FilesTests
         var uploadResponse = await _http.PostAsync("/upload/testfolder", form);
         Assert.AreEqual(HttpStatusCode.BadRequest, uploadResponse.StatusCode);
     }
-    
+
     [TestMethod]
     public async Task UploadInvalidFileNameTest()
     {

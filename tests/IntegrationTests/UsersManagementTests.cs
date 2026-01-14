@@ -91,7 +91,7 @@ public class UsersManagementTests
         using var scope = _server!.Services.CreateScope();
         var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-        
+
         var roleName = $"RoleFor-{permissionName}";
         if (!await roleManager.RoleExistsAsync(roleName))
         {
@@ -116,14 +116,14 @@ public class UsersManagementTests
         await GrantPermissionAsync(adminUser, AppPermissionNames.CanEditUsers);
         await GrantPermissionAsync(adminUser, AppPermissionNames.CanDeleteUsers);
         await GrantPermissionAsync(adminUser, AppPermissionNames.CanAssignRoleToUser);
-        
+
         // Re-login to refresh claims (claims are loaded on login)
-        var logOffToken = await GetAntiCsrfToken("/Manage/ChangePassword"); 
+        var logOffToken = await GetAntiCsrfToken("/Manage/ChangePassword");
         await _http.PostAsync("/Account/LogOff", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "__RequestVerificationToken", logOffToken }
         }));
-        
+
         var loginToken = await GetAntiCsrfToken("/Account/Login");
         await _http.PostAsync("/Account/Login", new FormUrlEncodedContent(new Dictionary<string, string>
         {
@@ -137,7 +137,7 @@ public class UsersManagementTests
         var newUserPassword = "New-User-Password-123";
         var newUserName = $"user{Guid.NewGuid().ToString().Replace("-", "")}"; // Simple username
         var createToken = await GetAntiCsrfToken("/Users/Create");
-        
+
         var createContent = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "Email", newUserEmail },
@@ -146,10 +146,10 @@ public class UsersManagementTests
             { "Password", newUserPassword },
             { "__RequestVerificationToken", createToken }
         });
-        
+
         var createResponse = await _http.PostAsync("/Users/Create", createContent);
         Assert.AreEqual(HttpStatusCode.Found, createResponse.StatusCode);
-        
+
         // 4. Verify user list
         var indexResponse = await _http.GetAsync("/Users/Index");
         indexResponse.EnsureSuccessStatusCode();
@@ -180,7 +180,7 @@ public class UsersManagementTests
             if (editResponse.StatusCode != HttpStatusCode.Found)
             {
                 var errorHtml = await editResponse.Content.ReadAsStringAsync();
-                Console.WriteLine($"Edit failed. Response: {errorHtml}");
+                Console.WriteLine($@"Edit failed. Response: {errorHtml}");
             }
             Assert.AreEqual(HttpStatusCode.Found, editResponse.StatusCode);
 
@@ -189,7 +189,7 @@ public class UsersManagementTests
             detailsResponse.EnsureSuccessStatusCode();
             var detailsHtml = await detailsResponse.Content.ReadAsStringAsync();
             StringAssert.Contains(detailsHtml, "Updated Display Name");
-            
+
             // 7. Search API
             var searchResponse = await _http.GetAsync($"/api/users/search?query=updatedusername");
             searchResponse.EnsureSuccessStatusCode();
@@ -204,7 +204,7 @@ public class UsersManagementTests
             });
             var deleteResponse = await _http.PostAsync($"/Users/Delete/{newUserId}", deleteConfirmContent);
             Assert.AreEqual(HttpStatusCode.Found, deleteResponse.StatusCode);
-            
+
             // Verify deletion
             using var scope2 = _server.Services.CreateScope();
             var db2 = scope2.ServiceProvider.GetRequiredService<TemplateDbContext>();
