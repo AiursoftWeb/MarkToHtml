@@ -30,6 +30,9 @@
   <data name="Document Preview" xml:space="preserve">
     <value>문서 미리보기</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>텍스트 복사에 실패했습니다.</value>
   </data>

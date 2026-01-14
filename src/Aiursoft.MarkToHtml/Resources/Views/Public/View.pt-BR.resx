@@ -30,6 +30,9 @@
   <data name="Document Preview" xml:space="preserve">
     <value>Visualização do Documento</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Falha ao copiar o texto.</value>
   </data>

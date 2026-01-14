@@ -30,6 +30,9 @@
   <data name="Document Preview" xml:space="preserve">
     <value>Xem trước Tài liệu</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
+  </data>
   <data name="Failed to copy text." xml:space="preserve">
     <value>Không thể sao chép văn bản.</value>
   </data>
