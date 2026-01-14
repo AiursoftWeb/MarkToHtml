@@ -42,6 +42,13 @@
                 <div class="ms-auto mb-2">
                     @* Group 1: Preview Actions *@
                     <div id="preview-actions" class="action-group">
+                        @if (Model.CanEdit)
+                        {
+                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-primary me-1"
+                               title="@Localizer["Edit"]">
+                                <i class="align-middle" data-lucide="edit"></i> <span class="d-none d-sm-inline">@Localizer["Edit"]</span>
+                            </a>
+                        }
                         <button type="button" id="print-button" class="btn btn-sm btn-outline-secondary"
                             title="@Localizer["Print"]">
                             <i class="align-middle" data-lucide="printer"></i> <span

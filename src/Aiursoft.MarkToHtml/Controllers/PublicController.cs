@@ -62,7 +62,8 @@ public class PublicController(
             Content = outputHtml,
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
-            CreationTime = document.CreationTime
+            CreationTime = document.CreationTime,
+            CanEdit = await HasEditAccess(document)
         };
 
         ViewBag.DocumentId = id;
@@ -143,5 +144,34 @@ public class PublicController(
         }
 
         return false;
+    }
+
+    private async Task<bool> HasEditAccess(MarkdownDocument document)
+    {
+        var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null)
+        {
+            return false;
+        }
+
+        // 1. Is owner
+        if (document.UserId == userId)
+        {
+            return true;
+        }
+
+        // 2. Is shared with the user with Editable permission
+        var userRoles = await context.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.RoleId)
+            .ToListAsync();
+
+        var hasEditAccess = await context.DocumentShares
+            .AnyAsync(s => s.DocumentId == document.Id &&
+                           s.Permission == SharePermission.Editable &&
+                           (s.SharedWithUserId == userId ||
+                            (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+
+        return hasEditAccess;
     }
 }

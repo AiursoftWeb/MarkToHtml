@@ -47,4 +47,9 @@ public class PublicDocumentViewModel : UiStackLayoutViewModel
     /// The time when the document was created.
     /// </summary>
     public DateTime CreationTime { get; set; }
+
+    /// <summary>
+    /// Indicates whether the current user has permission to edit this document.
+    /// </summary>
+    public bool CanEdit { get; set; }
 }
