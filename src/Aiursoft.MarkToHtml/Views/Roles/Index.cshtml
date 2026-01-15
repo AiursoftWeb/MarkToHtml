@@ -1,7 +1,6 @@
 @model Aiursoft.MarkToHtml.Models.RolesViewModels.IndexViewModel
 @using Aiursoft.MarkToHtml.Authorization
 @using Microsoft.Extensions.Localization
-
 @inject IStringLocalizer<AppPermissions> PermissionLocalizer
 
 @* The page-specific style is preserved. *@
@@ -55,7 +54,7 @@
                             var displayPermissions = item.PermissionNames.Count > maxPermissionsToShow
                                 ? string.Join(", ", item.PermissionNames.Take(maxPermissionsToShow).Select(n => PermissionLocalizer[n].Value)) + "..."
                                 : string.Join(", ", item.PermissionNames.Select(n => PermissionLocalizer[n].Value));
-                            
+
                             <span>@displayPermissions (@item.PermissionCount)</span>
                         }
                         else
