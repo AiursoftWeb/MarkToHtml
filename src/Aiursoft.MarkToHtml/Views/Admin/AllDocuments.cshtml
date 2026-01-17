@@ -59,14 +59,16 @@
     {
         <div class="card-body">
             <div class="alert alert-info mb-0" role="alert">
-                @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
-                {
-                    @Localizer["No documents found in the system."]
-                }
-                else
-                {
-                    @Localizer["No documents match your search."]
-                }
+                <div class="alert-message">
+                    @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
+                    {
+                        @Localizer["No documents found in the system."]
+                    }
+                    else
+                    {
+                        @Localizer["No documents found for your search query."]
+                    }
+                </div>
             </div>
         </div>
     }
