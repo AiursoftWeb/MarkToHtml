@@ -51,6 +51,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>管理分享</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>沒有找到符合您搜尋查詢的文件。</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>沒有文件符合您的搜尋。</value>
   </data>

@@ -54,6 +54,9 @@
   <data name="New Password" xml:space="preserve">
     <value>Kata Sandi Baru</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect (OIDC) diaktifkan. Pengguna disinkronkan dari penyedia identitas eksternal. Kami sangat menyarankan untuk membuat pengguna baru di penyedia OIDC Anda agar mereka dikelola secara terpusat. Formulir ini akan membuat pengguna lokal saja yang hanya ada dalam aplikasi ini.</value>
+  </data>
   <data name="Save Role Assignments" xml:space="preserve">
     <value>Simpan Penetapan Peran</value>
   </data>

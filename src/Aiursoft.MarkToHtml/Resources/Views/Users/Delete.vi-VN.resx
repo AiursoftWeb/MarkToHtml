@@ -45,6 +45,9 @@
   <data name="Name" xml:space="preserve">
     <value>Tên</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect (OIDC) đã được bật. Người dùng sẽ được đồng bộ từ một nhà cung cấp xác thực bên ngoài. Chúng tôi khuyến nghị mạnh mẽ việc tạo người dùng mới trên nhà cung cấp OIDC của bạn để đảm bảo chúng được quản lý tập trung. Bản mẫu này sẽ tạo một người dùng chỉ tồn tại trong ứng dụng này.</value>
+  </data>
   <data name="This action is irreversible. You are about to permanently delete the following user and all their associated data:" xml:space="preserve">
     <value>Hành động này không thể hoàn tác. Bạn sắp xóa vĩnh viễn người dùng sau và tất cả dữ liệu liên quan của họ:</value>
   </data>

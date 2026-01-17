@@ -54,5 +54,8 @@
   <data name="You can&apos;t change your password because local authentication is disabled. Please edit your profile from the auth provider." xml:space="preserve">
     <value>Δεν μπορείτε να αλλάξετε τον κωδικό πρόσβασής σας, επειδή η τοπική πιστοποίηση είναι απενεργοποιημένη. Παρακαλούμε επεξεργαστείτε το προφίλ σας από τον πάροχο ταυτοποίησης.</value>
   </data>
+  <data name="Your profile has been updated." xml:space="preserve">
+    <value>Το προφίλ σας έχει ενημερωθεί.</value>
+  </data>
 
 </root>

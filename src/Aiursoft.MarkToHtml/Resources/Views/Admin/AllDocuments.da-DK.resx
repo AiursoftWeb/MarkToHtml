@@ -48,6 +48,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>Administrer delinger</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Ingen dokumenter fundet til din søgning.</value>
+  </data>
   <data name="No documents found in the system." xml:space="preserve">
     <value>Ingen dokumenter fundet i systemet.</value>
   </data>

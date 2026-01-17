@@ -54,6 +54,9 @@
   <data name="OpenID Connect (OIDC) is enabled. User accounts are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only account that exists solely within this application." xml:space="preserve">
     <value>OpenID Connect (OIDC) が有効になっています。ユーザーアカウントは外部のアイデンティティプロバイダーから同期されます。一元管理を確実にするため、新しいユーザーは OIDC プロバイダー上で作成することを強く推奨します。このフォームは、このアプリケーション内にのみ存在するローカル限定のアカウントを作成します。</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect (OIDC) が有効になっています。ユーザーは外部のIDプロバイダーから同期されます。中央で管理されるようにするため、新しいユーザーは OIDC プロバイダーで作成することを強くお勧めします。このフォームでは、このアプリケーション内でのみ存在するローカルのみのユーザーが作成されます。</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>パスワード</value>
   </data>

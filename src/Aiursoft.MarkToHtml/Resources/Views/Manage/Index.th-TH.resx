@@ -54,5 +54,8 @@
   <data name="You can&apos;t change your password because local authentication is disabled. Please edit your profile from the auth provider." xml:space="preserve">
     <value>คุณไม่สามารถเปลี่ยนรหัสผ่านได้ เนื่องจากการยืนยันตัวตนภายในระบบถูกปิดใช้งาน กรุณาแก้ไขโปรไฟล์ของคุณจากผู้ให้บริการยืนยันตัวตน</value>
   </data>
+  <data name="Your profile has been updated." xml:space="preserve">
+    <value>โปรไฟล์ของคุณได้รับการอัปเดตแล้ว</value>
+  </data>
 
 </root>

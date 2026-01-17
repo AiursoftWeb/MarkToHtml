@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>Omat asiakirjani</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Ei dokumentteja hakuehtojesi perusteella.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Hakutuloksia ei löytynyt.</value>
   </data>

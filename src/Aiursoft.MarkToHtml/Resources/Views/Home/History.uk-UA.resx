@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>Мої документи</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Документи не знайдені за вашим запитом пошуку.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Жодного документа не відповідає вашому запиту.</value>
   </data>

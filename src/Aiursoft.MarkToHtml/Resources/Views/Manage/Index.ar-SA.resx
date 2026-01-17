@@ -54,5 +54,8 @@
   <data name="You can&apos;t change your password because local authentication is disabled. Please edit your profile from the auth provider." xml:space="preserve">
     <value>لا يمكنك تغيير كلمة المرور لأن المصادقة المحلية معطلة. يرجى تعديل ملفك الشخصي من مزود المصادقة.</value>
   </data>
+  <data name="Your profile has been updated." xml:space="preserve">
+    <value>تم تحديث ملفك الشخصي.</value>
+  </data>
 
 </root>

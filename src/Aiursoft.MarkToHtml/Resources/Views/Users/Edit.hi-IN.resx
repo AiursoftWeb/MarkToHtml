@@ -54,6 +54,9 @@
   <data name="New Password" xml:space="preserve">
     <value>नया पासवर्ड</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>OpenID Connect (OIDC) सक्षम है। उपयोगकर्ता एक बाहरी पहचान प्रदाता से समायोजित किए जाते हैं। हम ताकि उन्हें केंद्रीय रूप से प्रबंधित किया जा सके, अपने OIDC प्रदाता पर नए उपयोगकर्ताओं को बनाने की तीव्र सिफारिश करते हैं। यह फॉर्म एक स्थानीय-केवल उपयोगकर्ता बनाएगा जो इस एप्लिकेशन के भीतर ही मौजूद होगा।</value>
+  </data>
   <data name="Save Role Assignments" xml:space="preserve">
     <value>भूमिका असाइनमेंट सहेजें</value>
   </data>

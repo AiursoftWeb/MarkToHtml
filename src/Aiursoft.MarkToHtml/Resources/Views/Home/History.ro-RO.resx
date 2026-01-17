@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>Documentele Mele</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Nu s-au găsit documente pentru interogarea dumneavoastră de căutare.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Nu a fost găsit niciun document care să corespundă căutării.</value>
   </data>

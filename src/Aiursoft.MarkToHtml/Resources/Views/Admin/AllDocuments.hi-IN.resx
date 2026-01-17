@@ -48,6 +48,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>शेयर प्रबंधित करें</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>आपके खोज के प्रश्न के लिए कोई दस्तावेज़ नहीं मिले।</value>
+  </data>
   <data name="No documents found in the system." xml:space="preserve">
     <value>सिस्टम में कोई दस्तावेज़ नहीं मिला।</value>
   </data>

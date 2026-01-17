@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>我的文件</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>未能找到符合您搜尋查詢的文件。</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>沒有文件符合您的搜尋。</value>
   </data>

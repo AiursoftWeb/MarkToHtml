@@ -51,6 +51,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>Delen beheren</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Geen documenten gevonden voor uw zoekopdracht.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Er zijn geen documenten die overeenkomen met uw zoekopdracht.</value>
   </data>
