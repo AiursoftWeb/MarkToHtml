@@ -51,6 +51,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>Manage Shares</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>No documents found for your search query.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>No documents match your search.</value>
   </data>

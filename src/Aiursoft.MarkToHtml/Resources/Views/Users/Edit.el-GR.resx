@@ -54,6 +54,9 @@
   <data name="New Password" xml:space="preserve">
     <value>Νέος Κωδικός Πρόσβασης</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>Το OpenID Connect (OIDC) είναι ενεργοποιημένο. Οι χρήστες συγχρονίζονται από έναν εξωτερικό πάροχο ταυτότητας. Σας συνιστούμε ισχυρά να δημιουργήσετε νέους χρήστες στον πάροχο OIDC σας, για να διασφαλίσετε ότι διαχειρίζονται κεντρικά. Αυτή η φόρμα θα δημιουργήσει έναν χρήστη μόνο στον τοπικό χώρο, ο οποίος θα υπάρχει αποκλειστικά εντός αυτής της εφαρμογής.</value>
+  </data>
   <data name="Save Role Assignments" xml:space="preserve">
     <value>Αποθήκευση Ανάθεσης Ρόλων</value>
   </data>

@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>Mine dokumenter</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Ingen dokumenter fundet til din søgning.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Ingen dokumenter matcher din søgning.</value>
   </data>

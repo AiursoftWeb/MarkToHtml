@@ -48,6 +48,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>공유 관리</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>검색어에 해당하는 문서를 찾을 수 없습니다.</value>
+  </data>
   <data name="No documents found in the system." xml:space="preserve">
     <value>시스템에 문서가 없습니다.</value>
   </data>

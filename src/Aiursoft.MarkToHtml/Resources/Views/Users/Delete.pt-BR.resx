@@ -45,6 +45,9 @@
   <data name="Name" xml:space="preserve">
     <value>Nome</value>
   </data>
+  <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
+    <value>O OpenID Connect (OIDC) está habilitado. Os usuários são sincronizados a partir de um provedor de identidade externo. Recomendamos fortemente a criação de novos usuários no seu provedor OIDC para garantir que eles sejam gerenciados de forma centralizada. Este formulário criará um usuário exclusivamente local que existirá apenas dentro deste aplicativo.</value>
+  </data>
   <data name="This action is irreversible. You are about to permanently delete the following user and all their associated data:" xml:space="preserve">
     <value>Esta ação é irreversível. Você está prestes a excluir permanentemente o seguinte usuário e todos os seus dados associados:</value>
   </data>

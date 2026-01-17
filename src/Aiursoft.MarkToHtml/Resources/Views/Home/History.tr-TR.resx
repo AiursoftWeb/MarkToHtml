@@ -51,6 +51,9 @@
   <data name="My Documents" xml:space="preserve">
     <value>Belgelerim</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Aramanız için belge bulunamadı.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Aramanızla eşleşen belge bulunamadı.</value>
   </data>

@@ -51,6 +51,9 @@
   <data name="Manage Shares" xml:space="preserve">
     <value>Керувати спільним доступом</value>
   </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Документи, що відповідають вашому запиту пошуку, не знайдені.</value>
+  </data>
   <data name="No documents match your search." xml:space="preserve">
     <value>Жоден документ не відповідає вашому запиту.</value>
   </data>
