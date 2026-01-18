@@ -19,13 +19,15 @@
 {
     <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        <div class="alert-icon">
-            @* Icon updated to the theme's standard Lucide icon set. *@
-            <i class="align-middle" data-lucide="alert-triangle"></i>
-        </div>
-        <div class="alert-message">
-            <strong>@Localizer["Warning!"]</strong>
-            @Localizer["OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application."]
+        <div class="d-flex">
+            <div class="alert-icon pe-3">
+                @* Icon updated to the theme's standard Lucide icon set. *@
+                <i class="align-middle" data-lucide="alert-triangle"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Warning!"]</strong>
+                @Localizer["This user account is synchronized with an OpenID Connect (OIDC) provider. Any modifications made here (e.g., to the display name or email) may be overwritten during the next data sync. For permanent changes, please update the user's profile directly on your OIDC provider."]
+            </div>
         </div>
     </div>
 }
@@ -62,7 +64,7 @@
                 </div>
                 <div class="mb-3">
                     <label asp-for="AvatarUrl" class="form-label">@Localizer["New avatar file"]</label>
-                    <vc:file-upload asp-for="@Model.AvatarUrl" upload-endpoint="/upload/avatar" allowed-extensions="png bmp jpg" max-size-in-mb="10"></vc:file-upload>
+                    <vc:file-upload asp-for="@Model.AvatarUrl" subfolder="avatar" allowed-extensions="png bmp jpg" max-size-in-mb="10"></vc:file-upload>
                     <span asp-validation-for="AvatarUrl" class="text-danger"></span>
                 </div>
             </div>

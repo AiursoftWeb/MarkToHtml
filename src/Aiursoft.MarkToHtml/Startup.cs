@@ -61,7 +61,7 @@ public class Startup : IWebStartup
             .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
             .AddDataAnnotationsLocalization();
 
-        // Add the markdown pipeline and HTML sanitizer
+        // Add the markdown pipeline and HTML sanitizer (project-specific)
         var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
         services.AddSingleton(pipeline);
         services.AddSingleton(_ =>
@@ -74,7 +74,8 @@ public class Startup : IWebStartup
 
     public void Configure(WebApplication app)
     {
-        app.UseExceptionHandler("/Error/Error");
+        app.UseExceptionHandler("/Error/Code500");
+        app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();

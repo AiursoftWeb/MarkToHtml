@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
@@ -9,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Aiursoft.MarkToHtml.Services.Authentication;
 
+[ExcludeFromCodeCoverage]
 public static class AuthenticationExtensions
 {
     public static IServiceCollection AddTemplateAuth(
@@ -52,7 +54,7 @@ public static class AuthenticationExtensions
         {
             options.LoginPath = "/Account/Login";
             options.LogoutPath = "/Account/Logoff";
-            options.AccessDeniedPath = "/Error/Unauthorized";
+            options.AccessDeniedPath = "/Error/Code403";
         });
 
         if (appSettings.OIDCEnabled)
