@@ -7,7 +7,6 @@
   "dependencies": {
     "@aiursoft/uistack": "^1.0.8",
     "@highlightjs/cdn-assets": "^11.11.1",
-    "codemirror": "^5.65.20",
     "dropify": "^0.2.2",
     "mathjax": "^3.2.2",
     "mermaid": "^11.12.1",

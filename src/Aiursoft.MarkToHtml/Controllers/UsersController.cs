@@ -2,7 +2,6 @@ using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.UsersViewModels;
 using Aiursoft.MarkToHtml.Services;
-using Aiursoft.MarkToHtml.Services.FileStorage;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +19,6 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class UsersController(
     RoleManager<IdentityRole> roleManager,
     UserManager<User> userManager,
-    StorageService storageService,
     TemplateDbContext context)
     : Controller
 {
@@ -238,63 +236,5 @@ public class UsersController(
         }
         await userManager.DeleteAsync(user);
         return RedirectToAction(nameof(Index));
-    }
-
-    /// <summary>
-    /// API: Search users by username or display name
-    /// </summary>
-    /// <param name="query">Search query (min 3 characters)</param>
-    /// <param name="page">Page number (1-based)</param>
-    /// <param name="pageSize">Page size (1-20, default 10)</param>
-    /// <returns>JSON object with users array and pagination info</returns>
-    [HttpGet("/api/users/search")]
-    public async Task<IActionResult> SearchUsers(string query, int page = 1, int pageSize = 10)
-    {
-        if (!User.Identity?.IsAuthenticated ?? true)
-        {
-            return Unauthorized();
-        }
-
-        if (string.IsNullOrWhiteSpace(query) || query.Length < 3)
-        {
-            return Json(new { users = new List<object>(), totalCount = 0, page, pageSize });
-        }
-
-        if (page < 1)
-        {
-            page = 1;
-        }
-
-        if (pageSize < 1 || pageSize > 20)
-        {
-            pageSize = 10;
-        }
-
-        var queryable = context.Users
-            .Where(u => u.UserName!.Contains(query) || u.DisplayName.Contains(query));
-
-        var totalCount = await queryable.CountAsync();
-
-        var users = await queryable
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
-
-        var userList = users.Select(u => new
-        {
-            id = u.Id,
-            userName = u.UserName,
-            displayName = u.DisplayName,
-            avatarUrl = storageService.RelativePathToInternetUrl(u.AvatarRelativePath) + "?w=128&square=true"
-        });
-
-        return Json(new
-        {
-            users = userList,
-            totalCount,
-            page,
-            pageSize,
-            totalPages = (int)Math.Ceiling(totalCount / (double)pageSize)
-        });
     }
 }

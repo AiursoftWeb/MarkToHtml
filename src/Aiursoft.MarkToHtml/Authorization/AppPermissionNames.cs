@@ -18,11 +18,6 @@ public static class AppPermissionNames
     public const string CanAddRoles = nameof(CanAddRoles);
     public const string CanEditRoles = nameof(CanEditRoles);
 
-    // Document Management
-    public const string CanReadAllDocuments = nameof(CanReadAllDocuments);
-    public const string CanDeleteAnyDocument = nameof(CanDeleteAnyDocument);
-    public const string CanEditAnyDocument = nameof(CanEditAnyDocument);
-    public const string CanManageAnyShare = nameof(CanManageAnyShare);
     // Permission Management
     public const string CanReadPermissions = nameof(CanReadPermissions);
 
@@ -31,4 +26,7 @@ public static class AppPermissionNames
     public const string CanRebootThisApp = nameof(CanRebootThisApp);
     public const string CanViewBackgroundJobs = nameof(CanViewBackgroundJobs);
     public const string CanManageGlobalSettings = nameof(CanManageGlobalSettings);
+    
+    // Document Management - MarkToHtml business logic
+    public const string CanManageAnyShare = nameof(CanManageAnyShare);
 }
