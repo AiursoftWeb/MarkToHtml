@@ -30,6 +30,8 @@
     <ProjectReference Include="..\Aiursoft.MarkToHtml.Sqlite\Aiursoft.MarkToHtml.Sqlite.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Dashboard\Index.cshtml" />
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
