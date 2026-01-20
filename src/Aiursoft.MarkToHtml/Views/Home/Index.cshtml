@@ -175,6 +175,13 @@
                                 <button type="button" id="print-button" class="btn btn-sm btn-white border shadow-sm text-info">
                                     <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
                                 </button>
+                                @if (Model.IsEditing)
+                                {
+                                    <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white border shadow-sm text-info ms-1"
+                                       target="_blank" title="@Localizer["Contract Layout"]">
+                                        <i class="align-middle" data-lucide="file-signature"></i> @Localizer["Contract Layout"]
+                                    </a>
+                                }
                             </div>
 
                             <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="printable-area">

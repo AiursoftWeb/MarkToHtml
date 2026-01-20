@@ -1,0 +1,314 @@
+@using Aiursoft.MarkToHtml.Controllers
+@model Aiursoft.MarkToHtml.Models.ContractViewModels.ContractViewModel
+
+@if (!Model.ShowPreview)
+{
+    <div class="container-fluid p-0">
+        <h1 class="h3 mb-3">@Localizer["Contract Information"]</h1>
+        <div class="row">
+            <div class="col-12 col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">@Localizer["Fill in the contract details"]</h5>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Fill" method="post">
+                            <input type="hidden" asp-for="DocumentId" />
+                            <div class="mb-3">
+                                <label asp-for="ContractNumber" class="form-label"></label>
+                                <input asp-for="ContractNumber" class="form-control" />
+                                <span asp-validation-for="ContractNumber" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="SignDate" class="form-label"></label>
+                                <input asp-for="SignDate" class="form-control" />
+                                <span asp-validation-for="SignDate" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="SignLocation" class="form-label"></label>
+                                <input asp-for="SignLocation" class="form-control" />
+                                <span asp-validation-for="SignLocation" class="text-danger"></span>
+                            </div>
+
+                            <hr />
+                            <h6 class="mb-3">@Localizer["Party A (Customer)"]</h6>
+                            <div class="mb-3">
+                                <label asp-for="PartyAName" class="form-label"></label>
+                                <input asp-for="PartyAName" class="form-control" />
+                                <span asp-validation-for="PartyAName" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="PartyAAddress" class="form-label"></label>
+                                <input asp-for="PartyAAddress" class="form-control" />
+                                <span asp-validation-for="PartyAAddress" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="PartyAContact" class="form-label"></label>
+                                <input asp-for="PartyAContact" class="form-control" />
+                                <span asp-validation-for="PartyAContact" class="text-danger"></span>
+                            </div>
+
+                            <hr />
+                            <h6 class="mb-3">@Localizer["Party B (Provider)"]</h6>
+                            <div class="mb-3">
+                                <label asp-for="PartyBName" class="form-label"></label>
+                                <input asp-for="PartyBName" class="form-control" />
+                                <span asp-validation-for="PartyBName" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="PartyBAddress" class="form-label"></label>
+                                <input asp-for="PartyBAddress" class="form-control" />
+                                <span asp-validation-for="PartyBAddress" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="PartyBContact" class="form-label"></label>
+                                <input asp-for="PartyBContact" class="form-control" />
+                                <span asp-validation-for="PartyBContact" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">@Localizer["Generate Contract"]</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="d-print-none mb-3">
+        <button type="button" class="btn btn-secondary" onclick="window.history.back()">@Localizer["Back"]</button>
+        <button type="button" class="btn btn-primary" onclick="window.print()">@Localizer["Print"]</button>
+    </div>
+
+    <div class="contract-container">
+        <h1>@Model.Title</h1>
+
+        <div class="header-info">
+            <p><strong>@Localizer["Contract Number"]: </strong>@Model.ContractNumber</p>
+            <p><strong>@Localizer["Signing Date"]: </strong>@Model.SignDate</p>
+            <p><strong>@Localizer["Signing Location"]: </strong>@Model.SignLocation</p>
+        </div>
+
+        <div class="header-info">
+            <p><strong>@Localizer["Party A (Customer)"]: </strong>@Model.PartyAName<br>
+            <strong>@Localizer["Address"]: </strong>@Model.PartyAAddress<br>
+            <strong>@Localizer["Contact"]: </strong>@Model.PartyAContact</p>
+
+            <p><strong>@Localizer["Party B (Provider)"]: </strong>@Model.PartyBName<br>
+            <strong>@Localizer["Address"]: </strong>@Model.PartyBAddress<br>
+            <strong>@Localizer["Contact"]: </strong>@Model.PartyBContact</p>
+        </div>
+
+        <div class="contract-content">
+            @Html.Raw(Model.ContentHtml)
+        </div>
+
+        <div class="signature-section">
+            <div class="party-box">
+                <p><strong>@Localizer["Party A (Stamp)"]: </strong></p>
+                <p>@Model.PartyAName</p>
+                <div class="sign-line"></div>
+                <p>@Localizer["Authorized Representative Signature"]: </p>
+                <div class="date-line">@Localizer["Date"]: @DateTime.Now.Year @Localizer["Year"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Month"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Day"]</div>
+            </div>
+
+            <div class="party-box">
+                <p><strong>@Localizer["Party B (Stamp)"]: </strong></p>
+                <p>@Model.PartyBName</p>
+                <div class="sign-line"></div>
+                <p>@Localizer["Authorized Representative Signature"]: </p>
+                <div class="date-line">@Localizer["Date"]: @DateTime.Now.Year @Localizer["Year"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Month"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Day"]</div>
+            </div>
+        </div>
+    </div>
+}
+
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.mermaid) {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: 'default' // Contracts usually printed on white paper
+                });
+
+                function renderMermaid() {
+                    const container = document.querySelector('.contract-content');
+                    if (!container) return;
+
+                    container.querySelectorAll('pre.mermaid, .mermaid').forEach((block, index) => {
+                        const code = block.textContent || '';
+                        const id = 'm-contract-' + index + '-' + Math.random().toString(36).slice(2);
+
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const div = document.createElement('div');
+                                div.innerHTML = svg;
+                                block.replaceWith(div);
+                            });
+                        } catch (e) { console.error(e); }
+                    });
+                }
+                renderMermaid();
+
+                // --- MathJax Rendering ---
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.querySelector('.contract-content');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+                renderMath();
+
+                // --- Highlight.js Rendering ---
+                function renderHighlight() {
+                    if (window.hljs) {
+                        hljs.highlightAll();
+                    }
+                }
+                renderHighlight();
+            }
+        });
+    </script>
+}
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    <style>
+        @@media screen {
+            .contract-container {
+                background: white;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                padding: 2cm;
+                margin: 20px auto;
+                max-width: 210mm;
+                min-height: 297mm;
+            }
+        }
+
+        .contract-container {
+            font-family: "SimSun", "Songti SC", serif;
+            line-height: 1.6;
+            color: #000;
+        }
+
+        @@media print {
+            body { 
+                margin: 0; 
+                padding: 0; 
+                background: white !important;
+            }
+            .contract-container { 
+                margin: 0; 
+                padding: 0; 
+                box-shadow: none;
+                width: 100%;
+            }
+            @@page { 
+                margin: 2.5cm; 
+                size: A4; 
+            }
+            .d-print-none {
+                display: none !important;
+            }
+            
+            /* Hide UI elements from layout */
+            header, footer, .sidebar, .navbar {
+                display: none !important;
+            }
+        }
+
+        .contract-container h1 {
+            text-align: center;
+            font-size: 24px;
+            font-family: "SimHei", "Heiti SC", sans-serif;
+            margin-bottom: 40px;
+        }
+
+        .contract-container h2 {
+            font-size: 18px;
+            font-family: "SimHei", "Heiti SC", sans-serif;
+            margin-top: 30px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+
+        .contract-container h3 {
+            font-size: 16px;
+            font-family: "SimHei", "Heiti SC", sans-serif;
+            margin-top: 25px;
+        }
+
+        .contract-container p, 
+        .contract-container li { 
+            font-size: 14px; 
+            text-align: justify; 
+        }
+
+        .contract-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .contract-container th, 
+        .contract-container td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .contract-container th { background-color: #f2f2f2; }
+        
+        .header-info { margin-bottom: 30px; font-size: 14px; }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            page-break-inside: avoid;
+        }
+
+        .party-box {
+            width: 45%;
+        }
+
+        .sign-line {
+            margin-top: 40px;
+            border-bottom: 1px solid #000;
+            width: 100%;
+            height: 1px;
+        }
+
+        .date-line {
+            margin-top: 20px;
+        }
+        
+        /* Markdown content styling within contract */
+        .contract-content {
+            margin-bottom: 40px;
+        }
+    </style>
+}
