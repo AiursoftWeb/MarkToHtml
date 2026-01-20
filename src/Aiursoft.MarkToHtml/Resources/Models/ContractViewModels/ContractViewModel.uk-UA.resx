@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Contract Number" xml:space="preserve">
+    <value>Номер договору</value>
+  </data>
+  <data name="Party A Address" xml:space="preserve">
+    <value>Адреса Сторони А</value>
+  </data>
+  <data name="Party A Contact" xml:space="preserve">
+    <value>Контакт особи А</value>
+  </data>
+  <data name="Party A Name" xml:space="preserve">
+    <value>Назва сторони А</value>
+  </data>
+  <data name="Party B Address" xml:space="preserve">
+    <value>Адреса сторони Б</value>
+  </data>
+  <data name="Party B Contact" xml:space="preserve">
+    <value>Контакт сторінки B</value>
+  </data>
+  <data name="Party B Name" xml:space="preserve">
+    <value>Назва сторони Б</value>
+  </data>
+  <data name="Sign Date" xml:space="preserve">
+    <value>Дата підписання</value>
+  </data>
+  <data name="Sign Location" xml:space="preserve">
+    <value>Місце підписання</value>
+  </data>
+
+</root>
