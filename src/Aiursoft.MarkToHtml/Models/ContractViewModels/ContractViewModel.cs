@@ -6,16 +6,20 @@ namespace Aiursoft.MarkToHtml.Models.ContractViewModels;
 public class ContractViewModel : UiStackLayoutViewModel
 {
     [Obsolete("Framework only", true)]
-    public ContractViewModel() : base("Contract") { }
-
-    public ContractViewModel(string title) : base($"{title} - Contract")
+    public ContractViewModel()
     {
+        PageTitle = "Contract";
+    }
+
+    public ContractViewModel(string title)
+    {
+        PageTitle = $"{title} - Contract";
         Title = title;
     }
 
     public Guid DocumentId { get; set; }
-    public string Title { get; set; }
-    public string ContentHtml { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string ContentHtml { get; set; } = string.Empty;
 
     [Display(Name = "Contract Number")]
     public string ContractNumber { get; set; } = "AIUR-" + DateTime.Now.ToString("yyyyMMdd") + "-001";
@@ -30,16 +34,16 @@ public class ContractViewModel : UiStackLayoutViewModel
     public string PartyAName { get; set; } = "上海乐府学堂网络科技有限公司";
     
     [Display(Name = "Party A Address")]
-    public string PartyAAddress { get; set; }
+    public string PartyAAddress { get; set; } = string.Empty;
     
     [Display(Name = "Party A Contact")]
-    public string PartyAContact { get; set; }
+    public string PartyAContact { get; set; } = string.Empty;
 
     [Display(Name = "Party B Name")]
     public string PartyBName { get; set; } = "苏州艾软科技有限公司";
     
     [Display(Name = "Party B Address")]
-    public string PartyBAddress { get; set; }
+    public string PartyBAddress { get; set; } = string.Empty;
     
     [Display(Name = "Party B Contact")]
     public string PartyBContact { get; set; } = "Anduin";

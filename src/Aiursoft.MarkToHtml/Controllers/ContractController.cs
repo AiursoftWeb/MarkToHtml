@@ -34,7 +34,6 @@ public class ContractController(
         var model = new ContractViewModel(document.Title ?? "Untitled Document")
         {
             DocumentId = document.Id,
-            Title = document.Title,
             ShowPreview = false
         };
 
