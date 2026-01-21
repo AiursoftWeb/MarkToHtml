@@ -81,6 +81,9 @@
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>Kapsamlı Dokümantasyon</value>
   </data>
+  <data name="Contract Layout" xml:space="preserve">
+    <value>Sözleşme Düzeni</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Dönüştür ve kaydet</value>
   </data>

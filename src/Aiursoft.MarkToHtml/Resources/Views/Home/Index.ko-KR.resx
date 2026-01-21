@@ -81,6 +81,9 @@
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>포괄적인 문서</value>
   </data>
+  <data name="Contract Layout" xml:space="preserve">
+    <value>계약 레이아웃</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>변환 후 저장</value>
   </data>

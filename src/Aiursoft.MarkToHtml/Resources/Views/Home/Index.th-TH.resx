@@ -81,6 +81,9 @@
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>เอกสารคู่มือที่ครอบคลุม</value>
   </data>
+  <data name="Contract Layout" xml:space="preserve">
+    <value>การจัดวางสัญญา</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>แปลงและบันทึก</value>
   </data>
