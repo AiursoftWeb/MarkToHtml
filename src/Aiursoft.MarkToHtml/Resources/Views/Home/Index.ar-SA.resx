@@ -81,6 +81,9 @@
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>توثيق شامل</value>
   </data>
+  <data name="Contract Layout" xml:space="preserve">
+    <value>واجهة العقد</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>تحويل وحفظ</value>
   </data>

@@ -81,6 +81,9 @@
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>Детальна документація</value>
   </data>
+  <data name="Contract Layout" xml:space="preserve">
+    <value>Конструктор договору</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Конвертувати та зберегти</value>
   </data>
