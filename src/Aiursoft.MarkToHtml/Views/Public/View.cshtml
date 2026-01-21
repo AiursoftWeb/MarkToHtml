@@ -54,6 +54,11 @@
                             <i class="align-middle" data-lucide="printer"></i> <span
                                 class="d-none d-sm-inline">@Localizer["Print"]</span>
                         </button>
+                        <a asp-controller="Contract" asp-action="Fill" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-info"
+                           target="_blank" title="@Localizer["Contract Layout"]">
+                            <i class="align-middle" data-lucide="file-signature"></i> <span
+                                class="d-none d-sm-inline">@Localizer["Contract Layout"]</span>
+                        </a>
                     </div>
 
                     @* Group 2: Markdown Actions (Hidden by default) *@

@@ -58,6 +58,9 @@ public class ContractController(
             return Challenge();
         }
 
+        model.Title = document.Title ?? "Untitled Document";
+        model.PageTitle = $"{model.Title} - Contract";
+
         if (!ModelState.IsValid)
         {
             model.ShowPreview = false;

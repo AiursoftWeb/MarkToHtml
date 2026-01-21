@@ -5,7 +5,7 @@ namespace Aiursoft.MarkToHtml.Models.ContractViewModels;
 
 public class ContractViewModel : UiStackLayoutViewModel
 {
-    [Obsolete("Framework only", true)]
+    [Obsolete("Framework only")]
     public ContractViewModel()
     {
         PageTitle = "Contract";
