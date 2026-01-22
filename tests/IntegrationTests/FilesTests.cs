@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -43,21 +44,28 @@ public class FilesTests
     [TestMethod]
     public async Task UploadNoFileTest()
     {
+        var storage = _server!.Services.GetRequiredService<StorageService>();
+        var token = storage.GetToken("testfolder", FilePermission.Upload);
+
         using var form = new MultipartFormDataContent();
-        var uploadResponse = await _http.PostAsync("/upload/testfolder", form);
+        form.Add(new StringContent("dummy"), "dummy");
+        var uploadResponse = await _http.PostAsync($"/upload/testfolder?token={Uri.EscapeDataString(token)}", form);
         Assert.AreEqual(HttpStatusCode.BadRequest, uploadResponse.StatusCode);
     }
 
     [TestMethod]
     public async Task UploadInvalidFileNameTest()
     {
+        var storage = _server!.Services.GetRequiredService<StorageService>();
+        var token = storage.GetToken("testfolder", FilePermission.Upload);
+
         var content = "Content";
         using var form = new MultipartFormDataContent();
         using var fileContent = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(content));
         fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
         form.Add(fileContent, "file", "../../../etc/passwd"); // Invalid name
 
-        var uploadResponse = await _http.PostAsync("/upload/testfolder", form);
+        var uploadResponse = await _http.PostAsync($"/upload/testfolder?token={Uri.EscapeDataString(token)}", form);
         Assert.AreEqual(HttpStatusCode.BadRequest, uploadResponse.StatusCode);
     }
 }

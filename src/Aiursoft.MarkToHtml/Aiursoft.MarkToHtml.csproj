@@ -29,7 +29,4 @@
     <ProjectReference Include="..\Aiursoft.MarkToHtml.MySql\Aiursoft.MarkToHtml.MySql.csproj" />
     <ProjectReference Include="..\Aiursoft.MarkToHtml.Sqlite\Aiursoft.MarkToHtml.Sqlite.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Dashboard\Index.cshtml" />
-  </ItemGroup>
 </Project>
