@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Erişim Reddedildi</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Yönetici</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Arka Plan Görevleri</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Geçersiz İstek</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Profil Resmini Değiştir</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Giriş yapmak için tıklayın</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Sözleşme</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Belge Dönüştür</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Kontrol Paneli</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Belgeyi Sil</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rolü Sil</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Bilgi</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>İç Sunucu Hatası</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Hesap Kilitlendi</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Giriş Yap</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown&apos;dan HTML&apos;e Dönüştürücü</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown to HTML Dönüştürücü</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Belgelerim</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Benim Belgelerimin Geçmişi</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Bulunamadı</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>İzin Detayları</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>İzinler</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Paylaş</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Paylaşılan Belge</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Benimle Paylaşılan</value>

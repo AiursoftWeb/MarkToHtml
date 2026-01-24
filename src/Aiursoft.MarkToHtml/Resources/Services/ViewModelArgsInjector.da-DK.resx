@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Adgang nægtet</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Baggrundstasks</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Forkert anmodning</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Skift avatar</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klik for at logge ind</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Kontrakt</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Konverter dokument</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Slet dokument</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Slet rolle</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Intern serverfejl</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Låst</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Log ind</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown til HTML konverter</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown til HTML-omformer</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Mine dokumenter</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Mine dokumenters historik</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Ikke fundet</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Rettingsdetaljer</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Tilladelser</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Del med</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Delte dokument</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Delt med mig</value>

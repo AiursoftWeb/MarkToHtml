@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Pääsy estetty</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Ylläpitäjä</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Taustatehtävät</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Virheellinen pyyntö</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Vaihda avataria</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klikkaa kirjautuaksesi</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Sopimus</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Muunna asiakirja</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Hallintapaneeli</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Poista asiakirja</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Poista rooli</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Tiedot</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Sisäinen palvelinvirhe</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Lukitus</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Kirjaudu</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdownista HTML:ksi -muunnin</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown to HTML Muunnin</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Omat dokumentit</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Minun asiakirjojen historia</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Ei löytynyt</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Käyttöoikeuden tiedot</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Oikeudet</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Jaa kanssa</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Jaettu asiakirja</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Jaettu kanssani</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Akses Ditolak</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Pekerjaan Latar Belakang</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Permintaan Salah</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Ubah Avatar</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klik untuk masuk</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Kontrak</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Konversi Dokumen</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dasbor</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Hapus Dokumen</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Hapus Peran</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Informasi</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Kesalahan Server Internal</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Kunci Akun</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Masuk</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Konverter Markdown ke HTML</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Konverter Markdown ke HTML</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Dokumen Saya</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Riwayat Dokumen Saya</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Tidak Ditemukan</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Detail Izin</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Izin</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Bagikan dengan</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Dokumen yang Dibagikan</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Dibagikan dengan saya</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Toegang geweigerd</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Beheerder</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Achtergrondtaken</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Ongeldige aanvraag</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Avatar wijzigen</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klik om in te loggen</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Contract</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Document converteren</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Document verwijderen</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rol verwijderen</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Informatie</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Interne serverfout</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Account vergrendeld</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Inloggen</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown naar HTML-converter</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown naar HTML-converter</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Mijn documenten</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Mijn documentgeschiedenis</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Niet gevonden</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Toegangsdetails</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Machtigingen</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Delen met</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Gedeelde document</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Gedeeld met mij</value>

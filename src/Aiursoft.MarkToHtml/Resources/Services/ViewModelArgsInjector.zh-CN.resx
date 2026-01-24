@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Settings" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>访问被拒绝</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
     <value>账户设置</value>
   </data>
   <data name="Admin" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>后台任务</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>错误的请求</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>更换头像</value>
   </data>
@@ -51,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>合同</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>转换文档</value>
   </data>
@@ -62,6 +71,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>仪表盘</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>删除文档</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>删除角色</value>
@@ -102,6 +114,12 @@
   <data name="Info" xml:space="preserve">
     <value>信息</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>内部服务器错误</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>账户被锁定</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>登录</value>
   </data>
@@ -117,8 +135,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown 转 HTML 转换器</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown to HTML 转换器</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>我的文档</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>我的文档历史</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>未找到</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>权限详情</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>权限</value>
@@ -152,6 +182,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>分享给</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>共享文档</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>与我共享</value>

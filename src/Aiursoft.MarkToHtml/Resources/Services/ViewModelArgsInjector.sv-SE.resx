@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Åtkomst nekad</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Administratör</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Bakgrundsjobb</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Felaktig begäran</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Byt avatar</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klicka för att logga in</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Kontrakt</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Konvertera dokument</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumentbräda</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Ta bort dokument</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Ta bort roll</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Internt serverfel</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Låst ut</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Logga in</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Markdown till HTML-omvandlare</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown till HTML-omvandlare</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Mina dokument</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Min dokumenthistorik</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Sidan hittades inte</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Behörighetsdetaljer</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Behörigheter</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Dela med</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Delat dokument</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Delat med mig</value>

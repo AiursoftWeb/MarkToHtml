@@ -82,6 +82,19 @@ public class ViewModelArgsInjector(
         _ = localizer["Permissions"];
     
         _ = localizer["Dashboard"];
+    
+        _ = localizer["Access Denied"];
+        _ = localizer["Bad Request"];
+        _ = localizer["Contract"];
+        _ = localizer["Delete Document"];
+        _ = localizer["Internal Server Error"];
+        _ = localizer["Lockout"];
+        _ = localizer["Markdown to HTML Converter"];
+        _ = localizer["My Documents History"];
+        _ = localizer["Not Found"];
+        _ = localizer["Permission Details"];
+        _ = localizer["Register"];
+        _ = localizer["Shared Document"];
     }
 
     public void InjectSimple(

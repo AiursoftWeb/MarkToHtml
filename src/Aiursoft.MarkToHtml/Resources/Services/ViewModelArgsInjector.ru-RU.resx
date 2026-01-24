@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Доступ запрещён</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>Администратор</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Фоновые задачи</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Неверный запрос</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Сменить аватар</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Нажмите для входа</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Договор</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Преобразовать документ</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Панель управления</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Удалить документ</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Удалить роль</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>Информация</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Внутренняя ошибка сервера</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Блокировка</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Вход</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Конвертер Markdown в HTML</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Конвертер Markdown в HTML</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Мои документы</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>История моих документов</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Не найдено</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Сведения о разрешениях</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Разрешения</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Поделиться с</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Общий документ</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Доступные мне</value>
