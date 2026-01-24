@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Admin" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>الوصول ممنوع</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
     <value>المشرف</value>
   </data>
   <data name="Administration" xml:space="preserve">
@@ -36,6 +39,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>مهام الخلفية</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>طلب خاطئ</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>تغيير الصورة الشخصية</value>
   </data>
@@ -48,6 +54,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>العقد</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>تحويل المستند</value>
   </data>
@@ -59,6 +68,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>لوحة التحكم</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>حذف المستند</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>حذف الدور</value>
@@ -99,6 +111,12 @@
   <data name="Info" xml:space="preserve">
     <value>المعلومات</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>خطأ الخادم الداخلي</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>حظر الحساب</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>تسجيل الدخول</value>
   </data>
@@ -114,8 +132,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>محول Markdown إلى HTML</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>محول Markdown إلى HTML</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>مستنداتي</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>سجل وثائقي</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>غير موجود</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>تفاصيل الصلاحيات</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>الصلاحيات</value>
@@ -149,6 +179,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>مشاركة مع</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>مستند مشترك</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>تم مشاركته معي</value>

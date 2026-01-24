@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Settings" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>Accès refusé</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
     <value>Paramètres du compte</value>
   </data>
   <data name="Admin" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>Tâches en arrière-plan</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Requête incorrecte</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Changer l&apos;avatar</value>
   </data>
@@ -51,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Cliquez pour vous connecter</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>Contrat</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>Convertir un document</value>
   </data>
@@ -62,6 +71,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Tableau de bord</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>Supprimer le document</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Supprimer le rôle</value>
@@ -102,6 +114,12 @@
   <data name="Info" xml:space="preserve">
     <value>Informations</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Erreur serveur interne</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Verrouillage</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Connexion</value>
   </data>
@@ -117,8 +135,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>Convertisseur de Markdown en HTML</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Convertisseur Markdown vers HTML</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>Mes documents</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>Historique des documents</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Non trouvé</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Détails des autorisations</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Permissions</value>
@@ -152,6 +182,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>Partager avec</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>Document partagé</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>Partagé avec moi</value>

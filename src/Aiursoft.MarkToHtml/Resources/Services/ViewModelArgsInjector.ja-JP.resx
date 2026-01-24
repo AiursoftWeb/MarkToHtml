@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Settings" xml:space="preserve">
+      <data name="Access Denied" xml:space="preserve">
+    <value>アクセスが拒否されました</value>
+  </data>
+  <data name="Account Settings" xml:space="preserve">
     <value>アカウント設定</value>
   </data>
   <data name="Admin" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Background Jobs" xml:space="preserve">
     <value>バックグラウンドジョブ</value>
   </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Bad Request</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>アバターを変更</value>
   </data>
@@ -51,6 +57,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>ログインするにはクリック</value>
   </data>
+  <data name="Contract" xml:space="preserve">
+    <value>契約</value>
+  </data>
   <data name="Convert Document" xml:space="preserve">
     <value>ドキュメント変換</value>
   </data>
@@ -62,6 +71,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>ダッシュボード</value>
+  </data>
+  <data name="Delete Document" xml:space="preserve">
+    <value>ドキュメントの削除</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>ロールを削除</value>
@@ -102,6 +114,12 @@
   <data name="Info" xml:space="preserve">
     <value>情報</value>
   </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>内部サーバーエラー</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>ロックアウト</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>ログイン</value>
   </data>
@@ -117,8 +135,20 @@
   <data name="Markdown to HTML converter" xml:space="preserve">
     <value>MarkdownからHTMLへの変換ツール</value>
   </data>
+  <data name="Markdown to HTML Converter" xml:space="preserve">
+    <value>Markdown to HTML コンバーター</value>
+  </data>
   <data name="My documents" xml:space="preserve">
     <value>マイドキュメント</value>
+  </data>
+  <data name="My Documents History" xml:space="preserve">
+    <value>マイドキュメントの履歴</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>見つかりません</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>権限の詳細</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>権限</value>
@@ -152,6 +182,9 @@
   </data>
   <data name="Share with" xml:space="preserve">
     <value>共有する</value>
+  </data>
+  <data name="Shared Document" xml:space="preserve">
+    <value>共有ドキュメント</value>
   </data>
   <data name="Shared with me" xml:space="preserve">
     <value>共有されたファイル</value>
