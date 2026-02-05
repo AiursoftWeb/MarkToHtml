@@ -44,14 +44,21 @@
         overflow: visible !important;
     }
 
-    /* 隐藏源代码/编辑器 Tab */
+    /* 隐藏左侧编辑器列和代码容器 */
+    #editor-column,
+    #markdown-editor-container,
+    #html-output-container {
+        display: none !important;
+    }
+
+    /* 隐藏源代码/编辑器 Tab - 必须在 .tab-pane 规则之后以确保优先级 */
     #markdown,
     #code {
         display: none !important;
     }
 
-    /* 强制显示预览区域 */
-    .tab-pane {
+    /* 强制显示预览区域的 tab-pane */
+    #preview.tab-pane {
         display: block !important; /* 覆盖 bootstrap 的 display:none */
     }
 
