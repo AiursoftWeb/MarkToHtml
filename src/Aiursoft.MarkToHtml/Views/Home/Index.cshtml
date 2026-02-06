@@ -564,7 +564,17 @@
                 const themeBtn = document.querySelector('.js-theme-toggle');
                 if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
                 const printBtn = document.getElementById('print-button');
-                if (printBtn) printBtn.addEventListener('click', () => window.print());
+                if (printBtn) {
+                    printBtn.addEventListener('click', () => {
+                        const isEditing = @(Model.IsEditing.ToString().ToLower());
+                        if (isEditing) {
+                            const printUrl = '@Url.Action("Print", "Public", new { id = Model.DocumentId })';
+                            window.open(printUrl, '_blank');
+                        } else {
+                            window.print();
+                        }
+                    });
+                }
 
                 // --- Table & Mermaid Rendering ---
                 function stylePreviewTables() {
