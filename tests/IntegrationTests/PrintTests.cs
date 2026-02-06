@@ -1,7 +1,5 @@
 using System.Net;
 using Aiursoft.MarkToHtml.Entities;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.AspNetCore.Identity;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
