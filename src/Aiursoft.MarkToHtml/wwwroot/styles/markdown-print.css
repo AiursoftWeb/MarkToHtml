@@ -20,10 +20,14 @@
     .alert,
     .btn,
     .d-none,
-    h3, /* 页面顶部的标题 */
     .mb-3,
     .mt-n1,
     .text-muted {
+        display: none !important;
+    }
+
+    /* 专门隐藏顶部标题栏中的 h3 */
+    .row.mb-2.mb-xl-3 h3 {
         display: none !important;
     }
 

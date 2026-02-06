@@ -1,0 +1,111 @@
+@using Aiursoft.MarkToHtml.Controllers
+@model Aiursoft.MarkToHtml.Models.PublicViewModels.PublicDocumentViewModel
+@{ 
+    Layout = null;
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Model.DocumentTitle - @Localizer["Print"]</title>
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
+    <style>
+        body {
+            background-color: white;
+            padding: 0;
+            margin: 0;
+        }
+        .markdown-content {
+            padding: 2cm;
+        }
+        @@media print {
+            .markdown-content {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="printable-area" class="markdown-content">
+        @Html.Raw(Model.Content)
+    </div>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\(', '\)']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const promises = [];
+
+            // 1. Highlight.js (Synchronous)
+            if (window.hljs) {
+                hljs.highlightAll();
+            }
+
+            // 2. Mermaid (Asynchronous)
+            if (window.mermaid) {
+                mermaid.initialize({
+                    startOnLoad: false,
+                    theme: '@(isDarkMode ? "dark" : "default")'
+                });
+
+                const container = document.getElementById('printable-area');
+                container.querySelectorAll('pre.mermaid, .mermaid').forEach((block, index) => {
+                    const code = block.textContent || '';
+                    const id = 'm-print-' + index + '-' + Math.random().toString(36).slice(2);
+
+                    try {
+                        mermaid.parse(code);
+                        const promise = mermaid.render(id, code).then(({ svg }) => {
+                            const div = document.createElement('div');
+                            div.innerHTML = svg;
+                            block.replaceWith(div);
+                        });
+                        promises.push(promise);
+                    } catch (e) { console.error(e); }
+                });
+            }
+
+            // 3. MathJax (Asynchronous)
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                promises.push(window.MathJax.typesetPromise([document.getElementById('printable-area')]));
+            }
+
+            // Wait for all rendering to complete before printing
+            Promise.all(promises).then(() => {
+                // Give it a tiny bit of extra time for browser to layout the injected SVGs
+                setTimeout(() => {
+                    window.print();
+                    // Close the tab after printing (optional, but often desired for this kind of "redirect to print" flow)
+                    // window.close(); 
+                }, 500);
+            }).catch(err => {
+                console.error("Error during rendering before print:", err);
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html>

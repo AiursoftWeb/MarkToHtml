@@ -122,7 +122,12 @@
 
         // 2. Print Button
         const printBtn = document.getElementById('print-button');
-        if (printBtn) printBtn.addEventListener('click', () => window.print());
+        if (printBtn) {
+            printBtn.addEventListener('click', () => {
+                const printUrl = '@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })';
+                window.open(printUrl, '_blank');
+            });
+        }
 
         // 3. Copy Markdown Button
         const copyBtn = document.getElementById('copy-markdown-button');
