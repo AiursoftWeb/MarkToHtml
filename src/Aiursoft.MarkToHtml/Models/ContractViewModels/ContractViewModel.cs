@@ -28,25 +28,25 @@ public class ContractViewModel : UiStackLayoutViewModel
     public string SignDate { get; set; } = DateTime.Now.ToString("yyyy年 MM 月 dd 日");
     
     [Display(Name = "Sign Location")]
-    public string SignLocation { get; set; } = "江苏省苏州市";
+    public string SignLocation { get; set; } = "西京市";
 
     [Display(Name = "Party A Name")]
-    public string PartyAName { get; set; } = "上海乐府学堂网络科技有限公司";
+    public string PartyAName { get; set; } = "南都市巨富收购者股份有限公司";
     
     [Display(Name = "Party A Address")]
-    public string PartyAAddress { get; set; } = string.Empty;
+    public string PartyAAddress { get; set; } = "南都市幸福大道 1 号";
     
     [Display(Name = "Party A Contact")]
-    public string PartyAContact { get; set; } = string.Empty;
+    public string PartyAContact { get; set; } = "王多鱼";
 
     [Display(Name = "Party B Name")]
-    public string PartyBName { get; set; } = "苏州艾软科技有限公司";
+    public string PartyBName { get; set; } = "西京市巨硬软件有限公司";
     
     [Display(Name = "Party B Address")]
-    public string PartyBAddress { get; set; } = string.Empty;
+    public string PartyBAddress { get; set; } = "西京市中关村大街 999 号";
     
     [Display(Name = "Party B Contact")]
-    public string PartyBContact { get; set; } = "Anduin";
+    public string PartyBContact { get; set; } = "茨盖比";
     
     public bool ShowPreview { get; set; }
 }
