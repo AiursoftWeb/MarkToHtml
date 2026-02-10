@@ -568,8 +568,8 @@
                     printBtn.addEventListener('click', () => {
                         const isEditing = @(Model.IsEditing.ToString().ToLower());
                         if (isEditing) {
-                            const printUrl = '@Url.Action("Print", "Public", new { id = Model.DocumentId })';
-                            window.open(printUrl, '_blank');
+                            const shareUrl = '@Url.Action("View", "Public", new { id = Model.DocumentId })';
+                            window.open(shareUrl, '_blank');
                         } else {
                             window.print();
                         }
