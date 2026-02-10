@@ -232,6 +232,13 @@ else
             header, footer, .sidebar, .navbar {
                 display: none !important;
             }
+
+            /* Fix truncation issues by ensuring parents don't have overflow:hidden or height:100% */
+            html, body, .wrapper, .main, .content {
+                height: auto !important;
+                overflow: visible !important;
+                display: block !important;
+            }
         }
 
         .contract-container h1 {
