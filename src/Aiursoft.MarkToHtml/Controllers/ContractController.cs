@@ -1,6 +1,8 @@
+using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.ContractViewModels;
 using Aiursoft.MarkToHtml.Services;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +14,9 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class ContractController(
     UserManager<User> userManager,
     TemplateDbContext context,
-    MarkToHtmlService mtohService) : Controller
+    MarkToHtmlService mtohService,
+    GlobalSettingsService globalSettingsService,
+    StorageService storageService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Fill([Required][FromRoute] Guid id)
@@ -66,6 +70,16 @@ public class ContractController(
             model.ShowPreview = false;
             return this.StackView(model);
         }
+
+        var logoPath = await globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectLogo);
+        if (!string.IsNullOrWhiteSpace(logoPath))
+        {
+            model.LogoUrl = storageService.RelativePathToInternetUrl(logoPath, HttpContext);
+        }
+        model.CompanyAddress = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyAddress);
+        model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
+        model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
+        model.CompanyPostcode = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPostcode);
 
         model.ContentHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
         model.ShowPreview = true;

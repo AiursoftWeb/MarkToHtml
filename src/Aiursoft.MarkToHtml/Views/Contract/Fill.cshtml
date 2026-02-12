@@ -81,6 +81,21 @@ else
     </div>
 
     <div class="contract-container">
+        <div class="contract-header">
+            <div class="logo-box">
+                @if (!string.IsNullOrEmpty(Model.LogoUrl))
+                {
+                    <img src="@Model.LogoUrl" alt="Logo" />
+                }
+            </div>
+            <div class="contact-box">
+                <p>@Localizer["Correspondence Address"]: @Model.CompanyAddress</p>
+                <p>@Localizer["Phone"]: @Model.CompanyPhone</p>
+                <p>@Localizer["Email"]: @Model.CompanyEmail</p>
+                <p>@Localizer["Postcode"]: @Model.CompanyPostcode</p>
+            </div>
+        </div>
+
         <h1>@Model.Title</h1>
 
         <div class="header-info">
@@ -120,6 +135,10 @@ else
                 <div class="date-line">@Localizer["Date"]: @DateTime.Now.Year @Localizer["Year"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Month"]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Localizer["Day"]</div>
             </div>
         </div>
+    </div>
+
+    <div class="contract-footer">
+        <span class="page-number"></span>
     </div>
 }
 
@@ -208,6 +227,33 @@ else
             color: #000;
         }
 
+        .contract-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .logo-box img {
+            height: 80px;
+        }
+
+        .contact-box {
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .contact-box p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .contract-footer {
+            display: none;
+        }
+
         @@media print {
             body { 
                 margin: 0; 
@@ -238,6 +284,20 @@ else
                 height: auto !important;
                 overflow: visible !important;
                 display: block !important;
+            }
+
+            .contract-footer {
+                display: block;
+                position: fixed;
+                bottom: 1cm;
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .page-number:after {
+                content: counter(page);
             }
         }
 
