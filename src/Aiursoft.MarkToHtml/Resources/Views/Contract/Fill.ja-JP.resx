@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>契約番号</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>連絡先住所</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>日付</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>日</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>メール</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>契約内容を入力してください</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Party B (印)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>電話</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>郵便番号</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>印刷</value>

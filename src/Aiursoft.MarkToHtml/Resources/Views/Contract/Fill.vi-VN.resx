@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Số hợp đồng</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Địa chỉ liên hệ</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Ngày</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Ngày</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Nhập thông tin hợp đồng</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Đối tác B (Con dấu)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Mã bưu chính</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>In</value>

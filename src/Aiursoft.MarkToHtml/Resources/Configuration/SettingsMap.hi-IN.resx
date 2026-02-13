@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>ब्रांड नाम</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>कंपनी का पता</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>कंपनी ईमेल</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>कंपनी फोन</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>कंपनी पोस्टकोड</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>आईसीपी नंबर</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>प्रोजेक्ट का नाम</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का पता</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का ब्रांड नाम। उदाहरण: Aiursoft।</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का ईमेल पता।</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए ICP लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>फ्रंटएंड में प्रदर्शित प्रोजेक्ट का नाम</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का फोन नंबर</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का पोस्टकोड</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का URL। उदाहरण के लिए https://www.aiursoft.com</value>

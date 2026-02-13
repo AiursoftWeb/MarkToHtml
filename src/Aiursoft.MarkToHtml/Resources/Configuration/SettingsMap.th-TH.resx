@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>ชื่อแบรนด์</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>ที่อยู่บริษัท</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>อีเมลบริษัท</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>เบอร์โทรศัพท์บริษัท</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>รหัสไปรษณีย์บริษัท</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>ชื่อโปรเจกต์</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>ที่อยู่ของบริษัทหรือโครงการ</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>ชื่อแบรนด์ของบริษัทหรือโครงการ ตัวอย่างเช่น Aiursoft</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>ที่อยู่อีเมลของบริษัทหรือโครงการ</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>ชื่อโปรเจกต์ที่แสดงในหน้าเว็บด้านหน้า</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>หมายเลขโทรศัพท์ของบริษัทหรือโครงการ</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>รหัสไปรษณีย์ของบริษัทหรือโครงการ</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL ของบริษัทหรือโครงการ เช่น https://www.aiursoft.com</value>

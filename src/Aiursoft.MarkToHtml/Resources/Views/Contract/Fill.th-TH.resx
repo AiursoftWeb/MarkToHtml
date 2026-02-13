@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>เลขที่สัญญา</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>ที่อยู่ติดต่อ</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>วันที่</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>วัน</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>อีเมล</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>กรอกข้อมูลสัญญา</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>ฝ่าย B (ตรายาง)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>โทรศัพท์</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>รหัสไปรษณีย์</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>พิมพ์</value>

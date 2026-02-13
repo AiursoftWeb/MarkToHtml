@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>संविदा संख्या</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>संपर्क पता</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>तारीख</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>दिन</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ईमेल</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>संविदा विवरण भरें</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>पार्टी बी (स्टैम्प)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>फ़ोन</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>पोस्टकोड</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>प्रिंट</value>

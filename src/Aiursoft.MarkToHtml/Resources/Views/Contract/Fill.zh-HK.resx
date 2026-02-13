@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>合約編號</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>聯絡地址</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>日期</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>日</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>電郵</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>填寫合約詳情</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>乙方（蓋章）</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>電話</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>郵政編碼</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>列印</value>

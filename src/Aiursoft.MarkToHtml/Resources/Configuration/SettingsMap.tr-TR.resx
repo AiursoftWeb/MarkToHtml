@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Marka Adı</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Şirket Adresi</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Şirket E-postası</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Şirket Telefonu</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Şirket Posta Kodu</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Proje Adı</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Şirketin veya projenin adresi.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Şirketin veya projenin marka adı. Örnek: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Şirketin veya projenin e-posta adresi.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Arayüzde görüntülenen proje adı.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Şirketin veya projenin telefon numarası.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Şirketin veya projenin posta kodu.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>

@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Număr contract</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Adresa de corespondență</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Zi</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Completați detaliile contractului</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Partea B (Stampilă)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Cod poștal</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Imprimare</value>

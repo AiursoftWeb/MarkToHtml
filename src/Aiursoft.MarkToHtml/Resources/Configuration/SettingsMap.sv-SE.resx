@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Varumärke</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Företagets adress</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Företags e-post</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Företagsnummer</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Företagspostnummer</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektnamn</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Adressen för företaget eller projektet.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Det är varumärket för företaget eller projektet. Till exempel Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>E-postadressen för företaget eller projektet.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-licensnummer för användare i Kina. Lämna tomt för att dölja.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Namnet på projektet som visas i användargränssnittet.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Telefonnummer för företaget eller projektet.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Postkod för företaget eller projektet.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL:en för företaget eller projektet. Till exempel https://www.aiursoft.com</value>

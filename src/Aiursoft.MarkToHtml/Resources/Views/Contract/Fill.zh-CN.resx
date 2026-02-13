@@ -21,18 +21,6 @@
       <data name="Address" xml:space="preserve">
     <value>地址</value>
   </data>
-  <data name="Correspondence Address" xml:space="preserve">
-    <value>通讯地址</value>
-  </data>
-  <data name="Phone" xml:space="preserve">
-    <value>电话</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>邮箱</value>
-  </data>
-  <data name="Postcode" xml:space="preserve">
-    <value>邮编</value>
-  </data>
   <data name="Authorized Representative Signature" xml:space="preserve">
     <value>授权代表签字</value>
   </data>
@@ -48,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>合同编号</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>通讯地址</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>日期</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>日</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>填写合同详情</value>
@@ -74,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>乙方（盖章）</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>邮编</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>打印</value>

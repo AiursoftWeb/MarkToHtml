@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Tên thương hiệu</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Địa chỉ Công ty</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Email Công ty</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Số điện thoại công ty</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Mã bưu chính công ty</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Số đăng ký ICP</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Tên dự án</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Địa chỉ của công ty hoặc dự án.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Tên thương hiệu của công ty hoặc dự án. Ví dụ: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Địa chỉ email của công ty hoặc dự án.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Số giấy phép ICP cho người dùng Trung Quốc đại lục. Để trống để ẩn.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Tên dự án được hiển thị trên giao diện người dùng</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Số điện thoại của công ty hoặc dự án</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Mã bưu chính của công ty hoặc dự án</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Địa chỉ URL của công ty hoặc dự án. Ví dụ: https://www.aiursoft.com</value>

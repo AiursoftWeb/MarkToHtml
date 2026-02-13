@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Номер контракта</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Адрес для переписки</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Дата</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>День</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Заполните сведения о договоре</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Сторона Б (Печать)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Индекс</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Печать</value>

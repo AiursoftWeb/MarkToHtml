@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Numer umowy</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Adres do korespondencji</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Dzień</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Wypełnij szczegóły umowy</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Strona B (pieczęć)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Kod pocztowy</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Drukuj</value>
