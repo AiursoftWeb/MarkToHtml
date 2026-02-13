@@ -15,8 +15,7 @@ public class ContractController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MarkToHtmlService mtohService,
-    GlobalSettingsService globalSettingsService,
-    StorageService storageService) : Controller
+    GlobalSettingsService globalSettingsService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Fill([Required][FromRoute] Guid id)
@@ -41,6 +40,7 @@ public class ContractController(
             ShowPreview = false
         };
 
+        await PopulateCompanySettings(model);
         return this.StackView(model);
     }
 
@@ -65,29 +65,25 @@ public class ContractController(
         model.Title = document.Title ?? "Untitled Document";
         model.PageTitle = $"{model.Title} - Contract";
 
+        await PopulateCompanySettings(model);
         if (!ModelState.IsValid)
         {
             model.ShowPreview = false;
             return this.StackView(model);
         }
 
-        var logoPath = await globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectLogo);
-        if (!string.IsNullOrWhiteSpace(logoPath))
-        {
-            model.LogoUrl = storageService.RelativePathToInternetUrl(logoPath, HttpContext);
-        }
-        else
-        {
-            model.LogoUrl = "/logo.svg";
-        }
+        model.ContentHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
+        model.ShowPreview = true;
+        return this.StackView(model, nameof(Fill));
+    }
+
+    private async Task PopulateCompanySettings(ContractViewModel model)
+    {
+        model.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
         model.CompanyAddress = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyAddress);
         model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
         model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
         model.CompanyPostcode = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPostcode);
-
-        model.ContentHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
-        model.ShowPreview = true;
-        return this.StackView(model, nameof(Fill));
     }
 
     private async Task<bool> HasReadAccess(MarkdownDocument document)
