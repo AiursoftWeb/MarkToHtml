@@ -2,7 +2,6 @@ using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.ContractViewModels;
 using Aiursoft.MarkToHtml.Services;
-using Aiursoft.MarkToHtml.Services.FileStorage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
