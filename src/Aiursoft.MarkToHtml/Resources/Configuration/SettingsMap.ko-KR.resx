@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>브랜드 이름</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>회사 주소</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>회사 이메일</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>회사 전화번호</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>회사 우편번호</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 번호</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>프로젝트 이름</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>회사 또는 프로젝트의 주소</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>회사 또는 프로젝트의 브랜드 이름입니다. 예: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>회사 또는 프로젝트의 이메일 주소입니다.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>프론트엔드에 표시되는 프로젝트의 이름입니다.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>회사 또는 프로젝트의 전화번호</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>회사 또는 프로젝트의 우편번호입니다.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>

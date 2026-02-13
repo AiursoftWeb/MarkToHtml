@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Brändinimi</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Yrityksen osoite</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Yrityksen sähköposti</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Yrityksen puhelin</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Yrityksen postinumero</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-numero</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektin nimi</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin osoite.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Yrityksen tai projektin brändinimi. Esim. Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin sähköpostiosoite.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-luvanumero Kiinan mantereen käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Projektin nimi, joka näytetään käyttöliittymässä.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin puhelinnumero.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Yrityksen tai projektin postinumero.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Yrityksen tai projektin URL-osoite. Esim. https://www.aiursoft.com</value>

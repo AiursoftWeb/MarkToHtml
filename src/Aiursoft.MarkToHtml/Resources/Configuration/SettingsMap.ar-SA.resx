@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>اسم العلامة التجارية</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>عنوان الشركة</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>البريد الإلكتروني للشركة</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>هاتف الشركة</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>الرمز البريدي للشركة</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>رقم ICP</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>اسم المشروع</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>عنوان الشركة أو المشروع.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>اسم العلامة التجارية للشركة أو المشروع. مثال: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>عنوان البريد الإلكتروني للشركة أو المشروع.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>اسم المشروع المُعرض في الواجهة الأمامية.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>رقم هاتف الشركة أو المشروع</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>الرمز البريدي للشركة أو المشروع.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>

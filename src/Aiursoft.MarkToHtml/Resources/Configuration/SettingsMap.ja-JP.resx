@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>ブランド名</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>会社住所</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>会社メール</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>会社電話</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>会社郵便番号</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP番号</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>プロジェクト名</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>会社またはプロジェクトの住所</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>会社またはプロジェクトのブランド名。例：Aiursoft。</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>会社またはプロジェクトのメールアドレス</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>中国本土ユーザー向けのICPライセンス番号。空欄のままにすると非表示になります。</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>フロントエンドに表示されるプロジェクト名です。</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>会社またはプロジェクトの電話番号</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>会社またはプロジェクトの郵便番号</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>会社またはプロジェクトのURL。例: https://www.aiursoft.com</value>

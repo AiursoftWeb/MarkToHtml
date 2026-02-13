@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>رقم العقد</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>عنوان المراسلات</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>تاريخ</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>اليوم</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>أدخل تفاصيل العقد</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>الطرف ب (ختم)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>هاتف</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>الرمز البريدي</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>طباعة</value>

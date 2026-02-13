@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Markenname</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Firmenadresse</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Unternehmens-E-Mail</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Firmennummer</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Firmen-Postleitzahl</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-Nummer</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektname</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Die Adresse des Unternehmens oder Projekts.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Der Markenname des Unternehmens oder Projekts. Zum Beispiel: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Die E-Mail-Adresse des Unternehmens oder Projekts.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Die ICP-Lizenznummer für Nutzer in der Volksrepublik China. Leer lassen, um sie auszublenden.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Der Name des Projekts, der im Frontend angezeigt wird.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Die Telefonnummer des Unternehmens oder Projekts.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Die Postleitzahl des Unternehmens oder Projekts.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Die URL des Unternehmens oder Projekts. Zum Beispiel https://www.aiursoft.com</value>

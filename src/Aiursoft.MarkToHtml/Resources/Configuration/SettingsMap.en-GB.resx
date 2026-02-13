@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Brand Name</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Company Address</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Company Email</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Company Phone</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Company Postcode</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Number</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Project Name</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>The address of the company or project.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>The brand name of the company or project. E.g. Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>The email address of the company or project.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>The ICP licence number for China mainland users. Leave empty to hide.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>The name of the project displayed in the frontend.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>The phone number of the company or project.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>The postcode of the company or project.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>The URL of the company or project. E.g. https://www.aiursoft.com</value>

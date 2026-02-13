@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Sopimusnumero</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Yhteydenottotila</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Päiväys</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Päivä</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Sähköposti</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Täytä sopimus tiedot</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Osapuoli B (Leima)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Puhelin</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Postinumero</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Tulosta</value>

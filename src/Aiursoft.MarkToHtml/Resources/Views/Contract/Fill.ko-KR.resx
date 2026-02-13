@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>계약 번호</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>교신 주소</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>날짜</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>일</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>이메일</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>계약 내용을 입력하세요</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>당사자 B (인감)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>전화</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>우편번호</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>인쇄</value>

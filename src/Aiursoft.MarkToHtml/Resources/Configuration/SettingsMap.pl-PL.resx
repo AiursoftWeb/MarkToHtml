@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Nazwa marki</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Adres firmy</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Adres e-mail firmy</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Numer telefonu firmy</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Kod pocztowy firmy</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numer ICP</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nazwa projektu</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Adres firmy lub projektu.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Nazwa marki firmy lub projektu. Na przykład: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Adres e-mail firmy lub projektu.</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Numer licencji ICP dla użytkowników z Chin. Pozostaw puste, aby ukryć.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Nazwa projektu wyświetlana w interfejsie użytkownika.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Numer telefonu firmy lub projektu.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Kod pocztowy firmy lub projektu.</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Adres URL firmy lub projektu. Przykładowo: https://www.aiursoft.com</value>

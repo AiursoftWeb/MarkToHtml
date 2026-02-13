@@ -36,11 +36,17 @@
   <data name="Contract Number" xml:space="preserve">
     <value>Nomor Kontrak</value>
   </data>
+  <data name="Correspondence Address" xml:space="preserve">
+    <value>Alamat Surat Menyurat</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Tanggal</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Hari</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Fill in the contract details" xml:space="preserve">
     <value>Isi detail kontrak</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="Party B (Stamp)" xml:space="preserve">
     <value>Pihak B (Stempel)</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telepon</value>
+  </data>
+  <data name="Postcode" xml:space="preserve">
+    <value>Kode Pos</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Cetak</value>

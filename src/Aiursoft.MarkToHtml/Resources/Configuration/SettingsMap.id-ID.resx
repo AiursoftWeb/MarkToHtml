@@ -30,6 +30,18 @@
   <data name="Brand Name" xml:space="preserve">
     <value>Nama Merek</value>
   </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Alamat Perusahaan</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>Email Perusahaan</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Nomor Telepon Perusahaan</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Kode Pos Perusahaan</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Nomor ICP</value>
   </data>
@@ -39,8 +51,14 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nama Proyek</value>
   </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Alamat perusahaan atau proyek.</value>
+  </data>
   <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
     <value>Nama merek perusahaan atau proyek. Contoh: Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>Alamat email perusahaan atau proyek</value>
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Nomor lisensi ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
@@ -50,6 +68,12 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Nama proyek yang ditampilkan di antarmuka pengguna depan.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Nomor telepon perusahaan atau proyek</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Kode pos perusahaan atau proyek</value>
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL perusahaan atau proyek. Contoh: https://www.aiursoft.com</value>
