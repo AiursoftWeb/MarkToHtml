@@ -10,6 +10,10 @@ public class SettingsMap
     public const string ProjectLogo = "ProjectLogo";
     public const string AllowUserAdjustNickname = "Allow_User_Adjust_Nickname";
     public const string Icp = "Icp";
+    public const string CompanyAddress = "CompanyAddress";
+    public const string CompanyPhone = "CompanyPhone";
+    public const string CompanyEmail = "CompanyEmail";
+    public const string CompanyPostcode = "CompanyPostcode";
 
     public class FakeLocalizer
     {
@@ -70,6 +74,38 @@ public class SettingsMap
             Description = Localizer["The ICP license number for China mainland users. Leave empty to hide."],
             Type = SettingType.Text,
             DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyAddress,
+            Name = Localizer["Company Address"],
+            Description = Localizer["The address of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "西京市中关村大街 999 号"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyPhone,
+            Name = Localizer["Company Phone"],
+            Description = Localizer["The phone number of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "010-12345678"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyEmail,
+            Name = Localizer["Company Email"],
+            Description = Localizer["The email address of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "anduin@aiursoft.com"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = CompanyPostcode,
+            Name = Localizer["Company Postcode"],
+            Description = Localizer["The postcode of the company or project."],
+            Type = SettingType.Text,
+            DefaultValue = "100080"
         }
     };
 }

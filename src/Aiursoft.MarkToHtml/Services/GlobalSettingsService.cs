@@ -49,6 +49,16 @@ public class GlobalSettingsService(
         return result;
     }
 
+    public async Task<string> GetLogoUrlAsync()
+    {
+        var logoPath = await GetSettingValueAsync(SettingsMap.ProjectLogo);
+        if (string.IsNullOrWhiteSpace(logoPath))
+        {
+            return "/logo.svg";
+        }
+        return storageService.RelativePathToInternetUrl(logoPath);
+    }
+
     public async Task<bool> GetBoolSettingAsync(string key)
     {
         var value = await GetSettingValueAsync(key);

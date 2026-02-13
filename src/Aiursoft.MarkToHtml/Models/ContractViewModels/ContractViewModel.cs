@@ -49,4 +49,10 @@ public class ContractViewModel : UiStackLayoutViewModel
     public string PartyBContact { get; set; } = "茨盖比";
     
     public bool ShowPreview { get; set; }
+
+    public string LogoUrl { get; set; } = "/logo.svg";
+    public string CompanyAddress { get; set; } = string.Empty;
+    public string CompanyPhone { get; set; } = string.Empty;
+    public string CompanyEmail { get; set; } = string.Empty;
+    public string CompanyPostcode { get; set; } = string.Empty;
 }

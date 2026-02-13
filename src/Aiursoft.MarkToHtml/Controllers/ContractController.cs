@@ -1,3 +1,4 @@
+using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.ContractViewModels;
 using Aiursoft.MarkToHtml.Services;
@@ -12,7 +13,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class ContractController(
     UserManager<User> userManager,
     TemplateDbContext context,
-    MarkToHtmlService mtohService) : Controller
+    MarkToHtmlService mtohService,
+    GlobalSettingsService globalSettingsService) : Controller
 {
     [HttpGet]
     public async Task<IActionResult> Fill([Required][FromRoute] Guid id)
@@ -37,6 +39,7 @@ public class ContractController(
             ShowPreview = false
         };
 
+        await PopulateCompanySettings(model);
         return this.StackView(model);
     }
 
@@ -61,6 +64,7 @@ public class ContractController(
         model.Title = document.Title ?? "Untitled Document";
         model.PageTitle = $"{model.Title} - Contract";
 
+        await PopulateCompanySettings(model);
         if (!ModelState.IsValid)
         {
             model.ShowPreview = false;
@@ -70,6 +74,15 @@ public class ContractController(
         model.ContentHtml = mtohService.ConvertMarkdownToHtml(document.Content ?? string.Empty);
         model.ShowPreview = true;
         return this.StackView(model, nameof(Fill));
+    }
+
+    private async Task PopulateCompanySettings(ContractViewModel model)
+    {
+        model.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
+        model.CompanyAddress = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyAddress);
+        model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
+        model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
+        model.CompanyPostcode = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPostcode);
     }
 
     private async Task<bool> HasReadAccess(MarkdownDocument document)
