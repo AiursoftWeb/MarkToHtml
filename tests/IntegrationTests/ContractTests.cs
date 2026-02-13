@@ -183,6 +183,59 @@ public class ContractTests
         Assert.Contains("page-number", html);
     }
 
+    [TestMethod]
+    public async Task Contract_Generate_IncludesLogo()
+    {
+        var email = $"test-{Guid.NewGuid()}@test.com";
+        var password = "Password123!";
+        await RegisterAndLogin(email, password);
+        
+        Guid documentId;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var doc = new MarkdownDocument
+            {
+                Id = Guid.NewGuid(),
+                Title = "Contract Test Doc",
+                Content = "# Clause 1",
+                UserId = user!.Id,
+                CreationTime = DateTime.UtcNow
+            };
+            db.MarkdownDocuments.Add(doc);
+            await db.SaveChangesAsync();
+            documentId = doc.Id;
+        }
+
+        var fillPageResponse = await _http.GetAsync($"/contract/{documentId}");
+        var fillPageHtml = await fillPageResponse.Content.ReadAsStringAsync();
+        var token = ExtractToken(fillPageHtml);
+
+        var content = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "DocumentId", documentId.ToString() },
+            { "ContractNumber", "TEST-001" },
+            { "SignDate", "2026-01-20" },
+            { "SignLocation", "Suzhou" },
+            { "PartyAName", "Party A" },
+            { "PartyAAddress", "Address A" },
+            { "PartyAContact", "Contact A" },
+            { "PartyBName", "Party B" },
+            { "PartyBAddress", "Address B" },
+            { "PartyBContact", "Contact B" },
+            { "__RequestVerificationToken", token }
+        });
+
+        var response = await _http.PostAsync($"/contract/{documentId}", content);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        
+        // Check for Logo
+        Assert.IsTrue(html.Contains("class=\"logo-box\""));
+        Assert.IsTrue(html.Contains("/logo.svg"));
+    }
+
     private async Task RegisterAndLogin(string email, string password)
     {
         var regPage = await _http.GetAsync("/Account/Register");

@@ -76,6 +76,10 @@ public class ContractController(
         {
             model.LogoUrl = storageService.RelativePathToInternetUrl(logoPath, HttpContext);
         }
+        else
+        {
+            model.LogoUrl = "/logo.svg";
+        }
         model.CompanyAddress = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyAddress);
         model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
         model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);
