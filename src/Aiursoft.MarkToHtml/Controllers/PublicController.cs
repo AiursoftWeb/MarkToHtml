@@ -15,7 +15,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
-    MarkToHtmlService mtohService) : Controller
+    MarkToHtmlService mtohService,
+    DocumentPermissionService permissionService) : Controller
 {
     /// <summary>
     /// View a shared document.
@@ -38,8 +39,7 @@ public class PublicController(
         }
 
         // Permission check
-        var hasAccess = await HasReadAccess(document);
-        if (!hasAccess)
+        if (!await permissionService.CanReadAsync(User, document))
         {
             if (User.Identity?.IsAuthenticated == true)
             {
@@ -63,11 +63,11 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document)
+            CanEdit = await permissionService.CanEditAsync(User, document)
         };
 
         ViewBag.DocumentId = id;
-        return this.StackView(model);
+        return await this.StackViewAsync(model);
     }
 
     /// <summary>
@@ -91,8 +91,7 @@ public class PublicController(
         }
 
         // Permission check
-        var hasAccess = await HasReadAccess(document);
-        if (!hasAccess)
+        if (!await permissionService.CanReadAsync(User, document))
         {
             if (User.Identity?.IsAuthenticated == true)
             {
@@ -116,7 +115,7 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document)
+            CanEdit = await permissionService.CanEditAsync(User, document)
         };
 
         return View(model);
@@ -143,8 +142,7 @@ public class PublicController(
         }
 
         // Permission check
-        var hasAccess = await HasReadAccess(document);
-        if (!hasAccess)
+        if (!await permissionService.CanReadAsync(User, document))
         {
             if (User.Identity?.IsAuthenticated == true)
             {
@@ -159,71 +157,5 @@ public class PublicController(
 
         // Return raw markdown as plain text
         return Content(document.Content ?? string.Empty, "text/plain; charset=utf-8");
-    }
-
-    private async Task<bool> HasReadAccess(MarkdownDocument document)
-    {
-        // 1. Is public
-        if (document.IsPublic)
-        {
-            return true;
-        }
-
-        // 2. Is owner
-        var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-        if (userId != null && document.UserId == userId)
-        {
-            return true;
-        }
-
-        // 3. Is shared with the user (directly or via role)
-        if (userId != null)
-        {
-            var userRoles = await context.UserRoles
-                .Where(ur => ur.UserId == userId)
-                .Select(ur => ur.RoleId)
-                .ToListAsync();
-
-            var hasSharedAccess = await context.DocumentShares
-                .AnyAsync(s => s.DocumentId == document.Id &&
-                              (s.SharedWithUserId == userId ||
-                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-            if (hasSharedAccess)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private async Task<bool> HasEditAccess(MarkdownDocument document)
-    {
-        var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-        if (userId == null)
-        {
-            return false;
-        }
-
-        // 1. Is owner
-        if (document.UserId == userId)
-        {
-            return true;
-        }
-
-        // 2. Is shared with the user with Editable permission
-        var userRoles = await context.UserRoles
-            .Where(ur => ur.UserId == userId)
-            .Select(ur => ur.RoleId)
-            .ToListAsync();
-
-        var hasEditAccess = await context.DocumentShares
-            .AnyAsync(s => s.DocumentId == document.Id &&
-                           s.Permission == SharePermission.Editable &&
-                           (s.SharedWithUserId == userId ||
-                            (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
-
-        return hasEditAccess;
     }
 }

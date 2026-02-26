@@ -1,11 +1,35 @@
 using Aiursoft.MarkToHtml.Services;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 
 namespace Aiursoft.MarkToHtml.Tests.UnitTests;
 
 [TestClass]
 public class BadWordFilterServiceTests
 {
-    private readonly BadWordFilterService _service = new();
+    private class FakeWebHostEnvironment : IWebHostEnvironment
+    {
+        public string WebRootPath { get; set; } = string.Empty;
+        public IFileProvider WebRootFileProvider { get; set; } = null!;
+        public string ContentRootPath { get; set; } = Directory.GetCurrentDirectory();
+        public IFileProvider ContentRootFileProvider { get; set; } = null!;
+        public string EnvironmentName { get; set; } = "Development";
+        public string ApplicationName { get; set; } = "Aiursoft.MarkToHtml";
+    }
+
+    private readonly BadWordFilterService _service;
+
+    public BadWordFilterServiceTests()
+    {
+        var env = new FakeWebHostEnvironment();
+        // Create a dummy badwords.txt for testing if it doesn't exist
+        var path = Path.Combine(env.ContentRootPath, "badwords.txt");
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, "法轮\n六四\nFREEGATE");
+        }
+        _service = new BadWordFilterService(env);
+    }
 
     [TestMethod]
     [DataRow("This is a clean text.")]
