@@ -24,9 +24,9 @@ public class SystemController(ILogger<SystemController> logger) : Controller
         CascadedLinksOrder = 9999,
         LinkText = "Info",
         LinkOrder = 1)]
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        return await this.StackViewAsync(new IndexViewModel());
+        return this.StackView(new IndexViewModel());
     }
 
     [HttpPost]

@@ -42,7 +42,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
                 MaxSizeInMb = definition.MaxSizeInMb
             });
         }
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     [HttpPost]
@@ -51,7 +51,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
     {
         if (!ModelState.IsValid)
         {
-            return await Index();
+            return RedirectToAction(nameof(Index));
         }
 
         try
@@ -61,7 +61,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
         catch (InvalidOperationException e)
         {
             ModelState.AddModelError(string.Empty, e.Message);
-            return await Index();
+            return RedirectToAction(nameof(Index));
         }
 
         return RedirectToAction(nameof(Index));

@@ -61,7 +61,7 @@ public class AdminController(
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
-        return await this.StackViewAsync(new AllDocumentsViewModel
+        return this.StackView(new AllDocumentsViewModel
         {
             AllDocuments = allDocuments,
             SearchQuery = trimmedSearch
@@ -110,7 +110,7 @@ public class AdminController(
             SearchQuery = trimmedSearch
         };
 
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     /// <summary>
@@ -147,7 +147,7 @@ public class AdminController(
             SavedSuccessfully = saved ?? false
         };
 
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     /// <summary>
@@ -173,7 +173,7 @@ public class AdminController(
                 Text = user.UserName,
                 Selected = user.Id == model.SelectedUserId
             }).ToList();
-            return await this.StackViewAsync(model);
+            return this.StackView(model);
         }
 
         var documentInDb = await context.MarkdownDocuments.FirstOrDefaultAsync(d => d.Id == model.DocumentId);
@@ -205,7 +205,7 @@ public class AdminController(
             return NotFound("Document not found.");
         }
 
-        return await this.StackViewAsync(new DeleteDocumentViewModel
+        return this.StackView(new DeleteDocumentViewModel
         {
             Document = document
         });

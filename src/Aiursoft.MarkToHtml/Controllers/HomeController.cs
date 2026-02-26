@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.WebTools.Attributes;
+using Aiursoft.MarkToHtml.Authorization;
 
 
 namespace Aiursoft.MarkToHtml.Controllers;
@@ -19,7 +20,7 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MarkToHtmlService mtohService,
-    DocumentPermissionService permissionService) : Controller
+    IAuthorizationService authorizationService) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",
@@ -30,9 +31,9 @@ public class HomeController(
         LinkText = "Convert Document",
         LinkOrder = 1
     )]
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        return await this.StackViewAsync(new IndexViewModel("Untitled Document"));
+        return this.StackView(new IndexViewModel("Untitled Document"));
     }
 
     [HttpPost]
@@ -41,7 +42,7 @@ public class HomeController(
     {
         if (!ModelState.IsValid)
         {
-            return await this.StackViewAsync(model);
+            return this.StackView(model);
         }
 
         var userId = userManager.GetUserId(User);
@@ -58,7 +59,25 @@ public class HomeController(
             if (documentInDb != null)
             {
                 // Check permissions for existing document
-                if (!await permissionService.CanEditAsync(User, documentInDb))
+                bool isOwner = documentInDb.UserId == userId;
+                bool canEdit = isOwner;
+
+                if (!isOwner)
+                {
+                    // Check if user has Editable permission
+                    var userRoles = await context.UserRoles
+                        .Where(ur => ur.UserId == userId)
+                        .Select(ur => ur.RoleId)
+                        .ToListAsync();
+
+                    canEdit = await context.DocumentShares
+                        .AnyAsync(s => s.DocumentId == model.DocumentId &&
+                                      s.Permission == SharePermission.Editable &&
+                                      (s.SharedWithUserId == userId ||
+                                       (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+                }
+
+                if (!canEdit)
                 {
                     return Forbid();
                 }
@@ -91,13 +110,14 @@ public class HomeController(
                 "An anonymous user submitted a document with ID: '{Id}'. It was not saved to the database.",
                 model.DocumentId);
             model.OutputHtml = mtohService.ConvertMarkdownToHtml(model.InputMarkdown);
-            return await this.StackViewAsync(model);
+            return this.StackView(model);
         }
     }
 
     [Authorize]
     public async Task<IActionResult> Edit([Required][FromRoute] Guid id, [FromQuery] bool? saved = false)
     {
+        var userId = userManager.GetUserId(User);
         var document = await context.MarkdownDocuments
             .Include(d => d.DocumentShares)
             .FirstOrDefaultAsync(d => d.Id == id);
@@ -107,7 +127,26 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanEditAsync(User, document))
+        // Check if user is the owner
+        bool isOwner = document.UserId == userId;
+        bool canEdit = isOwner;
+
+        if (!isOwner)
+        {
+            // Check if document is shared with the user with Editable permission
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            canEdit = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              s.Permission == SharePermission.Editable &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+        }
+
+        if (!canEdit)
         {
             return Forbid();
         }
@@ -127,7 +166,7 @@ public class HomeController(
             HasInternalShares = document.DocumentShares.Any()
         };
 
-        return await this.StackViewAsync(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
+        return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
     }
 
     [Authorize]
@@ -165,7 +204,7 @@ public class HomeController(
             MyDocuments = documents,
             SearchQuery = trimmedSearch
         };
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     // GET: /Home/Delete/{guid}
@@ -187,7 +226,7 @@ public class HomeController(
             return NotFound();
         }
 
-        return await this.StackViewAsync(new DeleteViewModel
+        return this.StackView(new DeleteViewModel
         {
             Document = document
         });
@@ -232,7 +271,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -242,7 +285,7 @@ public class HomeController(
             document.IsPublic = true;
             await context.SaveChangesAsync();
             logger.LogInformation("Document with ID: '{DocumentId}' was made public by user: '{UserId}'.",
-                id, userManager.GetUserId(User));
+                id, userId);
         }
 
         return Ok();
@@ -264,7 +307,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -274,7 +321,7 @@ public class HomeController(
             document.IsPublic = false;
             await context.SaveChangesAsync();
             logger.LogInformation("Document with ID: '{DocumentId}' was made private by user: '{UserId}'.",
-                id, userManager.GetUserId(User));
+                id, userId);
         }
 
         return Ok();
@@ -296,14 +343,18 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
 
         document.IsPublic = publicAccess;
         logger.LogInformation("Document with ID: '{DocumentId}' visibility updated to {IsPublic} by user: '{UserId}'.",
-            id, document.IsPublic, userManager.GetUserId(User));
+            id, document.IsPublic, userId);
 
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(ManageShares), new { id });
@@ -326,7 +377,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -342,7 +397,7 @@ public class HomeController(
             AvailableRoles = allRoles
         };
 
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     /// <summary>
@@ -361,7 +416,11 @@ public class HomeController(
             return NotFound("The document was not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return NotFound("The document was not found or you do not have permission to modify it.");
         }
@@ -400,7 +459,7 @@ public class HomeController(
         context.DocumentShares.Add(share);
         await context.SaveChangesAsync();
 
-        logger.LogInformation("Document with ID: '{DocumentId}' was shared by user: '{UserId}'.", id, userManager.GetUserId(User));
+        logger.LogInformation("Document with ID: '{DocumentId}' was shared by user: '{UserId}'.", id, userId);
 
         return RedirectToAction(nameof(ManageShares), new { id });
     }
@@ -422,7 +481,11 @@ public class HomeController(
             return NotFound("Share not found.");
         }
 
-        if (!await permissionService.CanManageAsync(User, share.Document))
+        var userId = userManager.GetUserId(User);
+        var isOwner = share.Document.UserId == userId;
+        var canManage = isOwner || (await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+
+        if (!canManage)
         {
             return Forbid();
         }
@@ -430,7 +493,7 @@ public class HomeController(
         context.DocumentShares.Remove(share);
         await context.SaveChangesAsync();
 
-        logger.LogInformation("Share with ID: '{ShareId}' was removed by user: '{UserId}'.", id, userManager.GetUserId(User));
+        logger.LogInformation("Share with ID: '{ShareId}' was removed by user: '{UserId}'.", id, userId);
 
         return RedirectToAction(nameof(ManageShares), new { id = share.DocumentId });
     }
@@ -485,7 +548,7 @@ public class HomeController(
             RoleNames = roles
         };
 
-        return await this.StackViewAsync(model);
+        return this.StackView(model);
     }
 
     [RenderInNavBar(
@@ -497,8 +560,8 @@ public class HomeController(
         LinkText = "Self host a new server",
         LinkOrder = 1
     )]
-    public async Task<IActionResult> SelfHost()
+    public IActionResult SelfHost()
     {
-        return await this.StackViewAsync(new SelfHostViewModel("Self host a new server"));
+        return this.StackView(new SelfHostViewModel("Self host a new server"));
     }
 }
