@@ -98,33 +98,26 @@ public class ViewModelArgsInjector(
         _ = localizer["Shared Document"];
     }
 
-    public async Task InjectSimpleAsync(
+    public void InjectSimple(
         HttpContext context,
         UiStackLayoutViewModel toInject)
     {
         toInject.PageTitle = localizer[toInject.PageTitle ?? "View"];
-        toInject.AppName = await globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectName);
+        toInject.AppName = globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectName).GetAwaiter().GetResult();
         toInject.Theme = UiTheme.Light;
         toInject.SidebarTheme = UiSidebarTheme.Default;
         toInject.Layout = UiLayout.Fluid;
         toInject.ContentNoPadding = true;
     }
 
-    public void InjectSimple(
-        HttpContext context,
-        UiStackLayoutViewModel toInject)
-    {
-        InjectSimpleAsync(context, toInject).GetAwaiter().GetResult();
-    }
-
-    public async Task InjectAsync(
+    public void Inject(
         HttpContext context,
         UiStackLayoutViewModel toInject)
     {
         var preferDarkTheme = context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-        var projectName = await globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectName);
-        var brandName = await globalSettingsService.GetSettingValueAsync(SettingsMap.BrandName);
-        var brandHomeUrl = await globalSettingsService.GetSettingValueAsync(SettingsMap.BrandHomeUrl);
+        var projectName = globalSettingsService.GetSettingValueAsync(SettingsMap.ProjectName).GetAwaiter().GetResult();
+        var brandName = globalSettingsService.GetSettingValueAsync(SettingsMap.BrandName).GetAwaiter().GetResult();
+        var brandHomeUrl = globalSettingsService.GetSettingValueAsync(SettingsMap.BrandHomeUrl).GetAwaiter().GetResult();
         toInject.PageTitle = localizer[toInject.PageTitle ?? "View"];
         toInject.AppName = projectName;
         toInject.Theme = preferDarkTheme ? UiTheme.Dark : UiTheme.Light;
@@ -162,7 +155,7 @@ public class ViewModelArgsInjector(
                     }
                     else
                     {
-                        var authResult = await authorizationService.AuthorizeAsync(context.User, linkDef.RequiredPolicy);
+                        var authResult = authorizationService.AuthorizeAsync(context.User, linkDef.RequiredPolicy).Result;
                         isVisible = authResult.Succeeded;
                     }
 
@@ -209,7 +202,7 @@ public class ViewModelArgsInjector(
             SideLogo = new SideLogoViewModel
             {
                 AppName = projectName,
-                LogoUrl = await globalSettingsService.GetLogoUrlAsync(),
+                LogoUrl = globalSettingsService.GetLogoUrlAsync().GetAwaiter().GetResult(),
                 Href = "/"
             },
             SideMenu = new SideMenuViewModel
@@ -311,12 +304,5 @@ public class ViewModelArgsInjector(
                 ]
             };
         }
-    }
-
-    public void Inject(
-        HttpContext context,
-        UiStackLayoutViewModel toInject)
-    {
-        InjectAsync(context, toInject).GetAwaiter().GetResult();
     }
 }

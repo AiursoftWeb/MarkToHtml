@@ -6,25 +6,6 @@ namespace Aiursoft.MarkToHtml.Services;
 
 public static class Extensions
 {
-    public static async Task<ViewResult> SimpleViewAsync(this Controller controller, UiStackLayoutViewModel model)
-    {
-        var services = controller.HttpContext.RequestServices;
-        var injector = services.GetRequiredService<ViewModelArgsInjector>();
-        await injector.InjectSimpleAsync(controller.HttpContext, model);
-        return controller.View(model);
-    }
-
-    public static async Task<ViewResult> SimpleViewAsync(
-        this Controller controller,
-        UiStackLayoutViewModel model,
-        string viewName)
-    {
-        var services = controller.HttpContext.RequestServices;
-        var injector = services.GetRequiredService<ViewModelArgsInjector>();
-        await injector.InjectSimpleAsync(controller.HttpContext, model);
-        return controller.View(viewName, model);
-    }
-
     public static ViewResult SimpleView(this Controller controller, UiStackLayoutViewModel model)
     {
         var services = controller.HttpContext.RequestServices;
@@ -41,25 +22,6 @@ public static class Extensions
         var services = controller.HttpContext.RequestServices;
         var injector = services.GetRequiredService<ViewModelArgsInjector>();
         injector.InjectSimple(controller.HttpContext, model);
-        return controller.View(viewName, model);
-    }
-
-    public static async Task<ViewResult> StackViewAsync(this Controller controller, UiStackLayoutViewModel model)
-    {
-        var services = controller.HttpContext.RequestServices;
-        var injector = services.GetRequiredService<ViewModelArgsInjector>();
-        await injector.InjectAsync(controller.HttpContext, model);
-        return controller.View(model);
-    }
-
-    public static async Task<ViewResult> StackViewAsync(
-        this Controller controller,
-        UiStackLayoutViewModel model,
-        string viewName)
-    {
-        var services = controller.HttpContext.RequestServices;
-        var injector = services.GetRequiredService<ViewModelArgsInjector>();
-        await injector.InjectAsync(controller.HttpContext, model);
         return controller.View(viewName, model);
     }
 
