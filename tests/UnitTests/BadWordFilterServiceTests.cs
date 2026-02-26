@@ -1,5 +1,4 @@
 using Aiursoft.MarkToHtml.Services;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.FileProviders;
 
 namespace Aiursoft.MarkToHtml.Tests.UnitTests;
