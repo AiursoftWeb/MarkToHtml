@@ -73,7 +73,7 @@ public class RolesController(
             };
         }).ToList();
 
-        return this.StackView(new IndexViewModel
+        return await this.StackViewAsync(new IndexViewModel
         {
             Roles = rolesWithCount
         });
@@ -99,7 +99,7 @@ public class RolesController(
 
         var usersInRole = await userManager.GetUsersInRoleAsync(role.Name!);
 
-        return this.StackView(new DetailsViewModel
+        return await this.StackViewAsync(new DetailsViewModel
         {
             Role = role,
             Permissions = permissions,
@@ -109,9 +109,9 @@ public class RolesController(
 
     // GET: Roles/Create
     [Authorize(Policy = AppPermissionNames.CanAddRoles)]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
-        return this.StackView(new CreateViewModel());
+        return await this.StackViewAsync(new CreateViewModel());
     }
 
     // POST: Roles/Create
@@ -133,7 +133,7 @@ public class RolesController(
                 ModelState.AddModelError(string.Empty, error.Description);
             }
         }
-        return this.StackView(model);
+        return await this.StackViewAsync(model);
     }
 
     // GET: Roles/Edit/5
@@ -163,7 +163,7 @@ public class RolesController(
             });
         }
 
-        return this.StackView(model);
+        return await this.StackViewAsync(model);
     }
 
     // POST: Roles/Edit/5
@@ -185,7 +185,7 @@ public class RolesController(
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
-                return this.StackView(model);
+                return await this.StackViewAsync(model);
             }
 
             var existingClaims = await roleManager.GetClaimsAsync(role);
@@ -213,7 +213,7 @@ public class RolesController(
 
             return RedirectToAction(nameof(Details), new { id = role.Id });
         }
-        return this.StackView(model);
+        return await this.StackViewAsync(model);
     }
 
     // GET: Roles/Delete/5
@@ -231,7 +231,7 @@ public class RolesController(
             return NotFound();
         }
 
-        return this.StackView(new DeleteViewModel
+        return await this.StackViewAsync(new DeleteViewModel
         {
             Role = role
         });
