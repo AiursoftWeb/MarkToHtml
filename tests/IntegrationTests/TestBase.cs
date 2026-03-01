@@ -9,11 +9,12 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
 public abstract class TestBase
 {
-    protected readonly int Port;
-    protected readonly HttpClient Http;
+    protected int Port;
+    protected HttpClient Http = null!;
     protected IHost? Server;
 
-    protected TestBase()
+    [TestInitialize]
+    public virtual async Task CreateServer()
     {
         var cookieContainer = new CookieContainer();
         var handler = new HttpClientHandler
@@ -26,11 +27,7 @@ public abstract class TestBase
         {
             BaseAddress = new Uri($"http://localhost:{Port}")
         };
-    }
 
-    [TestInitialize]
-    public virtual async Task CreateServer()
-    {
         Server = await AppAsync<Startup>([], port: Port);
         await Server.UpdateDbAsync<TemplateDbContext>();
         await Server.SeedAsync();

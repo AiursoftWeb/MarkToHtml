@@ -11,22 +11,19 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 [TestClass]
 public class FilesTests
 {
-    private readonly int _port;
-    private readonly HttpClient _http;
+    private int _port;
+    private HttpClient _http = null!;
     private IHost? _server;
 
-    public FilesTests()
+    [TestInitialize]
+    public async Task CreateServer()
     {
         _port = Network.GetAvailablePort();
         _http = new HttpClient
         {
             BaseAddress = new Uri($"http://localhost:{_port}")
         };
-    }
 
-    [TestInitialize]
-    public async Task CreateServer()
-    {
         _server = await AppAsync<Startup>([], port: _port);
         await _server.UpdateDbAsync<TemplateDbContext>();
         await _server.SeedAsync();
