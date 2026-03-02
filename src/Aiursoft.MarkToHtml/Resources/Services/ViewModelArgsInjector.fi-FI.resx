@@ -129,9 +129,6 @@
   <data name="Manage shares" xml:space="preserve">
     <value>Hallitse jakoja</value>
   </data>
-  <data name="Markdown to HTML converter" xml:space="preserve">
-    <value>Markdownista HTML:ksi -muunnin</value>
-  </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Muunnin</value>
   </data>

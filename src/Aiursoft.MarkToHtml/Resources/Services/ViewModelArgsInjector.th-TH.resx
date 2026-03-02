@@ -132,9 +132,6 @@
   <data name="Manage shares" xml:space="preserve">
     <value>จัดการแชร์</value>
   </data>
-  <data name="Markdown to HTML converter" xml:space="preserve">
-    <value>ตัวแปลง Markdown เป็น HTML</value>
-  </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Converter</value>
   </data>
