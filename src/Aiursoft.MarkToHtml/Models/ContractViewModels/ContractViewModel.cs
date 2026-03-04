@@ -50,6 +50,8 @@ public class ContractViewModel : UiStackLayoutViewModel
     
     public bool ShowPreview { get; set; }
 
+    public bool ShowContractHeader { get; set; } = true;
+
     public string LogoUrl { get; set; } = "/logo.svg";
     public string CompanyAddress { get; set; } = string.Empty;
     public string CompanyPhone { get; set; } = string.Empty;

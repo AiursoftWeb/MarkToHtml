@@ -78,7 +78,8 @@ public class ContractController(
 
     private async Task PopulateCompanySettings(ContractViewModel model)
     {
-        model.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
+        model.LogoUrl = await globalSettingsService.GetContractLogoUrlAsync();
+        model.ShowContractHeader = await globalSettingsService.GetBoolSettingAsync(SettingsMap.ShowContractHeader);
         model.CompanyAddress = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyAddress);
         model.CompanyPhone = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyPhone);
         model.CompanyEmail = await globalSettingsService.GetSettingValueAsync(SettingsMap.CompanyEmail);

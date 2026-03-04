@@ -14,6 +14,8 @@ public class SettingsMap
     public const string CompanyPhone = "CompanyPhone";
     public const string CompanyEmail = "CompanyEmail";
     public const string CompanyPostcode = "CompanyPostcode";
+    public const string ContractLogo = "ContractLogo";
+    public const string ShowContractHeader = "ShowContractHeader";
 
     public class FakeLocalizer
     {
@@ -106,6 +108,25 @@ public class SettingsMap
             Description = Localizer["The postcode of the company or project."],
             Type = SettingType.Text,
             DefaultValue = "100080"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = ContractLogo,
+            Name = Localizer["Contract Logo"],
+            Description = Localizer["The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo."],
+            Type = SettingType.File,
+            DefaultValue = "",
+            Subfolder = "contract-logo",
+            AllowedExtensions = "jpg png svg",
+            MaxSizeInMb = 5
+        },
+        new GlobalSettingDefinition
+        {
+            Key = ShowContractHeader,
+            Name = Localizer["Show Contract Header"],
+            Description = Localizer["Whether to show the contract header (Logo, address, etc.) in the contract view."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
         }
     };
 }

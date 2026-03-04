@@ -59,6 +59,16 @@ public class GlobalSettingsService(
         return storageService.RelativePathToInternetUrl(logoPath);
     }
 
+    public async Task<string> GetContractLogoUrlAsync()
+    {
+        var logoPath = await GetSettingValueAsync(SettingsMap.ContractLogo);
+        if (string.IsNullOrWhiteSpace(logoPath))
+        {
+            return await GetLogoUrlAsync();
+        }
+        return storageService.RelativePathToInternetUrl(logoPath);
+    }
+
     public async Task<bool> GetBoolSettingAsync(string key)
     {
         var value = await GetSettingValueAsync(key);

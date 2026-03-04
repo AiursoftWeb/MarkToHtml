@@ -1,7 +1,9 @@
 using System.Net;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
+using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Services;
 using Microsoft.EntityFrameworkCore;
 using static Aiursoft.WebTools.Extends;
 
@@ -231,6 +233,133 @@ public class ContractTests
         // Check for Logo
         Assert.IsTrue(html.Contains("class=\"logo-box\""));
         Assert.IsTrue(html.Contains("/logo.svg"));
+    }
+
+    [TestMethod]
+    public async Task Contract_Generate_CanHideHeader()
+    {
+        var email = $"test-{Guid.NewGuid()}@test.com";
+        var password = "Password123!";
+        await RegisterAndLogin(email, password);
+
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var globalSettingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await globalSettingsService.UpdateSettingAsync(SettingsMap.ShowContractHeader, "False");
+        }
+
+        Guid documentId;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var doc = new MarkdownDocument
+            {
+                Id = Guid.NewGuid(),
+                Title = "Contract Test Doc",
+                Content = "# Clause 1",
+                UserId = user!.Id,
+                CreationTime = DateTime.UtcNow
+            };
+            db.MarkdownDocuments.Add(doc);
+            await db.SaveChangesAsync();
+            documentId = doc.Id;
+        }
+
+        var fillPageResponse = await _http.GetAsync($"/contract/{documentId}");
+        var fillPageHtml = await fillPageResponse.Content.ReadAsStringAsync();
+        var token = ExtractToken(fillPageHtml);
+
+        var content = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "DocumentId", documentId.ToString() },
+            { "ContractNumber", "TEST-002" },
+            { "SignDate", "2026-01-20" },
+            { "SignLocation", "Suzhou" },
+            { "PartyAName", "Party A" },
+            { "PartyAAddress", "Address A" },
+            { "PartyAContact", "Contact A" },
+            { "PartyBName", "Party B" },
+            { "PartyBAddress", "Address B" },
+            { "PartyBContact", "Contact B" },
+            { "__RequestVerificationToken", token }
+        });
+
+        var response = await _http.PostAsync($"/contract/{documentId}", content);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+
+        // Check that header is NOT present
+        Assert.IsFalse(html.Contains("class=\"contract-header\""));
+        Assert.IsFalse(html.Contains("class=\"logo-box\""));
+        Assert.IsFalse(html.Contains("anduin@aiursoft.com"));
+    }
+
+    [TestMethod]
+    public async Task Contract_Generate_UsesSeparateContractLogo()
+    {
+        var email = $"test-{Guid.NewGuid()}@test.com";
+        var password = "Password123!";
+        await RegisterAndLogin(email, password);
+
+        // We can't easily upload a file in the test, but we can set the setting to a fake path.
+        // GlobalSettingsService.UpdateSettingAsync for File type expects the file to exist.
+        // Let's create a dummy file.
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var storageService = scope.ServiceProvider.GetRequiredService<Aiursoft.MarkToHtml.Services.FileStorage.StorageService>();
+            var path = storageService.GetFilePhysicalPath("contract-logo/test-logo.png", isVault: false);
+            Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+            await File.WriteAllBytesAsync(path, [0x01]);
+            
+            var globalSettingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await globalSettingsService.UpdateSettingAsync(SettingsMap.ContractLogo, "contract-logo/test-logo.png");
+            await globalSettingsService.UpdateSettingAsync(SettingsMap.ShowContractHeader, "True");
+        }
+
+        Guid documentId;
+        using (var scope = _server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var doc = new MarkdownDocument
+            {
+                Id = Guid.NewGuid(),
+                Title = "Contract Test Doc",
+                Content = "# Clause 1",
+                UserId = user!.Id,
+                CreationTime = DateTime.UtcNow
+            };
+            db.MarkdownDocuments.Add(doc);
+            await db.SaveChangesAsync();
+            documentId = doc.Id;
+        }
+
+        var fillPageResponse = await _http.GetAsync($"/contract/{documentId}");
+        var fillPageHtml = await fillPageResponse.Content.ReadAsStringAsync();
+        var token = ExtractToken(fillPageHtml);
+
+        var content = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "DocumentId", documentId.ToString() },
+            { "ContractNumber", "TEST-003" },
+            { "SignDate", "2026-01-20" },
+            { "SignLocation", "Suzhou" },
+            { "PartyAName", "Party A" },
+            { "PartyAAddress", "Address A" },
+            { "PartyAContact", "Contact A" },
+            { "PartyBName", "Party B" },
+            { "PartyBAddress", "Address B" },
+            { "PartyBContact", "Contact B" },
+            { "__RequestVerificationToken", token }
+        });
+
+        var response = await _http.PostAsync($"/contract/{documentId}", content);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+
+        // Check for the custom contract logo
+        Assert.IsTrue(html.Contains("test-logo.png"));
     }
 
     private async Task RegisterAndLogin(string email, string password)
