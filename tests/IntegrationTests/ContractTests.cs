@@ -4,6 +4,7 @@ using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Services;
+using Aiursoft.MarkToHtml.Services.FileStorage;
 using Microsoft.EntityFrameworkCore;
 using static Aiursoft.WebTools.Extends;
 
@@ -15,6 +16,8 @@ public class ContractTests
     private int _port;
     private HttpClient _http = null!;
     private IHost? _server;
+
+    private string _storagePath = null!;
 
     [TestInitialize]
     public async Task CreateServer()
@@ -31,7 +34,10 @@ public class ContractTests
             BaseAddress = new Uri($"http://localhost:{_port}")
         };
 
-        _server = await AppAsync<Startup>([], port: _port);
+        _storagePath = Path.Combine(Path.GetTempPath(), "MarkToHtml-Contract-Tests-" + Guid.NewGuid());
+        _server = await AppAsync<Startup>([
+            $"Storage:Path={_storagePath}"
+        ], port: _port);
         await _server.UpdateDbAsync<TemplateDbContext>();
         await _server.SeedAsync();
         await _server.StartAsync();
@@ -43,6 +49,11 @@ public class ContractTests
         if (_server == null) return;
         await _server.StopAsync();
         _server.Dispose();
+
+        if (Directory.Exists(_storagePath))
+        {
+            Directory.Delete(_storagePath, true);
+        }
     }
 
     [TestMethod]
@@ -307,7 +318,7 @@ public class ContractTests
         // Let's create a dummy file.
         using (var scope = _server!.Services.CreateScope())
         {
-            var storageService = scope.ServiceProvider.GetRequiredService<Aiursoft.MarkToHtml.Services.FileStorage.StorageService>();
+            var storageService = scope.ServiceProvider.GetRequiredService<StorageService>();
             var path = storageService.GetFilePhysicalPath("contract-logo/test-logo.png", isVault: false);
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             await File.WriteAllBytesAsync(path, [0x01]);

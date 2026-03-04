@@ -13,6 +13,8 @@ public abstract class TestBase
     protected HttpClient Http = null!;
     protected IHost? Server;
 
+    protected string StoragePath = null!;
+
     [TestInitialize]
     public virtual async Task CreateServer()
     {
@@ -28,7 +30,10 @@ public abstract class TestBase
             BaseAddress = new Uri($"http://localhost:{Port}")
         };
 
-        Server = await AppAsync<Startup>([], port: Port);
+        StoragePath = Path.Combine(Path.GetTempPath(), "MarkToHtml-Tests-" + Guid.NewGuid());
+        Server = await AppAsync<Startup>([
+            $"Storage:Path={StoragePath}"
+        ], port: Port);
         await Server.UpdateDbAsync<TemplateDbContext>();
         await Server.SeedAsync();
         await Server.StartAsync();
@@ -40,6 +45,11 @@ public abstract class TestBase
         if (Server == null) return;
         await Server.StopAsync();
         Server.Dispose();
+
+        if (Directory.Exists(StoragePath))
+        {
+            Directory.Delete(StoragePath, true);
+        }
     }
 
     protected async Task<string> GetAntiCsrfToken(string url)
