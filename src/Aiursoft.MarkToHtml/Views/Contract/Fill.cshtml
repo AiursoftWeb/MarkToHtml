@@ -81,20 +81,23 @@ else
     </div>
 
     <div class="contract-container">
-        <div class="contract-header">
-            <div class="logo-box">
-                @if (!string.IsNullOrEmpty(Model.LogoUrl))
-                {
-                    <img src="@Model.LogoUrl" alt="Logo" />
-                }
+        @if (Model.ShowContractHeader)
+        {
+            <div class="contract-header">
+                <div class="logo-box">
+                    @if (!string.IsNullOrEmpty(Model.LogoUrl))
+                    {
+                        <img src="@Model.LogoUrl" alt="Logo" />
+                    }
+                </div>
+                <div class="contact-box">
+                    <p>@Localizer["Correspondence Address"]: @Model.CompanyAddress</p>
+                    <p>@Localizer["Phone"]: @Model.CompanyPhone</p>
+                    <p>@Localizer["Email"]: @Model.CompanyEmail</p>
+                    <p>@Localizer["Postcode"]: @Model.CompanyPostcode</p>
+                </div>
             </div>
-            <div class="contact-box">
-                <p>@Localizer["Correspondence Address"]: @Model.CompanyAddress</p>
-                <p>@Localizer["Phone"]: @Model.CompanyPhone</p>
-                <p>@Localizer["Email"]: @Model.CompanyEmail</p>
-                <p>@Localizer["Postcode"]: @Model.CompanyPostcode</p>
-            </div>
-        </div>
+        }
 
         <h1>@Model.Title</h1>
 
