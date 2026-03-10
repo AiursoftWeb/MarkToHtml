@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>公司邮编</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>合同标志</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 备案号</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>项目名称</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>显示合同页眉</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>公司或项目的地址</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>中国大陆用户备案号。留空以隐藏。</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>显示在页眉中的合同徽标。支持 jpg、png、svg 格式。与系统徽标分开。</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>项目在导航栏和页脚中显示的标志。支持 jpg、png、svg 格式。</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>公司或项目的网址。例如：https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>是否在合同视图中显示合同页眉（徽标、地址等）。</value>
   </data>
 
 </root>

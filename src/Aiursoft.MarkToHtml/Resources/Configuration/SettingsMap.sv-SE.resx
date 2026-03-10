@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>Företagspostnummer</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Kontraktlogotyp</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Projektnamn</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Visa avtalsrubrik</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adressen för företaget eller projektet.</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-licensnummer för användare i Kina. Lämna tomt för att dölja.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Logotypen för avtalet visas i rubriken. Stödjer jpg, png, svg. Skild från systemlogotypen.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logotypen för projektet som visas i navigeringsfältet och sidfoten. Stöd för jpg, png, svg.</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL:en för företaget eller projektet. Till exempel https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Om avtalets huvud (logotyp, adress etc.) ska visas i avtalsvyn.</value>
   </data>
 
 </root>

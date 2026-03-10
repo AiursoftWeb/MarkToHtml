@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>รหัสไปรษณีย์บริษัท</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>โลโก้สัญญา</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>ชื่อโปรเจกต์</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>แสดงส่วนหัวของสัญญา</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>ที่อยู่ของบริษัทหรือโครงการ</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>โลโก้ของสัญญาที่แสดงในส่วนหัว รองรับไฟล์ jpg, png, svg แยกต่างหากจากโลโก้ระบบ</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>โลโก้ของโครงการที่แสดงไว้ในแถบเมนูและฟุตเตอร์ รองรับไฟล์ jpg, png, svg</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>URL ของบริษัทหรือโครงการ เช่น https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>การแสดงส่วนหัวของสัญญา (โลโก้, ที่อยู่, ฯลฯ) ในมุมมองสัญญาหรือไม่</value>
   </data>
 
 </root>
