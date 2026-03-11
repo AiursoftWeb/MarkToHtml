@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>Şirket Posta Kodu</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Sözleşme Logosu</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Proje Adı</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Sözleşme Başlığını Göster</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin adresi.</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Başlıkta görüntülenen sözleşme logosu. jpg, png, svg formatlarını destekler. Sistem logosundan ayrıdır.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Projenin navbar ve footer&apos;da gösterilen logosu. jpg, png, svg desteklenir.</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Şirketin veya projenin URL&apos;si. Örnek: https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Sözleşme görünümünde sözleşme başlığının (Logo, adres vb.) gösterilip gösterilmeyeceği.</value>
   </data>
 
 </root>

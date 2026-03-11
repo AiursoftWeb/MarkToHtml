@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>Bedrijfs postcode</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Contractlogo</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Projectnaam</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Toon contractkop</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Het adres van het bedrijf of project.</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Het ICP-licentienummer voor gebruikers in het Chinese binnenland. Laat leeg om te verbergen.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Het logo van het contract dat in de koptekst wordt weergegeven. Ondersteunt jpg, png, svg. Afzonderlijk van het systeemlogo.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Het logo van het project dat wordt weergegeven in de navigatiebalk en voettekst. Ondersteunt jpg, png, svg.</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>De URL van het bedrijf of project. Bijv. https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Of de contractkop (logo, adres, enz.) in de contractweergave moet worden weergegeven.</value>
   </data>
 
 </root>

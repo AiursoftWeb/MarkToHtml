@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>Kod pocztowy firmy</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Logo umowy</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numer ICP</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Nazwa projektu</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Pokaż nagłówek umowy</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adres firmy lub projektu.</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Numer licencji ICP dla użytkowników z Chin. Pozostaw puste, aby ukryć.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Logo umowy wyświetlany w nagłówku. Obsługiwane formaty: jpg, png, svg. Oddzielny od logo systemu.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo projektu wyświetlany w pasku nawigacyjnym i stopce. Obsługiwane formaty: jpg, png, svg.</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Adres URL firmy lub projektu. Przykładowo: https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Czy wyświetlać nagłówek umowy (logo, adres itp.) w widoku umowy.</value>
   </data>
 
 </root>

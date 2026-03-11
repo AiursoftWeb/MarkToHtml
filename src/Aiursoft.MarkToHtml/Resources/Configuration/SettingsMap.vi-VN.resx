@@ -42,6 +42,9 @@
   <data name="Company Postcode" xml:space="preserve">
     <value>Mã bưu chính công ty</value>
   </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Biểu tượng Hợp đồng</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Số đăng ký ICP</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Project Name" xml:space="preserve">
     <value>Tên dự án</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Hiển thị tiêu đề hợp đồng</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Địa chỉ của công ty hoặc dự án.</value>
@@ -62,6 +68,9 @@
   </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Số giấy phép ICP cho người dùng Trung Quốc đại lục. Để trống để ẩn.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
+    <value>Logo của hợp đồng hiển thị trong phần đầu trang. Hỗ trợ jpg, png, svg. Khác biệt với logo hệ thống.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo của dự án được hiển thị trong thanh điều hướng và chân trang. Hỗ trợ định dạng jpg, png, svg.</value>
@@ -77,6 +86,9 @@
   </data>
   <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
     <value>Địa chỉ URL của công ty hoặc dự án. Ví dụ: https://www.aiursoft.com</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Có hiển thị phần đầu hợp đồng (Logo, địa chỉ, v.v.) trong chế độ xem hợp đồng không.</value>
   </data>
 
 </root>
