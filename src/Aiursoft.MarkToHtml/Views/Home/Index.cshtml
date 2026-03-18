@@ -1,21 +1,16 @@
 @using Aiursoft.MarkToHtml.Controllers
 @model Aiursoft.MarkToHtml.Models.HomeViewModels.IndexViewModel
 
-<div class="row mb-2 mb-xl-3">
-    <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["Markdown to HTML Converter"]</h3>
-    </div>
-    <div class="col-auto ms-auto text-end mt-n1">
-        <p class="mb-0 text-muted">@Localizer["A simple tool to convert your Markdown into clean, sanitized HTML."]</p>
-    </div>
-</div>
+@{
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
 
 @if (Model.SavedSuccessfully)
 {
-    <div class="alert alert-success alert-dismissible" role="alert">
+    <div class="alert alert-success alert-dismissible mt-3 mx-3 shadow-sm" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         <div class="alert-icon">
-            <i class="align-middle" data-lucide="alert-triangle"></i>
+            <i class="align-middle" data-lucide="check-circle"></i>
         </div>
         <div class="alert-message">
             <strong>@Localizer["Success!"]</strong>
@@ -24,180 +19,126 @@
     </div>
 }
 
-<form asp-action="Index" method="post" id="markdown-form">
-    <div class="row mb-3">
-        <div class="col-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        @* Desktop View Switcher *@
-                        <div class="btn-group btn-group-sm me-3 d-none d-lg-inline-block" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
-                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
-                            <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+<form asp-action="Index" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
+    <!-- Unified Sticky Toolbar -->
+    <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
+        <!-- Left: View Switcher -->
+        <div class="d-flex align-items-center gap-3">
+            @* Desktop View Switcher *@
+            <div class="btn-group btn-group-sm d-none d-lg-inline-flex shadow-sm" role="group" aria-label="View mode" id="view-mode-switcher-desktop">
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-split-desktop" value="split" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="view-split-desktop" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
 
-                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-editor-desktop" value="editor" autocomplete="off">
+                <label class="btn btn-outline-secondary px-3" for="view-editor-desktop" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="code-2"></i> @Localizer["Code"]</label>
 
-                            <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-preview-desktop" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
-                        </div>
+                <input type="radio" class="btn-check" name="view-mode-desktop" id="view-preview-desktop" value="preview" autocomplete="off">
+                <label class="btn btn-outline-secondary px-3" for="view-preview-desktop" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i> @Localizer["Preview"]</label>
+            </div>
 
-                        @* Mobile View Switcher *@
-                        <div class="btn-group btn-group-sm me-3 d-lg-none" role="group" aria-label="Mobile view mode" id="view-mode-switcher-mobile">
-                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-editor-mobile" value="editor" autocomplete="off" checked>
-                            <label class="btn btn-outline-secondary" for="view-editor-mobile" title="@Localizer["Editor"]"><i class="align-middle" data-lucide="edit-3"></i></label>
+            @* Mobile View Switcher *@
+            <div class="btn-group btn-group-sm d-lg-none shadow-sm" role="group" aria-label="Mobile view mode" id="view-mode-switcher-mobile">
+                <input type="radio" class="btn-check" name="view-mode-mobile" id="view-editor-mobile" value="editor" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="view-editor-mobile" title="@Localizer["Editor"]"><i class="align-middle" data-lucide="code-2"></i></label>
 
-                            <input type="radio" class="btn-check" name="view-mode-mobile" id="view-preview-mobile" value="preview" autocomplete="off">
-                            <label class="btn btn-outline-secondary" for="view-preview-mobile" title="@Localizer["Preview"]"><i class="align-middle" data-lucide="eye"></i></label>
-                        </div>
-
-                        <div class="flex-grow-1">
-                            @if (Model.IsEditing)
-                            {
-                                <div class="input-group input-group-sm">
-                                    <span class="input-group-text bg-white text-muted">@Localizer["Title"]</span>
-                                    <input asp-for="Title" class="form-control" placeholder="@Localizer["Untitled Document"]" />
-                                    <input type="hidden" asp-for="DocumentId" />
-                                </div>
-                            }
-                            else
-                            {
-                                <span class="text-muted small ms-2">@Localizer["Create a new document..."]</span>
-                            }
-                        </div>
-
-                        <div class="ms-auto">
-                            @if (User.Identity?.IsAuthenticated ?? false)
-                            {
-                                if (Model.IsEditing)
-                                {
-                                    <a asp-action="History" class="btn btn-sm btn-outline-secondary me-1">
-                                        <i class="align-middle" data-lucide="arrow-left">&nbsp;</i>
-                                        <span class="d-none d-md-inline">@Localizer["My Documents"]</span>
-                                    </a>
-                                }
-                                <button type="submit" class="btn btn-sm btn-primary shadow-sm">
-                                    <i class="align-middle" data-lucide="save">&nbsp;</i>
-                                    <span class="d-none d-md-inline">@Localizer["Save Changes"]</span>
-                                </button>
-                            }
-                            else
-                            {
-                                <button type="submit" class="btn btn-sm btn-primary shadow-sm">
-                                    <i class="align-middle" data-lucide="play">&nbsp;</i>
-                                    @Localizer["Convert to HTML"]
-                                </button>
-                            }
-                        </div>
-                    </div>
-                </div>
+                <input type="radio" class="btn-check" name="view-mode-mobile" id="view-preview-mobile" value="preview" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="view-preview-mobile" title="@Localizer["Preview"]"><i class="align-middle" data-lucide="eye"></i></label>
             </div>
         </div>
+
+        <!-- Middle: Title -->
+        <div class="flex-grow-1 px-4 text-center d-flex align-items-center justify-content-center">
+            @if (Model.IsEditing)
+            {
+                <a asp-action="History" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Documents"]">
+                    <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
+                </a>
+                <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Document"]" />
+                <input type="hidden" asp-for="DocumentId" />
+            }
+            else
+            {
+                <span class="text-muted fw-bold" style="font-size: 1.1rem;">@Localizer["Create a new document..."]</span>
+            }
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="d-flex align-items-center gap-2">
+            <!-- Optional divider before actions -->
+            <div class="vr mx-2 text-muted d-none d-md-block"></div>
+
+            @if (!string.IsNullOrEmpty(Model.PublicLink))
+            {
+                <div class="input-group input-group-sm d-none d-xl-flex border rounded shadow-sm" style="width: auto; max-width: 200px;">
+                    <input type="text" class="form-control bg-light border-0" id="public-link" readonly value="@Model.PublicLink" title="@Localizer["Share Link"]" />
+                    <button class="btn btn-light border-0 text-muted" type="button" id="copy-link-button" title="@Localizer["Copy Link"]">
+                        <i class="align-middle" data-lucide="link"></i>
+                    </button>
+                </div>
+            }
+
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-muted shadow-sm" target="_blank" title="@Localizer["Share"]">
+                    <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
+                </a>
+                
+                <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
+                   target="_blank" title="@Localizer["Contract Layout"]">
+                    <i class="align-middle" data-lucide="file-signature"></i> <span class="d-none d-xxl-inline">@Localizer["Contract Layout"]</span>
+                </a>
+            }
+            
+            <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
+                <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
+            </button>
+            <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy HTML"]">
+                <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy HTML"]</span>
+            </button>
+
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <button type="submit" class="btn btn-sm btn-primary shadow-sm px-3">
+                    <i class="align-middle" data-lucide="save"></i>
+                    <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
+                </button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-sm btn-primary shadow-sm px-3">
+                    <i class="align-middle" data-lucide="play"></i>
+                    <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Convert"]</span>
+                </button>
+            }
+        </div>
     </div>
-    <div class="row" style="height: calc(100vh - 320px); min-height: 420px;">
+
+    <!-- Content Area -->
+    <div class="row flex-grow-1 gx-0" style="height: calc(100vh - 61px); min-height: 400px; background-color: #F9FAFB;">
 
         @* --- Left Column: Markdown Input --- *@
-        <div id="editor-column" class="col-lg-6 h-100 pb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body p-0 d-flex flex-column h-100">
-                    @* 编辑器区域 *@
-                    <div class="flex-grow-1 position-relative editor-wrapper">
-                        <div id="markdown-editor-container" style="width: 100%; height: 100%;"></div>
-                        <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
-                    </div>
-                    <span asp-validation-for="InputMarkdown" class="text-danger px-2"></span>
+        <div id="editor-column" class="col-lg-6 h-100 border-end" style="border-color: #eaecef !important;">
+            <div class="h-100 d-flex flex-column bg-white">
+                <div class="flex-grow-1 position-relative editor-wrapper">
+                    <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+                    <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
                 </div>
+                <span asp-validation-for="InputMarkdown" class="text-danger px-2 bg-white"></span>
             </div>
         </div>
 
         @* --- Right Column: Output & Settings --- *@
-        <div id="preview-column" class="col-lg-6 h-100 pb-3">
-            <div class="card h-100 shadow-sm">
-                @* 右侧 Header *@
-                <div class="card-header border-bottom d-flex align-items-center justify-content-between pt-2 pb-0 flex-shrink-0" style="min-height: 49px;">
-                    <div class="d-flex align-items-center">
-                        <ul class="nav nav-tabs card-header-tabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" href="#code" data-bs-toggle="tab" role="tab" aria-selected="true">
-                                    <i class="align-middle" data-lucide="code-2">&nbsp;</i> @Localizer["Code"]
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="#preview" data-bs-toggle="tab" role="tab" aria-selected="false">
-                                    <i class="align-middle" data-lucide="eye">&nbsp;</i> @Localizer["Preview"]
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
-                    {
-                        <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-light border ms-auto mb-2" target="_blank">
-                            <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
-                        </a>
-                    }
-                </div>
-
-                <div class="card-body p-0 d-flex flex-column overflow-hidden">
-
-                    <div class="tab-content flex-grow-1 d-flex flex-column p-0" style="height: 100%;">
-
-                        @* --- Code Pane --- *@
-                        <div class="tab-pane active show flex-column h-100" id="code" role="tabpanel">
-
-                            @* 右侧工具栏 *@
-                            <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-between flex-shrink-0">
-                                <div class="small text-muted flex-grow-1 me-2">
-                                    @if (!string.IsNullOrEmpty(Model.PublicLink))
-                                    {
-                                        <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control bg-white" id="public-link" readonly value="@Model.PublicLink" title="@Localizer["Share Link"]" />
-                                            <button class="btn btn-outline-secondary" type="button" id="copy-link-button" title="@Localizer["Copy Link"]">
-                                                <i class="align-middle" data-lucide="link"></i>
-                                            </button>
-                                        </div>
-                                    }
-                                </div>
-                                <button type="button" id="copy-button" class="btn btn-sm btn-white border shadow-sm text-primary flex-shrink-0">
-                                    <i class="align-middle" data-lucide="copy"></i> @Localizer["Copy HTML"]
-                                </button>
-                            </div>
-
-                            <div class="flex-grow-1 position-relative editor-wrapper">
-                                <div id="html-output-container" style="width: 100%; height: 100%;"></div>
-                                <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
-                            </div>
-                        </div>
-
-                        @* --- Preview Pane --- *@
-                        <div class="tab-pane flex-column h-100" id="preview" role="tabpanel">
-                            <div class="toolbar-container border-bottom p-2 d-flex align-items-center justify-content-end flex-shrink-0">
-                                <button type="button" id="print-button" class="btn btn-sm btn-white border shadow-sm text-info">
-                                    <i class="align-middle" data-lucide="printer"></i> @Localizer["Print"]
-                                </button>
-                                @if (Model.IsEditing)
-                                {
-                                    <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white border shadow-sm text-info ms-1"
-                                       target="_blank" title="@Localizer["Contract Layout"]">
-                                        <i class="align-middle" data-lucide="file-signature"></i> @Localizer["Contract Layout"]
-                                    </a>
-                                }
-                            </div>
-
-                            <div class="flex-grow-1 overflow-auto p-4 markdown-content" id="printable-area">
-                                @Html.Raw(Model.OutputHtml)
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div id="preview-column" class="col-lg-6 h-100 overflow-auto" style="background-color: #F9FAFB; padding-bottom: 2rem;">
+            <!-- Rendered Output (Paper Style) -->
+            <div id="printable-area" class="bg-white shadow-sm mx-auto p-4 p-md-5 my-0 my-md-4 markdown-content" style="max-width: 21cm; min-height: 29.7cm;">
+                @Html.Raw(Model.OutputHtml)
             </div>
+            
+            <!-- Hidden HTML Output for Copying -->
+            <textarea id="html-output" style="display: none;">@Model.OutputHtml</textarea>
         </div>
     </div>
 </form>
-
-@{
-    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-}
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
@@ -213,6 +154,37 @@
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
     }
     <style>
+        /* Toolbar adjustments for dark mode */
+        body[data-theme="dark"] .sticky-top {
+            background-color: #222e3c !important; /* AdminKit dark background */
+            border-bottom: 1px solid #323d4b !important;
+        }
+        body[data-theme="dark"] #preview-column {
+            background-color: #1e2530 !important;
+        }
+        body[data-theme="dark"] #printable-area {
+            background-color: #222e3c !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+        }
+        body[data-theme="dark"] .form-control.bg-transparent {
+            color: #e9ecef !important;
+        }
+        body[data-theme="dark"] .bg-white {
+            background-color: #222e3c !important;
+        }
+        body[data-theme="dark"] .btn-white {
+            background-color: #2f3e50 !important;
+            border-color: #3f5268 !important;
+            color: #d1d8e0 !important;
+        }
+        body[data-theme="dark"] .btn-white:hover {
+            background-color: #3f5268 !important;
+            color: #fff !important;
+        }
+        body[data-theme="dark"] .border-end {
+            border-color: #323d4b !important;
+        }
+        
         @@media (max-width: 991.98px) {
             #editor-column,
             #preview-column {
@@ -224,6 +196,35 @@
             .view-mode-preview #preview-column {
                 display: block;
             }
+        }
+        
+        /* Print adjustments to hide toolbar */
+        @@media print {
+            .sticky-top {
+                display: none !important;
+            }
+            #preview-column {
+                background-color: white !important;
+            }
+            #printable-area {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: none !important;
+            }
+        }
+
+        /* Minor form control adjustments to match the design */
+        #Title::placeholder {
+            color: #adb5bd;
+            font-weight: normal;
+        }
+        #Title:focus {
+            background-color: rgba(0,0,0,0.03) !important;
+            border-radius: 4px;
+        }
+        body[data-theme="dark"] #Title:focus {
+            background-color: rgba(255,255,255,0.05) !important;
         }
     </style>
 }
@@ -248,9 +249,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             require(['vs/editor/editor.main'], function () {
-                let markdownEditorInstance, htmlOutputInstance;
+                let markdownEditorInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
-                const htmlOutputElement = document.getElementById('html-output');
                 const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
 
                 // --- Monaco Editor Setup ---
@@ -439,17 +439,6 @@
                     }
                 }
 
-                if (htmlOutputElement) {
-                    htmlOutputInstance = monaco.editor.create(document.getElementById('html-output-container'), {
-                        value: htmlOutputElement.value,
-                        language: 'html',
-                        theme: monacoTheme,
-                        readOnly: true,
-                        automaticLayout: true,
-                        wordWrap: 'on'
-                    });
-                }
-
                 // --- Markdown Completion Provider ---
                 monaco.languages.registerCompletionItemProvider('markdown', {
                     provideCompletionItems: function(model, position) {
@@ -520,11 +509,6 @@
                             editorCol.classList.add('d-none');
                             previewCol.classList.remove('d-none', 'col-lg-6');
                             previewCol.classList.add('col-lg-12');
-                            
-                            const previewTabLink = document.querySelector('a[href="#preview"]');
-                            if (previewTabLink) {
-                                bootstrap.Tab.getOrCreateInstance(previewTabLink).show();
-                            }
                         }
                     }
 
@@ -534,6 +518,13 @@
                          previewCol.classList.remove('col-lg-6', 'col-lg-12', 'd-none');
                          formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
                          formRoot.classList.add(`view-mode-${mode}`);
+                    }
+                    
+                    // Render interactive content when switching to preview
+                    if (mode === 'split' || mode === 'preview') {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
                     }
                 }
                 
@@ -551,12 +542,13 @@
 
                 // --- Copy & Print Utils ---
                 const copyButton = document.getElementById('copy-button');
-                if (copyButton && htmlOutputInstance) {
+                const htmlOutputElementForCopy = document.getElementById('html-output');
+                if (copyButton && htmlOutputElementForCopy) {
                     copyButton.addEventListener('click', function () {
-                        const val = htmlOutputInstance.getValue();
+                        const val = htmlOutputElementForCopy.value;
                         if (!val) return;
                         navigator.clipboard.writeText(val).then(
-                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> @Localizer["Copied!"]`; setTimeout(() => copyButton.innerHTML = h, 2000); },
+                            () => { let h = copyButton.innerHTML; copyButton.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="d-none d-xxl-inline">Copied!</span>`; setTimeout(() => copyButton.innerHTML = h, 2000); },
                             (err) => console.error(err)
                         );
                     });
@@ -578,7 +570,7 @@
 
                 // --- Table & Mermaid Rendering ---
                 function stylePreviewTables() {
-                    const p = document.getElementById('preview');
+                    const p = document.getElementById('preview-column');
                     if(!p) return;
                     p.querySelectorAll('table').forEach(t => {
                         t.classList.add('table', 'table-striped', 'table-bordered');
@@ -588,10 +580,10 @@
                         }
                     });
                 }
-                stylePreviewTables();
+                setTimeout(stylePreviewTables, 100);
                 if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
                 function renderMermaid() {
-                    const p = document.getElementById('preview');
+                    const p = document.getElementById('preview-column');
                     if (!p || !window.mermaid) return;
                     p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
                         const code = b.textContent || '';
@@ -604,19 +596,14 @@
                         } catch (e) { console.error(e); }
                     });
                 }
-                const prevTab = document.querySelector('a[href="#preview"]');
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMermaid);
-                if (document.getElementById('preview')?.classList.contains('active')) renderMermaid();
 
                 // --- MathJax Rendering ---
                 function renderMath() {
                     if (window.MathJax && window.MathJax.typesetPromise) {
-                        const preview = document.getElementById('preview');
+                        const preview = document.getElementById('preview-column');
                         if(preview) window.MathJax.typesetPromise([preview]);
                     }
                 }
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderMath);
-                if (document.getElementById('preview')?.classList.contains('active')) renderMath();
 
                 // --- Highlight.js Rendering ---
                 function renderHighlight() {
@@ -624,8 +611,16 @@
                         hljs.highlightAll();
                     }
                 }
-                if (prevTab) prevTab.addEventListener('shown.bs.tab', renderHighlight);
-                if (document.getElementById('preview')?.classList.contains('active')) renderHighlight();
+                
+                // Initial render for split view or preview
+                const currentMode = localStorage.getItem('markdown-view-mode') || 'split';
+                if (currentMode === 'split' || currentMode === 'preview') {
+                    setTimeout(() => {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
+                    }, 200);
+                }
 
                 // --- Public Link Copy ---
                 const cpLink = document.getElementById('copy-link-button');
@@ -634,7 +629,7 @@
                     cpLink.addEventListener('click', () => {
                         pubInp.select();
                         navigator.clipboard.writeText(pubInp.value).then(() => {
-                            let h = cpLink.innerHTML; cpLink.innerHTML = `Copied!`;
+                            let h = cpLink.innerHTML; cpLink.innerHTML = `<i class="align-middle" data-lucide="check"></i>`;
                             setTimeout(() => cpLink.innerHTML = h, 2000);
                         });
                     });
