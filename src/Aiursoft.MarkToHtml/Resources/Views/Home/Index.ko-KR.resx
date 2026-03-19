@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>계약 레이아웃</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>변환</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>변환 후 저장</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>반응형 디자인</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>저장</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>변경 사항 저장</value>

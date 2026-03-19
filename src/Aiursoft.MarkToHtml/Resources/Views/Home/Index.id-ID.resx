@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Tata Letak Kontrak</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Konversi</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Konversi dan simpan</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Desain Responsif</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Simpan</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>

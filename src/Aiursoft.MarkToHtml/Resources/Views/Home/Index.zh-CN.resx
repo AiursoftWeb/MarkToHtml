@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>合同排版</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>转换</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>转换并保存</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>响应式设计</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>保存更改</value>

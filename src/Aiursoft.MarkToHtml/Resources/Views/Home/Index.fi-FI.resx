@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Sopimusjärjestely</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Muunna</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Muunna ja tallenna</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsiivinen suunnittelu</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Tallenna</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Tallenna muutokset</value>
