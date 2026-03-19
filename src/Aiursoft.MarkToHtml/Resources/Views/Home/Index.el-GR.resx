@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Σχεδιασμός Συμβάσεων</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Μετατροπή</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Μετατροπή και αποθήκευση</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Αποκρισιμό Σχεδιασμό</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Αποθήκευση</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Αποθήκευση Αλλαγών</value>

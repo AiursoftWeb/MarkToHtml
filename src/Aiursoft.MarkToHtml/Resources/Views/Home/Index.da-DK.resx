@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Kontraktlayout</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Konverter</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Konverter og gem</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsivt Design</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Gem</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Gem ændringer</value>

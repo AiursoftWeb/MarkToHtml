@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Bố cục Hợp đồng</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Chuyển đổi</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Chuyển đổi và lưu</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Thiết kế đáp ứng</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Lưu</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Lưu thay đổi</value>

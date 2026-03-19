@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Sözleşme Düzeni</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Dönüştür</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Dönüştür ve kaydet</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Duyarlı Tasarım</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Kaydet</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Değişiklikleri Kaydet</value>

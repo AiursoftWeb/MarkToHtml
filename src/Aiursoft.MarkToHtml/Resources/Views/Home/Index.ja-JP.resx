@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>契約レイアウト</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>変換</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>変換して保存</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>レスポンシブデザイン</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>

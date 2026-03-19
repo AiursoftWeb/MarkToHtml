@@ -84,6 +84,9 @@
   <data name="Contract Layout" xml:space="preserve">
     <value>Layout do Contrato</value>
   </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Converter</value>
+  </data>
   <data name="Convert and save" xml:space="preserve">
     <value>Converter e guardar</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Design Responsivo</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Guardar Alterações</value>
