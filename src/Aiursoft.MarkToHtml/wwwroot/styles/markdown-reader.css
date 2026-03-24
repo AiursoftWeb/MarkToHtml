@@ -64,7 +64,7 @@
     /* GitHub 风格浅灰 */
     padding: 0.2em 0.4em;
     border-radius: 3px;
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-family: 'Cascadia Code', SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
     font-size: 85%;
 }
 

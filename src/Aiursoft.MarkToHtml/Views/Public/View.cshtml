@@ -93,7 +93,7 @@
                     <div class="tab-pane" id="markdown" role="tabpanel">
                         @* Use a clean, borderless textarea that spans comfortably *@
                         <textarea class="form-control border-0 p-3" id="markdown-viewer" readonly
-                            style="font-family: 'Consolas', monospace; font-size: 0.9rem; min-height: 600px; resize: vertical;">@Model.MarkdownContent</textarea>
+                            style="font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.9rem; min-height: 600px; resize: vertical;">@Model.MarkdownContent</textarea>
                     </div>
                 </div>
             </div>
@@ -156,6 +156,7 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />

@@ -142,6 +142,7 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
+    <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
@@ -264,7 +265,10 @@
                         theme: monacoTheme,
                         automaticLayout: true,
                         wordWrap: 'on',
-                        'semanticHighlighting.enabled': true
+                        'semanticHighlighting.enabled': true,
+                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                        fontSize: 14,
+                        fontLigatures: true
                     });
 
                     // --- Unsaved Changes Warning ---
