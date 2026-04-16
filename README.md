@@ -1,9 +1,9 @@
 # MarkToHtml
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/blob/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/markToHtml/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/markToHtml/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/markToHtml/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/pipelines)
-[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/markToHtml.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/markToHtml.html)
+[![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/markToHtml.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/markToHtml.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fmarktohtml.aiursoft.com)](https://marktohtml.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/marktohtml.svg)](https://hub.docker.com/r/aiursoft/marktohtml)
 
@@ -38,13 +38,13 @@ The following script will install\update this app on your Ubuntu server. Support
 On your Ubuntu server, run the following command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/markToHtml/-/raw/master/install.sh | sudo bash
+curl -sL https://github.com/aiursoftweb/markToHtml/raw/master/install.sh | sudo bash
 ```
 
 Of course it is suggested that append a custom port number to the command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/markToHtml/-/raw/master/install.sh | sudo bash -s 8080
+curl -sL https://github.com/aiursoftweb/markToHtml/raw/master/install.sh | sudo bash -s 8080
 ```
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
