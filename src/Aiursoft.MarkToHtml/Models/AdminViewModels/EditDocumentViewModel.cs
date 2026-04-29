@@ -6,6 +6,11 @@ namespace Aiursoft.MarkToHtml.Models.AdminViewModels;
 
 public class EditDocumentViewModel : UiStackLayoutViewModel
 {
+    public EditDocumentViewModel()
+    {
+        PageTitle = "Edit Document";
+    }
+
     public Guid DocumentId { get; set; }
 
     [MaxLength(100)]
