@@ -96,6 +96,9 @@ public class ViewModelArgsInjector(
         _ = localizer["Permission Details"];
         _ = localizer["Register"];
         _ = localizer["Shared Document"];
+    
+        _ = localizer["Edit Document"];
+        _ = localizer["User Documents"];
     }
 
     public void InjectSimple(
