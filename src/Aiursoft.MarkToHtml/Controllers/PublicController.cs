@@ -119,7 +119,7 @@ public class PublicController(
             CanEdit = await HasEditAccess(document)
         };
 
-        return this.StackView(model);
+        return View(model);
     }
 
     /// <summary>
