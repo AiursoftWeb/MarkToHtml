@@ -90,6 +90,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Documents</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Modifier le document</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Modifier le rôle</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Détails de l&apos;utilisateur</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Documents utilisateur</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Utilisateurs</value>

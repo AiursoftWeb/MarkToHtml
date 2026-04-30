@@ -90,6 +90,9 @@
   <data name="Documents" xml:space="preserve">
     <value>文档</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>编辑文档</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>编辑角色</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>用户详情</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>用户文档</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>用户</value>

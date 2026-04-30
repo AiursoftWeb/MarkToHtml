@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>المستندات</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>تعديل المستند</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>تعديل الدور</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>تفاصيل المستخدم</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>مستندات المستخدم</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>المستخدمون</value>

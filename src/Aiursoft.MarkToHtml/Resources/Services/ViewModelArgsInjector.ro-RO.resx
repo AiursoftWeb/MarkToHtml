@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Documente</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Editare document</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editează Rol</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Detalii Utilizator</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Documente utilizator</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Utilizatori</value>
