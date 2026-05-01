@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Documentos</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Editar Documento</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editar Função</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Detalhes do Utilizador</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Documentos do Utilizador</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Utilizadores</value>

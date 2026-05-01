@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Asiakirjat</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Muokkaa dokumenttia</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Muokkaa roolia</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Käyttäjän tiedot</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Käyttäjien asiakirjat</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Käyttäjät</value>

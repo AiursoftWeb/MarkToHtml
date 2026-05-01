@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Dokumenter</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Rediger dokument</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rediger Rolle</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Brugerdetaljer</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Brugerdokumenter</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Brugere</value>

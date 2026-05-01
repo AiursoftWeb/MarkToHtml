@@ -87,6 +87,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Έγγραφα</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Επεξεργασία Εγγράφου</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Επεξεργασία Ρόλου</value>
   </data>
@@ -203,6 +206,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Στοιχεία Χρήστη</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Έγγραφα Χρήστη</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Χρήστες</value>

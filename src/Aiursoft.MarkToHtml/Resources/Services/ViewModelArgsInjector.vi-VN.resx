@@ -90,6 +90,9 @@
   <data name="Documents" xml:space="preserve">
     <value>Tài liệu</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>Chỉnh sửa tài liệu</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Chỉnh sửa Vai trò</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Thông tin người dùng</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>Tài liệu người dùng</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>Người dùng</value>

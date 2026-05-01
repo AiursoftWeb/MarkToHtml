@@ -90,6 +90,9 @@
   <data name="Documents" xml:space="preserve">
     <value>ドキュメント</value>
   </data>
+  <data name="Edit Document" xml:space="preserve">
+    <value>文書を編集</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>ロールを編集</value>
   </data>
@@ -206,6 +209,9 @@
   </data>
   <data name="User Details" xml:space="preserve">
     <value>ユーザー詳細</value>
+  </data>
+  <data name="User Documents" xml:space="preserve">
+    <value>ユーザー文書</value>
   </data>
   <data name="Users" xml:space="preserve">
     <value>ユーザー</value>
