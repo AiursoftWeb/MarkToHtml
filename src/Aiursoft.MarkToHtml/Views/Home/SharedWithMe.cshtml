@@ -3,7 +3,11 @@
 @inject IViewLocalizer Localizer
 @inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService StorageService
 
-
+<style>
+    .clickable-row {
+        cursor: pointer;
+    }
+</style>
 
 <div class="row mb-3">
     <div class="col-12">
@@ -42,7 +46,10 @@
                             @foreach (var share in Model.Shares)
                             {
                                 var document = share.Document;
-                                <tr>
+                                var rowUrl = share.Permission == Aiursoft.MarkToHtml.Entities.SharePermission.ReadOnly
+                                    ? Url.Action("View", "Public", new { id = document.Id })
+                                    : Url.Action("Edit", "Home", new { id = document.Id });
+                                <tr class="clickable-row" data-href="@rowUrl">
                                     <td>
                                         <div class="d-flex flex-column">
                                             <strong>
@@ -127,3 +134,21 @@
         </div>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const rows = document.querySelectorAll(".clickable-row");
+            rows.forEach(row => {
+                row.addEventListener("click", function (event) {
+                    const target = event.target;
+                    // Prevent navigation if a link or button was clicked inside the row
+                    if (!target.matches('a, a *, button, button *')) {
+                        window.location.href = row.dataset.href;
+                    }
+                });
+            });
+        });
+    </script>
+}
