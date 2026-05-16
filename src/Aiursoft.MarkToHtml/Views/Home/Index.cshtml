@@ -105,7 +105,7 @@
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
-                <button type="submit" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
+                <button type="button" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
                     <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
                 </button>
@@ -370,13 +370,6 @@
                             }
                         });
 
-                        const form = document.getElementById('markdown-form');
-                        if (form) {
-                            form.addEventListener('submit', () => {
-                                isDirty = false;
-                            });
-                        }
-
                         const titleInput = document.getElementById('Title');
                         if (titleInput) {
                             titleInput.addEventListener('input', () => {
@@ -535,45 +528,62 @@
                         });
                     }
 
-                    // --- Quick Save (Ctrl+S) ---
-                    if (isAuthenticated) {
-                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, function () {
-                            // Skip if editing an existing doc with no changes
-                            if (isEditing && !isDirty) return;
+                    // --- Unified Save ---
+                    // New doc (isEditing=false): always form submit (full reload) so the page
+                    // transitions into edit mode with all toolbar buttons visible.
+                    // Existing doc (isEditing=true): always QuickSave (AJAX, no reload).
+                    function doSave() {
+                        if (!isAuthenticated) return;
+                        if (isEditing && !isDirty) return;
 
-                            const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
-                            const token = tokenInput ? tokenInput.value : '';
-                            const title = document.getElementById('Title')?.value || '';
-                            const markdown = markdownEditorInstance.getValue();
-                            const documentId = document.getElementById('DocumentId')?.value || '';
+                        if (!isEditing) {
+                            // New doc: sync the hidden textarea then submit the form normally.
+                            markdownEditorElement.value = markdownEditorInstance.getValue();
+                            isDirty = false;
+                            document.getElementById('markdown-form').submit();
+                            return;
+                        }
 
-                            const formData = new FormData();
-                            formData.append('InputMarkdown', markdown);
-                            formData.append('Title', title);
-                            formData.append('DocumentId', documentId);
-                            formData.append('__RequestVerificationToken', token);
+                        // Existing doc: QuickSave via AJAX.
+                        const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                        const token = tokenInput ? tokenInput.value : '';
+                        const title = document.getElementById('Title')?.value || '';
+                        const markdown = markdownEditorInstance.getValue();
+                        const documentId = document.getElementById('DocumentId')?.value || '';
 
-                            fetch('/Home/QuickSave', {
-                                method: 'POST',
-                                body: formData
-                            })
-                            .then(function (response) {
-                                if (!response.ok) throw new Error('Save failed');
-                                return response.json();
-                            })
-                            .then(function (data) {
-                                if (data.success) {
-                                    isDirty = false;
-                                    updateSaveButtonState();
-                                    var banner = document.getElementById('quick-save-banner');
-                                    banner.classList.add('show');
-                                    setTimeout(function () { banner.classList.remove('show'); }, 1500);
-                                }
-                            })
-                            .catch(function (err) {
-                                console.error('Quick save failed:', err);
-                            });
+                        const formData = new FormData();
+                        formData.append('InputMarkdown', markdown);
+                        formData.append('Title', title);
+                        formData.append('DocumentId', documentId);
+                        formData.append('__RequestVerificationToken', token);
+
+                        fetch('/Home/QuickSave', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(function (response) {
+                            if (!response.ok) throw new Error('Save failed');
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            if (data.success) {
+                                isDirty = false;
+                                updateSaveButtonState();
+                                var banner = document.getElementById('quick-save-banner');
+                                banner.classList.add('show');
+                                setTimeout(function () { banner.classList.remove('show'); }, 1500);
+                            }
+                        })
+                        .catch(function (err) {
+                            console.error('Quick save failed:', err);
                         });
+                    }
+
+                    if (saveButton) {
+                        saveButton.addEventListener('click', doSave);
+                    }
+                    if (isAuthenticated) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
                 }
 
