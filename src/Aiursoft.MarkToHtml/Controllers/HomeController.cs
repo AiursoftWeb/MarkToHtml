@@ -88,8 +88,8 @@ public class HomeController(
             }
             else
             {
-                logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
                 model.DocumentId = Guid.NewGuid();
+                logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
                 var newDocument = new MarkdownDocument
                 {
                     Id = model.DocumentId,
@@ -224,15 +224,7 @@ public class HomeController(
         }
         else
         {
-            model.DocumentId = Guid.NewGuid();
-            var newDocument = new MarkdownDocument
-            {
-                Id = model.DocumentId,
-                Content = model.InputMarkdown.SafeSubstring(65535),
-                Title = model.Title?.SafeSubstring(100) ?? model.InputMarkdown.SafeSubstring(40),
-                UserId = userId
-            };
-            context.MarkdownDocuments.Add(newDocument);
+            return NotFound("Document not found. Use SaveNew to create a new document.");
         }
 
         await context.SaveChangesAsync();
@@ -258,10 +250,9 @@ public class HomeController(
 
         if (trimmedSearch != null)
         {
-            var likePattern = $"%{trimmedSearch}%";
             documentsQuery = documentsQuery.Where(d =>
-                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
-                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)));
+                (d.Title != null && d.Title.Contains(trimmedSearch)) ||
+                (d.Content != null && d.Content.Contains(trimmedSearch)));
         }
 
         var documents = await documentsQuery
