@@ -169,6 +169,76 @@ public class HomeController(
         return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
     }
 
+    /// <summary>
+    /// AJAX quick save endpoint for Ctrl+S. Saves the document without page refresh.
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> QuickSave(IndexViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            var errors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+                .ToList();
+            return BadRequest(new { success = false, errors });
+        }
+
+        var userId = userManager.GetUserId(User);
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return Unauthorized();
+        }
+
+        var documentInDb = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == model.DocumentId);
+
+        if (documentInDb != null)
+        {
+            bool isOwner = documentInDb.UserId == userId;
+            bool canEdit = isOwner;
+
+            if (!isOwner)
+            {
+                var userRoles = await context.UserRoles
+                    .Where(ur => ur.UserId == userId)
+                    .Select(ur => ur.RoleId)
+                    .ToListAsync();
+
+                canEdit = await context.DocumentShares
+                    .AnyAsync(s => s.DocumentId == model.DocumentId &&
+                                  s.Permission == SharePermission.Editable &&
+                                  (s.SharedWithUserId == userId ||
+                                   (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+            }
+
+            if (!canEdit)
+            {
+                return Forbid();
+            }
+
+            documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+            documentInDb.Title = model.Title;
+        }
+        else
+        {
+            model.DocumentId = Guid.NewGuid();
+            var newDocument = new MarkdownDocument
+            {
+                Id = model.DocumentId,
+                Content = model.InputMarkdown.SafeSubstring(65535),
+                Title = model.Title?.SafeSubstring(100) ?? model.InputMarkdown.SafeSubstring(40),
+                UserId = userId
+            };
+            context.MarkdownDocuments.Add(newDocument);
+        }
+
+        await context.SaveChangesAsync();
+        return Ok(new { success = true, documentId = model.DocumentId });
+    }
+
     [Authorize]
     [RenderInNavBar(
     NavGroupName = "Features",
