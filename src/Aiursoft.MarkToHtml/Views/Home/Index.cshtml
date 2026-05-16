@@ -105,16 +105,9 @@
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {
-                <button type="submit" class="btn btn-sm btn-primary shadow-sm px-3">
+                <button type="submit" id="save-button" class="btn btn-sm btn-secondary shadow-sm px-3" disabled="@(Model.IsEditing ? "disabled" : null)">
                     <i class="align-middle" data-lucide="save"></i>
                     <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Save"]</span>
-                </button>
-            }
-            else
-            {
-                <button type="submit" class="btn btn-sm btn-primary shadow-sm px-3">
-                    <i class="align-middle" data-lucide="play"></i>
-                    <span class="d-none d-md-inline ms-1 fw-bold">@Localizer["Convert"]</span>
                 </button>
             }
         </div>
@@ -288,6 +281,7 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             require(['vs/editor/editor.main'], function () {
@@ -309,10 +303,62 @@
                         fontLigatures: true
                     });
 
-                    // --- Unsaved Changes Warning ---
+                    // --- State ---
                     let isDirty = false;
                     const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
+                    const isEditing = @(Model.IsEditing.ToString().ToLower());
+                    const saveButton = document.getElementById('save-button');
 
+                    // --- Save Button State ---
+                    function updateSaveButtonState() {
+                        if (!saveButton || !isAuthenticated) return;
+                        if (!isEditing || isDirty) {
+                            saveButton.disabled = false;
+                            saveButton.classList.replace('btn-secondary', 'btn-primary');
+                        } else {
+                            saveButton.disabled = true;
+                            saveButton.classList.replace('btn-primary', 'btn-secondary');
+                        }
+                    }
+                    updateSaveButtonState();
+
+                    // --- Real-time Markdown Preview ---
+                    const md = window.markdownit({
+                        html: false,
+                        linkify: true,
+                        typographer: true,
+                        highlight: function (str, lang) {
+                            if (lang === 'mermaid') {
+                                return `<div class="mermaid">${md.utils.escapeHtml(str)}</div>`;
+                            }
+                            if (window.hljs && window.hljs.getLanguage(lang)) {
+                                try {
+                                    return '<pre><code class="hljs language-' + lang + '">' +
+                                        window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                                        '</code></pre>';
+                                } catch (_) {}
+                            }
+                            return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+                        }
+                    });
+
+                    let previewTimer = null;
+                    function schedulePreviewUpdate(markdown) {
+                        clearTimeout(previewTimer);
+                        previewTimer = setTimeout(function () {
+                            const printableArea = document.getElementById('printable-area');
+                            const htmlOutput = document.getElementById('html-output');
+                            if (!printableArea) return;
+                            const html = md.render(markdown);
+                            printableArea.innerHTML = html;
+                            if (htmlOutput) htmlOutput.value = html;
+                            stylePreviewTables();
+                            renderMermaid();
+                            renderMath();
+                        }, 300);
+                    }
+
+                    // --- Unsaved Changes Warning ---
                     if (isAuthenticated) {
                         window.addEventListener('beforeunload', function (e) {
                             if (isDirty) {
@@ -332,6 +378,7 @@
                         if (titleInput) {
                             titleInput.addEventListener('input', () => {
                                 isDirty = true;
+                                updateSaveButtonState();
                             });
                         }
                     }
@@ -339,12 +386,16 @@
                     markdownEditorInstance.onDidChangeModelContent(() => {
                         const currentValue = markdownEditorInstance.getValue();
                         markdownEditorElement.value = currentValue;
-                        markdownEditorElement.dispatchEvent(new Event('change'));
+                        schedulePreviewUpdate(currentValue);
 
                         if (isAuthenticated) {
                             isDirty = true;
+                            updateSaveButtonState();
                         }
                     });
+
+                    // Initial preview render
+                    schedulePreviewUpdate(markdownEditorElement.value);
 
                     // --- Markdown All In One Features ---
 
@@ -403,14 +454,12 @@
                                     const nextNumber = number + 1;
                                     const insertText = `\n${indent}${nextNumber}${dot} `;
 
-                                    // Insert the new list item
                                     edits.push({
                                         range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
                                         text: insertText,
                                         forceMoveMarkers: true
                                     });
 
-                                    // Renumber subsequent list items
                                     for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
                                         const nextLine = model.getLineContent(i);
                                         const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
@@ -423,7 +472,7 @@
                                                 text: newLineText
                                             });
                                         } else {
-                                            break; // Not a list item or different indentation
+                                            break;
                                         }
                                     }
 
@@ -486,6 +535,9 @@
                     // --- Quick Save (Ctrl+S) ---
                     if (isAuthenticated) {
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, function () {
+                            // Skip if editing an existing doc with no changes
+                            if (isEditing && !isDirty) return;
+
                             const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
                             const token = tokenInput ? tokenInput.value : '';
                             const title = document.getElementById('Title')?.value || '';
@@ -509,6 +561,7 @@
                             .then(function (data) {
                                 if (data.success) {
                                     isDirty = false;
+                                    updateSaveButtonState();
                                     var banner = document.getElementById('quick-save-banner');
                                     banner.classList.add('show');
                                     setTimeout(function () { banner.classList.remove('show'); }, 1500);
