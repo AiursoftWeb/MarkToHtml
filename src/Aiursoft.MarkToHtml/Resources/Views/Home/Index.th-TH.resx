@@ -237,6 +237,9 @@
   <data name="Save Changes" xml:space="preserve">
     <value>บันทึกการเปลี่ยนแปลง</value>
   </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>บันทึกสำเร็จ!</value>
+  </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>ผสานรวมได้อย่างราบรื่นกับผู้ให้บริการ OpenID Connect ใดก็ได้ พร้อมการซิงโครไนซ์บทบาทอัตโนมัติ</value>
   </data>

@@ -237,6 +237,9 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Wijzigingen opslaan</value>
   </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Succesvol opgeslagen!</value>
+  </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integreer naadloos met elke OpenID Connect-provider, met automatische rollensynchronisatie.</value>
   </data>

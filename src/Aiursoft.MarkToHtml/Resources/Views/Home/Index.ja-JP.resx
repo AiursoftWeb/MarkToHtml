@@ -237,6 +237,9 @@
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>
   </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>正常に保存されました！</value>
+  </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>あらゆるOpenID Connectプロバイダーとシームレスに統合し、自動的なロール同期を実現します。</value>
   </data>

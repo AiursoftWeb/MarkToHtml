@@ -237,6 +237,9 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Tallenna muutokset</value>
   </data>
+  <data name="Saved successfully!" xml:space="preserve">
+    <value>Tallennettu onnistuneesti!</value>
+  </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Saatumattomasti integroi minkä tahansa OpenID Connect -palveluntarjoajan kanssa, automaattisen roolisynkronoinnin avulla.</value>
   </data>
