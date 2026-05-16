@@ -278,6 +278,7 @@
         window.MathJax = {
             tex: {
                 inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -325,6 +326,70 @@
                     }
                     updateSaveButtonState();
 
+                    // --- Math plugin for markdown-it ---
+                    // Converts $...$ → \(...\) and $$...$$ → \[...\] so MathJax can render them.
+                    function mathPlugin(md) {
+                        // Block math: $$\n...\n$$
+                        md.block.ruler.before('fence', 'math_block', function (state, startLine, endLine, silent) {
+                            let pos = state.bMarks[startLine] + state.tShift[startLine];
+                            let max = state.eMarks[startLine];
+                            if (pos + 2 > max) return false;
+                            if (state.src.slice(pos, pos + 2) !== '$$') return false;
+                            if (silent) return true;
+                            let firstLine = state.src.slice(pos + 2, max).trim();
+                            let found = false, nextLine = startLine;
+                            while (nextLine < endLine) {
+                                nextLine++;
+                                if (nextLine >= endLine) break;
+                                let linePos = state.bMarks[nextLine] + state.tShift[nextLine];
+                                let lineMax = state.eMarks[nextLine];
+                                if (state.src.slice(linePos, linePos + 2) === '$$') { found = true; break; }
+                            }
+                            let lines = firstLine ? [firstLine] : [];
+                            for (let i = startLine + 1; i < nextLine; i++) {
+                                lines.push(state.src.slice(state.bMarks[i], state.eMarks[i]));
+                            }
+                            state.line = found ? nextLine + 1 : nextLine;
+                            let token = state.push('math_block', 'math', 0);
+                            token.content = lines.join('\n').trim();
+                            token.map = [startLine, state.line];
+                            token.markup = '$$';
+                            return true;
+                        });
+
+                        // Inline math: $...$ (no space after opening $, no space before closing $)
+                        md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
+                            let pos = state.pos;
+                            if (state.src[pos] !== '$') return false;
+                            if (state.src[pos + 1] === '$') return false; // skip $$
+                            let start = pos + 1;
+                            if (start >= state.posMax) return false;
+                            if (state.src[start] === ' ') return false; // no leading space
+                            let end = state.src.indexOf('$', start);
+                            while (end > 0 && state.src[end - 1] === '\\') {
+                                end = state.src.indexOf('$', end + 1);
+                            }
+                            if (end < 0 || end === start) return false;
+                            if (state.src[end - 1] === ' ') return false; // no trailing space
+                            let content = state.src.slice(start, end);
+                            if (content.indexOf('\n') >= 0) return false; // single line only
+                            if (!silent) {
+                                let token = state.push('math_inline', '', 0);
+                                token.markup = '$';
+                                token.content = content;
+                            }
+                            state.pos = end + 1;
+                            return true;
+                        });
+
+                        md.renderer.rules.math_inline = function (tokens, idx) {
+                            return '\\(' + tokens[idx].content + '\\)';
+                        };
+                        md.renderer.rules.math_block = function (tokens, idx) {
+                            return '<p>\\[' + tokens[idx].content + '\\]</p>\n';
+                        };
+                    }
+
                     // --- Real-time Markdown Preview ---
                     const md = window.markdownit({
                         html: false,
@@ -343,7 +408,7 @@
                             }
                             return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
                         }
-                    });
+                    }).use(mathPlugin);
 
                     let previewTimer = null;
                     function schedulePreviewUpdate(markdown) {
