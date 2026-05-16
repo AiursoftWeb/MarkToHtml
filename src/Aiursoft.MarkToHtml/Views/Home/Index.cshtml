@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<form asp-action="Index" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
+<form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
     <!-- Unified Sticky Toolbar -->
     <div class="sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
         <!-- Left: View Switcher -->
@@ -529,9 +529,8 @@
                     }
 
                     // --- Unified Save ---
-                    // New doc (isEditing=false): always form submit (full reload) so the page
-                    // transitions into edit mode with all toolbar buttons visible.
-                    // Existing doc (isEditing=true): always QuickSave (AJAX, no reload).
+                    // New doc (isEditing=false): form submit → POST SaveNew (full reload).
+                    // Existing doc (isEditing=true): AJAX → POST SaveUpdate (no reload).
                     function doSave() {
                         if (!isAuthenticated) return;
                         if (isEditing && !isDirty) return;
@@ -544,7 +543,7 @@
                             return;
                         }
 
-                        // Existing doc: QuickSave via AJAX.
+                        // Existing doc: SaveUpdate via AJAX.
                         const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
                         const token = tokenInput ? tokenInput.value : '';
                         const title = document.getElementById('Title')?.value || '';
@@ -557,7 +556,7 @@
                         formData.append('DocumentId', documentId);
                         formData.append('__RequestVerificationToken', token);
 
-                        fetch('/Home/QuickSave', {
+                        fetch('/Home/SaveUpdate', {
                             method: 'POST',
                             body: formData
                         })

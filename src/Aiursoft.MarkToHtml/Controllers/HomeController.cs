@@ -38,7 +38,7 @@ public class HomeController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Index(IndexViewModel model)
+    public async Task<IActionResult> SaveNew(IndexViewModel model)
     {
         if (!ModelState.IsValid)
         {
@@ -175,7 +175,7 @@ public class HomeController(
     [HttpPost]
     [Authorize]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> QuickSave(IndexViewModel model)
+    public async Task<IActionResult> SaveUpdate(IndexViewModel model)
     {
         if (!ModelState.IsValid)
         {
