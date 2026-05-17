@@ -48,13 +48,11 @@ public class AdminController(
 
         if (trimmedSearch != null)
         {
-            var likePattern = $"%{trimmedSearch}%";
             documentsQuery = documentsQuery.Where(d =>
-                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
-                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)) ||
-                ((
-                    (EF.Functions.Like(d.User.DisplayName, likePattern)) ||
-                    (d.User.UserName != null && EF.Functions.Like(d.User.UserName, likePattern)))));
+                (d.Title != null && d.Title.Contains(trimmedSearch)) ||
+                (d.Content != null && d.Content.Contains(trimmedSearch)) ||
+                d.User.DisplayName.Contains(trimmedSearch) ||
+                (d.User.UserName != null && d.User.UserName.Contains(trimmedSearch)));
         }
 
         var allDocuments = await documentsQuery
@@ -93,10 +91,9 @@ public class AdminController(
 
         if (trimmedSearch != null)
         {
-            var likePattern = $"%{trimmedSearch}%";
             documentsQuery = documentsQuery.Where(d =>
-                (d.Title != null && EF.Functions.Like(d.Title, likePattern)) ||
-                (d.Content != null && EF.Functions.Like(d.Content!, likePattern)));
+                (d.Title != null && d.Title.Contains(trimmedSearch)) ||
+                (d.Content != null && d.Content.Contains(trimmedSearch)));
         }
 
         var documents = await documentsQuery
