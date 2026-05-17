@@ -1,5 +1,6 @@
 @using Aiursoft.MarkToHtml.Controllers
 @model Aiursoft.MarkToHtml.Models.HomeViewModels.IndexViewModel
+@inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService Storage
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
@@ -649,6 +650,43 @@
                     if (isAuthenticated) {
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
+
+                    // --- Paste Image Upload ---
+                    const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
+                    document.getElementById('markdown-editor-container').addEventListener('paste', async function (e) {
+                        const items = e.clipboardData && e.clipboardData.items;
+                        if (!items) return;
+                        for (let i = 0; i < items.length; i++) {
+                            if (!items[i].type.startsWith('image/')) continue;
+                            e.preventDefault();
+                            const blob = items[i].getAsFile();
+                            const ext = items[i].type.split('/')[1] || 'png';
+                            const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
+                            const placeholder = '![uploading...](' + filename + ')';
+                            // Insert placeholder at cursor
+                            const selection = markdownEditorInstance.getSelection();
+                            markdownEditorInstance.executeEdits('paste-image', [{
+                                range: selection,
+                                text: placeholder,
+                                forceMoveMarkers: true
+                            }]);
+                            // Upload
+                            const form = new FormData();
+                            form.append('file', blob, filename);
+                            try {
+                                const res = await fetch(pasteUploadUrl, { method: 'POST', body: form });
+                                if (!res.ok) throw new Error(await res.text());
+                                const data = await res.json();
+                                const model = markdownEditorInstance.getModel();
+                                model.setValue(model.getValue().replace(placeholder, '![](' + data.InternetPath + ')'));
+                            } catch (err) {
+                                const model = markdownEditorInstance.getModel();
+                                model.setValue(model.getValue().replace(placeholder, ''));
+                                console.error('Image upload failed:', err);
+                            }
+                            break;
+                        }
+                    });
                 }
 
                 // --- Markdown Completion Provider ---
