@@ -60,6 +60,8 @@ public class Startup : IWebStartup
         services.RegisterBackgroundJob<Services.BackgroundJobs.DummyJob>();
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.OrphanAvatarCleanupJob>();
         services.RegisterScheduledTask(registration: orphanAvatarCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(5));
+        var orphanMarkdownImageCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.OrphanMarkdownImageCleanupJob>();
+        services.RegisterScheduledTask(registration: orphanMarkdownImageCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(10));
 
         // Controllers and localization
         services.AddControllersWithViews()

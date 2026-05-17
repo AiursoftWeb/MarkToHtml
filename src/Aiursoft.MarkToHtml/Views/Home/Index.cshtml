@@ -26,6 +26,12 @@
         <span>@Localizer["Saved successfully!"]</span>
     </div>
 </div>
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
 
 <form asp-action="SaveNew" method="post" id="markdown-form" class="d-flex flex-column h-100 pb-0">
     <!-- Unified Sticky Toolbar -->
@@ -651,42 +657,76 @@
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
 
-                    // --- Paste Image Upload ---
+                    // --- Paste / Drop Image Upload ---
                     const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
-                    document.getElementById('markdown-editor-container').addEventListener('paste', async function (e) {
-                        const items = e.clipboardData && e.clipboardData.items;
-                        if (!items) return;
-                        for (let i = 0; i < items.length; i++) {
-                            if (!items[i].type.startsWith('image/')) continue;
-                            e.preventDefault();
-                            const blob = items[i].getAsFile();
-                            const ext = items[i].type.split('/')[1] || 'png';
-                            const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
-                            const placeholder = '![uploading...](' + filename + ')';
-                            // Insert placeholder at cursor
-                            const selection = markdownEditorInstance.getSelection();
-                            markdownEditorInstance.executeEdits('paste-image', [{
-                                range: selection,
-                                text: placeholder,
-                                forceMoveMarkers: true
-                            }]);
-                            // Upload
-                            const form = new FormData();
-                            form.append('file', blob, filename);
-                            try {
-                                const res = await fetch(pasteUploadUrl, { method: 'POST', body: form });
-                                if (!res.ok) throw new Error(await res.text());
-                                const data = await res.json();
+                    const editorDomNode = markdownEditorInstance.getDomNode();
+
+                    function uploadImageBlob(blob, ext) {
+                        const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + (ext || 'png').replace('jpeg', 'jpg');
+                        const placeholder = '![uploading...](' + filename + ')';
+                        const selection = markdownEditorInstance.getSelection();
+                        markdownEditorInstance.executeEdits('paste-image', [{
+                            range: selection,
+                            text: placeholder,
+                            forceMoveMarkers: true
+                        }]);
+                        const form = new FormData();
+                        form.append('file', blob, filename);
+                        fetch(pasteUploadUrl, { method: 'POST', body: form })
+                            .then(function (res) {
+                                if (!res.ok) throw new Error('HTTP ' + res.status);
+                                return res.json();
+                            })
+                            .then(function (data) {
                                 const model = markdownEditorInstance.getModel();
                                 model.setValue(model.getValue().replace(placeholder, '![](' + data.InternetPath + ')'));
-                            } catch (err) {
+                            })
+                            .catch(function (err) {
                                 const model = markdownEditorInstance.getModel();
                                 model.setValue(model.getValue().replace(placeholder, ''));
                                 console.error('Image upload failed:', err);
-                            }
-                            break;
+                                var errBanner = document.getElementById('upload-error-banner');
+                                errBanner.classList.add('show');
+                                setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                            });
+                    }
+
+                    // Use capture:true so our handler runs BEFORE Monaco's own paste handler.
+                    editorDomNode.addEventListener('paste', function (e) {
+                        var items = e.clipboardData && e.clipboardData.items;
+                        if (!items) return;
+                        for (var i = 0; i < items.length; i++) {
+                            if (!items[i].type.startsWith('image/')) continue;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            uploadImageBlob(items[i].getAsFile(), items[i].type.split('/')[1]);
+                            return;
                         }
-                    });
+                    }, true);
+
+                    // Support drag-and-drop of image files onto the editor.
+                    editorDomNode.addEventListener('dragover', function (e) {
+                        var hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
+                            return it.kind === 'file' && it.type.startsWith('image/');
+                        });
+                        if (hasImage) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
+                    }, true);
+
+                    editorDomNode.addEventListener('drop', function (e) {
+                        var files = e.dataTransfer && e.dataTransfer.files;
+                        if (!files || files.length === 0) return;
+                        for (var i = 0; i < files.length; i++) {
+                            if (!files[i].type.startsWith('image/')) continue;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            markdownEditorInstance.focus();
+                            uploadImageBlob(files[i], files[i].type.split('/')[1]);
+                            return;
+                        }
+                    }, true);
                 }
 
                 // --- Markdown Completion Provider ---
