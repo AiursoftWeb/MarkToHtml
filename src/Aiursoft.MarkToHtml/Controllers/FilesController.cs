@@ -18,6 +18,7 @@ public class FilesController(
 {
     [HttpPost]
     [Route("upload/{**subfolder}")]
+    [LimitPerMin(5)]
     [DisableRequestSizeLimit]
     [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
     public async Task<IActionResult> Upload(
@@ -33,6 +34,7 @@ public class FilesController(
 
     [HttpPost]
     [Route("upload-private/{**subfolder}")]
+    [LimitPerMin(5)]
     [DisableRequestSizeLimit]
     [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
     public async Task<IActionResult> UploadPrivate(
