@@ -691,8 +691,10 @@
                             });
                     }
 
-                    // Use capture:true so our handler runs BEFORE Monaco's own paste handler.
-                    editorDomNode.addEventListener('paste', function (e) {
+                    // Intercept paste at document level (capture phase) so we run before
+                    // Monaco's own paste handler. Only act when Monaco has keyboard focus.
+                    document.addEventListener('paste', function (e) {
+                        if (!markdownEditorInstance.hasTextFocus()) return;
                         var items = e.clipboardData && e.clipboardData.items;
                         if (!items) return;
                         for (var i = 0; i < items.length; i++) {
