@@ -16,7 +16,9 @@ public partial class OrphanMarkdownImageCleanupJob(
     FeatureFoldersProvider folders,
     ILogger<OrphanMarkdownImageCleanupJob> logger) : IBackgroundJob
 {
-    private static readonly TimeSpan GracePeriod = TimeSpan.FromHours(24);
+    // 7h = one job cycle (6h) + 1h safety buffer, ensuring every image survives
+    // at least one full cleanup pass before being eligible for deletion.
+    private static readonly TimeSpan GracePeriod = TimeSpan.FromHours(7);
 
     public string Name => "Orphan Markdown Image Cleanup";
 
