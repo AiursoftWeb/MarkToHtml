@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>如果你將此文件設為私人，現有的公開連結將會立即失效，所有人都無法再存取。</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>圖片上傳失敗！</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>包含豐富嘅文檔同實用例子，讓你快速上手。</value>
   </data>

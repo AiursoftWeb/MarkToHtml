@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>หากคุณเปลี่ยนเอกสารนี้เป็นแบบส่วนตัว ลิงก์สาธารณะที่มีอยู่จะหยุดทำงานสำหรับทุกคนในทันที</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>อัปโหลดรูปภาพล้มเหลว!</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>ประกอบด้วยเอกสารที่ครอบคลุมและตัวอย่างเชิงปฏิบัติเพื่อให้คุณเริ่มต้นได้อย่างรวดเร็ว</value>
   </data>
