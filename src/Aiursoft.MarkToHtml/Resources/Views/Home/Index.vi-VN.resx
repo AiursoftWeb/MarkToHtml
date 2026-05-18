@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Nếu bạn chuyển tài liệu này thành riêng tư, liên kết công khai hiện tại sẽ ngay lập tức ngừng hoạt động với mọi người.</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Tải lên hình ảnh thất bại!</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
   </data>

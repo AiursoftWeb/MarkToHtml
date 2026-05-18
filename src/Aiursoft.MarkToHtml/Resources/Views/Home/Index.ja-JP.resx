@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>このドキュメントを非公開に設定すると、既存の公開リンクは直ちに全員に対して機能しなくなります。</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>画像のアップロードに失敗しました！</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>豊富なドキュメントと実用的な例を含んでいるため、すぐに使い始めることができます。</value>
   </data>

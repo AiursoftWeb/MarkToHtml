@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 모든 사용자에게 즉시 작동을 멈춥니다.</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>이미지 업로드 실패!</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>풍부한 문서와 실용적인 예제를 포함하여 빠르게 시작할 수 있도록 합니다.</value>
   </data>

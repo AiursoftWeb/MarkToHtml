@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Εάν κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος θα σταματήσει αμέσως να λειτουργεί για όλους.</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Η μεταφόρτωση εικόνας απέτυχε!</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Περιλαμβάνει εκτενή τεκμηρίωση και πρακτικά παραδείγματα για να ξεκινήσετε γρήγορα.</value>
   </data>

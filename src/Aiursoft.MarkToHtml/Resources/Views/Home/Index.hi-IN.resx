@@ -162,6 +162,9 @@
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>यदि आप इस दस्तावेज़ को निजी बना देते हैं, तो मौजूदा सार्वजनिक लिंक तुरंत सभी के लिए काम करना बंद कर देगा।</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>चित्र अपलोड विफल हो गया!</value>
+  </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>विस्तृत दस्तावेज़ीकरण और व्यावहारिक उदाहरण शामिल हैं ताकि आप जल्दी शुरुआत कर सकें।</value>
   </data>
