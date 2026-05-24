@@ -54,6 +54,12 @@
                             <i class="align-middle" data-lucide="printer"></i> <span
                                 class="d-none d-sm-inline">@Localizer["Print"]</span>
                         </button>
+                        <button type="button" id="read-aloud-button" class="btn btn-sm btn-outline-secondary"
+                            title="@Localizer["Read Aloud"]">
+                            <i class="align-middle" data-lucide="volume-2"></i> <span
+                                class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>
+                        </button>
+                        <select id="voice-select" class="form-select form-select-sm d-none ms-1" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
                         <a asp-controller="Contract" asp-action="Fill" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-info"
                            target="_blank" title="@Localizer["Contract Layout"]">
                             <i class="align-middle" data-lucide="file-signature"></i> <span
@@ -129,7 +135,77 @@
             });
         }
 
-        // 3. Copy Markdown Button
+        // 3. Read Aloud (TTS)
+        const readAloudBtn = document.getElementById('read-aloud-button');
+        const voiceSelect = document.getElementById('voice-select');
+        let isReading = false;
+
+        function loadVoices() {
+            const voices = speechSynthesis.getVoices();
+            if (!voices.length) {
+                voiceSelect.classList.add('d-none');
+                return;
+            }
+            const currentValue = voiceSelect.value;
+            voiceSelect.innerHTML = '';
+            voices.forEach(function (v, i) {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.textContent = v.name + (v.lang ? ' (' + v.lang + ')' : '') + (v.localService ? '' : ' [remote]');
+                voiceSelect.appendChild(opt);
+            });
+            if (currentValue !== undefined && currentValue !== '' && voices[currentValue]) {
+                voiceSelect.value = currentValue;
+            }
+            voiceSelect.classList.remove('d-none');
+        }
+
+        speechSynthesis.onvoiceschanged = loadVoices;
+        loadVoices();
+
+        if (readAloudBtn) {
+            readAloudBtn.addEventListener('click', function () {
+                if (isReading) {
+                    speechSynthesis.cancel();
+                    resetReadAloudUI();
+                    return;
+                }
+
+                const printableArea = document.getElementById('printable-area');
+                if (!printableArea) return;
+
+                const text = printableArea.textContent || '';
+                if (!text.trim()) return;
+
+                const utterance = new SpeechSynthesisUtterance(text);
+
+                const voices = speechSynthesis.getVoices();
+                const idx = parseInt(voiceSelect.value);
+                if (voices.length > 0 && !Number.isNaN(idx) && voices[idx]) {
+                    utterance.voice = voices[idx];
+                }
+
+                utterance.onend = resetReadAloudUI;
+                utterance.onerror = resetReadAloudUI;
+
+                speechSynthesis.speak(utterance);
+                isReading = true;
+                readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-sm-inline">@Localizer["Stop Reading"]</span>';
+                readAloudBtn.classList.replace('btn-outline-secondary', 'btn-primary');
+                window.lucide && lucide.createIcons();
+            });
+        }
+
+        function resetReadAloudUI() {
+            isReading = false;
+            if (readAloudBtn) {
+                readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>';
+                readAloudBtn.classList.replace('btn-primary', 'btn-outline-secondary');
+                window.lucide && lucide.createIcons();
+            }
+        }
+
+        // 4. Copy Markdown Button
         const copyBtn = document.getElementById('copy-markdown-button');
         if (copyBtn) {
             copyBtn.addEventListener('click', function () {
