@@ -106,6 +106,10 @@
             <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
                 <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
             </button>
+            <button type="button" id="read-aloud-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Read Aloud"]">
+                <i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>
+            </button>
+            <select id="voice-select" class="form-select form-select-sm d-none ms-1 shadow-sm" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
             <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy HTML"]">
                 <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy HTML"]</span>
             </button>
@@ -191,6 +195,11 @@
         body[data-theme="dark"] .btn-white:hover {
             background-color: #3f5268 !important;
             color: #fff !important;
+        }
+        body[data-theme="dark"] #voice-select {
+            background-color: #2f3e50 !important;
+            border-color: #3f5268 !important;
+            color: #d1d8e0 !important;
         }
         body[data-theme="dark"] .border-end {
             border-color: #323d4b !important;
@@ -858,6 +867,76 @@
                             window.print();
                         }
                     });
+                }
+
+                // --- Read Aloud (TTS) ---
+                const readAloudBtn = document.getElementById('read-aloud-button');
+                const voiceSelect = document.getElementById('voice-select');
+                let isReading = false;
+
+                function loadVoices() {
+                    const voices = speechSynthesis.getVoices();
+                    if (!voices.length) {
+                        voiceSelect.classList.add('d-none');
+                        return;
+                    }
+                    const currentValue = voiceSelect.value;
+                    voiceSelect.innerHTML = '';
+                    voices.forEach(function (v, i) {
+                        const opt = document.createElement('option');
+                        opt.value = i;
+                        opt.textContent = v.name + (v.lang ? ' (' + v.lang + ')' : '') + (v.localService ? '' : ' [remote]');
+                        voiceSelect.appendChild(opt);
+                    });
+                    if (currentValue !== undefined && currentValue !== '' && voices[currentValue]) {
+                        voiceSelect.value = currentValue;
+                    }
+                    voiceSelect.classList.remove('d-none');
+                }
+
+                speechSynthesis.onvoiceschanged = loadVoices;
+                loadVoices();
+
+                if (readAloudBtn) {
+                    readAloudBtn.addEventListener('click', function () {
+                        if (isReading) {
+                            speechSynthesis.cancel();
+                            resetReadAloudUI();
+                            return;
+                        }
+
+                        const printableArea = document.getElementById('printable-area');
+                        if (!printableArea) return;
+
+                        const text = printableArea.textContent || '';
+                        if (!text.trim()) return;
+
+                        const utterance = new SpeechSynthesisUtterance(text);
+
+                        const voices = speechSynthesis.getVoices();
+                        const idx = parseInt(voiceSelect.value);
+                        if (voices.length > 0 && !Number.isNaN(idx) && voices[idx]) {
+                            utterance.voice = voices[idx];
+                        }
+
+                        utterance.onend = resetReadAloudUI;
+                        utterance.onerror = resetReadAloudUI;
+
+                        speechSynthesis.speak(utterance);
+                        isReading = true;
+                        readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-xxl-inline">@Localizer["Stop Reading"]</span>';
+                        readAloudBtn.classList.replace('btn-white', 'btn-primary');
+                        window.lucide && lucide.createIcons();
+                    });
+                }
+
+                function resetReadAloudUI() {
+                    isReading = false;
+                    if (readAloudBtn) {
+                        readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>';
+                        readAloudBtn.classList.replace('btn-primary', 'btn-white');
+                        window.lucide && lucide.createIcons();
+                    }
                 }
 
                 // --- Table & Mermaid Rendering ---
