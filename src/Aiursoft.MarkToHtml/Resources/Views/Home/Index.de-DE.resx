@@ -228,6 +228,9 @@
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-Autorisierung</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Read the document" xml:space="preserve">
     <value>Dokumentation lesen</value>
   </data>
@@ -264,6 +267,9 @@
   <data name="Split View" xml:space="preserve">
     <value>Geteilte Ansicht</value>
   </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
+  </data>
   <data name="Success!" xml:space="preserve">
     <value>Erfolg!</value>
   </data>
@@ -285,6 +291,9 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Unbenanntes Dokument</value>
   </data>
+  <data name="Voice" xml:space="preserve">
+    <value>Voice</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Willkommen</value>
   </data>
@@ -293,16 +302,6 @@
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Ja, auf privat setzen</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
-  </data>
-  <data name="Voice" xml:space="preserve">
-    <value>Voice</value>
   </data>
 
 </root>

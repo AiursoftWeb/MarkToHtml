@@ -228,6 +228,9 @@
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-valtuutus</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Read the document" xml:space="preserve">
     <value>Lue dokumentti</value>
   </data>
@@ -264,6 +267,9 @@
   <data name="Split View" xml:space="preserve">
     <value>Jaettu näkymä</value>
   </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
+  </data>
   <data name="Success!" xml:space="preserve">
     <value>Onnistui!</value>
   </data>
@@ -285,6 +291,9 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>Nimetön asiakirja</value>
   </data>
+  <data name="Voice" xml:space="preserve">
+    <value>Voice</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Tervetuloa</value>
   </data>
@@ -293,16 +302,6 @@
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>Kyllä, tee yksityiseksi</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
-  </data>
-  <data name="Voice" xml:space="preserve">
-    <value>Voice</value>
   </data>
 
 </root>

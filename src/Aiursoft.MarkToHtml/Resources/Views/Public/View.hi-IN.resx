@@ -54,21 +54,20 @@
   <data name="Raw" xml:space="preserve">
     <value>असंसाधित</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>स्रोत</value>
+  </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>कच्चा दृश्य</value>
   </data>
   <data name="View raw Markdown" xml:space="preserve">
     <value>अनियंत्रित मार्कडाउन देखें</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
   </data>
   <data name="Voice" xml:space="preserve">
     <value>Voice</value>

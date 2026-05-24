@@ -54,21 +54,20 @@
   <data name="Raw" xml:space="preserve">
     <value>未加工</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>ソース</value>
+  </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>生の表示</value>
   </data>
   <data name="View raw Markdown" xml:space="preserve">
     <value>生のMarkdownを表示</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
   </data>
   <data name="Voice" xml:space="preserve">
     <value>Voice</value>
