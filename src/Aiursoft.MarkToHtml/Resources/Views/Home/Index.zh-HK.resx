@@ -228,6 +228,9 @@
   <data name="RBAC Authorization" xml:space="preserve">
     <value>基於角色的存取控制授權</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Read the document" xml:space="preserve">
     <value>閱讀文件</value>
   </data>
@@ -264,6 +267,9 @@
   <data name="Split View" xml:space="preserve">
     <value>分割視窗</value>
   </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
+  </data>
   <data name="Success!" xml:space="preserve">
     <value>成功！</value>
   </data>
@@ -285,6 +291,9 @@
   <data name="Untitled Document" xml:space="preserve">
     <value>未命名文件</value>
   </data>
+  <data name="Voice" xml:space="preserve">
+    <value>Voice</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>歡迎</value>
   </data>
@@ -293,16 +302,6 @@
   </data>
   <data name="Yes, Make Private" xml:space="preserve">
     <value>是的，設為私人</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
-  </data>
-  <data name="Voice" xml:space="preserve">
-    <value>Voice</value>
   </data>
 
 </root>

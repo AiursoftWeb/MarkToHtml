@@ -54,21 +54,20 @@
   <data name="Raw" xml:space="preserve">
     <value>Testo grezzo</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Sorgente</value>
+  </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>Visualizza Raw</value>
   </data>
   <data name="View raw Markdown" xml:space="preserve">
     <value>Visualizza Markdown grezzo</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
   </data>
   <data name="Voice" xml:space="preserve">
     <value>Voice</value>

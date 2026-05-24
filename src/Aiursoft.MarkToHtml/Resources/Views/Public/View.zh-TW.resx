@@ -54,21 +54,20 @@
   <data name="Raw" xml:space="preserve">
     <value>原始碼</value>
   </data>
+  <data name="Read Aloud" xml:space="preserve">
+    <value>Read Aloud</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>原始碼</value>
+  </data>
+  <data name="Stop Reading" xml:space="preserve">
+    <value>Stop Reading</value>
   </data>
   <data name="View Raw" xml:space="preserve">
     <value>檢視原始檔</value>
   </data>
   <data name="View raw Markdown" xml:space="preserve">
     <value>檢視原始 Markdown</value>
-  </data>
-
-  <data name="Read Aloud" xml:space="preserve">
-    <value>Read Aloud</value>
-  </data>
-  <data name="Stop Reading" xml:space="preserve">
-    <value>Stop Reading</value>
   </data>
   <data name="Voice" xml:space="preserve">
     <value>Voice</value>
