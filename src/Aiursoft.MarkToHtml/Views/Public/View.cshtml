@@ -139,60 +139,98 @@
         const readAloudBtn = document.getElementById('read-aloud-button');
         const voiceSelect = document.getElementById('voice-select');
         let isReading = false;
+        let currentAudio = null;
 
-        function loadVoices() {
-            const voices = speechSynthesis.getVoices();
-            if (!voices.length) {
+        // Load available voices from server-side TTS API
+        async function loadVoices() {
+            try {
+                const response = await fetch('/tts/voices');
+                if (!response.ok) {
+                    voiceSelect.classList.add('d-none');
+                    return;
+                }
+                const voices = await response.json();
+                if (!voices || !voices.length) {
+                    voiceSelect.classList.add('d-none');
+                    return;
+                }
+                const currentValue = voiceSelect.value;
+                voiceSelect.innerHTML = '';
+                voices.forEach(function (v) {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    opt.textContent = v.name;
+                    voiceSelect.appendChild(opt);
+                });
+                if (currentValue && voices.some(function (v) { return v.name === currentValue; })) {
+                    voiceSelect.value = currentValue;
+                }
+                voiceSelect.classList.remove('d-none');
+            } catch (e) {
                 voiceSelect.classList.add('d-none');
-                return;
             }
-            const currentValue = voiceSelect.value;
-            voiceSelect.innerHTML = '';
-            voices.forEach(function (v, i) {
-                const opt = document.createElement('option');
-                opt.value = i;
-                opt.textContent = v.name + (v.lang ? ' (' + v.lang + ')' : '') + (v.localService ? '' : ' [remote]');
-                voiceSelect.appendChild(opt);
-            });
-            if (currentValue !== undefined && currentValue !== '' && voices[currentValue]) {
-                voiceSelect.value = currentValue;
-            }
-            voiceSelect.classList.remove('d-none');
         }
 
-        speechSynthesis.onvoiceschanged = loadVoices;
         loadVoices();
 
+        function stopAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.removeAttribute('src');
+                currentAudio.load();
+                currentAudio = null;
+            }
+            resetReadAloudUI();
+        }
+
         if (readAloudBtn) {
-            readAloudBtn.addEventListener('click', function () {
+            readAloudBtn.addEventListener('click', async function () {
                 if (isReading) {
-                    speechSynthesis.cancel();
-                    resetReadAloudUI();
+                    stopAudio();
                     return;
                 }
 
                 const printableArea = document.getElementById('printable-area');
                 if (!printableArea) return;
 
-                const text = printableArea.textContent || '';
-                if (!text.trim()) return;
+                const text = (printableArea.textContent || '').trim();
+                if (!text) return;
 
-                const utterance = new SpeechSynthesisUtterance(text);
+                readAloudBtn.disabled = true;
+                try {
+                    const formData = new FormData();
+                    formData.append('input', text);
+                    const voice = voiceSelect.value;
+                    if (voice) formData.append('voice', voice);
 
-                const voices = speechSynthesis.getVoices();
-                const idx = parseInt(voiceSelect.value);
-                if (voices.length > 0 && !Number.isNaN(idx) && voices[idx]) {
-                    utterance.voice = voices[idx];
+                    const response = await fetch('/tts/speech', { method: 'POST', body: formData });
+                    if (!response.ok) {
+                        const err = await response.json().catch(() => ({}));
+                        console.error('TTS error:', err.error || response.statusText);
+                        resetReadAloudUI();
+                        return;
+                    }
+
+                    const blob = await response.blob();
+                    const url = URL.createObjectURL(blob);
+                    currentAudio = new Audio(url);
+                    currentAudio.onended = resetReadAloudUI;
+                    currentAudio.onerror = function (e) {
+                        console.error('Audio playback error:', e);
+                        URL.revokeObjectURL(url);
+                        resetReadAloudUI();
+                    };
+                    currentAudio.play();
+                    isReading = true;
+                    readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-sm-inline">@Localizer["Stop Reading"]</span>';
+                    readAloudBtn.classList.replace('btn-outline-secondary', 'btn-primary');
+                    window.lucide && lucide.createIcons();
+                } catch (e) {
+                    console.error('TTS fetch error:', e);
+                    resetReadAloudUI();
+                } finally {
+                    readAloudBtn.disabled = false;
                 }
-
-                utterance.onend = resetReadAloudUI;
-                utterance.onerror = resetReadAloudUI;
-
-                speechSynthesis.speak(utterance);
-                isReading = true;
-                readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-sm-inline">@Localizer["Stop Reading"]</span>';
-                readAloudBtn.classList.replace('btn-outline-secondary', 'btn-primary');
-                window.lucide && lucide.createIcons();
             });
         }
 

@@ -27,6 +27,7 @@ public class Startup : IWebStartup
     {
         // AppSettings.
         services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
+        services.Configure<TtsSettings>(configuration.GetSection("TtsSettings"));
 
         // Relational database
         var (connectionString, dbType, allowCache) = configuration.GetDbSettings();
