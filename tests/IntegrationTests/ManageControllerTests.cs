@@ -33,4 +33,17 @@ public class ManageControllerTests : TestBase
         var changeAvatarPage = await Http.GetAsync("/Manage/ChangeAvatar");
         changeAvatarPage.EnsureSuccessStatusCode();
     }
+
+    [TestMethod]
+    public async Task TestChangeAvatarAllowsJpegExtension()
+    {
+        await LoginAsAdmin();
+
+        var response = await Http.GetAsync("/Manage/ChangeAvatar");
+        response.EnsureSuccessStatusCode();
+
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.Contains("data-allowed-file-extensions=\"png bmp jpg jpeg\"", html);
+        Assert.Contains("validExtensions: ('png bmp jpg jpeg' || '').split(' ').filter(Boolean)", html);
+    }
 }
