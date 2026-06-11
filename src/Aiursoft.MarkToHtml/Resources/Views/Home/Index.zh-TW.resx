@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>內部 - 特定使用者/角色</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>商標</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>設為私人文件</value>
   </data>

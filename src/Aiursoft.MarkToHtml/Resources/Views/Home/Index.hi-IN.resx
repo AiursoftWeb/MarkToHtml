@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>आंतरिक - विशिष्ट उपयोगकर्ता/भूमिकाएँ</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>लोगो</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>दस्तावेज़ निजी बनाएं</value>
   </data>

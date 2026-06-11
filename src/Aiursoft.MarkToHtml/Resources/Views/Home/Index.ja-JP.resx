@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>内部 - 特定のユーザー/ロール</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>ロゴ</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>ドキュメントを非公開にする</value>
   </data>

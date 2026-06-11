@@ -39,6 +39,9 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>पाठ की प्रतिलिपि बनाने में विफल।</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>लोगो</value>
+  </data>
   <data name="Markdown" xml:space="preserve">
     <value>मार्कडाउन</value>
   </data>
