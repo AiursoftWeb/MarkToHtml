@@ -1,5 +1,14 @@
 /* markdown-print.css */
 
+.print-logo {
+    display: none;
+}
+
+.print-layout {
+    width: 100%;
+    border-collapse: collapse;
+}
+
 @media print {
     /* 页面基础重置 */
     @page {
@@ -77,6 +86,49 @@
     .markdown-content {
         background-color: white !important;
         color: black !important;
+    }
+
+    .print-layout {
+        display: table !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+
+    .print-layout thead {
+        display: table-header-group !important;
+    }
+
+    .print-layout tbody {
+        display: table-row-group !important;
+    }
+
+    .print-layout tr,
+    .print-layout td {
+        border: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .print-logo {
+        display: none !important;
+    }
+
+    body.print-logo-enabled .print-logo {
+        display: block !important;
+        margin: 0 0 0.4cm 0 !important;
+        text-align: left !important;
+    }
+
+    body.print-logo-enabled #printable-area {
+        padding-top: 0 !important;
+    }
+
+    .print-logo img {
+        max-width: 4cm !important;
+        max-height: 1.2cm !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
     }
 
     .markdown-content a {
