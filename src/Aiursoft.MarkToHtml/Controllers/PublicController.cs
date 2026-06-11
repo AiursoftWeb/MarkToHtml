@@ -75,6 +75,7 @@ public class PublicController(
     /// Print a shared document.
     /// </summary>
     /// <param name="id">The ID of the document to print.</param>
+    /// <param name="includeLogo">Whether to include the project logo in the print view.</param>
     /// <returns>A clean view for printing.</returns>
     [HttpGet("print")]
     public async Task<IActionResult> Print([Required][FromRoute] Guid id, [FromQuery] bool includeLogo = false)
