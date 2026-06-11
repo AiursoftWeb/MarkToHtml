@@ -56,6 +56,31 @@ public class PrintTests : TestBase
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(html.Contains("# Content") || html.Contains("<h1>Content</h1>"));
+        Assert.IsFalse(html.Contains("class=\"print-logo\""));
+    }
+
+    [TestMethod]
+    public async Task Print_CanIncludeLogo_WhenRequested()
+    {
+        // Arrange
+        var (email, _) = await RegisterAndLoginAsync();
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var user = await userManager.FindByEmailAsync(email);
+            userId = user!.Id;
+        }
+        var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
+
+        // Act
+        var response = await Http.GetAsync($"/share/{documentId}/print?includeLogo=true");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("class=\"print-logo\""));
+        Assert.IsTrue(html.Contains("/logo.svg"));
     }
 
     [TestMethod]

@@ -1,9 +1,11 @@
 @using Aiursoft.MarkToHtml.Controllers
 @model Aiursoft.MarkToHtml.Models.HomeViewModels.IndexViewModel
 @inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService Storage
+@inject Aiursoft.MarkToHtml.Services.GlobalSettingsService GlobalSettings
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var printLogoUrl = await GlobalSettings.GetLogoUrlAsync();
 }
 
 @if (Model.SavedSuccessfully)
@@ -106,6 +108,10 @@
             <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
                 <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
             </button>
+            <div class="form-check form-switch d-flex align-items-center mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="include-print-logo">
+                <label class="form-check-label ms-1 small text-dark" for="include-print-logo">@Localizer["Logo"]</label>
+            </div>
             <button type="button" id="read-aloud-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Read Aloud"]">
                 <i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>
             </button>
@@ -141,6 +147,9 @@
         @* --- Right Column: Output & Settings --- *@
         <div id="preview-column" class="col-lg-6 h-100 overflow-auto" style="background-color: #F9FAFB; padding-bottom: 2rem;">
             <!-- Rendered Output (Paper Style) -->
+            <div id="print-logo" class="print-logo">
+                <img src="@printLogoUrl" alt="Logo" />
+            </div>
             <div id="printable-area" class="bg-white shadow-sm mx-auto p-4 p-md-5 my-0 my-md-4 markdown-content" style="max-width: 21cm; min-height: 29.7cm;">
                 @Html.Raw(Model.OutputHtml)
             </div>
@@ -859,10 +868,12 @@
                 const printBtn = document.getElementById('print-button');
                 if (printBtn) {
                     printBtn.addEventListener('click', () => {
+                        const includeLogo = document.getElementById('include-print-logo')?.checked === true;
+                        document.body.classList.toggle('print-logo-enabled', includeLogo);
                         const isEditing = @(Model.IsEditing.ToString().ToLower());
                         if (isEditing) {
-                            const shareUrl = '@Url.Action("View", "Public", new { id = Model.DocumentId })';
-                            window.open(shareUrl, '_blank');
+                            const printUrl = '@Url.Action("Print", "Public", new { id = Model.DocumentId })';
+                            window.open(includeLogo ? printUrl + '?includeLogo=true' : printUrl, '_blank');
                         } else {
                             window.print();
                         }
