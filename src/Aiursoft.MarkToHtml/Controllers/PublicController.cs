@@ -15,7 +15,8 @@ namespace Aiursoft.MarkToHtml.Controllers;
 public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
-    MarkToHtmlService mtohService) : Controller
+    MarkToHtmlService mtohService,
+    GlobalSettingsService globalSettingsService) : Controller
 {
     /// <summary>
     /// View a shared document.
@@ -74,9 +75,10 @@ public class PublicController(
     /// Print a shared document.
     /// </summary>
     /// <param name="id">The ID of the document to print.</param>
+    /// <param name="includeLogo">Whether to include the project logo in the print view.</param>
     /// <returns>A clean view for printing.</returns>
     [HttpGet("print")]
-    public async Task<IActionResult> Print([Required][FromRoute] Guid id)
+    public async Task<IActionResult> Print([Required][FromRoute] Guid id, [FromQuery] bool includeLogo = false)
     {
         logger.LogTrace("Attempting to print document with ID: '{Id}'", id);
 
@@ -118,6 +120,12 @@ public class PublicController(
             CreationTime = document.CreationTime,
             CanEdit = await HasEditAccess(document)
         };
+
+        ViewBag.IncludeLogo = includeLogo;
+        if (includeLogo)
+        {
+            ViewBag.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
+        }
 
         return View(model);
     }

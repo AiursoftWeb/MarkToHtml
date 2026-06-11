@@ -3,6 +3,8 @@
 @{ 
     Layout = null;
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+    var includeLogo = ViewBag.IncludeLogo == true;
+    var logoUrl = ViewBag.LogoUrl as string;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -37,10 +39,36 @@
         }
     </style>
 </head>
-<body>
-    <div id="printable-area" class="markdown-content">
-        @Html.Raw(Model.Content)
-    </div>
+<body class="@(includeLogo ? "print-logo-enabled" : null)">
+    @if (includeLogo && !string.IsNullOrWhiteSpace(logoUrl))
+    {
+        <table class="print-layout">
+            <thead>
+                <tr>
+                    <td>
+                        <div class="print-logo">
+                            <img src="@logoUrl" alt="Logo" />
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div id="printable-area" class="markdown-content">
+                            @Html.Raw(Model.Content)
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div id="printable-area" class="markdown-content">
+            @Html.Raw(Model.Content)
+        </div>
+    }
 
     <script>
         window.MathJax = {
@@ -92,6 +120,14 @@
             // 3. MathJax (Asynchronous)
             if (window.MathJax && window.MathJax.typesetPromise) {
                 promises.push(window.MathJax.typesetPromise([document.getElementById('printable-area')]));
+            }
+
+            const printLogo = document.querySelector('.print-logo img');
+            if (printLogo && !printLogo.complete) {
+                promises.push(new Promise(resolve => {
+                    printLogo.addEventListener('load', resolve, { once: true });
+                    printLogo.addEventListener('error', resolve, { once: true });
+                }));
             }
 
             // Wait for all rendering to complete before printing
