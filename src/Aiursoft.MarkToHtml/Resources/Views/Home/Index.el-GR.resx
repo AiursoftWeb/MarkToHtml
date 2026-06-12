@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Εσωτερικό - Συγκεκριμένοι χρήστες/ρόλοι</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Σημάδι</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Κάνε το έγγραφο ιδιωτικό</value>
   </data>

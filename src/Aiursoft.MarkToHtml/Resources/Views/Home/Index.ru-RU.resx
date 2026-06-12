@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>Внутренний - Определённые пользователи/роли</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Логотип</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Сделать документ приватным</value>
   </data>

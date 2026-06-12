@@ -39,6 +39,9 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>Det gick inte att kopiera text.</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logotyp</value>
+  </data>
   <data name="Markdown" xml:space="preserve">
     <value>Markdown</value>
   </data>

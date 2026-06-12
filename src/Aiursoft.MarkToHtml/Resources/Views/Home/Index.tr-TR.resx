@@ -177,6 +177,9 @@
   <data name="Internal - Specific users/roles" xml:space="preserve">
     <value>İç - Belirli kullanıcılar/roller</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo</value>
+  </data>
   <data name="Make document private" xml:space="preserve">
     <value>Belgeyi Gizli Yap</value>
   </data>

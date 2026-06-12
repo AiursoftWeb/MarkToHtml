@@ -39,6 +39,9 @@
   <data name="Failed to copy text." xml:space="preserve">
     <value>텍스트 복사에 실패했습니다.</value>
   </data>
+  <data name="Logo" xml:space="preserve">
+    <value>로고</value>
+  </data>
   <data name="Markdown" xml:space="preserve">
     <value>마크다운</value>
   </data>
