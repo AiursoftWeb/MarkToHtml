@@ -16,8 +16,7 @@ public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
     MarkToHtmlService mtohService,
-    GlobalSettingsService globalSettingsService,
-    PrintThemeService printThemeService) : Controller
+    GlobalSettingsService globalSettingsService) : Controller
 {
     /// <summary>
     /// View a shared document.
@@ -65,8 +64,7 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document),
-            PrintThemes = printThemeService.GetThemeViewModels()
+            CanEdit = await HasEditAccess(document)
         };
 
         ViewBag.DocumentId = id;
@@ -78,21 +76,9 @@ public class PublicController(
     /// </summary>
     /// <param name="id">The ID of the document to print.</param>
     /// <param name="includeLogo">Whether to include the project logo in the print view.</param>
-    /// <param name="theme">The print theme to apply.</param>
-    /// <param name="pageSize">The print page size to apply.</param>
-    /// <param name="orientation">The print page orientation to apply.</param>
-    /// <param name="logoSize">The print logo size to apply.</param>
-    /// <param name="logoPosition">The print logo position to apply.</param>
     /// <returns>A clean view for printing.</returns>
     [HttpGet("print")]
-    public async Task<IActionResult> Print(
-        [Required][FromRoute] Guid id,
-        [FromQuery] bool includeLogo = false,
-        [FromQuery] string theme = "default",
-        [FromQuery] string pageSize = "A4",
-        [FromQuery] string orientation = "portrait",
-        [FromQuery] string logoSize = "medium",
-        [FromQuery] string logoPosition = "left")
+    public async Task<IActionResult> Print([Required][FromRoute] Guid id, [FromQuery] bool includeLogo = false)
     {
         logger.LogTrace("Attempting to print document with ID: '{Id}'", id);
 
@@ -132,32 +118,16 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document),
-            PrintThemes = printThemeService.GetThemeViewModels()
+            CanEdit = await HasEditAccess(document)
         };
 
-        var selectedTheme = printThemeService.PickTheme(theme);
         ViewBag.IncludeLogo = includeLogo;
-        ViewBag.PrintTheme = selectedTheme.Id;
-        ViewBag.PrintThemeCssPath = selectedTheme.CssPath;
-        ViewBag.PageBackground = selectedTheme.PageBackground;
-        ViewBag.PageSize = PickAllowed(pageSize, "A4", "A4", "Letter", "Legal");
-        ViewBag.Orientation = PickAllowed(orientation, "portrait", "portrait", "landscape");
-        ViewBag.LogoSize = PickAllowed(logoSize, "medium", "small", "medium", "large");
-        ViewBag.LogoPosition = PickAllowed(logoPosition, "left", "left", "center", "right");
         if (includeLogo)
         {
             ViewBag.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
         }
 
         return View(model);
-    }
-
-    private static string PickAllowed(string value, string defaultValue, params string[] allowedValues)
-    {
-        return allowedValues.Contains(value, StringComparer.OrdinalIgnoreCase)
-            ? allowedValues.First(allowed => string.Equals(allowed, value, StringComparison.OrdinalIgnoreCase))
-            : defaultValue;
     }
 
     /// <summary>

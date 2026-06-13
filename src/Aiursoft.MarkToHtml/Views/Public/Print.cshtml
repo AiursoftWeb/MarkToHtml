@@ -5,13 +5,6 @@
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
     var includeLogo = ViewBag.IncludeLogo == true;
     var logoUrl = ViewBag.LogoUrl as string;
-    var printTheme = ViewBag.PrintTheme as string ?? "default";
-    var printThemeCssPath = ViewBag.PrintThemeCssPath as string;
-    var pageSize = ViewBag.PageSize as string ?? "A4";
-    var orientation = ViewBag.Orientation as string ?? "portrait";
-    var logoSize = ViewBag.LogoSize as string ?? "medium";
-    var logoPosition = ViewBag.LogoPosition as string ?? "left";
-    var pageBackground = ViewBag.PageBackground as string ?? "white";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +15,6 @@
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
-    @if (!string.IsNullOrWhiteSpace(printThemeCssPath))
-    {
-        <link rel="stylesheet" href="@printThemeCssPath" asp-append-version="true" />
-    }
     @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
@@ -36,124 +25,24 @@
     }
     <style>
         body {
-            background-color: #eef1f4;
+            background-color: white;
             padding: 0;
             margin: 0;
         }
-        @@page {
-            size: @pageSize @orientation;
-            margin: 1.5cm;
-            background: @pageBackground;
-        }
-        .print-toolbar {
-            align-items: center;
-            background: #ffffff;
-            border-bottom: 1px solid #d8dee6;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-            display: flex;
-            gap: 0.75rem;
-            justify-content: space-between;
-            left: 0;
-            padding: 0.75rem 1rem;
-            position: sticky;
-            right: 0;
-            top: 0;
-            z-index: 10;
-        }
-        .print-toolbar h1 {
-            font-size: 1rem;
-            line-height: 1.25;
-            margin: 0;
-        }
-        .print-toolbar-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: flex-end;
-        }
-        .print-toolbar button,
-        .print-toolbar select {
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            background: #ffffff;
-            color: #0f172a;
-            font: inherit;
-            min-height: 2.25rem;
-            padding: 0.35rem 0.7rem;
-        }
-        .print-toolbar button.primary {
-            background: #1f4f7a;
-            border-color: #1f4f7a;
-            color: #ffffff;
-        }
-        .print-preview-page {
-            margin: 1.25rem auto;
-            max-width: 960px;
-            min-height: 1120px;
-            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.16);
-        }
         .markdown-content {
-            padding: 1.8cm 2cm;
+            padding: 2cm;
         }
         @@media print {
-            body {
-                background-color: white;
-            }
-            .print-toolbar {
-                display: none;
-            }
-            .print-preview-page {
-                box-shadow: none;
-                margin: 0;
-                max-width: none;
-                min-height: 0;
-            }
             .markdown-content {
                 padding: 0;
             }
         }
     </style>
 </head>
-<body class="print-theme-@printTheme print-page-@pageSize.ToLowerInvariant() print-orientation-@orientation print-logo-@logoSize print-logo-@logoPosition @(includeLogo ? "print-logo-enabled" : null)">
-    <div class="print-toolbar">
-        <h1>@Model.DocumentTitle</h1>
-        <div class="print-toolbar-actions">
-            <select id="preview-theme" aria-label="@Localizer["Theme"]">
-                @foreach (var availableTheme in Model.PrintThemes)
-                {
-                    <option value="@availableTheme.Id" selected="@(printTheme == availableTheme.Id)">@availableTheme.Name</option>
-                }
-            </select>
-            <select id="preview-page-size" aria-label="@Localizer["Page Size"]">
-                <option value="A4" selected="@(pageSize == "A4")">A4</option>
-                <option value="Letter" selected="@(pageSize == "Letter")">Letter</option>
-                <option value="Legal" selected="@(pageSize == "Legal")">Legal</option>
-            </select>
-            <select id="preview-orientation" aria-label="@Localizer["Orientation"]">
-                <option value="portrait" selected="@(orientation == "portrait")">@Localizer["Portrait"]</option>
-                <option value="landscape" selected="@(orientation == "landscape")">@Localizer["Landscape"]</option>
-            </select>
-            <select id="preview-logo" aria-label="@Localizer["Logo"]">
-                <option value="false" selected="@(!includeLogo)">@Localizer["No Logo"]</option>
-                <option value="true" selected="@includeLogo">@Localizer["Add Logo"]</option>
-            </select>
-            <select id="preview-logo-size" aria-label="@Localizer["Logo Size"]">
-                <option value="small" selected="@(logoSize == "small")">@Localizer["Small"]</option>
-                <option value="medium" selected="@(logoSize == "medium")">@Localizer["Medium"]</option>
-                <option value="large" selected="@(logoSize == "large")">@Localizer["Large"]</option>
-            </select>
-            <select id="preview-logo-position" aria-label="@Localizer["Logo Position"]">
-                <option value="left" selected="@(logoPosition == "left")">@Localizer["Left"]</option>
-                <option value="center" selected="@(logoPosition == "center")">@Localizer["Center"]</option>
-                <option value="right" selected="@(logoPosition == "right")">@Localizer["Right"]</option>
-            </select>
-            <button type="button" id="apply-print-settings">@Localizer["Apply"]</button>
-            <button type="button" class="primary" id="print-now">@Localizer["Print"]</button>
-        </div>
-    </div>
+<body class="@(includeLogo ? "print-logo-enabled" : null)">
     @if (includeLogo && !string.IsNullOrWhiteSpace(logoUrl))
     {
-        <table class="print-layout print-preview-page">
+        <table class="print-layout">
             <thead>
                 <tr>
                     <td>
@@ -176,10 +65,8 @@
     }
     else
     {
-        <div class="print-preview-page">
-            <div id="printable-area" class="markdown-content">
+        <div id="printable-area" class="markdown-content">
             @Html.Raw(Model.Content)
-            </div>
         </div>
     }
 
@@ -243,32 +130,18 @@
                 }));
             }
 
-            Promise.all(promises).catch(err => {
+            // Wait for all rendering to complete before printing
+            Promise.all(promises).then(() => {
+                // Give it a tiny bit of extra time for browser to layout the injected SVGs
+                setTimeout(() => {
+                    window.print();
+                    // Close the tab after printing (optional, but often desired for this kind of "redirect to print" flow)
+                    // window.close(); 
+                }, 500);
+            }).catch(err => {
                 console.error("Error during rendering before print:", err);
+                window.print();
             });
-
-            const printNow = document.getElementById('print-now');
-            if (printNow) {
-                printNow.addEventListener('click', () => window.print());
-            }
-
-            const applyPrintSettings = document.getElementById('apply-print-settings');
-            if (applyPrintSettings) {
-                applyPrintSettings.addEventListener('click', () => {
-                    const printUrl = new URL(window.location.href);
-                    printUrl.searchParams.set('theme', document.getElementById('preview-theme')?.value || 'default');
-                    printUrl.searchParams.set('pageSize', document.getElementById('preview-page-size')?.value || 'A4');
-                    printUrl.searchParams.set('orientation', document.getElementById('preview-orientation')?.value || 'portrait');
-                    printUrl.searchParams.set('logoSize', document.getElementById('preview-logo-size')?.value || 'medium');
-                    printUrl.searchParams.set('logoPosition', document.getElementById('preview-logo-position')?.value || 'left');
-                    if (document.getElementById('preview-logo')?.value === 'true') {
-                        printUrl.searchParams.set('includeLogo', 'true');
-                    } else {
-                        printUrl.searchParams.delete('includeLogo');
-                    }
-                    window.location.href = printUrl.toString();
-                });
-            }
         });
     </script>
 </body>

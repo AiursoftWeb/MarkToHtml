@@ -52,9 +52,4 @@ public class PublicDocumentViewModel : UiStackLayoutViewModel
     /// Indicates whether the current user has permission to edit this document.
     /// </summary>
     public bool CanEdit { get; set; }
-
-    /// <summary>
-    /// The available print theme plugins.
-    /// </summary>
-    public IReadOnlyList<PrintThemeViewModel> PrintThemes { get; set; } = [];
 }

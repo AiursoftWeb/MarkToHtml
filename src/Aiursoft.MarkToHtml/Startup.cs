@@ -53,7 +53,6 @@ public class Startup : IWebStartup
         services.AddMemoryCache();
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
-        services.AddSingleton<Services.PrintThemeService>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job queue
