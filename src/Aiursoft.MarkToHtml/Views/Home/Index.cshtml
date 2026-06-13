@@ -108,10 +108,6 @@
             <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
                 <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
             </button>
-            <div class="form-check form-switch d-flex align-items-center mb-0">
-                <input class="form-check-input" type="checkbox" id="include-print-logo">
-                <label class="form-check-label ms-1 small text-dark" for="include-print-logo">@Localizer["Logo"]</label>
-            </div>
             <button type="button" id="read-aloud-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Read Aloud"]">
                 <i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>
             </button>
@@ -868,12 +864,10 @@
                 const printBtn = document.getElementById('print-button');
                 if (printBtn) {
                     printBtn.addEventListener('click', () => {
-                        const includeLogo = document.getElementById('include-print-logo')?.checked === true;
-                        document.body.classList.toggle('print-logo-enabled', includeLogo);
                         const isEditing = @(Model.IsEditing.ToString().ToLower());
                         if (isEditing) {
                             const printUrl = '@Url.Action("Print", "Public", new { id = Model.DocumentId })';
-                            window.open(includeLogo ? printUrl + '?includeLogo=true' : printUrl, '_blank');
+                            window.open(printUrl, '_blank');
                         } else {
                             window.print();
                         }

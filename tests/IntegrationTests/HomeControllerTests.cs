@@ -11,6 +11,8 @@ public class HomeControllerTests : TestBase
         var url = "/";
         var response = await Http.GetAsync(url);
         response.EnsureSuccessStatusCode();
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsFalse(html.Contains("include-print-logo"));
     }
 
     // Bug 1 (log order) is a pure observability issue with no user-facing behavior change.

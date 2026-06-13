@@ -9,18 +9,88 @@
     border-collapse: collapse;
 }
 
+.print-preview-page {
+    background: var(--print-paper, #ffffff);
+    color: var(--print-ink, #111827);
+}
+
+.print-page-letter.print-orientation-portrait .print-preview-page {
+    max-width: 816px;
+}
+
+.print-page-legal.print-orientation-portrait .print-preview-page {
+    max-width: 816px;
+    min-height: 1344px;
+}
+
+.print-orientation-landscape .print-preview-page {
+    max-width: 1120px;
+    min-height: 760px;
+}
+
+.print-logo-enabled .print-logo {
+    display: block;
+    padding: 1.25cm 2cm 0;
+}
+
+.print-logo-left .print-logo {
+    text-align: left;
+}
+
+.print-logo-center .print-logo {
+    text-align: center;
+}
+
+.print-logo-right .print-logo {
+    text-align: right;
+}
+
+.print-logo img {
+    height: auto;
+    object-fit: contain;
+    width: auto;
+}
+
+.print-logo-tiny .print-logo img {
+    max-height: 0.55cm;
+    max-width: 1.9cm;
+}
+
+.print-logo-small .print-logo img {
+    max-height: 0.8cm;
+    max-width: 2.8cm;
+}
+
+.print-logo-medium .print-logo img {
+    max-height: 1.15cm;
+    max-width: 4cm;
+}
+
+.print-logo-large .print-logo img {
+    max-height: 1.55cm;
+    max-width: 5.6cm;
+}
+
+.print-logo-extra-large .print-logo img {
+    max-height: 2.1cm;
+    max-width: 7.4cm;
+}
+
+.print-logo-super-large .print-logo img {
+    max-height: 2.8cm;
+    max-width: 9.5cm;
+}
+
 @media print {
-    /* 页面基础重置 */
     @page {
         margin: 1.5cm;
     }
 
     body {
-        background-color: white !important;
-        color: black !important;
+        background-color: var(--print-paper, white) !important;
+        color: var(--print-ink, black) !important;
     }
 
-    /* 隐藏所有 UI 框架元素 */
     .navbar,
     .sidebar,
     footer,
@@ -35,12 +105,10 @@
         display: none !important;
     }
 
-    /* 专门隐藏顶部标题栏中的 h3 */
     .row.mb-2.mb-xl-3 h3 {
         display: none !important;
     }
 
-    /* 重置布局容器，消除 Grid 和 Flex 影响 */
     .row,
     .col-12,
     .col-lg-6,
@@ -57,22 +125,19 @@
         overflow: visible !important;
     }
 
-    /* 隐藏左侧编辑器列和代码容器 */
     #editor-column,
     #markdown-editor-container,
     #html-output-container {
         display: none !important;
     }
 
-    /* 隐藏源代码/编辑器 Tab - 必须在 .tab-pane 规则之后以确保优先级 */
     #markdown,
     #code {
         display: none !important;
     }
 
-    /* 强制显示预览区域的 tab-pane */
     #preview.tab-pane {
-        display: block !important; /* 覆盖 bootstrap 的 display:none */
+        display: block !important;
     }
 
     #preview,
@@ -84,8 +149,8 @@
     }
 
     .markdown-content {
-        background-color: white !important;
-        color: black !important;
+        background-color: var(--print-paper, white) !important;
+        color: var(--print-ink, black) !important;
     }
 
     .print-layout {
@@ -116,29 +181,34 @@
     body.print-logo-enabled .print-logo {
         display: block !important;
         margin: 0 0 0.4cm 0 !important;
-        text-align: left !important;
+        padding: 0 !important;
     }
 
     body.print-logo-enabled #printable-area {
         padding-top: 0 !important;
     }
 
-    .print-logo img {
-        max-width: 4cm !important;
-        max-height: 1.2cm !important;
-        width: auto !important;
-        height: auto !important;
-        object-fit: contain !important;
+    body.print-logo-left .print-logo {
+        text-align: left !important;
+    }
+
+    body.print-logo-center .print-logo {
+        text-align: center !important;
+    }
+
+    body.print-logo-right .print-logo {
+        text-align: right !important;
     }
 
     .markdown-content a {
+        color: var(--print-ink, black) !important;
         text-decoration: underline;
-        color: black !important;
     }
+
     .markdown-content a[href]::after {
+        color: var(--print-muted, #555555);
         content: " (" attr(href) ")";
-        font-size: 0.85em;      /* 稍微缩小一点，区分正文 */
-        color: #555;            /* 灰色显示 */
-        word-break: break-all;  /* 防止长链接撑破纸张 */
+        font-size: 0.85em;
+        word-break: break-all;
     }
 }
