@@ -76,9 +76,21 @@ public class PublicController(
     /// </summary>
     /// <param name="id">The ID of the document to print.</param>
     /// <param name="includeLogo">Whether to include the project logo in the print view.</param>
+    /// <param name="theme">The print theme to apply.</param>
+    /// <param name="pageSize">The print page size to apply.</param>
+    /// <param name="orientation">The print page orientation to apply.</param>
+    /// <param name="logoSize">The print logo size to apply.</param>
+    /// <param name="logoPosition">The print logo position to apply.</param>
     /// <returns>A clean view for printing.</returns>
     [HttpGet("print")]
-    public async Task<IActionResult> Print([Required][FromRoute] Guid id, [FromQuery] bool includeLogo = false)
+    public async Task<IActionResult> Print(
+        [Required][FromRoute] Guid id,
+        [FromQuery] bool includeLogo = false,
+        [FromQuery] string theme = "classic",
+        [FromQuery] string pageSize = "A4",
+        [FromQuery] string orientation = "portrait",
+        [FromQuery] string logoSize = "medium",
+        [FromQuery] string logoPosition = "left")
     {
         logger.LogTrace("Attempting to print document with ID: '{Id}'", id);
 
@@ -122,12 +134,24 @@ public class PublicController(
         };
 
         ViewBag.IncludeLogo = includeLogo;
+        ViewBag.PrintTheme = PickAllowed(theme, "classic", "classic", "modern", "editorial", "formal");
+        ViewBag.PageSize = PickAllowed(pageSize, "A4", "A4", "Letter", "Legal");
+        ViewBag.Orientation = PickAllowed(orientation, "portrait", "portrait", "landscape");
+        ViewBag.LogoSize = PickAllowed(logoSize, "medium", "small", "medium", "large");
+        ViewBag.LogoPosition = PickAllowed(logoPosition, "left", "left", "center", "right");
         if (includeLogo)
         {
             ViewBag.LogoUrl = await globalSettingsService.GetLogoUrlAsync();
         }
 
         return View(model);
+    }
+
+    private static string PickAllowed(string value, string defaultValue, params string[] allowedValues)
+    {
+        return allowedValues.Contains(value, StringComparer.OrdinalIgnoreCase)
+            ? allowedValues.First(allowed => string.Equals(allowed, value, StringComparison.OrdinalIgnoreCase))
+            : defaultValue;
     }
 
     /// <summary>

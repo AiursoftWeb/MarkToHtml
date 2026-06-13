@@ -84,6 +84,62 @@ public class PrintTests : TestBase
     }
 
     [TestMethod]
+    public async Task Print_AppliesDocumentSettings_WhenRequested()
+    {
+        // Arrange
+        var (email, _) = await RegisterAndLoginAsync();
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var user = await userManager.FindByEmailAsync(email);
+            userId = user!.Id;
+        }
+        var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
+
+        // Act
+        var response = await Http.GetAsync($"/share/{documentId}/print?includeLogo=true&theme=editorial&pageSize=Letter&orientation=landscape&logoSize=large&logoPosition=right");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("print-theme-editorial"));
+        Assert.IsTrue(html.Contains("print-page-letter"));
+        Assert.IsTrue(html.Contains("print-orientation-landscape"));
+        Assert.IsTrue(html.Contains("print-logo-large"));
+        Assert.IsTrue(html.Contains("print-logo-right"));
+        Assert.IsTrue(html.Contains("size: Letter landscape;"));
+    }
+
+    [TestMethod]
+    public async Task Print_FallsBackToDefaultSettings_WhenInvalidValuesRequested()
+    {
+        // Arrange
+        var (email, _) = await RegisterAndLoginAsync();
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var user = await userManager.FindByEmailAsync(email);
+            userId = user!.Id;
+        }
+        var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
+
+        // Act
+        var response = await Http.GetAsync($"/share/{documentId}/print?theme=unknown&pageSize=Poster&orientation=diagonal&logoSize=huge&logoPosition=floating");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("print-theme-classic"));
+        Assert.IsTrue(html.Contains("print-page-a4"));
+        Assert.IsTrue(html.Contains("print-orientation-portrait"));
+        Assert.IsTrue(html.Contains("print-logo-medium"));
+        Assert.IsTrue(html.Contains("print-logo-left"));
+        Assert.IsTrue(html.Contains("size: A4 portrait;"));
+    }
+
+    [TestMethod]
     public async Task AnonymousUser_CannotAccessPrint_ForPrivateDocument()
     {
         // Arrange

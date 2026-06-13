@@ -54,10 +54,6 @@
                             <i class="align-middle" data-lucide="printer"></i> <span
                                 class="d-none d-sm-inline">@Localizer["Print"]</span>
                         </button>
-                        <div class="form-check form-switch d-inline-flex align-items-center ms-1 mb-0">
-                            <input class="form-check-input" type="checkbox" id="include-print-logo">
-                            <label class="form-check-label ms-1 small" for="include-print-logo">@Localizer["Logo"]</label>
-                        </div>
                         <button type="button" id="read-aloud-button" class="btn btn-sm btn-outline-secondary"
                             title="@Localizer["Read Aloud"]">
                             <i class="align-middle" data-lucide="volume-2"></i> <span
@@ -111,6 +107,73 @@
     </div>
 </div>
 
+<div class="modal fade" id="print-settings-modal" tabindex="-1" aria-labelledby="print-settings-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="print-settings-title">@Localizer["Print Preview"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label" for="print-theme">@Localizer["Theme"]</label>
+                        <select class="form-select" id="print-theme">
+                            <option value="classic">@Localizer["Classic"]</option>
+                            <option value="modern">@Localizer["Modern"]</option>
+                            <option value="editorial">@Localizer["Editorial"]</option>
+                            <option value="formal">@Localizer["Formal"]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="print-page-size">@Localizer["Page Size"]</label>
+                        <select class="form-select" id="print-page-size">
+                            <option value="A4">A4</option>
+                            <option value="Letter">Letter</option>
+                            <option value="Legal">Legal</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="print-orientation">@Localizer["Orientation"]</label>
+                        <select class="form-select" id="print-orientation">
+                            <option value="portrait">@Localizer["Portrait"]</option>
+                            <option value="landscape">@Localizer["Landscape"]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="print-logo-size">@Localizer["Logo Size"]</label>
+                        <select class="form-select" id="print-logo-size">
+                            <option value="small">@Localizer["Small"]</option>
+                            <option value="medium" selected>@Localizer["Medium"]</option>
+                            <option value="large">@Localizer["Large"]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label" for="print-logo-position">@Localizer["Logo Position"]</label>
+                        <select class="form-select" id="print-logo-position">
+                            <option value="left">@Localizer["Left"]</option>
+                            <option value="center">@Localizer["Center"]</option>
+                            <option value="right">@Localizer["Right"]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="print-include-logo">
+                            <label class="form-check-label" for="print-include-logo">@Localizer["Add company logo"]</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                <button type="button" id="open-print-preview-button" class="btn btn-primary">
+                    <i class="align-middle" data-lucide="eye"></i> @Localizer["Open Preview"]
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // 1. Toggle Buttons based on Tab
@@ -132,12 +195,33 @@
 
         // 2. Print Button
         const printBtn = document.getElementById('print-button');
+        const printSettingsModal = document.getElementById('print-settings-modal');
         if (printBtn) {
             printBtn.addEventListener('click', () => {
-                const printUrl = '@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })';
-                const includeLogo = document.getElementById('include-print-logo')?.checked === true;
-                window.open(includeLogo ? printUrl + '?includeLogo=true' : printUrl, '_blank');
+                if (window.bootstrap && printSettingsModal) {
+                    bootstrap.Modal.getOrCreateInstance(printSettingsModal).show();
+                    return;
+                }
+                openPrintPreview();
             });
+        }
+
+        const openPrintPreviewBtn = document.getElementById('open-print-preview-button');
+        if (openPrintPreviewBtn) {
+            openPrintPreviewBtn.addEventListener('click', openPrintPreview);
+        }
+
+        function openPrintPreview() {
+            const printUrl = new URL('@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })', window.location.origin);
+            printUrl.searchParams.set('theme', document.getElementById('print-theme')?.value || 'classic');
+            printUrl.searchParams.set('pageSize', document.getElementById('print-page-size')?.value || 'A4');
+            printUrl.searchParams.set('orientation', document.getElementById('print-orientation')?.value || 'portrait');
+            printUrl.searchParams.set('logoSize', document.getElementById('print-logo-size')?.value || 'medium');
+            printUrl.searchParams.set('logoPosition', document.getElementById('print-logo-position')?.value || 'left');
+            if (document.getElementById('print-include-logo')?.checked === true) {
+                printUrl.searchParams.set('includeLogo', 'true');
+            }
+            window.open(printUrl.toString(), '_blank');
         }
 
         // 3. Read Aloud (TTS)
