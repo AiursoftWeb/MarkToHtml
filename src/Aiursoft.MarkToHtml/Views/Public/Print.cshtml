@@ -14,13 +14,9 @@
     var pageBackground = ViewBag.PageBackground as string ?? "white";
     var printHeader = ViewBag.PrintHeader as string ?? "none";
     var printFooter = ViewBag.PrintFooter as string ?? "none";
-    var cssStringJsonOptions = new System.Text.Json.JsonSerializerOptions
-    {
-        Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-    };
-    var documentTitleCss = System.Text.Json.JsonSerializer.Serialize(Model.DocumentTitle, cssStringJsonOptions);
-    var pageLabelCss = System.Text.Json.JsonSerializer.Serialize(Localizer["Page"].Value + " ", cssStringJsonOptions);
-    var ofLabelCss = System.Text.Json.JsonSerializer.Serialize(" " + Localizer["of"].Value + " ", cssStringJsonOptions);
+    var documentTitleCss = ToCssString(Model.DocumentTitle);
+    var pageLabelCss = ToCssString(Localizer["Page"].Value + " ");
+    var ofLabelCss = ToCssString(" " + Localizer["of"].Value + " ");
     var previewFooterText = printFooter switch
     {
         "number" => "1",
@@ -28,6 +24,48 @@
         "pageOfTotal" => $"{Localizer["Page"]} 1 {Localizer["of"]} 3",
         _ => string.Empty
     };
+}
+@functions {
+    private static string ToCssString(string value)
+    {
+        var builder = new System.Text.StringBuilder(value.Length + 2);
+        builder.Append('"');
+        foreach (var character in value)
+        {
+            switch (character)
+            {
+                case '"':
+                    builder.Append("\\\"");
+                    break;
+                case '\\':
+                    builder.Append("\\\\");
+                    break;
+                case '\n':
+                    builder.Append("\\A ");
+                    break;
+                case '\r':
+                    break;
+                case '<':
+                    builder.Append("\\3C ");
+                    break;
+                case '>':
+                    builder.Append("\\3E ");
+                    break;
+                default:
+                    if (char.IsControl(character))
+                    {
+                        builder.Append('\\').Append(((int)character).ToString("X")).Append(' ');
+                    }
+                    else
+                    {
+                        builder.Append(character);
+                    }
+                    break;
+            }
+        }
+        builder.Append('"');
+        return builder.ToString();
+    }
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -345,6 +383,8 @@
                             const div = document.createElement('div');
                             div.innerHTML = svg;
                             block.replaceWith(div);
+                        }).catch(err => {
+                            console.error("Error rendering Mermaid diagram before print:", err);
                         });
                         promises.push(promise);
                     } catch (e) { console.error(e); }
@@ -364,13 +404,19 @@
                 }));
             }
 
-            Promise.all(promises).catch(err => {
+            const renderingReady = Promise.all(promises).catch(err => {
                 console.error("Error during rendering before print:", err);
             });
 
             const printNow = document.getElementById('print-now');
             if (printNow) {
-                printNow.addEventListener('click', () => window.print());
+                printNow.disabled = true;
+                renderingReady.finally(() => {
+                    printNow.disabled = false;
+                });
+                printNow.addEventListener('click', () => {
+                    renderingReady.finally(() => window.print());
+                });
             }
 
             const printSettingControls = [
