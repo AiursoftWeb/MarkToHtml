@@ -14,174 +14,6 @@
     color: var(--print-ink, #111827);
 }
 
-.print-theme-classic {
-    --print-paper: #ffffff;
-    --print-ink: #111827;
-    --print-muted: #5b6472;
-    --print-accent: #2563eb;
-    --print-rule: #d8dee8;
-    --print-code-bg: #f6f8fa;
-    --print-quote-bg: #f8fafc;
-    --print-heading-font: Georgia, "Times New Roman", serif;
-    --print-body-font: Charter, Georgia, "Times New Roman", serif;
-}
-
-.print-theme-modern {
-    --print-paper: #ffffff;
-    --print-ink: #172033;
-    --print-muted: #667085;
-    --print-accent: #0f766e;
-    --print-rule: #d6e4e1;
-    --print-code-bg: #f2f7f6;
-    --print-quote-bg: #edf7f5;
-    --print-heading-font: "Inter", "Segoe UI", Arial, sans-serif;
-    --print-body-font: "Inter", "Segoe UI", Arial, sans-serif;
-}
-
-.print-theme-editorial {
-    --print-paper: #fffaf1;
-    --print-ink: #1e293b;
-    --print-muted: #766b5d;
-    --print-accent: #1b4d72;
-    --print-rule: #dfd2bd;
-    --print-code-bg: #f4ead8;
-    --print-quote-bg: #f8efdE;
-    --print-heading-font: Georgia, "Times New Roman", serif;
-    --print-body-font: Charter, Georgia, "Times New Roman", serif;
-}
-
-.print-theme-formal {
-    --print-paper: #ffffff;
-    --print-ink: #1f2937;
-    --print-muted: #4b5563;
-    --print-accent: #7f1d1d;
-    --print-rule: #d1d5db;
-    --print-code-bg: #f3f4f6;
-    --print-quote-bg: #fafafa;
-    --print-heading-font: "Times New Roman", Georgia, serif;
-    --print-body-font: "Times New Roman", Georgia, serif;
-}
-
-.print-preview-page .markdown-content {
-    background: var(--print-paper, #ffffff);
-    color: var(--print-ink, #111827);
-    font-family: var(--print-body-font, Georgia, "Times New Roman", serif);
-    font-size: 11.5pt;
-    line-height: 1.68;
-}
-
-.print-preview-page .markdown-content h1,
-.print-preview-page .markdown-content h2,
-.print-preview-page .markdown-content h3,
-.print-preview-page .markdown-content h4,
-.print-preview-page .markdown-content h5,
-.print-preview-page .markdown-content h6 {
-    color: var(--print-ink, #111827);
-    font-family: var(--print-heading-font, Georgia, "Times New Roman", serif);
-    letter-spacing: 0;
-    line-height: 1.2;
-    page-break-after: avoid;
-}
-
-.print-preview-page .markdown-content h1 {
-    border-bottom: 2px solid var(--print-accent, #2563eb);
-    font-size: 25pt;
-    margin: 0 0 0.85cm;
-    padding-bottom: 0.35cm;
-}
-
-.print-preview-page .markdown-content h2 {
-    border-bottom: 1px solid var(--print-rule, #d8dee8);
-    font-size: 17pt;
-    margin-top: 1.05cm;
-    padding-bottom: 0.18cm;
-}
-
-.print-preview-page .markdown-content h3 {
-    color: var(--print-accent, #2563eb);
-    font-size: 13.5pt;
-    margin-top: 0.75cm;
-}
-
-.print-preview-page .markdown-content p,
-.print-preview-page .markdown-content ul,
-.print-preview-page .markdown-content ol {
-    margin-bottom: 0.45cm;
-}
-
-.print-preview-page .markdown-content blockquote {
-    background: var(--print-quote-bg, #f8fafc);
-    border-left: 4px solid var(--print-accent, #2563eb);
-    color: var(--print-muted, #5b6472);
-    margin: 0.55cm 0;
-    padding: 0.28cm 0.42cm;
-}
-
-.print-preview-page .markdown-content table {
-    border-collapse: collapse;
-    font-size: 10.5pt;
-    margin: 0.55cm 0;
-    page-break-inside: avoid;
-    width: 100%;
-}
-
-.print-preview-page .markdown-content th {
-    background: var(--print-accent, #2563eb);
-    border: 1px solid var(--print-accent, #2563eb);
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.print-preview-page .markdown-content td {
-    border: 1px solid var(--print-rule, #d8dee8);
-}
-
-.print-preview-page .markdown-content th,
-.print-preview-page .markdown-content td {
-    padding: 0.22cm 0.28cm;
-    vertical-align: top;
-}
-
-.print-preview-page .markdown-content pre {
-    background: var(--print-code-bg, #f6f8fa) !important;
-    border: 1px solid var(--print-rule, #d8dee8);
-    border-radius: 6px;
-    color: var(--print-ink, #111827);
-    font-size: 9.5pt;
-    line-height: 1.55;
-    margin: 0.55cm 0;
-    overflow-wrap: break-word;
-    padding: 0.36cm;
-    white-space: pre-wrap;
-}
-
-.print-preview-page .markdown-content code {
-    background: var(--print-code-bg, #f6f8fa);
-    border-radius: 4px;
-    color: var(--print-ink, #111827);
-    padding: 0.04cm 0.12cm;
-}
-
-.print-preview-page .markdown-content pre code {
-    background: transparent;
-    padding: 0;
-}
-
-.print-preview-page .markdown-content img,
-.print-preview-page .markdown-content svg {
-    max-width: 100%;
-}
-
-.print-theme-editorial .print-preview-page .markdown-content h1 {
-    border-bottom-color: #1b4d72;
-    color: #17324d;
-}
-
-.print-theme-formal .print-preview-page .markdown-content h1 {
-    border-bottom: 3px double var(--print-accent, #7f1d1d);
-    text-transform: uppercase;
-}
-
 .print-page-letter.print-orientation-portrait .print-preview-page {
     max-width: 816px;
 }
@@ -235,17 +67,15 @@
 }
 
 @media print {
-    /* 页面基础重置 */
     @page {
         margin: 1.5cm;
     }
 
     body {
-        background-color: white !important;
-        color: black !important;
+        background-color: var(--print-paper, white) !important;
+        color: var(--print-ink, black) !important;
     }
 
-    /* 隐藏所有 UI 框架元素 */
     .navbar,
     .sidebar,
     footer,
@@ -260,12 +90,10 @@
         display: none !important;
     }
 
-    /* 专门隐藏顶部标题栏中的 h3 */
     .row.mb-2.mb-xl-3 h3 {
         display: none !important;
     }
 
-    /* 重置布局容器，消除 Grid 和 Flex 影响 */
     .row,
     .col-12,
     .col-lg-6,
@@ -282,22 +110,19 @@
         overflow: visible !important;
     }
 
-    /* 隐藏左侧编辑器列和代码容器 */
     #editor-column,
     #markdown-editor-container,
     #html-output-container {
         display: none !important;
     }
 
-    /* 隐藏源代码/编辑器 Tab - 必须在 .tab-pane 规则之后以确保优先级 */
     #markdown,
     #code {
         display: none !important;
     }
 
-    /* 强制显示预览区域的 tab-pane */
     #preview.tab-pane {
-        display: block !important; /* 覆盖 bootstrap 的 display:none */
+        display: block !important;
     }
 
     #preview,
@@ -309,8 +134,8 @@
     }
 
     .markdown-content {
-        background-color: white !important;
-        color: black !important;
+        background-color: var(--print-paper, white) !important;
+        color: var(--print-ink, black) !important;
     }
 
     .print-layout {
@@ -361,13 +186,14 @@
     }
 
     .markdown-content a {
+        color: var(--print-ink, black) !important;
         text-decoration: underline;
-        color: black !important;
     }
+
     .markdown-content a[href]::after {
+        color: var(--print-muted, #555555);
         content: " (" attr(href) ")";
-        font-size: 0.85em;      /* 稍微缩小一点，区分正文 */
-        color: #555;            /* 灰色显示 */
-        word-break: break-all;  /* 防止长链接撑破纸张 */
+        font-size: 0.85em;
+        word-break: break-all;
     }
 }

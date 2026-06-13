@@ -119,10 +119,10 @@
                     <div class="col-md-6">
                         <label class="form-label" for="print-theme">@Localizer["Theme"]</label>
                         <select class="form-select" id="print-theme">
-                            <option value="classic">@Localizer["Classic"]</option>
-                            <option value="modern">@Localizer["Modern"]</option>
-                            <option value="editorial">@Localizer["Editorial"]</option>
-                            <option value="formal">@Localizer["Formal"]</option>
+                            @foreach (var printTheme in Model.PrintThemes)
+                            {
+                                <option value="@printTheme.Id">@printTheme.Name</option>
+                            }
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -213,7 +213,7 @@
 
         function openPrintPreview() {
             const printUrl = new URL('@Url.Action("Print", "Public", new { id = ViewBag.DocumentId })', window.location.origin);
-            printUrl.searchParams.set('theme', document.getElementById('print-theme')?.value || 'classic');
+            printUrl.searchParams.set('theme', document.getElementById('print-theme')?.value || 'default');
             printUrl.searchParams.set('pageSize', document.getElementById('print-page-size')?.value || 'A4');
             printUrl.searchParams.set('orientation', document.getElementById('print-orientation')?.value || 'portrait');
             printUrl.searchParams.set('logoSize', document.getElementById('print-logo-size')?.value || 'medium');

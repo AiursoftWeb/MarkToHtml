@@ -16,7 +16,8 @@ public class PublicController(
     ILogger<PublicController> logger,
     TemplateDbContext context,
     MarkToHtmlService mtohService,
-    GlobalSettingsService globalSettingsService) : Controller
+    GlobalSettingsService globalSettingsService,
+    PrintThemeService printThemeService) : Controller
 {
     /// <summary>
     /// View a shared document.
@@ -64,7 +65,8 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document)
+            CanEdit = await HasEditAccess(document),
+            PrintThemes = printThemeService.GetThemeViewModels()
         };
 
         ViewBag.DocumentId = id;
@@ -86,7 +88,7 @@ public class PublicController(
     public async Task<IActionResult> Print(
         [Required][FromRoute] Guid id,
         [FromQuery] bool includeLogo = false,
-        [FromQuery] string theme = "classic",
+        [FromQuery] string theme = "default",
         [FromQuery] string pageSize = "A4",
         [FromQuery] string orientation = "portrait",
         [FromQuery] string logoSize = "medium",
@@ -130,11 +132,15 @@ public class PublicController(
             MarkdownContent = document.Content ?? string.Empty,
             AuthorName = document.User.UserName ?? "Unknown Author",
             CreationTime = document.CreationTime,
-            CanEdit = await HasEditAccess(document)
+            CanEdit = await HasEditAccess(document),
+            PrintThemes = printThemeService.GetThemeViewModels()
         };
 
+        var selectedTheme = printThemeService.PickTheme(theme);
         ViewBag.IncludeLogo = includeLogo;
-        ViewBag.PrintTheme = PickAllowed(theme, "classic", "classic", "modern", "editorial", "formal");
+        ViewBag.PrintTheme = selectedTheme.Id;
+        ViewBag.PrintThemeCssPath = selectedTheme.CssPath;
+        ViewBag.PageBackground = selectedTheme.PageBackground;
         ViewBag.PageSize = PickAllowed(pageSize, "A4", "A4", "Letter", "Legal");
         ViewBag.Orientation = PickAllowed(orientation, "portrait", "portrait", "landscape");
         ViewBag.LogoSize = PickAllowed(logoSize, "medium", "small", "medium", "large");

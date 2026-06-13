@@ -1,0 +1,121 @@
+.print-theme-default {
+    --print-paper: #ffffff;
+    --print-ink: #111827;
+    --print-muted: #5b6472;
+    --print-accent: #2563eb;
+    --print-rule: #d8dee8;
+    --print-code-bg: #f6f8fa;
+    --print-quote-bg: #f8fafc;
+    --print-heading-font: Georgia, "Times New Roman", serif;
+    --print-body-font: Charter, Georgia, "Times New Roman", serif;
+}
+
+.print-theme-default .print-preview-page .markdown-content {
+    background: var(--print-paper);
+    color: var(--print-ink);
+    font-family: var(--print-body-font);
+    font-size: 11.5pt;
+    line-height: 1.68;
+}
+
+.print-theme-default .print-preview-page .markdown-content h1,
+.print-theme-default .print-preview-page .markdown-content h2,
+.print-theme-default .print-preview-page .markdown-content h3,
+.print-theme-default .print-preview-page .markdown-content h4,
+.print-theme-default .print-preview-page .markdown-content h5,
+.print-theme-default .print-preview-page .markdown-content h6 {
+    color: var(--print-ink);
+    font-family: var(--print-heading-font);
+    letter-spacing: 0;
+    line-height: 1.2;
+    page-break-after: avoid;
+}
+
+.print-theme-default .print-preview-page .markdown-content h1 {
+    border-bottom: 2px solid var(--print-accent);
+    font-size: 25pt;
+    margin: 0 0 0.85cm;
+    padding-bottom: 0.35cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content h2 {
+    border-bottom: 1px solid var(--print-rule);
+    font-size: 17pt;
+    margin-top: 1.05cm;
+    padding-bottom: 0.18cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content h3 {
+    color: var(--print-accent);
+    font-size: 13.5pt;
+    margin-top: 0.75cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content p,
+.print-theme-default .print-preview-page .markdown-content ul,
+.print-theme-default .print-preview-page .markdown-content ol {
+    margin-bottom: 0.45cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content blockquote {
+    background: var(--print-quote-bg);
+    border-left: 4px solid var(--print-accent);
+    color: var(--print-muted);
+    margin: 0.55cm 0;
+    padding: 0.28cm 0.42cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content table {
+    border-collapse: collapse;
+    font-size: 10.5pt;
+    margin: 0.55cm 0;
+    page-break-inside: avoid;
+    width: 100%;
+}
+
+.print-theme-default .print-preview-page .markdown-content th {
+    background: var(--print-accent);
+    border: 1px solid var(--print-accent);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.print-theme-default .print-preview-page .markdown-content td {
+    border: 1px solid var(--print-rule);
+}
+
+.print-theme-default .print-preview-page .markdown-content th,
+.print-theme-default .print-preview-page .markdown-content td {
+    padding: 0.22cm 0.28cm;
+    vertical-align: top;
+}
+
+.print-theme-default .print-preview-page .markdown-content pre {
+    background: var(--print-code-bg) !important;
+    border: 1px solid var(--print-rule);
+    border-radius: 6px;
+    color: var(--print-ink);
+    font-size: 9.5pt;
+    line-height: 1.55;
+    margin: 0.55cm 0;
+    overflow-wrap: break-word;
+    padding: 0.36cm;
+    white-space: pre-wrap;
+}
+
+.print-theme-default .print-preview-page .markdown-content code {
+    background: var(--print-code-bg);
+    border-radius: 4px;
+    color: var(--print-ink);
+    padding: 0.04cm 0.12cm;
+}
+
+.print-theme-default .print-preview-page .markdown-content pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.print-theme-default .print-preview-page .markdown-content img,
+.print-theme-default .print-preview-page .markdown-content svg {
+    max-width: 100%;
+}

@@ -104,11 +104,38 @@ public class PrintTests : TestBase
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(html.Contains("print-theme-editorial"));
+        Assert.IsTrue(html.Contains("/print-themes/editorial/theme.css"));
         Assert.IsTrue(html.Contains("print-page-letter"));
         Assert.IsTrue(html.Contains("print-orientation-landscape"));
         Assert.IsTrue(html.Contains("print-logo-large"));
         Assert.IsTrue(html.Contains("print-logo-right"));
         Assert.IsTrue(html.Contains("size: Letter landscape;"));
+    }
+
+    [TestMethod]
+    public async Task Print_CanUseKamiTheme_WhenRequested()
+    {
+        // Arrange
+        var (email, _) = await RegisterAndLoginAsync();
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var user = await userManager.FindByEmailAsync(email);
+            userId = user!.Id;
+        }
+        var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
+
+        // Act
+        var response = await Http.GetAsync($"/share/{documentId}/print?theme=kami");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("print-theme-kami"));
+        Assert.IsTrue(html.Contains("/print-themes/kami/theme.css"));
+        Assert.IsTrue(html.Contains("background: #f5f4ed;"));
+        Assert.IsTrue(html.Contains("<option value=\"kami\" selected=\"selected\">Kami</option>"));
     }
 
     [TestMethod]
@@ -131,7 +158,8 @@ public class PrintTests : TestBase
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(html.Contains("print-theme-classic"));
+        Assert.IsTrue(html.Contains("print-theme-default"));
+        Assert.IsTrue(html.Contains("/print-themes/default/theme.css"));
         Assert.IsTrue(html.Contains("print-page-a4"));
         Assert.IsTrue(html.Contains("print-orientation-portrait"));
         Assert.IsTrue(html.Contains("print-logo-medium"));

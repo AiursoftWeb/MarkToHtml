@@ -5,11 +5,13 @@
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
     var includeLogo = ViewBag.IncludeLogo == true;
     var logoUrl = ViewBag.LogoUrl as string;
-    var printTheme = ViewBag.PrintTheme as string ?? "classic";
+    var printTheme = ViewBag.PrintTheme as string ?? "default";
+    var printThemeCssPath = ViewBag.PrintThemeCssPath as string;
     var pageSize = ViewBag.PageSize as string ?? "A4";
     var orientation = ViewBag.Orientation as string ?? "portrait";
     var logoSize = ViewBag.LogoSize as string ?? "medium";
     var logoPosition = ViewBag.LogoPosition as string ?? "left";
+    var pageBackground = ViewBag.PageBackground as string ?? "white";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,10 @@
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
+    @if (!string.IsNullOrWhiteSpace(printThemeCssPath))
+    {
+        <link rel="stylesheet" href="@printThemeCssPath" asp-append-version="true" />
+    }
     @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
@@ -37,6 +43,7 @@
         @@page {
             size: @pageSize @orientation;
             margin: 1.5cm;
+            background: @pageBackground;
         }
         .print-toolbar {
             align-items: center;
@@ -112,10 +119,10 @@
         <h1>@Model.DocumentTitle</h1>
         <div class="print-toolbar-actions">
             <select id="preview-theme" aria-label="@Localizer["Theme"]">
-                <option value="classic" selected="@(printTheme == "classic")">@Localizer["Classic"]</option>
-                <option value="modern" selected="@(printTheme == "modern")">@Localizer["Modern"]</option>
-                <option value="editorial" selected="@(printTheme == "editorial")">@Localizer["Editorial"]</option>
-                <option value="formal" selected="@(printTheme == "formal")">@Localizer["Formal"]</option>
+                @foreach (var availableTheme in Model.PrintThemes)
+                {
+                    <option value="@availableTheme.Id" selected="@(printTheme == availableTheme.Id)">@availableTheme.Name</option>
+                }
             </select>
             <select id="preview-page-size" aria-label="@Localizer["Page Size"]">
                 <option value="A4" selected="@(pageSize == "A4")">A4</option>
@@ -249,7 +256,7 @@
             if (applyPrintSettings) {
                 applyPrintSettings.addEventListener('click', () => {
                     const printUrl = new URL(window.location.href);
-                    printUrl.searchParams.set('theme', document.getElementById('preview-theme')?.value || 'classic');
+                    printUrl.searchParams.set('theme', document.getElementById('preview-theme')?.value || 'default');
                     printUrl.searchParams.set('pageSize', document.getElementById('preview-page-size')?.value || 'A4');
                     printUrl.searchParams.set('orientation', document.getElementById('preview-orientation')?.value || 'portrait');
                     printUrl.searchParams.set('logoSize', document.getElementById('preview-logo-size')?.value || 'medium');
