@@ -104,6 +104,7 @@ public class PrintThemeService(IWebHostEnvironment environment)
             Id = id,
             Name = string.IsNullOrWhiteSpace(manifest.Name) ? id : manifest.Name,
             CssPath = $"/{ThemeRoot}/{id}/{CssFileName}",
+            // 当前主题来自仓库内置静态文件；后续如果开放用户上传 CSS 或主题包，必须先对白名单颜色值做校验或隔离，避免 CSS 注入破坏打印页样式。
             PageBackground = string.IsNullOrWhiteSpace(manifest.PageBackground) ? "white" : manifest.PageBackground,
             Order = manifest.Order
         };
