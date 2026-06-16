@@ -11,6 +11,7 @@
     var orientation = ViewBag.Orientation as string ?? "portrait";
     var logoSize = ViewBag.LogoSize as string ?? "medium";
     var logoPosition = ViewBag.LogoPosition as string ?? "left";
+    var logoStyle = ViewBag.LogoStyle as string ?? "push";
     var pageBackground = ViewBag.PageBackground as string ?? "white";
     var printHeader = ViewBag.PrintHeader as string ?? "none";
     var printFooter = ViewBag.PrintFooter as string ?? "none";
@@ -240,7 +241,7 @@
         }
     </style>
 </head>
-<body class="print-theme-@printTheme print-page-@pageSize.ToLowerInvariant() print-orientation-@orientation print-logo-@logoSize print-logo-@logoPosition @(includeLogo ? "print-logo-enabled" : null)">
+<body class="print-theme-@printTheme print-page-@pageSize.ToLowerInvariant() print-orientation-@orientation print-logo-@logoSize print-logo-@logoPosition print-logo-@logoStyle @(includeLogo ? "print-logo-enabled" : null)">
     <div class="print-toolbar">
         <h1>@Model.DocumentTitle</h1>
         <div class="print-toolbar-actions">
@@ -275,6 +276,10 @@
                 <option value="left" selected="@(logoPosition == "left")">@Localizer["Left"]</option>
                 <option value="center" selected="@(logoPosition == "center")">@Localizer["Center"]</option>
                 <option value="right" selected="@(logoPosition == "right")">@Localizer["Right"]</option>
+            </select>
+            <select id="preview-logo-style" aria-label="@Localizer["Logo Style"]">
+                <option value="push" selected="@(logoStyle == "push")">@Localizer["Push Content"]</option>
+                <option value="float" selected="@(logoStyle == "float")">@Localizer["Float Over"]</option>
             </select>
             <select id="preview-print-header" aria-label="@Localizer["Header"]">
                 <option value="none" selected="@(printHeader == "none")">@Localizer["No Header"]</option>
@@ -426,6 +431,7 @@
                 document.getElementById('preview-logo'),
                 document.getElementById('preview-logo-size'),
                 document.getElementById('preview-logo-position'),
+                document.getElementById('preview-logo-style'),
                 document.getElementById('preview-print-header'),
                 document.getElementById('preview-print-footer')
             ].filter(Boolean);
@@ -437,6 +443,7 @@
                 printUrl.searchParams.set('orientation', document.getElementById('preview-orientation')?.value || 'portrait');
                 printUrl.searchParams.set('logoSize', document.getElementById('preview-logo-size')?.value || 'medium');
                 printUrl.searchParams.set('logoPosition', document.getElementById('preview-logo-position')?.value || 'left');
+                printUrl.searchParams.set('logoStyle', document.getElementById('preview-logo-style')?.value || 'push');
                 printUrl.searchParams.set('printHeader', document.getElementById('preview-print-header')?.value || 'none');
                 printUrl.searchParams.set('printFooter', document.getElementById('preview-print-footer')?.value || 'none');
                 if (document.getElementById('preview-logo')?.value === 'true') {

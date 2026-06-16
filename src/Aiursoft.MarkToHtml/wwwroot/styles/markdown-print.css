@@ -81,6 +81,35 @@
     max-width: 9.5cm;
 }
 
+.print-logo-push .print-logo {
+    /* Default: logo sits in normal document flow, pushing content down. */
+}
+
+.print-logo-float .print-layout thead td {
+    position: relative;
+}
+
+.print-logo-float .print-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0.8cm 2cm 0;
+}
+
+.print-logo-float.print-logo-left .print-logo {
+    text-align: left;
+}
+
+.print-logo-float.print-logo-center .print-logo {
+    text-align: center;
+}
+
+.print-logo-float.print-logo-right .print-logo {
+    text-align: right;
+}
+
 @media print {
     @page {
         margin: 1.5cm;
@@ -197,6 +226,32 @@
     }
 
     body.print-logo-right .print-logo {
+        text-align: right !important;
+    }
+
+    body.print-logo-float .print-layout thead td {
+        position: relative !important;
+    }
+
+    body.print-logo-float .print-logo {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1 !important;
+        padding: 0.5cm 2cm 0 !important;
+        margin: 0 !important;
+    }
+
+    body.print-logo-float.print-logo-left .print-logo {
+        text-align: left !important;
+    }
+
+    body.print-logo-float.print-logo-center .print-logo {
+        text-align: center !important;
+    }
+
+    body.print-logo-float.print-logo-right .print-logo {
         text-align: right !important;
     }
 

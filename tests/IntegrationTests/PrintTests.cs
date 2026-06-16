@@ -112,6 +112,33 @@ public class PrintTests : TestBase
     }
 
     [TestMethod]
+    public async Task Print_CanUseFloatLogoStyle_WhenRequested()
+    {
+        // Arrange
+        var (email, _) = await RegisterAndLoginAsync();
+        string userId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+            var user = await userManager.FindByEmailAsync(email);
+            userId = user!.Id;
+        }
+        var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
+
+        // Act
+        var response = await Http.GetAsync($"/share/{documentId}/print?includeLogo=true&logoStyle=float&logoSize=large&logoPosition=center");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("print-logo-float"));
+        Assert.IsTrue(html.Contains("print-logo-large"));
+        Assert.IsTrue(html.Contains("print-logo-center"));
+        Assert.IsTrue(html.Contains("<option value=\"float\" selected=\"selected\">Float Over</option>"));
+        Assert.IsTrue(html.Contains("<option value=\"push\">Push Content</option>"));
+    }
+
+    [TestMethod]
     public async Task Print_AppliesDocumentSettings_WhenRequested()
     {
         // Arrange
@@ -126,7 +153,7 @@ public class PrintTests : TestBase
         var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
 
         // Act
-        var response = await Http.GetAsync($"/share/{documentId}/print?includeLogo=true&theme=editorial&pageSize=Letter&orientation=landscape&logoSize=large&logoPosition=right&printHeader=title&printFooter=pageOfTotal");
+        var response = await Http.GetAsync($"/share/{documentId}/print?includeLogo=true&theme=editorial&pageSize=Letter&orientation=landscape&logoSize=large&logoPosition=right&logoStyle=float&printHeader=title&printFooter=pageOfTotal");
 
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
@@ -137,6 +164,8 @@ public class PrintTests : TestBase
         Assert.IsTrue(html.Contains("print-orientation-landscape"));
         Assert.IsTrue(html.Contains("print-logo-large"));
         Assert.IsTrue(html.Contains("print-logo-right"));
+        Assert.IsTrue(html.Contains("print-logo-float"));
+        Assert.IsTrue(html.Contains("<option value=\"float\" selected=\"selected\">Float Over</option>"));
         Assert.IsTrue(html.Contains("size: Letter landscape;"));
         Assert.IsTrue(html.Contains("@top-center"));
         Assert.IsTrue(html.Contains("content: \"Public Document\";"));
@@ -294,7 +323,7 @@ public class PrintTests : TestBase
         var documentId = await CreateDocument(userId, "Public Document", "# Content", isPublic: true);
 
         // Act
-        var response = await Http.GetAsync($"/share/{documentId}/print?theme=unknown&pageSize=Poster&orientation=diagonal&logoSize=huge&logoPosition=floating&printHeader=custom&printFooter=chapter");
+        var response = await Http.GetAsync($"/share/{documentId}/print?theme=unknown&pageSize=Poster&orientation=diagonal&logoSize=huge&logoPosition=floating&logoStyle=waterfall&printHeader=custom&printFooter=chapter");
 
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
@@ -305,9 +334,11 @@ public class PrintTests : TestBase
         Assert.IsTrue(html.Contains("print-orientation-portrait"));
         Assert.IsTrue(html.Contains("print-logo-medium"));
         Assert.IsTrue(html.Contains("print-logo-left"));
+        Assert.IsTrue(html.Contains("print-logo-push"));
         Assert.IsTrue(html.Contains("size: A4 portrait;"));
         Assert.IsTrue(html.Contains("<option value=\"none\" selected=\"selected\">No Header</option>"));
         Assert.IsTrue(html.Contains("<option value=\"none\" selected=\"selected\">No Footer</option>"));
+        Assert.IsTrue(html.Contains("<option value=\"push\" selected=\"selected\">Push Content</option>"));
         Assert.IsFalse(html.Contains("@top-center"));
         Assert.IsFalse(html.Contains("@bottom-center"));
     }

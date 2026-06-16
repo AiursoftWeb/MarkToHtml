@@ -83,6 +83,7 @@ public class PublicController(
     /// <param name="orientation">The print page orientation to apply.</param>
     /// <param name="logoSize">The print logo size to apply.</param>
     /// <param name="logoPosition">The print logo position to apply.</param>
+    /// <param name="logoStyle">The print logo layout style to apply.</param>
     /// <param name="printHeader">The print header style to apply.</param>
     /// <param name="printFooter">The print footer style to apply.</param>
     /// <returns>A clean view for printing.</returns>
@@ -95,6 +96,7 @@ public class PublicController(
         [FromQuery] string orientation = "portrait",
         [FromQuery] string logoSize = "medium",
         [FromQuery] string logoPosition = "left",
+        [FromQuery] string logoStyle = "push",
         [FromQuery] string printHeader = "none",
         [FromQuery] string printFooter = "none")
     {
@@ -149,6 +151,7 @@ public class PublicController(
         ViewBag.Orientation = PickAllowed(orientation, "portrait", "portrait", "landscape");
         ViewBag.LogoSize = PickAllowed(logoSize, "medium", "tiny", "small", "medium", "large", "extra-large", "super-large");
         ViewBag.LogoPosition = PickAllowed(logoPosition, "left", "left", "center", "right");
+        ViewBag.LogoStyle = PickAllowed(logoStyle, "push", "push", "float");
         ViewBag.PrintHeader = PickAllowed(printHeader, "none", "none", "title");
         ViewBag.PrintFooter = PickAllowed(printFooter, "none", "none", "number", "page", "pageOfTotal");
         if (includeLogo)
