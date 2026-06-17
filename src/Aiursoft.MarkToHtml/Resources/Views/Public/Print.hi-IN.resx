@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>अति बड़ा</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>ऊपर तैरें</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>फ़ूटर</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>लोगो का आकार</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>लोगो स्टाइल</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>मध्यम</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>प्रिंट</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>कंटेंट को धकेलें</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>दायाँ</value>

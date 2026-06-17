@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Extra stort</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Flyta över</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Fotnot</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Logostorlek</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Logotypstil</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Medel</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Skriv ut</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Skjut undan innehåll</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Höger</value>

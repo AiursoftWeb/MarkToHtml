@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Bardzo duży</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Nakładanie na treść</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Stopka</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Rozmiar logo</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Styl logo</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Średni</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Drukuj</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Przesuń treść</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Prawo</value>

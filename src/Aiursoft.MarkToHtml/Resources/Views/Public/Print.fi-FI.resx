@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Erittäin suuri</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Uivat päälle</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Vaatimus</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Logon koko</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Logon tyyli</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Keskikokoinen</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Tulosta</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Työnnä sisältöä</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Oikea</value>

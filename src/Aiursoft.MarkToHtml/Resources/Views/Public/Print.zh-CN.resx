@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>特大号</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>浮动叠加</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>页脚</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>徽标尺寸</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>徽标样式</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>中</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>打印</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>推挤内容</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>右</value>
