@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Ekstra Büyük</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Üzerine Yerleştir</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Alt bilgi</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Logo Boyutu</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Logo Stili</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Orta</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Yazdır</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>İçeriği İt</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Sağ</value>

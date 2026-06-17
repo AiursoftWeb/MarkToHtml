@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Sangat Besar</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Menggantung</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Bagian Bawah</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Ukuran Logo</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Gaya Logo</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Sedang</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Cetak</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Dorong Konten</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Kanan</value>

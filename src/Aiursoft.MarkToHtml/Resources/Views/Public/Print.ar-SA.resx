@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>كبير جدًا</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>تطفو فوق</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>التذييل</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>حجم الشعار</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>نمط الشعار</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>متوسط</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>طباعة</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>دفع المحتوى</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>يمين</value>

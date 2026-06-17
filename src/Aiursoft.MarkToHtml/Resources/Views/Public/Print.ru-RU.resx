@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Очень большой</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Наложение</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Подвал</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Размер логотипа</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Стиль логотипа</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Средний</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>Печать</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Сдвинуть содержимое</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Правый</value>

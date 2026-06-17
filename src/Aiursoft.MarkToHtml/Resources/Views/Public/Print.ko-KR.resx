@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>매우 큼</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>내용 위로 부동 배치</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>하단</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>로고 크기</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>로고 스타일</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>중간</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>인쇄</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>콘텐츠 밀기</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>오른쪽</value>

@@ -30,6 +30,9 @@
   <data name="Extra Large" xml:space="preserve">
     <value>Siêu lớn</value>
   </data>
+  <data name="Float Over" xml:space="preserve">
+    <value>Chồng lên</value>
+  </data>
   <data name="Footer" xml:space="preserve">
     <value>Chân trang</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Logo Size" xml:space="preserve">
     <value>Kích thước logo</value>
+  </data>
+  <data name="Logo Style" xml:space="preserve">
+    <value>Kiểu Logo</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Trung bình</value>
@@ -83,6 +89,9 @@
   </data>
   <data name="Print" xml:space="preserve">
     <value>In</value>
+  </data>
+  <data name="Push Content" xml:space="preserve">
+    <value>Đẩy nội dung</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Phải</value>
