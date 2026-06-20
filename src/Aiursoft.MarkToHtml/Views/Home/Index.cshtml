@@ -411,6 +411,16 @@
                         };
                     }
 
+                    function lineBreakPlugin(md) {
+                        md.inline.ruler.before('escape', 'allowed_line_break', function (state, silent) {
+                            const match = state.src.slice(state.pos).match(/^<br\s*\/?\s*>/i);
+                            if (!match) return false;
+                            if (!silent) state.push('hardbreak', 'br', 0);
+                            state.pos += match[0].length;
+                            return true;
+                        });
+                    }
+
                     // --- Real-time Markdown Preview ---
                     const md = window.markdownit({
                         html: false,
@@ -429,7 +439,7 @@
                             }
                             return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
                         }
-                    }).use(mathPlugin);
+                    }).use(mathPlugin).use(lineBreakPlugin);
 
                     let previewTimer = null;
                     function schedulePreviewUpdate(markdown) {
