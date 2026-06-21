@@ -17,7 +17,12 @@ public class MarkToHtmlServiceTests
         
         // Add core services needed
         services.AddSingleton(new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
-        services.AddSingleton(new HtmlSanitizer());
+        services.AddSingleton(_ =>
+        {
+            var sanitizer = new HtmlSanitizer();
+            sanitizer.AllowedTags.Add("br");
+            return sanitizer;
+        });
         services.AddTransient<MarkToHtmlService>();
 
         var provider = services.BuildServiceProvider();
@@ -55,5 +60,36 @@ public class MarkToHtmlServiceTests
         
         StringAssert.Contains(html, "<table>");
         StringAssert.Contains(html, "<th>Header 1</th>");
+    }
+
+    [TestMethod]
+    [DataRow("| Header |\n| --- |\n| First<br>Second |")]
+    [DataRow("| Header |\n| --- |\n| First<br/>Second |")]
+    public void ConvertMarkdownToHtml_TableLineBreakTag_ReturnsLineBreak(string markdown)
+    {
+        var html = _service.ConvertMarkdownToHtml(markdown);
+
+        StringAssert.Contains(html, "<td>First<br>Second</td>");
+    }
+
+    [TestMethod]
+    public void ConvertMarkdownToHtml_TrailingSpaces_ReturnsLineBreak()
+    {
+        var markdown = "First  \nSecond";
+
+        var html = _service.ConvertMarkdownToHtml(markdown);
+
+        StringAssert.Contains(html, "First<br>\nSecond");
+    }
+
+    [TestMethod]
+    public void ConvertMarkdownToHtml_LineBreakWithScriptAttribute_RemovesAttribute()
+    {
+        var markdown = "First<br onmouseover=\"alert('xss')\">Second";
+
+        var html = _service.ConvertMarkdownToHtml(markdown);
+
+        StringAssert.Contains(html, "First<br>Second");
+        Assert.DoesNotContain("onmouseover", html);
     }
 }
