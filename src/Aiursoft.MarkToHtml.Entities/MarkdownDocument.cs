@@ -12,7 +12,7 @@ public class MarkdownDocument
     [MaxLength(100)]
     public string? Title { get; set; }
 
-    [MaxLength(65535)]
+    [MaxLength(262144)]
     public string? Content { get; set; }
 
     public DateTime CreationTime { get; init; } = DateTime.UtcNow;

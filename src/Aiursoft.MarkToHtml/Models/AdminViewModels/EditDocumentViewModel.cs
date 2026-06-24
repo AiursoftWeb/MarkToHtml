@@ -17,7 +17,7 @@ public class EditDocumentViewModel : UiStackLayoutViewModel
     public string? Title { get; set; }
 
     [Required(ErrorMessage = "Please input your markdown content!")]
-    [MaxLength(65535)]
+    [MaxLength(262144)]
     [Display(Name = "Markdown Content")]
     public string InputMarkdown { get; set; } = string.Empty;
 

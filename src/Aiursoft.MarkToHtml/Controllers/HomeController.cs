@@ -83,7 +83,7 @@ public class HomeController(
                 }
 
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
-                documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+                documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
                 documentInDb.Title = model.Title;
             }
             else
@@ -93,7 +93,7 @@ public class HomeController(
                 var newDocument = new MarkdownDocument
                 {
                     Id = model.DocumentId,
-                    Content = model.InputMarkdown.SafeSubstring(65535),
+                    Content = model.InputMarkdown.SafeSubstring(262144),
                     Title = model.InputMarkdown.SafeSubstring(40),
                     UserId = userId
                 };
@@ -219,7 +219,7 @@ public class HomeController(
                 return Forbid();
             }
 
-            documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+            documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
             documentInDb.Title = model.Title;
         }
         else

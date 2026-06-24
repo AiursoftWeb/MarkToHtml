@@ -178,7 +178,7 @@ public class AdminController(
         {
             return NotFound("Document not found.");
         }
-        documentInDb.Content = model.InputMarkdown.SafeSubstring(65535);
+        documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
         documentInDb.Title = model.Title;
         documentInDb.UserId = model.SelectedUserId;
 
