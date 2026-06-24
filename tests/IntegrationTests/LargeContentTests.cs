@@ -1,7 +1,6 @@
 using System.Net;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
@@ -99,12 +98,12 @@ public class LargeContentTests : TestBase
         });
 
         // Assert: Should redirect to Edit page
-        System.Console.WriteLine($"Response status: {response.StatusCode}");
-        System.Console.WriteLine($"Location: {response.Headers.Location}");
+        Console.WriteLine($"Response status: {response.StatusCode}");
+        Console.WriteLine($"Location: {response.Headers.Location}");
         if (response.StatusCode != HttpStatusCode.Found)
         {
             var body = await response.Content.ReadAsStringAsync();
-            System.Console.WriteLine($"Response body (first 500 chars): {body[..Math.Min(500, body.Length)]}");
+            Console.WriteLine($"Response body (first 500 chars): {body[..Math.Min(500, body.Length)]}");
         }
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
             $"Expected 302 Found but got {response.StatusCode}. The large form body may have been rejected.");
@@ -118,7 +117,7 @@ public class LargeContentTests : TestBase
             .FirstOrDefaultAsync(d => d.Id == actualDocumentId);
 
         Assert.IsNotNull(savedDocument, $"Document {actualDocumentId} should exist in the database.");
-        Assert.AreEqual(TargetLength, savedDocument!.Content!.Length,
+        Assert.AreEqual(TargetLength, savedDocument.Content!.Length,
             $"Content length should be {TargetLength} but was {savedDocument.Content!.Length}. " +
             "Truncation is still happening — SafeSubstring limit may not have been raised.");
         Assert.AreEqual(markdown[..100], savedDocument.Content[..100],
@@ -164,7 +163,7 @@ public class LargeContentTests : TestBase
             .FirstOrDefaultAsync(d => d.Id == documentId);
 
         Assert.IsNotNull(updatedDocument, "Document should exist in the database.");
-        Assert.AreEqual(TargetLength, updatedDocument!.Content!.Length,
+        Assert.AreEqual(TargetLength, updatedDocument.Content!.Length,
             $"Content length should be {TargetLength} but was {updatedDocument.Content!.Length}.");
         Assert.AreEqual(markdown[..100], updatedDocument.Content[..100],
             "First 100 chars should match.");
