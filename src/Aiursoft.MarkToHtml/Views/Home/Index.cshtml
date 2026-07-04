@@ -95,7 +95,7 @@
 
             @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
             {
-                <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-muted shadow-sm" target="_blank" title="@Localizer["Share"]">
+                <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" target="_blank" title="@Localizer["Share"]">
                     <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
                 </a>
                 
