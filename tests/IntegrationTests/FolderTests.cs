@@ -620,6 +620,142 @@ public class FolderTests : TestBase
     }
 
     [TestMethod]
+    public async Task CreateFolder_WithOtherUsersParent_ReturnsNotFound()
+    {
+        var (emailA, _) = await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var userA = await userManager.FindByEmailAsync(emailA);
+        Assert.IsNotNull(userA);
+
+        var userB = new User { UserName = "folder-parent-b@test.com", Email = "folder-parent-b@test.com", DisplayName = "User B" };
+        await userManager.CreateAsync(userB, "TestPassword123!");
+        var folderB = new MarkdownDocumentFolder { Name = "UserB Parent", UserId = userB.Id };
+        db.MarkdownDocumentFolders.Add(folderB);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync("/Folder/CreateFolder");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "Name", "Forged Child" },
+            { "ParentFolderId", folderB.Id.ToString() }
+        });
+
+        var response = await Http.PostAsync("/Folder/CreateFolder", formData);
+
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+        Assert.IsFalse(await db.MarkdownDocumentFolders.AnyAsync(f => f.UserId == userA.Id && f.Name == "Forged Child"));
+    }
+
+    [TestMethod]
+    public async Task EditFolder_MoveToOtherUsersParent_ReturnsNotFound()
+    {
+        var (emailA, _) = await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var userA = await userManager.FindByEmailAsync(emailA);
+        Assert.IsNotNull(userA);
+
+        var folderA = new MarkdownDocumentFolder { Name = "UserA Folder", UserId = userA.Id };
+        db.MarkdownDocumentFolders.Add(folderA);
+        var userB = new User { UserName = "folder-edit-b@test.com", Email = "folder-edit-b@test.com", DisplayName = "User B" };
+        await userManager.CreateAsync(userB, "TestPassword123!");
+        var folderB = new MarkdownDocumentFolder { Name = "UserB Parent", UserId = userB.Id };
+        db.MarkdownDocumentFolders.Add(folderB);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync($"/Folder/EditFolder/{folderA.Id}");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "Id", folderA.Id.ToString() },
+            { "Name", folderA.Name },
+            { "BrowseParentFolderId", folderB.Id.ToString() }
+        });
+
+        var response = await Http.PostAsync("/Folder/EditFolder", formData);
+
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+        var folder = await db.MarkdownDocumentFolders.FindAsync(folderA.Id);
+        Assert.IsNotNull(folder);
+        Assert.IsNull(folder.ParentFolderId);
+    }
+
+    [TestMethod]
+    public async Task CreateDocument_WithOtherUsersFolder_ReturnsNotFound()
+    {
+        await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var userB = new User { UserName = "doc-create-b@test.com", Email = "doc-create-b@test.com", DisplayName = "User B" };
+        await userManager.CreateAsync(userB, "TestPassword123!");
+        var folderB = new MarkdownDocumentFolder { Name = "UserB Folder", UserId = userB.Id };
+        db.MarkdownDocumentFolders.Add(folderB);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync("/Home/Index");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "InputMarkdown", "# Forged Doc" },
+            { "FolderId", folderB.Id.ToString() }
+        });
+
+        var response = await Http.PostAsync("/Home/SaveNew", formData);
+
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+        Assert.IsFalse(await db.MarkdownDocuments.AnyAsync(d => d.Content == "# Forged Doc"));
+    }
+
+    [TestMethod]
+    public async Task MoveDocument_ToOtherUsersFolder_ReturnsNotFound()
+    {
+        var (emailA, _) = await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var userA = await userManager.FindByEmailAsync(emailA);
+        Assert.IsNotNull(userA);
+
+        var doc = new MarkdownDocument
+        {
+            Id = Guid.NewGuid(), Title = "UserA Doc", Content = "content", UserId = userA.Id
+        };
+        db.MarkdownDocuments.Add(doc);
+        var userB = new User { UserName = "doc-move-b@test.com", Email = "doc-move-b@test.com", DisplayName = "User B" };
+        await userManager.CreateAsync(userB, "TestPassword123!");
+        var folderB = new MarkdownDocumentFolder { Name = "UserB Folder", UserId = userB.Id };
+        db.MarkdownDocumentFolders.Add(folderB);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync($"/Home/Move/{doc.Id}");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "targetFolderId", folderB.Id.ToString() }
+        });
+
+        var response = await Http.PostAsync($"/Home/Move/{doc.Id}", formData);
+
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+        var updated = await db.MarkdownDocuments.FindAsync(doc.Id);
+        Assert.IsNotNull(updated);
+        Assert.IsNull(updated.FolderId);
+    }
+
+    [TestMethod]
     public async Task RaceCondition_EditFolderAfterDelete()
     {
         var (email, _) = await RegisterAndLoginAsync();
