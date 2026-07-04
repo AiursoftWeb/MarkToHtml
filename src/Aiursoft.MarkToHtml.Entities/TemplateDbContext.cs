@@ -25,7 +25,11 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
         base.OnModelCreating(builder);
 
         builder.Entity<MarkdownDocumentFolder>()
-            .HasIndex(f => new { f.ParentFolderId, f.Name, f.UserId })
+            .Property<int>("ParentFolderIdForUniqueness")
+            .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", stored: true);
+
+        builder.Entity<MarkdownDocumentFolder>()
+            .HasIndex("ParentFolderIdForUniqueness", nameof(MarkdownDocumentFolder.Name), nameof(MarkdownDocumentFolder.UserId))
             .IsUnique();
     }
 }

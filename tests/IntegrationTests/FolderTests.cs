@@ -1,6 +1,8 @@
 using System.Net;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Sqlite;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -143,6 +145,44 @@ public class FolderTests : TestBase
         var folderCount = await db.MarkdownDocumentFolders
             .Where(f => f.Name == "Duplicate" && f.UserId == user.Id).CountAsync();
         Assert.AreEqual(1, folderCount, "Only one folder should exist");
+    }
+
+    [TestMethod]
+    public async Task CreateFolder_DuplicateRootName_BlockedByDatabaseConstraint()
+    {
+        await using var connection = new SqliteConnection("DataSource=:memory:");
+        await connection.OpenAsync();
+        var options = new DbContextOptionsBuilder<SqliteContext>()
+            .UseSqlite(connection)
+            .Options;
+        await using var db = new SqliteContext(options);
+        await db.Database.EnsureCreatedAsync();
+
+        var user = new User
+        {
+            Id = "duplicate-root-folder-user",
+            UserName = "duplicate-root-folder-user@test.com",
+            Email = "duplicate-root-folder-user@test.com",
+            DisplayName = "Duplicate Root Folder User"
+        };
+        db.Users.Add(user);
+        await db.SaveChangesAsync();
+
+        db.MarkdownDocumentFolders.AddRange(
+            new MarkdownDocumentFolder { Name = "Root Duplicate", UserId = user.Id },
+            new MarkdownDocumentFolder { Name = "Root Duplicate", UserId = user.Id });
+
+        var duplicateRejected = false;
+        try
+        {
+            await db.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            duplicateRejected = true;
+        }
+
+        Assert.IsTrue(duplicateRejected, "Database should reject duplicate root folder names for the same user.");
     }
 
     [TestMethod]

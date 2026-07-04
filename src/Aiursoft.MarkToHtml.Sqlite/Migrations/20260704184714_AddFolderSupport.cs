@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Aiursoft.MarkToHtml.MySql.Migrations
+namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 {
     /// <inheritdoc />
     public partial class AddFolderSupport : Migration
@@ -15,21 +14,20 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
             migrationBuilder.AddColumn<int>(
                 name: "FolderId",
                 table: "MarkdownDocuments",
-                type: "int",
+                type: "INTEGER",
                 nullable: true);
 
             migrationBuilder.CreateTable(
                 name: "MarkdownDocumentFolders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    ParentFolderId = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<string>(type: "varchar(64)", maxLength: 64, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
+                    ParentFolderId = table.Column<int>(type: "INTEGER", nullable: true),
+                    UserId = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ParentFolderIdForUniqueness = table.Column<int>(type: "INTEGER", nullable: false, computedColumnSql: "COALESCE(ParentFolderId, 0)", stored: true)
                 },
                 constraints: table =>
                 {
@@ -41,12 +39,11 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MarkdownDocumentFolders_MarkdownDocumentFolders_ParentFolder~",
+                        name: "FK_MarkdownDocumentFolders_MarkdownDocumentFolders_ParentFolderId",
                         column: x => x.ParentFolderId,
                         principalTable: "MarkdownDocumentFolders",
                         principalColumn: "Id");
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_MarkdownDocuments_FolderId",
@@ -54,9 +51,14 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                 column: "FolderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MarkdownDocumentFolders_ParentFolderId_Name_UserId",
+                name: "IX_MarkdownDocumentFolders_ParentFolderId",
                 table: "MarkdownDocumentFolders",
-                columns: new[] { "ParentFolderId", "Name", "UserId" },
+                column: "ParentFolderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MarkdownDocumentFolders_ParentFolderIdForUniqueness_Name_UserId",
+                table: "MarkdownDocumentFolders",
+                columns: new[] { "ParentFolderIdForUniqueness", "Name", "UserId" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
