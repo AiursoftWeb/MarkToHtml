@@ -65,9 +65,10 @@
         <!-- Middle: Title -->
         <div class="flex-grow-1 px-4 text-center d-flex align-items-center justify-content-center">
             <input type="hidden" asp-for="DocumentId" />
+            <input type="hidden" asp-for="FolderId" />
             @if (Model.IsEditing)
             {
-                <a asp-action="History" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Documents"]">
+                <a asp-action="History" asp-route-folderId="@Model.FolderId" class="btn btn-sm btn-link text-muted text-decoration-none me-2 p-0" title="@Localizer["My Documents"]">
                     <i class="align-middle" data-lucide="arrow-left" style="width: 20px; height: 20px;"></i>
                 </a>
                 <input asp-for="Title" class="form-control form-control-sm border-0 bg-transparent text-center fw-bold px-0 text-dark" style="max-width: 400px; box-shadow: none; font-size: 1.1rem;" placeholder="@Localizer["Untitled Document"]" />
@@ -98,7 +99,7 @@
                 <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-muted shadow-sm" target="_blank" title="@Localizer["Share"]">
                     <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
                 </a>
-                
+
                 <a asp-controller="Contract" asp-action="Fill" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm"
                    target="_blank" title="@Localizer["Contract Layout"]">
                     <i class="align-middle" data-lucide="file-signature"></i> <span class="d-none d-xxl-inline">@Localizer["Contract Layout"]</span>

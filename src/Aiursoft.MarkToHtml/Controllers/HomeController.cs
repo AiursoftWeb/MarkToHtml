@@ -31,9 +31,13 @@ public class HomeController(
         LinkText = "Convert Document",
         LinkOrder = 1
     )]
-    public IActionResult Index()
+    public IActionResult Index([FromQuery] int? folderId)
     {
-        return this.StackView(new IndexViewModel("Untitled Document"));
+        var model = new IndexViewModel("Untitled Document")
+        {
+            FolderId = folderId
+        };
+        return this.StackView(model);
     }
 
     [HttpPost]
@@ -42,6 +46,7 @@ public class HomeController(
     {
         if (!ModelState.IsValid)
         {
+            await PopulateFolderListAsync(userManager.GetUserId(User));
             return this.StackView(model);
         }
 
@@ -85,6 +90,7 @@ public class HomeController(
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
                 documentInDb.Title = model.Title;
+                documentInDb.FolderId = model.FolderId;
             }
             else
             {
@@ -95,7 +101,8 @@ public class HomeController(
                     Id = model.DocumentId,
                     Content = model.InputMarkdown.SafeSubstring(262144),
                     Title = model.InputMarkdown.SafeSubstring(40),
-                    UserId = userId
+                    UserId = userId,
+                    FolderId = model.FolderId
                 };
                 context.MarkdownDocuments.Add(newDocument);
             }
@@ -153,6 +160,18 @@ public class HomeController(
 
         var publicLink = Url.Action(nameof(PublicController.View), "Public", new { id = document.Id }, Request.Scheme);
 
+        // Populate folder list for the move-to-folder dropdown
+        var userFolders = await context.MarkdownDocumentFolders
+            .Where(f => f.UserId == userId)
+            .OrderBy(f => f.Name)
+            .ToListAsync();
+        ViewData["Folders"] = userFolders.Select(f => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+        {
+            Text = f.Name,
+            Value = f.Id.ToString(),
+            Selected = f.Id == document.FolderId
+        }).ToList();
+
         var model = new IndexViewModel(document.Title ?? "Empty Document")
         {
             DocumentId = document.Id,
@@ -163,7 +182,8 @@ public class HomeController(
             SavedSuccessfully = saved ?? false,
             IsPublic = document.IsPublic,
             PublicLink = publicLink,
-            HasInternalShares = document.DocumentShares.Any()
+            HasInternalShares = document.DocumentShares.Any(),
+            FolderId = document.FolderId
         };
 
         return this.StackView(model: model, viewName: nameof(Index)); // Reuse the Index view for editing.
@@ -221,6 +241,7 @@ public class HomeController(
 
             documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
             documentInDb.Title = model.Title;
+            documentInDb.FolderId = model.FolderId;
         }
         else
         {
@@ -240,13 +261,33 @@ public class HomeController(
     CascadedLinksOrder = 2,
     LinkText = "My documents",
     LinkOrder = 2)]
-    public async Task<IActionResult> History([FromQuery] string? search)
+    public async Task<IActionResult> History([FromQuery] int? folderId, [FromQuery] string? search)
     {
         var userId = userManager.GetUserId(User);
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return Unauthorized();
+        }
+
         var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
 
+        var currentFolder = folderId.HasValue
+            ? await context.MarkdownDocumentFolders
+                .FirstOrDefaultAsync(f => f.Id == folderId.Value && f.UserId == userId)
+            : null;
+
+        if (folderId.HasValue && currentFolder == null)
+        {
+            return NotFound("Folder not found.");
+        }
+
+        var subFolders = await context.MarkdownDocumentFolders
+            .Where(f => f.ParentFolderId == folderId && f.UserId == userId)
+            .OrderBy(f => f.Name)
+            .ToListAsync();
+
         var documentsQuery = context.MarkdownDocuments
-            .Where(d => d.UserId == userId);
+            .Where(d => d.UserId == userId && d.FolderId == folderId);
 
         if (trimmedSearch != null)
         {
@@ -260,10 +301,33 @@ public class HomeController(
             .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
+        // Build breadcrumb path from root to parent of current folder
+        var breadcrumb = new List<MarkdownDocumentFolder>();
+        if (currentFolder != null)
+        {
+            var ancestor = currentFolder.ParentFolderId.HasValue
+                ? await context.MarkdownDocumentFolders
+                    .FirstOrDefaultAsync(f => f.Id == currentFolder.ParentFolderId.Value && f.UserId == userId)
+                : null;
+
+            while (ancestor != null)
+            {
+                breadcrumb.Insert(0, ancestor);
+                ancestor = ancestor.ParentFolderId.HasValue
+                    ? await context.MarkdownDocumentFolders
+                        .FirstOrDefaultAsync(f => f.Id == ancestor.ParentFolderId.Value && f.UserId == userId)
+                    : null;
+            }
+        }
+
         var model = new HistoryViewModel
         {
             MyDocuments = documents,
-            SearchQuery = trimmedSearch
+            SubFolders = subFolders,
+            SearchQuery = trimmedSearch,
+            FolderId = folderId,
+            CurrentFolder = currentFolder,
+            Breadcrumb = breadcrumb
         };
         return this.StackView(model);
     }
@@ -308,12 +372,72 @@ public class HomeController(
             return NotFound();
         }
 
+        var folderId = document.FolderId;
         context.MarkdownDocuments.Remove(document);
         await context.SaveChangesAsync();
 
         logger.LogInformation("Document with ID: '{Id}' was deleted by user: '{UserId}'.", id, userId);
 
-        return RedirectToAction(nameof(History));
+        return RedirectToAction(nameof(History), new { folderId });
+    }
+
+    /// <summary>
+    /// GET: Browse folders to select a destination. Navigate one level at a time.
+    /// </summary>
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> Move([Required][FromRoute] Guid id, [FromQuery] int? browseFolderId)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null) return NotFound();
+
+        var browseFolder = browseFolderId.HasValue
+            ? await context.MarkdownDocumentFolders
+                .FirstOrDefaultAsync(f => f.Id == browseFolderId.Value && f.UserId == userId)
+            : null;
+
+        var subFolders = await context.MarkdownDocumentFolders
+            .Where(f => f.ParentFolderId == browseFolderId && f.UserId == userId)
+            .OrderBy(f => f.Name)
+            .ToListAsync();
+
+        var model = new MoveViewModel
+        {
+            DocumentId = document.Id,
+            DocumentTitle = document.Title,
+            BrowseFolderId = browseFolderId,
+            BrowseFolder = browseFolder,
+            SubFolders = subFolders
+        };
+
+        return this.StackView(model);
+    }
+
+    /// <summary>
+    /// POST: Execute move document to the selected folder.
+    /// </summary>
+    [HttpPost]
+    [Authorize]
+    [ValidateAntiForgeryToken]
+    [ActionName("Move")]
+    public async Task<IActionResult> MoveConfirmed([Required][FromRoute] Guid id, [FromForm] int? targetFolderId)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
+
+        if (document == null) return NotFound();
+
+        document.FolderId = targetFolderId;
+        await context.SaveChangesAsync();
+
+        logger.LogInformation("Document '{Id}' moved to folder '{FolderId}' by user '{UserId}'.",
+            id, targetFolderId, userId);
+
+        return RedirectToAction(nameof(History), new { folderId = targetFolderId });
     }
 
     /// <summary>
@@ -624,5 +748,23 @@ public class HomeController(
     public IActionResult SelfHost()
     {
         return this.StackView(new SelfHostViewModel("Self host a new server"));
+    }
+
+    /// <summary>
+    /// Populates ViewData["Folders"] with the current user's folders for the folder selector dropdown.
+    /// </summary>
+    private async Task PopulateFolderListAsync(string? userId)
+    {
+        if (string.IsNullOrWhiteSpace(userId)) return;
+
+        var userFolders = await context.MarkdownDocumentFolders
+            .Where(f => f.UserId == userId)
+            .OrderBy(f => f.Name)
+            .ToListAsync();
+        ViewData["Folders"] = userFolders.Select(f => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+        {
+            Text = f.Name,
+            Value = f.Id.ToString()
+        }).ToList();
     }
 }
