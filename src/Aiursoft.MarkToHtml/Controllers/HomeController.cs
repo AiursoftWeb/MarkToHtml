@@ -87,13 +87,25 @@ public class HomeController(
                     return Forbid();
                 }
 
+                if (isOwner && !await IsFolderOwnedByUser(model.FolderId, userId))
+                {
+                    return NotFound("Folder not found.");
+                }
+
+                var targetFolderId = isOwner ? model.FolderId : documentInDb.FolderId;
+
                 logger.LogInformation("Updating the document with ID: '{Id}'.", model.DocumentId);
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
                 documentInDb.Title = model.Title;
-                documentInDb.FolderId = model.FolderId;
+                documentInDb.FolderId = targetFolderId;
             }
             else
             {
+                if (!await IsFolderOwnedByUser(model.FolderId, userId))
+                {
+                    return NotFound("Folder not found.");
+                }
+
                 model.DocumentId = Guid.NewGuid();
                 logger.LogInformation("Creating a new document with ID: '{Id}'.", model.DocumentId);
                 var newDocument = new MarkdownDocument
@@ -239,9 +251,16 @@ public class HomeController(
                 return Forbid();
             }
 
+            if (isOwner && !await IsFolderOwnedByUser(model.FolderId, userId))
+            {
+                return NotFound("Folder not found.");
+            }
+
+            var targetFolderId = isOwner ? model.FolderId : documentInDb.FolderId;
+
             documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
             documentInDb.Title = model.Title;
-            documentInDb.FolderId = model.FolderId;
+            documentInDb.FolderId = targetFolderId;
         }
         else
         {
@@ -411,6 +430,11 @@ public class HomeController(
                 .FirstOrDefaultAsync(f => f.Id == browseFolderId.Value && f.UserId == userId)
             : null;
 
+        if (browseFolderId.HasValue && browseFolder == null)
+        {
+            return NotFound();
+        }
+
         var subFolders = await context.MarkdownDocumentFolders
             .Where(f => f.ParentFolderId == browseFolderId && f.UserId == userId)
             .OrderBy(f => f.Name)
@@ -458,10 +482,20 @@ public class HomeController(
     public async Task<IActionResult> MoveConfirmed([Required][FromRoute] Guid id, [FromForm] int? targetFolderId)
     {
         var userId = userManager.GetUserId(User);
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return Unauthorized();
+        }
+
         var document = await context.MarkdownDocuments
             .FirstOrDefaultAsync(d => d.Id == id && d.UserId == userId);
 
         if (document == null) return NotFound();
+
+        if (!await IsFolderOwnedByUser(targetFolderId, userId))
+        {
+            return NotFound("Folder not found.");
+        }
 
         document.FolderId = targetFolderId;
         await context.SaveChangesAsync();
@@ -798,5 +832,11 @@ public class HomeController(
             Text = f.Name,
             Value = f.Id.ToString()
         }).ToList();
+    }
+
+    private async Task<bool> IsFolderOwnedByUser(int? folderId, string userId)
+    {
+        return folderId == null || await context.MarkdownDocumentFolders
+            .AnyAsync(f => f.Id == folderId.Value && f.UserId == userId);
     }
 }
