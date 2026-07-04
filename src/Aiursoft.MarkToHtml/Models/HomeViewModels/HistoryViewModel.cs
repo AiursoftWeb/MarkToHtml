@@ -24,4 +24,10 @@ public class HistoryViewModel : UiStackLayoutViewModel
     /// Breadcrumb path from root to parent of current folder.
     /// </summary>
     public List<MarkdownDocumentFolder> Breadcrumb { get; set; } = new();
+
+    /// <summary>
+    /// Item counts per folder: folderId → (documentCount, subFolderCount).
+    /// Used to display "3 docs · 2 folders" in the list.
+    /// </summary>
+    public Dictionary<int, (int DocumentCount, int SubFolderCount)> FolderItemCounts { get; set; } = new();
 }

@@ -320,6 +320,17 @@ public class HomeController(
             }
         }
 
+        // Compute item counts for each subfolder (non-recursive)
+        var folderItemCounts = new Dictionary<int, (int DocumentCount, int SubFolderCount)>();
+        foreach (var sf in subFolders)
+        {
+            var docCount = await context.MarkdownDocuments
+                .CountAsync(d => d.FolderId == sf.Id && d.UserId == userId);
+            var subCount = await context.MarkdownDocumentFolders
+                .CountAsync(f => f.ParentFolderId == sf.Id && f.UserId == userId);
+            folderItemCounts[sf.Id] = (docCount, subCount);
+        }
+
         var model = new HistoryViewModel
         {
             MyDocuments = documents,
@@ -327,7 +338,8 @@ public class HomeController(
             SearchQuery = trimmedSearch,
             FolderId = folderId,
             CurrentFolder = currentFolder,
-            Breadcrumb = breadcrumb
+            Breadcrumb = breadcrumb,
+            FolderItemCounts = folderItemCounts
         };
         return this.StackView(model);
     }

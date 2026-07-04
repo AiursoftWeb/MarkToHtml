@@ -14,80 +14,6 @@ public class FolderController(
     UserManager<User> userManager) : Controller
 {
     /// <summary>
-    /// Browse folders and documents at a given level. Null means root.
-    /// </summary>
-    public async Task<IActionResult> Index(int? id, [FromQuery] string? search)
-    {
-        var userId = userManager.GetUserId(User);
-        if (string.IsNullOrWhiteSpace(userId))
-        {
-            return Unauthorized();
-        }
-
-        var currentFolder = id.HasValue
-            ? await context.MarkdownDocumentFolders
-                .FirstOrDefaultAsync(f => f.Id == id.Value && f.UserId == userId)
-            : null;
-
-        if (id.HasValue && currentFolder == null)
-        {
-            return NotFound("Folder not found.");
-        }
-
-        var subFolders = await context.MarkdownDocumentFolders
-            .Where(f => f.ParentFolderId == id && f.UserId == userId)
-            .OrderBy(f => f.Name)
-            .ToListAsync();
-
-        var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
-
-        var documentsQuery = context.MarkdownDocuments
-            .Where(d => d.UserId == userId && d.FolderId == id);
-
-        if (trimmedSearch != null)
-        {
-            documentsQuery = documentsQuery.Where(d =>
-                (d.Title != null && d.Title.Contains(trimmedSearch)) ||
-                (d.Content != null && d.Content.Contains(trimmedSearch)));
-        }
-
-        var documents = await documentsQuery
-            .Include(d => d.DocumentShares)
-            .OrderByDescending(d => d.CreationTime)
-            .ToListAsync();
-
-        // Build breadcrumb path from root to parent of current folder
-        var breadcrumb = new List<MarkdownDocumentFolder>();
-        if (currentFolder != null)
-        {
-            var ancestor = currentFolder.ParentFolderId.HasValue
-                ? await context.MarkdownDocumentFolders
-                    .FirstOrDefaultAsync(f => f.Id == currentFolder.ParentFolderId.Value && f.UserId == userId)
-                : null;
-
-            while (ancestor != null)
-            {
-                breadcrumb.Insert(0, ancestor); // prepend to get root→leaf order
-                ancestor = ancestor.ParentFolderId.HasValue
-                    ? await context.MarkdownDocumentFolders
-                        .FirstOrDefaultAsync(f => f.Id == ancestor.ParentFolderId.Value && f.UserId == userId)
-                    : null;
-            }
-        }
-
-        var model = new FolderIndexViewModel
-        {
-            FolderId = id,
-            CurrentFolder = currentFolder,
-            Breadcrumb = breadcrumb,
-            SubFolders = subFolders,
-            Documents = documents,
-            SearchQuery = trimmedSearch
-        };
-        return this.StackView(model);
-    }
-
-    /// <summary>
     /// GET: Show create folder form.
     /// </summary>
     public IActionResult CreateFolder(int? id)
@@ -132,7 +58,7 @@ public class FolderController(
         };
         context.MarkdownDocumentFolders.Add(folder);
         await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index), new { id = model.ParentFolderId });
+        return RedirectToAction("History", "Home", new { folderId = model.ParentFolderId });
     }
 
     /// <summary>
@@ -230,7 +156,7 @@ public class FolderController(
         folder.Name = model.Name;
         folder.ParentFolderId = newParentId;
         await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index), new { id = newParentId });
+        return RedirectToAction("History", "Home", new { folderId = newParentId });
     }
 
     private async Task<IActionResult> RebuildEditFolderView(EditFolderViewModel model)
@@ -271,29 +197,99 @@ public class FolderController(
     }
 
     /// <summary>
-    /// POST: Delete an empty folder.
+    /// GET: Show delete confirmation page with recursive content summary.
     /// </summary>
-    [HttpPost]
-    [ValidateAntiForgeryToken]
+    [HttpGet]
     public async Task<IActionResult> DeleteFolder(int id)
     {
         var userId = userManager.GetUserId(User);
         var folder = await context.MarkdownDocumentFolders
-            .Include(f => f.SubFolders)
-            .Include(f => f.MarkdownDocuments)
             .FirstOrDefaultAsync(f => f.Id == id && f.UserId == userId);
 
         if (folder == null) return NotFound();
 
-        if (folder.SubFolders.Any() || folder.MarkdownDocuments.Any())
-        {
-            return BadRequest("Folder is not empty.");
-        }
+        // Collect all descendant folder IDs (recursive)
+        var allFolderIds = new List<int>();
+        await CollectDescendantFolderIds(id, allFolderIds);
+        allFolderIds.Add(id); // include self
 
-        var parentId = folder.ParentFolderId;
-        context.MarkdownDocumentFolders.Remove(folder);
+        // Count direct children
+        var directDocs = await context.MarkdownDocuments
+            .CountAsync(d => d.FolderId == id);
+        var directFolders = await context.MarkdownDocumentFolders
+            .CountAsync(f => f.ParentFolderId == id && f.UserId == userId);
+
+        // Count recursively
+        var recursiveDocs = await context.MarkdownDocuments
+            .CountAsync(d => allFolderIds.Contains(d.FolderId!.Value));
+        var recursiveFolders = allFolderIds.Count - 1; // exclude self
+
+        var model = new DeleteFolderViewModel
+        {
+            Id = folder.Id,
+            Name = folder.Name,
+            ParentFolderId = folder.ParentFolderId,
+            DirectDocumentCount = directDocs,
+            DirectSubFolderCount = directFolders,
+            RecursiveDocumentCount = recursiveDocs,
+            RecursiveSubFolderCount = recursiveFolders
+        };
+
+        return this.StackView(model);
+    }
+
+    /// <summary>
+    /// POST: Delete folder and all its contents recursively.
+    /// </summary>
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [ActionName("DeleteFolder")]
+    public async Task<IActionResult> DeleteFolderConfirmed(int id)
+    {
+        var userId = userManager.GetUserId(User);
+        var folder = await context.MarkdownDocumentFolders
+            .FirstOrDefaultAsync(f => f.Id == id && f.UserId == userId);
+
+        if (folder == null) return NotFound();
+
+        // Collect all descendant folder IDs
+        var allFolderIds = new List<int>();
+        await CollectDescendantFolderIds(id, allFolderIds);
+        allFolderIds.Add(id);
+
+        // Delete all documents in these folders
+        var documentsToDelete = await context.MarkdownDocuments
+            .Where(d => d.FolderId.HasValue && allFolderIds.Contains(d.FolderId.Value))
+            .ToListAsync();
+        context.MarkdownDocuments.RemoveRange(documentsToDelete);
+
+        // Delete subfolders bottom-up (children first)
+        var foldersToDelete = await context.MarkdownDocumentFolders
+            .Where(f => allFolderIds.Contains(f.Id))
+            .OrderByDescending(f => f.Id) // approximate bottom-up; deeper folders have higher IDs
+            .ToListAsync();
+        context.MarkdownDocumentFolders.RemoveRange(foldersToDelete);
+
         await context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index), new { id = parentId });
+
+        return RedirectToAction("History", "Home", new { folderId = folder.ParentFolderId });
+    }
+
+    /// <summary>
+    /// Recursively collect all descendant folder IDs under the given folder.
+    /// </summary>
+    private async Task CollectDescendantFolderIds(int folderId, List<int> result)
+    {
+        var childIds = await context.MarkdownDocumentFolders
+            .Where(f => f.ParentFolderId == folderId)
+            .Select(f => f.Id)
+            .ToListAsync();
+
+        foreach (var childId in childIds)
+        {
+            result.Add(childId);
+            await CollectDescendantFolderIds(childId, result);
+        }
     }
 
     /// <summary>

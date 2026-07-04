@@ -23,7 +23,7 @@
                     <button type="submit" class="btn btn-primary">
                         <i class="align-middle me-2" data-lucide="check-circle"></i> @Localizer["Create Folder"]
                     </button>
-                    <a asp-action="Index" asp-route-id="@Model.ParentFolderId" class="btn btn-light">@Localizer["Cancel"]</a>
+                    <a asp-action="History" asp-controller="Home" asp-route-folderId="@Model.ParentFolderId" class="btn btn-light">@Localizer["Cancel"]</a>
                 </div>
             </div>
         </form>
