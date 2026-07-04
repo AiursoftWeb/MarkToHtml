@@ -1,14 +1,17 @@
-@using Aiursoft.WebTools
 @model Aiursoft.MarkToHtml.Models.HomeViewModels.MoveViewModel
 
 <h1 class="h3 mb-3">@Localizer["Move Document"]</h1>
 
 <div class="row mb-3">
     <div class="col">
-        <div class="alert alert-info mb-0 d-flex align-items-center gap-2" role="alert">
-            <i class="align-middle" data-lucide="file-text"></i>
-            <strong>@Localizer["Moving:"]</strong>
-            @(string.IsNullOrWhiteSpace(Model.DocumentTitle) ? "(no title)" : Model.DocumentTitle)
+        <div class="alert alert-primary alert-outline" role="alert">
+            <div class="alert-icon">
+                <i class="align-middle" data-lucide="file-text"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["Moving:"]</strong>
+                @(string.IsNullOrWhiteSpace(Model.DocumentTitle) ? "(no title)" : Model.DocumentTitle)
+            </div>
         </div>
     </div>
 </div>

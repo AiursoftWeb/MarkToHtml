@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http;
 using Aiursoft.MarkToHtml.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -299,13 +298,13 @@ public class FolderTests : TestBase
         var getHtml = await getResponse.Content.ReadAsStringAsync();
         var token = ExtractAntiForgeryToken(getHtml);
 
-        // Move to root (empty ParentFolderId)
+        // Move to root (empty BrowseParentFolderId)
         var formData = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "__RequestVerificationToken", token },
             { "Id", childFolder.Id.ToString() },
             { "Name", "Child" },
-            { "ParentFolderId", "" } // root level
+            { "BrowseParentFolderId", "" } // root level
         });
 
         var response = await Http.PostAsync("/Folder/EditFolder", formData);
@@ -347,8 +346,8 @@ public class FolderTests : TestBase
         db.MarkdownDocumentFolders.Add(childFolder);
         await db.SaveChangesAsync();
 
-        // Try to move parent into child — this should be blocked (circular reference)
-        var getResponse = await Http.GetAsync($"/Folder/EditFolder/{parentFolder.Id}");
+        // Browse to the child folder's level, then try to move parent there — circular!
+        var getResponse = await Http.GetAsync($"/Folder/EditFolder/{parentFolder.Id}?browseFolderId={childFolder.Id}");
         var getHtml = await getResponse.Content.ReadAsStringAsync();
         var token = ExtractAntiForgeryToken(getHtml);
 
@@ -357,18 +356,20 @@ public class FolderTests : TestBase
             { "__RequestVerificationToken", token },
             { "Id", parentFolder.Id.ToString() },
             { "Name", "Parent" },
-            { "ParentFolderId", childFolder.Id.ToString() } // Move parent INTO child = circular!
+            { "BrowseParentFolderId", childFolder.Id.ToString() } // Move parent INTO child = circular!
         });
 
         var response = await Http.PostAsync("/Folder/EditFolder", formData);
         // Should return OK with validation error, not redirect
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(html.Contains("Cannot move a folder to its own child") || html.Contains("own child"),
+        Assert.IsTrue(html.Contains("own child"),
             "Circular reference error should be displayed");
 
-        // Verify parent was NOT moved
-        var parent = await db.MarkdownDocumentFolders.FindAsync(parentFolder.Id);
+        // Verify parent was NOT moved — use fresh DbContext
+        using var verifyScope = Server!.Services.CreateScope();
+        var verifyDb = verifyScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var parent = await verifyDb.MarkdownDocumentFolders.FindAsync(parentFolder.Id);
         Assert.IsNotNull(parent);
         Assert.IsNull(parent.ParentFolderId, "Parent should still be at root level");
     }
@@ -970,14 +971,14 @@ public class FolderTests : TestBase
         await Http.PostAsync($"/Folder/DeleteFolder/{targetParent.Id}", deleteForm);
 
         // Now try to move child into the deleted parent
-        var editResponse = await Http.GetAsync($"/Folder/EditFolder/{child.Id}");
+        var editResponse = await Http.GetAsync($"/Folder/EditFolder/{child.Id}?browseFolderId={targetParent.Id}");
         var editToken = ExtractAntiForgeryToken(await editResponse.Content.ReadAsStringAsync());
         var editForm = new FormUrlEncodedContent(new Dictionary<string, string>
         {
             { "__RequestVerificationToken", editToken },
             { "Id", child.Id.ToString() },
             { "Name", "Child" },
-            { "ParentFolderId", targetParent.Id.ToString() }
+            { "BrowseParentFolderId", targetParent.Id.ToString() }
         });
         var moveResponse = await Http.PostAsync("/Folder/EditFolder", editForm);
 

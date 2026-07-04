@@ -103,7 +103,10 @@
     @if (!Model.SubFolders.Any() && !Model.Documents.Any())
     {
         <div class="card-body">
-            <div class="alert alert-info mb-0" role="alert">
+            <div class="alert alert-primary alert-outline mb-0" role="alert">
+                <div class="alert-icon">
+                    <i class="align-middle" data-lucide="info"></i>
+                </div>
                 <div class="alert-message">
                     @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
                     {

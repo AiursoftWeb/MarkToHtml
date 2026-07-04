@@ -1,11 +1,9 @@
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.FolderViewModels;
 using Aiursoft.MarkToHtml.Services;
-using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MarkToHtml.Controllers;
@@ -15,22 +13,6 @@ public class FolderController(
     TemplateDbContext context,
     UserManager<User> userManager) : Controller
 {
-    private async Task<List<SelectListItem>> GetFolderSelectList(string userId, int? selectedId, int? excludeId = null)
-    {
-        var folders = await context.MarkdownDocumentFolders
-            .Where(f => f.UserId == userId)
-            .ToListAsync();
-        return folders
-            .Where(f => f.Id != excludeId)
-            .Select(f => new SelectListItem
-            {
-                Text = f.Name,
-                Value = f.Id.ToString(),
-                Selected = f.Id == selectedId
-            })
-            .ToList();
-    }
-
     /// <summary>
     /// Browse folders and documents at a given level. Null means root.
     /// </summary>
