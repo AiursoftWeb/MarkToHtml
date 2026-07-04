@@ -27,4 +27,9 @@ public class MoveViewModel : UiStackLayoutViewModel
     /// Subfolders at the current browse level.
     /// </summary>
     public List<MarkdownDocumentFolder> SubFolders { get; set; } = new();
+
+    /// <summary>
+    /// Breadcrumb path from root to parent of browsed folder.
+    /// </summary>
+    public List<MarkdownDocumentFolder> Breadcrumb { get; set; } = new();
 }

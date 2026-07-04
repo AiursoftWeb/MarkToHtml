@@ -404,13 +404,33 @@ public class HomeController(
             .OrderBy(f => f.Name)
             .ToListAsync();
 
+        // Build breadcrumb path from root to parent of browsed folder
+        var breadcrumb = new List<MarkdownDocumentFolder>();
+        if (browseFolder != null)
+        {
+            var ancestor = browseFolder.ParentFolderId.HasValue
+                ? await context.MarkdownDocumentFolders
+                    .FirstOrDefaultAsync(f => f.Id == browseFolder.ParentFolderId.Value && f.UserId == userId)
+                : null;
+
+            while (ancestor != null)
+            {
+                breadcrumb.Insert(0, ancestor);
+                ancestor = ancestor.ParentFolderId.HasValue
+                    ? await context.MarkdownDocumentFolders
+                        .FirstOrDefaultAsync(f => f.Id == ancestor.ParentFolderId.Value && f.UserId == userId)
+                    : null;
+            }
+        }
+
         var model = new MoveViewModel
         {
             DocumentId = document.Id,
             DocumentTitle = document.Title,
             BrowseFolderId = browseFolderId,
             BrowseFolder = browseFolder,
-            SubFolders = subFolders
+            SubFolders = subFolders,
+            Breadcrumb = breadcrumb
         };
 
         return this.StackView(model);

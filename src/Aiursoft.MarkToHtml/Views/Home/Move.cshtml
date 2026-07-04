@@ -22,10 +22,14 @@
         <li class="breadcrumb-item">
             <a asp-action="Move" asp-route-id="@Model.DocumentId">@Localizer["Root"]</a>
         </li>
+        @foreach (var ancestor in Model.Breadcrumb)
+        {
+            <li class="breadcrumb-item">
+                <a asp-action="Move" asp-route-id="@Model.DocumentId" asp-route-browseFolderId="@ancestor.Id">@ancestor.Name</a>
+            </li>
+        }
         @if (Model.BrowseFolder != null)
         {
-            @* Build breadcrumb by walking up parents — we only have one level of context,
-               so show the current folder name as the last item *@
             <li class="breadcrumb-item active" aria-current="page">@Model.BrowseFolder.Name</li>
         }
     </ol>
