@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.MarkToHtml.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20260704164533_AddFolderSupport")]
+    [Migration("20260704184708_AddFolderSupport")]
     partial class AddFolderSupport
     {
         /// <inheritdoc />
@@ -126,6 +126,11 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
                     b.Property<int?>("ParentFolderId")
                         .HasColumnType("int");
 
+                    b.Property<int>("ParentFolderIdForUniqueness")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("int")
+                        .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", true);
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasMaxLength(64)
@@ -133,9 +138,11 @@ namespace Aiursoft.MarkToHtml.MySql.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ParentFolderId");
+
                     b.HasIndex("UserId");
 
-                    b.HasIndex("ParentFolderId", "Name", "UserId")
+                    b.HasIndex("ParentFolderIdForUniqueness", "Name", "UserId")
                         .IsUnique();
 
                     b.ToTable("MarkdownDocumentFolders");

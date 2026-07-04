@@ -341,13 +341,22 @@ public class HomeController(
 
         // Compute item counts for each subfolder (non-recursive)
         var folderItemCounts = new Dictionary<int, (int DocumentCount, int SubFolderCount)>();
+        var subFolderIds = subFolders.Select(f => f.Id).ToList();
+        var documentCounts = await context.MarkdownDocuments
+            .Where(d => d.FolderId.HasValue && d.UserId == userId && subFolderIds.Contains(d.FolderId.Value))
+            .GroupBy(d => d.FolderId!.Value)
+            .Select(g => new { FolderId = g.Key, Count = g.Count() })
+            .ToDictionaryAsync(g => g.FolderId, g => g.Count);
+        var subFolderCounts = await context.MarkdownDocumentFolders
+            .Where(f => f.ParentFolderId.HasValue && f.UserId == userId && subFolderIds.Contains(f.ParentFolderId.Value))
+            .GroupBy(f => f.ParentFolderId!.Value)
+            .Select(g => new { FolderId = g.Key, Count = g.Count() })
+            .ToDictionaryAsync(g => g.FolderId, g => g.Count);
         foreach (var sf in subFolders)
         {
-            var docCount = await context.MarkdownDocuments
-                .CountAsync(d => d.FolderId == sf.Id && d.UserId == userId);
-            var subCount = await context.MarkdownDocumentFolders
-                .CountAsync(f => f.ParentFolderId == sf.Id && f.UserId == userId);
-            folderItemCounts[sf.Id] = (docCount, subCount);
+            folderItemCounts[sf.Id] = (
+                documentCounts.GetValueOrDefault(sf.Id),
+                subFolderCounts.GetValueOrDefault(sf.Id));
         }
 
         var model = new HistoryViewModel

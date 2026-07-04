@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    [Migration("20260704164546_AddFolderSupport")]
+    [Migration("20260704184714_AddFolderSupport")]
     partial class AddFolderSupport
     {
         /// <inheritdoc />
@@ -119,6 +119,11 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                     b.Property<int?>("ParentFolderId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ParentFolderIdForUniqueness")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("INTEGER")
+                        .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", true);
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasMaxLength(64)
@@ -126,9 +131,11 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ParentFolderId");
+
                     b.HasIndex("UserId");
 
-                    b.HasIndex("ParentFolderId", "Name", "UserId")
+                    b.HasIndex("ParentFolderIdForUniqueness", "Name", "UserId")
                         .IsUnique();
 
                     b.ToTable("MarkdownDocumentFolders");
