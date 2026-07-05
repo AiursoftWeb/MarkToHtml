@@ -252,6 +252,49 @@ public class FolderTests : TestBase
     }
 
     [TestMethod]
+    public async Task EditFolder_RenameAfterBrowsingOtherFolder_DoesNotMove()
+    {
+        var (email, _) = await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var user = await userManager.FindByEmailAsync(email);
+        Assert.IsNotNull(user);
+
+        var currentParent = new MarkdownDocumentFolder { Name = "Current Parent", UserId = user.Id };
+        var browseTarget = new MarkdownDocumentFolder { Name = "Browse Target", UserId = user.Id };
+        db.MarkdownDocumentFolders.AddRange(currentParent, browseTarget);
+        await db.SaveChangesAsync();
+
+        var folder = new MarkdownDocumentFolder { Name = "Original Name", UserId = user.Id, ParentFolderId = currentParent.Id };
+        db.MarkdownDocumentFolders.Add(folder);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync($"/Folder/EditFolder/{folder.Id}?browseFolderId={browseTarget.Id}");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "Id", folder.Id.ToString() },
+            { "Name", "Renamed Only" },
+            { "BrowseParentFolderId", browseTarget.Id.ToString() },
+            { "action", "save" }
+        });
+
+        var response = await Http.PostAsync("/Folder/EditFolder", formData);
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode);
+
+        using var verifyScope = Server!.Services.CreateScope();
+        var verifyDb = verifyScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var updated = await verifyDb.MarkdownDocumentFolders.FindAsync(folder.Id);
+        Assert.IsNotNull(updated);
+        Assert.AreEqual("Renamed Only", updated.Name);
+        Assert.AreEqual(currentParent.Id, updated.ParentFolderId);
+    }
+
+    [TestMethod]
     public async Task EditFolder_MoveToRoot_Success()
     {
         var (email, _) = await RegisterAndLoginAsync();
@@ -277,6 +320,47 @@ public class FolderTests : TestBase
         {
             { "__RequestVerificationToken", token },
             { "Id", childFolder.Id.ToString() }, { "Name", "Child" }, { "BrowseParentFolderId", "" }
+        });
+
+        var response = await Http.PostAsync("/Folder/EditFolder", formData);
+        Assert.AreEqual(HttpStatusCode.Redirect, response.StatusCode);
+
+        using var verifyScope = Server!.Services.CreateScope();
+        var verifyDb = verifyScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var updated = await verifyDb.MarkdownDocumentFolders.FindAsync(childFolder.Id);
+        Assert.IsNotNull(updated);
+        Assert.IsNull(updated.ParentFolderId);
+    }
+
+    [TestMethod]
+    public async Task EditFolder_MoveToRoot_FromRootBrowsePage_Success()
+    {
+        var (email, _) = await RegisterAndLoginAsync();
+
+        using var scope = Server!.Services.CreateScope();
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var user = await userManager.FindByEmailAsync(email);
+        Assert.IsNotNull(user);
+
+        var parentFolder = new MarkdownDocumentFolder { Name = "Parent", UserId = user.Id };
+        db.MarkdownDocumentFolders.Add(parentFolder);
+        await db.SaveChangesAsync();
+
+        var childFolder = new MarkdownDocumentFolder { Name = "Child", UserId = user.Id, ParentFolderId = parentFolder.Id };
+        db.MarkdownDocumentFolders.Add(childFolder);
+        await db.SaveChangesAsync();
+
+        var getResponse = await Http.GetAsync($"/Folder/EditFolder/{childFolder.Id}?browseRoot=true");
+        var token = ExtractAntiForgeryToken(await getResponse.Content.ReadAsStringAsync());
+
+        var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+        {
+            { "__RequestVerificationToken", token },
+            { "Id", childFolder.Id.ToString() },
+            { "Name", "Child" },
+            { "BrowseParentFolderId", "" },
+            { "action", "move" }
         });
 
         var response = await Http.PostAsync("/Folder/EditFolder", formData);

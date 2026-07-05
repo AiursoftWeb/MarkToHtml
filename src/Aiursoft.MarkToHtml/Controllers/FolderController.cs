@@ -80,7 +80,7 @@ public class FolderController(
     /// <summary>
     /// GET: Browse to select a new parent folder. Navigate one level at a time.
     /// </summary>
-    public async Task<IActionResult> EditFolder(int id, [FromQuery] int? browseFolderId)
+    public async Task<IActionResult> EditFolder(int id, [FromQuery] int? browseFolderId, [FromQuery] bool browseRoot = false)
     {
         var userId = userManager.GetUserId(User);
         var folder = await context.MarkdownDocumentFolders
@@ -89,7 +89,7 @@ public class FolderController(
         if (folder == null) return NotFound();
 
         // Default to current parent if not browsing elsewhere
-        var effectiveBrowseId = browseFolderId ?? folder.ParentFolderId;
+        var effectiveBrowseId = browseRoot ? null : browseFolderId ?? folder.ParentFolderId;
 
         var browseFolder = effectiveBrowseId.HasValue
             ? await context.MarkdownDocumentFolders
@@ -141,7 +141,7 @@ public class FolderController(
     /// </summary>
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> EditFolder(EditFolderViewModel model)
+    public async Task<IActionResult> EditFolder(EditFolderViewModel model, [FromForm] string? action)
     {
         if (!ModelState.IsValid)
         {
@@ -159,7 +159,8 @@ public class FolderController(
 
         if (folder == null) return NotFound();
 
-        var newParentId = model.BrowseParentFolderId;
+        var isMove = action != "save";
+        var newParentId = isMove ? model.BrowseParentFolderId : folder.ParentFolderId;
 
         if (!await IsFolderOwnedByUser(newParentId, userId))
         {

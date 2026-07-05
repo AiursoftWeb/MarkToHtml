@@ -39,7 +39,7 @@
         <nav aria-label="breadcrumb" class="mb-2">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a asp-action="EditFolder" asp-route-id="@Model.Id">@Localizer["Root"]</a>
+                    <a asp-action="EditFolder" asp-route-id="@Model.Id" asp-route-browseRoot="true">@Localizer["Root"]</a>
                 </li>
                 @foreach (var ancestor in Model.Breadcrumb)
                 {
@@ -83,7 +83,7 @@
                     <input type="hidden" name="Id" value="@Model.Id" />
                     <input type="hidden" name="Name" value="@Model.Name" />
                     <input type="hidden" name="BrowseParentFolderId" value="@(Model.BrowseParentFolderId?.ToString() ?? "")" />
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" name="action" value="move" class="btn btn-success">
                         <i class="align-middle me-2" data-lucide="folder-input"></i> @Localizer["Move Here"]
                     </button>
                 </form>
