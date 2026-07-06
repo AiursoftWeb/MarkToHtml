@@ -63,6 +63,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>轉換文件</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>建立新資料夾</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>建立角色</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>刪除文件</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>刪除資料夾</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>刪除角色</value>
@@ -92,6 +98,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>編輯文件</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>編輯資料夾</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>編輯角色</value>
@@ -137,6 +146,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML 轉換器</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>移動文件</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>我的文件</value>

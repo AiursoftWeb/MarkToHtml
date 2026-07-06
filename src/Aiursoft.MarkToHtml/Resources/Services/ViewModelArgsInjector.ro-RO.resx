@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Convertează Document</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Creează folder nou</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Creează Rol</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Șterge Document</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Șterge dosarul</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Șterge Rol</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Editare document</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Editează dosarul</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editează Rol</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Convertor Markdown către HTML</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Mută documentul</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Documentele mele</value>

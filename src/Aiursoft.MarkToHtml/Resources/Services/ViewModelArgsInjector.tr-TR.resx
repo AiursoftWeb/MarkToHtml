@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Belge Dönüştür</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Yeni Klasör Oluştur</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rol Oluştur</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Belgeyi Sil</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Klasörü Sil</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rolü Sil</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Belgeyi Düzenle</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Klasörü Düzenle</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rolü Düzenle</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Dönüştürücü</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Belgeyi Taşı</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Belgelerim</value>

@@ -99,6 +99,11 @@ public class ViewModelArgsInjector(
     
         _ = localizer["Edit Document"];
         _ = localizer["User Documents"];
+    
+        _ = localizer["Create New Folder"];
+        _ = localizer["Delete Folder"];
+        _ = localizer["Edit Folder"];
+        _ = localizer["Move Document"];
     }
 
     public void InjectSimple(

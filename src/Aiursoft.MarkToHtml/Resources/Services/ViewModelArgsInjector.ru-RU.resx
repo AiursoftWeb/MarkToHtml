@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Преобразовать документ</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Создать новую папку</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Создать роль</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Удалить документ</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Удалить папку</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Удалить роль</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Редактировать документ</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Изменить папку</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Редактировать роль</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Конвертер Markdown в HTML</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Переместить документ</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Мои документы</value>

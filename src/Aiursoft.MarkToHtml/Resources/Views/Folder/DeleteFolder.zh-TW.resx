@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All contents of this folder will be permanently deleted." xml:space="preserve">
+    <value>此資料夾中的所有內容將被永久刪除。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Contents of this folder:" xml:space="preserve">
+    <value>此資料夾的內容：</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>刪除資料夾</value>
+  </data>
+  <data name="Delete Permanently" xml:space="preserve">
+    <value>永久刪除</value>
+  </data>
+  <data name="Recursively:" xml:space="preserve">
+    <value>遞迴包含：</value>
+  </data>
+  <data name="This action is irreversible." xml:space="preserve">
+    <value>此動作無法復原。</value>
+  </data>
+  <data name="This folder is empty." xml:space="preserve">
+    <value>此資料夾是空的。</value>
+  </data>
+
+</root>

@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Converti Documento</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Crea nuova cartella</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Crea Ruolo</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Elimina Documento</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Elimina cartella</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Elimina Ruolo</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Modifica documento</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Modifica cartella</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Modifica Ruolo</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Convertitore da Markdown a HTML</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Sposta documento</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>I miei documenti</value>

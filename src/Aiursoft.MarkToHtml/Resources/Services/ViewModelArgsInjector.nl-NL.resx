@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Document converteren</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Nieuwe map maken</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rol aanmaken</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Document verwijderen</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Map verwijderen</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rol verwijderen</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Document bewerken</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Map bewerken</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rol bewerken</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown naar HTML-converter</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Document verplaatsen</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Mijn documenten</value>
