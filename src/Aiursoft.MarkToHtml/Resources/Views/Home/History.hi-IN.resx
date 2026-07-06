@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>आपके द्वारा बनाए गए सभी दस्तावेज़ों की सूची।</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>इस स्थान पर फ़ोल्डरों और दस्तावेज़ों की सूची।</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>कार्रवाइयाँ</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>नया दस्तावेज़ बनाएँ</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>फ़ोल्डर बनाएं</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>निर्माण समय</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>संपादित करें</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>पैरेंट फ़ोल्डर में जाएं</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>आंतरिक</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>लंबाई</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>स्थानांतरित करें</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>फ़ोल्डर में ले जाएं</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>मेरे दस्तावेज़</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>आपके खोज के लिए कोई दस्तावेज़ नहीं मिले।</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>सार्वजनिक</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>पुनर्नाम</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>खोजें</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>साझा करें</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>आकार</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>यह फ़ोल्डर खाली है। शुरू करने के लिए एक नया दस्तावेज़ या फ़ोल्डर बनाएं।</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>शीर्षक</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>ऊपर</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>दृश्यता</value>

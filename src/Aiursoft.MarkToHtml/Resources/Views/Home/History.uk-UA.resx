@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Список усіх документів, які ви створили.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>Список папок і документів у цій локації.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Створити новий документ</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Створити папку</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Час створення</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Редагувати</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Перейти до батьківської папки</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Внутрішній</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Розмір</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Перемістити</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Перемістити до папки</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Мої документи</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Назва</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Документи не знайдені за вашим запитом пошуку.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Публічний</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Перейменувати</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Пошук</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Поділитися</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Розмір</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Ця тека порожня. Створіть новий документ або теку, щоб розпочати.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Назва</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Вгору</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Видимість</value>

@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Lista wszystkich dokumentów, które utworzyłeś.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>Lista folderów i dokumentów w tej lokalizacji.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Utwórz nowy dokument</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Utwórz folder</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Data utworzenia</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Przejdź do katalogu nadrzędnego</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Wewnętrzny</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Długość</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Przenieś</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Przenieś do katalogu</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Moje Dokumenty</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Nie znaleziono dokumentów dla Twojego zapytania wyszukiwania.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Publiczny</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Zmień nazwę</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Szukaj</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Udostępnij</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Rozmiar</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Ten folder jest pusty. Utwórz nowy dokument lub folder, aby rozpocząć.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Tytuł</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Góra</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Widoczność</value>

@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>En lista över alla dokument du har skapat.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>En lista över mappar och dokument på den här platsen.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Skapa ett nytt dokument</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Skapa mapp</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Skapad</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Redigera</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Gå upp till överordnad mapp</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Intern</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Längd</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Flytta</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Flytta till mapp</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Mina dokument</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Namn</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Inga dokument hittades för din sökfråga.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Offentlig</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Byt namn</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Sök</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Dela</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Storlek</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Denna mapp är tom. Skapa ett nytt dokument eller en ny mapp för att komma igång.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Titel</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Upp</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Synlighet</value>

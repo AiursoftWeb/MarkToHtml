@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Een lijst van alle documenten die u heeft aangemaakt.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>Een overzicht van mappen en documenten in deze locatie.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acties</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Nieuw document maken</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Map maken</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Aanmaaktijd</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Ga naar het bovenliggende map</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Intern</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Lengte</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Verplaatsen</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Verplaatsen naar map</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Mijn documenten</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naam</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Geen documenten gevonden voor uw zoekopdracht.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Openbaar</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Hernoemen</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Zoeken</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Delen</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Grootte</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Deze map is leeg. Maak een nieuw document of een nieuwe map aan om te beginnen.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Titel</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Omhoog</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Zichtbaarheid</value>

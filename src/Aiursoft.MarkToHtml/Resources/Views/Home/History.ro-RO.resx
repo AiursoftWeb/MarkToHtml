@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>O listă cu toate documentele pe care le-ai creat.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>O listă cu dosare și documente din această locație.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Creează un document nou</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Creează dosar</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Data creării</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Editează</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Mergi la folderul părinte</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Intern</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Lungime</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Mută</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Mută în dosar</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Documentele Mele</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nume</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Nu s-au găsit documente pentru interogarea dumneavoastră de căutare.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Public</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Redenumește</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Caută</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Partajează</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Dimensiune</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Acest dosar este gol. Creați un nou document sau dosar pentru a începe.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Titlu</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Înalță</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Vizibilitate</value>
