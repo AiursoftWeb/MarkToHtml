@@ -17,4 +17,19 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     public DbSet<MarkdownDocument> MarkdownDocuments => Set<MarkdownDocument>();
 
     public DbSet<DocumentShare> DocumentShares => Set<DocumentShare>();
+
+    public DbSet<MarkdownDocumentFolder> MarkdownDocumentFolders => Set<MarkdownDocumentFolder>();
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<MarkdownDocumentFolder>()
+            .Property<int>("ParentFolderIdForUniqueness")
+            .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", stored: true);
+
+        builder.Entity<MarkdownDocumentFolder>()
+            .HasIndex("ParentFolderIdForUniqueness", nameof(MarkdownDocumentFolder.Name), nameof(MarkdownDocumentFolder.UserId))
+            .IsUnique();
+    }
 }

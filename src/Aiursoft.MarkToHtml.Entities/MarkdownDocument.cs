@@ -29,6 +29,10 @@ public class MarkdownDocument
     /// </summary>
     public bool IsPublic { get; set; }
 
+    public int? FolderId { get; set; }
+    [ForeignKey(nameof(FolderId))]
+    public MarkdownDocumentFolder? Folder { get; set; }
+
     [InverseProperty(nameof(DocumentShare.Document))]
     public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
 }

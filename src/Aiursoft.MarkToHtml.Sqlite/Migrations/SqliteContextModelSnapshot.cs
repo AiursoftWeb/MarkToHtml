@@ -9,15 +9,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 {
-    // THIS FILE IS AUTO GENERATED AND MAINTAINED BY ENTITY FRAMEWORK!
-    // NEVER EDIT THIS FILE MANUALLY!!!
     [DbContext(typeof(SqliteContext))]
     partial class SqliteContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.9");
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.DocumentShare", b =>
                 {
@@ -71,11 +69,14 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Content")
-                        .HasMaxLength(65535)
+                        .HasMaxLength(262144)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("FolderId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("IsPublic")
                         .HasColumnType("INTEGER");
@@ -91,9 +92,50 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FolderId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("MarkdownDocuments");
+                });
+
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocumentFolder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ParentFolderId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ParentFolderIdForUniqueness")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("INTEGER")
+                        .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", true);
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentFolderId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("ParentFolderIdForUniqueness", "Name", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("MarkdownDocumentFolders");
                 });
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.User", b =>
@@ -320,11 +362,34 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
                 {
+                    b.HasOne("Aiursoft.MarkToHtml.Entities.MarkdownDocumentFolder", "Folder")
+                        .WithMany("MarkdownDocuments")
+                        .HasForeignKey("FolderId");
+
                     b.HasOne("Aiursoft.MarkToHtml.Entities.User", "User")
                         .WithMany("CreatedDocuments")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Folder");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocumentFolder", b =>
+                {
+                    b.HasOne("Aiursoft.MarkToHtml.Entities.MarkdownDocumentFolder", "ParentFolder")
+                        .WithMany("SubFolders")
+                        .HasForeignKey("ParentFolderId");
+
+                    b.HasOne("Aiursoft.MarkToHtml.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ParentFolder");
 
                     b.Navigation("User");
                 });
@@ -383,6 +448,13 @@ namespace Aiursoft.MarkToHtml.Sqlite.Migrations
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocument", b =>
                 {
                     b.Navigation("DocumentShares");
+                });
+
+            modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.MarkdownDocumentFolder", b =>
+                {
+                    b.Navigation("MarkdownDocuments");
+
+                    b.Navigation("SubFolders");
                 });
 
             modelBuilder.Entity("Aiursoft.MarkToHtml.Entities.User", b =>

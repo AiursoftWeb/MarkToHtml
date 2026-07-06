@@ -7,13 +7,48 @@
     }
 </style>
 
-<div class="row mb-2 mb-xl-3">
-    <div class="col-auto d-none d-sm-block">
-        <h3>@Localizer["My Documents"]</h3>
+<div class="row mb-2 mb-xl-3 align-items-center">
+    <div class="col d-flex align-items-center gap-2">
+        @* Up button (left side, visible when inside a folder) *@
+        @if (Model.FolderId != null)
+        {
+            <a asp-action="History" asp-route-folderId="@Model.CurrentFolder?.ParentFolderId"
+               class="btn btn-sm btn-outline-secondary flex-shrink-0" title="@Localizer["Go up to parent folder"]">
+                <i class="align-middle" data-lucide="arrow-up"></i> <span class="d-none d-md-inline">@Localizer["Up"]</span>
+            </a>
+        }
+
+        @* Breadcrumb navigation *@
+        <nav aria-label="breadcrumb" class="d-none d-md-block">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item">
+                    <a asp-action="History">@Localizer["My Documents"]</a>
+                </li>
+                @foreach (var ancestor in Model.Breadcrumb)
+                {
+                    <li class="breadcrumb-item">
+                        <a asp-action="History" asp-route-folderId="@ancestor.Id">@ancestor.Name</a>
+                    </li>
+                }
+                @if (Model.CurrentFolder != null)
+                {
+                    <li class="breadcrumb-item active" aria-current="page">
+                        @Model.CurrentFolder.Name
+                        <a asp-action="EditFolder" asp-controller="Folder" asp-route-id="@Model.CurrentFolder.Id"
+                           class="btn btn-sm btn-outline-primary ms-1" title="@Localizer["Rename"]">
+                            <i class="align-middle" data-lucide="edit-2" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </li>
+                }
+            </ol>
+        </nav>
     </div>
 
-    <div class="col-auto ms-auto mt-n1">
-        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+    <div class="col-auto mt-n1 mt-md-0">
+        <a asp-action="CreateFolder" asp-controller="Folder" asp-route-id="@Model.FolderId" class="btn btn-outline-primary me-2">
+            <i class="align-middle" data-lucide="folder-plus"></i> @Localizer["Create Folder"]
+        </a>
+        <a asp-controller="Home" asp-action="Index" asp-route-folderId="@Model.FolderId" class="btn btn-primary">
             <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Create a new document"]
         </a>
     </div>
@@ -23,11 +58,23 @@
     <div class="card-header">
         <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
             <div>
-                <h5 class="card-title mb-1">@Localizer["All My Documents"]</h5>
-                <h6 class="card-subtitle text-muted mb-0">@Localizer["A list of all documents you have created."]</h6>
+                <h5 class="card-title mb-1">
+                    @if (Model.CurrentFolder != null)
+                    {
+                        @Localizer["Contents of {0}", Model.CurrentFolder.Name]
+                    }
+                    else
+                    {
+                        @Localizer["All My Documents"]
+                    }
+                </h5>
+                <h6 class="card-subtitle text-muted mb-0">
+                    @Localizer["A list of folders and documents in this location."]
+                </h6>
             </div>
             <form method="get"
                   asp-action="History"
+                  asp-route-folderId="@Model.FolderId"
                   class="ms-md-auto w-100 w-md-auto"
                   role="search">
                 <div class="input-group">
@@ -39,7 +86,7 @@
                            aria-label="@Localizer["Search my documents"]" />
                     @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
                     {
-                        <a asp-action="History" class="btn btn-outline-secondary">
+                        <a asp-action="History" asp-route-folderId="@Model.FolderId" class="btn btn-outline-secondary">
                             <i class="align-middle" data-lucide="x-circle"></i>
                             <span class="d-none d-lg-inline">@Localizer["Clear"]</span>
                         </a>
@@ -52,14 +99,17 @@
             </form>
         </div>
     </div>
-    @if (!Model.MyDocuments.Any())
+    @if (!Model.SubFolders.Any() && !Model.MyDocuments.Any())
     {
         <div class="card-body">
-            <div class="alert alert-info mb-0" role="alert">
+            <div class="alert alert-primary alert-outline mb-0" role="alert">
+                <div class="alert-icon">
+                    <i class="align-middle" data-lucide="info"></i>
+                </div>
                 <div class="alert-message">
                     @if (string.IsNullOrWhiteSpace(Model.SearchQuery))
                     {
-                        @Localizer["You have not created any documents yet."]
+                        @Localizer["This folder is empty. Create a new document or folder to get started."]
                     }
                     else
                     {
@@ -75,14 +125,40 @@
             <table class="table table-hover mb-0">
                 <thead>
                 <tr>
-                    <th>@Localizer["Title"]</th>
-                    <th>@Localizer["Visibility"]</th> @* 新增列：可见性 *@
+                    <th>@Localizer["Name"]</th>
+                    <th>@Localizer["Visibility"]</th>
                     <th>@Localizer["Creation Time"]</th>
-                    <th>@Localizer["Length"]</th>
+                    <th>@Localizer["Size"]</th>
                     <th class="text-end">@Localizer["Actions"]</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach (var folder in Model.SubFolders)
+                {
+                    Model.FolderItemCounts.TryGetValue(folder.Id, out var counts);
+                    var sizeParts = new List<string>();
+                    if (counts.DocumentCount > 0) sizeParts.Add($"{counts.DocumentCount} doc(s)");
+                    if (counts.SubFolderCount > 0) sizeParts.Add($"{counts.SubFolderCount} folder(s)");
+                    var sizeText = sizeParts.Any() ? string.Join(" · ", sizeParts) : "—";
+                    <tr>
+                        <td>
+                            <a asp-action="History" asp-route-folderId="@folder.Id">
+                                <i class="align-middle me-2" data-lucide="folder"></i> @folder.Name
+                            </a>
+                        </td>
+                        <td>-</td>
+                        <td><label class="text-muted" data-utc-time="@folder.CreateTime.ToHtmlDateTime()"></label></td>
+                        <td>@sizeText</td>
+                        <td class="text-end">
+                            <a asp-action="EditFolder" asp-controller="Folder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <a asp-action="DeleteFolder" asp-controller="Folder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-danger">
+                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                            </a>
+                        </td>
+                    </tr>
+                }
                 @foreach (var doc in Model.MyDocuments)
                 {
                     var rowUrl = doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id });
@@ -124,6 +200,9 @@
                         <td class="text-end">
                             <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
                                 <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                            </a>
+                            <a asp-action="Move" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Move to folder"]">
+                                <i class="align-middle" data-lucide="folder-input"></i> @Localizer["Move"]
                             </a>
                             <a asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
                                 <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
