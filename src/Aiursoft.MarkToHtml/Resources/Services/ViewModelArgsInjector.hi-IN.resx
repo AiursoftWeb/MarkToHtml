@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>दस्तावेज़ रूपांतरित करें</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>नया फ़ोल्डर बनाएं</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>भूमिका बनाएं</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>दस्तावेज़ हटाएं</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>फ़ोल्डर हटाएँ</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>रोल हटाएं</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>दस्तावेज़ संपादित करें</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>फ़ोल्डर संपादित करें</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>भूमिका संपादित करें</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>मार्कडाउन से एचटीएमएल कन्वर्टर</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>दस्तावेज़ स्थानांतरित करें</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>मेरे दस्तावेज़</value>

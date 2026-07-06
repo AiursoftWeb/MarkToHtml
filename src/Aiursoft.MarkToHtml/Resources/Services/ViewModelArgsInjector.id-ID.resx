@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Konversi Dokumen</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Buat Folder Baru</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Buat Peran</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Hapus Dokumen</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Hapus Folder</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Hapus Peran</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Edit Dokumen</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Edit Folder</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Edit Peran</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Konverter Markdown ke HTML</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Pindahkan Dokumen</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Dokumen Saya</value>

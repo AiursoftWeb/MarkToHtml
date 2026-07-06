@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Muunna asiakirja</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Luo uusi kansio</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Luo rooli</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Poista asiakirja</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Poista kansio</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Poista rooli</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Muokkaa dokumenttia</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Muokkaa kansiota</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Muokkaa roolia</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown to HTML Muunnin</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Siirrä asiakirja</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Omat dokumentit</value>

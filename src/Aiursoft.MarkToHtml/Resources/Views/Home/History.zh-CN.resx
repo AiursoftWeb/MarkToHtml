@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>您创建的所有文档列表。</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>此位置中的文件夹和文档列表。</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>创建新文档</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>新建文件夹</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>创建时间</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>编辑</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>返回上级文件夹</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>内部</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>长度</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>移至文件夹</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>我的文档</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>未找到与您的搜索条件匹配的文档。</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>公开</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>分享</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>此文件夹为空。新建文档或文件夹以开始使用。</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>标题</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>上级</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>可见性</value>

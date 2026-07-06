@@ -60,6 +60,9 @@
   <data name="Convert Document" xml:space="preserve">
     <value>Konvertera dokument</value>
   </data>
+  <data name="Create New Folder" xml:space="preserve">
+    <value>Skapa ny mapp</value>
+  </data>
   <data name="Create Role" xml:space="preserve">
     <value>Skapa roll</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Ta bort dokument</value>
+  </data>
+  <data name="Delete Folder" xml:space="preserve">
+    <value>Ta bort mapp</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Ta bort roll</value>
@@ -89,6 +95,9 @@
   </data>
   <data name="Edit Document" xml:space="preserve">
     <value>Redigera dokument</value>
+  </data>
+  <data name="Edit Folder" xml:space="preserve">
+    <value>Redigera mapp</value>
   </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Redigera roll</value>
@@ -134,6 +143,9 @@
   </data>
   <data name="Markdown to HTML Converter" xml:space="preserve">
     <value>Markdown till HTML-omvandlare</value>
+  </data>
+  <data name="Move Document" xml:space="preserve">
+    <value>Flytta dokument</value>
   </data>
   <data name="My documents" xml:space="preserve">
     <value>Mina dokument</value>
