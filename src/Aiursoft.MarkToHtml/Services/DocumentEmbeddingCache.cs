@@ -8,7 +8,7 @@ namespace Aiursoft.MarkToHtml.Services;
 /// Loaded at startup and refreshed periodically via <see cref="BackgroundJobs.RefreshDocumentEmbeddingCacheJob"/>.
 /// Registered as a singleton — thread-safe via an atomic snapshot swap.
 /// </summary>
-public class DocumentEmbeddingCache
+public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
     private Dictionary<Guid, float[]> _cache = [];
     private readonly object _lock = new();
@@ -37,7 +37,14 @@ public class DocumentEmbeddingCache
         {
             var vector = Deserialize(item.Embedding!);
             if (vector != null)
+            {
                 newCache[item.Id] = vector;
+            }
+            else
+            {
+                logger.LogWarning("Failed to deserialize embedding for document {DocumentId}: byte length {Length} is not a multiple of 4.",
+                    item.Id, item.Embedding!.Length);
+            }
         }
 
         lock (_lock)

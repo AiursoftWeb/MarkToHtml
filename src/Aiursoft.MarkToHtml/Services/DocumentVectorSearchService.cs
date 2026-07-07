@@ -16,7 +16,8 @@ public class DocumentVectorSearchService(
     TemplateDbContext db,
     DocumentEmbeddingCache cache,
     GlobalSettingsService settingsService,
-    IHttpClientFactory httpClientFactory)
+    IHttpClientFactory httpClientFactory,
+    ILogger<DocumentVectorSearchService> logger)
 {
     private const int EmbedTimeoutSeconds = 10;
 
@@ -193,9 +194,10 @@ public class DocumentVectorSearchService(
             await db.SaveChangesAsync(ct);
             await TrimCacheAsync(ct);
         }
-        catch (DbUpdateException)
+        catch (DbUpdateException ex)
         {
             // Race: another request already cached this query — ignore.
+            logger.LogWarning(ex, "Failed to cache query embedding for '{Query}'. Likely a concurrent duplicate.", text);
         }
 
         return embedding;
