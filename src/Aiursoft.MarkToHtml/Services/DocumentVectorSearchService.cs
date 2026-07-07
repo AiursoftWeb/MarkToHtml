@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Text;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
@@ -145,6 +146,19 @@ public class DocumentVectorSearchService(
 
     // ── Private helpers ────────────────────────────────────────────────────────
 
+    private static string ComputeQueryCacheKey(string text)
+    {
+        var hash = SHA256.HashData(Encoding.UTF8.GetBytes(text));
+        var sb = new StringBuilder(40);
+        foreach (var b in hash)
+        {
+            sb.Append(b.ToString("x2"));
+            if (sb.Length >= 40) break;
+        }
+
+        return sb.ToString();
+    }
+
     private async Task<bool> ShouldAttemptVectorSearch()
     {
         var enabled = await settingsService.GetBoolSettingAsync(SettingsMap.EnableEmbeddingBasedSearch);
@@ -159,8 +173,11 @@ public class DocumentVectorSearchService(
 
     private async Task<float[]?> EmbedQueryAsync(string text, int expectedDimension, CancellationToken ct)
     {
-        // Truncate to column max length for the cache key (the full text is still sent to Ollama).
-        var cacheKey = text.Length > 40 ? text[..40] : text;
+        // Hash the full query text for the cache key. The QueryText column is capped at 40 chars with a
+        // unique index, so we keep the first 40 hex chars of the SHA-256 digest. Hashing the full text
+        // (instead of truncating the raw text) avoids collisions between queries that share a long common
+        // prefix but differ later — those used to return each other's cached embedding.
+        var cacheKey = ComputeQueryCacheKey(text);
 
         // Check DB cache first.
         var cached = await db.SearchEmbeddings
