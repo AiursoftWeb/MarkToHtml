@@ -70,6 +70,7 @@ public class DocumentVectorSearchService(
 
         var docs = await baseQuery
             .Where(d => topIds.Contains(d.Id))
+            .Include(d => d.DocumentShares)
             .ToListAsync(ct);
 
         var docMap = docs.ToDictionary(d => d.Id);
@@ -106,6 +107,7 @@ public class DocumentVectorSearchService(
 
         var docs = await baseQuery
             .Where(d => topIds.Contains(d.Id))
+            .Include(d => d.DocumentShares)
             .ToListAsync(ct);
 
         var docMap = docs.ToDictionary(d => d.Id);
