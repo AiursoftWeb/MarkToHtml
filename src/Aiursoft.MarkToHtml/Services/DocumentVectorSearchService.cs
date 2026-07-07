@@ -132,9 +132,12 @@ public class DocumentVectorSearchService(
 
     private async Task<float[]?> EmbedQueryAsync(string text, CancellationToken ct)
     {
+        // Truncate to column max length for the cache key (the full text is still sent to Ollama).
+        var cacheKey = text.Length > 40 ? text[..40] : text;
+
         // Check DB cache first.
         var cached = await db.SearchEmbeddings
-            .FirstOrDefaultAsync(e => e.QueryText == text, ct);
+            .FirstOrDefaultAsync(e => e.QueryText == cacheKey, ct);
 
         if (cached != null)
         {
@@ -186,7 +189,7 @@ public class DocumentVectorSearchService(
             var now = DateTime.UtcNow;
             db.SearchEmbeddings.Add(new SearchEmbedding
             {
-                QueryText      = text,
+                QueryText      = cacheKey,
                 Embedding      = Serialize(embedding),
                 CreatedAt      = now,
                 LastAccessedAt = now
