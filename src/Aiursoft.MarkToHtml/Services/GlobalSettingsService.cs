@@ -82,6 +82,24 @@ public class GlobalSettingsService(
         return int.TryParse(value, out var result) ? result : 0;
     }
 
+    // ── Embedding helpers ────────────────────────────────────────────────────
+
+    public async Task<bool> IsAiSearchEnabledAsync()
+    {
+        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        return !string.IsNullOrWhiteSpace(endpoint);
+    }
+
+    public async Task<string> GetEmbeddingEndpointAsync()
+    {
+        return await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+    }
+
+    public async Task<string> GetEmbeddingTokenAsync()
+    {
+        return await GetSettingValueAsync(SettingsMap.EmbeddingApiToken);
+    }
+
     public bool IsOverriddenByConfig(string key)
     {
         return !string.IsNullOrWhiteSpace(configuration[$"GlobalSettings:{key}"]) ||

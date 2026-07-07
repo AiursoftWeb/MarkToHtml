@@ -11,7 +11,6 @@ using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.WebTools.Attributes;
 using Aiursoft.MarkToHtml.Authorization;
 
-
 namespace Aiursoft.MarkToHtml.Controllers;
 
 [LimitPerMin]
@@ -20,7 +19,9 @@ public class HomeController(
     UserManager<User> userManager,
     TemplateDbContext context,
     MarkToHtmlService mtohService,
-    IAuthorizationService authorizationService) : Controller
+    IAuthorizationService authorizationService,
+    SearchRateLimiter rateLimiter,
+    DocumentVectorSearchService vectorSearch) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",
@@ -98,6 +99,7 @@ public class HomeController(
                 documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
                 documentInDb.Title = model.Title;
                 documentInDb.FolderId = targetFolderId;
+                documentInDb.UpdatedAt = DateTime.UtcNow;
             }
             else
             {
@@ -261,6 +263,7 @@ public class HomeController(
             documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
             documentInDb.Title = model.Title;
             documentInDb.FolderId = targetFolderId;
+            documentInDb.UpdatedAt = DateTime.UtcNow;
         }
         else
         {
@@ -305,20 +308,67 @@ public class HomeController(
             .OrderBy(f => f.Name)
             .ToListAsync();
 
-        var documentsQuery = context.MarkdownDocuments
-            .Where(d => d.UserId == userId && d.FolderId == folderId);
+        // Build the scoped base query: user's own docs in current folder + docs shared with user
+        var userRoleIds = await context.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.RoleId)
+            .ToListAsync();
+
+        var sharedDocIds = await context.DocumentShares
+            .Where(s => s.SharedWithUserId == userId ||
+                        (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+            .Select(s => s.DocumentId)
+            .Distinct()
+            .ToListAsync();
+
+        var baseQuery = context.MarkdownDocuments
+            .Where(d => (d.UserId == userId && d.FolderId == folderId) || sharedDocIds.Contains(d.Id));
+
+        List<MarkdownDocument> documents = [];
+        var usedAiSearch = false;
+        var rateLimited = false;
 
         if (trimmedSearch != null)
         {
-            documentsQuery = documentsQuery.Where(d =>
-                (d.Title != null && d.Title.Contains(trimmedSearch)) ||
-                (d.Content != null && d.Content.Contains(trimmedSearch)));
+            // Try vector search first
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+            if (!rateLimiter.TryConsume(ip))
+            {
+                rateLimited = true;
+            }
+            else
+            {
+                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(baseQuery, trimmedSearch, 1, int.MaxValue);
+                if (usedAi)
+                {
+                    usedAiSearch = true;
+                    documents = aiResults;
+                    // AI results come from baseQuery already, no need to re-filter
+                }
+                else
+                {
+                    // Vector search failed — fall through to keyword search below
+                    usedAiSearch = false;
+                }
+            }
         }
 
-        var documents = await documentsQuery
-            .Include(d => d.DocumentShares)
-            .OrderByDescending(d => d.CreationTime)
-            .ToListAsync();
+        if (!usedAiSearch)
+        {
+            // Fallback to keyword search
+            var query = baseQuery;
+            if (trimmedSearch != null)
+            {
+                query = query.Where(d =>
+                    (d.Title != null && d.Title.Contains(trimmedSearch)) ||
+                    (d.Content != null && d.Content.Contains(trimmedSearch)));
+            }
+            documents = await query
+                .Include(d => d.DocumentShares)
+                .OrderByDescending(d => d.CreationTime)
+                .ToListAsync();
+        }
 
         // Build breadcrumb path from root to parent of current folder
         var breadcrumb = new List<MarkdownDocumentFolder>();
@@ -367,7 +417,9 @@ public class HomeController(
             FolderId = folderId,
             CurrentFolder = currentFolder,
             Breadcrumb = breadcrumb,
-            FolderItemCounts = folderItemCounts
+            FolderItemCounts = folderItemCounts,
+            UsedAiSearch = usedAiSearch,
+            RateLimited = rateLimited
         };
         return this.StackView(model);
     }

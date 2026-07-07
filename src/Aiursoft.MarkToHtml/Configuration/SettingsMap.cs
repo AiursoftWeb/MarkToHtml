@@ -17,6 +17,13 @@ public class SettingsMap
     public const string ContractLogo = "ContractLogo";
     public const string ShowContractHeader = "ShowContractHeader";
 
+    // ── AI: Embedding / Vector Search ──────────────────────────────────────────
+    public const string EmbeddingEndpoint = "EmbeddingEndpoint";
+    public const string EmbeddingModel = "EmbeddingModel";
+    public const string EmbeddingApiToken = "EmbeddingApiToken";
+    public const string EnableEmbeddingBasedSearch = "EnableEmbeddingBasedSearch";
+    public const string EmbeddingQueryCacheLimit = "EmbeddingQueryCacheLimit";
+
     public class FakeLocalizer
     {
         public string this[string name] => name;
@@ -127,6 +134,46 @@ public class SettingsMap
             Description = Localizer["Whether to show the contract header (Logo, address, etc.) in the contract view."],
             Type = SettingType.Bool,
             DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = EmbeddingEndpoint,
+            Name = Localizer["Embedding Endpoint"],
+            Description = Localizer["Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically."],
+            Type = SettingType.Text,
+            DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = EmbeddingModel,
+            Name = Localizer["Embedding Model"],
+            Description = Localizer["Embedding model name for vector search, e.g. bge-m3:latest."],
+            Type = SettingType.Text,
+            DefaultValue = "bge-m3:latest"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = EmbeddingApiToken,
+            Name = Localizer["Embedding API Token"],
+            Description = Localizer["Bearer token for the Embedding Endpoint. Leave empty if no auth required."],
+            Type = SettingType.Text,
+            DefaultValue = ""
+        },
+        new GlobalSettingDefinition
+        {
+            Key = EnableEmbeddingBasedSearch,
+            Name = Localizer["Enable Embedding-Based Search"],
+            Description = Localizer["Master switch for semantic (vector-based) search. Falls back to keyword search when disabled."],
+            Type = SettingType.Bool,
+            DefaultValue = "False"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = EmbeddingQueryCacheLimit,
+            Name = Localizer["Embedding Query Cache Limit"],
+            Description = Localizer["Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000."],
+            Type = SettingType.Number,
+            DefaultValue = "2000"
         }
     };
 }

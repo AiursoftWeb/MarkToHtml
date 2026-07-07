@@ -30,4 +30,6 @@ public class HistoryViewModel : UiStackLayoutViewModel
     /// Used to display "3 docs · 2 folders" in the list.
     /// </summary>
     public Dictionary<int, (int DocumentCount, int SubFolderCount)> FolderItemCounts { get; set; } = new();
+    public bool UsedAiSearch { get; set; }
+    public bool RateLimited { get; set; }
 }

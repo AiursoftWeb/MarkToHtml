@@ -72,31 +72,20 @@
                     @Localizer["A list of folders and documents in this location."]
                 </h6>
             </div>
-            <form method="get"
-                  asp-action="History"
-                  asp-route-folderId="@Model.FolderId"
-                  class="ms-md-auto w-100 w-md-auto"
-                  role="search">
-                <div class="input-group">
-                    <input type="search"
-                           name="search"
-                           value="@Model.SearchQuery"
-                           class="form-control"
-                           placeholder="@Localizer["Search my documents..."]"
-                           aria-label="@Localizer["Search my documents"]" />
-                    @if (!string.IsNullOrWhiteSpace(Model.SearchQuery))
-                    {
-                        <a asp-action="History" asp-route-folderId="@Model.FolderId" class="btn btn-outline-secondary">
-                            <i class="align-middle" data-lucide="x-circle"></i>
-                            <span class="d-none d-lg-inline">@Localizer["Clear"]</span>
-                        </a>
-                    }
-                    <button class="btn btn-primary" type="submit">
-                        <i class="align-middle" data-lucide="search"></i>
-                        <span class="d-none d-sm-inline">@Localizer["Search"]</span>
-                    </button>
-                </div>
-            </form>
+            @if (Model.UsedAiSearch)
+            {
+                <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle ms-2">
+                    <i class="align-middle me-1" data-lucide="cpu" style="width:14px;height:14px;"></i>
+                    @Localizer["AI-powered search (Vector Database)"]
+                </span>
+            }
+            @if (Model.RateLimited)
+            {
+                <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle ms-2">
+                    <i class="align-middle me-1" data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+                    @Localizer["Too many searches. AI search temporarily limited; showing keyword results."]
+                </span>
+            }
         </div>
     </div>
     @if (!Model.SubFolders.Any() && !Model.MyDocuments.Any())

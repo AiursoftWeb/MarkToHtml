@@ -181,6 +181,7 @@ public class AdminController(
         documentInDb.Content = model.InputMarkdown.SafeSubstring(262144);
         documentInDb.Title = model.Title;
         documentInDb.UserId = model.SelectedUserId;
+        documentInDb.UpdatedAt = DateTime.UtcNow;
 
         await context.SaveChangesAsync();
         return RedirectToAction(nameof(EditDocument), new { id = model.DocumentId, saved = true });
