@@ -82,13 +82,31 @@ public class GlobalSettingsService(
         return int.TryParse(value, out var result) ? result : 0;
     }
 
+    // ── Embedding helpers ────────────────────────────────────────────────────
+
+    public async Task<bool> IsAiSearchEnabledAsync()
+    {
+        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        return !string.IsNullOrWhiteSpace(endpoint);
+    }
+
+    public async Task<string> GetEmbeddingEndpointAsync()
+    {
+        return await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+    }
+
+    public async Task<string> GetEmbeddingTokenAsync()
+    {
+        return await GetSettingValueAsync(SettingsMap.EmbeddingApiToken);
+    }
+
     public bool IsOverriddenByConfig(string key)
     {
         return !string.IsNullOrWhiteSpace(configuration[$"GlobalSettings:{key}"]) ||
                !string.IsNullOrWhiteSpace(configuration[key]);
     }
 
-    public async Task UpdateSettingAsync(string key, string value)
+    public async Task UpdateSettingAsync(string key, string value, bool clearSecret = false)
     {
         if (IsOverriddenByConfig(key))
         {
@@ -97,6 +115,16 @@ public class GlobalSettingsService(
 
         var definition = SettingsMap.Definitions.FirstOrDefault(d => d.Key == key)
                          ?? throw new InvalidOperationException($"Setting {key} is not defined.");
+
+        if (definition.Type == SettingType.Secret && string.IsNullOrEmpty(value) && !clearSecret)
+        {
+            return;
+        }
+
+        if (definition.Type == SettingType.Secret && clearSecret)
+        {
+            value = string.Empty;
+        }
 
         // Validation
         switch (definition.Type)
@@ -139,6 +167,7 @@ public class GlobalSettingsService(
                 }
                 break;
             case SettingType.Text:
+            case SettingType.Secret:
             default:
                 break;
         }

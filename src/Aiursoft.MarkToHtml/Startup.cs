@@ -65,6 +65,19 @@ public class Startup : IWebStartup
         var orphanMarkdownImageCleanupJob = services.RegisterBackgroundJob<Services.BackgroundJobs.OrphanMarkdownImageCleanupJob>();
         services.RegisterScheduledTask(registration: orphanMarkdownImageCleanupJob, period: TimeSpan.FromHours(6), startDelay: TimeSpan.FromMinutes(10));
 
+        // AI: embedding cache (singleton — shared by all requests for cosine-similarity search)
+        services.AddSingleton<Services.DocumentEmbeddingCache>();
+        services.AddSingleton<Services.SearchRateLimiter>();
+        services.AddScoped<Services.DocumentVectorSearchService>();
+
+        // AI: refresh embedding cache from DB into memory (first, so cache is warm)
+        var refreshCacheJob = services.RegisterBackgroundJob<Services.BackgroundJobs.RefreshDocumentEmbeddingCacheJob>();
+        services.RegisterScheduledTask(registration: refreshCacheJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(3));
+
+        // AI: embedding generation job — generates/updates float[] vectors (second, so new embeddings get cached soon)
+        var generateEmbeddingsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GenerateDocumentEmbeddingsJob>();
+        services.RegisterScheduledTask(registration: generateEmbeddingsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(4));
+
         // Controllers and localization
         services.AddControllersWithViews()
             .AddNewtonsoftJson(options =>

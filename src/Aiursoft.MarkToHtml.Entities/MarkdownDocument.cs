@@ -33,6 +33,23 @@ public class MarkdownDocument
     [ForeignKey(nameof(FolderId))]
     public MarkdownDocumentFolder? Folder { get; set; }
 
+    /// <summary>
+    /// Updated whenever Title or Content changes. Used to detect stale embeddings.
+    /// </summary>
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+    /// <summary>
+    /// Serialized float[] embedding vector (4 bytes × N dims, little-endian).
+    /// Null until the embedding background job processes this document.
+    /// </summary>
+    public byte[]? Embedding { get; set; }
+
+    /// <summary>
+    /// When the current Embedding was generated. The embedding job re-runs when
+    /// UpdatedAt is newer than this value.
+    /// </summary>
+    public DateTime LastEmbeddedAt { get; set; } = DateTime.MinValue;
+
     [InverseProperty(nameof(DocumentShare.Document))]
     public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
 }

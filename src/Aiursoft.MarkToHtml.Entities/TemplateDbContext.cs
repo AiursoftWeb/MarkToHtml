@@ -20,6 +20,8 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<MarkdownDocumentFolder> MarkdownDocumentFolders => Set<MarkdownDocumentFolder>();
 
+    public DbSet<SearchEmbedding> SearchEmbeddings => Set<SearchEmbedding>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
