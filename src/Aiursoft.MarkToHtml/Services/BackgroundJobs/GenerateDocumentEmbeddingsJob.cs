@@ -101,11 +101,18 @@ public class GenerateDocumentEmbeddingsJob(
                 attempted++;
                 try
                 {
+                    var sourceUpdatedAt = doc.UpdatedAt;
                     var embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
-                    doc.Embedding      = Serialize(embedding);
-                    doc.LastEmbeddedAt = DateTime.UtcNow;
-                    await db.SaveChangesAsync();
-                    succeeded++;
+                    if (await TrySaveEmbeddingIfDocumentUnchangedAsync(db, doc, sourceUpdatedAt, embedding))
+                    {
+                        succeeded++;
+                    }
+                    else
+                    {
+                        logger.LogInformation(
+                            "GenerateDocumentEmbeddingsJob: document '{Title}' (id={Id}) changed while embedding was running. Skipping stale result.",
+                            doc.Title, doc.Id);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -158,6 +165,35 @@ public class GenerateDocumentEmbeddingsJob(
         if (!string.IsNullOrWhiteSpace(doc.Title))   sb.AppendLine(doc.Title);
         if (!string.IsNullOrWhiteSpace(doc.Content)) sb.AppendLine(doc.Content);
         return sb.ToString();
+    }
+
+    internal static async Task<bool> TrySaveEmbeddingIfDocumentUnchangedAsync(
+        TemplateDbContext db,
+        MarkdownDocument doc,
+        DateTime sourceUpdatedAt,
+        float[] embedding)
+    {
+        var serialized = Serialize(embedding);
+        if (db.Database.IsRelational())
+        {
+            var updated = await db.MarkdownDocuments
+                .Where(d => d.Id == doc.Id && d.UpdatedAt == sourceUpdatedAt)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(d => d.Embedding, serialized)
+                    .SetProperty(d => d.LastEmbeddedAt, sourceUpdatedAt));
+            return updated == 1;
+        }
+
+        await db.Entry(doc).ReloadAsync();
+        if (db.Entry(doc).State == EntityState.Detached || doc.UpdatedAt != sourceUpdatedAt)
+        {
+            return false;
+        }
+
+        doc.Embedding      = serialized;
+        doc.LastEmbeddedAt = sourceUpdatedAt;
+        await db.SaveChangesAsync();
+        return true;
     }
 
     private static void Normalize(float[] v)
