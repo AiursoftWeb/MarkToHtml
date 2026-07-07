@@ -70,13 +70,13 @@ public class Startup : IWebStartup
         services.AddSingleton<Services.SearchRateLimiter>();
         services.AddScoped<Services.DocumentVectorSearchService>();
 
-        // AI: embedding generation job — generates/updates float[] vectors for vector search
-        var generateEmbeddingsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GenerateDocumentEmbeddingsJob>();
-        services.RegisterScheduledTask(registration: generateEmbeddingsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(3));
-
-        // AI: refresh embedding cache from DB into memory
+        // AI: refresh embedding cache from DB into memory (first, so cache is warm)
         var refreshCacheJob = services.RegisterBackgroundJob<Services.BackgroundJobs.RefreshDocumentEmbeddingCacheJob>();
-        services.RegisterScheduledTask(registration: refreshCacheJob, period: TimeSpan.FromHours(1), startDelay: TimeSpan.FromMinutes(4));
+        services.RegisterScheduledTask(registration: refreshCacheJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(3));
+
+        // AI: embedding generation job — generates/updates float[] vectors (second, so new embeddings get cached soon)
+        var generateEmbeddingsJob = services.RegisterBackgroundJob<Services.BackgroundJobs.GenerateDocumentEmbeddingsJob>();
+        services.RegisterScheduledTask(registration: generateEmbeddingsJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(4));
 
         // Controllers and localization
         services.AddControllersWithViews()
