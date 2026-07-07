@@ -150,8 +150,12 @@
                 }
                 @foreach (var doc in Model.MyDocuments)
                 {
-                    var rowUrl = doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id });
-                    <tr class="clickable-row" data-href="@rowUrl">
+                    var isOwner = doc.UserId == Model.CurrentUserId;
+                    // Non-owner shared docs have no editable landing page; avoid navigating to Edit (which would Forbid).
+                    var rowUrl = !isOwner && !doc.IsPublic
+                        ? null
+                        : doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id });
+                    <tr class="@(rowUrl != null ? "clickable-row" : "")" data-href="@rowUrl">
                         <td>
                             @if (string.IsNullOrWhiteSpace(doc.Title))
                             {
@@ -187,18 +191,27 @@
                         </td>
                         <td>@(doc.Content?.Length ?? 0)</td>
                         <td class="text-end">
-                            <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                            </a>
-                            <a asp-action="Move" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Move to folder"]">
-                                <i class="align-middle" data-lucide="folder-input"></i> @Localizer["Move"]
-                            </a>
-                            <a asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
-                                <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
-                            </a>
-                            <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
-                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                            </a>
+                            @if (isOwner)
+                            {
+                                <a asp-action="Edit" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
+                                </a>
+                                <a asp-action="Move" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Move to folder"]">
+                                    <i class="align-middle" data-lucide="folder-input"></i> @Localizer["Move"]
+                                </a>
+                                <a asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
+                                    <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
+                                    <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="text-muted small">
+                                    <i class="align-middle" data-lucide="users"></i> @Localizer["Shared"]
+                                </span>
+                            }
                         </td>
                     </tr>
                 }

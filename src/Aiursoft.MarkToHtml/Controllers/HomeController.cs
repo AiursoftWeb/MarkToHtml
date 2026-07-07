@@ -321,7 +321,14 @@ public class HomeController(
             .Distinct()
             .ToListAsync();
 
-        var baseQuery = context.MarkdownDocuments
+        // Own docs in the current folder — used for plain folder browsing so shared
+        // documents don't leak into every folder's listing.
+        var ownDocsQuery = context.MarkdownDocuments
+            .Where(d => d.UserId == userId && d.FolderId == folderId);
+
+        // Own docs + docs shared with the user — used only when searching, so shared
+        // documents surface in search results without polluting folder listings.
+        var searchBaseQuery = context.MarkdownDocuments
             .Where(d => (d.UserId == userId && d.FolderId == folderId) || sharedDocIds.Contains(d.Id));
 
         List<MarkdownDocument> documents = [];
@@ -339,12 +346,12 @@ public class HomeController(
             }
             else
             {
-                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(baseQuery, trimmedSearch, 1, int.MaxValue);
+                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(searchBaseQuery, trimmedSearch, 1, int.MaxValue);
                 if (usedAi)
                 {
                     usedAiSearch = true;
                     documents = aiResults;
-                    // AI results come from baseQuery already, no need to re-filter
+                    // AI results come from searchBaseQuery already, no need to re-filter
                 }
                 else
                 {
@@ -356,8 +363,8 @@ public class HomeController(
 
         if (!usedAiSearch)
         {
-            // Fallback to keyword search
-            var query = baseQuery;
+            // Fallback to keyword search. Include shared docs only when actually searching.
+            var query = trimmedSearch != null ? searchBaseQuery : ownDocsQuery;
             if (trimmedSearch != null)
             {
                 query = query.Where(d =>
@@ -414,6 +421,7 @@ public class HomeController(
             MyDocuments = documents,
             SubFolders = subFolders,
             SearchQuery = trimmedSearch,
+            CurrentUserId = userId,
             FolderId = folderId,
             CurrentFolder = currentFolder,
             Breadcrumb = breadcrumb,

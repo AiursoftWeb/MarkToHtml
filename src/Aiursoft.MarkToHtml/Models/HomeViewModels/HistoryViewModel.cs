@@ -15,6 +15,11 @@ public class HistoryViewModel : UiStackLayoutViewModel
     public string? SearchQuery { get; set; }
 
     /// <summary>
+    /// Current signed-in user id, used by the view to hide write actions on documents owned by others.
+    /// </summary>
+    public string? CurrentUserId { get; set; }
+
+    /// <summary>
     /// The current folder being browsed. Null means root level.
     /// </summary>
     public int? FolderId { get; set; }
