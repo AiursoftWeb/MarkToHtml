@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>Μια λίστα όλων των εγγράφων που έχετε δημιουργήσει.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>Μια λίστα φακέλων και εγγράφων σε αυτή τη θέση.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Ενέργειες</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Δημιουργία νέου εγγράφου</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Δημιουργία φακέλου</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Χρόνος Δημιουργίας</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Μετακίνηση στον γονικό φάκελο</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Εσωτερικό</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Μήκος</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Μετακίνηση</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Μετακίνηση στον φάκελο</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Τα Έγγραφά Μου</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Όνομα</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Δεν βρέθηκαν έγγραφα για την αναζήτησή σας.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Δημόσιο</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Μετονομασία</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Αναζήτηση</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Κοινοποίηση</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Μέγεθος</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Ο φάκελος αυτός είναι κενός. Δημιουργήστε ένα νέο έγγραφο ή φάκελο για να ξεκινήσετε.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Τίτλος</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Πάνω</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Ορατότητα</value>

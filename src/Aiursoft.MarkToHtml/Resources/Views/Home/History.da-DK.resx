@@ -21,6 +21,9 @@
       <data name="A list of all documents you have created." xml:space="preserve">
     <value>En liste over alle dokumenter, du har oprettet.</value>
   </data>
+  <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>En liste over mapper og dokumenter på denne placering.</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Handlinger</value>
   </data>
@@ -33,6 +36,9 @@
   <data name="Create a new document" xml:space="preserve">
     <value>Opret et nyt dokument</value>
   </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Opret mappe</value>
+  </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Oprettelsestidspunkt</value>
   </data>
@@ -42,14 +48,26 @@
   <data name="Edit" xml:space="preserve">
     <value>Rediger</value>
   </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Gå op til overliggende mappe</value>
+  </data>
   <data name="Internal" xml:space="preserve">
     <value>Internt</value>
   </data>
   <data name="Length" xml:space="preserve">
     <value>Længde</value>
   </data>
+  <data name="Move" xml:space="preserve">
+    <value>Flyt</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Flyt til mappe</value>
+  </data>
   <data name="My Documents" xml:space="preserve">
     <value>Mine dokumenter</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Navn</value>
   </data>
   <data name="No documents found for your search query." xml:space="preserve">
     <value>Ingen dokumenter fundet til din søgning.</value>
@@ -63,6 +81,9 @@
   <data name="Public" xml:space="preserve">
     <value>Offentlig</value>
   </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Omdøb</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Søg</value>
   </data>
@@ -75,8 +96,17 @@
   <data name="Share" xml:space="preserve">
     <value>Del</value>
   </data>
+  <data name="Size" xml:space="preserve">
+    <value>Størrelse</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Denne mappe er tom. Opret et nyt dokument eller en ny mappe for at komme i gang.</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Titel</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Op</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Synlighed</value>
