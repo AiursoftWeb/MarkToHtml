@@ -687,7 +687,8 @@
                     const editorDomNode = markdownEditorInstance.getDomNode();
 
                     function uploadImageBlob(blob, ext) {
-                        const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + (ext || 'png').replace('jpeg', 'jpg');
+                        ext = (ext || 'png').replace('jpeg', 'jpg').replace('svg+xml', 'svg');
+                        const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
                         const placeholder = '![uploading...](' + filename + ')';
                         const selection = markdownEditorInstance.getSelection();
                         markdownEditorInstance.executeEdits('paste-image', [{
