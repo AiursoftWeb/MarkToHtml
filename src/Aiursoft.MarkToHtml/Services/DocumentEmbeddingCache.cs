@@ -10,6 +10,7 @@ namespace Aiursoft.MarkToHtml.Services;
 /// </summary>
 public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
+    internal const int MaxCachedDocumentEmbeddings = 10000;
     private Dictionary<Guid, float[]> _cache = [];
     private readonly object _lock = new();
 
@@ -29,8 +30,18 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         var embeddings = await db.MarkdownDocuments
             .AsNoTracking()
             .Where(d => d.Embedding != null)
+            .OrderByDescending(d => d.LastEmbeddedAt)
             .Select(d => new { d.Id, d.Embedding })
+            .Take(MaxCachedDocumentEmbeddings + 1)
             .ToListAsync();
+
+        if (embeddings.Count > MaxCachedDocumentEmbeddings)
+        {
+            logger.LogWarning(
+                "Embedding cache reached the safety limit of {Limit}. Only the newest embeddings are loaded.",
+                MaxCachedDocumentEmbeddings);
+            embeddings.RemoveAt(embeddings.Count - 1);
+        }
 
         var newCache = new Dictionary<Guid, float[]>();
         foreach (var item in embeddings)

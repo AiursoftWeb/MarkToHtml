@@ -156,7 +156,7 @@ public class SettingsMap
             Key = EmbeddingApiToken,
             Name = Localizer["Embedding API Token"],
             Description = Localizer["Bearer token for the Embedding Endpoint. Leave empty if no auth required."],
-            Type = SettingType.Text,
+            Type = SettingType.Secret,
             DefaultValue = ""
         },
         new GlobalSettingDefinition

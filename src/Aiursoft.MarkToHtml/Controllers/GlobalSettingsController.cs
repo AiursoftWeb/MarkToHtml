@@ -56,7 +56,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
 
         try
         {
-            await settingsService.UpdateSettingAsync(model.Key, model.Value ?? string.Empty);
+            await settingsService.UpdateSettingAsync(model.Key, model.Value ?? string.Empty, model.ClearSecret);
         }
         catch (InvalidOperationException e)
         {

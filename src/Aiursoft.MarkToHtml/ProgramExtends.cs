@@ -26,7 +26,16 @@ public static class ProgramExtends
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
         var cache = scope.ServiceProvider.GetRequiredService<DocumentEmbeddingCache>();
+        var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
         var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+        if (!await settingsService.GetBoolSettingAsync(Configuration.SettingsMap.EnableEmbeddingBasedSearch) ||
+            !await settingsService.IsAiSearchEnabledAsync())
+        {
+            logger.LogInformation("Embedding cache warmup skipped because AI search is disabled.");
+            return;
+        }
+
         await cache.LoadAsync(db);
         logger.LogInformation("Embedding cache warmed up: {Count} vectors loaded into memory.", cache.Count);
     }

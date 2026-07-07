@@ -106,7 +106,7 @@ public class GlobalSettingsService(
                !string.IsNullOrWhiteSpace(configuration[key]);
     }
 
-    public async Task UpdateSettingAsync(string key, string value)
+    public async Task UpdateSettingAsync(string key, string value, bool clearSecret = false)
     {
         if (IsOverriddenByConfig(key))
         {
@@ -115,6 +115,16 @@ public class GlobalSettingsService(
 
         var definition = SettingsMap.Definitions.FirstOrDefault(d => d.Key == key)
                          ?? throw new InvalidOperationException($"Setting {key} is not defined.");
+
+        if (definition.Type == SettingType.Secret && string.IsNullOrEmpty(value) && !clearSecret)
+        {
+            return;
+        }
+
+        if (definition.Type == SettingType.Secret && clearSecret)
+        {
+            value = string.Empty;
+        }
 
         // Validation
         switch (definition.Type)
@@ -157,6 +167,7 @@ public class GlobalSettingsService(
                 }
                 break;
             case SettingType.Text:
+            case SettingType.Secret:
             default:
                 break;
         }

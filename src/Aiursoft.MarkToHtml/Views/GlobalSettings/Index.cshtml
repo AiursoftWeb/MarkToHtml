@@ -29,6 +29,9 @@
             <tbody>
             @foreach (var item in Model.Settings)
             {
+                var displayValue = item.Type == SettingType.Secret && !string.IsNullOrEmpty(item.Value)
+                    ? "********"
+                    : item.Value;
                 <tr>
                     <td>
                         <div class="fw-bold">@SettingsLocalizer[item.Name]</div>
@@ -42,7 +45,7 @@
                     <td>
                         @if (item.IsOverriddenByConfig)
                         {
-                            <span class="text-muted">@item.Value</span>
+                            <span class="text-muted">@displayValue</span>
                         }
                         else
                         {
@@ -68,6 +71,18 @@
                                 {
                                     <div class="input-group input-group-sm">
                                         <input type="number" name="Value" value="@item.Value" class="form-control" />
+                                        <button class="btn btn-outline-secondary" type="submit">@Localizer["Save"]</button>
+                                    </div>
+                                }
+                                else if (item.Type == SettingType.Secret)
+                                {
+                                    <div class="input-group input-group-sm">
+                                        <input type="password"
+                                               name="Value"
+                                               value=""
+                                               placeholder="@displayValue"
+                                               class="form-control"
+                                               autocomplete="new-password" />
                                         <button class="btn btn-outline-secondary" type="submit">@Localizer["Save"]</button>
                                     </div>
                                 }
@@ -116,6 +131,10 @@
                             <form asp-action="Edit" method="post" class="d-inline">
                                 <input type="hidden" name="Key" value="@item.Key" />
                                 <input type="hidden" name="Value" value="@item.DefaultValue" />
+                                @if (item.Type == SettingType.Secret)
+                                {
+                                    <input type="hidden" name="ClearSecret" value="true" />
+                                }
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-sm btn-outline-secondary" title="@Localizer["Reset to default"]">
                                     <i class="align-middle" data-lucide="rotate-ccw"></i> @Localizer["Reset"]

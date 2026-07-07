@@ -42,7 +42,8 @@ public class DocumentVectorSearchService(
         float[]? queryVector;
         try
         {
-            queryVector = await EmbedQueryAsync(query, ct);
+            var expectedDimension = snapshot.Values.First().Length;
+            queryVector = await EmbedQueryAsync(query, expectedDimension, ct);
         }
         catch
         {
@@ -52,9 +53,32 @@ public class DocumentVectorSearchService(
         if (queryVector == null)
             return (false, [], 0);
 
-        var scored = snapshot
-            .Select(kv => (DocumentId: kv.Key, Score: CosineSimilarity(queryVector, kv.Value)))
-            .Where(x => x.Score > 0)
+        var scored = new List<(Guid DocumentId, float Score)>();
+        var skippedDimensionMismatch = 0;
+        foreach (var kv in snapshot)
+        {
+            if (kv.Value.Length != queryVector.Length)
+            {
+                skippedDimensionMismatch++;
+                continue;
+            }
+
+            var score = CosineSimilarity(queryVector, kv.Value);
+            if (score > 0)
+            {
+                scored.Add((kv.Key, score));
+            }
+        }
+
+        if (scored.Count == 0 && skippedDimensionMismatch > 0)
+        {
+            logger.LogWarning(
+                "Vector search skipped {Count} document embeddings because their dimensions did not match the query vector.",
+                skippedDimensionMismatch);
+            return (false, [], 0);
+        }
+
+        scored = scored
             .OrderByDescending(x => x.Score)
             .ToList();
 
@@ -96,6 +120,7 @@ public class DocumentVectorSearchService(
 
         var topIds = snapshot
             .Where(kv => kv.Key != documentId)
+            .Where(kv => kv.Value.Length == targetVector.Length)
             .Select(kv => (DocumentId: kv.Key, Score: CosineSimilarity(targetVector, kv.Value)))
             .OrderByDescending(x => x.Score)
             .Take(take)
@@ -132,7 +157,7 @@ public class DocumentVectorSearchService(
         return !string.IsNullOrWhiteSpace(model);
     }
 
-    private async Task<float[]?> EmbedQueryAsync(string text, CancellationToken ct)
+    private async Task<float[]?> EmbedQueryAsync(string text, int expectedDimension, CancellationToken ct)
     {
         // Truncate to column max length for the cache key (the full text is still sent to Ollama).
         var cacheKey = text.Length > 40 ? text[..40] : text;
@@ -144,7 +169,7 @@ public class DocumentVectorSearchService(
         if (cached != null)
         {
             var vector = Deserialize(cached.Embedding);
-            if (vector != null)
+            if (vector != null && vector.Length == expectedDimension)
             {
                 var now = DateTime.UtcNow;
                 if (now - cached.LastAccessedAt >= AccessThrottle)
@@ -155,6 +180,9 @@ public class DocumentVectorSearchService(
 
                 return vector;
             }
+
+            db.SearchEmbeddings.Remove(cached);
+            await db.SaveChangesAsync(ct);
         }
 
         // Compute via Ollama embedding endpoint.

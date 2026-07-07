@@ -77,6 +77,65 @@ public class GlobalSettingsTests : TestBase
     }
 
     [TestMethod]
+    public async Task SecretSettingIsMaskedAndEmptyPostDoesNotOverwriteValue()
+    {
+        await LoginAsAdmin();
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await settingsService.UpdateSettingAsync(SettingsMap.EmbeddingApiToken, "secret-token");
+        }
+
+        var settingsResponse = await Http.GetAsync("/GlobalSettings/Index");
+        settingsResponse.EnsureSuccessStatusCode();
+        var settingsHtml = await settingsResponse.Content.ReadAsStringAsync();
+        Assert.Contains("********", settingsHtml);
+        Assert.DoesNotContain("secret-token", settingsHtml);
+
+        var emptyPostResponse = await PostForm("/GlobalSettings/Edit", new Dictionary<string, string>
+        {
+            { "Key", SettingsMap.EmbeddingApiToken },
+            { "Value", "" }
+        }, tokenUrl: "/GlobalSettings/Index");
+        Assert.AreEqual(HttpStatusCode.Found, emptyPostResponse.StatusCode);
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            var value = await settingsService.GetEmbeddingTokenAsync();
+            Assert.AreEqual("secret-token", value);
+        }
+    }
+
+    [TestMethod]
+    public async Task SecretSettingCanBeClearedExplicitly()
+    {
+        await LoginAsAdmin();
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            await settingsService.UpdateSettingAsync(SettingsMap.EmbeddingApiToken, "secret-token");
+        }
+
+        var clearResponse = await PostForm("/GlobalSettings/Edit", new Dictionary<string, string>
+        {
+            { "Key", SettingsMap.EmbeddingApiToken },
+            { "Value", "" },
+            { "ClearSecret", "true" }
+        }, tokenUrl: "/GlobalSettings/Index");
+        Assert.AreEqual(HttpStatusCode.Found, clearResponse.StatusCode);
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
+            var value = await settingsService.GetEmbeddingTokenAsync();
+            Assert.AreEqual(string.Empty, value);
+        }
+    }
+
+    [TestMethod]
     public async Task TestGlobalSettingsServiceValidation()
     {
         using var scope = Server!.Services.CreateScope();

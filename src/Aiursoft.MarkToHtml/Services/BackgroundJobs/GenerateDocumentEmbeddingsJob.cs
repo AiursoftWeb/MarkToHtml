@@ -18,6 +18,9 @@ public class GenerateDocumentEmbeddingsJob(
     IHttpClientFactory httpClientFactory,
     ILogger<GenerateDocumentEmbeddingsJob> logger) : IBackgroundJob
 {
+    internal const int MaxDocumentsPerRun = 50;
+    private static readonly SemaphoreSlim RunLock = new(1, 1);
+
     public string Name => "Generate Document Embeddings";
 
     public string Description =>
@@ -27,6 +30,24 @@ public class GenerateDocumentEmbeddingsJob(
         "Embedding vectors are stored as serialized float[] in MarkdownDocument.Embedding.";
 
     public async Task ExecuteAsync()
+    {
+        if (!await RunLock.WaitAsync(0))
+        {
+            logger.LogInformation("GenerateDocumentEmbeddingsJob: previous run is still active. Skipping.");
+            return;
+        }
+
+        try
+        {
+            await ExecuteCoreAsync();
+        }
+        finally
+        {
+            RunLock.Release();
+        }
+    }
+
+    private async Task ExecuteCoreAsync()
     {
         if (!await settingsService.IsAiSearchEnabledAsync())
         {
@@ -52,26 +73,39 @@ public class GenerateDocumentEmbeddingsJob(
         var token    = await settingsService.GetEmbeddingTokenAsync();
 
         var lastId = Guid.Empty;
+        var attempted = 0;
+        var succeeded = 0;
         while (true)
         {
+            if (attempted >= MaxDocumentsPerRun)
+            {
+                logger.LogInformation(
+                    "GenerateDocumentEmbeddingsJob: attempted {Count} documents, stopping until next run.",
+                    attempted);
+                break;
+            }
+
             var currentLastId = lastId;
+            var take = Math.Min(10, MaxDocumentsPerRun - attempted);
             var pending = await db.MarkdownDocuments
                 .Where(d => d.Id.CompareTo(currentLastId) > 0 &&
-                            d.LastEmbeddedAt < d.UpdatedAt)
+                            (d.Embedding == null || d.LastEmbeddedAt < d.UpdatedAt))
                 .OrderBy(d => d.Id)
-                .Take(10)
+                .Take(take)
                 .ToListAsync();
 
             if (pending.Count == 0) break;
 
             foreach (var doc in pending)
             {
+                attempted++;
                 try
                 {
                     var embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
                     doc.Embedding      = Serialize(embedding);
                     doc.LastEmbeddedAt = DateTime.UtcNow;
                     await db.SaveChangesAsync();
+                    succeeded++;
                 }
                 catch (Exception ex)
                 {
@@ -84,7 +118,9 @@ public class GenerateDocumentEmbeddingsJob(
             lastId = pending.Max(d => d.Id);
         }
 
-        logger.LogInformation("GenerateDocumentEmbeddingsJob: done.");
+        logger.LogInformation(
+            "GenerateDocumentEmbeddingsJob: done. {Succeeded}/{Attempted} documents processed.",
+            succeeded, attempted);
     }
 
     private async Task<float[]> CallEmbedApiAsync(string endpoint, string model, string token, MarkdownDocument doc)
