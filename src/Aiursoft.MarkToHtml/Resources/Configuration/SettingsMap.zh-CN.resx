@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>允许用户在个人资料管理页面调整其昵称。</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token用于Embedding端点。如无需认证，请留空。</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>品牌主页网址</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>合同标志</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>嵌入 API 令牌</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>嵌入端点</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>嵌入模型</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>嵌入模型名称，用于向量搜索，例如 bge-m3:latest。</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>嵌入查询缓存限制</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>启用基于嵌入的搜索</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 备案号</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>语义（向量）搜索的主开关。禁用时回退到关键字搜索。</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>数据库中缓存的搜索查询嵌入向量的最大数量 (LRU)。默认 2000。</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API 基础 URL，用于生成文档和查询嵌入（例如 https://ollama.example.com）。系统会自动追加 /api/embed。</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>项目标志</value>

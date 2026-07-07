@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>프로필 관리 페이지에서 사용자가 닉네임을 수정할 수 있도록 허용합니다.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>임베딩 엔드포인트용 Bearer 토큰. 인증이 필요하지 않으면 빈칸으로 두세요.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>브랜드 홈 URL</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>계약 로고</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>임베딩 API 토큰</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>임베딩 엔드포인트</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>임베딩 모델</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>벡터 검색을 위한 임베딩 모델 이름, 예: bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>임베딩 쿼리 캐시 제한</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>임베딩 기반 검색 활성화</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP 번호</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>시맨틱(벡터 기반) 검색용 마스터 스위치. 비활성화 시 키워드 검색으로 대체됩니다.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>데이터베이스에 캐시된 검색 쿼리 임베딩의 최대 개수 (LRU). 기본값 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>문서 및 쿼리 임베딩을 생성하는 Ollama API 기본 URL (예: https://ollama.example.com). /api/embed가 자동으로 추가됩니다.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>프로젝트 로고</value>

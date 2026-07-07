@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>プロフィール管理ページでユーザーがニックネームを変更できるようにする。</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Embedding Endpoint用のBearer トークン。認証が不要の場合は空にしてください。</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>ブランドホームURL</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>契約ロゴ</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>埋め込み API トークン</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>埋め込みエンドポイント</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>埋め込みモデル</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>ベクトル検索用のEmbeddingモデル名（例：bge-m3:latest）。</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>埋め込みクエリキャッシュの上限</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>埋め込みベース検索を有効にする</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP番号</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>セマンティック（ベクトルベース）検索の主スイッチ。無効化するとキーワード検索にフォールバックします。</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>データベースにキャッシュされた検索クエリ埋め込みの最大数（LRU）。既定値 2000。</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama APIのベースURLは、ドキュメントとクエリの埋め込みを生成するために使用します（例：https://ollama.example.com）。/api/embedは自動的に追加されます。</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>プロジェクトロゴ</value>
