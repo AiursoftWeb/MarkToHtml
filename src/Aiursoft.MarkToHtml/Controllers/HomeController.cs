@@ -339,7 +339,7 @@ public class HomeController(
             }
             else
             {
-                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(baseQuery, trimmedSearch, 1, int.MaxValue);
+                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(baseQuery, trimmedSearch, 1, 200);
                 if (usedAi)
                 {
                     usedAiSearch = true;
