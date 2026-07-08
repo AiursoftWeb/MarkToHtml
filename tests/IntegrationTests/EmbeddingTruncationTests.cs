@@ -2,7 +2,6 @@ using System.Net;
 using System.Text;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Services.BackgroundJobs;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -38,7 +37,7 @@ public class EmbeddingTruncationTests
             // Clone content so it can be consumed across multiple requests when
             // the factory returns the same HttpResponseMessage instance.
             var clone = new HttpResponseMessage(response.StatusCode);
-            var content = await response.Content!.ReadAsStringAsync(cancellationToken);
+            var content = await response.Content.ReadAsStringAsync(cancellationToken);
             clone.Content = new StringContent(content, Encoding.UTF8, "application/json");
             return clone;
         }
@@ -228,7 +227,7 @@ public class EmbeddingTruncationTests
         }
 
         Assert.IsNotNull(ex);
-        Assert.IsTrue(ex!.Message.Contains("'Huge'"));
+        Assert.IsTrue(ex.Message.Contains("'Huge'"));
         // Binary search: 8000 → 4000 → 2000 → 1000 → 500 (5 attempts, then 500 <= 500 throws)
         Assert.AreEqual(5, handler.SentInputs.Count);
         Assert.AreEqual(8000, handler.SentInputs[0].Length);
@@ -263,7 +262,7 @@ public class EmbeddingTruncationTests
         }
 
         Assert.IsNotNull(ex);
-        Assert.IsTrue(ex!.Message.Contains("'Tiny'"));
+        Assert.IsTrue(ex.Message.Contains("'Tiny'"));
         // Text is short, so length is unchanged across retries, but binary search
         // still halves maxChars each time: 8000 → 4000 → 2000 → 1000 → 500 → throw
         Assert.AreEqual(5, handler.SentInputs.Count);
@@ -291,7 +290,7 @@ public class EmbeddingTruncationTests
         }
 
         Assert.IsNotNull(ex);
-        Assert.IsTrue(ex!.Message.Contains("service unavailable"));
+        Assert.IsTrue(ex.Message.Contains("service unavailable"));
         // Only ONE attempt — the error is not context-length-related.
         Assert.AreEqual(1, handler.SentInputs.Count);
     }
