@@ -183,6 +183,9 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>搜尋我的文件...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>自我主機</value>
   </data>

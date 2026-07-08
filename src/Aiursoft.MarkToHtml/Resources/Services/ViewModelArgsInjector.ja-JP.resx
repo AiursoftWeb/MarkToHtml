@@ -183,6 +183,9 @@
   <data name="Roles" xml:space="preserve">
     <value>ロール</value>
   </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>マイドキュメントを検索...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>セルフホスト</value>
   </data>

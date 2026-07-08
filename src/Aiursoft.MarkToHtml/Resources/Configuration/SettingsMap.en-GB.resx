@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Allow users to adjust their nickname in the profile management page.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token for the Embedding Endpoint. Leave blank if no authentication required.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brand Home URL</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Contract Logo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Embedding API Token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embedding Endpoint</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Embedding Model</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Embedding model name for vector search, e.g. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Embedding Query Cache Limit</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Enable Embedding-Based Search</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Number</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Master switch for semantic (vector‑based) search. Falls back to keyword search when disabled.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maximum number of cached search‑query embeddings stored in the database (LRU). Default 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Project Logo</value>
