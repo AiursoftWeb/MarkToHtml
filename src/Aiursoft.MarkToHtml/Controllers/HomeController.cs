@@ -283,15 +283,13 @@ public class HomeController(
     CascadedLinksOrder = 2,
     LinkText = "My documents",
     LinkOrder = 2)]
-    public async Task<IActionResult> History([FromQuery] int? folderId, [FromQuery] string? search)
+    public async Task<IActionResult> History([FromQuery] int? folderId)
     {
         var userId = userManager.GetUserId(User);
         if (string.IsNullOrWhiteSpace(userId))
         {
             return Unauthorized();
         }
-
-        var trimmedSearch = string.IsNullOrWhiteSpace(search) ? null : search.Trim();
 
         var currentFolder = folderId.HasValue
             ? await context.MarkdownDocumentFolders
@@ -308,76 +306,14 @@ public class HomeController(
             .OrderBy(f => f.Name)
             .ToListAsync();
 
-        // Build the scoped base query: user's own docs in current folder + docs shared with user
-        var userRoleIds = await context.UserRoles
-            .Where(ur => ur.UserId == userId)
-            .Select(ur => ur.RoleId)
+        // Browse mode: only own documents in the current folder.
+        var documents = await context.MarkdownDocuments
+            .Where(d => d.UserId == userId && d.FolderId == folderId)
+            .Include(d => d.DocumentShares)
+            .OrderByDescending(d => d.CreationTime)
             .ToListAsync();
 
-        var sharedDocIds = await context.DocumentShares
-            .Where(s => s.SharedWithUserId == userId ||
-                        (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
-            .Select(s => s.DocumentId)
-            .Distinct()
-            .ToListAsync();
-
-        // Own docs in the current folder — used for plain folder browsing so shared
-        // documents don't leak into every folder's listing.
-        var ownDocsQuery = context.MarkdownDocuments
-            .Where(d => d.UserId == userId && d.FolderId == folderId);
-
-        // Own docs + docs shared with the user — used only when searching, so shared
-        // documents surface in search results without polluting folder listings.
-        var searchBaseQuery = context.MarkdownDocuments
-            .Where(d => (d.UserId == userId && d.FolderId == folderId) || sharedDocIds.Contains(d.Id));
-
-        List<MarkdownDocument> documents = [];
-        var usedAiSearch = false;
-        var rateLimited = false;
-
-        if (trimmedSearch != null)
-        {
-            // Try vector search first
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
-
-            if (!rateLimiter.TryConsume(ip))
-            {
-                rateLimited = true;
-            }
-            else
-            {
-                var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(searchBaseQuery, trimmedSearch, 1, 200);
-                if (usedAi)
-                {
-                    usedAiSearch = true;
-                    documents = aiResults;
-                    // AI results come from searchBaseQuery already, no need to re-filter
-                }
-                else
-                {
-                    // Vector search failed — fall through to keyword search below
-                    usedAiSearch = false;
-                }
-            }
-        }
-
-        if (!usedAiSearch)
-        {
-            // Fallback to keyword search. Include shared docs only when actually searching.
-            var query = trimmedSearch != null ? searchBaseQuery : ownDocsQuery;
-            if (trimmedSearch != null)
-            {
-                query = query.Where(d =>
-                    (d.Title != null && d.Title.Contains(trimmedSearch)) ||
-                    (d.Content != null && d.Content.Contains(trimmedSearch)));
-            }
-            documents = await query
-                .Include(d => d.DocumentShares)
-                .OrderByDescending(d => d.CreationTime)
-                .ToListAsync();
-        }
-
-        // Build breadcrumb path from root to parent of current folder
+        // Build breadcrumb path from root to parent of current folder.
         var breadcrumb = new List<MarkdownDocumentFolder>();
         if (currentFolder != null)
         {
@@ -396,7 +332,7 @@ public class HomeController(
             }
         }
 
-        // Compute item counts for each subfolder (non-recursive)
+        // Compute item counts for each subfolder (non-recursive).
         var folderItemCounts = new Dictionary<int, (int DocumentCount, int SubFolderCount)>();
         var subFolderIds = subFolders.Select(f => f.Id).ToList();
         var documentCounts = await context.MarkdownDocuments
@@ -420,12 +356,91 @@ public class HomeController(
         {
             MyDocuments = documents,
             SubFolders = subFolders,
-            SearchQuery = trimmedSearch,
             CurrentUserId = userId,
             FolderId = folderId,
             CurrentFolder = currentFolder,
             Breadcrumb = breadcrumb,
-            FolderItemCounts = folderItemCounts,
+            FolderItemCounts = folderItemCounts
+        };
+        return this.StackView(model);
+    }
+
+    /// <summary>
+    /// Full-text / vector search across ALL user documents (recursive, all folders) + shared documents.
+    /// Results are flat — no folder rows, just documents with folder-path badges.
+    /// </summary>
+    [Authorize]
+    public async Task<IActionResult> Search([FromQuery] string? q)
+    {
+        var userId = userManager.GetUserId(User);
+        if (string.IsNullOrWhiteSpace(userId))
+        {
+            return Unauthorized();
+        }
+
+        var trimmedQuery = string.IsNullOrWhiteSpace(q) ? null : q.Trim();
+
+        if (trimmedQuery == null)
+        {
+            // No query — redirect to History for plain browsing.
+            return RedirectToAction(nameof(History));
+        }
+
+        // Build the search base: own docs + docs shared with the user (all folders).
+        var userRoleIds = await context.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Select(ur => ur.RoleId)
+            .ToListAsync();
+
+        var sharedDocIds = await context.DocumentShares
+            .Where(s => s.SharedWithUserId == userId ||
+                        (s.SharedWithRoleId != null && userRoleIds.Contains(s.SharedWithRoleId)))
+            .Select(s => s.DocumentId)
+            .Distinct()
+            .ToListAsync();
+
+        var searchBaseQuery = context.MarkdownDocuments
+            .Include(d => d.Folder)
+            .Where(d => d.UserId == userId || sharedDocIds.Contains(d.Id));
+
+        List<MarkdownDocument> results = [];
+        var usedAiSearch = false;
+        var rateLimited = false;
+
+        // Try vector search first.
+        var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+
+        if (rateLimiter.TryConsume(ip))
+        {
+            var (usedAi, aiResults, _) = await vectorSearch.SearchAsync(searchBaseQuery, trimmedQuery, 1, 200);
+            if (usedAi)
+            {
+                usedAiSearch = true;
+                results = aiResults;
+            }
+        }
+        else
+        {
+            rateLimited = true;
+        }
+
+        if (!usedAiSearch)
+        {
+            // Keyword fallback.
+            results = await searchBaseQuery
+                .Where(d =>
+                    (d.Title != null && d.Title.Contains(trimmedQuery)) ||
+                    (d.Content != null && d.Content.Contains(trimmedQuery)))
+                .Include(d => d.DocumentShares)
+                .OrderByDescending(d => d.CreationTime)
+                .ToListAsync();
+        }
+
+        var model = new SearchViewModel
+        {
+            Query = trimmedQuery,
+            Results = results,
+            CurrentUserId = userId,
             UsedAiSearch = usedAiSearch,
             RateLimited = rateLimited
         };

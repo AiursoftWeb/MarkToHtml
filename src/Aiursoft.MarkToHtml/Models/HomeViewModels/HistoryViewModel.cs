@@ -12,7 +12,6 @@ public class HistoryViewModel : UiStackLayoutViewModel
 
     public IEnumerable<MarkdownDocument> MyDocuments { get; set; } = new List<MarkdownDocument>();
     public IEnumerable<MarkdownDocumentFolder> SubFolders { get; set; } = new List<MarkdownDocumentFolder>();
-    public string? SearchQuery { get; set; }
 
     /// <summary>
     /// Current signed-in user id, used by the view to hide write actions on documents owned by others.
@@ -35,6 +34,4 @@ public class HistoryViewModel : UiStackLayoutViewModel
     /// Used to display "3 docs · 2 folders" in the list.
     /// </summary>
     public Dictionary<int, (int DocumentCount, int SubFolderCount)> FolderItemCounts { get; set; } = new();
-    public bool UsedAiSearch { get; set; }
-    public bool RateLimited { get; set; }
 }

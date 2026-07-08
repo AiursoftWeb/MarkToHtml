@@ -1,5 +1,5 @@
 @using Aiursoft.WebTools
-@model Aiursoft.MarkToHtml.Models.HomeViewModels.HistoryViewModel
+@model Aiursoft.MarkToHtml.Models.HomeViewModels.SearchViewModel
 
 <style>
     .clickable-row {
@@ -8,47 +8,13 @@
 </style>
 
 <div class="row mb-2 mb-xl-3 align-items-center">
-    <div class="col d-flex align-items-center gap-2">
-        @* Up button (left side, visible when inside a folder) *@
-        @if (Model.FolderId != null)
-        {
-            <a asp-action="History" asp-route-folderId="@Model.CurrentFolder?.ParentFolderId"
-               class="btn btn-sm btn-outline-secondary flex-shrink-0" title="@Localizer["Go up to parent folder"]">
-                <i class="align-middle" data-lucide="arrow-up"></i> <span class="d-none d-md-inline">@Localizer["Up"]</span>
-            </a>
-        }
-
-        @* Breadcrumb navigation *@
-        <nav aria-label="breadcrumb" class="d-none d-md-block">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item">
-                    <a asp-action="History">@Localizer["My Documents"]</a>
-                </li>
-                @foreach (var ancestor in Model.Breadcrumb)
-                {
-                    <li class="breadcrumb-item">
-                        <a asp-action="History" asp-route-folderId="@ancestor.Id">@ancestor.Name</a>
-                    </li>
-                }
-                @if (Model.CurrentFolder != null)
-                {
-                    <li class="breadcrumb-item active" aria-current="page">
-                        @Model.CurrentFolder.Name
-                        <a asp-action="EditFolder" asp-controller="Folder" asp-route-id="@Model.CurrentFolder.Id"
-                           class="btn btn-sm btn-outline-primary ms-1" title="@Localizer["Rename"]">
-                            <i class="align-middle" data-lucide="edit-2" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </li>
-                }
-            </ol>
-        </nav>
-    </div>
-
-    <div class="col-auto mt-n1 mt-md-0">
-        <a asp-action="CreateFolder" asp-controller="Folder" asp-route-id="@Model.FolderId" class="btn btn-outline-primary me-2">
-            <i class="align-middle" data-lucide="folder-plus"></i> @Localizer["Create Folder"]
+    <div class="col">
+        <a asp-action="History" class="btn btn-sm btn-outline-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to My Documents"]
         </a>
-        <a asp-controller="Home" asp-action="Index" asp-route-folderId="@Model.FolderId" class="btn btn-primary">
+    </div>
+    <div class="col-auto mt-n1 mt-md-0">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
             <i class="align-middle" data-lucide="file-plus"></i> @Localizer["Create a new document"]
         </a>
     </div>
@@ -59,22 +25,29 @@
         <div class="d-flex flex-column flex-md-row align-items-md-center gap-2">
             <div>
                 <h5 class="card-title mb-1">
-                    @if (Model.CurrentFolder != null)
-                    {
-                        @Localizer["Contents of {0}", Model.CurrentFolder.Name]
-                    }
-                    else
-                    {
-                        @Localizer["All My Documents"]
-                    }
+                    @Localizer["Search results for '{0}'", Model.Query!]
                 </h5>
                 <h6 class="card-subtitle text-muted mb-0">
-                    @Localizer["A list of folders and documents in this location."]
+                    @Localizer["Found {0} document(s) across all folders.", Model.Results.Count()]
                 </h6>
             </div>
+            @if (Model.UsedAiSearch)
+            {
+                <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle ms-2">
+                    <i class="align-middle me-1" data-lucide="cpu" style="width:14px;height:14px;"></i>
+                    @Localizer["AI-powered search (Vector Database)"]
+                </span>
+            }
+            @if (Model.RateLimited)
+            {
+                <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle ms-2">
+                    <i class="align-middle me-1" data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+                    @Localizer["Too many searches. AI search temporarily limited; showing keyword results."]
+                </span>
+            }
         </div>
     </div>
-    @if (!Model.SubFolders.Any() && !Model.MyDocuments.Any())
+    @if (!Model.Results.Any())
     {
         <div class="card-body">
             <div class="alert alert-primary alert-outline mb-0" role="alert">
@@ -82,7 +55,7 @@
                     <i class="align-middle" data-lucide="info"></i>
                 </div>
                 <div class="alert-message">
-                    @Localizer["This folder is empty. Create a new document or folder to get started."]
+                    @Localizer["No documents found for your search query."]
                 </div>
             </div>
         </div>
@@ -101,41 +74,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var folder in Model.SubFolders)
-                {
-                    Model.FolderItemCounts.TryGetValue(folder.Id, out var counts);
-                    var sizeParts = new List<string>();
-                    if (counts.DocumentCount > 0) sizeParts.Add($"{counts.DocumentCount} doc(s)");
-                    if (counts.SubFolderCount > 0) sizeParts.Add($"{counts.SubFolderCount} folder(s)");
-                    var sizeText = sizeParts.Any() ? string.Join(" · ", sizeParts) : "—";
-                    <tr>
-                        <td>
-                            <a asp-action="History" asp-route-folderId="@folder.Id">
-                                <i class="align-middle me-2" data-lucide="folder"></i> @folder.Name
-                            </a>
-                        </td>
-                        <td>-</td>
-                        <td><label class="text-muted" data-utc-time="@folder.CreateTime.ToHtmlDateTime()"></label></td>
-                        <td>@sizeText</td>
-                        <td class="text-end">
-                            <a asp-action="EditFolder" asp-controller="Folder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit-2"></i> @Localizer["Edit"]
-                            </a>
-                            <a asp-action="DeleteFolder" asp-controller="Folder" asp-route-id="@folder.Id" class="btn btn-sm btn-outline-danger">
-                                <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
-                            </a>
-                        </td>
-                    </tr>
-                }
-                @foreach (var doc in Model.MyDocuments)
+                @foreach (var doc in Model.Results)
                 {
                     var isOwner = doc.UserId == Model.CurrentUserId;
-                    // Non-owner shared docs have no editable landing page; avoid navigating to Edit (which would Forbid).
                     var rowUrl = !isOwner && !doc.IsPublic
                         ? null
                         : doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id });
                     <tr class="@(rowUrl != null ? "clickable-row" : "")" data-href="@rowUrl">
                         <td>
+                            @if (doc.Folder != null)
+                            {
+                                <a asp-action="History" asp-route-folderId="@doc.Folder.Id"
+                                   class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle text-decoration-none me-1"
+                                   title="@Localizer["Go to folder"]">
+                                    <i class="align-middle" data-lucide="folder" style="width:12px;height:12px;"></i> @doc.Folder.Name
+                                </a>
+                            }
                             @if (string.IsNullOrWhiteSpace(doc.Title))
                             {
                                 <label class="text-muted">(no title)</label>
@@ -208,7 +162,6 @@
             rows.forEach(row => {
                 row.addEventListener("click", function (event) {
                     const target = event.target;
-                    // Prevent navigation if a link or button was clicked inside the row
                     if (!target.matches('a, a *, button, button *')) {
                         window.location.href = row.dataset.href;
                     }

@@ -248,8 +248,8 @@ public class ViewModelArgsInjector(
         {
             toInject.Navbar.SearchForm = new SearchFormViewModel
             {
-                SearchUrl = "/Home/History",
-                SearchParam = "search",
+                SearchUrl = "/Home/Search",
+                SearchParam = "q",
                 Placeholder = localizer["Search my documents..."]
             };
 

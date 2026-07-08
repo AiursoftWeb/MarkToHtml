@@ -1009,7 +1009,7 @@ public class FolderTests : TestBase
             { Id = Guid.NewGuid(), Title = "Beta", Content = "second", UserId = user.Id });
         await db.SaveChangesAsync();
 
-        var response = await Http.GetAsync("/Home/History?search=Alpha");
+        var response = await Http.GetAsync("/Home/Search?q=Alpha");
         response.EnsureSuccessStatusCode();
         var html = await response.Content.ReadAsStringAsync();
 
