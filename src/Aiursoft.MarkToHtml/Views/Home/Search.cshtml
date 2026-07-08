@@ -77,9 +77,9 @@
                 @foreach (var doc in Model.Results)
                 {
                     var isOwner = doc.UserId == Model.CurrentUserId;
-                    var rowUrl = !isOwner && !doc.IsPublic
-                        ? null
-                        : doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id });
+                    var rowUrl = isOwner
+                        ? (doc.IsPublic ? Url.Action("View", "Public", new { id = doc.Id }) : Url.Action("Edit", new { id = doc.Id }))
+                        : Url.Action("View", "Public", new { id = doc.Id });
                     <tr class="@(rowUrl != null ? "clickable-row" : "")" data-href="@rowUrl">
                         <td>
                             @if (doc.Folder != null)
@@ -141,9 +141,9 @@
                             }
                             else
                             {
-                                <span class="text-muted small">
-                                    <i class="align-middle" data-lucide="users"></i> @Localizer["Shared"]
-                                </span>
+                                <a asp-controller="Public" asp-action="View" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="eye"></i> @Localizer["View"]
+                                </a>
                             }
                         </td>
                     </tr>
