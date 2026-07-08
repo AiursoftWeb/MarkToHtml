@@ -207,11 +207,16 @@ public class DocumentVectorSearchService(
         var model    = await settingsService.GetSettingValueAsync(SettingsMap.EmbeddingModel);
         var token    = await settingsService.GetEmbeddingTokenAsync();
 
+        // Truncate query text to fit bge-m3's 8192-token context window.
+        // Queries are typically short, but a user might paste a very long document.
+        const int maxQueryChars = 8000;
+        var input = text.Length > maxQueryChars ? text[..maxQueryChars] : text;
+
         var http = httpClientFactory.CreateClient();
         var baseUri = new Uri(endpoint);
         var embedUrl = $"{baseUri.Scheme}://{baseUri.Authority}/api/embed?keep_alive=-1";
 
-        var body = new { model, input = text, options = new { num_gpu = 0 } };
+        var body = new { model, input, options = new { num_gpu = 0 } };
         var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
         var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 

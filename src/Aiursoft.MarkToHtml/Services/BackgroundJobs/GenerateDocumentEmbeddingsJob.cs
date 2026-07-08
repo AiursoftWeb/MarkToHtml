@@ -130,7 +130,7 @@ public class GenerateDocumentEmbeddingsJob(
             succeeded, attempted);
     }
 
-    private async Task<float[]> CallEmbedApiAsync(string endpoint, string model, string token, MarkdownDocument doc)
+    internal async Task<float[]> CallEmbedApiAsync(string endpoint, string model, string token, MarkdownDocument doc)
     {
         var text = BuildDocumentText(doc);
         var http = httpClientFactory.CreateClient();
@@ -138,25 +138,54 @@ public class GenerateDocumentEmbeddingsJob(
         var baseUri  = new Uri(endpoint);
         var embedUrl = $"{baseUri.Scheme}://{baseUri.Authority}/api/embed?keep_alive=-1";
 
-        // num_gpu=0 forces CPU-only embedding so it never competes with any LLM for VRAM.
-        var body    = new { model, input = text, options = new { num_gpu = 0 } };
-        var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-        var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
+        // bge-m3 has an 8192-token context window. Characters map to tokens at different
+        // rates per language (CJK ≈ 1:1, English ≈ 1:4). Start with 8000 chars (safe for
+        // all languages) and use binary-search fallback if Ollama still reports the input
+        // is too long.
+        var maxChars = 8000;
+        while (true)
+        {
+            var input = TruncateForEmbedding(text, maxChars);
 
-        if (!string.IsNullOrWhiteSpace(token))
-            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            // num_gpu=0 forces CPU-only embedding so it never competes with any LLM for VRAM.
+            var body    = new { model, input, options = new { num_gpu = 0 } };
+            var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+            var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 
-        using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
-        var response = await http.SendAsync(request, timeoutCts.Token);
-        response.EnsureSuccessStatusCode();
+            if (!string.IsNullOrWhiteSpace(token))
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-        var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>();
-        if (result?.Embeddings == null || result.Embeddings.Length == 0)
-            throw new InvalidOperationException($"Ollama returned no embeddings for document '{doc.Title}'.");
+            using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(120));
+            var response = await http.SendAsync(request, timeoutCts.Token);
 
-        var vector = result.Embeddings[0];
-        Normalize(vector);
-        return vector;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>();
+                if (result?.Embeddings == null || result.Embeddings.Length == 0)
+                    throw new InvalidOperationException($"Ollama returned no embeddings for document '{doc.Title}'.");
+
+                var vector = result.Embeddings[0];
+                Normalize(vector);
+                return vector;
+            }
+
+            // If the input is too long, halve the limit and retry. Otherwise fail.
+            var errorBody = await response.Content.ReadAsStringAsync();
+            var isContextError = errorBody.Contains("context", StringComparison.OrdinalIgnoreCase) ||
+                                 errorBody.Contains("length", StringComparison.OrdinalIgnoreCase) ||
+                                 errorBody.Contains("exceed", StringComparison.OrdinalIgnoreCase);
+            if (!isContextError || maxChars <= 500)
+            {
+                throw new HttpRequestException(
+                    $"Ollama embedding request failed for '{doc.Title}' (HTTP {(int)response.StatusCode}): {errorBody}");
+            }
+
+            var prev = maxChars;
+            maxChars /= 2;
+            logger.LogWarning(
+                "Embedding input for '{Title}' still too long at {Prev} chars, retrying with {Current} chars (binary fallback).",
+                doc.Title, prev, maxChars);
+        }
     }
 
     private static string BuildDocumentText(MarkdownDocument doc)
@@ -165,6 +194,22 @@ public class GenerateDocumentEmbeddingsJob(
         if (!string.IsNullOrWhiteSpace(doc.Title))   sb.AppendLine(doc.Title);
         if (!string.IsNullOrWhiteSpace(doc.Content)) sb.AppendLine(doc.Content);
         return sb.ToString();
+    }
+
+    /// <summary>
+    /// Truncates text to fit within bge-m3's 8192-token context window.
+    /// Uses head+tail preservation: keeps the first 75% and last ~25% of the budget
+    /// so both the introduction and conclusion contribute to the embedding.
+    /// </summary>
+    internal static string TruncateForEmbedding(string text, int maxChars)
+    {
+        if (text.Length <= maxChars) return text;
+
+        var head = (int)(maxChars * 0.75);
+        var tail = maxChars - head - 5; // 5 for "\n...\n" separator
+        if (tail <= 0) return text[..maxChars];
+
+        return string.Concat(text.AsSpan(0, head), "\n...\n", text.AsSpan(text.Length - tail));
     }
 
     internal static async Task<bool> TrySaveEmbeddingIfDocumentUnchangedAsync(
