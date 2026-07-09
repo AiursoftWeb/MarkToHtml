@@ -183,6 +183,27 @@
   <data name="Roles" xml:space="preserve">
     <value>ロール</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus answer: ```検索```. However, check instructions: The user wants to output only the translated content, nothing else. So we should output exactly:
+
+```検索```
+
+The translation is &quot;検索&quot;. Could also be &quot;検索する&quot;? But likely just &quot;検索&quot;. That&apos;s fine.
+
+Thus final answer: three backticks with &quot;検索&quot;. Ensure no extra spaces. Use three backticks with newline for code block? The example shows a code block. Must be exactly like:
+
+```
+検索
+```
+
+Thus final.
+&lt;/think&gt;
+
+```検索</value>
+  </data>
   <data name="Search my documents..." xml:space="preserve">
     <value>マイドキュメントを検索...</value>
   </data>

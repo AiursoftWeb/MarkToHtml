@@ -183,6 +183,26 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output only the translation wrapped in backticks, with the translation. No extra explanation.
+
+Thus output:
+
+```Search```? Wait, translation. In zh-HK, traditional Chinese for &quot;Search&quot; is &quot;搜尋&quot; (traditional). But need to consider Hong Kong variant: &quot;搜尋&quot; (Simplified Chinese uses &quot;搜索&quot;). Hong Kong uses traditional Chinese characters but with local usage. Common phrase for search is &quot;搜尋&quot;. &quot;Search&quot; is &quot;搜尋&quot;. The user wants translation for zh-HK. So answer is &quot;搜尋&quot;. Should we include any punctuation? No. Just translation inside code fences.
+
+Thus output:
+
+```搜尋```
+&lt;/think&gt;
+
+```搜尋</value>
+  </data>
   <data name="Search my documents..." xml:space="preserve">
     <value>搜尋我的文件...</value>
   </data>

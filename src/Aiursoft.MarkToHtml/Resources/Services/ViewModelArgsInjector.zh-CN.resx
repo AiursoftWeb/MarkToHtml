@@ -183,6 +183,9 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
   <data name="Search my documents..." xml:space="preserve">
     <value>搜索我的文档...</value>
   </data>

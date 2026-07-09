@@ -183,6 +183,58 @@
   <data name="Roles" xml:space="preserve">
     <value>Rollen</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suche
+```
+
+But check the request: &quot;Please translate only the sentence or word `Search` in the paragraph into the target language de-DE.&quot; The user wants the translation. They ask &quot;Wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So output exactly:
+
+``` 
+Suche
+```
+
+But they said &quot;Only output the translated content and wrap it in three backticks&quot;. So something like:
+
+```
+Suche
+```
+
+No extra content. So we need to output just the translation with backticks.
+
+Thus answer:
+
+```Suche```
+
+But with proper formatting: triple backticks with content inside. Should be:
+
+```Suche```
+
+Make sure no extra spaces? Example: code block with content. So we output:
+
+```Suche```
+
+Yes.
+
+Now, double-check if &quot;Search&quot; is a proper noun. In context, it&apos;s a UI string. It could be part of a navbar, like &quot;Search&quot;. In German, it&apos;s &quot;Suche&quot;. Also &quot;Suchen&quot; (imperative form). But likely &quot;Suche&quot;. Could also be &quot;Suche&quot; is correct. Many localization strings treat &quot;Search&quot; as &quot;Suche&quot;. So answer accordingly.
+
+Thus final: ```Suche```.
+&lt;/think&gt;
+
+```Suche</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Meine Dokumente suchen...
+```
+
+Thus we output only that. However, we need to check if we have to include three backticks. The instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we output exactly:
+
+```Meine Dokumente suchen...```
+
+Thus final answer. Ensure no extra content.
+&lt;/think&gt;
+
+```Meine Dokumente suchen...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Selbsthosten</value>
   </data>

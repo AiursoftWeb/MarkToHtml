@@ -183,6 +183,26 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search
+```
+
+But we must verify if the term is indeed a proper noun. &quot;Search&quot; appears to be a UI label, maybe the label for a search form component. In software localization, &quot;Search&quot; is a word that is often left unchanged for English (UK) because it&apos;s standard. However, maybe British English uses &quot;Search&quot; or &quot;Search&quot;? There&apos;s no difference. So translation is just &quot;Search&quot;. But perhaps they expect &quot;Search&quot;. So output &quot;Search&quot;. There&apos;s no other content.
+
+Double-check instruction: &quot;Please translate only the sentence or word `Search` in the paragraph into the target language en-GB, English (United Kingdom).&quot; They also say &quot;If you don&apos;t understand what you want to translate, please output it as it is! Do not output any other content.&quot; So we output &quot;Search&quot;. Since it&apos;s a word, we output just &quot;Search&quot;. Wrap in triple backticks.
+
+Thus final answer:
+
+```
+Search
+```
+
+Make sure no extra content.
+&lt;/think&gt;
+
+```
+Search</value>
+  </data>
   <data name="Search my documents..." xml:space="preserve">
     <value>Search my documents...</value>
   </data>

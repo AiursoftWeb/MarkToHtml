@@ -183,6 +183,86 @@
   <data name="Roles" xml:space="preserve">
     <value>Rôles</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>) with just the translation. The translation for &quot;Search&quot; in French is &quot;Rechercher&quot;. So the answer should be:
+
+```
+Rechercher
+```
+
+But check the instructions: they want the translated conclusion and nothing else. They want to output the translated word in a code block, preceded by &quot;Translated word here...&quot;? No, the instruction from user says: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So they want the translated content inside triple backticks, no other content. So output:
+
+```
+Rechercher
+```
+
+Yes. Ensure no extra text.
+
+Thus final answer: triple backticks with &quot;Rechercher&quot;.
+&lt;/think&gt;
+
+```Rechercher</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus we output:
+
+``` 
+Rechercher mes documents...
+```
+
+But check for any translation nuance: &quot;Search my documents...&quot; maybe &quot;Rechercher dans mes documents...&quot;. In French, &quot;Rechercher mes documents...&quot; not quite grammatical. The phrase &quot;Search my documents...&quot; is a placeholder for search input: &quot;Rechercher...&quot; is typical; adding &quot;mes documents&quot; might be redundant if search is universal. But translation can be &quot;Rechercher mes documents...&quot;. Usually French placeholders are &quot;Rechercher...&quot;. However, we have &quot;Search my documents...&quot; as a placeholder in a search box of a website. That might be from an English UI. French translation likely &quot;Rechercher dans mes documents...&quot;. But we must reflect the English phrase. &quot;Rechercher mes documents...&quot;? Actually &quot;Rechercher mes documents...&quot; is odd because &quot;Rechercher&quot; is a verb requiring a direct object: &quot;Rechercher mes documents&quot; meaning &quot;Search my documents&quot;. So &quot;Rechercher mes documents...&quot; is okay. French would more likely say &quot;Rechercher dans mes documents...&quot;. That phrase might be &quot;Rechercher dans mes documents...&quot;.
+
+Let&apos;s think about typical translation: For example in Microsoft Word, search placeholder is &quot;Rechercher dans le document&quot;. Here it&apos;s &quot;Search my documents...&quot;. French translation might be &quot;Rechercher dans mes documents...&quot;. That seems correct: &quot;Rechercher dans mes documents&quot;. Typically you&apos;d have &quot;Rechercher dans mes documents...&quot;. That includes ellipsis.
+
+Thus translation: &quot;Rechercher dans mes documents...&quot;. This is plausible.
+
+The user said &quot;Only output the translated content and wrap it in three backticks&quot;. So we output:
+
+``` 
+Rechercher dans mes documents...
+```
+
+But must we include ellipsis? They said &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need exactly three backticks (open and close) and inside the translation.
+
+Thus final answer:
+
+```
+Rechercher dans mes documents...
+```
+
+But check if any special characters: maybe need to preserve the ellipsis &quot;...&quot;. In French translation, often ellipsis is included as &quot;...&quot;. So we include it.
+
+Thus final answer: just three backticks with content.
+
+Will the system interpret the triple backticks? They asked to output in triple backticks. Provide exactly:
+
+```
+Rechercher dans mes documents...
+```
+
+Make sure no other content.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Rechercher dans mes documents...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Hébergement auto</value>
   </data>

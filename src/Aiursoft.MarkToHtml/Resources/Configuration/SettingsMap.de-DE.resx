@@ -24,6 +24,33 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Benutzern erlauben, ihren Spitznamen auf der Seite zur Profilverwaltung anzupassen.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung erforderlich ist.
+```
+
+Alternatively, &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; might be more natural in German: &quot;Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung benötigt wird.&quot; But &quot;erforderlich&quot; vs &quot;benötigt&quot;? Both fine.
+
+We need to check if any part of the phrase may be considered a proper noun: &quot;Bearer token&quot; is not a proper noun, but &quot;Embedding Endpoint&quot; might be considered a technical term. However, &quot;Embedding&quot; is also a generic term, but might be left unchanged or translated. &quot;Embedding&quot; is common. The German translation could be &quot;Embedding-Endpunkt&quot;. That seems correct.
+
+Alternatively, could translate &quot;Embedding Endpoint&quot; as &quot;Embedding-Endpunkt&quot;. In German, &quot;Endpoint&quot; often is &quot;Endpunkt&quot;. So &quot;Embedding-Endpunkt&quot; is okay.
+
+Thus translation: &quot;Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung erforderlich ist.&quot;
+
+Check the phrase for translation: &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; -&gt; &quot;Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung erforderlich ist.&quot;
+
+We need to output only the translation, wrapped in triple backticks. So:
+
+```Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung erforderlich ist.```
+
+Make sure not to add any other content. So answer exactly that.
+
+Double-check any constraints: The user wants &quot;Only output the translated content and wrap it in three backticks.&quot; So exactly that.
+
+Thus final answer: triple backticks with translation.
+&lt;/think&gt;
+
+```Bearer-Token für den Embedding-Endpunkt. Leer lassen, wenn keine Authentifizierung erforderlich ist.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brand-Startseite-URL</value>
   </data>
@@ -45,8 +72,225 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Vertragslogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Einbettungs-API-Token
+```
+
+But check: Should there be a hyphen between API and Token? Usually &quot;API-Token&quot; is okay. Could also be &quot;Einbettungs-API-Token&quot;. We should be consistent.
+
+Now check for synonyms: &quot;Embedding API Token&quot; could also be &quot;Einbettungs‑API‑Token&quot;. Usually German translation for &quot;embedding&quot; is &quot;Einbettung&quot;. So &quot;Einbettungs‑API‑Token&quot;. That seems fine.
+
+Now check for proper nouns: &quot;API&quot; is a trademark? It&apos;s a term for Application Programming Interface, not a trademark. It&apos;s a standard term. It&apos;s considered a proper noun but often remains unchanged. So we keep &quot;API&quot;. The word &quot;Token&quot; might be kept unchanged. So &quot;Einbettungs‑API‑Token&quot;. That is the translation.
+
+Make sure we output only the translation in triple backticks, nothing else.
+
+Thus answer: ```Einbettungs-API-Token``` (with hyphen maybe). Or &quot;Einbettungs‑API‑Token&quot;. We must ensure we output exactly that.
+
+Potential nuance: The phrase &quot;Embedding API Token&quot; might also be &quot;Embedding API-Token&quot;. But &quot;Einbettungs API Token&quot;? However, translation guidelines: Usually &quot;Embedding API Token&quot; is a label for a setting name; in German UI they&apos;d want &quot;Embedding API‑Token&quot; as a proper noun but they&apos;d often translate it for consistency. The user wants accurate translation.
+
+Thus output:
+
+```
+Einbettungs-API-Token
+```
+
+That is likely correct.
+
+Double-check: The word &quot;embedding&quot; in context of &quot;document and query embeddings&quot; may be &quot;Einbettung&quot;. So &quot;Embedding&quot; -&gt; &quot;Einbettungs&quot;. So &quot;Einbettungs‑API‑Token&quot;. That&apos;s a translation.
+
+Check if there is any requirement about &quot;embedding&quot; being a noun. &quot;Embedding&quot; as a gerund; in German &quot;Einbettung&quot;. &quot;Embedding&quot; as an attribute of an &quot;API Token&quot;. So &quot;Einbettungs-API-Token&quot;. That is likely correct.
+
+Thus answer.
+&lt;/think&gt;
+
+```Einbettungs-API-Token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Einbettungs-Endpunkt```.
+
+Make sure no extra content.
+
+Thus final answer: just that.
+&lt;/think&gt;
+
+```Einbettungs-Endpunkt</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Einbettungsmodell
+```
+
+But let&apos;s double-check that &quot;Embedding Model&quot; appears in the paragraph as the Name property: Name = Localizer[&quot;Embedding Model&quot;], Description = Localizer[&quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot;], etc. So translation of &quot;Embedding Model&quot;. In German, it&apos;s &quot;Einbettungsmodell&quot;. However, is it singular? &quot;Embedding Model&quot; (singular) =&gt; &quot;Einbettungsmodell&quot;. If there is a plural like &quot;Embedding Models&quot; would be &quot;Einbettungsmodelle&quot;. So we output singular.
+
+Check context: The paragraph includes &quot;Embedding Model&quot; and &quot;Embedding Endpoint&quot;. Possibly the translation for &quot;Embedding Model&quot; is &quot;Einbettungsmodell&quot;. That&apos;s common. Should we use capitalized first letter? German nouns are capitalized, so &quot;Einbettungsmodell&quot; is fine. Should we also include any trailing spaces? No. Just translation.
+
+Thus final answer: ```Einbettungsmodell```.
+
+Make sure to output only that wrapped in triple backticks.
+&lt;/think&gt;
+
+```Einbettungsmodell</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.
+```
+
+But maybe better &quot;Modellname für das Embedding-Modell zur Vektorsuche, z. B. bge-m3:latest.&quot;
+
+We need to decide translation style. The user wants &quot;accurate, fluent, careful&quot;. The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; can be translated as &quot;Modellname für das Embedding-Modell zur Vektorsuche, z. B. bge-m3:latest.&quot;
+
+But &quot;Embedding model name&quot; maybe &quot;Modellname des Embedding-Modells&quot; is weird. Typically &quot;embedding model name&quot; =&gt; &quot;Modellname des Embedding-Modells&quot;. However, &quot;embedding model name for vector search&quot; maybe &quot;Modellname für das Einbettungsmodell zur Vektorsuche&quot;. In German, &quot;Einbettungsmodell&quot; is a term for &quot;embedding model&quot;. So could say: &quot;Modellname für das Einbettungsmodell zur Vektorsuche, z. B. bge-m3:latest.&quot;
+
+Alternatively: &quot;Modellname für die Einbettungsmodell zur Vektorsuche&quot;. That might be awkward. Let&apos;s think about correct German grammar.
+
+German phrase: &quot;Modellname für die Einbettung zur Vektorsuche&quot; is close but unnatural. &quot;Modellname für das Einbettungsmodell zur Vektorsuche&quot; is fine. &quot;Modellname für die Einbettung zur Vektorsuche&quot; also possible.
+
+We need to translate the phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot;
+
+A proper translation: &quot;Modellname des Einbettungsmodells für die Vektorsuche, z. B. bge-m3:latest.&quot; That seems good.
+
+But &quot;Embedding model name for vector search&quot; maybe more straightforward: &quot;Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.&quot; This is clear.
+
+Thus I think we can output &quot;Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.&quot;
+
+Now check for proper nouns: &quot;bge-m3:latest&quot; is kept unchanged. The phrase &quot;Embedding model name for vector search&quot; includes &quot;Embedding&quot;, which is a proper term but is not a trademark, it&apos;s a generic concept. So we can translate it.
+
+Thus final answer: triple backticks with translation:
+
+```
+Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.
+```
+
+That seems appropriate.
+
+The instructions: &quot;Only output the translated content and wrap it in three backticks&quot;. So we output that exactly.
+
+Thus final answer is:
+
+```
+Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.
+```
+&lt;/think&gt;
+
+```Modellname für die Einbettung zur Vektorsuche, z. B. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus I will output:
+
+```
+Einbettungs-Abfrage-Cache-Limit
+```
+&lt;/think&gt;
+
+``` 
+Einbettungs-Abfrage-Cache-Limit</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Enable Embedding-Based Search
+```
+
+No, we must output the translated content, not the original. So we output the German translation.
+
+Thus the answer: &quot;Embedding-basierte Suche aktivieren&quot;. But we need to check German grammar: &quot;Embedding-basierte Suche aktivieren&quot; vs &quot;Embedding-basierte Suche aktivieren&quot;? &quot;Embedding&quot; is English, but maybe we can keep it as &quot;Embedding&quot;. Typically, German translations for technical terms often keep English words if they are standard. &quot;Embedding-basierte Suche aktivieren&quot;. &quot;Aktivieren&quot; is a verb in infinitive. That seems appropriate.
+
+But there is a nuance: &quot;Enable Embedding-Based Search&quot; could also be &quot;Embedding-basierte Suche aktivieren&quot;. That is the translation. Could also be &quot;Embedding-basierte Suche aktivieren&quot; (no &quot;Enable&quot;?). Actually &quot;Enable&quot; means to turn on. In German, &quot;Aktivieren&quot; is &quot;to activate&quot;. So &quot;Enable&quot; is &quot;Aktivieren&quot;. So &quot;Embedding-basierte Suche aktivieren&quot;. That seems correct.
+
+Thus answer: ```Embedding-basierte Suche aktivieren```.
+
+But we need to wrap in three backticks. Also we must not include any other content. So final answer: triple backticks with the translation.
+
+Thus output:
+
+```Embedding-basierte Suche aktivieren```
+
+Check: Should we include spaces? &quot;Embedding-basierte Suche aktivieren&quot;. German compound noun style: &quot;Embedding-basierte Suche&quot; as a noun phrase. Could also be &quot;Embedding-basierte Suche aktivieren&quot;. There&apos;s no &quot;Enable&quot; in translation. That seems correct.
+
+Thus final.
+&lt;/think&gt;
+
+```Embedding-basierte Suche aktivieren</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-Nummer</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Hauptschalter für semantische (vektorbasierte) Suche. Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.
+```
+
+Check: Should we keep &quot;Master switch&quot; untranslated? The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; &quot;Master switch&quot; is not a proper noun, but might be considered a term like &quot;Master&quot;. Could be considered a &quot;nickname&quot;? It&apos;s just a generic term. In German, we can translate as &quot;Haupt-&quot; plus &quot;Schalter&quot;. So we translate it. However, maybe the phrase &quot;Master switch&quot; could be left as &quot;Master-Schalter&quot;? But no trademark. The user may want the translation.
+
+Thus the translation in German:
+
+&quot;Hauptschalter für semantische (vektorbasierte) Suche. Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.&quot;
+
+Alternatively &quot;Falls back to keyword search when disabled.&quot; This can be &quot;Fällt bei Deaktivierung zurück auf die Schlüsselwortsuche.&quot; Or &quot;Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.&quot; We&apos;ll choose one.
+
+Thus final answer: a code block containing the translation.
+
+Check for proper punctuation: Might use period. &quot;Hauptschalter für semantische (vektorbasierte) Suche. Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.&quot;
+
+Make sure no extra content.
+
+Thus final answer:
+
+```
+Hauptschalter für semantische (vektorbasierte) Suche. Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.
+```
+&lt;/think&gt;
+
+``` 
+Hauptschalter für semantische (vektorbasierte) Suche. Bei Deaktivierung wird auf die Schlüsselwortsuche zurückgegriffen.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maximale Anzahl zwischengespeicherter Suchabfrage‑Einbettungen in der Datenbank (LRU). Standard 2000.
+```
+
+Alternatively we could use &quot;Suchanfrage‑Einbettungen&quot; instead of &quot;Suchabfrage‑Einbettungen&quot;? Let&apos;s check. Usually &quot;search query&quot; = &quot;Suchabfrage&quot; (maybe &quot;Suchabfrage&quot; is not common; &quot;Suchanfrage&quot; is more common. So &quot;Suchanfrage‑Einbettungen&quot;. So &quot;Suchanfrage‑Einbettungen&quot;. Or &quot;Suchanfrage‑Einbettungen&quot;. Then phrase: &quot;Maximale Anzahl zwischengespeicherter Suchanfrage‑Einbettungen in der Datenbank (LRU). Standard 2000.&quot;
+
+Also &quot;LRU&quot; is an acronym; we keep it as is. &quot;Default&quot; could be &quot;Standard&quot;. In German &quot;Standard&quot; is used as an adjective? Usually &quot;Standard&quot; is a noun meaning &quot;standard&quot;. &quot;Default 2000&quot; could be &quot;Standardwert 2000&quot; but simpler: &quot;Standard 2000.&quot; It&apos;s okay.
+
+Thus final answer: wrap the translation in backticks.
+
+One more thing: user wants output only the translated content and nothing else. So just code block with translation.
+
+Thus output:
+
+``` Maximale Anzahl zwischengespeicherter Suchanfrage‑Einbettungen in der Datenbank (LRU). Standard 2000. ```
+
+Make sure to use three backticks. Use triple backticks. Also ensure no extra content. Should be exactly like:
+
+```
+Maximale Anzahl zwischengespeicherter Suchanfrage‑Einbettungen in der Datenbank (LRU). Standard 2000.
+```
+
+Hence answer.
+
+We should be mindful of any special characters: hyphen maybe used as &quot;‑&quot; (en dash?). Keep as plain hyphen? Use standard hyphen: &quot;-&quot;. Use &quot;Maximale Anzahl zwischengespeicherter Suchanfrage-Einbettungen in der Datenbank (LRU). Standard 2000.&quot;
+
+Better to use hyphen for &quot;Suchanfrage-Einbettungen&quot; because standard hyphen is fine. Let&apos;s decide: &quot;Maximale Anzahl zwischengespeicherter Suchanfrage‑Einbettungen in der Datenbank (LRU). Standard 2000.&quot; Use normal hyphen. So translation:
+
+&quot;Maximale Anzahl zwischengespeicherter Suchanfrage-Einbettungen in der Datenbank (LRU). Standard 2000.&quot;
+
+Thus final answer.
+&lt;/think&gt;
+
+```Maximale Anzahl zwischengespeicherter Suchanfrage-Einbettungen in der Datenbank (LRU). Standard 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API-Basis-URL zur Generierung von Dokument- und Abfrage-Embeddings (z. B. https://ollama.example.com). /api/embed wird automatisch angehängt.
+```
+
+Check for any other proper nouns: &quot;Ollama API&quot; is a trademark? &quot;Ollama&quot; is a proper name, keep as is. &quot;API&quot; is a term but might be considered abbreviation; we keep &quot;API&quot;. &quot;Base URL&quot; might be &quot;Basis-URL&quot;. &quot;Document and query embeddings&quot; is generic. So translation seems fine.
+
+The user instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this: ```Translated word here...```&quot;. They want only the translated content inside backticks, no extra text. So we output just the translated sentence inside triple backticks.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Ollama API-Basis-URL zur Generierung von Dokument- und Abfrage-Embeddings (z. B. https://ollama.example.com). /api/embed wird automatisch angehängt.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projekt-Logo</value>

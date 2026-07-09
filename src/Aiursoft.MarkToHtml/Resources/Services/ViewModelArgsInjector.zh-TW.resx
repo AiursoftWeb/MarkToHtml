@@ -183,6 +183,25 @@
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋
+```
+
+But we must wrap in three backticks as they instructed.
+
+Thus final answer:
+
+```
+搜尋
+```
+
+Check for &quot;Search&quot; being a proper noun? It&apos;s a UI label, not a trademark, not a proper name. So translation is appropriate. So answer is just the translation.
+
+Thus final.
+&lt;/think&gt;
+
+```搜尋</value>
+  </data>
   <data name="Search my documents..." xml:space="preserve">
     <value>搜尋我的文件...</value>
   </data>

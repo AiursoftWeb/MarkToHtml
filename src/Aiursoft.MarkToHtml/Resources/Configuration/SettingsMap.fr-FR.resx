@@ -24,6 +24,14 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Autoriser les utilisateurs à modifier leur surnom sur la page de gestion du profil.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token for the Embedding Endpoint. Laisser vide si aucune authentification n&apos;est requise.
+```
+&lt;/think&gt;
+
+``` 
+Bearer token for the Embedding Endpoint. Laisser vide si aucune authentification n&apos;est requise.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL de la page d&apos;accueil de la marque</value>
   </data>
@@ -45,8 +53,408 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo du contrat</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>), like this: ``` Translated word here...```.&quot; So we need to output exactly:
+
+```
+Jeton de l&apos;API d&apos;Embedding
+```
+
+But let&apos;s double-check: The user specifically said &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language fr-FR, Français (France).&quot; So we output only the translation, not the entire paragraph. They want a translation only of the &quot;Embedding API Token&quot; phrase. This phrase is part of the Name property, likely used in UI. So we translate it.
+
+Thus output:
+
+``` 
+Jeton de l&apos;API d&apos;Embedding 
+```
+
+But we need to wrap in triple backticks. The example they gave: ``` Translated word here...```. So inside triple backticks, we write &quot;Jeton de l&apos;API d&apos;Embedding&quot;. Should we include spaces? The translation likely includes a space between &quot;Jeton&quot; and &quot;de&quot;. That&apos;s fine.
+
+Now check instructions about not outputting other content. They want only the translation. So final output should be:
+
+```
+Jeton de l&apos;API d&apos;Embedding
+```
+
+But we need to put exactly as they want: triple backticks containing the translation. So final output:
+
+``` 
+Jeton de l&apos;API d&apos;Embedding 
+```
+
+But note they wrote &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So they want triple backticks, then the translation inside maybe on same line. They gave example: triple backticks start, then space then translation, then triple backticks? Actually they wrote:
+
+```
+Translated word here...
+```
+
+That suggests a triple backticks code block containing the translation on a line? The typical format: 
+
+```
+Jeton de l&apos;API d&apos;Embedding
+```
+
+i.e., triple backticks on a line alone then translation then triple backticks. They wrote &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. Actually they wrote: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Interpretation: They want output that is a code block with triple backticks, containing the translation. That is, start with triple backticks, then newline, then translation, then newline, then triple backticks? Or maybe just triple backticks around the translation line. The example:
+
+```
+Translated word here...
+```
+
+That is a triple backticks line start, then translation, then line break, then triple backticks line? Actually the example shows triple backticks on its own line, then the translation, then triple backticks on its own line? But they wrote:
+
+```
+Translated word here...
+```
+
+That is a code block: triple backticks then newline then translation then newline then triple backticks? Let&apos;s check: In markdown, a code block can be created by wrapping with triple backticks. Example:
+
+``` 
+Hello world
+```
+
+So it&apos;s triple backticks line, then content, then triple backticks line.
+
+Thus we need to output:
+
+``` 
+Jeton de l&apos;API d&apos;Embedding
+```
+
+This includes the triple backticks line at start and end. The content line is the translation. That&apos;s likely correct.
+
+Thus final answer is a code block containing &quot;Jeton de l&apos;API d&apos;Embedding&quot;. Ensure we follow the instructions exactly: &quot;Only output the translated content and wrap it in three backticks (```)&quot;. So we output the code block. Let&apos;s output that.
+
+One more consideration: The user said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot; So &quot;Embedding API Token&quot; might be considered a proper noun because it&apos;s a technical term. But the request explicitly says to translate only that word. So we should translate it. The proper noun rule may not apply because they explicitly want translation. So we comply.
+
+Now check the instruction &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand it, so we can translate.
+
+Thus output:
+
+``` 
+Jeton de l&apos;API d&apos;Embedding 
+```
+
+But note that they want the translation only, no other content. So we output exactly that code block.
+
+Double-check: &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language fr-FR, Français (France).&quot; So they want the translation of that phrase. Good.
+
+Thus final answer:
+
+``` 
+Jeton de l&apos;API d&apos;Embedding 
+```
+
+Make sure not to include any extra lines or comments. So final answer is exactly that.
+&lt;/think&gt;
+
+``` 
+Jeton de l&apos;API d&apos;Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Point de terminaison d&apos;embedding
+```
+
+Alternatively, if we think &quot;Embedding Endpoint&quot; is a proper noun, we would output unchanged. But I think it&apos;s not proper. Let&apos;s do translation.
+
+But we should double-check that &quot;embedding endpoint&quot; is not a trademark or product name. Could be part of &quot;Ollama API&quot;. But it&apos;s not a trademark; it&apos;s a generic concept. So translation is appropriate.
+
+Thus output:
+
+``` 
+Point de terminaison d&apos;embedding 
+```
+
+Wrap in triple backticks.
+
+We must be careful to not output any other content. The user explicitly says &quot;Do NOT output any other content.&quot; So only the triple backticks block containing translation.
+
+Thus final answer: triple backticks with translation.
+
+Potential nuance: Some guidelines suggest &quot;embedding&quot; is used as a noun in English, but in French it might be &quot;intégration d&apos;embedding&quot;? However, &quot;embedding&quot; is a gerund-like noun; there is French noun &quot;intégration&quot;, &quot;plongement&quot;? Actually &quot;embedding&quot; can be translated as &quot;plongement&quot; (embedding in machine learning). But &quot;embedding&quot; is rarely translated. In French, people use &quot;embedding&quot;. So &quot;embedding&quot; is often left as is, like &quot;embedding&quot;. So &quot;Embedding Endpoint&quot; could be &quot;Point de terminaison d&apos;embedding&quot;. That&apos;s fine.
+
+Thus answer:
+
+``` 
+Point de terminaison d&apos;embedding 
+```
+
+We must not add any extra commentary. That&apos;s all.
+
+Now check: The user instruction says &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So they want the translation inside triple backticks. So we output:
+
+```
+Point de terminaison d&apos;embedding
+```
+
+Make sure no extra spaces before or after the backticks? They want exactly like:
+
+```
+Translated word here...
+```
+
+So we output:
+
+``` 
+Point de terminaison d&apos;embedding 
+```
+
+Probably without leading/trailing spaces. Good.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Point de terminaison d&apos;embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Modèle d&apos;embedding
+```
+
+or maybe &quot;Modèle d&apos;Embedding&quot;. Let&apos;s see. The original is &quot;Embedding Model&quot;. To preserve case, maybe &quot;Modèle d&apos;Embedding&quot;. Let&apos;s check typical French UI translation style for settings. For example, in a French version of an application, they might have &quot;Modèle d&apos;embed&quot; but that&apos;s unusual. Usually they&apos;d keep &quot;Embedding Model&quot;. But the instruction about proper nouns: &quot;Embedding Model&quot; is likely a proper noun (the name of a setting). It could be considered a proper noun and should not be translated. However, the user also says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are uncertain, we can output as is: &quot;Embedding Model&quot;. But we could also choose to translate. Which one aligns with user instructions? The user wants translation. The instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; That implies we must decide if &quot;Embedding Model&quot; is a proper noun. If it is a proper noun (like a brand or product name), we should output it unchanged. However, &quot;Embedding Model&quot; is not a trademark; it&apos;s a technical term. Many translation guidelines treat technical terms as not proper nouns, but rather as &quot;key concepts&quot;. Usually they&apos;d be translated. But the user also says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are not sure, we can output unchanged. The user may be expecting translation. But typical &quot;Embedding Model&quot; translation would be &quot;Modèle d&apos;Embedding&quot;. Let&apos;s think about typical French translation for &quot;Embedding model&quot;. In the context of &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot; They mention &quot;embedding&quot; used for vector search. So &quot;Embedding Model&quot; is a model used for generating embeddings. In French, you could translate &quot;Embedding Model&quot; as &quot;Modèle de vectorisation&quot;. But &quot;vectorization&quot; is a different term. However, the phrase &quot;embedding&quot; is often used directly, so &quot;Modèle d&apos;Embedding&quot;. I think a good translation is &quot;Modèle d&apos;embedding&quot;. However, is &quot;d&apos;embedding&quot; correct? French usually uses &quot;d&apos;embed&quot; but embedding is an English term. It&apos;s common to keep &quot;embedding&quot;. So &quot;Modèle d&apos;embedding&quot; might be appropriate. But note the accent? The apostrophe: &quot;d&apos;embedding&quot;. That seems fine.
+
+We need to output only the translated word. So output: ``Modèle d&apos;embedding`` inside code block.
+
+But we must check: The user said &quot;Please translate only the sentence or word `Embedding Model` in the paragraph into the target language fr-FR&quot;. So translation for &quot;Embedding Model&quot; is indeed &quot;Modèle d&apos;Embedding&quot;. If we put &quot;d&apos;Embedding&quot; capital I maybe. In French, we often keep the English term &quot;Embedding&quot;. So &quot;Modèle d&apos;Embedding&quot;. Which is more appropriate? &quot;Embedding Model&quot; -&gt; &quot;Modèle d&apos;Embedding&quot;. Let&apos;s decide which is more natural. In French, &quot;modèle d&apos;Embedding&quot; is plausible. However, &quot;Embedding Model&quot; is two words; translation might be &quot;Modèle d&apos;Embedding&quot;. The phrase &quot;Embedding Model&quot; may be considered a combined term. The translation could be &quot;Modèle d&apos;embedding&quot;. But the term &quot;embedding model&quot; could also be &quot;modèle d&apos;embedding&quot;. I&apos;d choose &quot;Modèle d&apos;Embedding&quot;. Let&apos;s see typical usage: In French forum threads, they say &quot;modèle d&apos;Embedding&quot;. For instance: &quot;utiliser un modèle d&apos;Embedding comme bge-m3&quot;. People say &quot;modèle d&apos;Embedding&quot; or &quot;modèle d&apos;embedding&quot;. So I think &quot;Modèle d&apos;Embedding&quot; is okay.
+
+Thus output:
+
+```
+Modèle d&apos;Embedding
+```
+
+Now let&apos;s see the instruction: &quot;Only output the translated content and wrap it in three backticks&quot;. So I output a code block containing &quot;Modèle d&apos;Embedding&quot;. That satisfies. I must not output any other content. So final answer: code block with translation.
+
+Thus answer:
+
+```Modèle d&apos;Embedding```
+&lt;/think&gt;
+
+```Modèle d&apos;Embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nom du modèle d&apos;Embedding pour la recherche vectorielle, p. ex. bge-m3:latest.
+```
+
+But perhaps better to write &quot;Nom du modèle dEmbedding&quot; with no apostrophe? The typical French translation for &quot;Embedding model name&quot; is &quot;Nom du modèle dEmbedding&quot;. Actually &quot;Embedding model name for vector search&quot; could be translated as &quot;Nom du modèle dEmbedding pour la recherche vectorielle&quot;. So &quot;Nom du modèle d&apos;Embedding pour la recherche vectorielle, par exemple bge-m3:latest.&quot; Should we use &quot;p. ex.&quot; or &quot;par exemple&quot;? Both fine. Use &quot;par exemple&quot;. So final:
+
+```
+Nom du modèle d&apos;Embedding pour la recherche vectorielle, par exemple bge-m3:latest.
+```
+
+We need to output only the translation, wrapped in triple backticks.
+
+Thus:
+
+``` 
+Nom du modèle d&apos;Embedding pour la recherche vectorielle, par exemple bge-m3:latest.
+```
+
+Check the user request: &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language fr-FR, Français (France).&quot; So translation needed.
+
+Potential nuance: they want only the translation, not any other content. So just output the translation in triple backticks. The translation: &quot;Nom du modèle d&apos;Embedding pour la recherche vectorielle, par exemple bge-m3:latest.&quot;
+
+Make sure not to include any extra punctuation or explanation.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Nom du modèle d&apos;Embedding pour la recherche vectorielle, par exemple bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limite du cache de requêtes d&apos;Embedding```. But we need to ensure it&apos;s wrapped in three backticks, as per instruction.
+
+Therefore final answer:
+
+```
+Limite du cache de requêtes d&apos;Embedding
+```
+
+But note: the user also says &quot;Do not output any other content! Only output the translated content and wrap it in three backticks (```), like this: ```Translated word here...```&quot;. So they want exactly a code block with backticks containing the translation. So output that.
+
+We need to ensure we include no extra text, just the code block.
+
+Thus final output: ```Limite du cache de requêtes d&apos;Embedding```.
+
+But maybe we should consider if the translation should be &quot;Limite du cache de requêtes d&apos;embedding&quot; (lowercase embedding). Let&apos;s think about typical translation guidelines: If you have &quot;embedding&quot;, a technical term, you could keep it unchanged. If it&apos;s capitalized in the source, you may keep capital &quot;Embedding&quot;. But in French, the capitalized &quot;Embedding&quot; might be unnatural; but it&apos;s acceptable if we treat it as a proper noun. In the context of a UI label, &quot;Limite du cache de requêtes d&apos;Embedding&quot; is plausible.
+
+Thus answer: ```Limite du cache de requêtes d&apos;Embedding```.
+
+Check for any punctuation: the code block should include just the phrase, no extra whitespace.
+
+Thus answer.
+&lt;/think&gt;
+
+```Limite du cache de requêtes d&apos;Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Translated word here...```&quot;. So we need to output only the translation inside triple backticks.
+
+Therefore, we need to output a code block (triple backticks) with translation content. Should we include &quot;Activer la recherche par embeddings&quot;? Usually French UI would maybe use &quot;Activer la recherche par plongements&quot; or &quot;Activer la recherche par embeddings&quot;. But we can choose &quot;Activer la recherche par embeddings&quot;. Let&apos;s think about typical translation: The phrase &quot;Enable Embedding-Based Search&quot; likely translates to &quot;Activer la recherche par embeddings&quot;. Let&apos;s see if there is any nuance: &quot;Enable Embedding-Based Search&quot;. &quot;Embedding-Based Search&quot; is a term for vector search. In French, &quot;recherche par plongement&quot; is used in academic contexts. However many French UI use &quot;recherche sémantique&quot; if it&apos;s about vector search. But the phrase given is &quot;Enable Embedding-Based Search&quot;. If we translate &quot;Enable&quot; as &quot;Activer&quot;. &quot;Embedding-Based&quot; as &quot;basée sur les embeddings&quot; or &quot;par embeddings&quot;. &quot;Search&quot; as &quot;recherche&quot;. So maybe &quot;Activer la recherche par embeddings&quot;. That seems straightforward.
+
+Alternatively, &quot;Activer la recherche par plongements&quot; but we need to be consistent. The term &quot;Embedding&quot; is often left in English, but &quot;recherche par embeddings&quot; is okay. So translation: &quot;Activer la recherche par Embeddings&quot;. However, we need to keep case? The original &quot;Enable Embedding-Based Search&quot;. In French UI, titles are often capitalized like &quot;Activer la recherche par embeddings&quot;. But the translation can be &quot;Activer la recherche par embeddings&quot;. We&apos;ll produce that.
+
+User explicitly says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Enable Embedding-Based Search` is one of them.&quot; They ask if it&apos;s a proper noun? It&apos;s a UI label, not a name. So we need to translate it.
+
+Thus we output:
+
+```Activer la recherche par embeddings```
+
+But might need to keep capitalizations? The original uses Title Case &quot;Enable Embedding-Based Search&quot;. In French, it&apos;s common to have &quot;Activer la recherche par embeddings&quot;. Title case not necessary. We&apos;ll use &quot;Activer la recherche par embeddings&quot;. That seems okay.
+
+Thus final answer is triple backticks with translation.
+
+Make sure no extra content.
+
+Thus final output is:
+
+```Activer la recherche par embeddings```
+&lt;/think&gt;
+
+```Activer la recherche par embeddings</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numéro ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Interrupteur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.
+```
+
+Alternatively, &quot;commutateur principal&quot;. &quot;Master switch&quot; could be &quot;commutateur principal&quot; or &quot;interrupteur principal&quot;. &quot;commutateur principal&quot; is more technical. Let&apos;s decide: &quot;Interrupteur principal&quot; vs &quot;Commutateur principal&quot;. French term for &quot;switch&quot; can be &quot;interrupteur&quot; or &quot;commutateur&quot;. &quot;Commutateur principal&quot; might be more accurate for a master switch in code. &quot;Interrupteur principal&quot; also works. Which is more idiomatic? I&apos;d say &quot;Commutateur principal&quot;. But the sentence likely uses &quot;switch&quot; metaphor; in French, &quot;commutateur&quot; is used for toggle. &quot;Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.&quot; Slightly better.
+
+Also &quot;keyword search&quot; is &quot;recherche par mots-clés&quot;. That&apos;s good.
+
+Thus translation: &quot;Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.&quot;
+
+But we need to output only the translation. Use triple backticks.
+
+Check: the instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we must output translation if we can.
+
+Thus output:
+
+``` 
+Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.
+```
+
+Make sure to not include extra spaces or newlines outside backticks. Just:
+
+```
+Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.
+```
+
+One question: Should we include a space after triple backticks before line? The instruction says &quot;wrap it in three backticks, like this: ``` Translated word here...```&quot;. So we should output exactly three backticks on a line, then translation, then three backticks on a line. Let&apos;s follow that pattern:
+
+```
+Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.
+```
+
+Make sure it&apos;s within triple backticks. So final answer is:
+
+``` 
+Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.
+```
+&lt;/think&gt;
+
+``` 
+Commutateur principal pour la recherche sémantique (vectorielle). Revient à la recherche par mots-clés lorsque désactivé.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Translated word here...
+```
+
+We have to check: The sentence is &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; This is a description of a setting. We need to translate it to French (France). The phrase &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; In French, it could be something like: &quot;Nombre maximum de plongements de requête de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+But need to consider specifics: &quot;cached search-query embeddings&quot; is &quot;plongements de requête de recherche mis en cache&quot;? The term &quot;embedding&quot; is commonly translated as &quot;plongement&quot; in French. However, in French technical contexts, &quot;embedding&quot; is sometimes left as &quot;embedding&quot; or &quot;plongement&quot;. I think &quot;embedding&quot; can be translated as &quot;plongement&quot;. However, many translations use &quot;embedding&quot; as is. But the instruction says we must accurately translate; we need to be careful about &quot;maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; The translation should be faithful but natural. &quot;Nombre maximum de plongements de requête de recherche mis en cache stockés dans la base de données (LRU). Valeur par défaut 2000.&quot;
+
+Alternatively: &quot;Nombre maximum de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+But maybe &quot;cached search-query embeddings&quot; can be &quot;plongements de requête de recherche en cache&quot;. Another option: &quot;search-query embeddings&quot; is &quot;plongements de requête de recherche&quot;. Could also be &quot;search query embeddings&quot; - &quot;embeddings de requête de recherche&quot;. Might be okay.
+
+We need to preserve the LRU abbreviation (LRU). Also preserve &quot;Default 2000&quot; but maybe translation to French could be &quot;Par défaut 2000&quot;. Or &quot;Valeur par défaut 2000&quot;. Both fine. Usually &quot;Default 2000&quot; becomes &quot;Par défaut 2000&quot;. The phrase is &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; In French: &quot;Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+Check if any part is proper nouns or trademark: &quot;LRU&quot; is abbreviation for &quot;Least Recently Used&quot; algorithm used for caching. It is not a trademark. It&apos;s a term. It&apos;s okay to keep it. &quot;Maximum&quot; could be &quot;Maximum&quot;. But we can translate &quot;Maximum&quot; to &quot;Nombre maximal&quot;. Could also use &quot;Maximum&quot; kept as is? The user wants translation, not preserve English terms unless proper noun or trademark. &quot;Maximum&quot; is not a proper noun; we can translate to &quot;Maximum&quot; but better to French. So we can say &quot;Nombre maximal&quot;. &quot;Cached search-query embeddings&quot; we can translate.
+
+But we need to check &quot;search-query embeddings&quot; maybe we can translate as &quot;plongements de requêtes de recherche en cache&quot;. That might be too literal but okay.
+
+Thus translation: &quot;Nombre maximal de plongements de requêtes de recherche en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+But &quot;stockés&quot; is correct? &quot;stockés&quot; is past participle of &quot;stocker&quot;. &quot;stored&quot;. Yes.
+
+Check grammar: &quot; Nombre maximal de plongements de requêtes de recherche en cache stockés dans la base de données (LRU). Par défaut 2000.&quot; Could be &quot;Nombre maximal de plongements de requêtes de recherche en cache stockés dans la base de données (LRU). Valeur par défaut 2000.&quot;
+
+Better: &quot;Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+Better to keep &quot;Maximum number&quot; as &quot;Nombre maximal&quot;. Or &quot;Nombre maximal&quot;. &quot;Cached&quot; as &quot;mis en cache&quot;. &quot;Search-query embeddings&quot; as &quot;plongements de requêtes de recherche&quot;. &quot;Stored in the database&quot; as &quot;stockés dans la base de données&quot;. &quot;LRU&quot; keep. &quot;Default 2000&quot; as &quot;Par défaut 2000&quot;. Good.
+
+Thus final output: ```Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.``` That is one line? They said wrap in three backticks and output only the translated content. They didn&apos;t specify to include line breaks. We can output as one line. Or multi-line? They said &quot;translate only the sentence or word&quot;. So we can output one line. Let&apos;s output as single line:
+
+```Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.```
+
+Check if we need to preserve punctuation exactly as original: original ends with a period. We have period. Good.
+
+Now ensure we didn&apos;t output any other content. Just the translation.
+
+Thus answer: triple backticks with translation.
+
+But let&apos;s double-check for any nuance: They say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are uncertain we can output original. But we can translate.
+
+We need to consider &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; This is the description. In French, we can use &quot;Nombre maximal de plongements de requêtes de recherche mis en cache dans la base de données (LRU). Par défaut 2000.&quot; That is simpler. &quot;stockés&quot; optional.
+
+But we need to be careful about &quot;search-query embeddings&quot;. Many French translations might use &quot;embeddings&quot; directly: &quot;embeddings de requêtes de recherche&quot;. However, they asked to &quot;accurately, fluently, and carefully choose words&quot;. So we need to pick appropriate French words.
+
+Potential translation options:
+
+1. &quot;Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+2. &quot;Nombre maximal de plongements de requêtes de recherche en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+Both similar. &quot;mis en cache&quot; vs &quot;en cache&quot;. &quot;mis en cache&quot; more precise.
+
+But perhaps &quot;search-query embeddings&quot; is technical term &quot;embeddings&quot;. If we translate &quot;embeddings&quot; as &quot;plongements&quot;, we are being more natural. &quot;Plongement&quot; is used in French for &quot;embedding&quot; in machine learning contexts.
+
+Thus: &quot;Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+We need to check if &quot;stockés&quot; might be redundant. &quot;Mis en cache&quot; implies stored in cache. &quot;Stored in the database&quot; is &quot;stockés dans la base de données&quot;. So &quot;mis en cache&quot; and &quot;stockés dans la base de données&quot; both present.
+
+Thus final translation is &quot;Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.&quot;
+
+Check grammar: &quot;Nombre maximal&quot; singular? &quot;Nombre&quot; is noun. &quot;Nombre maximal&quot; correct. &quot;de plongements de requêtes de recherche&quot; correct. &quot;mis en cache&quot; correct. &quot;stockés dans la base de données (LRU)&quot; correct. &quot;Par défaut 2000.&quot; correct.
+
+One might prefer &quot;Valeur par défaut 2000&quot; but &quot;Par défaut 2000&quot; is fine.
+
+Thus final answer.
+
+Now output only that within triple backticks. Should we include the line breaks? Not needed.
+
+Thus final.
+&lt;/think&gt;
+
+```Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de documents et de requêtes (par ex. https://ollama.example.com). /api/embed est ajouté automatiquement.
+```
+
+Check for proper nouns: &quot;Ollama API&quot; keep as is. &quot;URL&quot; might be considered abbreviation but it&apos;s also a symbol; but we may translate &quot;URL&quot;. The instruction says &quot;symbols, trademarks, etc. must be output as it is&quot;. &quot;URL&quot; is abbreviation of Uniform Resource Locator, often left as &quot;URL&quot;. But translation may include &quot;URL&quot;. It&apos;s ambiguous. They want to preserve proper nouns like &quot;URL&quot;? Not sure. &quot;URL&quot; is not a trademark. However, &quot;URL&quot; could be considered a technical term, but it&apos;s a symbol for an address; perhaps we should keep it unchanged: &quot;URL de base&quot;. But &quot;URL&quot; is still a term, not a proper noun. But the instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is&quot;. That includes &quot;symbols&quot; maybe like &quot;URL&quot;? That&apos;s arguable. But typical translation practice: &quot;URL&quot; is kept as is, because it&apos;s an abbreviation. So maybe we should keep &quot;URL&quot;. But &quot;URL de base&quot; includes &quot;URL&quot;. In French, &quot;URL&quot; is used as is. So perhaps we should keep &quot;URL&quot;. So &quot;URL de base de l&apos;Ollama API&quot;. Actually &quot;URL de base&quot; could be &quot;Base URL&quot; but &quot;Base URL&quot; includes &quot;URL&quot;. So &quot;URL de base&quot;. That seems okay.
+
+But the instruction &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them&quot;. That includes &quot;URL&quot; is a symbol? Possibly. So we keep &quot;URL&quot;. But &quot;Ollama API&quot; we keep. &quot;/api/embed&quot; we keep as is because it&apos;s a path. So final translation: &quot;URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de documents et de requêtes (par ex. https://ollama.example.com). /api/embed est ajouté automatiquement.&quot;
+
+Check: &quot;Base URL&quot; =&gt; &quot;URL de base&quot;. Should we use &quot;base URL&quot; in French? Typically &quot;URL de base&quot;. Good. &quot;for generating document and query embeddings&quot; =&gt; &quot;pour la génération d&apos;embeddings de documents et de requêtes&quot;. In French, &quot;requêtes&quot; is &quot;queries&quot;. So &quot;documents et requêtes&quot;. That is correct. The phrase &quot;e.g.&quot; is &quot;par ex.&quot; or &quot;par exemple&quot;. Use &quot;par ex.&quot; maybe. It&apos;s a short abbreviation. &quot;https://ollama.example.com&quot; we keep unchanged. &quot;/api/embed&quot; we keep unchanged.
+
+Thus translation is good.
+
+Now output only the translation wrapped in triple backticks, nothing else.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de documents et de requêtes (par ex. https://ollama.example.com). /api/embed est ajouté automatiquement.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo du projet</value>
