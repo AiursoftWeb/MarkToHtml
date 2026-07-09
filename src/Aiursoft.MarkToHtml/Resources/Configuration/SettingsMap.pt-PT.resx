@@ -24,6 +24,41 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Permitir que os utilizadores ajustem o seu apelido na página de gestão de perfil.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Token Bearer para o Endpoint de Embedding. Deixe vazio se não necessitar de autenticação.
+```
+
+Make sure it&apos;s only that.
+
+Now check for any additional nuance: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We think we understand it. So translation is fine.
+
+Thus final answer: content in three backticks.
+
+One possible nuance: &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; The translation might also be &quot;Token de autenticação para o Endpoint de Embedding. Deixar vazio se não for necessária autenticação.&quot; But &quot;Bearer token&quot; might be better &quot;Token Bearer&quot;. Let&apos;s decide.
+
+Let&apos;s consider typical Portuguese translation guidelines from Microsoft: For &quot;Bearer token&quot;, they use &quot;Token Bearer&quot;. For example, &quot;Bearer token&quot; is often &quot;token Bearer&quot;. Searching memory: Microsoft uses &quot;token Bearer&quot; in Portuguese. They keep &quot;Bearer token&quot; as &quot;Token Bearer&quot;. Actually I recall &quot;Bearer token&quot; is often translated as &quot;Token Bearer&quot;. Let&apos;s see if we can find any references: In Azure documentation, Portuguese translation: &quot;Token Bearer&quot; is used for &quot;Bearer token&quot;. Indeed, &quot;Bearer token&quot; is &quot;token Bearer&quot;. So translation could be &quot;Token Bearer&quot;. So we can translate &quot;Bearer token&quot; as &quot;Token Bearer&quot;. Then &quot;Embedding Endpoint&quot; is a proper noun, so keep as &quot;Embedding Endpoint&quot;. &quot;Leave empty if no auth required&quot; is &quot;Deixe vazio se não necessitar de autenticação.&quot; That&apos;s fine.
+
+Thus final translation: &quot;Token Bearer para o Endpoint de Embedding. Deixe vazio se não necessitar de autenticação.&quot;
+
+Double-check if any other words like &quot;Endpoint&quot; should be left unchanged. &quot;Embedding Endpoint&quot; is a term. The user might want &quot;Embedding Endpoint&quot; unchanged. So &quot;Endpoint de Embedding&quot; is a bit odd. Probably keep &quot;Embedding Endpoint&quot;. So translation becomes &quot;Token Bearer para o Embedding Endpoint. Deixe vazio se não necessitar de autenticação.&quot;
+
+Thus translation: &quot;Token Bearer para o Embedding Endpoint. Deixe vazio se não necessitar de autenticação.&quot;
+
+This seems a good translation.
+
+Thus final answer.
+
+Now, check if any nuance: &quot;Leave empty if no auth required.&quot; The translation: &quot;Deixe vazio se não necessitar de autenticação.&quot; That is okay. Or &quot;Deixe vazio se não for necessária autenticação.&quot; Both are okay.
+
+Thus final answer: ```Token Bearer para o Embedding Endpoint. Deixe vazio se não necessitar de autenticação.```
+
+Make sure it&apos;s within three backticks and nothing else.
+
+Thus output.
+&lt;/think&gt;
+
+```Token Bearer para o Embedding Endpoint. Deixe vazio se não necessitar de autenticação.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL da Página Inicial da Marca</value>
   </data>
@@ -45,8 +80,280 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logótipo do Contrato</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token da API de Embedding
+```
+
+But we need to double-check: Are we to include the triple backticks with the content inside? The user said &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output exactly three backticks with newline after opening, the translation line, then closing triple backticks. Possibly we need three backticks on a line, then translation, then triple backticks. The example:
+
+```
+Translated word here...
+```
+
+So we output exactly:
+
+```
+Token da API de Embedding
+```
+
+Thus answer: three backticks, line break, translation, line break, three backticks. Should we include newline after? Usually triple backticks line open, then the content, then triple backticks. So it looks like:
+
+``` 
+Token da API de Embedding
+``` 
+
+But without a code block? The example shows triple backticks on a line then content then triple backticks. So we must output:
+
+```
+Token da API de Embedding
+```
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Token da API de Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Endpoint de Embedding
+```
+
+Wrap it in triple backticks exactly as the example shows. So we output a code block with the translation.
+
+Thus answer: &quot;Endpoint de Embedding&quot;. In triple backticks.
+
+Proceed.
+&lt;/think&gt;
+
+``` 
+Endpoint de Embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Modelo de Embedding```
+
+Check instructions: &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we output:
+
+```
+Modelo de Embedding
+```
+
+Yes.
+
+Let&apos;s check if &quot;Embedding Model&quot; could be considered a proper noun. It&apos;s a key for a setting name. In Portuguese, maybe &quot;Modelo de Embedding&quot;. That&apos;s appropriate.
+
+Thus output exactly:
+
+```
+Modelo de Embedding
+```
+
+That is it.
+&lt;/think&gt;
+
+```Modelo de Embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```
+
+So need to translate the sentence: &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot;
+
+We need to translate into Portuguese (Portugal). That means Portuguese from Portugal. The sentence is used as a description of a setting: &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot;
+
+But note that they say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; includes the phrase &quot;e.g.&quot; (example abbreviation) and a model name &quot;bge-m3:latest&quot;. The model name &quot;bge-m3:latest&quot; is a proper noun, likely should stay unchanged. Also &quot;e.g.&quot; is Latin abbreviation &quot;exempli gratia&quot;. In localization, sometimes &quot;e.g.&quot; is kept as &quot;p. ex.&quot; in Portuguese? But not necessary. The user wants to translate the sentence but keep proper nouns unchanged.
+
+We need to decide what to translate: the phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; Should be translated into Portuguese (Portugal) while preserving &quot;bge-m3:latest&quot; and possibly &quot;e.g.&quot;? The phrase &quot;Embedding model name&quot; could be &quot;Nome do modelo de embedding&quot; or &quot;Nome do modelo de embedding&quot;. &quot;Embedding model name&quot; is a technical term; in Portuguese we can say &quot;Nome do modelo de embedding&quot;. &quot;for vector search&quot; -&gt; &quot;para pesquisa vetorial&quot;. &quot;e.g.&quot; -&gt; &quot;por exemplo&quot;. Usually &quot;e.g.&quot; is not used; we can replace with &quot;p. ex.&quot; but we can also just keep &quot;e.g.&quot; as is. But the user wants to preserve symbols, trademarks, proper nouns. The phrase &quot;Embedding model name&quot; is a proper noun? It&apos;s not a trademark. It&apos;s a technical description. It&apos;s not a human name. Should be translated.
+
+Thus we can translate: &quot;Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.&quot; Or &quot;Nome do modelo de embedding para pesquisa vetorial, por exemplo bge-m3:latest.&quot;
+
+But we must preserve bge-m3:latest exactly as is.
+
+So translation: &quot;Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.&quot;
+
+But we need to decide if &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; should be translated entirely. Typically &quot;embedding&quot; is used as a noun &quot;embedding&quot;. In Portuguese &quot;embedding&quot; is used as a loanword. Should we use &quot;modelo de embedding&quot;? Or &quot;modelo de embedding&quot;? In PT-PT, &quot;embedding&quot; is used as is. Or we could say &quot;modelo de embedding&quot; (embedding model). Could also say &quot;modelo de embedding para pesquisa vetorial&quot;. So &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; becomes &quot;Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.&quot;
+
+Alternatively, we could translate &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; as &quot;Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.&quot;
+
+Better to preserve the abbreviation &quot;e.g.&quot;? The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; &quot;e.g.&quot; is an abbreviation, maybe considered a symbol? It is a Latin abbreviation, not a trademark. Could be left unchanged. But it&apos;s not a proper noun. It could be translated to Portuguese &quot;p. ex.&quot; (por exemplo). However, user may want &quot;e.g.&quot; unchanged? It&apos;s ambiguous. If we think &quot;e.g.&quot; is a symbol, then we should keep it unchanged. But &quot;e.g.&quot; is a abbreviation for exempli gratia, not a symbol. But the user may want to preserve it as is. In localization, it&apos;s common to translate &quot;e.g.&quot; as &quot;p. ex.&quot; or &quot;por exemplo&quot;. The user didn&apos;t specify about abbreviations, just proper nouns, symbols. &quot;e.g.&quot; may be considered a symbol or abbreviation. It&apos;s not a trademark.
+
+To be safe, we could keep &quot;e.g.&quot; unchanged as &quot;e.g.&quot; because we are not sure. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc.&quot; The phrase &quot;e.g.&quot; might be considered a symbol? It&apos;s a Latin abbreviation. Might be considered a symbol. Safer to keep it.
+
+Thus translation: &quot;Nome do modelo de embedding para pesquisa vetorial, e.g. bge-m3:latest.&quot;
+
+Alternatively, &quot;Nome do modelo de embedding para pesquisa vetorial, e.g. bge-m3:latest.&quot; This is fine.
+
+Thus answer: wrap in triple backticks, output only the translated content. So final output:
+
+```Nome do modelo de embedding para pesquisa vetorial, e.g. bge-m3:latest.```
+
+Check for proper punctuation: The original ends with a period. We have a period. The translation should include the period at the end. Keep &quot;bge-m3:latest&quot; unchanged. Good.
+
+We need to double-check for any special rules: &quot;Embedding model name&quot; -&gt; &quot;Nome do modelo de embedding&quot;. Could also be &quot;Nome do modelo de embedding&quot; which is correct. &quot;for vector search&quot; -&gt; &quot;para pesquisa vetorial&quot;. The phrase &quot;e.g.&quot; remains unchanged.
+
+Thus answer: &quot;Nome do modelo de embedding para pesquisa vetorial, e.g. bge-m3:latest.&quot;
+
+Wrap in triple backticks.
+
+Thus final.
+&lt;/think&gt;
+
+```Nome do modelo de embedding para pesquisa vetorial, e.g. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limite de Cache de Consulta de Embedding```.
+
+Double-check: user wants only the translated content wrapped in triple backticks, nothing else. So output:
+
+```
+Limite de Cache de Consulta de Embedding
+```
+
+That&apos;s it.
+&lt;/think&gt;
+
+```Limite de Cache de Consulta de Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Ativar pesquisa baseada em embeddings
+```
+
+Make sure to include no extra text.
+
+Thus final answer: triple backticks containing translation.
+&lt;/think&gt;
+
+``` Ativar pesquisa baseada em embeddings</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Número de Registo ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Interruptor principal para pesquisa semântica (vectorial). Volta à pesquisa por palavras-chave quando desactivado.
+```
+
+We must output only this.
+
+But check the instruction: &quot;Name = Localizer[&quot;Enable Embedding-Based Search&quot;]&quot; is not part of translation. They only want the translation of the description: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot;
+
+Thus answer: in triple backticks with translation.
+
+Thus final answer: (with triple backticks). Ensure no extra content.
+
+I&apos;ll output:
+
+``` 
+Interruptor principal para pesquisa semântica (vectorial). Volta à pesquisa por palavras-chave quando desactivado.
+```
+
+But ensure correct triple backticks with no spaces after opening triple backticks: &quot;```&quot; then newline then content then newline then &quot;```&quot;. The instruction says wrap in three backticks like this:
+
+```
+Translated word here...
+```
+
+Thus we output exactly:
+
+```
+Interruptor principal para pesquisa semântica (vectorial). Volta à pesquisa por palavras-chave quando desactivado.
+```
+
+We should not include any extra punctuation. So final answer accordingly.
+
+Now output.
+&lt;/think&gt;
+
+```
+Interruptor principal para pesquisa semântica (vectorial). Volta à pesquisa por palavras-chave quando desactivado.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.
+```
+
+Alternatively &quot;Predefinição&quot; is singular, but could also be &quot;Predefinição 2000&quot;. The original phrase &quot;Default 2000.&quot; likely &quot;Predefinição 2000.&quot; The numeric value may be &quot;Predefinição: 2000&quot;. But we can keep as &quot;Predefinição 2000.&quot; That seems okay.
+
+One might also phrase: &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Valor predefinido 2000.&quot;
+
+But &quot;valor predefinido&quot; maybe more standard. In European Portuguese, &quot;default&quot; can be &quot;predefinição&quot; (noun). &quot;Valor predefinido&quot; is also okay. The instruction to preserve proper nouns includes &quot;LRU&quot; but not &quot;default&quot;. We need to translate &quot;Default&quot;. &quot;Default&quot; can be &quot;Predefinição&quot;. But &quot;Default&quot; could also be &quot;Por omissão&quot;, &quot;Predefinição&quot;. However, the phrase &quot;Default 2000&quot; may be better translated as &quot;Predefinição 2000&quot;. In Portuguese we can also translate &quot;Default&quot; as &quot;Predefinição&quot; (singular). Example: &quot;Predefinição: 2000&quot;. So &quot;Default 2000.&quot; could be &quot;Predefinição 2000.&quot;
+
+Thus translation: &quot;Número máximo de cached search-query embeddings stored in the database (LRU). Predefinição 2000.&quot; Wait we must not translate &quot;cached search-query embeddings&quot; as &quot;cached search-query embeddings&quot;. Actually it&apos;s part of the term. We need to translate the phrase &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; It&apos;s a description. So we can translate the whole phrase:
+
+- &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot;
+
+English words:
+
+&quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot;
+
+Translation in Portuguese:
+
+- &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.&quot;
+
+We need to check for grammar: &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.&quot; Usually &quot;em cache&quot; (in cache). Or &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.&quot; That seems fine.
+
+Alternatively &quot; Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Valor predefinido 2000.&quot; Could be considered better, but &quot;valor predefinido&quot; is typical. Let&apos;s see the typical translation for &quot;default&quot; used in Portuguese: &quot;predefinição&quot; is used in software contexts. For example, &quot;Default value&quot; translates to &quot;valor predefinido&quot; or &quot;valor por omissão&quot;. &quot;Predefinição&quot; is used in some contexts like &quot;default setting&quot; -&gt; &quot;predefinição&quot;. In European Portuguese, &quot;predefinição&quot; is used in computing, e.g., &quot;predefinição de configuração&quot;. Indeed many translation memory uses &quot;Predefinição&quot;. So &quot;Default 2000&quot; -&gt; &quot;Predefinição 2000&quot;. Good.
+
+Thus translation: &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.&quot;
+
+We should keep LRU unchanged.
+
+Double-check: We must output only the translation, wrapped in triple backticks. So output:
+
+```
+Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.
+```
+
+Check if any part should remain unchanged: LRU must remain unchanged. &quot;2000&quot; numeric unchanged.
+
+Potential nuance: Should we keep &quot;2000.&quot; with period? In original English, there is a period after &quot;2000.&quot; but no punctuation after translation? We can keep the period. However, translation should be accurate; Portuguese punctuation often ends sentences with period. So &quot;Predefinição 2000.&quot; So we could have &quot;Predefinição 2000.&quot; with a period. But original phrase includes period after 2000? Actually original text: `Description = Localizer[&quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot;]`. There is a period after 2000? In the string there is a closing quote after the period. In the original: `Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.` The period after the entire description is part of the description. So after translation, we should probably keep the period at the end of the description. So translation: &quot;Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.&quot; We&apos;ll end with a period. Yes.
+
+Thus final output: triple backticks with translation only.
+
+Check for any other instructions: &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we must output exactly:
+
+``` 
+Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.
+```
+
+But we must not have any leading/trailing spaces? It&apos;s okay.
+
+Make sure not to include extraneous content like explanation. So final answer: triple backticks with translation.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Número máximo de embeddings de consultas de pesquisa em cache armazenados na base de dados (LRU). Predefinição 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL base da API Ollama para gerar embeddings de documentos e consultas (exemplo: https://ollama.example.com). /api/embed é adicionado automaticamente.
+```
+
+Double-check punctuation: original ends with a period. We have a period after the parentheses? Actually we have parentheses with example, then period. So parentheses close before the period. In original: &quot; (e.g. https://ollama.example.com).&quot; There&apos;s a period after the parentheses. So we must maintain that punctuation: &quot; (exemplo: https://ollama.example.com).&quot; Should we have a period after the closing parenthesis? In Portuguese, after parentheses we can put period inside parentheses? Usually if the entire sentence ends with parentheses, you put period after the closing parenthesis if the sentence ends there. In original, the parentheses include the example URL and then close before the period. So we should have &quot; (exemplo: https://ollama.example.com).&quot; So parentheses close then period. Yes.
+
+Thus final translation: &quot;URL base da API Ollama para gerar embeddings de documentos e consultas (exemplo: https://ollama.example.com). /api/embed é adicionado automaticamente.&quot;
+
+Wrap in triple backticks.
+
+Check instructions: Must output only translated content and wrap in triple backticks. No other content. So just that line.
+
+Thus final answer: (as above).
+&lt;/think&gt;
+
+```url base da API Ollama para gerar embeddings de documentos e consultas (exemplo: https://ollama.example.com). /api/embed é adicionado automaticamente.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logotipo do Projeto</value>

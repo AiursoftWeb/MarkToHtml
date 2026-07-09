@@ -180,6 +180,70 @@
   <data name="Roles" xml:space="preserve">
     <value>Ruoli</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cerca
+```
+
+Wrap in three backticks. So output:
+
+``` 
+Cerca 
+```
+
+We must not output any other content. They specifically asked to output only the translated content, wrapped in three backticks like this:
+
+```
+Translated word here...
+```
+
+Thus we output:
+
+``` 
+cerca 
+```
+
+But careful: They want to output exactly the translation. Should we output &quot;Cerca&quot;? Yes. Italian translation of &quot;Search&quot; is &quot;Cerca&quot;. Use capital C? Usually translation uses same case. They gave &quot;Search&quot; with capital S. In Italian maybe &quot;Cerca&quot;. That&apos;s fine. They want only the translated word, no extra text.
+
+Thus answer: 
+
+``` 
+Cerca 
+```.
+
+Check: Should we include trailing spaces? Not needed. Just the word.
+
+Thus final answer:
+
+```
+Cerca
+```
+
+But note they want to output as:
+
+``` 
+Translated word here... 
+```
+
+Thus:
+
+``` 
+Cerca 
+```.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Cerca</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Cerca i miei documenti...
+```
+&lt;/think&gt;
+
+``` 
+Cerca i miei documenti...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Hosting Self</value>
   </data>
