@@ -216,7 +216,7 @@ public class DocumentVectorSearchService(
         var baseUri = new Uri(endpoint);
         var embedUrl = $"{baseUri.Scheme}://{baseUri.Authority}/api/embed?keep_alive=-1";
 
-        var body = new { model, input, options = new { num_gpu = 0 } };
+        var body = new { model, input };
         var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
         var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 

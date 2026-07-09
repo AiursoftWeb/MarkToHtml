@@ -147,8 +147,7 @@ public class GenerateDocumentEmbeddingsJob(
         {
             var input = TruncateForEmbedding(text, maxChars);
 
-            // num_gpu=0 forces CPU-only embedding so it never competes with any LLM for VRAM.
-            var body    = new { model, input, options = new { num_gpu = 0 } };
+            var body    = new { model, input };
             var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 
