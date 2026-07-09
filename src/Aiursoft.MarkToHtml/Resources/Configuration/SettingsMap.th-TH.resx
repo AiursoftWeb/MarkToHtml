@@ -24,6 +24,78 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้ปรับชื่อเล่นของตนเองได้ที่หน้าจัดการโปรไฟล์</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้
+```
+
+The user says &quot;Only output the translated content and wrap it in three backticks (```), like this: ``` Translated word here...```&quot;
+
+Thus output exactly that triple backtick block.
+
+Check if there are any special characters. The sentence includes punctuation. They want translation but preserve punctuation? The translation should be faithful, but maybe punctuation same. We can keep the period at end. So &quot;Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้&quot;. The original ends with a period. We can add a period. So: &quot;Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.&quot;
+
+Thus final answer:
+
+``` 
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+```
+
+But need exactly three backticks with no language spec? They said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So they want three backticks, content on same line? Usually they want a block that includes content after triple backticks. The example: ``` Translated word here...``` includes content after triple backticks. So we must output exactly that format: three backticks, a space, then the translation, then three backticks. Or can be on new line. They said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. That suggests a block: triple backticks then space then content then triple backticks. But often they want a code block. They want &quot;only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we must output:
+
+``` 
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+``` 
+
+But we need to not output any extra content. So we just output that code block.
+
+Thus final answer: code block with translation.
+
+Double-check: Is &quot;Bearer token&quot; a proper noun? It&apos;s a concept, not a proper noun. &quot;Embedding Endpoint&quot; may be considered a proper noun (the name of an endpoint). According to instructions, proper nouns, trademarks should be kept as is. So we keep &quot;Bearer token&quot; as is. &quot;Embedding Endpoint&quot; stays unchanged. So the translation uses these unchanged. That&apos;s what we did.
+
+Now, ensure the translation is correct: &quot;Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.&quot; Means &quot;Bearer token for Embedding Endpoint; leave empty if authentication not required.&quot; That&apos;s accurate.
+
+Thus output accordingly. The block must be:
+
+``` 
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+``` 
+
+But we must not have extra spaces before the content. In the example they wrote &quot;``` Translated word here...&quot;. So there is a space after triple backticks before content. But we can also not have a space. Typically code block syntax: triple backticks on a line, then content, then triple backticks. So we need to produce a code block, but they said &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. That suggests a single line code block: ``` Translated word here...```. It is ambiguous. Safer to follow exactly: three backticks, a space, then translation, then three backticks. So output:
+
+``` 
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+``` 
+
+But note the last line is triple backticks. So the output would be:
+
+``` 
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+``` 
+
+But this is not consistent: we need three backticks at start and end. They want &quot;wrap it in three backticks&quot;. So we need triple backticks start, content, triple backticks end. So we can either have them on separate lines:
+
+```
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+```
+
+That&apos;s a code block. That matches the typical representation. So we can output that. Let&apos;s output a code block.
+
+Thus final answer:
+
+```
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.
+```
+&lt;/think&gt;
+
+```
+Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL หน้าหลักของแบรนด์</value>
   </data>
@@ -45,8 +117,347 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>โลโก้สัญญา</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>โทเค็น API สำหรับการฝัง```
+
+Check if any extra content: only the translation. So final answer: just that.
+
+But double-check: is &quot;Embedding API Token&quot; a proper noun? It&apos;s a name of a setting, likely a product-specific term. The instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand it&apos;s a phrase. We can provide a translation.
+
+Thus final answer: in Thai, &quot;โทเค็น API สำหรับการฝัง&quot;. That translates the phrase. So output that.
+
+Now double-check that no other content. Only wrapped in backticks. OK.
+
+Thus final answer: triple backticks containing the translation.
+&lt;/think&gt;
+
+```โทเค็น API สำหรับการฝัง</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>จุดสิ้นสุดการฝัง```. Or maybe &quot;จุดปลายการฝัง&quot;. Which one is more common? Search memory: Thai technical translation often uses &quot;จุดปลาย&quot; for &quot;endpoint&quot;. &quot;จุดปลาย&quot; is &quot;endpoint&quot;. &quot;จุดปลาย&quot; is not exactly &quot;endpoint&quot;? &quot;Endpoint&quot; is &quot;จุดปลาย&quot; or &quot;ปลายทาง&quot;. For &quot;embedding&quot;, &quot;การฝัง&quot;. So &quot;จุดปลายการฝัง&quot; is &quot;Endpoint of embedding&quot;. That seems okay. However, &quot;จุดสิ้นสุดการฝัง&quot; is also correct. Which one is more natural? &quot;จุดปลาย&quot; means &quot;terminal point&quot;, but &quot;endpoint&quot; is often &quot;จุดสิ้นสุด&quot;. So &quot;จุดสิ้นสุดการฝัง&quot; is &quot;endpoint of embedding&quot;. That is likely the best translation.
+
+Thus output:
+
+```จุดสิ้นสุดการฝัง```
+
+But I need to consider if the user might want translation of &quot;Embedding Endpoint&quot; in the name field. The name field: Name = Localizer[&quot;Embedding Endpoint&quot;]. So they want the Thai translation. So we should output the Thai phrase. They said &quot;only output the translated content and wrap it in three backticks.&quot; So answer will be:
+
+```จุดสิ้นสุดการฝัง```
+
+We must not output any other content. So final answer will be exactly that.
+
+Double-check: The user said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we think we understand it. So we can translate.
+
+One possible nuance: &quot;Embedding Endpoint&quot; might be a proper noun that should remain unchanged. But the user said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; So we must decide if &quot;Embedding Endpoint&quot; is a proper noun. It&apos;s a technical term. It could be considered a proper noun in the context of the software? But the instruction says &quot;only the sentence or word Embedding Endpoint&quot; is to be translated. So presumably we should translate it. So we go ahead.
+
+Thus answer:
+
+```จุดสิ้นสุดการฝัง```
+
+But I might also choose &quot;จุดปลายการฝัง&quot;. Which one is more correct? Let&apos;s think about Thai language usage: &quot;Endpoint&quot; as a noun often uses &quot;เอนด์พอยต์&quot; or &quot;จุดปลาย&quot;. &quot;จุดปลาย&quot; can be used for &quot;endpoint&quot;. &quot;จุดสิ้นสุด&quot; is also a phrase meaning &quot;final point&quot;. I think &quot;จุดสิ้นสุดการฝัง&quot; might sound like &quot;the termination point of the embedding&quot;. &quot;จุดปลายการฝัง&quot; might be better. Let&apos;s search memory: &quot;endpoint&quot; is often &quot;เอนด์พอยต์&quot;. But in some contexts they transliterate. However, they might keep English for technical terms. But for translation, they might want to translate to Thai. &quot;Endpoint&quot; in Thai might be &quot;จุดสิ้นสุด&quot; or &quot;จุดปลาย&quot;. &quot;Embedding&quot; is &quot;การฝัง&quot; or &quot;การฝังตะวันถ่ายโมเดล&quot;? But we can use &quot;การฝัง&quot;. So &quot;จุดปลายการฝัง&quot; is &quot;Endpoint for embedding&quot;. That is probably natural.
+
+Let&apos;s think about typical Thai localization for &quot;Embedding Endpoint&quot;. Searching memory: I&apos;ve seen translations of &quot;Embedding endpoint&quot; in Thai for a software like &quot;Ollama API base URL for generating document and query embeddings&quot; - the Name field could be &quot;จุดปลายการฝัง&quot;. That seems plausible.
+
+Thus final translation: &quot;จุดปลายการฝัง&quot;. Or &quot;จุดสิ้นสุดการฝัง&quot;. Let&apos;s see which one is more likely to be used. &quot;จุดปลาย&quot; is &quot;endpoint&quot;. &quot;จุดปลายการฝัง&quot; reads as &quot;Endpoint of embedding&quot;. &quot;จุดสิ้นสุด&quot; is more like &quot;final point&quot;. &quot;จุดปลาย&quot; is more common for &quot;endpoint&quot;. So I think &quot;จุดปลายการฝัง&quot; is better.
+
+Thus output:
+
+```จุดปลายการฝัง```
+
+But need to ensure it&apos;s correct Thai grammar: &quot;จุดปลาย&quot; is a noun, &quot;การฝัง&quot; is a gerund. So &quot;จุดปลายการฝัง&quot; is &quot;endpoint of embedding&quot;. Good.
+
+Thus final answer: triple backticks with Thai phrase.
+
+Will produce:
+
+```จุดปลายการฝัง```
+&lt;/think&gt;
+
+```จุดปลายการฝัง</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>โมเดลการฝังตัว</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>ชื่อโมเดล Embedding สำหรับการค้นหาเวกเตอร์ เช่น bge-m3:latest.
+```
+
+Alternatively, could use &quot;เวกเตอร์&quot; or &quot;เวกเตอร์&quot;. Many Thai translations for &quot;vector search&quot; are &quot;การค้นหาเวกเตอร์&quot;. &quot;Vector search&quot; is &quot;การค้นหาแบบเวกเตอร์&quot;. So &quot;การค้นหาเวกเตอร์&quot; may be fine.
+
+Check if we need to keep &quot;Embedding model name&quot; phrase as &quot;Embedding model name&quot; maybe transliterate &quot;Embedding model name&quot; as &quot;ชื่อโมเดล Embedding&quot;. That is fine.
+
+Thus final answer:
+
+```
+ชื่อโมเดล Embedding สำหรับการค้นหาเวกเตอร์ เช่น bge-m3:latest.
+```
+
+Make sure triple backticks.
+
+Thus output only translation. Ensure no extra content.
+
+Proceed.
+&lt;/think&gt;
+
+``` 
+ชื่อโมเดล Embedding สำหรับการค้นหาเวกเตอร์ เช่น bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Embedding Query Cache Limit
+```. That is it.
+
+Double-check: The instructions say &quot;please translate only the sentence or word `Embedding Query Cache Limit` ... into target language Thai.&quot; So they want translation, but also they give instruction about proper nouns. &quot;Embedding Query Cache Limit&quot; is a technical term, but not a human name, not a trademark. It&apos;s a proper noun? It&apos;s a setting key. Usually these are left unchanged. But the instruction says proper nouns must be output as is. So we must decide if it&apos;s a proper noun. It&apos;s a combination of &quot;Embedding&quot;, &quot;Query&quot;, &quot;Cache&quot;, &quot;Limit&quot;. This is a proper noun in the context of software configuration. So we output unchanged.
+
+Thus final answer: three backticks with unchanged text. Ensure no extra content.
+&lt;/think&gt;
+
+```
+Embedding Query Cache Limit</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```
+
+Thus we need to translate &quot;Enable Embedding-Based Search&quot; into Thai language (Thai script). The phrase refers to &quot;Enable Embedding-Based Search&quot;. So we need a translation in Thai. The user wants only the translated content, wrapped in three backticks.
+
+Thus we need to output something like:
+
+```เปิดใช้งานการค้นหาแบบ Embedding
+```
+
+But we need to be careful: The phrase &quot;Enable Embedding-Based Search&quot; should be translated to Thai.
+
+In Thai, &quot;Enable&quot; can be &quot;เปิดใช้งาน&quot; or &quot;เปิดใช้งาน&quot; which means &quot;Enable&quot;, &quot;Turn on usage&quot;. &quot;Embedding-Based&quot; could be &quot;แบบ Embedding&quot; or &quot;แบบอิมเบดดิ่ง&quot;. &quot;Search&quot; is &quot;การค้นหา&quot;. So phrase &quot;Enable Embedding-Based Search&quot; -&gt; &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot; or &quot;เปิดใช้งานการค้นหาข้อมูลแบบ Embedding&quot;. However the phrase &quot;Embedding-Based Search&quot; may be translated as &quot;การค้นหาแบบ Embedding&quot;. The translation could be &quot;เปิดใช้งานการค้นหาข้อมูลแบบ Embedding&quot;. Let&apos;s consider the appropriate Thai phrase: &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. That is straightforward. However, we need to preserve proper nouns, trademarks, etc. &quot;Embedding&quot; is a proper noun? It might be considered a term. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Enable Embedding-Based Search` is one of them.&quot; The phrase includes &quot;Embedding-Based&quot;. Possibly &quot;Embedding&quot; is a proper noun, a term used in technical context. &quot;Embedding&quot; might be kept as &quot;Embedding&quot;. In many translation guidelines, we keep technical terms unchanged if they are common. But &quot;Embedding-Based&quot; is a technical phrase. We can either translate &quot;Embedding-Based&quot; or keep it unchanged. The user wants the translation of &quot;Enable Embedding-Based Search&quot;. Since &quot;Enable&quot; is translated, &quot;Embedding-Based Search&quot; might be left as a technical term if not needed. But likely we want to translate to Thai while preserving &quot;Embedding-Based&quot;. Let&apos;s think.
+
+Thai translation: &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. That is fairly natural. Or &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot; vs &quot;เปิดใช้งานการค้นหาแบบ Embedding-Based&quot;. We need to decide.
+
+We can also include &quot;Search&quot; explicitly: &quot;การค้นหา&quot;. So &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. Actually the phrase &quot;Embedding-Based Search&quot; is being enabled, so it&apos;s &quot;Enable Embedding-Based Search&quot;. So the Thai translation could be &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. However &quot;Embedding-Based Search&quot; includes both &quot;Embedding&quot; and &quot;Search&quot;. &quot;Embedding-Based&quot; is a compound adjective, but we can treat &quot;Embedding&quot; as a noun for the type of search. Another option: &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. It&apos;s okay.
+
+Alternatively we could translate &quot;Enable Embedding-Based Search&quot; as &quot;เปิดใช้งานการค้นหาข้อมูลแบบ Embedding&quot; but that seems redundant. So I&apos;d go with &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. However maybe &quot;การค้นหาแบบ Embedding&quot; is more precise: &quot;การค้นหาแบบ Embedding&quot; means &quot;search using Embedding&quot;. But the phrase &quot;Enable Embedding-Based Search&quot; includes &quot;Embedding-Based&quot;. So we might say &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot; is likely correct. Or &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot; seems best.
+
+Thus we output:
+
+```
+เปิดใช้งานการค้นหาแบบ Embedding
+```
+
+But we need to wrap in three backticks exactly as they asked: &quot;Please output the translated conclusion and nothing else. Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output:
+
+```เปิดใช้งานการค้นหาแบบ Embedding
+```
+
+Check: The translation is &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. In Thai, &quot;เปิดใช้งาน&quot; = &quot;enable usage&quot;. &quot;การค้นหา&quot; = &quot;search&quot;. &quot;แบบ&quot; = &quot;type&quot;. &quot;Embedding&quot; is a proper noun, left unchanged.
+
+Thus final answer: wrap in triple backticks.
+
+Now ensure we don&apos;t output any other content. Only that.
+
+Thus final answer: &quot;```เปิดใช้งานการค้นหาแบบ Embedding```&quot;
+
+Double-check: The phrase &quot;Enable Embedding-Based Search&quot; might also be &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot;. That seems correct.
+
+Potential nuance: &quot;Enable&quot; can be &quot;เปิด&quot; or &quot;เปิดใช้งาน&quot;. &quot;เปิด&quot; alone means &quot;turn on&quot; or &quot;open&quot;. &quot;เปิดใช้งาน&quot; is a common phrase for enabling a feature. So &quot;เปิดใช้งานการค้นหาแบบ Embedding&quot; is appropriate.
+
+Thus final answer. Let&apos;s output that.
+&lt;/think&gt;
+
+```เปิดใช้งานการค้นหาแบบ Embedding</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>เลขที่ ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด
+```
+
+But maybe we want to keep &quot;keyword search&quot; as &quot;การค้นหาแบบคีย์เวิร์ด&quot; (keyword search). It&apos;s okay. Or &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. But we can use &quot;คีย์เวิร์ด&quot;. It&apos;s likely understandable.
+
+Alternatively, we could phrase &quot;Falls back to keyword search when disabled.&quot; as &quot;เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That is two sentences. The original has a period after the first sentence and then second: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot;
+
+So Thai translation should be two sentences: &quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. Actually that&apos;s one long sentence. We need to preserve the structure: Two sentences. So maybe:
+
+&quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That&apos;s one sentence.
+
+But we can separate: &quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. However the second sentence phrase &quot;Falls back to keyword search when disabled.&quot; can be &quot;เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That&apos;s probably fine.
+
+Thus final translation: &quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. Or combine: &quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. Both are okay.
+
+But the user likely expects a straightforward translation. Could also be &quot;สวิตช์หลักสำหรับการค้นหาแบบเชิง семантик (อิงเวกเตอร์). หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That&apos;s fine.
+
+But what about the phrase &quot;semantic (vector-based) search&quot;. Some might prefer &quot;การค้นหาแบบเชิง семантик (อิงเวกเตอร์)&quot; which uses the English term for vector-based but with Thai parentheses. The user asked not to translate proper nouns, nicknames etc. but &quot;semantic (vector-based) search&quot; is a concept, not a proper noun. However &quot;vector-based&quot; could be considered a technical term. Should we keep it as English? Possibly it&apos;s okay to keep it in English or to translate as &quot;การค้นหาแบบเชิง семантик (อิงเวกเตอร์)&quot;. The phrase &quot;vector-based&quot; is used as a technical term, but we can transliterate to Thai: &quot;เวกเตอร์&quot;. It might be &quot;การค้นหาแบบเชิง семантик (อิงเวกเตอร์)&quot;. Or &quot;การค้นหาแบบเชิง семантик (อิงเวกเตอร์)&quot;. Let&apos;s think about typical translation for &quot;semantic search&quot; in Thai: &quot;การค้นหาเชิง семантик&quot;. Yes.
+
+So the translation could be:
+
+&quot;สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;
+
+If we want two sentences: &quot;สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;.
+
+But they asked &quot;translate only the sentence or word&quot;. So we need to output only the translation. Use triple backticks. So:
+
+```สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด
+```
+
+But it&apos;s unclear if we need to preserve punctuation exactly: The original sentence has two sentences separated by period. The translation could be a single sentence with &quot;หาก&quot; clause or two separate sentences. In typical translation, we could keep two sentences: &quot;สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That would be two sentences.
+
+But the requirement: &quot;translate only the sentence or word `Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.`&quot;. So they want to translate the entire description text. Usually translation includes both sentences. So we can produce two sentences. Let&apos;s decide to produce two sentences: &quot;สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. This is likely correct.
+
+But note that &quot;keyword&quot; maybe better as &quot;คีย์เวิร์ด&quot;. Could also be &quot;การค้นหาแบบคีย์เวิร์ด&quot;. It&apos;s okay.
+
+Now check for potential issues: They told not to output any other content, only the translated content and wrap it in three backticks. So we output exactly:
+
+```สวิตช์หลักสำหรับการค้นหาเชิง семантик (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด
+```
+
+Make sure to use correct Thai script. &quot; семантик&quot; is an English transliteration of &quot;semantic&quot;? Actually &quot;semantic&quot; can be transliterated as &quot;ซีแมนติก&quot; or &quot;เชิง семантик&quot;? The phrase &quot;การค้นหาเชิง семантик&quot; is ambiguous. In Thai, &quot;semantic search&quot; is sometimes called &quot;การค้นหาเชิงความหมาย&quot; or &quot;การค้นหาแบบซีแมนติก&quot;. The phrase &quot;การค้นหาเชิง семантик&quot; might be unusual because &quot; семантик&quot; is not a Thai word; it&apos;s transliteration of &quot;semantic&quot;. It could be &quot;การค้นหาเชิงซีแมนติก&quot;. Typically in Thai localized UI, they&apos;d transliterate &quot;semantic search&quot; as &quot;การค้นหาแบบซีแมนติก&quot;. But they may keep the English term. However the user didn&apos;t ask to keep English; they asked to translate. So we should translate as best we can. In Thai UI translation, &quot;semantic search&quot; is usually &quot;การค้นหาเชิงความหมาย&quot;. For example: &quot;การค้นหาเชิงความหมาย&quot; is used. The phrase &quot;vector-based&quot; is &quot;แบบเวกเตอร์&quot; or &quot;อิงเวกเตอร์&quot;. So we could say &quot;การค้นหาเชิงความหมาย (อิงเวกเตอร์)&quot;.
+
+Thus the translation: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. This is probably more natural.
+
+Check &quot;keyword search&quot;. In Thai UI, &quot;keyword search&quot; is often &quot;การค้นหาด้วยคำสำคัญ&quot;. However &quot;คีย์เวิร์ด&quot; is used as transliteration. Which is more natural? &quot;การค้นหาแบบคีย์เวิร์ด&quot; is used for translation of &quot;keyword search&quot;. It can be &quot;การค้นหาด้วยคำสำคัญ&quot;. But both are plausible. Which is better? In many Thai localizations, &quot;keyword search&quot; is translated as &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. But there is no single standard. The user is a programmer; they might prefer &quot;keyword search&quot;. So keep &quot;คีย์เวิร์ด&quot;. So &quot;การค้นหาแบบคีย์เวิร์ด&quot;.
+
+Thus translation: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. Or &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. Both fine.
+
+But we need to be careful about using the correct Thai script for &quot;เชิงความหมาย&quot; (semantic). Could be &quot;เชิงความหมาย&quot;. So translation: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;.
+
+Better to match style: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์) หากปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. That is a single sentence.
+
+But the original text had two sentences: &quot;Master switch for semantic (vector-based) search.&quot; and &quot;Falls back to keyword search when disabled.&quot; So we could preserve two sentences: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด&quot;. This matches.
+
+Now check for potential translation issues: &quot;Master switch&quot; could be &quot;สวิตช์หลัก&quot; is okay. But in Thai UI, &quot;Master switch&quot; might be &quot;สวิตช์หลัก&quot; or &quot;สวิตช์เปิด/ปิดหลัก&quot;. But we can keep simple.
+
+Now check for language style: Thai translation often use &quot;สำหรับ&quot; meaning &quot;for&quot;. So &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์)&quot; is correct.
+
+Now final output: triple backticks with translation. We must not output any other content. So just:
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด
+```
+
+Alternatively:
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์) เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบคีย์เวิร์ด
+```
+
+Either is okay. But maybe it&apos;s better to separate two sentences for readability.
+
+One more nuance: The translation of &quot;keyword search&quot; as &quot;การค้นหาแบบคีย์เวิร์ด&quot;. Could also be &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. But &quot;คีย์เวิร์ด&quot; is not often used as a Thai noun. Usually you&apos;d say &quot;การค้นหาด้วยคำสำคัญ&quot;. However, in UI translations for programming context, &quot;keyword search&quot; is often left as &quot;การค้นหาแบบคีย์เวิร์ด&quot; or &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. Which one is more natural? I&apos;d say &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; is more natural to Thai readers. But the programmer may expect &quot;คีย์เวิร์ด&quot;. The user didn&apos;t specify nuance. Let&apos;s see if we can find typical Thai translations for &quot;keyword search&quot;. Searching mental memory: In some Thai UI translations, &quot;keyword search&quot; is &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. For example, in a Thai UI of a search engine, they might use &quot;การค้นหาด้วยคำสำคัญ&quot;. Actually, &quot;keyword search&quot; is often translated as &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. Another phrase &quot;การค้นหาด้วยคำสำคัญ&quot;. That seems plausible.
+
+But &quot;keyword search&quot; might be better &quot;การค้นหาแบบคีย์เวิร์ด&quot;. However, typical Thai usage of English loanwords: &quot;คีย์เวิร์ด&quot; is rarely used; &quot;คีย์&quot; is more used for &quot;key&quot; in the sense of &quot;key&quot;, but &quot;keyword&quot; might be transliterated as &quot;คีย์เวิร์ด&quot;. I&apos;m not sure. Let&apos;s consider typical translation of &quot;keyword search&quot; in Thai context. If you search Thai websites for &quot;keyword search&quot; translation, you see &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. For example, &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; appears. So maybe &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; is more natural. Also &quot;คำสำคัญ&quot; is a more Thai term for &quot;keyword&quot;. So &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; is natural.
+
+Thus translation: &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. That is probably the best.
+
+Now check for any extra spaces: Use correct Thai punctuation. Thai uses &quot;。&quot; as period but often English period &quot;.&quot; is used. However translation can use English period or Thai full stop. Usually Thai uses &quot;。&quot; but in code UI they might keep English punctuation. The original text uses English period. The user gave the code snippet: Description = Localizer[&quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot;]. So they used period after each sentence. So we should preserve punctuation: Use period after each Thai sentence (English period). That is fine.
+
+Thus output:
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ
+```
+
+But maybe &quot;เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; is too long; could be &quot;เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. That is okay.
+
+Alternatively: &quot;เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. Good.
+
+Thus final answer will be:
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ
+```
+
+Make sure no extra content. Output exactly this.
+
+Now check the instruction: &quot;Please translate only the sentence or word `Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.` in the paragraph into the target language th-TH, ภาษาไทย (ประเทศไทย).&quot; They want translation for the entire description. So they want translation of &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot;
+
+Thus we need to output just the translation. So we have to output exactly the translation wrapped in triple backticks.
+
+Thus final answer: triple backticks with translation.
+
+We must not output any other content. So just the block.
+
+Thus:
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ
+```
+
+Double-check for any hidden nuance: &quot;Master switch for semantic (vector-based) search.&quot; is the first sentence. &quot;Falls back to keyword search when disabled.&quot; is second. We have translated as &quot;สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ&quot;. Good.
+
+One might consider adding &quot;การค้นหาแบบค้นหาด้วยคำสำคัญ&quot; for &quot;keyword search&quot;. That is what we did. That seems fine.
+
+Now we must ensure no extra whitespace or content. Also check for &quot;อิงเวกเตอร์&quot; correct? &quot;อิงเวกเตอร์&quot; means &quot;based on vector&quot;. Yes.
+
+Thus final answer is ready.
+&lt;/think&gt;
+
+```สวิตช์หลักสำหรับการค้นหาเชิงความหมาย (อิงเวกเตอร์). เมื่อปิดใช้งานจะเปลี่ยนไปใช้การค้นหาแบบค้นหาด้วยคำสำคัญ</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>จำนวนสูงสุดของการแคช embeddings ของคำค้นที่เก็บในฐานข้อมูล (LRU) คือ 2000 (ค่าเริ่มต้น)
+```
+
+But note they wanted output wrapped in triple backticks and the language marker possibly &quot;th-TH&quot; maybe but they didn&apos;t specify. They said output only the translated content and wrap it in three backticks, like:
+
+```
+Translated word here...
+```
+
+Thus we output only the translation inside triple backticks. Should we include language identifier? They didn&apos;t ask to include language identifier. So just the translation.
+
+Thus:
+
+```th
+จำนวนสูงสุดของการแคช embeddings ของคำค้นที่เก็บในฐานข้อมูล (LRU) คือ 2000 (ค่าเริ่มต้น)
+```
+
+Alternatively:
+
+```th
+จำนวนสูงสุดของการแคช embeddings ของคำค้นที่เก็บในฐานข้อมูล (LRU) คือ 2000 ค่าเริ่มต้น
+```
+
+But better to keep parentheses.
+
+Thus final answer.
+&lt;/think&gt;
+
+```th
+จำนวนสูงสุดของการแคช embeddings ของคำค้นที่เก็บในฐานข้อมูล (LRU) คือ 2000 (ค่าเริ่มต้น)</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้น (เช่น https://ollama.example.com) /api/embed จะถูกต่อท้ายโดยอัตโนมัติ.```
+
+But we need to be careful about punctuation and format: The original ends with a period. We&apos;ll keep that.
+
+Also, note that &quot;Ollama API base URL&quot; is not a &quot;Human name&quot; but is a proper noun; we should keep &quot;Ollama API&quot; as is. We can translate &quot;base URL&quot; as &quot;URL ฐาน&quot;. But maybe we can keep &quot;Ollama API base URL&quot;. The phrase is &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot;
+
+One can translate as: &quot;Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้น (เช่น https://ollama.example.com) /api/embed จะถูกเพิ่มโดยอัตโนมัติ.&quot;
+
+Better &quot;คำค้น&quot; refers to query embedding. Or &quot;คำถาม&quot;? &quot;Query embeddings&quot; is &quot;embeddings ของคำค้นหา&quot; perhaps. So &quot;document and query embeddings&quot; could be &quot;embeddings ของเอกสารและคำค้นหา&quot;. Could use &quot;คำถาม&quot; but query is more like search query. &quot;คำค้นหา&quot; is more appropriate.
+
+Thus &quot;Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้นหา (เช่น https://ollama.example.com) /api/embed จะถูกเพิ่มโดยอัตโนมัติ.&quot;
+
+If we want to translate &quot;URL ฐาน&quot; to Thai, we could keep &quot;URL ฐานของ Ollama API&quot;. But &quot;base URL&quot; is &quot;URL ฐาน&quot;. However, &quot;URL ฐาน&quot; might be unnatural. The user didn&apos;t say we must preserve &quot;URL&quot;. Keep it, it&apos;s fine.
+
+Thus final translation:
+
+```
+Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้นหา (เช่น https://ollama.example.com) /api/embed จะถูกเพิ่มโดยอัตโนมัติ.
+```
+
+Alternatively: &quot;Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำถาม (ตัวอย่าง https://ollama.example.com) /api/embed จะถูกต่อท้ายโดยอัตโนมัติ.&quot;
+
+But &quot;คำถาม&quot; is question; &quot;คำค้นหา&quot; is query. Use &quot;คำค้นหา&quot;. Good.
+
+Now output in triple backticks only. Ensure no extra content. Should we also preserve the period? The original ends with a period. We&apos;ll include period.
+
+Thus final answer: (wrap in triple backticks)
+&lt;/think&gt;
+
+```Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้นหา (เช่น https://ollama.example.com) /api/embed จะถูกเพิ่มโดยอัตโนมัติ.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>โลโก้โครงการ</value>

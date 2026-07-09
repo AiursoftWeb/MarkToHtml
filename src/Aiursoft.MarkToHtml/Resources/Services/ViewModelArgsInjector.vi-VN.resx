@@ -183,6 +183,46 @@
   <data name="Roles" xml:space="preserve">
     <value>Vai trò</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm
+```
+
+Let me wrap it in three backticks as requested.
+
+Wait, I need to be careful. The user said &quot;Do not output any other content&quot; and &quot;Only output the translated content and wrap it in three backticks.&quot;
+
+So I should output:
+```
+Tìm kiếm
+```
+
+Not with the word &quot;Translated word here...&quot; but the actual translated content.
+
+Let me reconsider: In the context of the code, `Search` might refer to a component name like SearchForm. However, based on the instruction, I should translate &quot;Search&quot; as it appears to be a UI string. If it were a component name that shouldn&apos;t be translated, it would typically not be in the list of strings to localize. But given the context mentions &quot;localization project&quot; and the paragraph shows using `localizer` with strings like &quot;Features&quot;, &quot;Index&quot;, &quot;Directory&quot;, etc., it suggests these are strings being prepared for localization.
+
+So &quot;Search&quot; should be translated as &quot;Tìm kiếm&quot; in Vietnamese.
+
+Final output:
+```
+Tìm kiếm
+```
+&lt;/think&gt;
+
+```
+Tìm kiếm</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Tìm kiếm tài liệu của tôi...```
+
+Make sure to follow guidelines: no extra content. Just the translation.
+
+Thus answer:
+
+```Tìm kiếm tài liệu của tôi...```
+&lt;/think&gt;
+
+```Tìm kiếm tài liệu của tôi...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Tự host</value>
   </data>

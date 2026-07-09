@@ -183,6 +183,56 @@
   <data name="Roles" xml:space="preserve">
     <value>บทบาท</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Translated word here...```.
+
+We need to translate the word &quot;Search&quot; into Thai language (target language th-TH, Thai). Thai translation for &quot;Search&quot; is &quot;ค้นหา&quot; (khao na). In Thai, &quot;Search&quot; can be translated as &quot;ค้นหา&quot;. So we should output:
+
+```
+ค้นหา
+```
+
+But we need to be sure if &quot;Search&quot; is a proper noun or not. In the code snippet, it&apos;s just a string that might be used as a UI label. The user wants translation of &quot;Search&quot;. It&apos;s not a human name etc. So it&apos;s translatable. So output &quot;ค้นหา&quot;. The user explicitly said &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks.&quot; So answer: ```ค้นหา```.
+
+But let&apos;s double-check: The user is likely wanting to translate UI strings. &quot;Search&quot; would be &quot;ค้นหา&quot;. That is correct. Also &quot;Search&quot; can be &quot;สืบค้น&quot;? Typically &quot;Search&quot; as a verb is &quot;ค้นหา&quot;. So fine.
+
+Thus answer: 
+
+```
+ค้นหา
+```
+
+Wrap in triple backticks.
+
+Check for any nuance: The user says &quot;translate only the sentence or word `Search` in the paragraph into the target language th-TH&quot;. So translation is just &quot;ค้นหา&quot;. There&apos;s no extra content.
+
+Thus answer in final channel: exactly three backticks with Thai translation inside. Ensure no extra text.
+
+Proceed.
+&lt;/think&gt;
+
+```ค้นหา</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Thai translation here...``` but they want just the translated content in three backticks, like:
+
+```
+ค้นหาเอกสารของฉัน...
+```
+
+We must output only the translated content and wrap in triple backticks, no other content. So produce:
+
+```ค้นหาเอกสารของฉัน...```
+
+That is all.
+
+But double-check: Could there be any nuance? The phrase &quot;Search my documents...&quot; is a UI placeholder. In Thai, we might translate to &quot;ค้นหาเอกสารของฉัน...&quot; which is literal translation. Might also be &quot;ค้นหาเอกสารของฉัน...&quot; but there is &quot;...&quot; in English version. Keep ellipsis maybe? Could use &quot;ค้นหาเอกสาร...&quot; is shorter. But the placeholder probably includes &quot;...&quot; at the end. Should we keep &quot;...&quot; after translation? Usually placeholder translations keep ellipsis. So we should keep ellipsis. So translation: &quot;ค้นหาเอกสารของฉัน...&quot;. That seems correct.
+
+Thus final answer is triple backticks containing Thai translation.
+&lt;/think&gt;
+
+```ค้นหาเอกสารของฉัน...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>โฮสต์เอง</value>
   </data>
