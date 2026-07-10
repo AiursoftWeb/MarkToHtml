@@ -180,6 +180,57 @@
   <data name="Roles" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Szukaj
+```
+
+We need to output only that. So answer: triple backticks with &quot;Szukaj&quot;. Let&apos;s double-check: The instruction &quot;Please translate only the sentence or word `Search` in the paragraph into the target language pl-PL, Polski (Polska).&quot; So answer: &quot;Szukaj&quot;. Not &quot;Wyszukiwanie&quot;. Let&apos;s confirm typical translation: According to Microsoft guidelines, &quot;Search&quot; as a button is &quot;Szukaj&quot;. For example, in Microsoft Office: &quot;Search&quot; =&gt; &quot;Szukaj&quot;. In Windows: &quot;Search&quot; =&gt; &quot;Szukaj&quot;. So &quot;Szukaj&quot;. Should we output just &quot;Szukaj&quot;? Yes.
+
+Thus output:
+
+```
+Szukaj
+```
+
+But check: user wants wrap in three backticks, like:
+
+```
+Translated word here...
+```
+
+So we output:
+
+```
+Szukaj
+```
+
+That&apos;s all. Ensure no extra content.
+&lt;/think&gt;
+
+``` 
+Szukaj</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output:
+
+```
+Szukaj moich dokumentów...
+```
+
+Make sure no extra text.
+
+Thus final answer: triple backticks with translation.
+&lt;/think&gt;
+
+``` 
+Szukaj moich dokumentów...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Samodzielny serwer</value>
   </data>

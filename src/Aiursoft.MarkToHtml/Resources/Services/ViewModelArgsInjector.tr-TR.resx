@@ -180,6 +180,30 @@
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>...```. So we need to output just the translation of &quot;Search&quot; into Turkish. In Turkish &quot;Search&quot; can be &quot;Arama&quot; (the act of searching). Possibly &quot;Ara&quot; (imperative) but more likely &quot;Arama&quot; as a noun, &quot;Search&quot; as a UI label typically translates to &quot;Ara&quot; or &quot;Arama&quot;. Let&apos;s examine context: The paragraph is code using Aiursoft framework, includes a component SearchForm (SearchForm). The word &quot;Search&quot; appears as a string literal maybe used as a label for search button. In Turkish UI translations, &quot;Search&quot; often becomes &quot;Ara&quot;. For example &quot;Search&quot; as a button label is &quot;Ara&quot;. In the context of the paragraph, we see &quot;SearchForm&quot; component. But the sentence we need to translate is just the word &quot;Search&quot;. That appears likely as a title string? The user says &quot;Please translate only the sentence or word `Search` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So we translate &quot;Search&quot; to Turkish. Usually &quot;Search&quot; -&gt; &quot;Ara&quot;. However &quot;Search&quot; as a noun (searching) can be &quot;Arama&quot;. In Turkish, &quot;Search&quot; is also a verb: &quot;Ara&quot;. But &quot;Search&quot; used as a button label is often &quot;Ara&quot;. So translation is &quot;Ara&quot;. Or &quot;Arama&quot;? Let&apos;s think: In UI localization, &quot;Search&quot; as a button often is &quot;Ara&quot;. For example, in Turkish translations for software like Microsoft, &quot;Search&quot; is &quot;Ara&quot;. The difference is imperative vs noun. &quot;Ara&quot; is imperative &quot;search!&quot; for you (2nd person singular imperative). That&apos;s a common translation for &quot;Search&quot;. So translation: &quot;Ara&quot;. The user says &quot;Only output the translated content and wrap it in three backticks&quot;. So we must output:
+
+```
+Ara
+```
+
+That is all. Let&apos;s check if any special conditions: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; That includes &quot;Search&quot;? Search is a generic term not a proper noun. So translate it.
+
+Thus output:
+
+```
+Ara
+```
+&lt;/think&gt;
+
+```Ara</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Belge ara...```
+&lt;/think&gt;
+
+```Belge ara...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Kendi Sunucunu Kur</value>
   </data>

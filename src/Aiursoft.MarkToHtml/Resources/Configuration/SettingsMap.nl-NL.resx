@@ -24,6 +24,77 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Gebruikers toestaan hun bijnaam aan te passen op de pagina voor profielbeheer.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
+```
+
+Check if we need to output nothing else. So we output exactly that line in triple backticks.
+
+Yes.
+
+We must not include any other content. So we output exactly that block.
+
+Potential nuance: The instruction says &quot;Please translate only the sentence or word `Bearer token for the Embedding Endpoint. Leave empty if no auth required.` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we must output just the translation, not the entire paragraph. So we output only the translation.
+
+Thus final answer.
+
+We need to ensure we follow the format: three backticks with translation inside.
+
+So final output:
+
+```csharp
+Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
+```
+
+Wait, the instruction says &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly:
+
+```
+Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
+```
+
+Now we can confirm. Let&apos;s check for any possible ambiguous translation: &quot;Embedding Endpoint&quot; maybe is a proper noun? It&apos;s a term for an API endpoint. Usually it&apos;s left unchanged, but it&apos;s also a name. However, &quot;Embedding Endpoint&quot; is a component name, like a specific endpoint for embeddings. It&apos;s not a trademark, but a term. In localization, it&apos;s common to translate &quot;endpoint&quot; as &quot;eindpunt&quot; in Dutch. So &quot;Embedding Endpoint&quot; could be &quot;Embedding-eindpunt&quot; or &quot;Embedding-eindpunt&quot;. Might be better to translate &quot;Endpoint&quot; to &quot;eindpunt&quot; while keep &quot;Embedding&quot;. So &quot;Embedding-eindpunt&quot;. That would be &quot;Embedding-eindpunt&quot;. But &quot;Embedding&quot; is a term, not a proper noun, but it&apos;s part of the name. Usually you can translate the word part &quot;Endpoint&quot; but leave &quot;Embedding&quot; unchanged, or translate both. The instruction says &quot;Do not translate proper nouns&quot;. &quot;Embedding&quot; is a term from the software domain, but it&apos;s also part of the proper name &quot;Embedding Endpoint&quot;. It could be considered a proper noun as part of a specific component name. It&apos;s ambiguous. However, we can keep &quot;Embedding Endpoint&quot; unchanged, as translation of &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; So we can translate only the rest? But the instruction is to translate the entire sentence. So we need to decide.
+
+Option 1: Keep the entire phrase unchanged. That would be &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; But that is not translation. So we must translate.
+
+Option 2: Translate as &quot;Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.&quot; In this we keep &quot;Bearer token&quot; unchanged, but we translate &quot;Embedding Endpoint&quot; partially to &quot;Embedding-eindpunt&quot;. That might be okay.
+
+But the phrase &quot;Embedding Endpoint&quot; might be considered a proper noun in the software context. It&apos;s a name for a specific endpoint. The instruction says not to translate proper nouns. So we should consider &quot;Embedding Endpoint&quot; as a proper noun and keep it unchanged. But the translation may also keep &quot;Embedding Endpoint&quot;. In Dutch, it&apos;s common to keep &quot;Embedding Endpoint&quot; as is. So we could translate as &quot;Bearer token voor Embedding Endpoint. Leeg laten als er geen authenticatie vereist is.&quot; This would be consistent with translation guidelines: keep proper nouns unchanged.
+
+But does &quot;Bearer token&quot; count as a proper noun? Not really. It&apos;s a term. We can keep it unchanged.
+
+Thus translation: &quot;Bearer token voor Embedding Endpoint. Leeg laten als er geen authenticatie vereist is.&quot;
+
+Alternatively, &quot;Bearer token for the Embedding Endpoint&quot; is a phrase. If we keep &quot;for the&quot;, we can translate as &quot;Bearer token voor het Embedding Endpoint&quot;. So &quot;Bearer token voor het Embedding Endpoint. Leeg laten als er geen authenticatie vereist is.&quot;
+
+Thus final translation: &quot;Bearer token voor het Embedding Endpoint. Leeg laten als er geen authenticatie vereist is.&quot;
+
+We need to decide which version is more appropriate. Let&apos;s think about typical Dutch translation guidelines for software UI strings. Usually, they try to translate everything into Dutch, but they might also adapt the wording. The phrase &quot;Bearer token for the Embedding Endpoint.&quot; might be translated as &quot;Bearer token voor het Embedding-eindpunt.&quot; or &quot;Bearer token voor het Embedding-eindpunt.&quot; I&apos;d lean to translate &quot;Endpoint&quot; to &quot;eindpunt&quot;. But that is a translation of a proper noun? In UI strings, &quot;Endpoint&quot; is a generic term, not a proper noun. So it&apos;s okay to translate. So we can translate &quot;Endpoint&quot; to &quot;eindpunt&quot;. &quot;Embedding Endpoint&quot; becomes &quot;Embedding-eindpunt&quot;. That would be a translation of the term, but the name &quot;Embedding&quot; is kept. So final translation: &quot;Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.&quot;
+
+Thus output that. But we must be careful: &quot;Embedding-eindpunt&quot; may be seen as a translation, but it&apos;s okay.
+
+Now check for Dutch grammar: &quot;Bearer token voor het Embedding-eindpunt.&quot; is a phrase. &quot;Leeg laten als er geen authenticatie vereist is.&quot; is okay. Could also use &quot;geen auth vereist&quot;. But we translate &quot;auth&quot; to &quot;authenticatie&quot;. So &quot;geen authenticatie vereist&quot;. So final translation: &quot;Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.&quot;
+
+Check for punctuation: We need period after each sentence or not? The original sentence ends with a period? It has a period at the end: &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; Two sentences separated by a period and a space. So we can keep period after each. So we have &quot;Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.&quot;
+
+Thus final output:
+
+```
+Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
+```
+
+Wrap in three backticks. We must not include any extra text.
+
+Thus answer.
+&lt;/think&gt;
+
+```Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brand Startpagina URL</value>
   </data>
@@ -45,8 +116,273 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Contractlogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Translated word here...
+```
+
+Also note: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we understand. The phrase &quot;Embedding API Token&quot;. It&apos;s a proper noun perhaps, but we must translate. Likely in Dutch, &quot;Embedding&quot; is often used as English term for embedding, but might be translated as &quot;insluizen&quot;? Actually &quot;embedding&quot; is typically used as &quot;embedding&quot; as term. But could be translated to &quot;Insluit API Token&quot;. However, we need to think about typical translations. The phrase &quot;Embedding API Token&quot; is a setting name for an embedding API token. In Dutch, it might be &quot;Insluit API Token&quot;? No, &quot;embedding&quot; could be &quot;insluiting&quot;? Actually &quot;embedding&quot; could be &quot;insluiten&quot;? Not sure. Let&apos;s check typical translations. In Dutch, the concept &quot;embedding&quot; in AI context may be called &quot;insluiten&quot; (embedding?), but perhaps better translation: &quot;Embedding&quot; as &quot;Embedding&quot; stays &quot;Embedding&quot;? Many UI frameworks use the English word &quot;Embedding&quot;. If we must translate to Dutch, we might translate &quot;Embedding API Token&quot; to &quot;Insluitings-API-token&quot;? Let&apos;s think. Dutch translation of &quot;Embedding API Token&quot; could be &quot;Insluitings-API-token&quot;. However, typical translation of &quot;embedding API token&quot; could be &quot;Embedding API-token&quot; if they keep English. But the requirement: translate only the sentence or word into nl-NL.
+
+We need to consider if &quot;Embedding API Token&quot; is a proper noun, like a technical term. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot;
+
+Is &quot;Embedding API Token&quot; a proper noun? It&apos;s a label for a setting. It&apos;s a technical term. In many localizations, we would still translate it to Dutch, but keep the concept. Usually &quot;Embedding API Token&quot; is a name of a token used for the embedding API. The translation could be &quot;Embedding API‑token&quot;. But we must decide.
+
+The request: &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we need to output the translation.
+
+We need to consider guidelines: The translation should be accurate, fluent, careful. Provide the translation &quot;Embedding API Token&quot; -&gt; &quot;Embedding API‑token&quot; might be used. However, perhaps the Dutch translation for &quot;Embedding API Token&quot; is &quot;Insluitings‑API‑token&quot;. But I&apos;m not certain. Let&apos;s research typical translations of &quot;embedding&quot; as used in AI context. In Dutch, &quot;embedding&quot; is often used as &quot;insluiting&quot; or &quot;embedding&quot; remains unchanged. For example, &quot;embeddings&quot; in Dutch translation might be &quot;insluitingen&quot;? Searching memory: In AI context, &quot;embedding&quot; is a term for representing data as vectors. The term &quot;embedding&quot; can be used as &quot;insluiting&quot;? Actually, &quot;embed&quot; might be &quot;insluiten&quot;. But &quot;embedding&quot; as a gerund might be &quot;insluiting&quot;. For example, &quot;embedding vectors&quot; could be &quot;insluitingsvectoren&quot;. So &quot;Embedding API Token&quot; might become &quot;Insluitings‑API‑token&quot;. But that is a direct translation. However, many Dutch UI might still use &quot;Embedding API Token&quot; in English, because it&apos;s a technical term. But the user wants translation.
+
+Better to think: In Dutch, &quot;API Token&quot; is &quot;API-token&quot;. &quot;Embedding&quot; could be translated to &quot;Insluitings&quot;. But is &quot;embedding&quot; a noun? It could be &quot;embedding&quot; used as a noun. The translation of &quot;embedding&quot; to Dutch might be &quot;insluiting&quot;. But &quot;embedding&quot; also could be &quot;embed&quot;, &quot;to embed&quot;. Let&apos;s check Dutch translations for &quot;embedding&quot; in various contexts: In software localization, &quot;embed&quot; is &quot;insluiten&quot; (to embed something). &quot;Embedding&quot; could be &quot;insluiten&quot;. So &quot;Embedding API Token&quot; might be &quot;Insluitings-API-token&quot;. But I&apos;m not sure if there&apos;s a standard.
+
+Search mental knowledge: In Dutch translation for AI terms, &quot;embedding model&quot; is often translated as &quot;insluitingsmodel&quot;. For example: &quot;embedding model&quot; is &quot;insluitingsmodel&quot;. Indeed, &quot;embedding model&quot; appears in some translation of LLM contexts: &quot;embedding model&quot; -&gt; &quot;insluitingsmodel&quot;. In Dutch, &quot;model&quot; is &quot;model&quot;. &quot;Embedding model&quot; could be &quot;insluitingsmodel&quot;. So &quot;Embedding API Token&quot; -&gt; &quot;Insluitings‑API‑token&quot;. That seems plausible.
+
+Alternatively, &quot;Embedding API Token&quot; could be &quot;Embedding API‑token&quot;. In many localizations, you might keep &quot;Embedding API Token&quot; unchanged, but the user specifically asks to translate. So we must give a translation. Let&apos;s decide.
+
+The phrase &quot;Embedding API Token&quot; has three parts: &quot;Embedding&quot;, &quot;API&quot;, &quot;Token&quot;. &quot;API&quot; is an abbreviation, should remain unchanged (maybe uppercase). &quot;Token&quot; is a general term that might be &quot;token&quot;. In Dutch, &quot;token&quot; may remain unchanged (or &quot;toegangstoken&quot;? &quot;API token&quot; is often called &quot;API token&quot; unchanged. So translation might be: &quot;Insluitings-API-token&quot;. That is a plausible translation.
+
+Let&apos;s think about standard usage: The phrase &quot;Embedding API Token&quot; appears in many codebases, like in a setting for a system using embeddings. The Dutch translation of &quot;Embedding API Token&quot; might be &quot;Insluitings‑API‑token&quot;. But does &quot;Insluitings-API-token&quot; make sense? &quot;Insluitings-API-token&quot;. Yes.
+
+But perhaps the translation could be &quot;Insluitings‑API‑token&quot; or &quot;Insluitings‑API token&quot; (space). In Dutch, spaces between words: Usually &quot;API-token&quot; is hyphen. So &quot;Insluitings‑API-token&quot;. That seems consistent.
+
+Alternatively, &quot;Embedding API Token&quot; could be &quot;Embedding API‑token&quot;. But that is just English with hyphen. But we need translation into Dutch.
+
+Thus, answer: &quot;Insluitings‑API‑token&quot;.
+
+Wrap in triple backticks.
+
+Also note: The user wants just the translation, nothing else. So output:
+
+```Insluitings‑API‑token
+```
+&lt;/think&gt;
+
+```Insluitings‑API‑token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embedding-eindpunt```
+
+But need to be sure: &quot;Embedding Endpoint&quot; in Dutch could be &quot;Embedding-eindpunt&quot;. Usually in Dutch technical translations, you might translate &quot;endpoint&quot; as &quot;eindpunt&quot;. For &quot;embedding&quot; you could keep it as &quot;Embedding&quot;. So &quot;Embedding-eindpunt&quot;. Could also be &quot;Embedding-eindpunt&quot; or &quot;Embedding Eindpunt&quot; but &quot;Eindpunt&quot; capitalized? Usually &quot;eindpunt&quot; is a noun, not capitalized. So &quot;Embedding-eindpunt&quot; might be correct. However, maybe we can also use &quot;Embedding-eindpunt&quot; or &quot;Embedding-eindpunt&quot;. Or &quot;Embedding-eindpunt&quot;. The phrase &quot;Embedding Endpoint&quot; might be better translated as &quot;Embedding-eindpunt&quot;. I think &quot;Embedding-eindpunt&quot; is appropriate. Or you could translate &quot;Embedding&quot; as &quot;inbedding&quot; but that seems too literal; but typical translation would be &quot;inbedding&quot; for &quot;embedding&quot;? In Dutch &quot;embedding&quot; is used as &quot;inbedding&quot;. Actually &quot;inbedding&quot; is the noun &quot;embedding&quot; (the process). But &quot;Embedding Endpoint&quot; is a technical term for &quot;inbeddings-eindpunt&quot;? The common translation for &quot;embedding&quot; is &quot;inbedding&quot; but in context of AI and vector embeddings, &quot;embedding&quot; is typically used as &quot;inbedding&quot; or &quot;embedding&quot;. Many Dutch translations use &quot;inbedding&quot;. For example, &quot;Embedding model&quot; would be &quot;inbeddingsmodel&quot;. So &quot;Embedding Endpoint&quot; might be &quot;inbeddings-eindpunt&quot;. Actually &quot;inbeddings&quot; is the genitive of &quot;inbedding&quot;. Could be &quot;inbeddings-eindpunt&quot;. But &quot;Embedding Endpoint&quot; might be a proper term used in code, often not translated. However, the instruction says translation is required. But is &quot;Embedding Endpoint&quot; considered a proper noun? It&apos;s a setting name for a technical concept, not a human name, trademark, etc. So it&apos;s not a proper noun that must stay unchanged. So we need to translate it to Dutch. So the translation: &quot;Embedding-eindpunt&quot;. Or &quot;Embedding Eindpunt&quot; might be used. But we must consider standard usage: &quot;embedding endpoint&quot; is &quot;inbeddingseindpunt&quot;? Let&apos;s examine typical Dutch translation for &quot;embedding endpoint&quot;. Searching memory: The typical Dutch translation for &quot;endpoint&quot; is &quot;eindpunt&quot;. For &quot;embedding&quot;, it might be &quot;inbedding&quot;. So &quot;inbeddingseindpunt&quot; (embedding + endpoint = inbedding + eindpunt). However, combining &quot;inbeddingseindpunt&quot; is a compound noun, which might be &quot;inbeddingseindpunt&quot;. That is one word. But &quot;inbeddingseindpunt&quot; may not be standard; typical translations in software prefer &quot;inbeddingseindpunt&quot;. But maybe they&apos;d use &quot;embedding-eindpunt&quot;. However, the instruction says to output the translated word, not provide translation notes. So we need to decide the appropriate translation.
+
+The user says &quot;translate only the sentence or word `Embedding Endpoint` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we need to output the translated word. The user gave no other context; just the word &quot;Embedding Endpoint&quot;. So we need to output a translation in Dutch.
+
+Potential translations:
+
+1. &quot;Embedding-eindpunt&quot;
+2. &quot;Embedding Eindpunt&quot;
+3. &quot;Embedding Eindpunt&quot; (capitalized? maybe &quot;Embedding-eindpunt&quot; as a noun? Should it be &quot;Embedding-eindpunt&quot;? In Dutch, nouns are not capitalized, but &quot;Embedding&quot; is a proper noun from English; maybe we keep as &quot;Embedding&quot;. So &quot;Embedding-eindpunt&quot;. Or &quot;Embedding Eindpunt&quot; might be considered unnatural.
+
+But typical Dutch translation of &quot;Embedding&quot; as a noun is &quot;inbedding&quot;. However, &quot;embedding&quot; might be left unchanged as &quot;embedding&quot;. In technical contexts, it&apos;s common to keep &quot;embedding&quot; in English, as it&apos;s a term of art. So &quot;Embedding Endpoint&quot; might remain &quot;Embedding-eindpunt&quot;. Many translation guidelines for software often keep &quot;embedding&quot; unchanged. So I&apos;d output &quot;Embedding-eindpunt&quot;. That would be the translation.
+
+Thus final answer:
+
+```Embedding-eindpunt```
+
+But we need to be careful: The user says &quot;Do not output any other content.&quot; So we should output only that triple backticks block. However they also said &quot;wrap it in three backticks, like this: ```Translated word here...```&quot;. So we need to output exactly that. So we output:
+
+```Embedding-eindpunt```
+
+The answer should be just that. No extra content. Ensure no extra spaces or newlines. Provide exactly that. Also note the backticks themselves. So final.
+&lt;/think&gt;
+
+```Embedding-eindpunt</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Translated word here... ```&quot;. So we output the translation.
+
+Thus output:
+
+```Inbeddingsmodel```
+
+or maybe &quot;Inbeddingsmodel&quot;? Let&apos;s check typical Dutch case: In Dutch, &quot;inbeddingsmodel&quot; is not typical; could be &quot;inbeddingmodel&quot;? Let&apos;s search memory: &quot;embedding&quot; is &quot;inbedding&quot;. &quot;Model&quot; is &quot;model&quot;. So phrase &quot;Embedding Model&quot; could be &quot;inbedding model&quot;. But typical phrase may be &quot;inbeddingsmodel&quot;? Actually &quot;embedding&quot; is a noun, and &quot;model&quot; is also noun. When combining two nouns, you might use &quot;inbeddingmodel&quot;. Eg &quot;inbedding model&quot;? Usually you combine with hyphen or concatenation: &quot;inbeddingmodel&quot;. So &quot;Inbeddingmodel&quot;. That seems more correct.
+
+Let&apos;s examine typical translation usage: If you search for &quot;embedding model translation Dutch&quot;, you may see &quot;inbeddingsmodel&quot;. Let&apos;s check typical terms: &quot;deep embedding model&quot; is &quot;diep inbeddingsmodel&quot;? Not sure. The &quot;embedding model&quot; is &quot;model for embeddings&quot;. In English, it&apos;s often used as &quot;embedding model&quot;. In Dutch, you might say &quot;inbeddingsmodel&quot;. For example, &quot;the embedding model used for text&quot; could be translated as &quot;het inbeddingsmodel&quot;. I think &quot;inbeddingsmodel&quot; (embedding model) is used.
+
+Let&apos;s check other translations in the given code. The strings in English: &quot;Contract Logo&quot;, &quot;Show Contract Header&quot;, &quot;Embedding Endpoint&quot;, &quot;Embedding Model&quot;, &quot;Embedding API Token&quot;, &quot;Enable Embedding-Based Search&quot;, &quot;Embedding Query Cache Limit&quot;. So the translation for &quot;Contract Logo&quot; likely would be &quot;Contractlogo&quot; or &quot;Contract logo&quot;. For Dutch they&apos;d probably want &quot;Contractlogo&quot; or &quot;Contractlogo&quot;? Usually they&apos;d translate &quot;Contract Logo&quot; into &quot;Contractlogo&quot;. But they want only to translate &quot;Embedding Model&quot;. So we need to give the translation for that phrase only.
+
+Thus likely translation: &quot;Inbeddingsmodel&quot;. Let&apos;s decide. I&apos;ll search mental memory: &quot;embedding&quot; -&gt; &quot;inbedding&quot;, &quot;embedding model&quot; -&gt; &quot;inbeddingsmodel&quot;. Eg, translation of &quot;embedding model&quot; from common phrase: &quot;embedding model&quot; -&gt; &quot;inbeddingsmodel&quot;. I recall some translation memory: &quot;embedding model&quot; is &quot;inbedding model&quot; not &quot;inbeddingsmodel&quot;? Actually, &quot;embedding model&quot; is an model for embeddings, so &quot;inbeddingmodel&quot;? But &quot;inbedding model&quot; seems less likely. I think &quot;inbeddingsmodel&quot; is used. Check typical translation in Dutch: &quot;embedding&quot; as a verb? In Dutch, &quot;embedding&quot; in software context is &quot;inbedding&quot;. Example: &quot;embedding of an object&quot; -&gt; &quot;inbedding van een object&quot;. In the phrase &quot;embedding model&quot;, &quot;embedding&quot; is a gerund, but used as adjective. So &quot;inbeddingsmodel&quot; (embedding model). For example: &quot;text embedding model&quot; -&gt; &quot;tekst inbeddingsmodel&quot;. So it is plausible.
+
+Thus translation: &quot;Inbeddingsmodel&quot;. Let&apos;s think about capitalization: The user wants translation in Dutch; usually UI strings are capitalized only first letter? The phrase &quot;Embedding Model&quot; capitalized each word: &quot;Embedding Model&quot;. In Dutch translation, maybe &quot;Inbeddingsmodel&quot; (capital I, lower rest). Or &quot;Inbeddingsmodel&quot;? Should we preserve capital first letter? In UI translation, they may want &quot;Inbeddingsmodel&quot; (capital I). Probably best to keep first letter capital because UI label maybe &quot;Inbeddingsmodel&quot;. So output &quot;Inbeddingsmodel&quot;.
+
+Thus final answer: triple backticks containing &quot;Inbeddingsmodel&quot;.
+
+Double-check for any errors: The user said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We are clear.
+
+Thus final answer:
+
+```Inbeddingsmodel```
+
+But note: The translation includes &quot;Inbeddingsmodel&quot;. Wait: We need to decide between &quot;Inbeddingsmodel&quot; vs &quot;Inbeddingsmodel&quot;. Let&apos;s see the difference: &quot;Inbeddingsmodel&quot; includes a second &apos;d&apos;? Actually &quot;inbedding&quot; is the noun, &quot;inbeddingsmodel&quot; would be &quot;embedding&apos;s model&quot;? Eh? Let&apos;s examine &quot;inbedding&quot; vs &quot;inbeddings&quot;. &quot;inbedding&quot; is singular noun meaning embedding. &quot;inbedding model&quot; maybe &quot;inbeddingsmodel&quot;? Might be &quot;inbeddingsmodel&quot; meaning model for embedding.
+
+English &quot;embedding model&quot; can be broken: &quot;embedding&quot; (gerund) -&gt; &quot;inbedding&quot;. &quot;model&quot; -&gt; &quot;model&quot;. Combined as &quot;inbedding model&quot;? But likely &quot;inbeddingsmodel&quot;. But &quot;inbedding model&quot; would be two words, but they want one string &quot;Embedding Model&quot;. So likely &quot;Inbeddingsmodel&quot;. So use that.
+
+Thus final answer: ```Inbeddingsmodel```.
+
+Double-check if this matches typical translation of &quot;embedding model&quot;. Let&apos;s search memory: Many translations for &quot;embedding&quot; used &quot;inbedding&quot;. Eg &quot;embedding vector&quot; -&gt; &quot;inbeddingsvector&quot;. So &quot;embedding model&quot; -&gt; &quot;inbeddingsmodel&quot;. Yes, &quot;inbeddingsmodel&quot;. So output that.
+
+Thus final answer: triple backticks.
+
+Proceed to final.
+&lt;/think&gt;
+
+```Inbeddingsmodel</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.
+```
+
+Check that we preserve &quot;bge-m3:latest&quot; as is. Yes.
+
+Thus answer: triple backticks with translation.
+
+Edge cases: The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation: &quot;Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.&quot; That is correct.
+
+Thus output in triple backticks.
+&lt;/think&gt;
+
+```na
+Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limiet voor invoerquery-cache```
+
+But we need to be careful: Dutch words &quot;invoer&quot; means input, &quot;query&quot; may be &quot;query&quot; (English loan word). &quot;Cache&quot; is also English. We could use &quot;invoerquery-cache-limiet&quot;. Or &quot;Limiet voor invoerquery-cache&quot;. This is plausible.
+
+But maybe better: &quot;Limiet voor cache van invoerquery&quot;. This is &quot;Limiet voor cache van invoerquery&quot;. Or &quot;Limiet voor invoerquery-cache&quot;. Actually &quot;Cache Limiet&quot; as two words? We can use &quot;Limiet voor invoerquery-cache&quot;. That seems correct.
+
+Thus output:
+
+```
+Limiet voor invoerquery-cache
+```
+
+Alternatively, &quot;Cache-limiet voor invoerquery&quot;. That may sound more natural: &quot;Cache-limiet voor invoerquery&quot;. The English phrase &quot;Cache Limit&quot; is often &quot;Cache-limiet&quot;. So &quot;Cache-limiet voor invoerquery&quot;. That seems fine.
+
+We need to be careful about the context: The phrase is used as a Name for a setting. The translation should be a UI string label. So &quot;Cache-limiet voor invoerquery&quot; maybe.
+
+Let&apos;s think about translation guidelines: UI label translation: Should be concise, likely &quot;Cache-limiet voor invoerquery&quot;. However &quot;Embedding Query Cache Limit&quot; is three parts: &quot;Embedding Query Cache Limit&quot;. In a translation, we may break it down. &quot;Embedding&quot; -&gt; &quot;Invoer&quot;, &quot;Query&quot; -&gt; &quot;Zoekopdracht&quot;? Or &quot;Query&quot; as &quot;vraag&quot;. Or &quot;Query&quot; can be &quot;query&quot;. But perhaps &quot;Invoerquery&quot; is okay.
+
+Thus final translation: &quot;Limiet voor cache van invoerquery&quot;? Hmm.
+
+Let&apos;s see if we can find a more natural phrase: &quot;Cache-limiet voor invoerquery&quot;. That seems direct: The limit of the cache for the embedding query. So &quot;Cache-limiet voor invoerquery&quot;.
+
+Thus output:
+
+```Cache-limiet voor invoerquery```
+
+Will that be considered correct? Perhaps they&apos;d prefer &quot;Cache-limiet voor invoerquery&quot;. I&apos;d output that.
+
+Wrap in triple backticks.
+
+Thus answer: &quot;```Cache-limiet voor invoerquery```&quot;.
+&lt;/think&gt;
+
+```Cache-limiet voor invoerquery</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Inschakelen van op embeddings gebaseerde zoekopdracht
+```
+
+or something like that, depending on the translation. Let&apos;s see. The phrase is &quot;Enable Embedding-Based Search&quot;. This appears as a setting name. In Dutch, &quot;Enable&quot; is &quot;Inschakelen&quot; or &quot;Enable&quot; could be &quot;Inschakelen&quot;. &quot;Embedding-Based Search&quot; is &quot;op opdrachten gebaseerde zoekfunctie&quot;? Actually &quot;Embedding-Based Search&quot; is a concept: &quot;Embedding-Based Search&quot; means search based on embeddings (vector search). In Dutch, you might translate &quot;Enable Embedding-Based Search&quot; as &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. Possibly &quot;Inschakelen van op embeddings gebaseerde zoekopdracht&quot;. However, let&apos;s think about typical localization conventions: For a setting name &quot;Enable Embedding-Based Search&quot;, they may want something like &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. But it&apos;s a phrase used as Name of a setting; the user wants to translate only that phrase &quot;Enable Embedding-Based Search&quot;. So translation: &quot;Inschakelen van op embeddings gebaseerde zoekopdracht&quot;. But &quot;op embeddings&quot; seems wrong: &quot;embedding&quot; is noun in Dutch: &quot;embedding&quot; maybe &quot;inbedding&quot;? Could be &quot;Inschakelen van op inbedding gebaseerde zoekfunctie&quot;. However, typical translations: &quot;Enable Embedding-Based Search&quot; could be &quot;Op inbedding gebaseerde zoekfunctie inschakelen&quot;. Or &quot;Op vectoren gebaseerde zoekfunctie inschakelen&quot;. But &quot;embedding&quot; is often used as &quot;inbedding&quot;. Could be &quot;Inschakelen van op vectoren gebaseerde zoekfunctie&quot;. But the phrase &quot;Embedding-Based Search&quot; refers to vector search. In Dutch, &quot;semantic search&quot; is &quot;semantisch zoeken&quot;. But &quot;embedding-based search&quot; is &quot;zoeken op basis van embeddings&quot;. The translation might be &quot;Inschakelen van op embeddings gebaseerde zoekfunctie&quot;. Let&apos;s keep it simpler: &quot;Inschakelen van op embeddings gebaseerde zoekopdracht&quot;. But &quot;search&quot; could be &quot;zoeken&quot; or &quot;zoekopdracht&quot;. Usually they&apos;d say &quot;zoekfunctie&quot;. So &quot;Inschakelen van op embeddings gebaseerde zoekfunctie&quot;.
+
+Thus final answer: &quot;Inschakelen van op embeddings gebaseerde zoekfunctie&quot;. Wrap in triple backticks.
+
+We need to ensure only the translated content. No extra. Let&apos;s output:
+
+```
+Inschakelen van op embeddings gebaseerde zoekfunctie
+```
+
+Alternatively &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. Which is more literal: &quot;Enable Embedding-Based Search&quot; -&gt; &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. That seems more direct: &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. Or &quot;Op embeddings gebaseerde zoekopdracht inschakelen&quot;? &quot;zoekopdracht&quot; means &quot;search query&quot;. But &quot;zoekfunctie&quot; is more like search function.
+
+Thus final answer: &quot;Inschakelen van op embeddings gebaseerde zoekfunctie&quot; or &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. Choose one. The user likely expects &quot;Inschakelen van op embeddings gebaseerde zoekfunctie&quot;. That matches structure: &quot;Enable ... Search&quot; =&gt; &quot;Inschakelen van ... Zoekfunctie&quot;. Could also be &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. This has &quot;enable&quot; as verb &quot;inschakelen&quot;. Both are correct. The phrase might be used as Name property, maybe they want exactly the translation of &quot;Enable Embedding-Based Search&quot;. So we could provide &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. That seems correct.
+
+Thus output in triple backticks: &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. Let&apos;s choose that.
+
+Double-check: translation of &quot;Enable Embedding-Based Search&quot; should be in Dutch: &quot;Op embeddings gebaseerde zoekfunctie inschakelen&quot;. That uses &quot;op embeddings gebaseerde&quot;. &quot;Op&quot; implies &quot;based on&quot;. Yes.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Op embeddings gebaseerde zoekfunctie inschakelen</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Hoofdschakelaar voor semantisch (vector-gebaseerd) zoeken. Valt terug op trefwoordzoeken wanneer uitgeschakeld.
+```
+
+But check: &quot;trefwoordzoeken&quot; maybe not common. Instead &quot;trefwoords zoeken&quot;. Actually &quot;keyword search&quot; is often &quot;keyword search&quot; in English; translation &quot;trefwoordzoekfunctie&quot;. So perhaps &quot;Valt terug op trefwoords zoeken&quot;. Let&apos;s decide. The phrase &quot;trefwoords zoeken&quot; is slightly odd; &quot;trefwoorden zoeken&quot; is plural. &quot;trefwoords&quot; could be genitive? Usually &quot;trefwoords zoeken&quot; not typical. In Dutch UI, &quot;Keyword Search&quot; often appears as &quot;Trefwoorden zoeken&quot;. Eg. &quot;Enable keyword search&quot; is &quot;Trefwoorden zoeken inschakelen&quot;. So &quot;Valt terug op trefwoorden zoeken&quot;. But &quot;keyword search&quot; may be &quot;trefwoorden zoeken&quot;. So translation: &quot;Valt terug op trefwoorden zoeken wanneer uitgeschakeld.&quot; But &quot;when disabled&quot; (disabled) might be &quot;uitgeschakeld&quot;. So final: &quot;Valt terug op trefwoorden zoeken wanneer uitgeschakeld.&quot; That&apos;s fine.
+
+Thus answer: ````Hoofdschakelaar voor semantisch (vector-gebaseerd) zoeken. Valt terug op trefwoorden zoeken wanneer uitgeschakeld.````
+
+Double-check for punctuation: Should be same punctuation: period after each sentence? The original: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; So two sentences: one describing master switch; second describing fallback. In Dutch: &quot;Hoofdschakelaar voor semantisch (vector-gebaseerd) zoeken. Valt terug op trefwoorden zoeken wanneer uitgeschakeld.&quot; Good.
+
+Check for proper nouns: &quot;semantic (vector-based)&quot; includes parentheses, keep them. &quot;vector-gebaseerd&quot; uses hyphen. &quot;semantisch (vector-gebaseerd)&quot; is fine.
+
+Thus answer. Let&apos;s output only that.
+
+Now, ensure no extra content, just the translation in triple backticks.
+&lt;/think&gt;
+
+```Hoofdschakelaar voor semantisch (vector-gebaseerd) zoeken. Valt terug op trefwoorden zoeken wanneer uitgeschakeld.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maximaal aantal in cache opgeslagen zoekquery-inbeddingen in de database (LRU). Standaard 2000.
+```
+&lt;/think&gt;
+
+``` 
+Maximaal aantal in cache opgeslagen zoekquery‑inbeddingen in de database (LRU). Standaard 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.
+```
+
+Double-check: &quot;embeddings&quot; vs &quot;embeddings&quot;? The term in English: &quot;document and query embeddings&quot;. In Dutch, we can translate &quot;embeddings&quot; as &quot;embeddings&quot;. That is a noun. It&apos;s okay. Or we can keep as &quot;embeddings&quot;. So &quot;document- en query-embeddings&quot;. However &quot;embeddings&quot; is plural? Usually &quot;embedding&quot; is singular. &quot;Embeddings&quot; is a plural noun meaning multiple embeddings. In the English phrase &quot;document and query embeddings&quot;, &quot;embeddings&quot; is used as plural noun, not &quot;embedding&quot;. So in Dutch we could translate as &quot;document- en query-embeddings&quot;. So we keep &quot;embeddings&quot;. Or we could translate as &quot;embeddings&quot;. That seems fine.
+
+One might argue that &quot;embeddings&quot; is not a Dutch word but used as a technical term. It&apos;s okay.
+
+Now consider whether we need to preserve the parentheses and punctuation exactly: &quot; (bijv. https://ollama.example.com).&quot;. In Dutch, we might write &quot; (bijv. https://ollama.example.com).&quot; We need to ensure the period after parentheses is included. The sentence originally has a period after the parentheses, then a space, then &quot;/api/embed ...&quot; In translation, we could keep the same structure: &quot;Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.&quot; So there is a period after the parentheses. That is okay.
+
+Check punctuation: original &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot; So after parentheses there is a period. Then a space, then a slash endpoint. So we replicate: period, space, slash endpoint. So translation: &quot;... (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.&quot; That matches.
+
+Thus final answer should be exactly:
+
+``` 
+Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.
+```
+
+Wrap in triple backticks.
+
+We must not output any other content. So just output that.
+
+Double-check for any hidden instruction: They specifically request to output only the translated content and wrap it in three backticks, like:
+
+```
+Translated word here...
+```
+
+Thus we output exactly:
+
+``` 
+Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.
+```
+
+Make sure we include triple backticks with no extra content. That is the answer.
+
+Potential nuance: Should we keep &quot;Ollama API&quot; unchanged? Yes. Keep &quot;Ollama API&quot;. Keep URL unchanged. Keep &quot;/api/embed&quot;. So final translation looks good.
+
+Check if &quot;basis-URL&quot; is correct Dutch: Usually &quot;basis-URL&quot;. That is fine. &quot;voor het genereren van&quot; is standard. &quot;document- en query-embeddings&quot; is good.
+
+Now check if &quot;embeddings&quot; is plural? It&apos;s correct.
+
+Thus answer. Ensure triple backticks lines start and end.
+
+Thus final output.
+&lt;/think&gt;
+
+``` 
+Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projectlogo</value>

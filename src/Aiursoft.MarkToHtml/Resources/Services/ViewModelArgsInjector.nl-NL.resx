@@ -180,6 +180,43 @@
   <data name="Roles" xml:space="preserve">
     <value>Rollen</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>\nZoeken\n```&quot;. Actually the instruction: &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. They want the output exactly as code block. So we must output something like:
+
+```
+Zoeken
+```
+
+Make sure to not include any other content. That&apos;s it.
+
+But let&apos;s double-check: The original instruction: &quot;Please translate only the sentence or word `Search` in the paragraph into the target language nl-NL, Nederlands (Nederland).&quot; So we translate &quot;Search&quot; -&gt; &quot;Zoeken&quot;. That is standard.
+
+Check for &quot;Search&quot; maybe context could be &quot;Search&quot; (like a button label). In Dutch, &quot;Zoeken&quot; is indeed the translation. So output:
+
+```
+Zoeken
+```
+
+Yes.
+
+Potential nuance: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them.&quot; Search is not a proper noun, it&apos;s a generic word. So translation is fine.
+
+Thus answer: code block with Zoeken.
+
+Note: They say &quot;output the translated conclusion and nothing else. Do not output any other content.&quot; So just code block.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Zoeken</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Zoek mijn documenten...```
+&lt;/think&gt;
+
+```Zoek mijn documenten...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Zelf hosten</value>
   </data>
