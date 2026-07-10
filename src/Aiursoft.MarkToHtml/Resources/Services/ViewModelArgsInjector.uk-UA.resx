@@ -180,6 +180,12 @@
   <data name="Roles" xml:space="preserve">
     <value>Ролі</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Пошук</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Шукати в моїх документах...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Самостійне розгортання</value>
   </data>

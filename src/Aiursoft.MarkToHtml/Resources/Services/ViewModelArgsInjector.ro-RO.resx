@@ -180,6 +180,12 @@
   <data name="Roles" xml:space="preserve">
     <value>Roluri</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Căutare</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Caută în documentele mele...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Autogestionare</value>
   </data>

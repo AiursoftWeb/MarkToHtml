@@ -96,6 +96,9 @@
   <data name="Share" xml:space="preserve">
     <value>Bagikan</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Dibagikan</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>Ukuran</value>
   </data>

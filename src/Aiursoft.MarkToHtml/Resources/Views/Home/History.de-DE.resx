@@ -96,6 +96,9 @@
   <data name="Share" xml:space="preserve">
     <value>Teilen</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Geteilt</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>Größe</value>
   </data>

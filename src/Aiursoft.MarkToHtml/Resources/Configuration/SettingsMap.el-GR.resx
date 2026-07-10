@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Επιτρέψτε στους χρήστες να τροποποιήσουν το ψευδώνυμό τους στη σελίδα διαχείρισης προφίλ.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Συμβολική φράση για το EndPoint Ενσωμάτωσης. Αφήστε κενό εάν δεν απαιτείται πιστοποίηση.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL Αρχικής Σελίδας Μάρκας</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Λογότυπο Συμβολαίου</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Διακριτικό API Ενσωμάτωσης</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Τέρμα Ενσωμάτωσης</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Μοντέλο Ενσωμάτωσης</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Το όνομα του μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Όριο Προκαταχωρημένης Μνήμης Ερωτήσεων Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Ενεργοποίηση αναζήτησης βάσει ενσωμάτωσης</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Αριθμός ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Κύριος διακόπτης για την ημιαντίστροφη αναζήτηση (βασιζόμενη σε διανύσματα). Όταν είναι απενεργοποιημένος, γίνεται αυτόματη μετάβαση στην αναζήτηση με λέξεις-κλειδιά.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Μέγιστος αριθμός ενθυλακώσεων ερωτήματος αναζήτησης που έχουν αποθηκευτεί στη βάση δεδομένων (LRU). Προεπιλογή 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Βάση URL της API του Ollama για τη δημιουργία ενσωματώσεων εγγράφων και ερωτημάτων (π.χ. https://ollama.example.com). Το /api/embed προσαρτάται αυτόματα.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Λογότυπο Έργου</value>

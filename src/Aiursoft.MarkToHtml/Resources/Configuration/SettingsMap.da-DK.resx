@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillad brugere at justere deres nickname på siden til profilhåndtering.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer-token til Embedding Endpoint. Efterlad tom, hvis ingen godkendelse kræves.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brand-website-URL</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Kontraktlogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Embedding API Token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Indlejringsslutpunkt</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Indslejtingsmodel</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Navn på embedding-model til vektorsøgning, f.eks. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Begrænsning af cache for indlejringsspørgsmål</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Aktivér indlejring-baseret søgning</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Hovedkontakt til semantisk (vektorbaseret) søgning. Faller tilbage til nøgleordsøgning, når den er deaktiveret.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maksimalt antal cachelagrede embedding-værdier for søgeforespørgsler gemt i databasen (LRU). Standard 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Base-URL til Ollama API til generering af indlejringer for dokumenter og forespørgsler (f.eks. https://ollama.example.com). /api/embed tilføjes automatisk.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektlogo</value>

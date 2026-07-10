@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Izinkan pengguna menyesuaikan nama panggilan mereka di halaman pengelolaan profil.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Token Bearer untuk Titik Akhir Embedding. Kosongkan jika tidak diperlukan autentikasi.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL Rumah Merek</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo Kontrak</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API Embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Titik Akhir Penyematan</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model Enkoding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nama model embedding untuk pencarian vektor, contoh: bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Batas Cache Kueri Embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Aktifkan Pencarian Berbasis Embedding</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Nomor ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Sakelar utama untuk pencarian semantik (berbasis vektor). Akan beralih ke pencarian kata kunci jika dinonaktifkan.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Jumlah maksimum embedding query pencarian yang di-cache dan disimpan dalam database (LRU). Default 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL dasar API Ollama untuk menghasilkan embedding dokumen dan kueri (misalnya https://ollama.example.com). /api/embed akan ditambahkan secara otomatis.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo Proyek</value>

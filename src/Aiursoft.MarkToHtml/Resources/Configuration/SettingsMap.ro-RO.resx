@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Permite utilizatorilor să-și ajusteze nickname-ul în pagina de gestionare a profilului.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Token Bearer pentru Endpoint-ul de Încorporare. Lăsați gol dacă nu se necesită autentificare.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL pagină principală marcă</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo Contract</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API de înșiruire</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Capăt de conectare pentru inserții</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model de încredere vectorială</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Numele modelului de încorporare pentru căutare vectorială, de ex. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limitul Cache-ului de Căutare pentru Încorporare</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Activează căutarea bazată pe încorporări</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Număr ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Comutator principal pentru căutarea semantică (pe baza vectorilor). Revine la căutarea pe cuvinte cheie când este dezactivat.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Numărul maxim de încorporări pentru interogarea de căutare stocate în cache în baza de date (LRU). Valoarea implicită este 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL-ul de bază al API-ului Ollama pentru generarea încorporărilor documentelor și interogărilor (de exemplu, https://ollama.example.com). /api/embed se adaugă automat.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo Proiect</value>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="AI-powered search (Vector Database)" xml:space="preserve">
+    <value>Поиск на основе ИИ (векторная база данных)</value>
+  </data>
+  <data name="Back to My Documents" xml:space="preserve">
+    <value>Вернуться в «Мои документы»</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Создать новый документ</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Время создания</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Изменить</value>
+  </data>
+  <data name="Go to folder" xml:space="preserve">
+    <value>Перейти к папке</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Внутренний</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Переместить</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Переместить в папку</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="No documents found for your search query." xml:space="preserve">
+    <value>Документы по вашему запросу не найдены.</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Закрытый</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Общедоступный</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Поделиться</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Размер</value>
+  </data>
+  <data name="Too many searches. AI search temporarily limited; showing keyword results." xml:space="preserve">
+    <value>Слишком много поисковых запросов. Поисковый ИИ временно ограничен; отображаются результаты по ключевым словам.</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Просмотр</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Видимость</value>
+  </data>
+
+</root>
