@@ -180,6 +180,12 @@
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Søg i mine dokumenter...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Selvhost</value>
   </data>

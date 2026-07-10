@@ -180,6 +180,12 @@
   <data name="Roles" xml:space="preserve">
     <value>Roolit</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Hae</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Hae dokumenteistani...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Oma palvelin</value>
   </data>

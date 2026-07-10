@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>प्रोफ़ाइल प्रबंधन पृष्ठ पर उपयोगकर्ताओं को अपना निकनेम समायोजित करने की अनुमति दें।</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Embedding Endpoint के लिए Bearer टोकन। यदि कोई प्रमाणीकरण आवश्यक नहीं है, तो इसे खाली छोड़ें।</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>ब्रांड होम यूआरएल</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>चुनौती लोगो</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>एम्बेडिंग API टोकन</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>एम्बेडिंग एंडपॉइंट</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>एम्बेडिंग मॉडल</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>वेक्टर खोज के लिए एम्बेडिंग मॉडल का नाम, उदाहरण: bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>एम्बेडिंग क्वेरी कैश सीमा</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>एम्बेडिंग-आधारित खोज को सक्षम करें</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>आईसीपी नंबर</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>सेमैंटिक (वेक्टर-आधारित) खोज के लिए मुख्य स्विच। अक्षम होने पर कीवर्ड खोज पर वापस आ जाता है।</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>डेटाबेस में संग्रहीत कैश किए गए खोज-क्वेरी एम्बेडिंग्स की अधिकतम संख्या (LRU)। डिफ़ॉल्ट 2000।</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>दस्तावेज़ और क्वेरी एम्बेडिंग उत्पन्न करने के लिए Ollama API बेस URL (जैसे https://ollama.example.com). /api/embed स्वचालित रूप से जुड़ा जाता है।</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>प्रोजेक्ट लोगो</value>

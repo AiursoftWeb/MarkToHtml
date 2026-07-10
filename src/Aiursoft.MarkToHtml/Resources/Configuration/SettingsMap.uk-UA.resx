@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Дозволити користувачам змінювати свій нік у сторінці керування профілем.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Токен Bearer для точки вставки Embedding. Залиште порожнім, якщо аутентифікація не потрібна.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL домашньої сторінки бренду</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Логотип договору</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Токен API вбудовування</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Точка доступу для ембедінгу</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Модель вбудовування</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Назва моделі вбудовування для векторного пошуку, наприклад bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Ліміт кешу запитів вбудовування</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Увімкнути вбудований пошук</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Номер ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Головний перемикач семантичного (на основі векторів) пошуку. При вимкненні повертається до пошуку за ключовими словами.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Максимальна кількість кешованих вбудовувань пошукових запитів, збережених у базі даних (LRU). За замовчуванням 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Базовий URL API Ollama для генерації ембеддінгів документів і запитів (наприклад, https://ollama.example.com). /api/embed додається автоматично.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Логотип проекту</value>

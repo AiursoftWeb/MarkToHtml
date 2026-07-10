@@ -96,6 +96,9 @@
   <data name="Share" xml:space="preserve">
     <value>مشاركة</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>مُشَارَك</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>الحجم</value>
   </data>

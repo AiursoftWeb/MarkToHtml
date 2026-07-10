@@ -24,6 +24,9 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer-token Embedding-päätteelle. Jätä tyhjäksi, jos todennusta ei vaadita.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Brändin kotisivuosoite</value>
   </data>
@@ -45,8 +48,35 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Sopimuslogo</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Sisäistä API-tunnus</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Upotuksen päätepiste</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Upoutusmalli</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Syötteen mallin nimi vektorihakua varten, esim. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Sisäistä kyselyvälimuistin raja</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Ota käyttöön uppoamisena perustuva haku</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-numero</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Pääkytkin semanttiselle (vektoriin perustuvalle) haulle. Ei aktiivisena hakeutuu avainsanahakuun.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Sivupäissä olevien haku-kyselyiden vektoriesitysten enimmäismäärä, joka tallennetaan tietokantaan (LRU). Oletusarvo 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API:n perus-URL-osoite dokumentti- ja kyselytekstien upotusten luomiseen (esim. https://ollama.example.com). /api/embed liitetään automaattisesti.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektin logo</value>

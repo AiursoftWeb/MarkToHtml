@@ -96,6 +96,9 @@
   <data name="Share" xml:space="preserve">
     <value>分享</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>已分享</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>大小</value>
   </data>

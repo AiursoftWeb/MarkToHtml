@@ -180,6 +180,12 @@
   <data name="Roles" xml:space="preserve">
     <value>Peran</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cari</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Cari dokumen saya...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Host Sendiri</value>
   </data>
