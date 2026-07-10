@@ -180,6 +180,36 @@
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Sök
+```
+
+They specifically want the translation only. The translation is &quot;Sök&quot;. So answer: wrap in triple backticks: &quot;Sök&quot;. That is it. Ensure no extra content.
+&lt;/think&gt;
+
+```Sök</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus we need to translate &quot;Search my documents...&quot; into Swedish. The phrase is presumably &quot;Sök mina dokument...&quot;. However need to consider proper translation: &quot;Search my documents...&quot; could be &quot;Sök i mina dokument...&quot; which might be better: &quot;Sök i mina dokument...&quot;. In Swedish, &quot;Search my documents...&quot; as a placeholder for a search field might be &quot;Sök i mina dokument&quot;. Typically in UI, placeholder text &quot;Search my documents...&quot; could be &quot;Sök i mina dokument...&quot;. For Swedish, &quot;Sök i mina dokument...&quot; (three dots) is typical.
+
+Thus we should output as translation with three backticks. The request also says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we do understand. So we output the translation. We need to output exactly the translation, wrapped in triple backticks. No other content.
+
+Thus answer:
+
+```
+Sök i mina dokument...
+```
+
+Probably need to include ellipsis (three dots) to match placeholder. Yes.
+
+Thus final.
+&lt;/think&gt;
+
+```Sök i mina dokument...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Egen värd</value>
   </data>

@@ -24,6 +24,62 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Kullanıcıların profil yönetimi sayfasında takma isimlerini ayarlamasına izin verin.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Embedding Endpoint için Bearer token. Yetkilendirme gerektirmediği durumda boş bırakın.
+```
+
+But need to think about the nuance. Let&apos;s break down the sentence:
+
+&quot;Bearer token for the Embedding Endpoint.&quot; =&gt; This is a description for a token setting. In Turkish, &quot;Bearer token&quot; can be left as &quot;Bearer token&quot;. &quot;Embedding Endpoint&quot; can be left as &quot;Embedding Endpoint&quot;. So &quot;Bearer token for the Embedding Endpoint.&quot; could become &quot;Embedding Endpoint için Bearer token.&quot; (makes sense).
+
+&quot;Leave empty if no auth required.&quot; =&gt; &quot;Yetkilendirme gerekmediğinde boş bırakın.&quot; Alternatively &quot;Yetki gerektirmediği durumda boş bırakın.&quot; Or &quot;Auth gerekmiyorsa boş bırakın.&quot; But &quot;auth&quot; is abbreviation for authentication. In Turkish, &quot;yetkilendirme&quot; or &quot;kimlik doğrulama&quot;. &quot;no auth required&quot; =&gt; &quot;yetkilendirme gerektirmediğinde&quot;. So &quot;Leave empty if no auth required.&quot; =&gt; &quot;Yetkilendirme gerekmediğinde boş bırakın.&quot;
+
+Thus the translation: &quot;Embedding Endpoint için Bearer token. Yetkilendirme gerekmediğinde boş bırakın.&quot;
+
+Alternative: &quot;Embedding Endpoint için Bearer token. Auth gerektirmediği durumda boş bırakın.&quot; But &quot;auth&quot; maybe not translated.
+
+Better to keep &quot;Bearer token&quot; as is. The phrase &quot;Embedding Endpoint&quot; is also a proper noun: we could keep it as &quot;Embedding Endpoint&quot;. So the translation might be:
+
+```
+Embedding Endpoint için Bearer token. Yetkilendirme gerekmediğinde boş bırakın.
+```
+
+Alternatively, more natural: &quot;Embedding Endpoint için Bearer token. Yetkilendirme gerektirmediği takdirde boş bırakın.&quot; The phrase &quot;takdirde&quot; is a bit formal but okay.
+
+Thus final output is:
+
+```
+Embedding Endpoint için Bearer token. Yetkilendirme gerektirmediği durumda boş bırakın.
+```
+
+But we can also consider &quot;Leave empty if no auth required.&quot; as &quot;Auth gerektirmediği durumda boş bırakın.&quot; but maybe we need to use &quot;Authentication&quot; rather than &quot;Authorization&quot;. &quot;auth&quot; may refer to authentication.
+
+But translation is to be accurate. The phrase &quot;no auth required&quot; means &quot;no authentication required&quot;. So &quot;Yetkilendirme gerekmediğinde&quot; might be ambiguous: it could be authorization, but the meaning is authentication. &quot;Kimlik doğrulama&quot; is authentication. So &quot;Kimlik doğrulama gerekmediğinde&quot; would be more accurate. But they said not to translate &quot;Bearer token&quot;, &quot;Embedding Endpoint&quot; if they are proper nouns. &quot;Bearer token&quot; is a technical term. Might be kept as is.
+
+Thus final translation: &quot;Embedding Endpoint için Bearer token. Kimlik doğrulama gerekmediğinde boş bırakın.&quot;
+
+But the phrase &quot;Kimlik doğrulama gerekmediğinde&quot; is quite literal. Maybe &quot;Yetkilendirme gerekmediğinde&quot; is fine.
+
+We need to output only the translation wrapped in three backticks. Use triple backticks exactly as shown. No extra content.
+
+Thus answer:
+
+```
+Embedding Endpoint için Bearer token. Kimlik doğrulama gerekmediğinde boş bırakın.
+```
+
+Alternatively &quot;Yetkilendirme gerekmediğinde&quot;. Choose one.
+
+I&apos;ll choose &quot;Kimlik doğrulama gerekmediğinde&quot; because auth usually is authentication.
+
+Thus final answer: three backticks with translation.
+
+Proceed.
+&lt;/think&gt;
+
+``` 
+Embedding Endpoint için Bearer token. Kimlik doğrulama gerekmediğinde boş bırakın.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Marka Ana Sayfa URL&apos;si</value>
   </data>
@@ -45,8 +101,330 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Sözleşme Logosu</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Translated word here...```
+
+But the user also says: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output a single line: triple backticks, then the translation, then triple backticks.
+
+Now we need to determine translation of &quot;Embedding API Token&quot; to Turkish.
+
+We need to check context. &quot;Embedding API Token&quot;. It&apos;s part of a setting key name: Name = Localizer[&quot;Embedding API Token&quot;].
+
+Thus translation: &quot;Embedding API Token&quot;. Could be &quot;Embedding API Jetonu&quot;? Or &quot;Embedding API Simgesi&quot;? Turkish translation: In Turkish, &quot;API Token&quot; often is &quot;API Jetonu&quot;. But &quot;Embedding API Token&quot; might be a proper noun: &quot;Embedding API Token&quot;. It could be considered a proper noun? Possibly not, because &quot;Embedding&quot; is a concept; it&apos;s not a trademark. It&apos;s a general term. The user said: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot; So we must decide if it&apos;s a proper noun. It seems like a technical term, likely not a trademark, but is it a proper noun? It is a name of a setting. It may be considered a proper noun (like a setting name). Usually proper nouns are like specific product names, etc. &quot;Embedding API Token&quot; is a term for a token used for the embedding API. It might be considered a proper noun (the name of a token). But the instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We are not sure if it&apos;s a proper noun. According to translation guidelines, technical terms for settings often get translated. The user specifically says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot; So they want us to consider if it&apos;s a proper noun. The term &quot;Embedding API Token&quot; is not a human name, not a nickname. Is it a proper noun? It&apos;s a key name. In software localization, often key names are not translated; they remain unchanged. The user wants the translation only for the Name (the string). In the paragraph, the Name is Localizer[&quot;Embedding API Token&quot;], which is a key to a string resource. That string may be displayed in UI as &quot;Embedding API Token&quot;. Usually in localization, you would translate that to Turkish. However, the user asks to translate only the word &quot;Embedding API Token&quot;. They might want the translation: &quot;Embedding API Jetonu&quot; or &quot;Embedding API Token&quot;. Turkish translation for &quot;Embedding API Token&quot; could be &quot;Embedding API Jetonu&quot;. &quot;Token&quot; is &quot;Jeton&quot;. &quot;Embedding&quot; is &quot;Embedding&quot; maybe as a concept; it&apos;s not a word that has a Turkish translation. It could be &quot;Embedding&quot; is the process, but in UI you might keep &quot;Embedding&quot; as &quot;Embedding&quot; (unchanged) or translate to &quot;Embedlama&quot;? In Turkish, &quot;embedding&quot; could be &quot;Gömülü&quot; (as in &quot;embedded&quot;?). But &quot;Embedding API&quot; might be a technical term, likely not to be translated. Many localizations keep &quot;API&quot; unchanged and &quot;embedding&quot; might be &quot;embedding&quot; as English. But the safe approach: treat it as a proper noun (technical term) and output unchanged.
+
+But the user instructions say: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We are not fully sure if it&apos;s proper noun. But we could attempt translation. The phrase &quot;Embedding API Token&quot; could be translated as &quot;Embedding API Jetonu&quot;. In Turkish, &quot;API Token&quot; is often &quot;API Jetonu&quot;. For &quot;Embedding&quot;, we might keep &quot;Embedding&quot; unchanged or translate to &quot;Embedding&quot;. Typically you would translate &quot;Embedding API Token&quot; as &quot;Embedding API Jetonu&quot;. That&apos;s a plausible translation. Let&apos;s think: The term &quot;embedding&quot; may be &quot;Embedding&quot; as a gerund, used as an attribute for the API token. Turkish translation may be &quot;Embedding API Jetonu&quot;. However, we might also want to translate &quot;Embedding&quot; to &quot;Embedding&quot; not &quot;Embedding&quot;. Actually, we could translate &quot;Embedding API Token&quot; to &quot;Embedding API Jetonu&quot;. That seems fine.
+
+But we need to consider &quot;Human names, Nicknames, Proper nouns&quot;. &quot;Embedding API Token&quot; is not a human name, but it&apos;s a proper noun for a setting name. So maybe we should not translate it. But the user explicitly wants translation. They ask &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So they want translation. They also want we consider if it&apos;s a proper noun; if it&apos;s one, we shouldn&apos;t translate. But we have to decide.
+
+The user says: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We can decide we understand it&apos;s a technical term, not a proper noun, and we can translate. They didn&apos;t ask to preserve any specific phrase. So translation: &quot;Embedding API Jetonu&quot;. Let&apos;s think about typical Turkish translation of &quot;Embedding API Token&quot;. In many UI translation guidelines, &quot;API Token&quot; is &quot;API Jetonu&quot;. &quot;Embedding&quot; could be &quot;Embedding&quot;. Some Turkish UI may keep &quot;Embedding&quot; as is, but also sometimes they translate &quot;Embedding&quot; to &quot;Embedlama&quot;. For example, in Turkish, &quot;embedding&quot; in other contexts could be &quot;gömülü&quot; (embedded). But &quot;embedding&quot; is also used as a verb or noun. If the context is &quot;embedding&quot;, like &quot;embedding API token&quot;, maybe it&apos;s &quot;Embedding API Token&quot;. Usually in UI, you would translate &quot;API Token&quot; to &quot;API Jetonu&quot;. The term &quot;Embedding&quot; could be left as &quot;Embedding&quot; because it&apos;s a technical term not easily translatable. So the translation could be &quot;Embedding API Jetonu&quot;. That appears to be a common translation pattern.
+
+But there is a nuance: The user wants the translation in the target language tr-TR. The phrase &quot;Embedding API Token&quot; could be translated as &quot;Embedding API Belirteci&quot;? Token could be &quot;Belirteç&quot; (identifier). But more typical is &quot;Token&quot; = &quot;Jeton&quot;. So &quot;Embedding API Token&quot; becomes &quot;Embedding API Jetonu&quot;. The first word &quot;Embedding&quot; is kept in English because it&apos;s a technical term.
+
+Alternatively, the translation could be &quot;Embedding API Simgesi&quot;? Simge (token) is a symbol. But &quot;token&quot; is more often &quot;Jeton&quot;. So &quot;Embedding API Token&quot; -&gt; &quot;Embedding API Jetonu&quot;. That&apos;s plausible.
+
+Check typical translation style: In Turkish localization for &quot;API token&quot; you see &quot;API Jetonu&quot;. Example: &quot;API token&quot; =&gt; &quot;API Jetonu&quot;. And &quot;embedding&quot; might be &quot;embedding&quot; =&gt; &quot;embedding&quot; (no translation). So final phrase: &quot;Embedding API Jetonu&quot;. Good.
+
+Thus output:
+
+```Embedding API Jetonu```
+
+That is the only content. Use triple backticks. Ensure no extra content.
+
+Thus answer: ```Embedding API Jetonu```.
+
+Double-check: The user asked &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So they want translation for that string only.
+
+Now, we must consider &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We think we understand it, so we provide translation. Good.
+
+Make sure to not include any extra content. Only the translation wrapped in triple backticks.
+
+Thus final.
+&lt;/think&gt;
+
+```Embedding API Jetonu</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Embeddings Uç Noktası
+```
+
+But we need to be careful: The user specifically says &quot;Please translate only the sentence or word `Embedding Endpoint` in the paragraph into the target language tr-TR, Türkçe (Türkiye).&quot; So they want the translation of the word &quot;Embedding Endpoint&quot;. So we output that.
+
+Now, check guidelines: they said &quot;Do not output any other content. Only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ```&quot;
+
+Thus we output:
+
+```
+Embeddings Uç Noktası
+```
+
+Alternatively, maybe &quot;Embedding Endpoint&quot; is a proper noun, we may output it unchanged as &quot;Embedding Endpoint&quot;. But they gave guidelines to consider if it&apos;s a proper noun. &quot;Embedding Endpoint&quot; may be a term but likely not a proper noun. The safer route is to translate it.
+
+Thus answer: &quot;Embeddings Uç Noktası&quot;. We&apos;ll output that inside triple backticks.
+
+I&apos;ll produce that.
+&lt;/think&gt;
+
+```embeddings Uç Noktası</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Embedding Model
+```
+
+Wrap in triple backticks. Provide only that.
+
+Thus final answer: triple backticks with content &quot;Embedding Model&quot;.
+&lt;/think&gt;
+
+``` 
+Embedding Model</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Vektör arama için embedding modeli adı, örn. bge-m3:latest.
+```
+
+Alternatively &quot;Embedding modeli adı vektör arama için, örn. bge-m3:latest.&quot; But best is &quot;Vektör arama için embedding modeli adı, ör. bge-m3:latest.&quot; However &quot;e.g.&quot; is &quot;örn.&quot; which is common.
+
+Thus translation: &quot;Vektör arama için embedding modeli adı, örn. bge-m3:latest.&quot;
+
+Check if &quot;embedding&quot; is a proper noun? It&apos;s a term used in programming, not a trademark, but the user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc.&quot; So &quot;embedding&quot; is a term, but it&apos;s not a proper noun. So we can translate it as &quot;embedding modeli&quot;. That seems correct.
+
+Thus final answer: only translation inside triple backticks. No other text.
+
+We should also note: The original sentence includes &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation &quot;Vektör arama için embedding modeli adı, örn. bge-m3:latest.&quot; is acceptable. Let&apos;s consider any nuance: &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; Could be &quot;Vektör arama için embedding modeli adı, örn. bge-m3:latest.&quot; Good. Might also be &quot;Embedding modeli adı, vektör arama için, örn. bge-m3:latest.&quot; but that seems less natural. &quot;Embedding modeli adı, vektör arama için, örn. bge-m3:latest.&quot; Could be &quot;Embedding modeli adı vektör arama için, örn. bge-m3:latest.&quot; Or &quot;Vektör arama için embedding modeli adı: bge-m3:latest.&quot; But they want translation of the entire sentence.
+
+Thus I will output:
+
+```
+Vektör arama için embedding modeli adı, örn. bge-m3:latest.
+```
+
+Alternatively &quot;Vektör arama için embedding modeli adı, ör. bge-m3:latest.&quot; but &quot;örn.&quot; is standard.
+
+Thus final answer: triple backticks with translation.
+&lt;/think&gt;
+
+``` 
+Vektör arama için embedding modeli adı, örn. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Embedding Sorgu Önbellek Sınırı```
+
+Check the user instruction: Output must be wrapped in three backticks, like this:
+
+```
+Translated word here...
+```
+
+Thus output:
+
+```Embedding Sorgu Önbellek Sınırı```
+
+Make sure no extra content.
+
+Thus final answer:
+
+```Embedding Sorgu Önbellek Sınırı```
+&lt;/think&gt;
+
+```Embedding Sorgu Önbellek Sınırı</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Embedding Tabanlı Aramayı Etkinleştir
+```
+
+Check that we didn&apos;t output any other content. It&apos;s just that.
+
+Thus final answer: embed this translation.
+
+Double-check: The phrase &quot;Enable Embedding-Based Search&quot;. In Turkish, &quot;Enable&quot; is &quot;Etkinleştir&quot;. &quot;Embedding-Based Search&quot; could be &quot;Embedding Tabanlı Arama&quot;. So combine: &quot;Etkinleştir Embedding Tabanlı Arama&quot;. But you might want to use &quot;Embedding Tabanlı Aramayı Etkinleştir&quot;. That order is typical: &quot;Embedding Tabanlı Aramayı Etkinleştir&quot;. The word &quot;Embedding&quot; likely stays in English as a proper noun. The phrase &quot;Embedding Tabanlı Aramayı Etkinleştir&quot; is okay. However, &quot;Embedding Tabanlı Aramayı Etkinleştir&quot; is a bit unnatural because you are &quot;enabling&quot; after the thing, like &quot;Etkinleştir Embedding Tabanlı Arama&quot;. But &quot;Embedding Tabanlı Aramayı Etkinleştir&quot; places &quot;Etkinleştir&quot; at the end. The typical translation of &quot;Enable X&quot; is &quot;X&apos;i Etkinleştir&quot;. So &quot;Embedding Tabanlı Aramayı Etkinleştir&quot;. That matches.
+
+Thus output exactly that phrase.
+
+Check if &quot;Embedding Tabanlı Aramayı Etkinleştir&quot; is correct Turkish grammar: &quot;Embedding Tabanlı Aramayı Etkinleştir&quot;. If we want to keep &quot;Embedding&quot; unchanged, we use &quot;Embedding Tabanlı Aramayı Etkinleştir&quot;. Yes.
+
+Thus final answer:
+
+``` 
+Embedding Tabanlı Aramayı Etkinleştir
+```
+But we need to output only the translation inside triple backticks. The user asked to output the translation and wrap it in three backticks. So:
+
+```
+Embedding Tabanlı Aramayı Etkinleştir
+```
+
+Make sure no extra content.
+
+Thus final.
+&lt;/think&gt;
+
+```
+Embedding Tabanlı Aramayı Etkinleştir</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP Numarası</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Translated word here...
+```
+
+We need to translate &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; into Turkish (tr-TR). Also note: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as they are and do not translate them!&quot; So any proper nouns (like &quot;Master switch&quot;, &quot;semantic&quot;, &quot;vector-based&quot;, &quot;keyword search&quot;) may be treated as technical terms, but the instruction is to output them as they are if they are proper nouns? They say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; So we must not translate proper nouns. But what is considered proper noun? Terms like &quot;Master switch&quot;, &quot;semantic (vector-based) search&quot;, &quot;keyword search&quot; are not proper nouns but technical terms. Should we translate them? The instruction is ambiguous. Usually in localization, you translate everything except proper nouns. But &quot;Master switch&quot; is a concept, not a proper noun. &quot;semantic (vector-based) search&quot; is a technical term but may be considered a term. The user wants translation only of that sentence. They also say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we need to translate to Turkish. Must we keep the phrase &quot;semantic (vector-based) search&quot; unchanged? Possibly we could translate &quot;semantic (vector-based) search&quot; as &quot;semantic (vektör tabanlı) arama&quot;. But is &quot;semantic (vector-based) search&quot; considered a proper noun? Usually it&apos;s a technical term. But the instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; That implies we must leave proper nouns unchanged. &quot;semantic (vector-based) search&quot; is not a proper noun, but could be considered a term. We can translate it, but careful to preserve meaning.
+
+Thus we need to translate &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; into Turkish. Let&apos;s propose a translation.
+
+Possible translation:
+
+&quot;Semantik (vektör tabanlı) arama için anahtar anahtar. Devre dışı bırakıldığında anahtar arama (keyword search) geri döner.&quot;
+
+But that seems off. Let&apos;s think.
+
+The phrase &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; Means: There is a master switch for enabling/disabling semantic (vector-based) search; when disabled, it falls back to keyword search. So translation: &quot;Semantic (vektör tabanlı) arama için ana anahtar. Devre dışı bırakıldığında anahtar arama (keyword search) işlemine döner.&quot; Something like that.
+
+But we need to translate &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; into Turkish. Let&apos;s propose &quot;Anahtarlama için master switch semanticsel (vektör tabanlı) arama. Devre dışı bırakıldığında anahtar sözcük aramasına geri döner.&quot; However &quot;Master switch&quot; is not a proper noun; it&apos;s a term meaning main switch. Should we translate &quot;Master switch&quot; as &quot;Ana anahtar&quot;? In Turkish, &quot;master switch&quot; could be &quot;Anahtarlama&quot; but we might keep it as &quot;Master switch&quot;. The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; Does that mean we must keep &quot;Master switch&quot; unchanged? It&apos;s not a proper noun but a technical term; maybe it&apos;s okay to translate it as &quot;Anahtarlama&quot;. The user wants the translation to be accurate, but also they want no extra content.
+
+We can produce a translation: &quot;Semantic (vektör tabanlı) arama için anahtar; devre dışı bırakıldığında anahtar sözcük aramasına döner.&quot; That might be close.
+
+But &quot;Master switch&quot; could be &quot;Ana master anahtar&quot;. However we could translate as &quot;Ana anahtar&quot;. Let&apos;s see common translation: In Turkish, &quot;master switch&quot; is often kept as &quot;master anahtar&quot; or &quot;ana anahtar&quot;. We might use &quot;Ana anahtar&quot; or &quot;Master anahtar&quot;. Since &quot;master switch&quot; is a term, but not a proper noun, we can translate.
+
+The phrase &quot;Falls back to keyword search when disabled.&quot; -&gt; &quot;Devre dışı bırakıldığında anahtar sözcük aramasına geri döner.&quot; Might be &quot;Devre dışı bırakıldığında anahtar sözcük aramasına geri döner.&quot;
+
+Thus full translation: &quot;Semantic (vektör tabanlı) arama için ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına geri döner.&quot;
+
+But maybe better: &quot;Semantic (vektör tabanlı) arama için anahtar; devre dışı bırakıldığında anahtar sözcük aramasına döner.&quot; However &quot;anahtar sözcük&quot; might be unnatural; &quot;keyword search&quot; should be &quot;anahtar sözcük araması&quot;. So &quot;anahtar sözcük aramasına döner&quot;. That works.
+
+Alternatively: &quot;Semantic (vektör tabanlı) arama için master switch. Devre dışı bırakıldığında keyword search&apos;e geri döner.&quot; That would keep the terms &quot;master switch&quot;, &quot;keyword search&quot;. But the instruction says not to translate proper nouns; these are technical terms. The phrase &quot;keyword search&quot; is a term but could be left as &quot;keyword search&quot;. However, it&apos;s okay to translate to Turkish &quot;anahtar sözcük araması&quot;. I&apos;d probably translate it.
+
+Given we need to output only the translation in three backticks, I should produce that.
+
+Thus final output:
+
+```
+Semantic (vektör tabanlı) arama için ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+But &quot;ana anahtar&quot; is a bit weird; maybe &quot;Ana anahtar&quot;. So &quot;Ana anahtar&quot; might be better. Let&apos;s propose &quot;Ana anahtar&quot;. So:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+But we need to decide whether to keep &quot;Semantic (vector-based)&quot; as &quot;Semantic (vektör tabanlı)&quot; or &quot;Semantic (vektor tabanlı)&quot;. Turkish uses &quot;vektör tabanlı&quot;. So &quot;Semantic (vektör tabanlı)&quot;. So final translation:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+We might also incorporate &quot;master switch&quot; phrase: &quot;master switch&quot; can be translated as &quot;Anahtarlama&quot; or &quot;Ana anahtar&quot;. Let&apos;s think about the original phrase: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; The term &quot;master switch&quot; could be &quot;anahtarlama&quot; but better is &quot;Ana anahtar&quot;. It&apos;s a technical term, not proper noun.
+
+Thus final output:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+Alternatively, &quot;Ana anahtar&quot; might be considered not proper translation but close. Perhaps better to translate as &quot;Ana anahtar&quot; for &quot;master switch&quot;.
+
+Thus answer should be:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+We need to be careful about the punctuation: &quot;semantic (vector-based)&quot; is maybe not capitalized; in Turkish maybe &quot;Semantic&quot; could be &quot;Semantik&quot;. But original phrase uses &quot;semantic (vector-based)&quot; maybe capitalized due to being part of a code string. They want translation of that phrase.
+
+Thus answer: (the translation in code block). Let&apos;s provide that.
+
+We must output only the translation, wrapped in triple backticks, with no other content. So:
+
+```turkish
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+Make sure it&apos;s in a code block with language identifier &quot;tr&quot; or &quot;turkish&quot;? The example says output in three backticks, like this:
+
+```
+Translated word here...
+```
+
+They didn&apos;t specify language after triple backticks. In the example they wrote:
+
+```
+Translated word here...
+```
+
+No language identifier. So we output:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+We must ensure it&apos;s only that. So final answer is:
+
+``` 
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+
+But we need to wrap in triple backticks, not with a space after opening backticks.
+
+Thus final output:
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.
+```
+&lt;/think&gt;
+
+```
+Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldığında anahtar sözcük aramasına döner.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Veritabanında (LRU) önbelleğe alınmış en yüksek arama sorgusu embeddings adedi. Varsayılan 2000.
+```
+&lt;/think&gt;
+
+``` 
+Veritabanında (LRU) önbelleğe alınmış en yüksek arama sorgusu embeddings adedi. Varsayılan 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API temel URL, belge ve sorgu embedding&apos;lerini oluşturmak için kullanılır (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.```
+
+Check that &quot;Ollama API base URL&quot; can be translated as &quot;Ollama API temel URL&quot;. That seems fine. The &quot;Ollama API&quot; is a proper noun, stays as is.
+
+Alternatively, could be &quot;Ollama API&apos;nin temel URL&apos;i&quot;. But maybe simpler.
+
+Let&apos;s consider alternative phrasing: &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot;
+
+Possible translation: &quot;Belge ve sorgu embedding&apos;lerini oluşturmak için Ollama API temel URL (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.&quot;
+
+But they want to preserve the order. It may be okay to restructure.
+
+The translation must be accurate and fluent. Let&apos;s produce a translation that is accurate.
+
+The phrase &quot;base URL&quot; often translates to &quot;temel URL&quot; or &quot;base URL&quot;. In Turkish, it&apos;s common to keep &quot;base URL&quot;. But &quot;base URL&quot; is English; perhaps better to translate as &quot;temel URL&quot;.
+
+Thus final translation:
+
+```Ollama API temel URL, belge ve sorgu embedding&apos;lerini oluşturmak için kullanılır (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.```
+
+Alternatively: &quot;Ollama API&apos;nin temel URL&apos;i, belge ve sorgu embedding&apos;lerini oluşturur (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.&quot;
+
+We need to decide best representation. The phrase &quot;for generating&quot; can be translated as &quot;belge ve sorgu embedding&apos;lerini oluşturmak için&quot;. That is okay. The translation should be natural.
+
+Thus final answer: inside triple backticks.
+
+Make sure not to output any other content.
+
+Thus answer:
+
+```Ollama API temel URL, belge ve sorgu embedding&apos;lerini oluşturmak için kullanılır (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.```
+&lt;/think&gt;
+
+```Ollama API temel URL, belge ve sorgu embedding&apos;lerini oluşturmak için kullanılır (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Proje Logosu</value>

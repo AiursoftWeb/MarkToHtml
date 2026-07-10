@@ -24,6 +24,38 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillåt användare att justera sin smeknamn på sidan för profilhantering.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bärare-token för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.
+```
+
+But note: &quot;Bearer token&quot; might be &quot;Bärande token&quot;. However, many Swedish translation guidelines would use &quot;Bärartoken&quot;. Let&apos;s search memory: In Swedish, &quot;Bearer token&quot; is often translated as &quot;Bärartoken&quot;. For example, in ASP.NET Core documentation for Swedish, they have &quot;Bärartoken&quot; (Bearer token). Yes, the official translation might be &quot;Bärartoken&quot;. Let&apos;s verify: In Swedish IT context, &quot;bearer token&quot; is used as &quot;Bärartoken&quot;. I&apos;ve seen translations like &quot;Bärartoken&quot;. So we could translate as &quot;Bärartoken för Embedding Endpoint&quot;. So the translation becomes: &quot;Bärartoken för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.&quot;
+
+But need to check if &quot;Embedding Endpoint&quot; should be translated. In Swedish, &quot;endpoint&quot; is &quot;slutpunkt&quot;. But &quot;Embedding Endpoint&quot; is a proper noun for a particular service. The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; So we should not translate &quot;Embedding Endpoint&quot;? The phrase is a proper noun? It&apos;s part of the software&apos;s name; the user may want to keep &quot;Embedding Endpoint&quot; unchanged. The instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We could keep as &quot;Embedding Endpoint&quot;. The rest is &quot;Bearer token&quot;. So translation: &quot;Bärartoken för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.&quot;
+
+But we could also translate &quot;Bearer token&quot; as &quot;Bärartoken&quot;. That is translation.
+
+Thus final output:
+
+```
+Bärartoken för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.
+```
+
+Double-check: The phrase &quot;Leave empty if no auth required.&quot; -&gt; &quot;Lämna tomt om ingen autentisering krävs.&quot; That seems correct.
+
+Alternatively &quot;Lämna tomt om ingen auth krävs&quot; but &quot;auth&quot; is English abbreviation, maybe better to use &quot;autentisering&quot;. So &quot;Lämna tomt om ingen autentisering krävs.&quot; Good.
+
+Thus output must be only the translation, wrapped in triple backticks.
+
+Therefore answer:
+
+``` 
+Bärartoken för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.
+```
+&lt;/think&gt;
+
+``` 
+Bärartoken för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Varumärkesstartsida URL</value>
   </data>
@@ -45,8 +77,240 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Kontraktlogotyp</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Inbäddnings‑API‑token
+```
+
+But maybe they want &quot;Inbäddnings‑API-token&quot;. Swedish often uses hyphen in such compounds, but no spaces. Might also be &quot;Inbäddnings-API-token&quot;. Let&apos;s check typical translation style for UI labels. The phrase &quot;Embedding API Token&quot; appears as a label for a setting. In Swedish, they might say &quot;Inbäddnings‑API‑token&quot;. That seems correct.
+
+But maybe &quot;Embedding&quot; means &quot;Inbäddning&quot; or &quot;Embedding&quot;? In Swedish, &quot;embedding&quot; can be &quot;inbäddning&quot; (noun). So &quot;Inbäddnings‑API‑token&quot;. Usually token is &quot;token&quot;. So &quot;Inbäddnings‑API‑token&quot;. That&apos;s fine.
+
+Thus output that, wrapped in three backticks, nothing else. So final answer is:
+
+``` 
+Inbäddnings‑API‑token
+```
+
+But note: the instruction says wrap in three backticks, like this:
+
+```
+Translated word here...
+```
+
+So we output exactly:
+
+```
+Inbäddnings‑API‑token
+```
+
+Yes.
+
+Check for any nuance: They say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot; If it&apos;s a proper noun or trademark, maybe not translate. But &quot;Embedding API Token&quot; is likely a UI label, not a trademark. So we translate. The phrase is not a human name, but it is a technical term. It should be translated. So fine.
+
+Thus final answer: `Inbäddnings‑API‑token`. No extra content.
+
+Will they accept a hyphen? Swedish uses hyphen in compound words? Typically &quot;Inbäddnings‑API-token&quot;? Many Swedish translations keep &quot;API&quot; as is, just &quot;API-token&quot;. The phrase &quot;Embedding API Token&quot; -&gt; &quot;Inbäddnings‑API‑token&quot;. Yes.
+
+Thus final.
+&lt;/think&gt;
+
+```
+Inbäddnings‑API‑token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Inbäddningsslutpunkt
+```
+&lt;/think&gt;
+
+``` 
+Inbäddningsslutpunkt</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we need to output only the translation, wrapped in triple backticks. The translation is &quot;Inbäddningsmodell&quot;. However we need to ensure we are correct. The phrase is a UI label: &quot;Embedding Model&quot;. Swedish translation guidelines: Keep &quot;Embedding&quot; as &quot;Embedding&quot;? Or &quot;Inbäddning&quot;? Actually &quot;embedding&quot; as a technical term in Swedish may be used unchanged, or transliterated. But we can find &quot;Embedding model&quot; in Swedish: Some sources use &quot;inbäddningsmodell&quot;. For example, &quot;embedding model for generating vector representations&quot; could be &quot;inbäddningsmodell&quot;. There&apos;s also &quot;embedding&quot; in computer science: often just &quot;embedding&quot;. In Swedish it can be &quot;inbäddning&quot;, &quot;inbäddningsmodell&quot;. So translation &quot;Inbäddningsmodell&quot; is likely.
+
+Thus output:
+
+```
+Inbäddningsmodell
+```
+
+But note: The user instruction: &quot;Do not output any other content.&quot; So just the triple backticks and the translation. So final answer: triple backticks with &quot;Inbäddningsmodell&quot;. Should we add quotes? No, just content. Wrap in triple backticks. They want exactly:
+
+```
+Inbäddningsmodell
+```
+
+Yes.
+
+Thus answer.
+
+Check if any other considerations: The instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. So we can output &quot;Embedding Model&quot;. But we think we can translate to Swedish.
+
+Thus final answer: triple backticks with Swedish translation.
+
+One more nuance: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding Model` is one of them.&quot; This could be interpreted that &quot;Embedding Model&quot; is a proper noun (a setting name) maybe should not be translated. But the instruction about proper nouns is for names, not for generic UI label. However the user asks &quot;translate only the sentence or word `Embedding Model` in the paragraph into the target language sv-SE, Svenska (Sverige)&quot;. So they want translation. And they explicitly want to translate that phrase. So we translate.
+
+Thus answer: &quot;Inbäddningsmodell&quot;. I&apos;ll output that.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Inbäddningsmodell</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Embeddingsmodellens namn för vektorsök, t.ex. bge-m3:latest.
+```
+&lt;/think&gt;
+
+``` 
+Embeddingsmodellens namn för vektorsök, t.ex. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Cachegräns för embedding-fråga
+```
+
+But maybe they&apos;d like &quot;Cachegräns för embedding-fråga&quot;. Let&apos;s decide: Swedish words: &quot;Cache&quot; is often used as is; &quot;Cachegräns&quot; = &quot;cache limit&quot;. &quot;Cachegräns för embedding-fråga&quot;. That&apos;s good. &quot;Cachegräns för embedding-fråga&quot; is likely. Let&apos;s use that.
+
+Thus output:
+
+```
+Cachegräns för embedding-fråga
+```
+
+But we need to wrap in triple backticks. So:
+
+``` 
+Cachegräns för embedding-fråga
+```
+
+Be careful: The user instruction says &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly three backticks line with the translation inside, and then close. The translation should be inside triple backticks (including the backticks line). So we output:
+
+``` 
+Cachegräns för embedding-fråga
+```
+
+But no extra content. So final answer: just the translation within triple backticks.
+
+Thus output:
+
+``` 
+Cachegräns för embedding-fråga
+```
+
+No additional text. Ensure no extra formatting. We&apos;ll provide that.
+&lt;/think&gt;
+
+```  
+Cachegräns för embedding-fråga</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Aktivera embeddingsbaserad sökning
+```
+
+Wrap in triple backticks. That is all. Ensure no extra content.
+
+Double-check: Should we include &quot;Aktivera embeddingbaserad sökning&quot;? Which is more correct? In Swedish, &quot;embeddingsbaserad&quot; might be considered a compound word. &quot;Embedding&quot; is not typical Swedish; &quot;embeddingsbaserad&quot; may be odd. Usually one would keep &quot;embedding&quot;. So &quot;embeddingsbaserad&quot; perhaps better. There is a risk of hyphen: &quot;embeddingsbaserad&quot;. Let&apos;s examine standard Swedish translation of &quot;embedding-based&quot; used in technical contexts. People sometimes write &quot;embeddingsbaserad&quot; but more natural &quot;embeddingsbaserad&quot; (embedding with s). However &quot;embedding&quot; is a loan word, but not always pluralized. Could be &quot;embeddingbaserad&quot;? That would be &quot;embeddingbaserad&quot;. Yet &quot;embeddingbaserad&quot; might be &quot;embedding-based&quot;. So phrase could be &quot;Aktivera embeddingbaserad sökning&quot;. But &quot;embedding&quot; with capital? In code, they&apos;d likely keep &quot;Embedding-Based&quot; as English term. However translation guidelines often use &quot;embeddingsbaserad&quot; (embedding with &apos;s&apos;) to indicate it&apos;s derived from embedding. But uncertain.
+
+Let&apos;s think about typical translations: Example from known projects: &quot;Enable embedding-based search&quot; in Swedish could be &quot;Aktivera embeddingsbaserad sökning&quot;. I&apos;ve seen translations from Microsoft style: &quot;Aktivera embeddingsbaserad sökning&quot;. I&apos;m not sure.
+
+Search memory: I&apos;ve seen translation &quot;Aktivera embeddingsbaserad sökning&quot; appears in some contexts. For example, in Azure AI services translation: &quot;Enable embedding-based search&quot; -&gt; &quot;Aktivera embeddingsbaserad sökning&quot;. Yes, I recall a similar translation used for &quot;Enable embedding-based search&quot; for an AI service. So we will use that.
+
+Thus output:
+
+``` 
+Aktivera embeddingsbaserad sökning
+```
+
+But need to output exactly &quot;Aktivera embeddingsbaserad sökning&quot;. Ensure triple backticks. Probably no trailing spaces. Provide only code block.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Aktivera embeddingsbaserad sökning</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>ICP-nummer</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordsökning när den är inaktiverad.```
+
+But check if the translation is correct: &quot;Master switch&quot; is &quot;Huvudväxel&quot;. In UI translation, &quot;master switch&quot; could be &quot;Huvudväxel&quot; or &quot;Huvudknapp&quot;? Typically &quot;master switch&quot; is a &quot;Huvudväxel&quot; (main switch). So that works.
+
+Check &quot;semantic (vector-based) search&quot;. &quot;semantisk (vektorbaserad) sökning&quot;. That is correct.
+
+Check &quot;Falls back to keyword search when disabled.&quot; Could be &quot;Återgår till nyckelordsökning när den är inaktiverad.&quot; That is a proper translation.
+
+Alternative: &quot;Fallerar till nyckelordsökning när den är inaktiverad.&quot; But &quot;Fallerar&quot; is a verb meaning &quot;fails&quot;. But &quot;Falls back&quot; is more like &quot;Fallback&quot; to something else. &quot;Fallback&quot; in Swedish could be &quot;Fallback&quot; or &quot;tillämpad fallback&quot;? But typical translation of &quot;fallback&quot; is &quot;fallback&quot;. But we can use &quot;Fallback&quot; but in Swedish &quot;Fallback&quot; is often used as English term. But the translation says &quot;Fallback to&quot;. However, if we keep &quot;Fallback&quot;, we can say &quot;Fallback till nyckelordsökning när den är inaktiverad.&quot; But that might be too literal. Let&apos;s think about typical UI translation guidelines: For a setting description, you want to convey meaning: &quot;When disabled, the search falls back to keyword search.&quot; Swedish translation: &quot;När den är inaktiverad återgår sökningen till nyckelordsökning.&quot; So the translation can be: &quot;När den är inaktiverad återgår sökningen till nyckelordsökning.&quot; We need to keep the same structure: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; So we could translate as two sentences:
+
+&quot;Huvudväxel för semantisk (vektorbaserad) sökning. När den är inaktiverad återgår den till nyckelordsökning.&quot;
+
+That might be better. But the user gave the sentence &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; They want that sentence translated. So we can translate both parts as one combined sentence or two sentences. Let&apos;s preserve the original punctuation and style: two sentences separated by a period. So:
+
+&quot;Huvudväxel för semantisk (vektorbaserad) sökning. När den är inaktiverad återgår den till nyckelordsökning.&quot;
+
+But the original second sentence: &quot;Falls back to keyword search when disabled.&quot; It&apos;s basically &quot;Falls back to keyword search when disabled.&quot; So we could translate: &quot;Fallerar till nyckelordsökning när den är inaktiverad.&quot; But maybe &quot;Fallerar&quot; is not the best verb. &quot;Återgår&quot; is better. So &quot;När den är inaktiverad återgår den till nyckelordsökning.&quot; That is clear.
+
+Thus translation: &quot;Huvudväxel för semantisk (vektorbaserad) sökning. När den är inaktiverad återgår den till nyckelordsökning.&quot;
+
+Alternatively: &quot;Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordsökning när den är inaktiverad.&quot; This is basically same.
+
+But need to preserve the style: two sentences. The original text: &quot;Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.&quot; They want translation of this sentence (or word). So we need to output only the translation, wrapped in triple backticks. Let&apos;s output:
+
+```Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordsökning när den är inaktiverad.```
+
+That is fine. However, &quot;Återgår till nyckelordsökning&quot; maybe &quot;nyckelordsökning&quot; or &quot;nyckelordsökning&quot;? Let&apos;s check Swedish grammar: &quot;nyckelordsökning&quot; is a compound word. Typically &quot;keyword search&quot; is &quot;nyckelordssökning&quot;. In Swedish, &quot;keyword&quot; is &quot;nyckelord&quot;, and &quot;search&quot; is &quot;sökning&quot;. The compound &quot;nyckelordssökning&quot; is more correct, but &quot;nyckelordsökning&quot; also can be used? Let&apos;s see. The Swedish term for &quot;keyword search&quot; is &quot;nyckelordssökning&quot;. Actually &quot;keyword&quot; as singular &quot;nyckelord&quot;. So &quot;nyckelordssökning&quot; is &quot;keyword search&quot;. Yes, &quot;nyckelord&quot; + &quot;sökning&quot;. The extra &apos;s&apos; can be considered genitive? The compound &quot;nyckelordsökning&quot; would be &quot;nyckelordsökning&quot;? Let&apos;s check typical Swedish compound words: &quot;nyckelord&quot; is singular, but &quot;nyckelordsökning&quot; maybe unnatural; better &quot;nyckelordssökning&quot;. Let&apos;s confirm typical usage: In Swedish, &quot;keyword search&quot; is indeed &quot;nyckelordssökning&quot;. Many references show &quot;nyckelord&quot; is singular, but &quot;nyckelordssökning&quot; is a noun meaning search by keyword. Yes. So we should use &quot;nyckelordssökning&quot;. So translation: &quot;Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordssökning när den är inaktiverad.&quot;
+
+Now check for any proper nouns or trademarks: &quot;semantic&quot; might be &quot;semantisk&quot;. &quot;vector-based&quot; is &quot;vektorbaserad&quot;. &quot;keyword&quot; is &quot;nyckelord&quot;. &quot;search&quot; is &quot;sökning&quot;. &quot;Master switch&quot; is &quot;Huvudväxel&quot;. All good.
+
+Thus final answer: wrap in triple backticks.
+
+We must output only the translation, nothing else. So output as:
+
+```Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordssökning när den är inaktiverad.```
+
+Check if we need to preserve the period after the second sentence? The translation includes a period at the end. Yes.
+
+Thus final answer: triple backticks with translation.
+&lt;/think&gt;
+
+```Huvudväxel för semantisk (vektorbaserad) sökning. Återgår till nyckelordssökning när den är inaktiverad.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maximalt antal cachelagrade sökfrågeinbäddningar i databasen (LRU). Standard 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API bas-URL för generering av dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.```
+
+But we must ensure not to include any other content. So just that line. That is it.
+
+One more nuance: In Swedish, &quot;Ollama API bas-URL för generering av dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.&quot; is acceptable.
+
+Double-check for potential missing punctuation: The original sentence ends with a period. In Swedish translation, we also include period at end: &quot;läggs till automatiskt.&quot;
+
+Thus final output.
+
+One more nuance: Some translations might prefer &quot;generering&quot; vs &quot;generera&quot;. &quot;generering&quot; is noun, &quot;generera&quot; is verb. The phrase &quot;for generating&quot; is &quot;för att generera&quot;. Better: &quot;för att generera dokument- och frågeinbäddningar&quot;. So we can use infinitive &quot;generera&quot;. So we can phrase: &quot;Ollama API bas-URL för att generera dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.&quot; This reads more naturally: &quot;Ollama API bas-URL för att generera dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.&quot;
+
+Thus output that. It matches translation. Use &quot;t.ex.&quot; for e.g.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Ollama API bas-URL för att generera dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Projektlogotyp</value>

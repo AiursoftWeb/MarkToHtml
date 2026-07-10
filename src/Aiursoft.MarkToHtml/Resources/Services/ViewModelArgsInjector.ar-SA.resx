@@ -180,6 +180,118 @@
   <data name="Roles" xml:space="preserve">
     <value>الأدوار</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث
+```
+
+But need to consider if &quot;Search&quot; is a proper noun, trademark, etc. It&apos;s a generic term. So translation is appropriate. Should we output it in Arabic script. Yes, the target language is ar-SA, Arabic (Saudi Arabia). So &quot;Search&quot; translates to &quot;بحث&quot;. They want &quot;Translated word here...&quot;. In the example, they show:
+
+```
+Translated word here...
+```
+
+So we output:
+
+```
+بحث
+```
+
+Thus final answer: a code block with &quot;بحث&quot;. Only that. No extra content.
+
+Potential nuance: Should we output the translation in Arabic script, &quot;بحث&quot;. Yes.
+
+The user request: &quot;Please translate only the sentence or word `Search` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية). ... output the translated content and wrap it in three backticks...&quot;
+
+Thus output:
+
+```
+بحث
+```
+
+Check if any extra text or context needed. They said no other content. Only output the translated content. So just the code block with the translation.
+
+Thus final answer is the code block.
+&lt;/think&gt;
+
+``` 
+بحث</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>ابحث في مستنداتى...
+```
+
+But check if they want ellipsis (...). In Arabic, ellipsis often not used. However placeholder &quot;Search my documents...&quot; includes three dots. Should we preserve the three dots? They said &quot;the sentence or word `Search my documents...`&quot; include three dots. In translation, we could include three dots after translation as well, or we could remove them. But they didn&apos;t say to preserve them. They said to translate only the sentence or word. So we need to decide if we should preserve the three dots. In typical UI translation, placeholder text often includes three dots. For Arabic placeholder, they might also use three dots: &quot;ابحث في مستنداتى...&quot;. So we can preserve them.
+
+Thus the translation: &quot;ابحث في مستنداتى...&quot; is likely correct.
+
+However, we need to consider &quot;my documents&quot;. Should we use &quot;مستنداتى&quot; (my documents) or &quot;ملفاتى&quot;? &quot;مستنداتى&quot; is a bit unnatural; &quot;مستنداتى&quot; is a transliteration of &quot;documents&quot; but Arabic uses &quot;مستند&quot; for &quot;document&quot;, plural &quot;مستندات&quot;. So &quot;مستنداتى&quot; is plausible.
+
+Alternatively &quot;ملفاتى&quot; is &quot;my files&quot;. &quot;ابحث في ملفاتي...&quot; is more natural. Let&apos;s weigh which is more common in Arabic UI for placeholder &quot;Search my documents&quot;. For example, Google Docs in Arabic placeholder for search box: &quot;ابحث في Docs&quot; not sure. But for &quot;Search my documents&quot;, perhaps &quot;ابحث في ملفاتي...&quot; is okay.
+
+But &quot;documents&quot; might be &quot;مستندات&quot;. However, typical Arabic translation for &quot;My Documents&quot; folder is &quot;مستنداتى&quot; which is correct. In Windows OS Arabic version, &quot;My Documents&quot; is &quot;مستنداتى&quot;. So &quot;Search my documents&quot; could be &quot;ابحث في مستنداتى...&quot;.
+
+Thus translation: &quot;ابحث في مستنداتى...&quot;. That seems appropriate.
+
+Now check the requirement: &quot;Please output the translated conclusion and nothing else. Do not output any other content! ... Output only the translated content and wrap it in three backticks&quot;. So we need to output exactly the translation wrapped in triple backticks, nothing else.
+
+Thus answer:
+
+```
+ابحث في مستنداتى...
+```
+
+But wait: The user says &quot;Please translate only the sentence or word `Search my documents...` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; So we need to translate only that phrase. So we should output the translation exactly: &quot;ابحث في مستنداتى...&quot;.
+
+But we must consider that the phrase &quot;Search my documents...&quot; includes ellipsis &quot;...&quot;. The translation &quot;ابحث في مستنداتى...&quot; also includes ellipsis at the end. The ellipsis may be a placeholder indicator of more content, but we should preserve the three dots after translation as it appears in the original phrase. So we need to include three dots. So translation string: &quot;ابحث في مستنداتى...&quot;. That&apos;s correct.
+
+But we need to confirm the direction: Arabic text may be RTL, but we just output the translation. So final answer: wrap in triple backticks.
+
+Thus answer:
+
+```
+ابحث في مستنداتى...
+```
+
+Now check for any nuance: The phrase &quot;Search my documents...&quot; includes three dots. The translation should preserve three dots. So &quot;ابحث في مستنداتى...&quot; is the translation with three dots.
+
+Now check user request: &quot;Only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ```&quot;. So we must output exactly that with no extra content. So final answer should be:
+
+``` 
+ابحث في مستنداتى...
+```
+
+But they said &quot;wrap it in three backticks (```), like this: ``` Translated word here... ```&quot;. So we need triple backticks with the translation inside. Example: 
+
+```
+Translated word here...
+```
+
+Thus we output:
+
+```
+ابحث في مستنداتى...
+```
+
+Make sure there are no extra spaces or lines outside triple backticks. The content inside should be exactly the translation, with the ellipsis.
+
+Thus answer: the translation.
+
+Double-check: maybe they want the translation to be &quot;ابحث في ملفاتي...&quot;. Let&apos;s consider both.
+
+Search my documents: Could be &quot;ابحث في ملفاتي...&quot;. But &quot;documents&quot; usually &quot;مستندات&quot;. In Windows, &quot;My Documents&quot; folder is &quot;مستنداتى&quot;. So &quot;Search my documents&quot; might refer to searching within My Documents. So &quot;ابحث في مستنداتى...&quot; is appropriate. Also &quot;ابحث في ملفاتي...&quot; is maybe not exactly &quot;documents&quot;. But it&apos;s fine.
+
+We need to decide which translation is more natural. Many Arabic UI placeholders: In Microsoft Office Arabic translation, search placeholder &quot;البحث عن الملفات...&quot;. However, they may use &quot;ابحث في ملفاتي...&quot;. Actually &quot;My Documents&quot; in Arabic Windows is &quot;مستنداتى&quot;. So &quot;My Documents&quot; folder = &quot;المستندات&quot;. So &quot;Search my documents&quot; could be &quot;ابحث في مستنداتى...&quot;. Good.
+
+Thus final answer: &quot;ابحث في مستنداتى...&quot;. We&apos;ll output that.
+
+Check for RTL characters: They are correct.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+ابحث في مستنداتى...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>استضافة ذاتية</value>
   </data>

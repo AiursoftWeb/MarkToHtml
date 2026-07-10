@@ -24,6 +24,70 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Zezwól użytkownikom na dostosowanie swojego pseudonimu na stronie zarządzania profilem.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Token Bearer dla punktu Embedding. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.
+```
+
+But we need to check if &quot;Bearer token for the Embedding Endpoint.&quot; should be translated as &quot;Token Bearer dla punktu Embedding.&quot; Could also be &quot;Token Bearer dla punktu końcowego Embedding.&quot; But &quot;Endpoint&quot; could be &quot;punkt końcowy&quot;. But maybe we want to preserve &quot;Embedding Endpoint&quot; as a name and just translate the rest: &quot;Bearer token for the Embedding Endpoint.&quot; -&gt; &quot;Token Bearer dla punktu Embedding.&quot; However, in Polish, &quot;punkt&quot; is generic, but &quot;Endpoint&quot; is often used as &quot;punkt końcowy&quot;. But we can keep it as &quot;punkt Embedding&quot; or &quot;punkt końcowy Embedding&quot;. The phrase &quot;Embedding Endpoint&quot; is a name, so we can keep it as is. So &quot;Bearer token for the Embedding Endpoint.&quot; -&gt; &quot;Token Bearer dla punktu Embedding.&quot; But maybe better: &quot;Token Bearer dla punktu końcowego Embedding.&quot; But that could be too literal. We can keep &quot;Embedding Endpoint&quot; as is: &quot;Bearer token for the Embedding Endpoint.&quot; could be &quot;Token Bearer dla punktu Embedding.&quot; But we also want to keep the meaning.
+
+Alternatively, we can translate &quot;Bearer token for the Embedding Endpoint&quot; as &quot;Token Bearer dla punktu Embedding&quot;. &quot;Leave empty if no auth required.&quot; -&gt; &quot;Pozostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+But &quot;auth&quot; is abbreviation for authentication; we can translate as &quot;uwierzytelnianie&quot;. So final translation:
+
+`Token Bearer dla punktu Embedding. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.`
+
+We could also use &quot;Pozostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; The phrase &quot;Pozostaw&quot; is imperative singular form of &quot;pozostawić&quot;. &quot;Zostaw&quot; is also imperative of &quot;zostawić&quot;. Both correct. Usually imperative &quot;zostaw&quot; is used. Let&apos;s use &quot;Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; However &quot;uwierzytelnianie&quot; is a noun meaning authentication. &quot;auth&quot; is abbreviation; we can use &quot;autentykacja&quot;? The term &quot;auth required&quot; maybe &quot;brak autentykacji&quot; or &quot;brak uwierzytelniania&quot;? Better: &quot;Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; That sounds okay.
+
+Thus translation: &quot;Token Bearer dla punktu Embedding. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+But we need to check the Polish grammar: &quot;Token Bearer dla punktu Embedding&quot; is fine but maybe &quot;dla punktu Embedding&quot; is odd; better &quot;dla punktu Embedding&quot; maybe &quot;dla punktu końcowego Embedding&quot;? But &quot;punktu Embedding&quot; seems unnatural; maybe we keep &quot;Embedding Endpoint&quot; as a phrase, i.e., &quot;Endpoint Embedding&quot;? Actually &quot;Embedding Endpoint&quot; probably is a term meaning &quot;punkt końcowy osadzania&quot;? But the proper phrase would be &quot;punkt końcowy Embedding&quot;. But to keep as proper noun, we can keep &quot;Embedding Endpoint&quot; as is: &quot;dla punktu Embedding Endpoint&quot;? That would be weird.
+
+Maybe best is &quot;Token Bearer dla punktu Embedding Endpoint.&quot; However that repeats &quot;Endpoint&quot;. Actually we could treat &quot;Embedding Endpoint&quot; as a proper noun, so we can keep it as &quot;Embedding Endpoint&quot;. Then translation: &quot;Token Bearer dla Embedding Endpoint. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; That would be more literal: &quot;Token Bearer dla Embedding Endpoint.&quot; That sounds odd because &quot;Embedding Endpoint&quot; is a proper noun, but we could just translate &quot;Bearer token for the Embedding Endpoint&quot; -&gt; &quot;Token Bearer dla Embedding Endpoint.&quot; In Polish, &quot;dla Embedding Endpoint&quot; is weird because &quot;Embedding Endpoint&quot; is English proper noun. But maybe they want to keep it unchanged.
+
+But perhaps better: &quot;Token Bearer dla punktu Embedding Endpoint.&quot; But that repeats &quot;Endpoint&quot;. Actually &quot;Embedding Endpoint&quot; is a phrase, not a proper noun, it&apos;s just describing what it&apos;s for. It&apos;s a generic term. So we can translate &quot;Bearer token for the Embedding Endpoint.&quot; as &quot;Token Bearer dla punktu Embedding.&quot; But then we lost the &quot;Endpoint&quot; part. But we could also translate as &quot;Token Bearer dla punktu osadzania.&quot; That loses the &quot;Endpoint&quot; term. But perhaps it&apos;s fine: &quot;Token Bearer dla punktu osadzania.&quot; But then &quot;Embedding Endpoint&quot; is a name of an endpoint for embeddings. So maybe better &quot;Token Bearer dla punktu osadzania.&quot; So translation: &quot;Token Bearer dla punktu osadzania.&quot; This is a translation but it&apos;s not exactly &quot;Embedding Endpoint&quot;, but that is a specific endpoint. So we could preserve the full phrase: &quot;Token Bearer dla punktu osadzania&quot;. So &quot;Bearer token for the Embedding Endpoint.&quot; -&gt; &quot;Token Bearer dla punktu osadzania.&quot; That may be sufficient.
+
+But the user said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; They didn&apos;t say &quot;Technical terms&quot; must be output as is. So we could translate technical terms.
+
+Thus we must decide a translation that is natural and conveys the meaning: &quot;Bearer token for the Embedding Endpoint.&quot; -&gt; &quot;Token Bearer dla punktu osadzania.&quot; That&apos;s one possible translation.
+
+&quot;Leave empty if no auth required.&quot; -&gt; &quot;Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+Thus final translation: &quot;Token Bearer dla punktu osadzania. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+Alternatively, &quot;Token Bearer dla endpointu Embedding.&quot; But &quot;endpointu&quot; might be weird because &quot;endpoint&quot; is English. &quot;dla endpointu Embedding&quot; is odd. Perhaps &quot;Token Bearer dla punktu końcowego osadzania.&quot; That&apos;s also possible.
+
+Let&apos;s think: the translation should be understandable to a Polish user. So &quot;Token Bearer dla punktu osadzania.&quot; is okay. But maybe &quot;Token Bearer dla punktu osadzania (Embedding).&quot; But that adds parentheses.
+
+The phrase &quot;Embedding Endpoint&quot; is a named endpoint. If we translate as &quot;punktu osadzania&quot; we lose that name. But the UI may show a label for the setting that includes that term. But the description is used to explain the setting. So it&apos;s okay to have description &quot;Token Bearer dla punktu osadzania.&quot; But we could also preserve the English term &quot;Embedding Endpoint&quot; within the description. That is often done in localization: keep technical terms unchanged. So &quot;Token Bearer dla Embedding Endpoint.&quot; That might be best: &quot;Token Bearer dla Embedding Endpoint.&quot;
+
+Thus final translation: &quot;Token Bearer dla Embedding Endpoint. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+But &quot;Embedding Endpoint&quot; is likely a proper noun, so we keep it as is. Then we translate &quot;Bearer token&quot; into &quot;Token Bearer&quot;. Good.
+
+Thus translation: &quot;Token Bearer dla Embedding Endpoint. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot;
+
+Now check grammar: &quot;Token Bearer dla Embedding Endpoint.&quot; The phrase &quot;dla Embedding Endpoint&quot; might be unnatural because &quot;Embedding Endpoint&quot; is a noun phrase. But it&apos;s okay: &quot;Token Bearer dla Embedding Endpoint.&quot; In Polish, you could say &quot;Token Bearer dla punktu Embedding Endpoint.&quot; But that repeats &quot;Endpoint&quot;. So just &quot;Token Bearer dla Embedding Endpoint.&quot; is fine.
+
+Second clause: &quot;Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; This is correct. Could also be &quot;Pozostaw puste, jeśli uwierzytelnianie nie jest wymagane.&quot; Both fine.
+
+Thus final output: wrap in triple backticks.
+
+```
+Token Bearer dla Embedding Endpoint. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.
+```
+
+Check: The user wants &quot;only output the translated content and wrap it in three backticks&quot;. So we must output exactly that.
+
+Thus answer: triple backticks with translation.
+
+We must not include any extra content. Just the code block.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+Token Bearer dla Embedding Endpoint. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Adres URL strony głównej marki</value>
   </data>
@@ -45,8 +109,247 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo umowy</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Embedding API Token
+```
+
+We must wrap it in triple backticks.
+
+But let&apos;s double-check: The instruction says &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language pl-PL, Polski (Polska).&quot; So they want translation of that phrase only. However then they say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot;
+
+Thus we must decide if &quot;Embedding API Token&quot; is a proper noun. In programming contexts, key names can be considered proper nouns. They often have capital letters, indicating it&apos;s a name. The phrase includes &quot;Embedding API Token&quot;. It is likely a name. So we must not translate it. Then we output unchanged.
+
+Thus final answer: wrap in triple backticks:
+
+```
+Embedding API Token
+```
+
+But we must ensure no extra content. Only the translation. If we decide not to translate, output unchanged phrase.
+
+Thus answer as above.
+&lt;/think&gt;
+
+```
+Embedding API Token</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Punkt końcowy osadzania```
+&lt;/think&gt;
+
+```Punkt końcowy osadzania</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model osadzania
+```
+
+Wrap in triple backticks with content. Ensure no extra content.
+
+Thus final answer: triple backticks containing &quot;Model osadzania&quot;. Let&apos;s do that.
+&lt;/think&gt;
+
+```Model osadzania</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to translate the sentence into Polish (pl-PL). The sentence is a description of a setting: &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot;
+
+We need to translate &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; into Polish.
+
+We need to preserve any proper nouns, symbols, trademarks: &quot;bge-m3:latest&quot; appears to be a model name that probably is a proper noun, not to be translated. The rest of the phrase is a description: &quot;Embedding model name for vector search&quot;. In Polish, this could be &quot;Nazwa modelu osadzania dla wyszukiwania wektorowego&quot; but &quot;Embedding model name&quot; maybe &quot;Nazwa modelu osadzania&quot;. But we need to think: &quot;Embedding model name&quot; maybe &quot;Nazwa modelu osadzania&quot;. Then &quot;for vector search&quot; = &quot;do wyszukiwania wektorowego&quot;. &quot;e.g.&quot; is &quot;np.&quot; in Polish ( abbreviation for &quot;na przykład&quot;). Then &quot;bge-m3:latest&quot; is not to be translated. So the translation would be: &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot;
+
+Alternatively, &quot;model name for vector search&quot; could be &quot;Nazwa modelu osadzania do wyszukiwania wektorowego&quot;. But we need to consider the meaning: &quot;Embedding model name for vector search&quot;. In vector search, &quot;embedding&quot; is used. So we could translate &quot;Embedding model name&quot; as &quot;Nazwa modelu osadzania&quot;. &quot;for vector search&quot; = &quot;do wyszukiwania wektorowego&quot;. So the full translation: &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot;
+
+Alternatively could be &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest&quot;. We need to output the translation in the requested format: wrapped in three backticks, with the translated content only.
+
+Thus output:
+
+```
+Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.
+```
+
+Check for any other nuance: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` is one of them.&quot;
+
+So we should treat &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; as not a proper noun? It&apos;s a description. It&apos;s not a human name. But &quot;bge-m3:latest&quot; is a proper noun (model name) and must be output as is. So we keep that unchanged. The rest is translatable.
+
+Thus the translation would be &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot;
+
+But we need to think about the exact wording: Could also be &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot; The phrase &quot;Embedding model name for vector search&quot; could also be &quot;Nazwa modelu osadzania dla wyszukiwania wektorowego&quot;. But &quot;for vector search&quot; could be &quot;do wyszukiwania wektorowego&quot;. The phrase &quot;e.g.&quot; is &quot;np.&quot; (na przykład). The phrase &quot;Embedding model name for vector search&quot; maybe better translation: &quot;Nazwa modelu osadzania do wyszukiwania wektorowego&quot;. That seems correct. So final answer: &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot;
+
+We also need to output only that line inside triple backticks.
+
+Thus final output: 
+
+``` 
+Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.
+```
+
+Check formatting: Must be triple backticks with the translation. The user wants &quot;only output the translated content and wrap it in three backticks, like this: ``` Translated word here... ```&quot; So exactly that.
+
+Thus output:
+
+``` 
+Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.
+```
+
+Make sure there are no extra spaces or characters. Good.
+
+Now check any potential nuance: The original sentence ends with a period after the example? It is: `Embedding model name for vector search, e.g. bge-m3:latest.` The period after the example is included. So we need to include the period. In Polish, after &quot;np.&quot; there is a period as part of abbreviation &quot;np.&quot; but we need to decide if the final period of the sentence is included. The original is &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; So after &quot;bge-m3:latest.&quot; there is a period. So we need to keep that period. So final translation includes a period at the end: &quot;Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.&quot; That&apos;s consistent.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limit cache zapytań osadzania
+```
+
+But maybe we need to preserve &quot;Cache&quot; capitalized? &quot;Cache&quot; is often used as &quot;Cache&quot;. The phrase &quot;Embedding Query Cache Limit&quot; - maybe we can translate &quot;Embedding&quot; as &quot;osadzający&quot;? Actually &quot;embedding&quot; refers to &quot;embedding model&quot;. In Polish, &quot;embedding&quot; is &quot;osadzanie&quot;. So &quot;Embedding Query Cache Limit&quot; could be &quot;Limit cache zapytań osadzania&quot;. &quot;Cache limit&quot; could be &quot;limit cache&quot;. So I&apos;d produce &quot;Limit cache zapytań osadzania&quot;. Another possible translation: &quot;Limit pamięci podręcznej zapytań osadzania&quot;. This may be more accurate but longer. But is &quot;cache&quot; as &quot;pamięć podręczna&quot;? In many UI translations, &quot;cache&quot; remains &quot;cache&quot; as it&apos;s a technical term. So I&apos;d keep &quot;cache&quot;. So &quot;Limit cache zapytań osadzania&quot;. Good.
+
+Now check if any additional instructions: They want only the translated content wrapped in three backticks. So output:
+
+```Limit cache zapytań osadzania```
+
+Thus final answer is:
+
+```Limit cache zapytań osadzania```
+&lt;/think&gt;
+
+```Limit cache zapytań osadzania</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Włącz wyszukiwanie oparte na wektorach```
+
+or ```Włącz wyszukiwanie semantyczne```.
+
+Which one is best? Let&apos;s consider user instructions: &quot;Please translate only the sentence or word `Enable Embedding-Based Search` in the paragraph into the target language pl-PL, Polski (Polska).&quot; The phrase is not a proper noun but a setting name. Should we treat it as a proper noun and not translate? The instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Enable Embedding-Based Search` is one of them.&quot; They ask if it is one of them. The phrase includes &quot;Embedding-Based Search&quot;. Is that a proper noun? It&apos;s a descriptive phrase used as a key. Possibly it is a proper noun as a setting name; but the instruction says to consider if it&apos;s one of them. We can decide either way. However they ask to translate only the sentence or word, not to output the whole paragraph. So we need to decide if we translate or not.
+
+Given the context, it&apos;s likely a UI string that should be localized. The translator may need to translate it. So I think they want translation.
+
+Thus output translation: &quot;Włącz wyszukiwanie oparte na wektorach&quot;. Which is natural. Let&apos;s check typical translation: &quot;Enable Embedding-Based Search&quot; =&gt; &quot;Włącz wyszukiwanie oparte na wektorach&quot;. That is correct.
+
+But we need to be careful: &quot;Włącz wyszukiwanie oparte na wektorach&quot; is somewhat long but correct. Could also be &quot;Włącz wyszukiwanie wektorowe&quot;. That is shorter: &quot;Włącz wyszukiwanie wektorowe&quot;. That is similar. Let&apos;s think which is better. &quot;Włącz wyszukiwanie wektorowe&quot; means &quot;Enable vector search&quot;. That captures the concept.
+
+The phrase &quot;Enable Embedding-Based Search&quot; maybe &quot;Włącz wyszukiwanie wektorowe&quot;. Yes.
+
+Now, need to output only translation inside triple backticks.
+
+Thus answer:
+
+```Włącz wyszukiwanie wektorowe```
+
+But maybe they&apos;d like &quot;Włącz wyszukiwanie semantyczne&quot;. Which is more generic? The description says &quot;semantic (vector-based) search.&quot; So &quot;Enable Embedding-Based Search&quot; is basically enabling semantic search. So maybe &quot;Włącz wyszukiwanie semantyczne&quot;. That is also plausible.
+
+Check typical usage: &quot;Enable semantic search&quot; -&gt; &quot;Włącz wyszukiwanie semantyczne&quot;. But the phrase includes &quot;Embedding-Based&quot;. That specific phrase may not be directly &quot;semantic&quot;. But the description says semantic (vector-based). So &quot;embedding-based&quot; refers to vector-based, which is semantic. So either &quot;wektorowe&quot; or &quot;semantyczne&quot;. Which to choose? The translator&apos;s goal is accurate translation. &quot;Włącz wyszukiwanie wektorowe&quot; is more literal to &quot;embedding-based search&quot;. &quot;Włącz wyszukiwanie semantyczne&quot; is a bit more high-level but matches description.
+
+I think &quot;Włącz wyszukiwanie wektorowe&quot; is appropriate. Let&apos;s decide.
+
+Now output: triple backticks with content.
+
+Thus final answer: ```Włącz wyszukiwanie wektorowe```
+&lt;/think&gt;
+
+```Włącz wyszukiwanie wektorowe</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numer ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, następuje przełączenie na wyszukiwanie słów kluczowych.
+```
+
+But check &quot;Master switch&quot; is &quot;Główny przełącznik&quot;. Could also be &quot;Główny przełącznik semantycznego wyszukiwania (wektorowego).&quot; However &quot;Master switch for semantic (vector-based) search&quot; can be &quot;Główny przełącznik semantycznego (wektorowego) wyszukiwania.&quot; That&apos;s fine. And &quot;Falls back to keyword search when disabled.&quot; can be &quot;Gdy jest wyłączony, przełącza się na wyszukiwanie słów kluczowych.&quot;
+
+Simplify: &quot;Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, używane jest wyszukiwanie słów kluczowych.&quot;
+
+Thus output: &quot;Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, używane jest wyszukiwanie słów kluczowych.&quot; That seems good.
+
+Thus final answer: triple backticks with translation.
+
+Check instruction: Output only translated content and wrap it in three backticks. So just output the translation inside triple backticks. No other content. Ensure no extra content. So answer:
+
+``` 
+Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, używane jest wyszukiwanie słów kluczowych.
+```
+
+But note that the triple backticks must be on separate lines, with content inside. Provide as plain code block. The instruction says wrap it in three backticks like this:
+
+```
+Translated word here...
+```
+
+Thus we need to output a block with triple backticks and then the translation, then triple backticks. So:
+
+```
+Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, używane jest wyszukiwanie słów kluczowych.
+```
+
+Make sure no extra text outside. Use exactly triple backticks. Let&apos;s output that.
+&lt;/think&gt;
+
+``` 
+Główny przełącznik semantycznego (wektorowego) wyszukiwania. Gdy wyłączony, używane jest wyszukiwanie słów kluczowych.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maksymalna liczba zbuforowanych zapytań wyszukiwania (embeddings) przechowywanych w bazie danych (LRU). Domyślnie 2000.
+```
+
+Alternatively &quot;Maksymalna liczba zbuforowanych zapytań wyszukiwania (embeddings) przechowywanych w bazie danych (LRU). Domyślna 2000.&quot; But &quot;Domyślnie 2000.&quot; seems more natural.
+
+Also note: &quot;embeddings&quot; might be a plural noun; in Polish &quot;embeddings&quot; remains unchanged as &quot;embeddings&quot;. That&apos;s fine.
+
+Thus answer: wrap in triple backticks.
+
+Check instructions: &quot;Please output the translated conclusion and nothing else.&quot; So output only translation inside triple backticks.
+
+One nuance: The translation must not include any extra content. So just the translation. Good.
+
+Thus final answer:
+
+```
+Maksymalna liczba zbuforowanych zapytań wyszukiwania (embeddings) przechowywanych w bazie danych (LRU). Domyślnie 2000.
+```
+&lt;/think&gt;
+
+``` 
+Maksymalna liczba zbuforowanych zapytań wyszukiwania (embeddings) przechowywanych w bazie danych (LRU). Domyślnie 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https://ollama.example.com). /api/embed jest automatycznie dodawany.
+```
+
+Check if any proper nouns: &quot;Ollama API&quot; is proper, &quot;https://ollama.example.com&quot; is a URL, keep as is. &quot;/api/embed&quot; is a path; keep as is. &quot;Embedding&quot; maybe keep as &quot;osadzenia&quot;. Should we also keep &quot;Embedding&quot;? No, not required. &quot;Base URL&quot; might be &quot;bazowy URL&quot;. So translation seems good.
+
+Alternatively, we could phrase: &quot;Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https://ollama.example.com). /api/embed jest automatycznie dodawany.&quot;
+
+Check grammar: &quot;do generowania&quot; is gerund, correct. &quot;osadzeń dokumentów i zapytań&quot; is plural genitive. &quot;np.&quot; is abbreviation, good.
+
+Now consider nuance: &quot;base URL&quot; maybe better &quot;bazowy adres URL&quot;. But &quot;URL&quot; is used. We can keep as &quot;bazowy URL&quot;. So &quot;Ollama API bazowy URL&quot;. That is okay.
+
+Now check if any trademark or product names: &quot;Ollama API&quot; is likely a product; keep as is.
+
+Thus final answer is the translated sentence inside triple backticks.
+
+Note: The instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we think we understand.
+
+Thus final output:
+
+```
+Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https://ollama.example.com). /api/embed jest automatycznie dodawany.
+```
+
+Wrap in triple backticks. Ensure no extra content.
+&lt;/think&gt;
+
+``` 
+Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https://ollama.example.com). /api/embed jest automatycznie dodawany.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo projektu</value>
