@@ -24,6 +24,46 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Permitir a los usuarios ajustar su apodo en la página de gestión de perfil.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Token de portador para el endpoint de embeddings. Déjalo vacío si no se requiere autenticación.
+```
+
+Check: &quot;Leave empty if no auth required.&quot; -&gt; &quot;Déjalo vacío si no se requiere autenticación.&quot; That&apos;s accurate. The phrase &quot;no auth required&quot; means &quot;no se requiere autenticación&quot;. Use &quot;si no se requiere autenticación&quot; (if no authentication required). Or &quot;si no se requiere auth&quot; but we can say &quot;autenticación&quot; for auth. Good.
+
+Now check for any possible trademark or proper noun. &quot;Bearer token&quot;, &quot;Embedding Endpoint&quot;. Not a trademark. So we translate.
+
+Thus final answer should be exactly:
+
+```
+Token de portador para el endpoint de embeddings. Déjalo vacío si no se requiere autenticación.
+```
+
+But we need to output only the translation. The user says: &quot;Do **NOT** output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly that.
+
+Now check: Should we include punctuation exactly as in original? Original ends with a period. We have a period at end. Should we keep capitalisation? &quot;Token de portador para el endpoint de embeddings. Déjalo vacío si no se requiere autenticación.&quot; The first part &quot;Bearer token&quot; -&gt; &quot;Token de portador&quot;. Might also use capitalisation: &quot;Token de portador para el Endpoint de Embeddings.&quot; but we can keep &quot;endpoint&quot; lower-case.
+
+We need to be careful about &quot;Embedding Endpoint&quot; might be a proper term, but we can still translate: &quot;endpoint de embeddings&quot; or &quot;endpoint de embedding&quot;. Usually &quot;embedding&quot; is a gerund noun, maybe &quot;embeddings&quot;. So &quot;endpoint de embeddings&quot;. Fine.
+
+Thus final answer: with three backticks and translation.
+
+Double-check no extra content. No explanation. No markup besides backticks.
+
+Thus final answer: the translation.
+
+Now check for any user instructions about human names etc. We didn&apos;t have any. So we output translation only.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+Token de portador para el endpoint de embeddings. Déjalo vacío si no se requiere autenticación.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL de inicio de la marca</value>
   </data>
@@ -45,8 +85,250 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logotipo del Contrato</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token de API de incrustación
+```
+
+But maybe the best translation: &quot;Token de API de incrustación&quot;. Could also be &quot;Token de API de embedding&quot;. Which is more natural? In Spanish, it&apos;s common to keep &quot;API&quot; and &quot;Token&quot; unchanged. &quot;Embedding&quot; is more unusual but could be &quot;Embedding&quot; left unchanged due to being a technical term. The phrase &quot;Embedding API Token&quot; is like &quot;Token de API de incrustación&quot;. In a similar translation of &quot;Embedding Endpoint&quot;, they&apos;d probably translate &quot;Endpoint&quot; as &quot;Punto de conexión&quot;. &quot;Embedding&quot; -&gt; &quot;Incrustación&quot;? Actually &quot;embedding&quot; as a noun is &quot;incrustación&quot;. For embedding models like text embedding, Spanish translation could be &quot;incrustación&quot;. So &quot;Embedding Endpoint&quot; could be &quot;Punto de conexión de incrustación&quot;. &quot;Embedding API Token&quot; -&gt; &quot;Token de API de incrustación&quot;. That seems plausible.
+
+We need to output just the translated phrase. So answer:
+
+```
+Token de API de incrustación
+```
+
+But is there any requirement that we must include &quot;API Token&quot;? If we think &quot;Embedding API Token&quot; is a proper noun, maybe we should not translate. But the user said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is&quot;. That means we treat as proper noun if it is a proper noun. But &quot;Embedding API Token&quot; is not a name of a person or trademark; it&apos;s a technical term. It&apos;s not a trademark. So we can translate. However, if we are uncertain, the instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand it, so we can translate.
+
+Thus answer with translation inside triple backticks.
+
+Thus final answer: 
+
+``` 
+Token de API de incrustación 
+```
+
+But need to ensure it&apos;s exactly inside triple backticks. Use triple backticks with no extra text. So output:
+
+```
+Token de API de incrustación
+```
+&lt;/think&gt;
+
+```Token de API de incrustación</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Endpoint de incrustación
+```
+
+But they said wrap in three backticks. So output:
+
+```
+Endpoint de incrustación
+```
+
+Make sure it&apos;s exactly that, no extra content.
+
+Check if translation should be &quot;Endpoint de incrustación&quot; or &quot;Punto de conexión de incrustación&quot;. Which is more natural? In Spanish, &quot;endpoint&quot; is often used as is, but also &quot;punto de conexión&quot;. The term &quot;endpoint&quot; is used in Spanish documentation as &quot;endpoint&quot;. So &quot;Embedding Endpoint&quot; could be &quot;Endpoint de incrustación&quot;. That seems a direct translation.
+
+Thus final answer.
+
+But need to double-check instructions: They want only the translated content, wrapped in three backticks. No other content. So just output triple backticks with the translation inside. That matches.
+
+Thus answer: ``` Endpoint de incrustación ``` (but no spaces before triple backticks, it&apos;s just triple backticks newline content newline triple backticks). So output:
+
+```
+Endpoint de incrustación
+```
+
+Make sure not to output anything else. So just the code block.
+
+One more nuance: They said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot;. Does that apply? We understand enough. So fine.
+
+Thus answer.
+&lt;/think&gt;
+
+```
+Endpoint de incrustación</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>), like this: ``` Translated word here...```&quot;
+
+Thus I should output:
+
+```Modelo de incrustación```
+
+But we need to consider the appropriate translation for &quot;Embedding Model&quot;. Let&apos;s think. &quot;Embedding Model&quot; refers to a model used for generating embeddings. In Spanish, common translation would be &quot;Modelo de incrustación&quot;, &quot;Modelo de embeddings&quot;, or &quot;Modelo de incrustación de embeddings&quot;? In many contexts, &quot;embedding model&quot; is translated as &quot;modelo de embedding&quot;. However, &quot;embedding&quot; could be &quot;incrustación&quot;. &quot;Embedding Model&quot; is a term; if it&apos;s a proper noun maybe keep it as &quot;Embedding Model&quot;? But they want translation. They said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding Model` is one of them.&quot;
+
+What is &quot;Embedding Model&quot;? It&apos;s a generic term, not a trademark. It&apos;s a proper noun? It&apos;s a setting name in a software. It&apos;s not a trademark. So we translate. The target language is Spanish (es-ES). So &quot;Embedding Model&quot; would be &quot;Modelo de embedding&quot;. But perhaps &quot;Modelo de embeddings&quot; (plural). However &quot;embedding&quot; is often used as an uncountable noun in Spanish. Could be &quot;Modelo de embedding&quot;. &quot;Modelo de incrustación&quot;. The best translation: &quot;Modelo de embedding&quot;. But we need to consider that the phrase &quot;Embedding Model&quot; used as Name of a setting. The translation likely is &quot;Modelo de incrustación&quot;. However, &quot;incrustación&quot; is less common. Actually &quot;embedding&quot; in the context of machine learning is often called &quot;incrustación&quot;. So &quot;Embedding Model&quot; = &quot;Modelo de incrustación&quot;. That seems plausible. But we need to decide which translation is most appropriate. Spanish translations for &quot;embedding model&quot; typically: &quot;modelo de embedding&quot;. Many Spanish texts use the English term &quot;embedding&quot; unchanged, but you can also translate as &quot;incrustación&quot;. Let&apos;s see if there is a standard translation. In natural language processing, &quot;embedding model&quot; is often called &quot;modelo de embedding&quot;. However, the user wants translation into es-ES (Spanish, Spain). They likely want the translation that is used in Spanish contexts, possibly &quot;Modelo de incrustación&quot;. Let&apos;s examine typical translation for &quot;embedding model&quot;. For example, in documentation for the vector search, they might use &quot;modelo de embedding&quot;. I can check typical usage: In Spanish technical documentation, &quot;embedding model&quot; is often left as &quot;modelo de embedding&quot;. Indeed, many Spanish docs for Elasticsearch etc. say &quot;modelo de embedding&quot; or &quot;modelo de embedding de documentos&quot;. So the translation could be &quot;Modelo de embedding&quot;. Since &quot;embedding&quot; might be considered a &quot;proper noun&quot;? It&apos;s a technical term, but not a trademark. It&apos;s okay to translate.
+
+Thus answer: &quot;Modelo de embedding&quot;. Or &quot;Modelo de incrustación&quot;. Let&apos;s decide which is more likely expected.
+
+The user wants only the translation. The translation should be wrapped in three backticks.
+
+So output:
+
+```
+Modelo de embedding
+```
+
+If we choose &quot;Modelo de incrustación&quot;, that might be less common. However, Spanish translation guidelines might prefer &quot;Modelo de embedding&quot;. That is what I&apos;d output.
+
+Now, the user explicitly says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks (```), like this:``` Translated word here...```&quot;
+
+Thus I must output:
+
+```
+Modelo de embedding
+```
+
+One more consideration: Should we include accent? The target language is Spanish (es-ES). There&apos;s no accent in &quot;Modelo&quot;. That&apos;s okay.
+
+Thus final answer is the translated phrase.
+&lt;/think&gt;
+
+```Modelo de embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nombre del modelo de embedding para la búsqueda vectorial, p. ej. bge-m3:latest.
+```
+
+But check: &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The user instruction: only translate the sentence or word and preserve everything else. Must output only the translated content wrapped in triple backticks.
+
+Thus final answer is:
+
+``` 
+Nombre del modelo de embedding para la búsqueda vectorial, p. ej. bge-m3:latest.
+```
+
+But ensure no extra content. So output that exactly. Also they want &quot;wrap it in three backticks (```), like this: ```...```&quot;. So we must output exactly:
+
+``` 
+Nombre del modelo de embedding para la búsqueda vectorial, p. ej. bge-m3:latest.
+```
+
+Note: The user said &quot;Do not output any other content&quot;. So only that.
+
+Thus final answer.
+&lt;/think&gt;
+
+``` 
+Nombre del modelo de embedding para la búsqueda vectorial, p. ej. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Límite de caché de consultas de embedding```
+&lt;/think&gt;
+
+```Límite de caché de consultas de embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Activar búsqueda basada en embeddings```
+&lt;/think&gt;
+
+```Activar búsqueda basada en embeddings</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Número de registro ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.
+```
+
+Make sure the backticks are exactly as instructed: triple backticks with newline and content. Probably they want:
+
+```
+Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.
+```
+
+Now we must ensure correct Spanish grammar: &quot;Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.&quot;
+
+Alternative translations: &quot;Interruptor principal para búsqueda semántica basada en vectores. Si está desactivado, recurre a la búsqueda por palabras clave.&quot;
+
+The original phrase &quot;Master switch for semantic (vector-based) search.&quot; The phrase &quot;Master switch&quot; might be &quot;Interruptor principal&quot; or &quot;Conmutador principal&quot;. &quot;Semantic (vector-based) search&quot; could be &quot;búsqueda semántica (basada en vectores)&quot;. So &quot;Interruptor principal para búsqueda semántica (basada en vectores)&quot;. That&apos;s fine.
+
+Now check the instruction about symbols: &quot;symbols, trademarks, etc.&quot; Not relevant.
+
+Thus final answer is only translation wrapped in backticks.
+
+Thus output:
+
+``` 
+Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.
+```
+
+But they want exactly three backticks and then content and then three backticks. Possibly they want the backticks on a separate line? Usually they show code block with triple backticks and content inside, no extra backticks.
+
+Thus output:
+
+```
+Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.
+```
+
+Now check that the translation is correct, consistent, and not too literal. &quot;Falls back to keyword search when disabled.&quot; Could be &quot;Si está desactivado, recurre a la búsqueda por palabras clave.&quot; That&apos;s fine. Or &quot;Fallback a búsqueda por palabras clave si está desactivado.&quot; But we choose &quot;Si está desactivado, recurre a la búsqueda por palabras clave.&quot;
+
+Thus final answer is ready.
+&lt;/think&gt;
+
+```
+Interruptor principal para búsqueda semántica (basada en vectores). Si está desactivado, recurre a la búsqueda por palabras clave.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Número máximo de incrustaciones de consultas de búsqueda en caché almacenadas en la base de datos (LRU). Valor predeterminado 2000.
+```
+
+But we need to decide: &quot;embeddings&quot; -&gt; &quot;incrustaciones&quot;? Or &quot;embeddings&quot;. I&apos;d lean to &quot;embeddings&quot; because it&apos;s a term widely known. However, in Spanish translation for UI, you could use &quot;incrustaciones&quot;. But the user said they want accurate, fluent translation. Many UI translations for &quot;search query embeddings&quot; might be &quot;incrustaciones de consultas de búsqueda&quot;. So &quot;incrustaciones de consultas de búsqueda&quot;. Let&apos;s check typical translation: &quot;embeddings&quot; in Spanish is &quot;incrustaciones&quot;. In AI contexts, &quot;embedding&quot; is often left as &quot;embedding&quot;. Eg: &quot;The embedding vector&quot; is &quot;el vector de embedding&quot;. But they may want &quot;embeddings&quot;. In Spanish, &quot;embedding&quot; could be &quot;embedding&quot;. In many Spanish AI docs, they just use &quot;embedding&quot; as is. For instance, &quot;The search query embeddings stored in the database&quot; could be &quot;Los embeddings de consultas de búsqueda almacenados en la base de datos&quot;. So &quot;embeddings&quot; can be left unchanged. So &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; -&gt; &quot;Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.&quot;
+
+Thus translation: &quot;Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.&quot;
+
+But also &quot;caché&quot; may be used for &quot;cached&quot;. &quot;Caché&quot; is French but also used in Spanish for cache. Spanish translation for &quot;caché&quot; might be &quot;en caché&quot;. That is okay.
+
+Thus final answer: inside triple backticks: &quot;Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.&quot;
+
+Make sure not to include any other content. So answer must be:
+
+```
+Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.
+```
+
+But we need to check if there are any translation guidelines: They want to output the translated content and wrap in three backticks. So just output the translation with triple backticks. No extra commentary.
+
+Thus final answer is:
+
+``` 
+Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.
+```
+
+But note: The triple backticks must be exactly three backticks on a line. The content inside should be the translation. So we output:
+
+```Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.```
+
+Make sure there&apos;s no extra line. So final answer: triple backticks with translation line.
+
+I think this is correct.
+
+Now I&apos;ll output.
+&lt;/think&gt;
+
+```Número máximo de embeddings de consultas de búsqueda en caché almacenados en la base de datos (LRU). Valor predeterminado 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL base de la API de Ollama para generar embeddings de documentos y consultas (p. ej., https://ollama.example.com). /api/embed se agrega automáticamente.
+```
+
+Check: They want only the translation of the sentence. Should we include any additional punctuation? They want only the translation content. Should we keep the period? Yes.
+
+Thus output in triple backticks.
+
+We must ensure no extra content. Only the translation inside triple backticks.
+
+Thus final answer is:
+
+``` 
+URL base de la API de Ollama para generar embeddings de documentos y consultas (p. ej., https://ollama.example.com). /api/embed se agrega automáticamente.
+```
+&lt;/think&gt;
+
+``` 
+URL base de la API de Ollama para generar embeddings de documentos y consultas (p. ej., https://ollama.example.com). /api/embed se agrega automáticamente.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logotipo del proyecto</value>

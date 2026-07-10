@@ -24,6 +24,49 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Consenti agli utenti di modificare il proprio nickname nella pagina di gestione del profilo.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Translated word here...
+```
+
+Thus we must output the translation in Italian.
+
+The sentence: &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot;
+
+We need to translate into Italian. But also consider that &quot;Bearer token&quot;, &quot;Embedding Endpoint&quot;, &quot;auth&quot; might be technical terms. The user wants translation but &quot;Bearer token for the Embedding Endpoint&quot; could be left unchanged because it&apos;s a technical term. However they said &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So we need to decide. In software localization, &quot;Bearer token&quot; is often left as &quot;Bearer token&quot; (in English) or maybe &quot;token Bearer&quot;. But &quot;Bearer token&quot; is a technical term often not translated. The phrase &quot;Embedding Endpoint&quot; is also a technical term. The user wants translation into Italian. Let&apos;s think about typical translation:
+
+- &quot;Bearer token&quot; in Italian could be &quot;Token Bearer&quot;? Or &quot;Bearer token&quot; might be left unchanged, but the phrase &quot;Bearer token for the Embedding Endpoint&quot; could be &quot;Token Bearer per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.&quot; But &quot;Bearer token&quot; could be &quot;Token Bearer&quot;. However Italian translation guidelines often use &quot;token&quot; as is and &quot;Bearer token&quot; may be &quot;Token Bearer&quot;. But not sure.
+
+Better to think: Usually, &quot;Bearer token&quot; is a type of authentication token used in HTTP. It&apos;s a specific term. In Italian localization, sometimes they keep &quot;Bearer token&quot; or translate to &quot;token Bearer&quot;. There&apos;s no absolute standard. But the phrase &quot;Bearer token for the Embedding Endpoint&quot; could be translated as &quot;Token Bearer per l&apos;Embedding Endpoint&quot;. But &quot;Bearer token&quot; is often used unchanged.
+
+The phrase &quot;Leave empty if no auth required.&quot; can be translated as &quot;Lascia vuoto se non è richiesta l&apos;autenticazione.&quot; That&apos;s appropriate.
+
+So full translation: &quot;Token Bearer per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.&quot;
+
+But we might keep &quot;Bearer token&quot; unchanged: &quot;Bearer token per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.&quot;
+
+Which one is more natural? In Italian, &quot;Bearer token&quot; is used as &quot;token Bearer&quot;. However, many Italian technical texts keep English terms: &quot;Bearer token&quot;. So we could output &quot;Bearer token per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.&quot;
+
+Also &quot;Embedding Endpoint&quot; may be kept in English. The phrase &quot;embedding endpoint&quot; may be &quot;endpoint di embedding&quot;. But we can keep it as is.
+
+Thus final translation: &quot;Bearer token per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.&quot;
+
+Now we must output only the translated content and wrap in three backticks: 
+
+```
+Bearer token per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.
+```
+
+But the instruction: &quot;Please translate only the sentence or word `Bearer token for the Embedding Endpoint. Leave empty if no auth required.` in the paragraph into the target language it-IT, Italiano (Italia).&quot; So they want translation of that sentence. So output the translation in Italian. Wrap in triple backticks.
+
+Thus answer: triple backticks with translation.
+
+Check for no extra content. Output only translation.
+
+Thus final.
+&lt;/think&gt;
+
+``` Bearer token per l&apos;Embedding Endpoint. Lascia vuoto se non è richiesta l&apos;autenticazione.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>URL home del marchio</value>
   </data>
@@ -45,8 +88,253 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Logo del contratto</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Token API di embedding```.
+
+Check: The instructions: &quot;Please translate only the sentence or word `Embedding API Token` in the paragraph into the target language it-IT, Italiano (Italia).&quot; So we output only the translation. The translation of &quot;Embedding API Token&quot; in Italian. So output token: &quot;Token API di embedding&quot;. That&apos;s fine.
+
+Now check if &quot;Embedding API Token&quot; is a proper noun? It&apos;s a technical term. The instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them.&quot; So &quot;Embedding API Token&quot; may be considered a proper noun (like a variable name) but it&apos;s being used as Name of setting; the user wants translation. So they likely want translation.
+
+Thus answer: &quot;Token API di embedding&quot;. Or &quot;Token API per embedding&quot;? Let&apos;s decide which is best.
+
+The phrase &quot;Embedding API Token&quot; has three parts: Embedding - a concept used in vector search. In Italian, &quot;embedding&quot; is used as English term, but sometimes &quot;incorporamento&quot; (embedding) or &quot;embedding&quot;. I&apos;d think they would keep &quot;embedding&quot; unchanged: &quot;Token API di embedding&quot;. That seems natural.
+
+Check typical Italian UI translation: &quot;Token API di embedding&quot; is used. Eg. &quot;Token API di embedding&quot; is used in docs. I&apos;d go with that.
+
+Thus final answer: ```Token API di embedding```
+&lt;/think&gt;
+
+```Token API di embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Translated word here... ```
+
+Thus we need to output something like:
+
+```
+Endpoint di embedding
+```
+
+But careful: the translation of &quot;Embedding Endpoint&quot; into Italian would be &quot;Endpoint di embedding&quot;. However &quot;Endpoint&quot; could be &quot;endpoint&quot; used as English term; in Italian technical contexts, &quot;endpoint&quot; is used as English loanword, sometimes &quot;endpoint&quot; remains unchanged. But we can Italianize: &quot;Endpoint di embedding&quot;. There&apos;s also &quot;punto di embedding&quot; but not typical. Let&apos;s think of typical Italian translation: Many software UI use &quot;Endpoint di embedding&quot; as phrase. If we search online, &quot;endpoint&quot; used in Italian as &quot;endpoint&quot; unchanged. So &quot;Endpoint di embedding&quot;. Or &quot;Endpoint di embedding&quot;. Usually capitalized: &quot;Endpoint di embedding&quot;. So the translation likely &quot;Endpoint di embedding&quot;. But note &quot;embedding&quot; is a gerund noun; Italian would use &quot;embedding&quot;. Might be &quot;Endpoint di embedding&quot;. However if they treat &quot;Embedding&quot; as proper noun and &quot;Endpoint&quot; also proper, they&apos;d keep as is. But guidelines say &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; Does that include technical terms like &quot;Embedding Endpoint&quot;? Possibly not. The phrase &quot;Embedding Endpoint&quot; may be a proper noun because it&apos;s a unique identifier for a setting, but it could also be a description of the setting. The instruction says &quot;Please translate only the sentence or word `Embedding Endpoint` in the paragraph into the target language it-IT, Italiano (Italia).&quot; So they want translation. So we need to produce translation. So I think the correct translation is &quot;Endpoint di embedding&quot;. But need to decide on case. &quot;Embedding Endpoint&quot; in English: &quot;Embedding&quot; is a noun used as adjective? It could be &quot;Endpoint di embedding&quot;. That seems appropriate. But maybe they want &quot;Endpoint di embedding&quot;. Let&apos;s consider typical Italian UI strings: &quot;Embedding Endpoint&quot; -&gt; &quot;Endpoint di embedding&quot;. Many translation guidelines would treat &quot;embedding&quot; as a noun; &quot;endpoint&quot; is an English term used unchanged, but can be &quot;endpoint&quot;. So &quot;Endpoint di embedding&quot;. That is likely.
+
+Check for capitalisation: In original, &quot;Embedding Endpoint&quot; capitalized each word? The code: Name = Localizer[&quot;Embedding Endpoint&quot;]; So &quot;Embedding Endpoint&quot; is capitalized as two words title case. Italian translation: &quot;Endpoint di embedding&quot;. We need to preserve capitalization style? Could be &quot;Endpoint di embedding&quot;. Usually you would not capitalise &quot;embedding&quot;. So &quot;Endpoint di embedding&quot;. That seems correct.
+
+Thus output:
+
+```
+Endpoint di embedding
+```
+
+We must output only the translated content, wrapped in three backticks. No extra content. So just output that.
+
+Thus final answer: ``` Endpoint di embedding ```
+&lt;/think&gt;
+
+``` 
+Endpoint di embedding</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Modello di embedding```
+
+Thus final answer. Ensure no extra text.
+&lt;/think&gt;
+
+```Modello di embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
+
+Double-check translation quality: &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; That is clear, correct grammar.
+
+We must not output any other content, only the translation. Provide in triple backticks exactly as required.
+
+Thus output:
+
+```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
+
+Check if punctuation: original sentence ends with a period. So we keep period. Italian punctuation uses period.
+
+Check for &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; It&apos;s a description of a setting for model name. Italian translation &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; Should be fine.
+
+Potential nuance: &quot;Embedding&quot; could be &quot;embedding&quot;, but it&apos;s okay.
+
+Now consider if translation should preserve capital letters? In Italian, &quot;Embedding&quot; can be capitalized? Usually we keep lower-case &quot;embedding&quot;. The phrase &quot;Nome del modello di embedding per la ricerca vettoriale&quot; is fine.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limite della cache delle query di embedding
+```
+
+Alternatively could be &quot;Limite della cache di query di embedding&quot;. Let&apos;s check typical Italian phrasing: &quot;Limite della cache delle query di embedding&quot;. In Italian, &quot;cache&quot; is often used as a feminine noun? Actually &quot;cache&quot; is an invariable noun? In Italian, &quot;cache&quot; is used as a &quot;la cache&quot;. So &quot;cache&quot; is feminine. &quot;Query&quot; can be used as &quot;query&quot; (invariable). &quot;Embedding&quot; may be &quot;embedding&quot;. So &quot;Limite della cache delle query di embedding&quot;. That seems plausible.
+
+We need to decide if we need to consider &quot;Embedding Query Cache Limit&quot; as a proper noun, in which case we leave it as is: &quot;Embedding Query Cache Limit&quot;. But the instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding Query Cache Limit` is one of them.&quot; So we need to decide if this phrase qualifies as proper noun. In software context, &quot;Embedding Query Cache Limit&quot; is a setting name, likely a technical term that may be treated as a proper noun. However, the instruction is ambiguous. The user wants translation, but also says that proper nouns should not be translated. But it&apos;s ambiguous: The user explicitly says &quot;Please translate only the sentence or word `Embedding Query Cache Limit` in the paragraph into the target language it-IT&quot;. So they want translation. They also say &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; So if we are not sure, we output as is. But we likely can translate it.
+
+Thus I think we should translate. Let&apos;s translate &quot;Embedding Query Cache Limit&quot; into Italian.
+
+We can break it down: &quot;Embedding&quot; could be &quot;di embedding&quot;, &quot;query&quot; is &quot;query&quot; or &quot;interrogazione&quot;. &quot;Cache limit&quot; could be &quot;limite della cache&quot;. &quot;Embedding Query Cache Limit&quot; is something like &quot;Limite della cache delle query di embedding&quot;. Or &quot;Limite della cache query di embedding&quot;. So best translation: &quot;Limite della cache delle query di embedding&quot;. That is a natural Italian phrase.
+
+Thus output:
+
+```
+Limite della cache delle query di embedding
+```
+
+Wrap in triple backticks. So answer: ```Limite della cache delle query di embedding```.
+
+Check user request: &quot;Please translate only the sentence or word `Embedding Query Cache Limit` in the paragraph into the target language it-IT, Italiano (Italia).&quot; So we output translation only. They also want to wrap in three backticks.
+
+Thus final answer:
+
+```Limite della cache delle query di embedding```
+
+But wait: we need to consider the instruction about &quot;Do not output any other content. Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output should be exactly that. So answer: triple backticks with translation.
+
+Thus final answer: (single line). Ensure no extra content.
+
+So final output: 
+
+```Limite della cache delle query di embedding```
+
+Double-check: &quot;Limite della cache delle query di embedding&quot; is grammatically correct. &quot;cache&quot; is feminine (la cache). &quot;Query&quot; can be used as &quot;query&quot;, maybe &quot;query&quot; (invariable). So &quot;delle query di embedding&quot; works. So translation is &quot;Limite della cache delle query di embedding&quot;. That&apos;s fine.
+
+Thus final answer: triple backticks with translation.
+&lt;/think&gt;
+
+```Limite della cache delle query di embedding</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Attiva ricerca basata su embedding
+```
+
+But we need to ensure translation is accurate. &quot;Enable Embedding-Based Search&quot; translates to &quot;Attiva ricerca basata su embedding&quot;. Could also be &quot;Abilita ricerca basata su embedding&quot;. Which is better? Let&apos;s see typical UI translation: &quot;Enable Embedding-Based Search&quot; is a switch. In Italian UI, you could say &quot;Abilita ricerca basata su embedding&quot; or &quot;Attiva ricerca basata su embedding&quot;. Both are okay. &quot;Abilita&quot; is more literal, &quot;Enable&quot;. &quot;Attiva&quot; also works, but maybe &quot;Abilitare&quot; is common. However, translation guidelines: &quot;Enable&quot; as a verb. Italian: &quot;Abilita la ricerca basata su embedding&quot; or &quot;Attiva ricerca basata su embedding&quot;. &quot;Abilita&quot; is direct imperative form of &quot;enable&quot;. However, the original phrase is a setting name: &quot;Enable Embedding-Based Search&quot;. In UI, they sometimes use &quot;Enable&quot; as verb phrase, but maybe they use &quot;Attiva&quot; more in Italian UI? Let&apos;s consider common translations: &quot;Enable&quot; is &quot;Abilita&quot;. E.g., in settings UI: &quot;Abilita&quot; is used for checkboxes: &quot;Abilita modalità sviluppatore&quot;. So &quot;Abilita ricerca basata su embedding&quot; fits.
+
+Thus the translation: &quot;Abilita ricerca basata su embedding&quot;. This seems appropriate.
+
+Now output with three backticks only. No extra content.
+
+Thus final answer: 
+```
+Abilita ricerca basata su embedding
+```
+&lt;/think&gt;
+
+``` 
+Abilita ricerca basata su embedding</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Numero ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Interruttore principale per la ricerca semantica (vettoriale). Passa alla ricerca per parole chiave quando è disabilitato.```
+
+Wrap in triple backticks exactly as requested: three backticks with newline after? The example says:
+
+```
+Translated word here...
+```
+
+So they expect just one code block with content. We need to output only that code block, no extra text.
+
+Thus output:
+
+```Interruttore principale per la ricerca semantica (vettoriale). Passa alla ricerca per parole chiave quando è disabilitato.```
+
+Make sure it&apos;s exactly that.
+
+One more nuance: They might want to preserve the punctuation, like period at end of each clause. So it&apos;s fine.
+
+Thus final answer: code block with translation.
+
+Now ensure no extra content. Just the code block.
+&lt;/think&gt;
+
+```Interruttore principale per la ricerca semantica (vettoriale). Passa alla ricerca per parole chiave quando è disabilitato.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Numero massimo di embedding di query di ricerca memorizzati nella cache del database (LRU). Predefinito 2000.```
+
+Check if any need for &quot;Default&quot; vs &quot;Predefinito&quot;. In Italian UI translation, &quot;Default&quot; often translated as &quot;Predefinito&quot;. So fine.
+
+Thus answer: 
+
+```
+Numero massimo di embedding di query di ricerca memorizzati nella cache del database (LRU). Predefinito 2000.
+```
+
+Wrap in triple backticks.
+
+Check the guidelines: The user said &quot;Please translate only the sentence or word `Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.` in the paragraph into the target language it-IT, Italiano (Italia). ... If you don&apos;t understand what you want to translate, please output it as it is!&quot;
+
+We can translate. There&apos;s no disallowed content. Output only translation.
+
+Thus final output as required.
+&lt;/think&gt;
+
+```Numero massimo di embedding di query di ricerca memorizzati nella cache del database (LRU). Predefinito 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.```
+
+Check for any missing punctuation: The original: &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot;
+
+Our translation: &quot;URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.&quot;
+
+We need to ensure the translation is correct: &quot;URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.&quot;
+
+But we used &quot;URL base dell&apos;API Ollama&quot;. Some might consider &quot;Ollama API&quot; as proper noun, but we keep &quot;Ollama API&quot;. &quot;URL base&quot; is &quot;URL base&quot;. &quot;per la generazione di embedding per documenti e query&quot; might be correct.
+
+However, is &quot;document and query embeddings&quot; correct translation? &quot;embedding&quot; is often left unchanged as &quot;embedding&quot;. &quot;Document and query embeddings&quot; -&gt; &quot;embedding di documenti e query&quot;. In Italian, we could say &quot;embedding per documenti e query&quot;. So &quot;embedding per documenti e query&quot; is fine. But &quot;embedding per documenti e query&quot; vs &quot;embedding di documenti e query&quot;. Both fine.
+
+Thus final translation: &quot;URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.&quot;
+
+Now check if there are any special characters: &quot;e.g.&quot; is kept as is. &quot;https://ollama.example.com&quot; kept unchanged.
+
+Thus output should be exactly:
+
+```
+URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.
+```
+
+Note: The user wants only the translation. They said wrap in three backticks. So output a code block with backticks. Ensure no extra content. So we output exactly:
+
+```URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.```
+
+Check: Are we supposed to preserve line breaks? The original sentence includes parentheses and a period after URL, then space and &quot;/api/embed ...&quot;. So we output as one line.
+
+Thus final answer.
+
+One more nuance: &quot;Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot;
+
+We might translate &quot;base URL&quot; as &quot;URL di base&quot;. But &quot;base URL&quot; could be &quot;URL base&quot;. Both are okay. In Italian, &quot;base URL&quot; often expressed as &quot;URL base&quot;. So &quot;URL base dell&apos;API Ollama&quot;. That is what we wrote: &quot;URL base dell&apos;API Ollama&quot;. Good.
+
+Check &quot;generating document and query embeddings&quot;. We wrote &quot;generazione di embedding per documenti e query&quot;. Might be &quot;generazione di embedding per documenti e query&quot;. Fine.
+
+Also &quot;document and query embeddings&quot; could be &quot;embedding di documenti e query&quot;. But we wrote &quot;embedding per documenti e query&quot;. It&apos;s okay.
+
+Now check &quot;viene aggiunto automaticamente&quot; matches &quot;is appended automatically&quot;. Yes.
+
+Thus final answer.
+
+But we need to ensure we keep the proper noun &quot;Ollama API&quot;. We keep &quot;Ollama API&quot;. The phrase &quot;API&quot; we keep as is. So &quot;URL base dell&apos;API Ollama&quot;. That is correct.
+
+Double-check for any other proper nouns: &quot;https://ollama.example.com&quot; kept unchanged. &quot;/api/embed&quot; kept unchanged. &quot;e.g.&quot; kept unchanged.
+
+Thus output.
+
+Thus final answer: (wrap in three backticks).
+&lt;/think&gt;
+
+```URL base dell&apos;API Ollama per la generazione di embedding per documenti e query (e.g. https://ollama.example.com). /api/embed viene aggiunto automaticamente.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Logo del progetto</value>

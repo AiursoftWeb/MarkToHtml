@@ -183,6 +183,35 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar
+```
+
+We must not output any other content. So just that. Ensure not to add extra spaces or newline. The word &quot;Search&quot; should be &quot;Buscar&quot;. So output:
+
+```
+Buscar
+```
+
+Thus done.
+&lt;/think&gt;
+
+```Buscar</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Buscar mis documentos...```
+
+Check if there is any nuance: The sentence is `Search my documents...` The phrase includes ellipsis. So translation should preserve ellipsis? Spanish translation might use &quot;Buscar mis documentos...&quot; which is fine. They might want the ellipsis (...). So we output &quot;Buscar mis documentos...&quot;. Ensure we wrap in backticks exactly as required: three backticks (```) with the content inside.
+
+Thus final answer: 
+
+```
+Buscar mis documentos...
+```
+&lt;/think&gt;
+
+```Buscar mis documentos...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Autohospedado</value>
   </data>

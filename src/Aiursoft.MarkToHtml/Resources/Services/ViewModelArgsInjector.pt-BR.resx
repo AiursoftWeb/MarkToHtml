@@ -180,6 +180,26 @@
   <data name="Roles" xml:space="preserve">
     <value>Funções</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pesquisar
+```
+
+Should we include punctuation? No. Just the translation. Ensure no other content.
+
+Thus final answer: ```Pesquisar```. That is it.
+&lt;/think&gt;
+
+``` 
+Pesquisar</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Pesquisar meus documentos...
+```
+&lt;/think&gt;
+
+``` 
+Pesquisar meus documentos...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Auto-Hospedado</value>
   </data>

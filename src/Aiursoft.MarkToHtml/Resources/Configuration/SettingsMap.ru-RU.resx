@@ -24,6 +24,41 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Позволить пользователям изменять свой ник в странице управления профилем.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token for the Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.
+```
+
+But that leaves &quot;Bearer token for the Embedding Endpoint&quot; unchanged. Is that acceptable? The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; They didn&apos;t ask to preserve the English term if it is a technical term like &quot;Bearer token&quot;. They said &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc.&quot; Usually &quot;Bearer token&quot; is not a proper noun, but it&apos;s a technical term. There&apos;s some leeway. The instruction says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; But we do understand the meaning.
+
+Thus translation: &quot;Токен Bearer для Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.&quot;
+
+But that might be considered &quot;translate&quot; &quot;Bearer token&quot; to &quot;Токен Bearer&quot;. However, &quot;Bearer token&quot; may be considered a term. In many localization guidelines, they keep &quot;Bearer token&quot; unchanged. However, we can treat &quot;Bearer token&quot; as a term that can be translated to &quot;Токен Bearer&quot;. Actually in Russian translation of Microsoft docs, they might translate &quot;Bearer token&quot; as &quot;токен доступа&quot;. For example: &quot;Bearer token&quot; often becomes &quot;токен носителя&quot;. But I&apos;ve seen &quot;Bearer token&quot; left as is.
+
+The user expects a direct translation, presumably a phrase they can use in a Localizer call. In that context, they likely want a Russian string for the translation system. So they want a Russian phrase that can be inserted into the localization file. So we need to produce the translation.
+
+Thus we need to decide which translation is best: &quot;Токен доступа для Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.&quot; That fully translates &quot;Bearer token&quot; to &quot;Токен доступа&quot;. &quot;Embedding Endpoint&quot; is a proper noun, left unchanged. &quot;Leave empty if no auth required.&quot; becomes &quot;Оставьте пустым, если аутентификация не требуется.&quot; That is a natural translation. That seems appropriate.
+
+Thus output should be:
+
+```
+Токен доступа для Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.
+```
+
+But do we need to preserve &quot;Embedding Endpoint&quot; unchanged? Yes, likely it&apos;s a proper noun, so we keep it as is. &quot;Токен доступа&quot; is translation of &quot;Bearer token&quot;. The phrase &quot;for the Embedding Endpoint&quot; could be &quot;для Embedding Endpoint&quot;. That&apos;s okay.
+
+Thus final answer: a code block with translation.
+
+We must output only the translation wrapped in triple backticks. No extra content.
+
+Thus final output:
+
+``` 
+Токен доступа для Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.
+```
+&lt;/think&gt;
+
+```Токен доступа для Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>Адрес сайта бренда</value>
   </data>
@@ -45,8 +80,398 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>Логотип договора</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>Токен API встраивания
+```
+
+But careful: The phrase is &quot;Embedding API Token&quot;. We can also break as &quot;Токен API для встраивания&quot;. Which is more precise: &quot;Токен API для встраивания&quot;. Or &quot;Токен API встраивания&quot;. Which one is more natural? In Russian, &quot;Токен API встраивания&quot; sounds like token for embed API. &quot;Токен API для встраивания&quot; also works. In a configuration UI, they might want a short phrase, like &quot;Токен API встраивания&quot;. I think that is the appropriate translation. Also, maybe they want &quot;Токен API встраивания&quot; (the token for the embedding API). So output that.
+
+Thus final answer: wrap in triple backticks with content &quot;Токен API встраивания&quot;. Should we include no other text.
+
+One more nuance: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding API Token` is one of them.&quot; So is &quot;Embedding API Token&quot; a proper noun? It is not a name, but it could be considered a product name? But in context, it&apos;s a setting name, not a trademark. So we should translate it. So we translate. So output:
+
+```
+Токен API встраивания
+```
+
+Yes.
+
+We must not output any other content. Must be only the translated content wrapped in backticks.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Токен API встраивания</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Конечная точка внедрения
+```
+
+Now check user instruction: &quot;Do not output any other content! Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we output exactly that.
+
+But check if there is any nuance: The user says &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; That is not needed because we have a translation.
+
+Now check the requirement: The user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them!&quot; They ask to consider if the sentence or word `Embedding Endpoint` is one of them. It&apos;s not a proper noun like a brand name, it&apos;s a generic term. So we translate.
+
+Thus final answer: wrap translation.
+
+Thus answer: ```Конечная точка внедрения```. Or maybe &quot;Конечная точка внедрения&quot;. Ensure correct Russian case: It&apos;s likely nominative, so &quot;Конечная точка внедрения&quot;. So final answer is:
+
+```Конечная точка внедрения```.
+
+Check formatting: The user wants three backticks with newline? The example shows triple backticks with newline. In the example they wrote:
+
+```
+Translated word here...
+```
+
+So they want triple backticks and then newline then translation then newline then triple backticks? Actually they wrote:
+
+```
+Translated word here...
+```
+
+So inside triple backticks they put the translation on its own line, but the example shows a newline after backticks: triple backticks, newline, translation, newline, triple backticks. However, they may not require newline after translation. The safe approach is to replicate exactly like they described: triple backticks, newline, translation, newline, triple backticks.
+
+Thus output:
+
+```
+Конечная точка внедрения
+```
+
+But note: They used:
+
+```
+Translated word here...
+```
+
+The backticks are on separate line from content. So we need to output:
+
+``` 
+Конечная точка внедрения
+```
+
+But there may not be spaces before. In their example they show triple backticks on its own line? Actually they wrote:
+
+```
+Translated word here...
+```
+
+That is triple backticks, then newline, then translation, then newline, then triple backticks. It is ambiguous if they want triple backticks on same line as translation. However they said &quot;wrap it in three backticks (```), like this:&quot;
+
+```
+Translated word here...
+```
+
+So triple backticks are on a line alone. So we follow that pattern.
+
+Thus final answer: triple backticks line, newline, translation line, newline, triple backticks.
+
+Thus final output:
+
+``` 
+Конечная точка внедрения
+``` 
+
+But note that there may be spaces inside. Let&apos;s produce exactly like:
+
+``` 
+Конечная точка внедрения
+``` 
+
+But maybe better to remove spaces after triple backticks line.
+
+Thus final answer:
+
+```
+Конечная точка внедрения
+``` 
+
+But they said &quot;wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So the code block includes triple backticks on a line and then translation inside. So we need to output:
+
+``` 
+Конечная точка внедрения
+``` 
+
+But we must ensure no extra text. So final answer should be exactly:
+
+``` 
+Конечная точка внедрения
+``` 
+
+We&apos;ll output that.
+
+One more nuance: The phrase &quot;Embedding Endpoint&quot; includes &quot;Endpoint&quot;, which in Russian can be &quot;Конечная точка&quot;. So &quot;Конечная точка внедрения&quot;. Good.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+Конечная точка внедрения</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Модель встраивания 
+```
+
+But check: The user says &quot;Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we need to output exactly:
+
+```
+Модель встраивания
+```
+
+Make sure no extra content.
+
+Thus final answer: triple backticks with translation.
+
+Potential nuance: The translation of &quot;Embedding Model&quot; could be &quot;Модель внедрения&quot;? But let&apos;s search memory: &quot;embedding model&quot; in Russian in context of &quot;ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.&quot; So the description mentions embeddings generation. &quot;Embedding model name for vector search&quot;. So &quot;Embedding Model&quot; is a setting name. Usually Russian translation for &quot;Embedding model&quot; is &quot;Модель встраивания&quot;. Many translations for AI: &quot;embedding model&quot; = &quot;модель встраивания&quot;.
+
+Another variant: &quot;модель вложения&quot;? There&apos;s &quot;вложения&quot; meaning &quot;embeddings&quot;. Actually &quot;embeddings&quot; (vector representation) is &quot;вложения&quot; (noun), &quot;вложения&quot; is used rarely but plausible. For example, &quot;embeddings&quot; = &quot;вложения&quot;. So &quot;embedding model&quot; could be &quot;модель вложений&quot;. In the context of vector search, &quot;вложения&quot; is used: &quot;модель вложений&quot;. For instance, I recall translations: &quot;модель вложения&quot; maybe. Actually I&apos;ve seen &quot;embedding model&quot; as &quot;модель вложения&quot;. Let&apos;s check typical usage: In Russian, &quot;embedding model&quot; may be &quot;модель вложения&quot;, &quot;модель встраивания&quot;. Searching mental memory: For example, &quot;embedding models for text&quot; sometimes translated as &quot;модели вложения&quot;. Let&apos;s check typical translation guidelines: &quot;embedding&quot; as a noun is &quot;вложение&quot;, &quot;встраивание&quot; also can be used. I think &quot;модель вложения&quot; might be used less often but is plausible. However, the typical translation of &quot;embedding model&quot; in the context of AI/ML is &quot;модель вложения&quot;. Let&apos;s search mental memory: Many Russian technical articles talk about &quot;модели вложения&quot; (embedding models). For example: &quot;модели вложения слов&quot; (word embeddings). Yes! &quot;Word embedding models&quot; are &quot;модели вложения слов&quot; or &quot;модели вложения&quot;. So &quot;embedding model&quot; = &quot;модель вложения&quot;. Indeed, &quot;модели вложения&quot; (embedding models) is common.
+
+Thus translation should be &quot;Модель вложения&quot;. The phrase &quot;Модель вложения&quot; is more idiomatic. Let&apos;s confirm: In Russian, &quot;embedding model&quot; is &quot;модель вложения&quot;. For example, &quot;модель вложения для семантического поиска&quot;. So maybe best translation is &quot;Модель вложения&quot;. But &quot;Модель встраивания&quot; also works but less common.
+
+We must decide which translation is more appropriate for &quot;embedding model&quot;. In the given context &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The Russian translation for &quot;Embedding Model&quot; might be &quot;Модель вложения&quot;. I think that is the proper translation used in Russian technical docs. Let&apos;s recall typical synonyms: &quot;вложения&quot; (noun plural) is used to refer to vector representations. For example, &quot;модель вложения&quot; (embedding model). So answer: &quot;Модель вложения&quot;.
+
+Thus output:
+
+```
+Модель вложения
+```
+
+Wrap in triple backticks as required.
+
+Potential nuance: The translation for &quot;embedding model&quot; may also be &quot;модель внедрения&quot;? That&apos;s less likely.
+
+Thus final answer: triple backticks with &quot;Модель вложения&quot;. Ensure no extra content.
+
+Proceed.
+&lt;/think&gt;
+
+``` 
+Модель вложения</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Название модели эмбеддингов для векторного поиска, например bge‑m3:latest.```
+
+But perhaps we need to preserve the &quot;e.g.&quot; as &quot;например&quot;. So &quot;название модели эмбеддингов для векторного поиска, например bge‑m3:latest.&quot; That seems correct. Let&apos;s think about the style: Russian uses &quot;например&quot;. The phrase &quot;e.g.&quot; is &quot;напр.&quot;, &quot;например&quot;. &quot;Embedding model name&quot; could be &quot;имя модели эмбеддингов&quot;. But &quot;model name&quot; is &quot;название модели&quot;. So &quot;название модели эмбеддингов&quot;. That is okay.
+
+Alternatively, could be &quot;Имя модели встраивания для векторного поиска, например bge‑m3:latest.&quot; But &quot;embedding model&quot; might be &quot;модель встраивания&quot;. Which is more natural? &quot;модель встраивания&quot; might be better. But &quot;встраивание&quot; is more like &quot;embedding&quot; as &quot;embedding of data&quot;. However, in vector search, &quot;embedding&quot; is &quot;эмбеддинг&quot;. So &quot;модель эмбеддингов&quot;. Many Russian translations for embedding models use &quot;модель эмбеддинга&quot; or &quot;модель эмбеддинга&quot;. I&apos;d go with &quot;модель эмбеддинга&quot;. So &quot;название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That seems okay.
+
+We need to preserve &quot;bge-m3:latest&quot;. Should we preserve &quot;bge-m3:latest&quot;? Yes, because it&apos;s a technical name, not translatable. So we must keep &quot;bge‑m3:latest&quot;. Should we preserve the colon and maybe hyphen? &quot;bge-m3:latest&quot; is unchanged.
+
+Also need to consider that the user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot; So we output only:
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
+
+But check the request: &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language ru-RU, Русский (Россия).&quot; So we need to translate that sentence. There&apos;s no mention of not translating &quot;Embedding&quot; (the key). The sentence includes &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation we propose is: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Or maybe &quot;Имя модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Which one is more appropriate? In Russian, &quot;Имя модели&quot; is used less often than &quot;название модели&quot;. &quot;Имя модели&quot; is unnatural; &quot;название модели&quot; is okay. &quot;Имя&quot; is like &quot;name&quot;. &quot;Название модели&quot; means &quot;model name&quot;. So &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot;
+
+Alternatively, &quot;Наименование модели эмбеддинга&quot; might be used, but &quot;название модели&quot; is fine. Also &quot;модель эмбеддинга&quot; is maybe &quot;embedding model&quot;. So &quot;модель эмбеддинга&quot; = &quot;embedding model&quot;. So &quot;Название модели эмбеддинга&quot;. That seems good.
+
+Thus final answer: wrap in triple backticks. Must not output any other content. Ensure output only the translation. Let&apos;s double-check that we are not adding extra punctuation or content. Should we preserve the period at the end? Yes, the original ends with a period. We need to include the period in Russian translation. Russian punctuation includes period: &quot;например bge‑m3:latest.&quot; The period after the English name should be kept as part of the sentence. So final translation: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That&apos;s good.
+
+Now we output:
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
+
+Check for any special characters: hyphen in &quot;bge‑m3&quot; is a normal hyphen. The colon is there. Use standard hyphen. This is fine.
+
+Thus output exactly that. Ensure no extra text. Output within triple backticks.
+
+We must ensure we do not output any other content. That is final.
+&lt;/think&gt;
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Лимит кэша запросов внедрений
+```
+
+But perhaps they want a specific translation: &quot;Лимит кэша запросов внедрений&quot;. Or &quot;Лимит кэша запросов внедрений&quot;. Check Russian usage: &quot;кэш&quot; is often &quot;кэш&quot; (like cache). &quot;Запросов&quot; (queries). &quot;Внедрений&quot; is the plural genitive of &quot;внедрение&quot; (implementation or embedding). Could also be &quot;встраиваемых внедрений&quot;. But &quot;встраиваемых внедрений&quot; is correct but long.
+
+Alternative: &quot;Лимит кэша запросов внедрений&quot;. That is short.
+
+Another approach: &quot;Лимит кэша запросов внедряемых моделей&quot;? Not sure.
+
+Let&apos;s think about what typical Russian translation for &quot;embedding&quot; in the context of vector search might be &quot;вложения&quot; (embeddings). In AI, &quot;embedding&quot; is &quot;вложения&quot;. So &quot;embedding query&quot; might be &quot;вложение запросов&quot;? Usually vector search uses &quot;embedding&quot; as &quot;вложения&quot; (plural). So &quot;Embedding Query Cache Limit&quot; could be &quot;Лимит кэша для запросов вложений&quot;. That is &quot;Query Cache Limit for embeddings&quot;. So &quot;Лимит кэша запросов вложений&quot;? Actually &quot;вложения&quot; is plural but can be used as &quot;вложения&quot;. So &quot;Лимит кэша запросов вложений&quot;. That might be more accurate: &quot;Query cache limit for embeddings&quot; - i.e., &quot;Лимит кэша запросов вложений&quot;. That is a possible translation.
+
+But the phrase might be &quot;Embedding Query Cache Limit&quot;. Let&apos;s consider typical Russian translation for this kind of setting: In many UI translations, they often translate &quot;Embedding Query Cache Limit&quot; as &quot;Лимит кэша запросов внедрений&quot;. I&apos;ve seen &quot;внедрений&quot; used for &quot;embedding&quot; in Russian in similar contexts. &quot;Внедрение&quot; means &quot;implementation&quot; and &quot; внедряемость&quot; maybe. But &quot;embedding&quot; can be &quot;встраивание&quot; or &quot; внедрение&quot;. In AI, &quot;embedding&quot; is &quot;вложения&quot; (embedding vectors). So &quot;вложения&quot; is used. So &quot;Лимит кэша запросов вложений&quot;. That is shorter. Let&apos;s consider &quot;вложений&quot; vs &quot;внедрений&quot;. Which is more correct? The phrase &quot;embedding&quot; can be &quot;вложения&quot;. In vector search, one might call them &quot;эмбеддинги&quot;. However, the translation &quot;вложения&quot; may be less known. However, the translator&apos;s goal is to produce a natural translation.
+
+Let&apos;s search memory: Russian translation for &quot;embedding&quot; in AI: &quot;вложения&quot; (noun). For example: &quot;embedding vector&quot; is &quot;вектор вложения&quot;. So &quot;embedding query&quot; could be &quot;запрос вложения&quot;. So &quot;Embedding Query Cache Limit&quot; could be &quot;Лимит кэша запросов вложений&quot;. That seems plausible.
+
+Also &quot;Query Cache Limit&quot; can be &quot;Лимит кэша запросов&quot;. So combine: &quot;Лимит кэша запросов вложений&quot;.
+
+Alternatively, &quot;Лимит кэша для вложений&quot;. So &quot;Лимит кэша запросов вложений&quot;. That is fine.
+
+Now, the user says: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding Query Cache Limit` is one of them.&quot; That is a bit ambiguous: If it&apos;s a proper noun like a setting key, maybe it&apos;s considered a proper noun? But the user wants translation, so they think it&apos;s not a proper noun. So we should translate.
+
+Thus final answer: ```Лимит кэша запросов вложений```. Or we could use &quot;Лимит кэша запросов внедрений&quot;. Which one is more appropriate? Let&apos;s see typical translation guidelines: &quot;Embedding Query Cache Limit&quot; is a descriptive name for a setting. Usually translation to Russian yields &quot;Лимит кэша запросов внедрений&quot; (since &quot;внедрений&quot; is a plural genitive of &quot;внедрение&quot;. &quot;Внедрение&quot; is the process of embedding something into a system. So &quot;внедрений&quot; might be correct: &quot;внедрений&quot; meaning &quot;implementations&quot;. But &quot;embedding&quot; in vector search is about &quot;embedding models&quot; and &quot;embedding queries&quot;. &quot;Embedding model&quot; is often translated as &quot;модель вложения&quot; or &quot;модель внедрения&quot;? Let&apos;s think about typical Russian translation for &quot;embedding model&quot;. In many contexts, &quot;embedding model&quot; is translated as &quot;модель вложения&quot;. For example, in Russian translation of OpenAI API docs, they might translate &quot;embedding model&quot; as &quot;модель вложения&quot;. That suggests &quot;вложения&quot; is correct for &quot;embedding&quot;. So &quot;embedding query&quot; would be &quot;запрос вложения&quot;. So &quot;embedding query cache limit&quot; could be &quot;лимит кэша запросов вложений&quot;. That is consistent: &quot;вложений&quot; is plural genitive of &quot;вложения&quot;. So &quot;Лимит кэша запросов вложений&quot;. That seems correct.
+
+Thus final answer: ```Лимит кэша запросов вложений```.
+
+Wrap in three backticks as requested. No other content.
+
+Thus final output:
+
+```
+Лимит кэша запросов вложений
+```
+&lt;/think&gt;
+
+```Лимит кэша запросов вложений</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Включить поиск на основе эмбеддингов
+```
+
+Make sure no extra content. The user instruction: &quot;Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus output should be:
+
+```
+Включить поиск на основе эмбеддингов
+```
+
+Check for possible nuance: In Russian, &quot;Включить&quot; is correct, but &quot;Включить&quot; vs &quot;Включить&quot; - note spelling: &quot;Включить&quot; (with capital V) is not correct; &quot;Включить&quot; is with capital first letter? Typically &quot;Включить&quot; is not right; correct is &quot;Включить&quot; (V with uppercase). Actually the verb &quot;включить&quot; meaning &quot;to enable&quot;. In Russian it&apos;s &quot;включить&quot; (lowercase v). But we want capitalized because label might be capitalized? UI labels are often capitalized: &quot;Включить поиск...&quot; but &quot;включить&quot; is verb, not capitalized. But if we treat it as a title, maybe &quot;Включить поиск...&quot;. Usually UI labels in Russian are not capitalized like English; they often use sentence-case style: &quot;Включить поиск на основе эмбеддингов&quot;. So we can keep &quot;Включить&quot;. However, it&apos;s safe to use &quot;Включить&quot;. We&apos;ll output as exactly that.
+
+Thus final answer:
+
+```
+Включить поиск на основе эмбеддингов
+```
+&lt;/think&gt;
+
+``` Включить поиск на основе эмбеддингов</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>Номер ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Главный переключатель для семантического (векторного) поиска. При отключении возвращается к поиску по ключевым словам.
+```
+
+But the user may expect the translation of the specific sentence only, not the whole paragraph. The user said &quot;Please translate only the sentence or word `Master switch for semantic (vector-based) search. Falls back to keyword search when disabled.` in the paragraph into the target language ru-RU&quot;. So they only want that translation.
+
+Thus output the Russian translation as triple backticks.
+
+Double-check if any nuance: &quot;semantic (vector-based) search&quot; could be &quot;семантический (векторный) поиск&quot;. Usually &quot;семантический&quot; is used for &quot;semantic&quot;. &quot;векторный&quot; is correct for &quot;vector-based&quot;. So &quot;семантический (векторный) поиск&quot;. Then &quot;Falls back to keyword search when disabled.&quot; could be &quot;При отключении возвращается к поиску по ключевым словам.&quot; That&apos;s okay.
+
+But we could also use &quot;отключён&quot; but &quot;when disabled&quot; indicates condition. So &quot;При отключении&quot; is correct.
+
+Alternative: &quot;Переключатель семантического (векторного) поиска. Если выключен, возвращается к поиску по ключевым словам.&quot; That&apos;s a bit different. But we want a short translation.
+
+The user instruction: output only the translated content, wrap in triple backticks. So exactly that.
+
+Thus final answer: triple backticks with translation.
+
+Potential minor nuance: &quot;Master switch for semantic (vector-based) search.&quot; is &quot;Главный переключатель семантического (векторного) поиска.&quot; This is short.
+
+Better: &quot;Главный переключатель семантического (векторного) поиска. При отключении возвращается к поиску по ключевым словам.&quot;
+
+Check if translation matches: &quot;Главный переключатель&quot; is fine. Could also be &quot;Мастер-переключатель&quot; but that&apos;s less natural.
+
+We should keep parentheses (vector-based) as &quot;векторного&quot;. Use parentheses to indicate vector-based. So &quot;семантического (векторного) поиска&quot; is okay.
+
+Thus final output is:
+
+``` 
+Главный переключатель семантического (векторного) поиска. При отключении возвращается к поиску по ключевым словам.
+```
+
+Wrap in triple backticks: start with ```, then content line(s), then ```.
+
+Make sure no extra content. Output only that block.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Главный переключатель семантического (векторного) поиска. При отключении возвращается к поиску по ключевым словам.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Максимальное количество кэшированных поисковых запросов (embeddings), хранимых в базе данных (LRU). По умолчанию 2000.```
+
+We must ensure we output only the translation and nothing else. The user instruction: &quot;Please translate only the sentence or word `Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.` in the paragraph into the target language ru-RU, Русский (Россия).&quot; So they want translation of that specific description. So we output that translation.
+
+Potential nuance: The translation should not contain any extra punctuation beyond needed. It&apos;s fine.
+
+Now, check for correctness: Should we include trailing spaces? No.
+
+Thus output in triple backticks: &quot;Максимальное количество кэшированных поисковых запросов (embeddings), хранимых в базе данных (LRU). По умолчанию 2000.&quot;
+
+Check grammar: &quot;кэшированных&quot; is correct (adjective from &quot;кэшированный&quot;). &quot;поисковых запросов (embeddings)&quot; correct. &quot;хранимых в базе данных (LRU)&quot; correct. &quot;По умолчанию 2000.&quot; correct.
+
+Alternatively, we could phrase &quot;Максимальное количество кэшированных поисковых запросов embeddings, хранимых в базе данных (LRU). По умолчанию 2000.&quot; but parentheses optional. Let&apos;s keep parentheses around embeddings: &quot;поисковых запросов (embeddings)&quot;. It&apos;s okay.
+
+Thus answer: triple backticks containing translation.
+
+Now, any conflict with policy? There&apos;s no disallowed content. It&apos;s a translation request. Acceptable. We need to output only translation wrapped in triple backticks.
+
+Thus final answer.
+
+
+&lt;/think&gt;
+
+```Максимальное количество кэшированных поисковых запросов (embeddings), хранимых в базе данных (LRU). По умолчанию 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Базовый URL API Ollama для создания эмбеддингов документов и запросов (например, https://ollama.example.com). /api/embed добавляется автоматически.
+```
+
+But need to wrap in triple backticks exactly as shown. So output:
+
+``` 
+Базовый URL API Ollama для создания эмбеддингов документов и запросов (например, https://ollama.example.com). /api/embed добавляется автоматически.
+```
+
+Make sure no extra spaces. That is it. Let&apos;s think about &quot;embeddings&quot; translation: In Russian, &quot;embedding&quot; is &quot;вложение&quot;, but in AI context &quot;embedding&quot; is &quot;эмбеддинг&quot;. So &quot;эмбеддинги&quot;. The phrase &quot;document and query embeddings&quot; could be &quot;эмбеддинги документов и запросов&quot;. So okay.
+
+Now the translation must be output exactly only that. Ensure no extra newline outside triple backticks. Provide triple backticks at start and end. The content inside should be exactly the translation. The user wants &quot;only output the translated content and wrap it in three backticks&quot;. That means start triple backticks, line break maybe, then translation, then line break and triple backticks. That matches.
+
+Thus final answer.
+
+But let&apos;s double-check user instruction: &quot;Please translate only the sentence or word `Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically.` in the paragraph into the target language ru-RU, Русский (Россия).&quot;
+
+So they want only that sentence. Indeed we have to provide translation of that sentence.
+
+Check if there are any other specifics: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `...` is one of them.&quot; The sentence is not a proper noun; it&apos;s a phrase. But the components inside such as &quot;Ollama API&quot;, &quot;URL&quot;, &quot;https://ollama.example.com&quot;, &quot;/api/embed&quot; remain unchanged.
+
+Thus translation final.
+
+We must ensure we output nothing else. So final answer is exactly:
+
+``` 
+Базовый URL API Ollama для создания эмбеддингов документов и запросов (например, https://ollama.example.com). /api/embed добавляется автоматически.
+```
+
+Check punctuation: Should we use a period at the end? The original ends with a period. The translation ends with a period. &quot; /api/embed добавляется автоматически.&quot; includes a period. So okay.
+
+Now final answer.
+&lt;/think&gt;
+
+``` 
+Базовый URL API Ollama для создания эмбеддингов документов и запросов (например, https://ollama.example.com). /api/embed добавляется автоматически.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>Логотип проекта</value>

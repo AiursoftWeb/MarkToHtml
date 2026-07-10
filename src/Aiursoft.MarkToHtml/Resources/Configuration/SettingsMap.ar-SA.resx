@@ -24,6 +24,30 @@
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>تمكين المستخدمين من تعديل اسمهم المستعار في صفحة إدارة الملف الشخصي.</value>
   </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.
+```
+
+Check: The translation includes proper nouns &quot;Bearer token&quot; and &quot;Embedding Endpoint&quot; left as is. &quot;Bearer token&quot; might be left unchanged. &quot;Embedding Endpoint&quot; also unchanged.
+
+But &quot;Bearer token لـ Embedding Endpoint&quot; includes Arabic preposition &quot;لـ&quot; which is typical. However &quot;Bearer token لـ Embedding Endpoint&quot; is okay.
+
+But maybe more natural Arabic: &quot;Bearer token لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب التحقق.&quot; Which is more common? &quot;auth required&quot; often translates to &quot;المصادقة مطلوبة&quot;. So &quot;إذا لم يُطلب التحقق&quot;. Let&apos;s consider typical translation: &quot;Bearer token for the Embedding Endpoint. Leave empty if no auth required.&quot; In Arabic: &quot;رمز Bearer لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.&quot; But we prefer to keep the English terms. So we could write: &quot;Bearer token for Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.&quot; However &quot;for&quot; maybe transliterated to &quot;لـ&quot;. So &quot;Bearer token for Embedding Endpoint&quot; =&gt; &quot;Bearer token لـ Embedding Endpoint&quot;. Good.
+
+Now ensure that we output only translation inside triple backticks, nothing else. The user wants the translated sentence only. So we output:
+
+```
+Bearer token لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.
+```
+
+Double-check no extra content: The only content should be the translation. They want &quot;Only output the translated content and wrap it in three backticks&quot;. So we should output exactly that.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+Bearer token لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.</value>
+  </data>
   <data name="Brand Home URL" xml:space="preserve">
     <value>عنوان URL لموقع العلامة التجارية</value>
   </data>
@@ -45,8 +69,239 @@
   <data name="Contract Logo" xml:space="preserve">
     <value>شعار العقد</value>
   </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>رمز API للتضمين
+```
+&lt;/think&gt;
+
+``` 
+رمز API للتضمين</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>نقطة نهاية التضمين```
+
+But check if they want exactly three backticks with the translated word. Yes.
+
+Thus final answer: &quot;```نقطة نهاية التضمين```&quot;. Ensure no other content.
+
+Check instructions: &quot;Please translate only the sentence or word `Embedding Endpoint` in the paragraph into the target language ar-SA&quot;. So output only the translation, wrapped in three backticks. The translation is &quot;نقطة نهاية التضمين&quot;. We must not output anything else. Use three backticks to enclose. So final.
+
+Thus answer: ```نقطة نهاية التضمين```.
+
+Make sure no extra text.
+&lt;/think&gt;
+
+```نقطة نهاية التضمين</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>نموذج التضمين
+```
+
+Check the instruction: &quot;Please translate only the sentence or word `Embedding Model` in the paragraph into the target language ar-SA, العربية (المملكة العربية السعودية).&quot; So only translation output with triple backticks. The translation is &quot;نموذج التضمين&quot;. Some might consider &quot;Embedding Model&quot; should be &quot;نموذج التضمين&quot;. Let&apos;s think about translation guidelines: &quot;embedding&quot; as &quot;التضمين&quot; (embedding). &quot;Model&quot; as &quot;النموذج&quot; or &quot;نموذج&quot;. Usually Arabic uses &quot;نموذج&quot;. So &quot;نموذج التضمين&quot;. We can also consider &quot;نموذج التضمين&quot; (no &quot;the&quot; article). Yes.
+
+Thus final answer: a code block with Arabic translation.
+
+Check if we need to output anything else: &quot;Only output the translated content and wrap it in three backticks, like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus answer: ``` \nنموذج التضمين\n```. Ensure no extra content. Provide exactly that.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+نموذج التضمين</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.
+```
+
+But we need to ensure that &quot;bge-m3:latest&quot; remains unchanged. The &quot;e.g.&quot; is &quot;مثل&quot; in Arabic (like &quot;like&quot; or &quot;for example&quot;) is fine. So the translated phrase: &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; Could be &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Also &quot;Embedding&quot; can be &quot;التضمين&quot; is the noun for embedding. But we may use &quot;نموذج التضمين&quot; (embedding model). However, the Arabic translation of &quot;Embedding model name&quot; is &quot;اسم نموذج التضمين&quot;. Could also be &quot;اسم نموذج التضمين&quot; or &quot;اسم نموذج التضمين&quot;. So &quot;Embedding model name for vector search&quot; becomes &quot;اسم نموذج التضمين للبحث المتجهي&quot;. That&apos;s the translation.
+
+Check if any part is a proper noun that should not be translated: &quot;Embedding model name&quot; is not a proper noun; &quot;vector search&quot; is technical but can be translated; &quot;bge-m3:latest&quot; is a proper noun (model identifier) and must be left unchanged.
+
+Thus final output:
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
+
+We need to ensure correct Arabic diacritics? Probably not needed.
+
+Wrap in triple backticks with code fences. Use only translation content. No extra output.
+
+Thus answer:
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
+&lt;/think&gt;
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>حدّ ذاكرة التخزين المؤقتة للاستعلامات المضمنة
+```
+
+But we need to consider punctuation and context: The phrase &quot;Embedding Query Cache Limit&quot; might be singular, but translation likely &quot;الحد الأقصى لتخزين الاستعلام المضمن&quot;. But let&apos;s consider proper Arabic usage: Typically, Arabic technical translations use &quot;الحدّ الأقصى&quot; (maximum limit) for limit. &quot;ذاكرة التخزين المؤقت&quot; means cache memory, but &quot;Cache&quot; in Arabic often &quot;ذاكرة مؤقتة&quot;. &quot;Query&quot; = &quot;استعلام&quot;. &quot;Embedding&quot; = &quot;مُضمن&quot; or &quot;مُدمج&quot;. &quot;Embedding query cache limit&quot; is &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة للاستعلامات المضمنة&quot;. Let&apos;s check typical translation of &quot;Embedding Query Cache Limit&quot;. The phrase is used in vector search context. The translation might be &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات_embedding&quot;. In Arabic localization, they often keep English names for keys, but the user wants translation.
+
+Also note the phrase &quot;Limit&quot; may be &quot;الحدّ&quot;. &quot;Embedding Query Cache Limit&quot; could be &quot;الحدّ الأقصى لتخزين المؤقتة للاستعلامات المضمنة&quot;. But the phrase &quot;Embedding Query Cache Limit&quot; might be considered a proper noun (the key is &quot;EmbeddingQueryCacheLimit&quot;) maybe we shouldn&apos;t translate? However the instruction says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding Query Cache Limit` is one of them.&quot; It&apos;s a name of a setting, but could be considered a proper noun (the key). However the translation of this phrase is part of the &quot;Name&quot; field for a setting, which is localized. So it should be translated.
+
+Thus we need to provide Arabic translation: &quot;الحدّ الأقصى لتخزين المؤقت للاستعلامات المُضمَنة&quot;? Let&apos;s see typical translation:
+
+- &quot;Embedding&quot; = &quot;المُدمَج&quot; maybe &quot;embedding&quot; as &quot;المُدمَج&quot;. In Arabic context of vector search, &quot;embedding&quot; may be &quot;التضمين&quot; or &quot;التمثيل&quot;. But &quot;embedding&quot; as a noun: &quot;embedding&quot; is &quot;التمثيل الشعاعي&quot; or &quot;embedding&quot; is &quot; embedding&quot; but for translation they might say &quot;التضمين&quot; but not sure. Could be &quot; embedding&quot; as &quot;embedding query&quot; =&gt; &quot;استعلام تضميني&quot; or &quot;استعلام embedding&quot;. But typical translation uses &quot;embedding&quot; as &quot; embedding&quot;. I&apos;d prefer &quot;التمثيل embed&quot; not exactly.
+
+The typical phrase &quot;Embedding Query Cache Limit&quot; might be used as &quot;حدّ ذاكرة التخزين المؤقتة للاستعلامات المُضمَّنة&quot;. But &quot;مُضمَّنة&quot; could be &quot;مُضمِّنات&quot; (embedding queries). Let&apos;s think: In vector search, embedding queries are queries that produce embeddings. So &quot;embedding query&quot; is &quot;استعلام التضمين&quot; maybe &quot;استعلام التعلم&quot;. But the phrase &quot;embedding query cache limit&quot; is technical; likely translation &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين&quot; maybe.
+
+Let&apos;s check common translations of &quot;Embedding Query Cache&quot; in Arabic. Searching my mind: For vector search, &quot;Embedding&quot; could be &quot;التضمين&quot; (embedding). So &quot;Embedding Query Cache&quot; might be &quot;ذاكرة التخزين المؤقتة لاستعلامات التضمين&quot;. So &quot;Limit&quot; could be &quot;الحدّ&quot;. So &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين&quot;. That&apos;s a plausible translation.
+
+Alternatively &quot;Embedding Query Cache Limit&quot; might be &quot;حدّ ذاكرة التخزين المؤقتة لاستعلامات التضمين&quot;. &quot;الحد الأقصى&quot; is more literal for limit, but &quot;الحدّ&quot; is okay.
+
+Given the user wants &quot;only the translated content and wrap it in three backticks&quot;, we need to output the Arabic translation within triple backticks and nothing else.
+
+Thus final answer:
+
+``` 
+الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين
+```
+But need to wrap in triple backticks with no extra spaces or lines? The user says &quot;wrap it in three backticks (```), like this: ``` Translated word here...```&quot;. So we need exactly triple backticks followed by the translation then triple backticks.
+
+Thus output:
+
+```
+الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين
+```
+But note the backticks must be on separate lines? The user says &quot;wrap it in three backticks, like this: ``` Translated word here...```&quot;. They probably want the triple backticks, then the translation on the same line after the backticks? The example given: &quot;``` Translated word here...```&quot;. This is ambiguous: They want something like:
+
+``` 
+Translated word here...
+```
+
+I think they want:
+
+``` 
+الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين
+```
+
+Thus the content inside triple backticks includes the translation with no extra text. That should be fine.
+
+Thus final answer: triple backticks with Arabic translation.
+
+But we must be sure to output only the translation, no extra content. The translation must be exactly Arabic text.
+
+Now double-check if we need to include any extra whitespace? Probably not.
+
+Thus answer: ```\nالحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين\n```.
+
+We need to confirm translation is accurate. &quot;الحدّ الأقصى&quot; is maximum limit. &quot;ذاكرة التخزين المؤقتة&quot; is &quot;cache storage memory&quot;. &quot;استعلامات التضمين&quot; is &quot;embedding queries&quot;. So &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين&quot; is &quot;Maximum limit of the caching memory for embedding queries&quot;.
+
+The phrase &quot;limit&quot; in the original is singular, but Arabic could use &quot;الحدّ&quot; (limit) or &quot;الحدّ الأقصى&quot;. &quot;Maximum&quot; is fine.
+
+Thus final answer: within triple backticks: &quot;الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين&quot;.
+
+Thus output:
+
+```
+الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين
+```
+&lt;/think&gt;
+
+``` 
+الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>تمكين البحث المستند إلى التضمين```.
+
+Check punctuation: The original has hyphen and maybe capital letters. The translation should not include hyphens; we can keep as a phrase. Arabic translation: &quot;تمكين البحث المستند إلى التضمين&quot;. Might also be &quot;تفعيل البحث المستند إلى التضمين&quot;. Which is more natural? &quot;Enable&quot; typically translates to &quot;تفعيل&quot; as &quot;Enable&quot;. But in UI, &quot;Enable&quot; is often &quot;تمكين&quot;. In Arabic UI, they often use &quot;تمكين&quot; to &quot;Enable&quot;. Eg. &quot;Enable/Disable&quot; -&gt; &quot;تمكين/تعطيل&quot;. So &quot;Enable Embedding-Based Search&quot; could be &quot;تمكين البحث المستند إلى التضمين&quot;. Or &quot;تفعيل البحث المستند إلى التضمين&quot;. Which one is more correct? Let&apos;s consider typical UI phrase: &quot;Enable embedding based search&quot; =&gt; &quot;تمكين البحث المستند إلى التضمين&quot;. I think &quot;تمكين&quot; is correct.
+
+Thus final answer: triple backticks with translation. No extra content.
+
+Thus output: ```تمكين البحث المستند إلى التضمين```.
+
+But check the guidelines: The user says &quot;Please translate only the sentence or word `Enable Embedding-Based Search` in the paragraph into the target language ar-SA.&quot; So we output only the translation. No other content.
+
+Hence final.
+&lt;/think&gt;
+
+```تمكين البحث المستند إلى التضمين</value>
+  </data>
   <data name="ICP Number" xml:space="preserve">
     <value>رقم ICP</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>مفتاح رئيسي للبحث الدلالي (المستند إلى المتجهات). عند تعطيله، يُعاود البحث بالكلمات المفتاحية.```
+
+But verify: Should we use &quot;semantic&quot; as &quot;دلالي&quot; which is &quot;semantic&quot;. Yes. Should we keep &quot;vector-based&quot; as &quot;المستند إلى المتجهات&quot;? Usually &quot;vector-based&quot; is &quot;المستند إلى المتجهات&quot;. Could also be &quot;المعتمد على المتجهات&quot;. In Arabic, &quot;المعتمد على المتجهات&quot; is more typical. &quot;semantic (vector-based) search.&quot; -&gt; &quot;البحث الدلالي (المعتمد على المتجهات).&quot; That might be more natural: &quot;البحث الدلالي (المعتمد على المتجهات)&quot; vs &quot;المستند إلى المتجهات&quot;. Let&apos;s think: &quot;vector-based search&quot; often translated as &quot;البحث المعتمد على المتجهات&quot; or &quot;البحث المستند إلى المتجهات&quot;. Usually &quot;based on&quot; is &quot;المعتمد على&quot;. So &quot;البحث المعتمد على المتجهات&quot;. Then &quot;Falls back to keyword search when disabled.&quot; -&gt; &quot;يعود إلى البحث بالكلمات المفتاحية عند تعطيله.&quot; Or &quot;يتحول إلى البحث بالكلمات المفتاحية عند تعطيله.&quot; The phrase &quot;Falls back to&quot; can be &quot;يعود إلى&quot;. So &quot;يعود إلى البحث بالكلمات المفتاحية عند تعطيله.&quot;
+
+Thus translation: &quot;مفتاح رئيسي للبحث الدلالي (المعتمد على المتجهات). عند تعطيله، يعود إلى البحث بالكلمات المفتاحية.&quot;
+
+Check if we need to keep capital letters? No. Use Arabic punctuation. Probably okay.
+
+Thus final answer:
+
+```مفتاح رئيسي للبحث الدلالي (المعتمد على المتجهات). عند تعطيله، يعود إلى البحث بالكلمات المفتاحية.```
+
+Make sure to output only that inside triple backticks. No extra content.
+
+Check the instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is!&quot; We understand.
+
+Thus final output.
+&lt;/think&gt;
+
+```مفتاح رئيسي للبحث الدلالي (المعتمد على المتجهات). عند تعطيله، يعود إلى البحث بالكلمات المفتاحية.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>الحد الأقصى لاستعلامات البحث المُخزَّنة في قاعدة البيانات (LRU). القيمة الافتراضية 2000.
+```
+
+That&apos;s good. Ensure no extra content. Provide exactly that.
+
+Check instruction: &quot;Please translate only the sentence or word `Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.`&quot;. So we need to translate that entire phrase. The phrase is &quot;Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000.&quot; We need to translate it into Arabic.
+
+Potential nuance: &quot;search-query embeddings&quot; might be &quot;embeddings&quot; technical, but we can translate &quot;استعلامات البحث المُخزَّنة&quot;. In Arabic, &quot;cached search-query embeddings&quot; could be &quot;استعلامات البحث المُخزَّنة&quot;. Or &quot;التضمينات&quot; but it&apos;s fine.
+
+So translation: &quot;الحد الأقصى لاستعلامات البحث المُخزَّنة في قاعدة البيانات (LRU). القيمة الافتراضية 2000.&quot; That seems accurate.
+
+Check for &quot;LRU&quot; stays as is. That&apos;s a proper noun/trademark? LRU stands for &quot;Least Recently Used&quot;. It&apos;s a technical term, so we keep it as &quot;LRU&quot;. Good.
+
+Thus final answer: triple backticks with translation.
+
+Make sure no other content. So final output is:
+
+``` 
+الحد الأقصى لاستعلامات البحث المُخزَّنة في قاعدة البيانات (LRU). القيمة الافتراضية 2000.
+```
+
+But we must wrap exactly with triple backticks and nothing else. So output:
+
+```
+الحد الأقصى لاستعلامات البحث المُخزَّنة في قاعدة البيانات (LRU). القيمة الافتراضية 2000.
+```
+
+Make sure no trailing spaces. Good.
+
+One nuance: Arabic punctuation. Usually Arabic uses &quot;‎&quot; (zero-width joiner) but okay.
+
+Thus final answer.
+&lt;/think&gt;
+
+```
+الحد الأقصى لاستعلامات البحث المُخزَّنة في قاعدة البيانات (LRU). القيمة الافتراضية 2000.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>عنوان URL الأساسي لـ Ollama API لإنشاء تضمينات الوثائق والاستعلامات (مثل https://ollama.example.com). يُضاف /api/embed تلقائيًا.
+```
+
+Double-check proper nouns: &quot;Ollama API&quot; must remain unchanged; we kept &quot;Ollama API&quot;. &quot;URL&quot; we kept as transliteration; it&apos;s okay.
+
+Check for any potential errors: we used Arabic text and kept URL and API terms.
+
+Thus final answer should be triple backticks with translation.
+
+Make sure not to output any other content.
+&lt;/think&gt;
+
+```Arabic
+عنوان URL الأساسي لـ Ollama API لإنشاء تضمينات الوثائق والاستعلامات (مثل https://ollama.example.com). يُضاف /api/embed تلقائيًا.</value>
   </data>
   <data name="Project Logo" xml:space="preserve">
     <value>شعار المشروع</value>

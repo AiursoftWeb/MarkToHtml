@@ -180,6 +180,31 @@
   <data name="Roles" xml:space="preserve">
     <value>Funções</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pesquisar
+```
+
+But we must consider if &quot;Search&quot; is part of a variable or code. The user says &quot;Please translate only the sentence or word `Search` in the paragraph into the target language pt-PT&quot;. So we will output &quot;Pesquisar&quot;. Should we include the code snippet? No. Only output the translated word, wrapped in triple backticks. So final answer: a code block with &quot;Pesquisar&quot;.
+
+Thus final.
+&lt;/think&gt;
+
+``` 
+Pesquisar</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Procurar os meus documentos...
+```
+
+Wrap in three backticks. No extra content. Ensure no extra. Just that.
+
+Potential issues: The user wants only the translation; must output just that line.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Procurar os meus documentos...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Auto-hospedado</value>
   </data>

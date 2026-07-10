@@ -180,6 +180,73 @@
   <data name="Roles" xml:space="preserve">
     <value>Роли</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>)&quot;.
+
+Thus we need to output something like &quot;Поиск&quot;. The word &quot;Search&quot; is a noun. In Russian, &quot;Search&quot; in UI context commonly translates as &quot;Поиск&quot;. So the output should be:
+
+```
+Поиск
+```
+
+But the instruction: &quot;output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+Thus we should output three backticks, newline, &quot;Поиск&quot;, newline, three backticks.
+
+Thus answer: &quot;Поиск&quot;. However, check the instruction: &quot;If you don&apos;t understand what you want to translate, please output it as it is! Do NOT output any other content.&quot; We understand. So output &quot;Поиск&quot;. Use code block.
+
+Hence final answer:
+
+```
+Поиск
+```
+&lt;/think&gt;
+
+```
+Поиск</value>
+  </data>
+  <data name="Search my documents..." xml:space="preserve">
+    <value>Поиск моих документов...
+```
+
+But maybe the placeholder includes ellipsis: &quot;Search my documents...&quot; with ellipsis. In Russian, ellipsis may be same &quot;...&quot; but translation maybe &quot;Поиск моих документов...&quot; or &quot;Искать мои документы...&quot; Let&apos;s consider typical placeholder &quot;Search my documents...&quot; might be &quot;Искать мои документы...&quot; but that seems weird. &quot;Search my documents...&quot; maybe &quot;Поиск моих документов...&quot; is more natural: &quot;Поиск моих документов...&quot;. Yes.
+
+But some nuance: maybe they want a phrase that is similar to a placeholder: &quot;Поиск в моих документах...&quot; Could be &quot;Поиск моих документов...&quot;. The phrase &quot;Search my documents...&quot; includes &quot;Search&quot; (verb) as imperative? It&apos;s placeholder like &quot;Search my documents...&quot; not imperative but placeholder. So translation &quot;Поиск моих документов...&quot; may be more natural as placeholder: &quot;Поиск моих документов...&quot;. Let&apos;s think.
+
+Also, the user may want the translation &quot;Поиск моих документов...&quot; as output.
+
+Thus I will output:
+
+``` 
+Поиск моих документов...
+``` 
+
+Wrap with triple backticks.
+
+Check instructions: &quot;Do NOT output any other content. Only output the translated content and wrap it in three backticks (```), like this:
+
+```
+Translated word here...
+```&quot;
+
+So we output exactly:
+
+```
+Поиск моих документов...
+```
+
+No extra. Make sure triple backticks and no other content.
+
+Thus answer.
+&lt;/think&gt;
+
+``` 
+Поиск моих документов...</value>
+  </data>
   <data name="Self Host" xml:space="preserve">
     <value>Самостоятельная развертка</value>
   </data>
