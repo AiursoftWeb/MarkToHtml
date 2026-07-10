@@ -1,0 +1,101 @@
+@model Aiursoft.MarkToHtml.Models.CategoryViewModels.IndexCategoryViewModel
+
+<h1 class="h3 mb-3">
+    <i class="align-middle me-2" data-lucide="folder-tree"></i>
+    @Localizer["Categories"]
+</h1>
+
+@* Breadcrumb *@
+@if (Model.ParentCategory != null || Model.Breadcrumb.Count > 0)
+{
+    <nav aria-label="breadcrumb" class="mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a asp-action="Index" asp-route-categoryId="@(Model.ParentCategory?.ParentCategoryId)">
+                    <i class="align-middle me-1" data-lucide="home"></i>
+                    @Localizer["Root"]
+                </a>
+            </li>
+            @foreach (var crumb in Model.Breadcrumb)
+            {
+                <li class="breadcrumb-item">
+                    <a asp-action="Index" asp-route-categoryId="@crumb.Id">
+                        @crumb.Name
+                    </a>
+                </li>
+            }
+            @if (Model.ParentCategory != null)
+            {
+                <li class="breadcrumb-item active" aria-current="page">
+                    @Model.ParentCategory.Name
+                </li>
+            }
+        </ol>
+    </nav>
+}
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    @Localizer["Categories"]
+                    @if (Model.ParentCategory == null && Model.Breadcrumb.Count == 0)
+                    {
+                        <span class="badge bg-primary">@Localizer["All"]</span>
+                    }
+                    else if (Model.ParentCategory != null)
+                    {
+                        <span class="badge bg-primary">@Model.ParentCategory.Name</span>
+                    }
+                </h5>
+                <div>
+                    <a asp-action="CreateCategory" asp-route-id="@Model.ParentCategory?.Id" class="btn btn-primary btn-sm">
+                        <i class="align-middle me-2" data-lucide="plus"></i>
+                        @Localizer["New Category"]
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (Model.Categories.Count == 0)
+                {
+                    <div class="alert alert-info mb-0">
+                        <i class="align-middle me-2" data-lucide="info"></i>
+                        @Localizer["No categories yet. Create one to organize your documents."]
+                    </div>
+                }
+                else
+                {
+                    <div class="list-group">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="align-middle me-2 text-muted" data-lucide="folder"></i>
+                                    <a asp-action="Index" asp-route-categoryId="@category.Id" class="text-decoration-none">
+                                        @category.Name
+                                    </a>
+                                    @if (!string.IsNullOrEmpty(category.Description))
+                                    {
+                                        <small class="text-muted d-block ms-4">@category.Description</small>
+                                    }
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="badge bg-secondary">@category.DocumentCount @Localizer["docs"]</span>
+                                    <div class="btn-group">
+                                        <a asp-action="EditCategory" asp-route-id="@category.Id" class="btn btn-light btn-sm">
+                                            <i class="align-middle" data-lucide="pencil"></i>
+                                        </a>
+                                        <a asp-action="DeleteCategory" asp-route-id="@category.Id" class="btn btn-danger btn-sm">
+                                            <i class="align-middle" data-lucide="trash-2"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

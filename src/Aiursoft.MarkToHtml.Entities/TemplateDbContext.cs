@@ -22,6 +22,12 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
 
     public DbSet<SearchEmbedding> SearchEmbeddings => Set<SearchEmbedding>();
 
+    // Categories and Tags
+    public DbSet<Category> Categories => Set<Category>();
+    public DbSet<Tag> Tags => Set<Tag>();
+    public DbSet<DocumentCategory> DocumentCategories => Set<DocumentCategory>();
+    public DbSet<DocumentTag> DocumentTags => Set<DocumentTag>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -33,5 +39,9 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
         builder.Entity<MarkdownDocumentFolder>()
             .HasIndex("ParentFolderIdForUniqueness", nameof(MarkdownDocumentFolder.Name), nameof(MarkdownDocumentFolder.UserId))
             .IsUnique();
+
+        // Apply configurations for junction tables
+        builder.ApplyConfiguration(new DocumentCategoryConfiguration());
+        builder.ApplyConfiguration(new DocumentTagConfiguration());
     }
 }
