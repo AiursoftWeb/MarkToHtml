@@ -52,10 +52,4 @@ public class MarkdownDocument
 
     [InverseProperty(nameof(DocumentShare.Document))]
     public IEnumerable<DocumentShare> DocumentShares { get; init; } = new List<DocumentShare>();
-
-    [InverseProperty(nameof(DocumentCategory.Document))]
-    public ICollection<DocumentCategory> DocumentCategories { get; set; } = new List<DocumentCategory>();
-
-    [InverseProperty(nameof(DocumentTag.Document))]
-    public ICollection<DocumentTag> DocumentTags { get; set; } = new List<DocumentTag>();
 }
