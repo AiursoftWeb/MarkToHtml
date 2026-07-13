@@ -9,7 +9,7 @@ public class FilesControllerTests : TestBase
     [TestMethod]
     public async Task TestAnonymousUploadRejected()
     {
-        // Anonymous user should NOT be able to upload.
+        // Anonymous user should NOT be able to upload to public endpoint.
         var storage = GetService<StorageService>();
         var uploadUrl = storage.GetUploadUrl("test", isVault: false);
 
@@ -19,6 +19,14 @@ public class FilesControllerTests : TestBase
 
         var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
         Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task TestAnonymousUploadPrivateRejected()
+    {
+        // Anonymous user should NOT be able to upload to private/vault endpoint.
+        var response = await Http.PostAsync("/upload-private/test?token=irrelevant", new MultipartFormDataContent());
+        Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
     }
 
     [TestMethod]
@@ -90,6 +98,8 @@ public class FilesControllerTests : TestBase
         var subfolder = "private-test";
         var uploadResponse = await Http.PostAsync($"/upload-private/{subfolder}?token=invalid", new MultipartFormDataContent());
         Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
+        var body = await uploadResponse.Content.ReadAsStringAsync();
+        StringAssert.Contains(body, "Invalid or expired token");
     }
 
     [TestMethod]
