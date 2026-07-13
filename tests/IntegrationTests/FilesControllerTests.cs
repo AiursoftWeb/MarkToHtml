@@ -7,8 +7,24 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 public class FilesControllerTests : TestBase
 {
     [TestMethod]
+    public async Task TestAnonymousUploadRejected()
+    {
+        // Anonymous user should NOT be able to upload.
+        var storage = GetService<StorageService>();
+        var uploadUrl = storage.GetUploadUrl("test", isVault: false);
+
+        var content = new StringContent("Hello World");
+        var multipartContent = new MultipartFormDataContent();
+        multipartContent.Add(content, "file", "test.txt");
+
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
+    }
+
+    [TestMethod]
     public async Task TestUploadAndDownload()
     {
+        await LoginAsAdmin();
         // 1. Upload
         var storage = GetService<StorageService>();
         var uploadUrl = storage.GetUploadUrl("test", isVault: false);
@@ -33,6 +49,7 @@ public class FilesControllerTests : TestBase
     [TestMethod]
     public async Task TestPrivateUploadAndDownload()
     {
+        await LoginAsAdmin();
         var storage = GetService<StorageService>();
         var subfolder = "private-test";
         var uploadUrl = storage.GetUploadUrl(subfolder, isVault: true);
@@ -69,6 +86,7 @@ public class FilesControllerTests : TestBase
     [TestMethod]
     public async Task TestPrivateUploadWithInvalidToken()
     {
+        await LoginAsAdmin();
         var subfolder = "private-test";
         var uploadResponse = await Http.PostAsync($"/upload-private/{subfolder}?token=invalid", new MultipartFormDataContent());
         Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
@@ -77,6 +95,7 @@ public class FilesControllerTests : TestBase
     [TestMethod]
     public async Task TestUploadInvalidFileName()
     {
+        await LoginAsAdmin();
         var storage = GetService<StorageService>();
         var uploadUrl = storage.GetUploadUrl("test", isVault: false);
 
@@ -98,6 +117,7 @@ public class FilesControllerTests : TestBase
     [TestMethod]
     public async Task TestPrivateUploadPathTraversal()
     {
+        await LoginAsAdmin();
         var storage = GetService<StorageService>();
         var subfolder = "folderA";
         // Get token for folderA
@@ -108,13 +128,13 @@ public class FilesControllerTests : TestBase
         // If we just use "folderA/../folderB", the HTTP client or server might normalize it to "folderB" before it hits our logic.
         // We want to test that IF the controller receives "folderA/../folderB", our logic rejects it.
         var maliciousPath = "folderA%2F..%2FfolderB";
-        
+
         var content = new StringContent("Malicious Content");
         var multipartContent = new MultipartFormDataContent();
         multipartContent.Add(content, "file", "hack.txt");
 
         var uploadResponse = await Http.PostAsync($"/upload-private/{maliciousPath}?token={token}", multipartContent);
-        
+
         // Should be rejected because the path contains ".."
         Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
     }
