@@ -25,6 +25,10 @@ public class FilesController(
         [FromRoute] string subfolder,
         [FromQuery] string token)
     {
+        if (User.Identity?.IsAuthenticated != true)
+        {
+            return Unauthorized("Anonymous uploads are not allowed.");
+        }
         if (!storage.ValidateToken(subfolder, token, FilePermission.Upload))
         {
             return Unauthorized("Invalid or expired token.");
@@ -41,6 +45,10 @@ public class FilesController(
         [FromRoute] string subfolder,
         [FromQuery] string token)
     {
+        if (User.Identity?.IsAuthenticated != true)
+        {
+            return Unauthorized("Anonymous uploads are not allowed.");
+        }
         if (!storage.ValidateToken(subfolder, token, FilePermission.Upload))
         {
             return Unauthorized("Invalid or expired token.");

@@ -682,80 +682,82 @@
                         markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
                     }
 
-                    // --- Paste / Drop Image Upload ---
-                    const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
-                    const editorDomNode = markdownEditorInstance.getDomNode();
+                    // --- Paste / Drop Image Upload (authenticated users only) ---
+                    if (isAuthenticated) {
+                        const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
+                        const editorDomNode = markdownEditorInstance.getDomNode();
 
-                    function uploadImageBlob(blob, ext) {
-                        // Strip MIME suffixes like "+xml" (e.g. "svg+xml" → "svg").
-                        ext = (ext || 'png').replace('jpeg', 'jpg').split('+')[0];
-                        const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
-                        const placeholder = '![uploading...](' + filename + ')';
-                        const selection = markdownEditorInstance.getSelection();
-                        markdownEditorInstance.executeEdits('paste-image', [{
-                            range: selection,
-                            text: placeholder,
-                            forceMoveMarkers: true
-                        }]);
-                        const form = new FormData();
-                        form.append('file', blob, filename);
-                        fetch(pasteUploadUrl, { method: 'POST', body: form })
-                            .then(function (res) {
-                                if (!res.ok) throw new Error('HTTP ' + res.status);
-                                return res.json();
-                            })
-                            .then(function (data) {
-                                const model = markdownEditorInstance.getModel();
-                                model.setValue(model.getValue().replace(placeholder, '![](' + data.InternetPath + ')'));
-                            })
-                            .catch(function (err) {
-                                const model = markdownEditorInstance.getModel();
-                                model.setValue(model.getValue().replace(placeholder, ''));
-                                console.error('Image upload failed:', err);
-                                var errBanner = document.getElementById('upload-error-banner');
-                                errBanner.classList.add('show');
-                                setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                        function uploadImageBlob(blob, ext) {
+                            // Strip MIME suffixes like "+xml" (e.g. "svg+xml" → "svg").
+                            ext = (ext || 'png').replace('jpeg', 'jpg').split('+')[0];
+                            const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
+                            const placeholder = '![uploading...](' + filename + ')';
+                            const selection = markdownEditorInstance.getSelection();
+                            markdownEditorInstance.executeEdits('paste-image', [{
+                                range: selection,
+                                text: placeholder,
+                                forceMoveMarkers: true
+                            }]);
+                            const form = new FormData();
+                            form.append('file', blob, filename);
+                            fetch(pasteUploadUrl, { method: 'POST', body: form })
+                                .then(function (res) {
+                                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                                    return res.json();
+                                })
+                                .then(function (data) {
+                                    const model = markdownEditorInstance.getModel();
+                                    model.setValue(model.getValue().replace(placeholder, '![](' + data.InternetPath + ')'));
+                                })
+                                .catch(function (err) {
+                                    const model = markdownEditorInstance.getModel();
+                                    model.setValue(model.getValue().replace(placeholder, ''));
+                                    console.error('Image upload failed:', err);
+                                    var errBanner = document.getElementById('upload-error-banner');
+                                    errBanner.classList.add('show');
+                                    setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
+                                });
+                        }
+
+                        // Intercept paste at document level (capture phase) so we run before
+                        // Monaco's own paste handler. Only act when Monaco has keyboard focus.
+                        document.addEventListener('paste', function (e) {
+                            if (!markdownEditorInstance.hasTextFocus()) return;
+                            var items = e.clipboardData && e.clipboardData.items;
+                            if (!items) return;
+                            for (var i = 0; i < items.length; i++) {
+                                if (!items[i].type.startsWith('image/')) continue;
+                                e.preventDefault();
+                                e.stopPropagation();
+                                uploadImageBlob(items[i].getAsFile(), items[i].type.split('/')[1]);
+                                return;
+                            }
+                        }, true);
+
+                        // Support drag-and-drop of image files onto the editor.
+                        editorDomNode.addEventListener('dragover', function (e) {
+                            var hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
+                                return it.kind === 'file' && it.type.startsWith('image/');
                             });
+                            if (hasImage) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                        }, true);
+
+                        editorDomNode.addEventListener('drop', function (e) {
+                            var files = e.dataTransfer && e.dataTransfer.files;
+                            if (!files || files.length === 0) return;
+                            for (var i = 0; i < files.length; i++) {
+                                if (!files[i].type.startsWith('image/')) continue;
+                                e.preventDefault();
+                                e.stopPropagation();
+                                markdownEditorInstance.focus();
+                                uploadImageBlob(files[i], files[i].type.split('/')[1]);
+                                return;
+                            }
+                        }, true);
                     }
-
-                    // Intercept paste at document level (capture phase) so we run before
-                    // Monaco's own paste handler. Only act when Monaco has keyboard focus.
-                    document.addEventListener('paste', function (e) {
-                        if (!markdownEditorInstance.hasTextFocus()) return;
-                        var items = e.clipboardData && e.clipboardData.items;
-                        if (!items) return;
-                        for (var i = 0; i < items.length; i++) {
-                            if (!items[i].type.startsWith('image/')) continue;
-                            e.preventDefault();
-                            e.stopPropagation();
-                            uploadImageBlob(items[i].getAsFile(), items[i].type.split('/')[1]);
-                            return;
-                        }
-                    }, true);
-
-                    // Support drag-and-drop of image files onto the editor.
-                    editorDomNode.addEventListener('dragover', function (e) {
-                        var hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
-                            return it.kind === 'file' && it.type.startsWith('image/');
-                        });
-                        if (hasImage) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                        }
-                    }, true);
-
-                    editorDomNode.addEventListener('drop', function (e) {
-                        var files = e.dataTransfer && e.dataTransfer.files;
-                        if (!files || files.length === 0) return;
-                        for (var i = 0; i < files.length; i++) {
-                            if (!files[i].type.startsWith('image/')) continue;
-                            e.preventDefault();
-                            e.stopPropagation();
-                            markdownEditorInstance.focus();
-                            uploadImageBlob(files[i], files[i].type.split('/')[1]);
-                            return;
-                        }
-                    }, true);
                 }
 
                 // --- Markdown Completion Provider ---
