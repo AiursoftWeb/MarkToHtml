@@ -16,11 +16,15 @@ public class OrphanAvatarCleanupJob(
     FeatureFoldersProvider folders,
     ILogger<OrphanAvatarCleanupJob> logger) : IBackgroundJob
 {
+    // 7h safety buffer, ensuring avatars survive a potential race condition.
+    private static readonly TimeSpan GracePeriod = TimeSpan.FromHours(7);
+
     public string Name => "Orphan Avatar Cleanup";
 
     public string Description =>
         "Scans the avatar storage directory and deletes image files " +
-        "that are no longer referenced by any user account, freeing disk space.";
+        "that are no longer referenced by any user account, freeing disk space. " +
+        "Files newer than 7 hours are always kept to prevent race conditions.";
 
     public async Task ExecuteAsync()
     {
@@ -58,6 +62,7 @@ public class OrphanAvatarCleanupJob(
             allAvatarFiles.Count);
 
         // 3. Delete files whose workspace-relative path is not in the referenced set.
+        var cutoff = DateTime.UtcNow - GracePeriod;
         var deletedCount = 0;
         foreach (var physicalPath in allAvatarFiles)
         {
@@ -67,6 +72,16 @@ public class OrphanAvatarCleanupJob(
 
             if (referencedPaths.Contains(relativePath))
                 continue;
+
+            // Grace period: keep files that were recently uploaded (not yet saved to a user).
+            var lastWriteTime = File.GetLastWriteTimeUtc(physicalPath);
+            if (lastWriteTime >= cutoff)
+            {
+                logger.LogInformation(
+                    "OrphanAvatarCleanupJob: skipping '{RelativePath}' — within grace period (uploaded {Age:N0}h ago).",
+                    relativePath, (DateTime.UtcNow - lastWriteTime).TotalHours);
+                continue;
+            }
 
             try
             {

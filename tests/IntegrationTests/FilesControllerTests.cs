@@ -149,6 +149,30 @@ public class FilesControllerTests : TestBase
         Assert.AreEqual(HttpStatusCode.Unauthorized, uploadResponse.StatusCode);
     }
 
+    [TestMethod]
+    public async Task TestUploadFileNameWithSpacesReplacedWithHyphens()
+    {
+        await LoginAsAdmin();
+        var storage = GetService<StorageService>();
+        var uploadUrl = storage.GetUploadUrl("test", isVault: false);
+
+        var content = new StringContent("Hello Space");
+        var multipartContent = new MultipartFormDataContent();
+        // Use a filename with spaces
+        multipartContent.Add(content, "file", "my test image.png");
+
+        var uploadResponse = await Http.PostAsync(uploadUrl, multipartContent);
+        uploadResponse.EnsureSuccessStatusCode();
+        var uploadResult = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
+        
+        Assert.IsNotNull(uploadResult);
+        Assert.IsNotNull(uploadResult.Path);
+        
+        // Assert the returned path uses hyphens instead of spaces
+        Assert.IsTrue(uploadResult.Path.EndsWith("my-test-image.png"), $"Expected path to end with 'my-test-image.png' but got '{uploadResult.Path}'");
+        Assert.IsFalse(uploadResult.Path.Contains(" "), "Path should not contain spaces.");
+    }
+
     private class UploadResult
     {
         public string Path { get; init; } = string.Empty;

@@ -132,4 +132,83 @@ public class OrphanMarkdownImageCleanupJobTests : TestBase
         await RunJob();
         // Reaching here without exception is the pass condition.
     }
+
+    // -----------------------------------------------------------------------
+    // Test 6: referenced image (absolute url) → kept because regex matches
+    // -----------------------------------------------------------------------
+    [TestMethod]
+    public async Task ReferencedAbsoluteUrlImageIsNeverDeleted()
+    {
+        var filename = "referenced-absolute.png";
+        var referencedPath = CreateImageFile(filename, isOld: true);
+
+        // Seed a document whose content references this image with an absolute URL.
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        var admin = await db.Users.FirstAsync();
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Id = Guid.NewGuid(),
+            Title = "Test doc absolute URL",
+            Content = $"![screenshot](https://marktohtml.hlwuxi.com/download/markdown-images/{filename})",
+            UserId = admin.Id
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(referencedPath),
+            "An image referenced via absolute URL must never be deleted.");
+    }
+
+    // -----------------------------------------------------------------------
+    // Test 7: referenced image (HTML tag) → kept
+    // -----------------------------------------------------------------------
+    [TestMethod]
+    public async Task ReferencedHtmlImageIsNeverDeleted()
+    {
+        var filename = "referenced-html.png";
+        var referencedPath = CreateImageFile(filename, isOld: true);
+
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        var admin = await db.Users.FirstAsync();
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Id = Guid.NewGuid(),
+            Title = "Test doc HTML tag",
+            Content = $"<img src=\"/download/markdown-images/{filename}\" />",
+            UserId = admin.Id
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(referencedPath),
+            "An image referenced via HTML tag must never be deleted.");
+    }
+
+    // -----------------------------------------------------------------------
+    // Test 8: referenced image (plain text URL) → kept
+    // -----------------------------------------------------------------------
+    [TestMethod]
+    public async Task ReferencedPlainTextUrlIsNeverDeleted()
+    {
+        var filename = "referenced-plain.png";
+        var referencedPath = CreateImageFile(filename, isOld: true);
+
+        var db = Server!.Services.GetRequiredService<TemplateDbContext>();
+        var admin = await db.Users.FirstAsync();
+        db.MarkdownDocuments.Add(new MarkdownDocument
+        {
+            Id = Guid.NewGuid(),
+            Title = "Test doc plain text",
+            Content = $"Just some text mentioning /download/markdown-images/{filename} here.",
+            UserId = admin.Id
+        });
+        await db.SaveChangesAsync();
+
+        await RunJob();
+
+        Assert.IsTrue(File.Exists(referencedPath),
+            "An image referenced via plain text URL must never be deleted.");
+    }
 }

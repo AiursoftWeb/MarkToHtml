@@ -78,14 +78,18 @@ public class FilesController(
         }
 
         var file = HttpContext.Request.Form.Files.First();
-        if (!new ValidFolderName().IsValid(file.FileName))
+        
+        // Clean up the file name to prevent GC issues and URL parsing problems
+        var safeFileName = file.FileName.Replace(" ", "-");
+        
+        if (!new ValidFolderName().IsValid(safeFileName))
         {
             return BadRequest("Invalid file name!");
         }
 
         var storePath = Path.Combine(
             subfolder,
-            file.FileName);
+            safeFileName);
 
         // Save returns the logical path (e.g. avatar/2026/01/14/logo.png)
         var relativePath = await storage.Save(storePath, file, isVault);
