@@ -206,7 +206,7 @@ public class ManageController(
             ownedItemsCount = docsCount + foldersCount;
         }
         ViewData["OwnedItemsCount"] = ownedItemsCount;
-        return this.StackView(new UiStackLayoutViewModel());
+        return this.StackView(new UiStackLayoutViewModel { PageTitle = "Delete Account" });
     }
 
     //
