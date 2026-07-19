@@ -3,11 +3,13 @@ using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.ManageViewModels;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.MarkToHtml.Services.FileStorage;
+using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 
@@ -191,35 +193,35 @@ public class ManageController(
     //
     // GET: /Manage/DeleteAccount
     [HttpGet]
-    public async Task<IActionResult> DeleteAccount([FromServices] Aiursoft.MarkToHtml.Entities.TemplateDbContext context)
+    public async Task<IActionResult> DeleteAccount([FromServices] TemplateDbContext context)
     {
         var user = await GetCurrentUserAsync();
         int ownedItemsCount = 0;
         if (user != null)
         {
-            var docsCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
-                System.Linq.Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
-            var foldersCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
-                System.Linq.Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
+            var docsCount = await EntityFrameworkQueryableExtensions.CountAsync(
+                Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
+            var foldersCount = await EntityFrameworkQueryableExtensions.CountAsync(
+                Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
             ownedItemsCount = docsCount + foldersCount;
         }
         ViewData["OwnedItemsCount"] = ownedItemsCount;
-        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
+        return this.StackView(new UiStackLayoutViewModel());
     }
 
     //
     // POST: /Manage/DeleteAccount
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteAccountPost([FromServices] Aiursoft.MarkToHtml.Entities.TemplateDbContext context)
+    public async Task<IActionResult> DeleteAccountPost([FromServices] TemplateDbContext context)
     {
         var user = await GetCurrentUserAsync();
         if (user != null)
         {
-            var hasDocs = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
-                System.Linq.Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
-            var hasFolders = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
-                System.Linq.Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
+            var hasDocs = await EntityFrameworkQueryableExtensions.AnyAsync(
+                Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
+            var hasFolders = await EntityFrameworkQueryableExtensions.AnyAsync(
+                Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
                 
             if (hasDocs || hasFolders)
             {
