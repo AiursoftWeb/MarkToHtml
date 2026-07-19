@@ -188,6 +188,52 @@ public class ManageController(
         return this.StackView(model);
     }
 
+    //
+    // GET: /Manage/DeleteAccount
+    [HttpGet]
+    public async Task<IActionResult> DeleteAccount([FromServices] Aiursoft.MarkToHtml.Entities.TemplateDbContext context)
+    {
+        var user = await GetCurrentUserAsync();
+        int ownedItemsCount = 0;
+        if (user != null)
+        {
+            var docsCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
+                System.Linq.Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
+            var foldersCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
+                System.Linq.Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
+            ownedItemsCount = docsCount + foldersCount;
+        }
+        ViewData["OwnedItemsCount"] = ownedItemsCount;
+        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
+    }
+
+    //
+    // POST: /Manage/DeleteAccount
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteAccountPost([FromServices] Aiursoft.MarkToHtml.Entities.TemplateDbContext context)
+    {
+        var user = await GetCurrentUserAsync();
+        if (user != null)
+        {
+            var hasDocs = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
+                System.Linq.Queryable.Where(context.MarkdownDocuments, p => p.UserId == user.Id));
+            var hasFolders = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
+                System.Linq.Queryable.Where(context.MarkdownDocumentFolders, p => p.UserId == user.Id));
+                
+            if (hasDocs || hasFolders)
+            {
+                // Can't delete if owning documents or folders.
+                return RedirectToAction(nameof(DeleteAccount));
+            }
+            await signInManager.SignOutAsync();
+            await userManager.DeleteAsync(user);
+            logger.LogInformation(3, "User deleted their account successfully");
+            return Redirect("/");
+        }
+        return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
+    }
+
     #region Helpers
 
     private void AddErrors(IdentityResult result)

@@ -26,6 +26,18 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     {
         base.OnModelCreating(builder);
 
+        builder.Entity<MarkdownDocument>()
+            .HasOne(m => m.User)
+            .WithMany()
+            .HasForeignKey(m => m.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<MarkdownDocumentFolder>()
+            .HasOne(m => m.User)
+            .WithMany()
+            .HasForeignKey(m => m.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         builder.Entity<MarkdownDocumentFolder>()
             .Property<int>("ParentFolderIdForUniqueness")
             .HasComputedColumnSql("COALESCE(ParentFolderId, 0)", stored: true);
