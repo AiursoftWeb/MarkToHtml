@@ -72,6 +72,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Панель управления</value>
   </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>Удалить аккаунт</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Удалить документ</value>
   </data>

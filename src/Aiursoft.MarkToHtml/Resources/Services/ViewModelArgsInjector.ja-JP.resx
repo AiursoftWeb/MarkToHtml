@@ -75,6 +75,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>ダッシュボード</value>
   </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>アカウントを削除</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>ドキュメントの削除</value>
   </data>

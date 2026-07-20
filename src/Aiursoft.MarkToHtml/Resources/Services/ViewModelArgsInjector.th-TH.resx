@@ -75,6 +75,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>แดชบอร์ด</value>
   </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>ลบบัญชีผู้ใช้</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>ลบเอกสาร</value>
   </data>
