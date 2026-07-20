@@ -10,7 +10,7 @@ namespace Aiursoft.MarkToHtml.Controllers;
 /// <summary>
 /// This controller is used to handle file operations like upload and download.
 /// </summary>
-[LimitPerMin]
+[LimitPerMin(60)]
 public class FilesController(
     ImageProcessingService imageCompressor,
     ILogger<FilesController> logger,
@@ -23,7 +23,7 @@ public class FilesController(
 
     [HttpPost]
     [Route("upload/{**subfolder}")]
-    [LimitPerMin(5)]
+    [LimitPerMin(60)]
     [DisableRequestSizeLimit]
     [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
     public async Task<IActionResult> Upload(
@@ -40,7 +40,7 @@ public class FilesController(
 
     [HttpPost]
     [Route("upload-private/{**subfolder}")]
-    [LimitPerMin(5)]
+    [LimitPerMin(60)]
     [DisableRequestSizeLimit]
     [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
     public async Task<IActionResult> UploadPrivate(
