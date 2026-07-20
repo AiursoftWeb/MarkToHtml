@@ -75,6 +75,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>儀錶板</value>
   </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>刪除帳戶</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>刪除文件</value>
   </data>

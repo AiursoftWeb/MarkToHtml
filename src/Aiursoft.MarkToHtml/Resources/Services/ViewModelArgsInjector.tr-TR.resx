@@ -72,6 +72,9 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Kontrol Paneli</value>
   </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>Hesabı Sil</value>
+  </data>
   <data name="Delete Document" xml:space="preserve">
     <value>Belgeyi Sil</value>
   </data>

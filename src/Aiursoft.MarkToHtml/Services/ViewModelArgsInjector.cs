@@ -107,6 +107,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Move Document"];
     
         _ = localizer["Search"];
+    
+        _ = localizer["Delete Account"];
     }
 
     public void InjectSimple(
