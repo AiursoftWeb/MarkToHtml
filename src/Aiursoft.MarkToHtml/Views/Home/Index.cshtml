@@ -721,15 +721,22 @@
                             }
                         }
 
-                        // Inserts a unique placeholder at the current cursor and returns its id.
+                        // Inserts a unique placeholder on its own line at the current cursor and
+                        // returns its id. A leading newline is added when the current line already
+                        // has content, and a trailing newline is always appended, so that multiple
+                        // pasted/dropped images each render on a separate line.
                         function createImagePlaceholder(ext) {
                             ext = (ext || 'png').replace('jpeg', 'jpg').split('+')[0];
                             const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
                             const placeholder = '![uploading...](' + filename + ')';
+                            const model = markdownEditorInstance.getModel();
                             const selection = markdownEditorInstance.getSelection();
+                            const lineContent = model.getLineContent(selection.startLineNumber);
+                            const needsLeadingNewline = lineContent.trim() !== '' && selection.startColumn > 1;
+                            const text = (needsLeadingNewline ? '\n' : '') + placeholder + '\n';
                             markdownEditorInstance.executeEdits('paste-image', [{
                                 range: selection,
-                                text: placeholder,
+                                text: text,
                                 forceMoveMarkers: true
                             }]);
                             return { placeholder: placeholder, filename: filename };
