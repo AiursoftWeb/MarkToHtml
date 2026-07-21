@@ -972,7 +972,7 @@ public class HomeController(
 
     private static string SanitizeFileName(string fileName)
     {
-        var invalidChars = System.IO.Path.GetInvalidFileNameChars();
+        var invalidChars = Path.GetInvalidFileNameChars();
         var sanitized = new string(fileName
             .Where(ch => !invalidChars.Contains(ch))
             .ToArray())
