@@ -886,6 +886,52 @@ public class HomeController(
         return this.StackView(model);
     }
 
+    /// <summary>
+    /// Download the Markdown content of a document as a .md file.
+    /// </summary>
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> Download([Required][FromRoute] Guid id)
+    {
+        var userId = userManager.GetUserId(User);
+        var document = await context.MarkdownDocuments
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            return NotFound("The document was not found.");
+        }
+
+        // Check access: owner, or has edit/read share, or public
+        bool isOwner = document.UserId == userId;
+        bool hasAccess = isOwner || document.IsPublic;
+
+        if (!hasAccess && !string.IsNullOrWhiteSpace(userId))
+        {
+            var userRoles = await context.UserRoles
+                .Where(ur => ur.UserId == userId)
+                .Select(ur => ur.RoleId)
+                .ToListAsync();
+
+            hasAccess = await context.DocumentShares
+                .AnyAsync(s => s.DocumentId == id &&
+                              (s.SharedWithUserId == userId ||
+                               (s.SharedWithRoleId != null && userRoles.Contains(s.SharedWithRoleId))));
+        }
+
+        if (!hasAccess)
+        {
+            return Forbid();
+        }
+
+        var fileName = SanitizeFileName(document.Title ?? "untitled") + ".md";
+        return File(
+            System.Text.Encoding.UTF8.GetBytes(document.Content ?? string.Empty),
+            "text/markdown; charset=utf-8",
+            fileName);
+    }
+
     [RenderInNavBar(
         NavGroupName = "Self Host",
         NavGroupOrder = 10,
@@ -922,5 +968,15 @@ public class HomeController(
     {
         return folderId == null || await context.MarkdownDocumentFolders
             .AnyAsync(f => f.Id == folderId.Value && f.UserId == userId);
+    }
+
+    private static string SanitizeFileName(string fileName)
+    {
+        var invalidChars = Path.GetInvalidFileNameChars();
+        var sanitized = new string(fileName
+            .Where(ch => !invalidChars.Contains(ch))
+            .ToArray())
+            .Trim();
+        return string.IsNullOrWhiteSpace(sanitized) ? "untitled" : sanitized;
     }
 }

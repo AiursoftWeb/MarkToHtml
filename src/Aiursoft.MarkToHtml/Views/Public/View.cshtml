@@ -1,5 +1,10 @@
 @using Aiursoft.MarkToHtml.Controllers
+@using Aiursoft.MarkToHtml.Configuration
 @model Aiursoft.MarkToHtml.Models.PublicViewModels.PublicDocumentViewModel
+@inject Microsoft.Extensions.Options.IOptions<TtsSettings> TtsOptions
+@{
+    var ttsEnabled = !string.IsNullOrWhiteSpace(TtsOptions.Value.ApiToken);
+}
 
 @* --- Metadata Section --- *@
 <div class="row mb-2 mb-xl-3">
@@ -49,17 +54,24 @@
                                 <i class="align-middle" data-lucide="edit"></i> <span class="d-none d-sm-inline">@Localizer["Edit"]</span>
                             </a>
                         }
+                        <a href="@Url.Action("Download", "Public", new { id = ViewBag.DocumentId })" class="btn btn-sm btn-outline-primary"
+                           title="@Localizer["Download"]">
+                            <i class="align-middle" data-lucide="download"></i> <span class="d-none d-sm-inline">@Localizer["Download"]</span>
+                        </a>
                         <button type="button" id="print-button" class="btn btn-sm btn-outline-secondary"
                             title="@Localizer["Print"]">
                             <i class="align-middle" data-lucide="printer"></i> <span
                                 class="d-none d-sm-inline">@Localizer["Print"]</span>
                         </button>
-                        <button type="button" id="read-aloud-button" class="btn btn-sm btn-outline-secondary"
-                            title="@Localizer["Read Aloud"]">
-                            <i class="align-middle" data-lucide="volume-2"></i> <span
-                                class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>
-                        </button>
-                        <select id="voice-select" class="form-select form-select-sm d-none ms-1" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
+                        @if (ttsEnabled)
+                        {
+                            <button type="button" id="read-aloud-button" class="btn btn-sm btn-outline-secondary"
+                                title="@Localizer["Read Aloud"]">
+                                <i class="align-middle" data-lucide="volume-2"></i> <span
+                                    class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>
+                            </button>
+                            <select id="voice-select" class="form-select form-select-sm d-none ms-1" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
+                        }
                         <a asp-controller="Contract" asp-action="Fill" asp-route-id="@ViewBag.DocumentId" class="btn btn-sm btn-outline-info"
                            target="_blank" title="@Localizer["Contract Layout"]">
                             <i class="align-middle" data-lucide="file-signature"></i> <span
