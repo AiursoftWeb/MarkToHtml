@@ -169,6 +169,58 @@ public class PublicController(
             : defaultValue;
     }
 
+    private static string SanitizeFileName(string fileName)
+    {
+        var invalidChars = Path.GetInvalidFileNameChars();
+        var sanitized = new string(fileName
+            .Where(ch => !invalidChars.Contains(ch))
+            .ToArray())
+            .Trim();
+        return string.IsNullOrWhiteSpace(sanitized) ? "untitled" : sanitized;
+    }
+
+    /// <summary>
+    /// Download the Markdown content of a shared document as a .md file.
+    /// </summary>
+    /// <param name="id">The ID of the document to download.</param>
+    /// <returns>The Markdown file download.</returns>
+    [HttpGet("download")]
+    public async Task<IActionResult> Download([Required][FromRoute] Guid id)
+    {
+        logger.LogTrace("Attempting to download markdown for document with ID: '{Id}'", id);
+
+        var document = await context.MarkdownDocuments
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(d => d.Id == id);
+
+        if (document == null)
+        {
+            logger.LogWarning("Document with ID: '{Id}' was not found.", id);
+            return NotFound("The document was not found.");
+        }
+
+        // Permission check
+        var hasAccess = await HasReadAccess(document);
+        if (!hasAccess)
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Forbid();
+            }
+            return Challenge();
+        }
+
+        logger.LogInformation(
+            "Markdown download for document with ID: '{DocumentId}' accessed.",
+            document.Id);
+
+        var fileName = SanitizeFileName(document.Title ?? "untitled") + ".md";
+        return File(
+            System.Text.Encoding.UTF8.GetBytes(document.Content ?? string.Empty),
+            "text/markdown; charset=utf-8",
+            fileName);
+    }
+
     /// <summary>
     /// View the raw Markdown content of a shared document.
     /// </summary>

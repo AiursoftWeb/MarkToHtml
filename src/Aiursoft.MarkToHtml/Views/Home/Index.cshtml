@@ -1,11 +1,14 @@
 @using Aiursoft.MarkToHtml.Controllers
+@using Aiursoft.MarkToHtml.Configuration
 @model Aiursoft.MarkToHtml.Models.HomeViewModels.IndexViewModel
 @inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService Storage
 @inject Aiursoft.MarkToHtml.Services.GlobalSettingsService GlobalSettings
+@inject Microsoft.Extensions.Options.IOptions<TtsSettings> TtsOptions
 
 @{
     var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
     var printLogoUrl = await GlobalSettings.GetLogoUrlAsync();
+    var ttsEnabled = !string.IsNullOrWhiteSpace(TtsOptions.Value.ApiToken);
 }
 
 @if (Model.SavedSuccessfully)
@@ -109,13 +112,23 @@
             <button type="button" id="print-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Print"]">
                 <i class="align-middle" data-lucide="printer"></i> <span class="d-none d-xxl-inline">@Localizer["Print"]</span>
             </button>
-            <button type="button" id="read-aloud-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Read Aloud"]">
-                <i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>
-            </button>
-            <select id="voice-select" class="form-select form-select-sm d-none ms-1 shadow-sm" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
+            @if (ttsEnabled)
+            {
+                <button type="button" id="read-aloud-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Read Aloud"]">
+                    <i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-xxl-inline">@Localizer["Read Aloud"]</span>
+                </button>
+                <select id="voice-select" class="form-select form-select-sm d-none ms-1 shadow-sm" style="width: auto; max-width: 200px;" title="@Localizer["Voice"]"></select>
+            }
             <button type="button" id="copy-button" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Copy HTML"]">
                 <i class="align-middle" data-lucide="copy"></i> <span class="d-none d-xxl-inline">@Localizer["Copy HTML"]</span>
             </button>
+
+            @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
+            {
+                <a asp-action="Download" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" title="@Localizer["Download"]">
+                    <i class="align-middle" data-lucide="download"></i> <span class="d-none d-xxl-inline">@Localizer["Download"]</span>
+                </a>
+            }
 
             @if (User.Identity?.IsAuthenticated ?? false)
             {

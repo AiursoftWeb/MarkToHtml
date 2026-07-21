@@ -123,6 +123,9 @@
                                                 <i class="align-middle" data-lucide="edit-3"></i> @Localizer["Edit"]
                                             </a>
                                         }
+                                        <a asp-action="Download" asp-route-id="@document.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Download"]">
+                                            <i class="align-middle" data-lucide="download"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             }

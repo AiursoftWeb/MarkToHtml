@@ -181,12 +181,18 @@
                                 <a asp-action="ManageShares" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-info">
                                     <i class="align-middle" data-lucide="share-2"></i> @Localizer["Share"]
                                 </a>
+                                <a asp-action="Download" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Download"]">
+                                    <i class="align-middle" data-lucide="download"></i>
+                                </a>
                                 <a asp-action="Delete" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-danger">
                                     <i class="align-middle" data-lucide="trash-2"></i> @Localizer["Delete"]
                                 </a>
                             }
                             else
                             {
+                                <a asp-action="Download" asp-route-id="@doc.Id" class="btn btn-sm btn-outline-secondary me-1" title="@Localizer["Download"]">
+                                    <i class="align-middle" data-lucide="download"></i>
+                                </a>
                                 <span class="text-muted small">
                                     <i class="align-middle" data-lucide="users"></i> @Localizer["Shared"]
                                 </span>
