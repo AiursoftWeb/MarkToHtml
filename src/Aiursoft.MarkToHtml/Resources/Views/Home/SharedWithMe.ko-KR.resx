@@ -33,6 +33,9 @@
   <data name="Documents that have been shared with you or your groups." xml:space="preserve">
     <value>나 또는 내 그룹과 공유된 문서들.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>다운로드</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>편집</value>
   </data>

@@ -33,6 +33,9 @@
   <data name="Documents that have been shared with you or your groups." xml:space="preserve">
     <value>Documenten die met jou of je groepen zijn gedeeld.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Downloaden</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
   </data>

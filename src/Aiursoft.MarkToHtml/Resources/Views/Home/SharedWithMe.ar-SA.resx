@@ -33,6 +33,9 @@
   <data name="Documents that have been shared with you or your groups." xml:space="preserve">
     <value>المستندات التي تمت مشاركتها معك أو مع مجموعاتك.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>تحميل</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
   </data>

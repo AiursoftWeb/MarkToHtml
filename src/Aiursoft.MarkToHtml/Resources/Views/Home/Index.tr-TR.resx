@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>Belge başarıyla güncellendi.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>İndir</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dinamik Gezinti Çubuğu</value>
   </data>

@@ -45,6 +45,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Excluir</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Baixar</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Editar</value>
   </data>

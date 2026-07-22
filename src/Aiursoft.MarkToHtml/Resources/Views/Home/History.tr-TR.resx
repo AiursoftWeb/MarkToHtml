@@ -45,6 +45,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>İndir</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
   </data>
