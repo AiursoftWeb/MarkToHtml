@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>Asiakirja päivitetty onnistuneesti.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Lataa</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dynaaminen navigointipalkki</value>
   </data>

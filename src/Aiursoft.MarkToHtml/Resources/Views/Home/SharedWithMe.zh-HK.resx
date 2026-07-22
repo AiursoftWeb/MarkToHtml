@@ -33,6 +33,9 @@
   <data name="Documents that have been shared with you or your groups." xml:space="preserve">
     <value>與您或您所屬群組共享的文件。</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>下載</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
   </data>

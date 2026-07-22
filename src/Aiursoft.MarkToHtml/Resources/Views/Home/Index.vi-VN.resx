@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>Tài liệu đã được cập nhật thành công.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Tải xuống</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Thanh Điều Hướng Động</value>
   </data>

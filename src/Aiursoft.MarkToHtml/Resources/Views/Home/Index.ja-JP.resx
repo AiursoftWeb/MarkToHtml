@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>ドキュメントが正常に更新されました。</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>動的ナビゲーションバー</value>
   </data>

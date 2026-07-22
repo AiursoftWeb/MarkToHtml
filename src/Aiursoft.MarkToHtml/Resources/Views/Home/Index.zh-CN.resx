@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>文档更新成功。</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>下载</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>动态导航栏</value>
   </data>

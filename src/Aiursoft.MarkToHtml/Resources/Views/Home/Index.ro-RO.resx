@@ -123,6 +123,9 @@
   <data name="Document updated successfully." xml:space="preserve">
     <value>Documentul a fost actualizat cu succes.</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>Descarcă</value>
+  </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Bara de Navigare Dinamică</value>
   </data>
