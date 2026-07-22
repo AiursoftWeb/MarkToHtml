@@ -266,6 +266,14 @@
             background-color: rgba(255,255,255,0.05) !important;
         }
 
+        /* Table header background in preview area (Bootstrap .table overrides markdown-reader.css) */
+        .markdown-content table th {
+            background-color: #f6f8fa;
+        }
+        body[data-theme="dark"] .markdown-content table th {
+            background-color: #2a3544;
+        }
+
         /* Quick save banner */
         .quick-save-banner {
             position: fixed;

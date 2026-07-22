@@ -266,4 +266,18 @@
         font-size: 0.85em;
         word-break: break-all;
     }
+
+    .markdown-content table {
+        display: table !important;
+        overflow-x: visible !important;
+        border-bottom: 1px solid #d8dee8 !important;
+    }
+
+    .markdown-content table,
+    .markdown-content table th,
+    .markdown-content table td,
+    .markdown-content table tr {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
 }
