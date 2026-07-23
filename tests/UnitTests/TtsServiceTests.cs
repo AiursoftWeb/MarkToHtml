@@ -27,7 +27,7 @@ public class TtsServiceTests
     public void ChunkText_SplitsAtPeriod()
     {
         var text = string.Join(" ", Enumerable.Repeat("This is a sentence.", 20));
-        var result = TtsService.ChunkText(text, 300);
+        var result = TtsService.ChunkText(text);
 
         Assert.IsTrue(result.Count > 1);
         // Every chunk except possibly the last should end with a delimiter
@@ -46,7 +46,7 @@ public class TtsServiceTests
     public void ChunkText_SplitsAtChinesePunctuation()
     {
         var text = string.Join("", Enumerable.Repeat("这是一句话。", 100));
-        var result = TtsService.ChunkText(text, 300);
+        var result = TtsService.ChunkText(text);
 
         Assert.IsTrue(result.Count > 1);
         foreach (var chunk in result.SkipLast(1))
@@ -59,7 +59,7 @@ public class TtsServiceTests
     public void ChunkText_SplitsAtNewline()
     {
         var text = string.Join("\n", Enumerable.Repeat("Line of text here.", 30));
-        var result = TtsService.ChunkText(text, 300);
+        var result = TtsService.ChunkText(text);
 
         Assert.IsTrue(result.Count > 1);
     }
