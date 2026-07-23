@@ -147,112 +147,18 @@
         }
 
         // 3. Read Aloud (TTS)
-        const readAloudBtn = document.getElementById('read-aloud-button');
-        const voiceSelect = document.getElementById('voice-select');
-        let isReading = false;
-        let currentAudio = null;
-
-        // Load available voices from server-side TTS API
-        async function loadVoices() {
-            try {
-                const response = await fetch('/tts/voices');
-                if (!response.ok) {
-                    voiceSelect.classList.add('d-none');
-                    return;
-                }
-                const voices = await response.json();
-                if (!voices || !voices.length) {
-                    voiceSelect.classList.add('d-none');
-                    return;
-                }
-                const currentValue = voiceSelect.value;
-                voiceSelect.innerHTML = '';
-                voices.forEach(function (v) {
-                    const opt = document.createElement('option');
-                    opt.value = v.name;
-                    opt.textContent = v.name;
-                    voiceSelect.appendChild(opt);
-                });
-                if (currentValue && voices.some(function (v) { return v.name === currentValue; })) {
-                    voiceSelect.value = currentValue;
-                }
-                voiceSelect.classList.remove('d-none');
-            } catch (e) {
-                voiceSelect.classList.add('d-none');
-            }
-        }
-
-        loadVoices();
-
-        function stopAudio() {
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.removeAttribute('src');
-                currentAudio.load();
-                currentAudio = null;
-            }
-            resetReadAloudUI();
-        }
-
-        if (readAloudBtn) {
-            readAloudBtn.addEventListener('click', async function () {
-                if (isReading) {
-                    stopAudio();
-                    return;
-                }
-
-                const printableArea = document.getElementById('printable-area');
-                if (!printableArea) return;
-
-                const text = (printableArea.textContent || '').trim();
-                if (!text) return;
-
-                readAloudBtn.disabled = true;
-                try {
-                    const formData = new FormData();
-                    formData.append('input', text);
-                    const voice = voiceSelect.value;
-                    if (voice) formData.append('voice', voice);
-
-                    const response = await fetch('/tts/speech', { method: 'POST', body: formData });
-                    if (!response.ok) {
-                        const err = await response.json().catch(() => ({}));
-                        console.error('TTS error:', err.error || response.statusText);
-                        resetReadAloudUI();
-                        return;
-                    }
-
-                    const blob = await response.blob();
-                    const url = URL.createObjectURL(blob);
-                    currentAudio = new Audio(url);
-                    currentAudio.onended = resetReadAloudUI;
-                    currentAudio.onerror = function (e) {
-                        console.error('Audio playback error:', e);
-                        URL.revokeObjectURL(url);
-                        resetReadAloudUI();
-                    };
-                    currentAudio.play();
-                    isReading = true;
-                    readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-sm-inline">@Localizer["Stop Reading"]</span>';
-                    readAloudBtn.classList.replace('btn-outline-secondary', 'btn-primary');
-                    window.lucide && lucide.createIcons();
-                } catch (e) {
-                    console.error('TTS fetch error:', e);
-                    resetReadAloudUI();
-                } finally {
-                    readAloudBtn.disabled = false;
-                }
-            });
-        }
-
-        function resetReadAloudUI() {
-            isReading = false;
-            if (readAloudBtn) {
-                readAloudBtn.innerHTML = '<i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>';
-                readAloudBtn.classList.replace('btn-primary', 'btn-outline-secondary');
-                window.lucide && lucide.createIcons();
-            }
-        }
+        new TtsPlayer({
+            button: document.getElementById('read-aloud-button'),
+            voiceSelect: document.getElementById('voice-select'),
+            getText: () => (document.getElementById('printable-area')?.textContent || '').trim(),
+            labels: {
+                play: '<i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-sm-inline">@Localizer["Read Aloud"]</span>',
+                pause: '<i class="align-middle" data-lucide="pause"></i> <span class="d-none d-sm-inline">@Localizer["Pause"]</span>',
+                resume: '<i class="align-middle" data-lucide="volume-2"></i> <span class="d-none d-sm-inline">@Localizer["Resume"]</span>'
+            },
+            playingClass: 'btn-primary',
+            idleClass: 'btn-outline-secondary'
+        });
 
         // 4. Copy Markdown Button
         const copyBtn = document.getElementById('copy-markdown-button');
@@ -316,6 +222,7 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/tts-player.js" asp-append-version="true"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (window.mermaid) {

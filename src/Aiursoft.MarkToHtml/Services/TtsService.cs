@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 
 namespace Aiursoft.MarkToHtml.Services;
 
-public record VoiceItem(string Name, string Filename, long SizeKb);
+public record VoiceItem(string Name, string Filename, double SizeKb);
 
 public class TtsService(
     IHttpClientFactory httpClientFactory,
@@ -16,20 +16,35 @@ public class TtsService(
     private readonly TtsSettings _settings = options.Value;
 
     /// <summary>
+    /// JSON serializer options configured for snake_case naming, matching the TTS API convention.
+    /// </summary>
+    private static readonly JsonSerializerOptions TtsApiJsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
+    };
+
+    /// <summary>
     /// Get the list of available voices from the TTS API.
     /// </summary>
     public async Task<List<VoiceItem>> GetVoicesAsync()
     {
-        var client = httpClientFactory.CreateClient();
+        var client = CreateTtsClient();
         var request = new HttpRequestMessage(HttpMethod.Get, $"{_settings.BaseUrl.TrimEnd('/')}/api/voices");
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _settings.ApiToken);
 
         logger.LogInformation("Fetching voices from TTS API: {Url}", request.RequestUri);
 
         var response = await client.SendAsync(request);
-        response.EnsureSuccessStatusCode();
 
-        var voices = await response.Content.ReadFromJsonAsync<List<VoiceItem>>();
+        if (!response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync();
+            logger.LogError("TTS voices API returned {StatusCode}: {Body}", (int)response.StatusCode, body);
+            throw new HttpRequestException($"TTS voices API returned {(int)response.StatusCode}: {body}");
+        }
+
+        var voices = await response.Content.ReadFromJsonAsync<List<VoiceItem>>(TtsApiJsonOptions);
+        logger.LogInformation("Fetched {Count} voices from TTS API", voices?.Count ?? 0);
         return voices ?? [];
     }
 
@@ -56,10 +71,10 @@ public class TtsService(
             speed = resolvedSpeed
         };
 
-        var json = JsonSerializer.Serialize(requestBody);
+        var json = JsonSerializer.Serialize(requestBody, TtsApiJsonOptions);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var client = httpClientFactory.CreateClient();
+        var client = CreateTtsClient();
         var request = new HttpRequestMessage(HttpMethod.Post, $"{_settings.BaseUrl.TrimEnd('/')}/v1/audio/speech")
         {
             Content = content
@@ -70,11 +85,107 @@ public class TtsService(
             input.Length, resolvedVoice, resolvedFormat);
 
         var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-        response.EnsureSuccessStatusCode();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            var body = await response.Content.ReadAsStringAsync();
+            logger.LogError("TTS speech API returned {StatusCode}: {Body}", (int)response.StatusCode, body);
+            throw new HttpRequestException($"TTS speech API returned {(int)response.StatusCode}: {body}");
+        }
 
         var stream = await response.Content.ReadAsStreamAsync();
         var contentType = ResolveContentType(resolvedFormat);
         return (stream, contentType);
+    }
+
+    /// <summary>
+    /// Creates an HttpClient configured for TTS API communication with a 30-second timeout.
+    /// </summary>
+    private HttpClient CreateTtsClient()
+    {
+        var client = httpClientFactory.CreateClient();
+        client.Timeout = TimeSpan.FromSeconds(30);
+        return client;
+    }
+
+    /// <summary>
+    /// Splits text into chunks at natural boundaries (punctuation, newlines)
+    /// for efficient TTS processing of large documents.
+    /// </summary>
+    /// <param name="text">Input text to split.</param>
+    /// <param name="maxChunkChars">Maximum characters per chunk. Default 300.</param>
+    /// <returns>List of text chunks ready for TTS synthesis.</returns>
+    public static List<string> ChunkText(string text, int maxChunkChars = 300)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return [];
+
+        if (text.Length <= maxChunkChars)
+            return [text.Trim()];
+
+        // Delimiters: Chinese punctuation, English punctuation, newlines
+        var delimiters = new[] { '。', '！', '？', '；', '，', '.', '!', '?', ';', ',', '\n', '\r' };
+
+        var chunks = new List<string>();
+        var current = new StringBuilder();
+        var remaining = text.AsSpan();
+
+        while (remaining.Length > 0)
+        {
+            // If current chunk plus remaining text fits, consume all
+            if (current.Length + remaining.Length <= maxChunkChars)
+            {
+                current.Append(remaining);
+                break;
+            }
+
+            // Find the last delimiter within the max chunk window
+            var windowEnd = Math.Min(maxChunkChars - current.Length, remaining.Length);
+            var window = remaining[..windowEnd];
+
+            var lastDelimiter = -1;
+            for (var i = window.Length - 1; i >= 0; i--)
+            {
+                if (Array.IndexOf(delimiters, window[i]) >= 0)
+                {
+                    lastDelimiter = i;
+                    break;
+                }
+            }
+
+            if (lastDelimiter >= 0)
+            {
+                // Split at the delimiter (include it in the chunk)
+                current.Append(remaining[..(lastDelimiter + 1)]);
+                remaining = remaining[(lastDelimiter + 1)..];
+            }
+            else if (current.Length > 0)
+            {
+                // Current chunk has content, flush it and continue
+                break;
+            }
+            else
+            {
+                // Single long sentence — hard split at maxChunkChars
+                var spaceIdx = window.LastIndexOf(' ');
+                var splitAt = spaceIdx > maxChunkChars / 2 ? spaceIdx + 1 : maxChunkChars;
+                current.Append(remaining[..splitAt]);
+                remaining = remaining[splitAt..];
+            }
+
+            // Flush the chunk
+            var chunk = current.ToString().Trim();
+            if (chunk.Length > 0)
+                chunks.Add(chunk);
+            current.Clear();
+        }
+
+        // Flush any remaining content
+        var final = current.ToString().Trim();
+        if (final.Length > 0)
+            chunks.Add(final);
+
+        return chunks;
     }
 
     private static string ResolveContentType(string format) => format.ToLowerInvariant() switch
