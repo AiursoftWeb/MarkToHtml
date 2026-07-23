@@ -108,6 +108,86 @@ public class TtsService(
         return client;
     }
 
+    /// <summary>
+    /// Splits text into chunks at natural boundaries (punctuation, newlines)
+    /// for efficient TTS processing of large documents.
+    /// </summary>
+    /// <param name="text">Input text to split.</param>
+    /// <param name="maxChunkChars">Maximum characters per chunk. Default 300.</param>
+    /// <returns>List of text chunks ready for TTS synthesis.</returns>
+    public static List<string> ChunkText(string text, int maxChunkChars = 300)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return [];
+
+        if (text.Length <= maxChunkChars)
+            return [text.Trim()];
+
+        // Delimiters: Chinese punctuation, English punctuation, newlines
+        var delimiters = new[] { '。', '！', '？', '；', '，', '.', '!', '?', ';', ',', '\n', '\r' };
+
+        var chunks = new List<string>();
+        var current = new StringBuilder();
+        var remaining = text.AsSpan();
+
+        while (remaining.Length > 0)
+        {
+            // If current chunk plus remaining text fits, consume all
+            if (current.Length + remaining.Length <= maxChunkChars)
+            {
+                current.Append(remaining);
+                break;
+            }
+
+            // Find the last delimiter within the max chunk window
+            var windowEnd = Math.Min(maxChunkChars - current.Length, remaining.Length);
+            var window = remaining[..windowEnd];
+
+            var lastDelimiter = -1;
+            for (var i = window.Length - 1; i >= 0; i--)
+            {
+                if (Array.IndexOf(delimiters, window[i]) >= 0)
+                {
+                    lastDelimiter = i;
+                    break;
+                }
+            }
+
+            if (lastDelimiter >= 0)
+            {
+                // Split at the delimiter (include it in the chunk)
+                current.Append(remaining[..(lastDelimiter + 1)]);
+                remaining = remaining[(lastDelimiter + 1)..];
+            }
+            else if (current.Length > 0)
+            {
+                // Current chunk has content, flush it and continue
+                break;
+            }
+            else
+            {
+                // Single long sentence — hard split at maxChunkChars
+                var spaceIdx = window.LastIndexOf(' ');
+                var splitAt = spaceIdx > maxChunkChars / 2 ? spaceIdx + 1 : maxChunkChars;
+                current.Append(remaining[..splitAt]);
+                remaining = remaining[splitAt..];
+            }
+
+            // Flush the chunk
+            var chunk = current.ToString().Trim();
+            if (chunk.Length > 0)
+                chunks.Add(chunk);
+            current.Clear();
+        }
+
+        // Flush any remaining content
+        var final = current.ToString().Trim();
+        if (final.Length > 0)
+            chunks.Add(final);
+
+        return chunks;
+    }
+
     private static string ResolveContentType(string format) => format.ToLowerInvariant() switch
     {
         "mp3" => "audio/mpeg",
