@@ -178,6 +178,7 @@
                 }
                 voiceSelect.classList.remove('d-none');
             } catch (e) {
+                console.error('Failed to load TTS voices:', e);
                 voiceSelect.classList.add('d-none');
             }
         }
