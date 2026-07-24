@@ -48,6 +48,9 @@
   <data name="Markdown" xml:space="preserve">
     <value>마크다운</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>일시 정지</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>미리보기</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Read Aloud" xml:space="preserve">
     <value>Read Aloud</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>다시 시작</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>원본</value>

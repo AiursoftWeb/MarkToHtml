@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 連携</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>一時停止</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>プレビュー</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>レスポンシブデザイン</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>再開</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>保存</value>

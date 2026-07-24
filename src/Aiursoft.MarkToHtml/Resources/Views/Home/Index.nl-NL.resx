@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integratie</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauzeren</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Voorbeeld</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsief Ontwerp</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Hervatten</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Opslaan</value>

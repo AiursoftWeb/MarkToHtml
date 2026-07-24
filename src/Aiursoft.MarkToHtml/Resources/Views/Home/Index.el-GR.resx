@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Ενσωμάτωση OpenID Connect</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Παύση</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Προεπισκόπηση</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Αποκρισιμό Σχεδιασμό</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Συνέχεια</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Αποθήκευση</value>

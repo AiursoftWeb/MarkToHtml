@@ -48,6 +48,9 @@
   <data name="Markdown" xml:space="preserve">
     <value>มาร์กดาวน์</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>หยุดชั่วคราว</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>แสดงตัวอย่าง</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Read Aloud" xml:space="preserve">
     <value>Read Aloud</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>ดำเนินการต่อ</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>ซอร์สโค้ด</value>

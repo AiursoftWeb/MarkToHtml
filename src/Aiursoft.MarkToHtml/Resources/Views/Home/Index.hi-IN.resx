@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>ओपनआईडी कनेक्ट एकीकरण</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>रोकें</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>पूर्वावलोकन</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>उत्तरदायी डिज़ाइन</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>फिर से शुरू करें</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>सहेजें</value>
