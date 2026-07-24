@@ -19,6 +19,8 @@ public class AgentConversation
     public DateTime LastActivity { get; set; } = DateTime.UtcNow;
     public string? ErrorMessage { get; set; }
     public int LoopCount { get; set; }
+    /// <summary>Set to true when document content is modified (e.g. after approved edit). Reset after UI picks it up.</summary>
+    public bool DocumentContentUpdated { get; set; }
 }
 
 public enum AgentState

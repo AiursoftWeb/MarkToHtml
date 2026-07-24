@@ -142,11 +142,12 @@ public class AgentController(
             }).ToList()
         }).ToList();
 
-        // After approval, return the updated document content
+        // Return updated document content whenever it has been modified
         string? updatedContent = null;
-        if (pendingAdvice.Count == 0 && conversation.State == AgentState.Completed)
+        if (conversation.DocumentContentUpdated)
         {
             updatedContent = agentService.GetUpdatedDocumentContent(conversationId);
+            conversation.DocumentContentUpdated = false; // reset until next change
         }
 
         return Ok(new AgentStatusViewModel

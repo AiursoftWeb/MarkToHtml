@@ -408,6 +408,7 @@ public class AgentService : IAgentService
                         await db.SaveChangesAsync();
                     }
 
+                    conversation.DocumentContentUpdated = true;
                     result = $"Document updated successfully. {oldString.Split('\n').Length} lines replaced with {newString.Split('\n').Length} lines.";
                 }
                 else

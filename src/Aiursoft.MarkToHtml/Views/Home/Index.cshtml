@@ -1106,7 +1106,7 @@
                         function() { return markdownEditorInstance.getValue(); },
                         function(content) {
                             markdownEditorInstance.getModel().setValue(content);
-                            isDirty = true;
+                            isDirty = false; // agent already saved to DB
                             updateSaveButtonState();
                             schedulePreviewUpdate(content);
                         }
