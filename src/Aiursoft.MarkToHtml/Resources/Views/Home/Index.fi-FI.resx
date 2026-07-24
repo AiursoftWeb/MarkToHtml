@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect -integraatio</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Tauko</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Esikatselu</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Responsiivinen suunnittelu</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Jatka</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Tallenna</value>

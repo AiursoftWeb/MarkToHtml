@@ -48,6 +48,9 @@
   <data name="Markdown" xml:space="preserve">
     <value>Markdown</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>暂停</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>预览</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Read Aloud" xml:space="preserve">
     <value>朗读</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>继续播放</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>源代码</value>

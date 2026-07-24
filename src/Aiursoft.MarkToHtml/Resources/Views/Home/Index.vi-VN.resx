@@ -207,6 +207,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Tích hợp OpenID Connect</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Tạm dừng</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Xem trước</value>
   </data>
@@ -242,6 +245,9 @@
   </data>
   <data name="Responsive Design" xml:space="preserve">
     <value>Thiết kế đáp ứng</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Tiếp tục</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Lưu</value>

@@ -48,6 +48,9 @@
   <data name="Markdown" xml:space="preserve">
     <value>Markdown</value>
   </data>
+  <data name="Pause" xml:space="preserve">
+    <value>Pauza</value>
+  </data>
   <data name="Preview" xml:space="preserve">
     <value>Podgląd</value>
   </data>
@@ -62,6 +65,9 @@
   </data>
   <data name="Read Aloud" xml:space="preserve">
     <value>Read Aloud</value>
+  </data>
+  <data name="Resume" xml:space="preserve">
+    <value>Wznów</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Źródło</value>
