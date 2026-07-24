@@ -25,24 +25,29 @@
         _setDocumentContent = setDocContent;
 
         var widget = document.getElementById('agent-chat-widget');
-        if (!widget) return;
+        if (!widget) {
+            console.debug('AgentChat: widget not found, skipping init');
+            return;
+        }
 
         var sendBtn = document.getElementById('agent-send-btn');
         var input = document.getElementById('agent-input');
-        var header = widget.querySelector('.agent-chat-header');
         var newChatBtn = document.getElementById('agent-new-chat-btn');
 
-        header.addEventListener('click', function() {
-            widget.classList.toggle('collapsed');
-        });
+        console.debug('AgentChat: init called, widget=', !!widget, 'sendBtn=', !!sendBtn,
+            'input=', !!input, 'newChatBtn=', !!newChatBtn);
 
-        sendBtn.addEventListener('click', function() { sendMessage(); });
-        input.addEventListener('keydown', function(ev) {
-            if (ev.key === 'Enter' && !ev.shiftKey) {
-                ev.preventDefault();
-                sendMessage();
-            }
-        });
+        if (sendBtn) {
+            sendBtn.addEventListener('click', function() { sendMessage(); });
+        }
+        if (input) {
+            input.addEventListener('keydown', function(ev) {
+                if (ev.key === 'Enter' && !ev.shiftKey) {
+                    ev.preventDefault();
+                    sendMessage();
+                }
+            });
+        }
 
         if (newChatBtn) {
             newChatBtn.addEventListener('click', function() { resetConversation(); });
@@ -51,8 +56,15 @@
 
     function sendMessage() {
         var input = document.getElementById('agent-input');
+        if (!input) return;
         var message = input.value.trim();
         if (!message) return;
+
+        // Require a saved document
+        if (!_documentId || _documentId === '00000000-0000-0000-0000-000000000000') {
+            appendMessage('assistant', loc('save-first', 'Please save the document first before using the AI assistant.'));
+            return;
+        }
 
         // Don't send while the agent is processing
         if (conversationId) {
@@ -361,9 +373,36 @@
         return div.innerHTML;
     }
 
+    function updateCallbacks(getDocContent, setDocContent) {
+        _getDocumentContent = getDocContent;
+        _setDocumentContent = setDocContent;
+    }
+
     window.AgentChat = {
         init: init,
+        updateCallbacks: updateCallbacks,
+        toggleWidget: toggleWidget,
+        sendMessage: sendMessage,
+        resetConversation: resetConversation,
+        handleInputKeydown: handleInputKeydown,
         approveAdvice: approveAdvice,
         rejectAdvice: rejectAdvice
     };
+
+    function handleInputKeydown(ev) {
+        if (ev.key === 'Enter' && !ev.shiftKey) {
+            ev.preventDefault();
+            sendMessage();
+        }
+    }
+
+    function toggleWidget() {
+        var widget = document.getElementById('agent-chat-widget');
+        if (!widget) return;
+        if (widget.style.display === 'none') {
+            widget.style.display = '';
+        } else {
+            widget.style.display = 'none';
+        }
+    }
 })();

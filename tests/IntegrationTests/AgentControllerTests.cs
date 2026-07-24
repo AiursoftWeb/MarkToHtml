@@ -106,6 +106,38 @@ public class AgentControllerTests : TestBase
     }
 
     [TestMethod]
+    public async Task TestEditPageRendersChatWidget()
+    {
+        await RegisterAndLoginAsync();
+
+        // Create a document via SaveNew
+        var saveResponse = await PostForm("/Home/SaveNew", new Dictionary<string, string>
+        {
+            { "DocumentId", Guid.NewGuid().ToString() },
+            { "Title", "Test Chat Widget" },
+            { "InputMarkdown", "# Hello World" }
+        });
+        Assert.AreEqual(HttpStatusCode.Found, saveResponse.StatusCode);
+
+        // Follow redirect to edit page
+        var editLocation = saveResponse.Headers.Location?.OriginalString ?? "";
+        Assert.IsTrue(editLocation.Contains("/Home/Edit/"),
+            $"Expected redirect to Edit page, got {editLocation}");
+
+        var editResponse = await Http.GetAsync(editLocation);
+        editResponse.EnsureSuccessStatusCode();
+        var html = await editResponse.Content.ReadAsStringAsync();
+
+        // Verify chat widget elements exist in the HTML
+        Assert.IsTrue(html.Contains("agent-chat-widget"),
+            "Chat widget container should be in the edit page HTML");
+        Assert.IsTrue(html.Contains("agent-send-btn"),
+            "Send button should be in the edit page HTML");
+        Assert.IsTrue(html.Contains("agent-chat.js"),
+            "agent-chat.js script reference should be in the page");
+    }
+
+    [TestMethod]
     public async Task TestRejectAdviceConversationNotFound()
     {
         await RegisterAndLoginAsync();

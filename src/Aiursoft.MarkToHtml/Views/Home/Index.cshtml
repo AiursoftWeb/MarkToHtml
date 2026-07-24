@@ -340,6 +340,18 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // ── AI Assistant: always init widget (it renders unconditionally) ──
+            const _tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+            const _antiForgeryToken = _tokenInput ? _tokenInput.value : '';
+            AgentChat.init(_antiForgeryToken, '@Model.DocumentId', null, null);
+
+            const aiButton = document.getElementById('ai-assistant-button');
+            if (aiButton) {
+                aiButton.addEventListener('click', function() {
+                    AgentChat.toggleWidget();
+                });
+            }
+
             require(['vs/editor/editor.main'], function () {
                 let markdownEditorInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -1088,13 +1100,9 @@
                     });
                 }
 
-                // --- AI Assistant ---
-                const aiButton = document.getElementById('ai-assistant-button');
-                if (aiButton && isAuthenticated && isEditing) {
-                    const documentId = '@Model.DocumentId';
-                    const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
-                    const antiForgeryToken = tokenInput ? tokenInput.value : '';
-                    AgentChat.init(antiForgeryToken, documentId,
+                // ── AI Assistant: wire up Monaco-dependent callbacks ──
+                if (typeof AgentChat !== 'undefined' && AgentChat.updateCallbacks) {
+                    AgentChat.updateCallbacks(
                         function() { return markdownEditorInstance.getValue(); },
                         function(content) {
                             markdownEditorInstance.getModel().setValue(content);
@@ -1103,12 +1111,6 @@
                             schedulePreviewUpdate(content);
                         }
                     );
-                    aiButton.addEventListener('click', function() {
-                        var widget = document.getElementById('agent-chat-widget');
-                        if (widget) {
-                            widget.classList.remove('collapsed');
-                        }
-                    });
                 }
             });
         });

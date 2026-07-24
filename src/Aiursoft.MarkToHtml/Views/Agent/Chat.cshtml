@@ -1,14 +1,13 @@
 @inject IViewLocalizer Localizer
 
-<div class="agent-chat-widget collapsed" id="agent-chat-widget">
+<div class="agent-chat-widget" id="agent-chat-widget" style="display:none">
     <div class="agent-chat-header">
         <div>
             <h6>@Localizer["AI Assistant"]</h6>
             <span class="agent-status" id="agent-status-text">@Localizer["Ready"]</span>
         </div>
         <div>
-            <button class="btn btn-outline-secondary btn-sm" id="agent-new-chat-btn" title="@Localizer["Start a new conversation"]">@Localizer["New"]</button>
-            <small style="color: var(--bs-secondary-color); margin-left: 4px">@Localizer["click to expand"]</small>
+            <button class="btn btn-outline-secondary btn-sm" id="agent-new-chat-btn" title="@Localizer["Start a new conversation"]" type="button" onclick="AgentChat.resetConversation()">@Localizer["New"]</button>
         </div>
     </div>
     <div class="agent-chat-messages" id="agent-messages">
@@ -23,8 +22,8 @@
         <span class="agent-thinking-text">@Localizer["Thinking..."]</span>
     </div>
     <div class="agent-chat-input">
-        <textarea id="agent-input" rows="1" placeholder="@Localizer["Paste client feedback or describe changes you want..."]"></textarea>
-        <button class="btn btn-primary btn-sm" id="agent-send-btn">@Localizer["Send"]</button>
+        <textarea id="agent-input" rows="1" placeholder="@Localizer["Paste client feedback or describe changes you want..."]" onkeydown="AgentChat.handleInputKeydown(event)"></textarea>
+        <button class="btn btn-primary btn-sm" id="agent-send-btn" type="button" onclick="AgentChat.sendMessage()">@Localizer["Send"]</button>
     </div>
 </div>
 
@@ -43,4 +42,5 @@
     <span data-key="approve">@Localizer["Approve"]</span>
     <span data-key="reject">@Localizer["Reject"]</span>
     <span data-key="edit-applied">@Localizer["Edit applied successfully!"]</span>
+    <span data-key="save-first">@Localizer["Please save the document first before using the AI assistant."]</span>
 </div>
