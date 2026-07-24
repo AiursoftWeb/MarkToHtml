@@ -99,6 +99,10 @@
 
             @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
             {
+                <button type="button" id="ai-assistant-button" class="btn btn-sm btn-white text-primary shadow-sm" title="@Localizer["AI Assistant"]">
+                    <i class="align-middle" data-lucide="bot"></i> <span class="d-none d-xxl-inline">@Localizer["AI"]</span>
+                </button>
+
                 <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" target="_blank" title="@Localizer["Share"]">
                     <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
                 </a>
@@ -170,13 +174,16 @@
     </div>
 </form>
 
+@* AI Assistant chat widget *@
+<partial name="~/Views/Agent/Chat.cshtml" />
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
-    @if (isDarkMode)
+    <link rel="stylesheet" href="~/css/agent-chat.css" asp-append-version="true" />    @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
     }
@@ -318,6 +325,7 @@
     <script src="~/scripts/tts-player.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
+    <script src="~/js/agent-chat.js" asp-append-version="true"></script>
     <script>
         window.MathJax = {
             tex: {
@@ -332,6 +340,18 @@
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // ── AI Assistant: always init widget (it renders unconditionally) ──
+            const _tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+            const _antiForgeryToken = _tokenInput ? _tokenInput.value : '';
+            AgentChat.init(_antiForgeryToken, '@Model.DocumentId', null, null);
+
+            const aiButton = document.getElementById('ai-assistant-button');
+            if (aiButton) {
+                aiButton.addEventListener('click', function() {
+                    AgentChat.toggleWidget();
+                });
+            }
+
             require(['vs/editor/editor.main'], function () {
                 let markdownEditorInstance;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -1078,6 +1098,19 @@
                             setTimeout(() => cpLink.innerHTML = h, 2000);
                         });
                     });
+                }
+
+                // ── AI Assistant: wire up Monaco-dependent callbacks ──
+                if (typeof AgentChat !== 'undefined' && AgentChat.updateCallbacks) {
+                    AgentChat.updateCallbacks(
+                        function() { return markdownEditorInstance.getValue(); },
+                        function(content) {
+                            markdownEditorInstance.getModel().setValue(content);
+                            isDirty = false; // agent already saved to DB
+                            updateSaveButtonState();
+                            schedulePreviewUpdate(content);
+                        }
+                    );
                 }
             });
         });

@@ -70,6 +70,9 @@ public class Startup : IWebStartup
         services.AddSingleton<Services.SearchRateLimiter>();
         services.AddScoped<Services.DocumentVectorSearchService>();
 
+        // AI Agent infrastructure
+        services.AddSingleton<Services.Agent.IAgentService, Services.Agent.AgentService>();
+
         // AI: refresh embedding cache from DB into memory (first, so cache is warm)
         var refreshCacheJob = services.RegisterBackgroundJob<Services.BackgroundJobs.RefreshDocumentEmbeddingCacheJob>();
         services.RegisterScheduledTask(registration: refreshCacheJob, period: TimeSpan.FromMinutes(30), startDelay: TimeSpan.FromMinutes(3));
