@@ -99,6 +99,10 @@
 
             @if ((User.Identity?.IsAuthenticated ?? false) && Model.IsEditing)
             {
+                <button type="button" id="ai-assistant-button" class="btn btn-sm btn-white text-primary shadow-sm" title="@Localizer["AI Assistant"]">
+                    <i class="align-middle" data-lucide="bot"></i> <span class="d-none d-xxl-inline">@Localizer["AI"]</span>
+                </button>
+
                 <a asp-action="ManageShares" asp-route-id="@Model.DocumentId" class="btn btn-sm btn-white text-dark shadow-sm" target="_blank" title="@Localizer["Share"]">
                     <i class="align-middle" data-lucide="share-2"></i> <span class="d-none d-xxl-inline">@Localizer["Share"]</span>
                 </a>
@@ -170,13 +174,16 @@
     </div>
 </form>
 
+@* AI Assistant chat widget *@
+<partial name="~/Views/Agent/Chat.cshtml" />
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-editor.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/styles/markdown-print.css"  asp-append-version="true" />
-    @if (isDarkMode)
+    <link rel="stylesheet" href="~/css/agent-chat.css" asp-append-version="true" />    @if (isDarkMode)
     {
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
     }
@@ -318,6 +325,7 @@
     <script src="~/scripts/tts-player.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
+    <script src="~/js/agent-chat.js" asp-append-version="true"></script>
     <script>
         window.MathJax = {
             tex: {
@@ -1077,6 +1085,29 @@
                             let h = cpLink.innerHTML; cpLink.innerHTML = `<i class="align-middle" data-lucide="check"></i>`;
                             setTimeout(() => cpLink.innerHTML = h, 2000);
                         });
+                    });
+                }
+
+                // --- AI Assistant ---
+                const aiButton = document.getElementById('ai-assistant-button');
+                if (aiButton && isAuthenticated && isEditing) {
+                    const documentId = '@Model.DocumentId';
+                    const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                    const antiForgeryToken = tokenInput ? tokenInput.value : '';
+                    AgentChat.init(antiForgeryToken, documentId,
+                        function() { return markdownEditorInstance.getValue(); },
+                        function(content) {
+                            markdownEditorInstance.getModel().setValue(content);
+                            isDirty = true;
+                            updateSaveButtonState();
+                            schedulePreviewUpdate(content);
+                        }
+                    );
+                    aiButton.addEventListener('click', function() {
+                        var widget = document.getElementById('agent-chat-widget');
+                        if (widget) {
+                            widget.classList.remove('collapsed');
+                        }
                     });
                 }
             });

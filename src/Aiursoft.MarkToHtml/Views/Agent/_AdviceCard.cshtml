@@ -1,0 +1,51 @@
+@* This partial is rendered client-side by agent-chat.js. Kept for completeness. *@
+@model Aiursoft.MarkToHtml.Models.AgentViewModels.AdviceViewModel
+@inject IViewLocalizer Localizer
+
+<div class="advice-card" data-advice-id="@Model.AdviceId">
+    <div class="advice-header">
+        @Localizer["Proposed Edit"]
+    </div>
+
+    @if (Model.DiffHunks is { Count: > 0 })
+    {
+        <div class="advice-diff">
+            @foreach (var hunk in Model.DiffHunks)
+            {
+                <div class="diff-hunk">
+                    <div class="diff-hunk-header">
+                        @@ -@hunk.OldStart,@hunk.OldLines +@hunk.NewStart,@hunk.NewLines @@
+                    </div>
+                    @foreach (var line in hunk.Lines)
+                    {
+                        var cssClass = line.StartsWith('+') ? "diff-add" :
+                                       line.StartsWith('-') ? "diff-remove" : "diff-context";
+                        <div class="diff-line @cssClass">@line</div>
+                    }
+                </div>
+            }
+        </div>
+    }
+
+    @if (Model.Parameters.Count > 0)
+    {
+        <div class="advice-params">
+            @foreach (var p in Model.Parameters)
+            {
+                <div class="advice-param-row">
+                    <span class="advice-param-key">@p.DisplayKey</span>
+                    <span class="advice-param-value">@p.Value</span>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="advice-actions">
+        <button class="btn btn-sm btn-success" onclick="window.AgentChat?.approveAdvice('@Model.AdviceId')">
+            @Localizer["Approve"]
+        </button>
+        <button class="btn btn-sm btn-outline-danger" onclick="window.AgentChat?.rejectAdvice('@Model.AdviceId')">
+            @Localizer["Reject"]
+        </button>
+    </div>
+</div>
