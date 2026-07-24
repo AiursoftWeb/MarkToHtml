@@ -1,6 +1,4 @@
 using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using Aiursoft.MarkToHtml.Models.AgentViewModels;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
@@ -15,15 +13,6 @@ public class AgentControllerTests : TestBase
         var match = System.Text.RegularExpressions.Regex.Match(body,
             @"<input[^>]*name=""__RequestVerificationToken""[^>]*value=""([^""]+)""");
         return match.Success ? match.Groups[1].Value : string.Empty;
-    }
-
-    private async Task PostJsonAsync(string url, object data)
-    {
-        var token = await GetCsrfToken();
-        var request = new HttpRequestMessage(HttpMethod.Post, url);
-        request.Headers.Add("RequestVerificationToken", token);
-        request.Content = JsonContent.Create(data);
-        await Http.SendAsync(request);
     }
 
     private Task<HttpResponseMessage> PostJsonWithResponseAsync(string url, object data)

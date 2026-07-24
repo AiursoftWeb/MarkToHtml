@@ -1,8 +1,4 @@
-@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @inject IViewLocalizer Localizer
-@{
-    var token = Antiforgery.GetAndStoreTokens(Context).RequestToken;
-}
 
 <div class="agent-chat-widget collapsed" id="agent-chat-widget">
     <div class="agent-chat-header">
