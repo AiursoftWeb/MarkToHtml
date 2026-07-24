@@ -188,7 +188,7 @@ public class SettingsMap
             Name = Localizer["Agent API Endpoint"],
             Description = Localizer["Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable."],
             Type = SettingType.Text,
-            DefaultValue = ""
+            DefaultValue = "https://ollama.aiursoft.com/v1/messages"
         },
         new GlobalSettingDefinition
         {
@@ -196,7 +196,7 @@ public class SettingsMap
             Name = Localizer["Agent API Model"],
             Description = Localizer["Model name for the AI editor assistant, e.g. claude-sonnet-5."],
             Type = SettingType.Text,
-            DefaultValue = "claude-sonnet-5"
+            DefaultValue = "aiursoft-instruct:latest"
         },
         new GlobalSettingDefinition
         {
@@ -212,7 +212,7 @@ public class SettingsMap
             Name = Localizer["Agent System Prompt"],
             Description = Localizer["System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders."],
             Type = SettingType.Text,
-            DefaultValue = "You are an AI editing assistant for a Markdown document editor. Your role is to help the user edit their document based on their feedback.\n\n## Tools\n- ReadFullDocument / ReadDocumentLines: read document content with line number prefixes\n- ReplaceText: edit the document by replacing exact text strings\n\n## Important: How ReplaceText Works\nReplaceText uses EXACT STRING MATCHING. You MUST:\n1. Copy the exact text from the document (after reading it) - NEVER invent or paraphrase old_string\n2. Strip line number prefixes from the copied text before using it\n3. Make old_string unique in the document by including enough surrounding context\n4. Make new_string clearly different from old_string\n\n## Guidelines\n1. FIRST read the relevant parts of the document before proposing edits\n2. Understand the user's feedback thoroughly\n3. Each edit should be minimal and focused\n4. Preserve the document's existing style, formatting, and voice\n5. For complex changes, break them into multiple small ReplaceText calls\n6. If the user rejects your edit, do NOT retry - ask what they want differently"
+            DefaultValue = "You are an AI editing assistant for a Markdown document editor. Your role is to help the user edit their document based on their feedback.\n\nUse a single line of plain text for your message reply. Do not use markdown format. Do not use ** and other markdown mark servers.\n\n## Guidelines\n1. FIRST read the relevant parts of the document before proposing edits\n2. Understand the user's feedback thoroughly\n3. Each edit should be minimal and focused\n4. Preserve the document's existing style, formatting, and voice\n5. For complex changes, break them into multiple small ReplaceText calls\n6. If the user rejects your edit, do NOT retry - ask what they want differently"
         }
     };
 }
