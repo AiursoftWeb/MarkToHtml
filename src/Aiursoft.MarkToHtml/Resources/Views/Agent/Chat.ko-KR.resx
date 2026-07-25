@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Assistant" xml:space="preserve">
+    <value>AI 어시스턴트</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>승인</value>
+  </data>
+  <data name="Approved - applying..." xml:space="preserve">
+    <value>승인됨 - 적용 중...</value>
+  </data>
+  <data name="Edit applied successfully!" xml:space="preserve">
+    <value>편집이 성공적으로 적용되었습니다!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>오류</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>오류:</value>
+  </data>
+  <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
+    <value>안녕하세요! 저는 편집 보조 도구입니다. 고객님의 피드백을 붙여넣거나 원하는 변경 사항을 설명해 주시면, 수정안을 제안해 드립니다.</value>
+  </data>
+  <data name="Network error:" xml:space="preserve">
+    <value>네트워크 오류:</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>새로 만들기</value>
+  </data>
+  <data name="Paste client feedback or describe changes you want..." xml:space="preserve">
+    <value>고객 피드백을 붙여넣거나 원하는 변경 사항을 설명하세요...</value>
+  </data>
+  <data name="Please save the document first before using the AI assistant." xml:space="preserve">
+    <value>AI 도우미를 사용하려면 먼저 문서를 저장하세요.</value>
+  </data>
+  <data name="Proposed Edit" xml:space="preserve">
+    <value>제안된 수정</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>준비됨</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>거부</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>거부됨</value>
+  </data>
+  <data name="Replace with" xml:space="preserve">
+    <value>다음으로 바꾸기</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>전송</value>
+  </data>
+  <data name="Start a new conversation" xml:space="preserve">
+    <value>새 대화 시작하기</value>
+  </data>
+  <data name="Thinking..." xml:space="preserve">
+    <value>생각 중...</value>
+  </data>
+  <data name="Waiting for approval" xml:space="preserve">
+    <value>승인 대기 중입니다</value>
+  </data>
+
+</root>

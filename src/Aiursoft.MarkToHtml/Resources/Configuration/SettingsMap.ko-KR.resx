@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>에이전트 API 엔드포인트</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>에이전트 API 모델</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>에이전트 API 토큰</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>에이전트 시스템 프롬프트</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>사용자 닉네임 조정 허용</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>프로필 관리 페이지에서 사용자가 닉네임을 수정할 수 있도록 허용합니다.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>AI 편집자 보조를 위한 Anthropic Messages API 엔드포인트(예: https://api.anthropic.com/v1/messages). 비활성화하려면 비워 둡니다.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Agent API 엔드포인트를 위한 API 토큰(x-api-key 헤더)입니다.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>임베딩 엔드포인트용 Bearer 토큰. 인증이 필요하지 않으면 빈칸으로 두세요.</value>
@@ -75,6 +93,9 @@
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>데이터베이스에 캐시된 검색 쿼리 임베딩의 최대 개수 (LRU). 기본값 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>AI 편집 보조 프로그램의 모델 이름(예: claude-sonnet-5).</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>문서 및 쿼리 임베딩을 생성하는 Ollama API 기본 URL (예: https://ollama.example.com). /api/embed가 자동으로 추가됩니다.</value>
   </data>
@@ -86,6 +107,9 @@
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>계약 헤더 표시</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>AI 편집 도우미의 시스템 프롬프트입니다. {{documentTitle}}과 {{documentContentLength}}를 플레이스홀더로 사용하세요.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 주소</value>

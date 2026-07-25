@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Point de terminaison de l&apos;API de l&apos;agent</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Modèle de l&apos;API Agent</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Jeton API de l&apos;agent</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Invite système de l&apos;agent</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Autoriser l&apos;utilisateur à modifier son surnom</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Autoriser les utilisateurs à modifier leur surnom sur la page de gestion du profil.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Point de terminaison de l&apos;API Anthropic Messages pour l&apos;assistant d&apos;édition IA (par ex. https://api.anthropic.com/v1/messages). Laissez vide pour désactiver.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Jeton API (en-tête x-api-key) pour le point de terminaison de l&apos;API Agent.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token for the Embedding Endpoint. Laisser vide si aucune authentification n&apos;est requise.
@@ -436,6 +454,9 @@ Thus final.
 
 ```Nombre maximal de plongements de requêtes de recherche mis en cache stockés dans la base de données (LRU). Par défaut 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Nom du modèle pour l&apos;assistant de rédaction IA, par ex. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de documents et de requêtes (par ex. https://ollama.example.com). /api/embed est ajouté automatiquement.
 ```
@@ -464,6 +485,9 @@ URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de docum
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Afficher l&apos;en-tête du contrat</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Invite système pour l&apos;assistant d&apos;édition IA. Utilisez {{documentTitle}} et {{documentContentLength}} comme espaces réservés.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>L&apos;adresse de la société ou du projet.</value>

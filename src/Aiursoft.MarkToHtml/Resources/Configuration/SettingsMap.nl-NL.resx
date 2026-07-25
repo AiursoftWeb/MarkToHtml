@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Agent-API-eindpunt</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Agent API-model</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Agent-API-token</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Agentsysteemprompt</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Gebruiker toestaan om bijnaam aan te passen</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Gebruikers toestaan hun bijnaam aan te passen op de pagina voor profielbeheer.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Anthropic Messages API-eindpunt voor de AI-bewerkassistent (bijv. https://api.anthropic.com/v1/messages). Laat leeg om uit te schakelen.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>API-token (x-api-key-header) voor het Agent API-eindpunt.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
@@ -334,6 +352,9 @@ Now, ensure no extra content, just the translation in triple backticks.
 ``` 
 Maximaal aantal in cache opgeslagen zoekquery‑inbeddingen in de database (LRU). Standaard 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Modelnaam voor de AI-editorassistent, bijv. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv. https://ollama.example.com). /api/embed wordt automatisch toegevoegd.
 ```
@@ -392,6 +413,9 @@ Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv.
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Toon contractkop</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Systeemprompt voor de AI-redactiehulp. Gebruik {{documentTitle}} en {{documentContentLength}} als vervangingswaarden.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Het adres van het bedrijf of project.</value>

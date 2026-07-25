@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Agent API-slutpunkt</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Agent-API-modell</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Agent-API-token</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Agent-systemprompt</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Tillåt Användare Ändra Smeknamn</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Tillåt användare att justera sin smeknamn på sidan för profilhantering.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Anthropic Messages API-slutpunkt för AI-redigeringsassistenten (t.ex. https://api.anthropic.com/v1/messages). Lämna tomt för att inaktivera.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>API-token (x-api-key-rubriken) för Agent API-slutpunkten.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bärare-token för Embedding Endpoint. Lämna tomt om ingen autentisering krävs.
@@ -292,6 +310,9 @@ Thus final answer: triple backticks with translation.
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>Maximalt antal cachelagrade sökfrågeinbäddningar i databasen (LRU). Standard 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Modellnamn för AI-redigeringsassistenten, t.ex. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API bas-URL för generering av dokument- och frågeinbäddningar (t.ex. https://ollama.example.com). /api/embed läggs till automatiskt.```
 
@@ -320,6 +341,9 @@ Thus final answer.
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Visa avtalsrubrik</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Systemprompt för AI-redigeringsassistenten. Använd {{documentTitle}} och {{documentContentLength}} som platshållare.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adressen för företaget eller projektet.</value>

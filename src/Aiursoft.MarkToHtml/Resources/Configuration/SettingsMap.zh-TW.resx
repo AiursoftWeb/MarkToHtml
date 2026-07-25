@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Agent API 端點</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>AI 代理 API 模型</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Agent API 權杖</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>代理系統提示詞</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允許使用者修改暱稱</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>允許使用者在個人資料管理頁面中調整其暱稱。</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>AI 編輯器助手的 Anthropic Messages API 端點（例如 https://api.anthropic.com/v1/messages）。留空以停用。</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Agent API 端點的 API 令牌（x-api-key 標頭）。</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer 令牌用於嵌入端點。若不需要身份驗證，請留空。</value>
@@ -75,6 +93,9 @@
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>資料庫中快取的搜尋查詢嵌入向量最大數量（LRU）。預設 2000。</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>AI 編輯輔助工具的模型名稱，例如 claude-sonnet-5。</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API base URL，用於產生文件與查詢向量嵌入（例如 https://ollama.example.com）。/api/embed 會自動附加。</value>
   </data>
@@ -86,6 +107,9 @@
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>顯示合約標頭</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>AI 編輯輔助系統提示。請使用 {{documentTitle}} 和 {{documentContentLength}} 作為佔位符。</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>公司或專案的地址</value>

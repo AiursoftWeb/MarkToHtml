@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Điểm cuối API của Agent</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Mô hình API Agent</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Mã thông báo API Agent</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Lời nhắc hệ thống của Agent</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Cho phép người dùng chỉnh sửa biệt danh</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Cho phép người dùng điều chỉnh biệt danh của họ trên trang quản lý hồ sơ.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Điểm cuối Anthropic Messages API cho trợ lý chỉnh sửa AI (ví dụ: https://api.anthropic.com/v1/messages). Để trống để tắt.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Mã thông báo API (tiêu đề x-api-key) cho Điểm cuối API Agent.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>`Bearer token cho Embedding Endpoint. Để trống nếu không cần xác thực.````
@@ -394,6 +412,9 @@ Now we must output only the translation, no extra content. So final answer.
 ``` 
 Số tối đa các vector truy vấn tìm kiếm được lưu vào bộ nhớ cache trong cơ sở dữ liệu (LRU). Mặc định 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Tên mô hình cho trợ lý biên tập AI, ví dụ: claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Translated word here...
 ```
@@ -488,6 +509,9 @@ URL cơ sở của Ollama API để tạo embeddings cho tài liệu và truy v�
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Hiển thị tiêu đề hợp đồng</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Lời nhắc hệ thống cho trợ lý chỉnh sửa AI. Sử dụng {{documentTitle}} và {{documentContentLength}} làm chỗ giữ chỗ.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Địa chỉ của công ty hoặc dự án.</value>

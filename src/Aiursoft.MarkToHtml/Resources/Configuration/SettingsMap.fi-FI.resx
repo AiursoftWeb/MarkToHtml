@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Agent API Endpoint</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Agent API -malli</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Agent API -avain</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Agentin järjestelmäohjeistus</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Salli käyttäjän muokata nimimerkkiä</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Anthropicin Messages API-päätepiste tekoälypohjaiselle muokkausavustajalle (esim. https://api.anthropic.com/v1/messages). Jätä tyhjäksi poistaaksesi käytöstä.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Agent API Endpointin API-merkintä (x-api-key-otsake).</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer-token Embedding-päätteelle. Jätä tyhjäksi, jos todennusta ei vaadita.</value>
@@ -75,6 +93,9 @@
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>Sivupäissä olevien haku-kyselyiden vektoriesitysten enimmäismäärä, joka tallennetaan tietokantaan (LRU). Oletusarvo 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Tekoälytoimittajan avustajan mallin nimi, esim. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API:n perus-URL-osoite dokumentti- ja kyselytekstien upotusten luomiseen (esim. https://ollama.example.com). /api/embed liitetään automaattisesti.</value>
   </data>
@@ -86,6 +107,9 @@
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Näytä sopimuksen otsikko</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Järjestelmäohje tekoälyavustajalle. Käytä {{documentTitle}} ja {{documentContentLength}} -muuttujia paikkamerkkeinä.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Yrityksen tai projektin osoite.</value>

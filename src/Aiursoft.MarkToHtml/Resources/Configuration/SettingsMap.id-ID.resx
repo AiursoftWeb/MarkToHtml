@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Titik Akhir API Agen</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Model API Agen</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Token API Agen</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Prompt Sistem Agen</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Izinkan Pengguna Mengubah Nickname</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Izinkan pengguna menyesuaikan nama panggilan mereka di halaman pengelolaan profil.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Titik akhir API Pesan Anthropic untuk asisten editor AI (misalnya https://api.anthropic.com/v1/messages). Kosongkan untuk menonaktifkan.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Token API (header x-api-key) untuk Titik Akhir API Agen.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Token Bearer untuk Titik Akhir Embedding. Kosongkan jika tidak diperlukan autentikasi.</value>
@@ -75,6 +93,9 @@
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>Jumlah maksimum embedding query pencarian yang di-cache dan disimpan dalam database (LRU). Default 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Nama model untuk asisten editor AI, mis. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>URL dasar API Ollama untuk menghasilkan embedding dokumen dan kueri (misalnya https://ollama.example.com). /api/embed akan ditambahkan secara otomatis.</value>
   </data>
@@ -86,6 +107,9 @@
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Tampilkan Header Kontrak</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Prompt sistem untuk asisten editor AI. Gunakan {{documentTitle}} dan {{documentContentLength}} sebagai placeholder.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Alamat perusahaan atau proyek.</value>
