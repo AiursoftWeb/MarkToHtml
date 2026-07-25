@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Ajan API Uç Noktası</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Ajan API Modeli</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Ajan API Jetonu</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Ajan Sistem İstemi</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Kullanıcı Adını Ayarlamaya İzin Ver</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Kullanıcıların profil yönetimi sayfasında takma isimlerini ayarlamasına izin verin.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Yapay zeka editör asistanı için Anthropic Messages API uç noktası (örn. https://api.anthropic.com/v1/messages). Devre dışı bırakmak için boş bırakın.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Ajan API Uç Noktası için API anahtarı (x-api-key başlığı).</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Embedding Endpoint için Bearer token. Yetkilendirme gerektirmediği durumda boş bırakın.
@@ -390,6 +408,9 @@ Semantic (vektör tabanlı) arama için Ana anahtar. Devre dışı bırakıldı�
 ``` 
 Veritabanında (LRU) önbelleğe alınmış en yüksek arama sorgusu embeddings adedi. Varsayılan 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Yapay zeka düzenleyici asistanı için model adı, örn. claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API temel URL, belge ve sorgu embedding&apos;lerini oluşturmak için kullanılır (örn. https://ollama.example.com). /api/embed otomatik olarak eklenir.```
 
@@ -434,6 +455,9 @@ Thus answer:
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Sözleşme Başlığını Göster</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Yapay zeka düzenleyici asistanı için sistem istemi. Yer tutucu olarak {{documentTitle}} ve {{documentContentLength}} kullanın.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Şirketin veya projenin adresi.</value>

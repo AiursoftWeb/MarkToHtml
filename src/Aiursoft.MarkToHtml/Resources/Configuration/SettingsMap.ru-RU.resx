@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Конечная точка API агента</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Модель API агента</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Токен API агента</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Системный запрос агента</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Разрешить пользователю изменять никнейм</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Позволить пользователям изменять свой ник в странице управления профилем.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Конечная точка Anthropic Messages API для AI-ассистента редактора (например, https://api.anthropic.com/v1/messages). Оставьте пустым, чтобы отключить.</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Токен API (заголовок x-api-key) для конечной точки Agent API.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token for the Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.
@@ -435,6 +453,9 @@ Thus final answer.
 
 ```Максимальное количество кэшированных поисковых запросов (embeddings), хранимых в базе данных (LRU). По умолчанию 2000.</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Название модели для AI-помощника редактора, например, claude-sonnet-5.</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Базовый URL API Ollama для создания эмбеддингов документов и запросов (например, https://ollama.example.com). /api/embed добавляется автоматически.
 ```
@@ -481,6 +502,9 @@ Now final answer.
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>Показать заголовок договора</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Системный промпт для ИИ-ассистента редактора. Используйте {{documentTitle}} и {{documentContentLength}} в качестве заполнителей.</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Адрес компании или проекта.</value>

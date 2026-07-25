@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>จุดสิ้นสุด API ตัวเอเจนต์</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>โมเดล API ของเอเจนต์</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>โทเค็น API ของเอเยนต์</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>คำสั่งระบบของเอเจนต์</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้แก้ไขชื่อเล่น</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>อนุญาตให้ผู้ใช้ปรับชื่อเล่นของตนเองได้ที่หน้าจัดการโปรไฟล์</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>จุดสิ้นสุด API ของ Anthropic Messages สำหรับผู้ช่วยแก้ไข AI (เช่น https://api.anthropic.com/v1/messages) ทิ้งว่างไว้เพื่อปิดการใช้งาน</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>โทเค็น API (ส่วนหัว x-api-key) สำหรับจุดสิ้นสุด API ของเอเจนต์</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้
@@ -427,6 +445,9 @@ Thus final answer.
 ```th
 จำนวนสูงสุดของการแคช embeddings ของคำค้นที่เก็บในฐานข้อมูล (LRU) คือ 2000 (ค่าเริ่มต้น)</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>ชื่อโมเดลสำหรับผู้ช่วยแก้ไข AI เช่น claude-sonnet-5</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama API base URL สำหรับสร้าง embeddings ของเอกสารและคำค้น (เช่น https://ollama.example.com) /api/embed จะถูกต่อท้ายโดยอัตโนมัติ.```
 
@@ -467,6 +488,9 @@ Thus final answer: (wrap in triple backticks)
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>แสดงส่วนหัวของสัญญา</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>คำสั่งระบบสำหรับผู้ช่วยแก้ไข AI ใช้ {{documentTitle}} และ {{documentContentLength}} เป็นตัวแปรแทนค่า</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>ที่อยู่ของบริษัทหรือโครงการ</value>

@@ -36,6 +36,12 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 더 이상 작동하지 않습니다. 계속 진행하시겠습니까?</value>
   </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>AI 어시스턴트</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI 기반 번역</value>
   </data>

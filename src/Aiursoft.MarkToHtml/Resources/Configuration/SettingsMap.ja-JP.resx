@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Allow User Adjust Nickname" xml:space="preserve">
+      <data name="Agent API Endpoint" xml:space="preserve">
+    <value>エージェント API エンドポイント</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>エージェント API モデル</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>エージェント API トークン</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>エージェントシステムプロンプト</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>ユーザーがニックネームを調整できるようにする</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>プロフィール管理ページでユーザーがニックネームを変更できるようにする。</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>AI エディタアシスタント用 Anthropic Messages API エンドポイント（例：https://api.anthropic.com/v1/messages）。無効にする場合は空のままにしてください。</value>
+  </data>
+  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>エージェントAPIエンドポイント用のAPIトークン（x-api-keyヘッダー）。</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Embedding Endpoint用のBearer トークン。認証が不要の場合は空にしてください。</value>
@@ -75,6 +93,9 @@
   <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
     <value>データベースにキャッシュされた検索クエリ埋め込みの最大数（LRU）。既定値 2000。</value>
   </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>AIエディターアシスタントのモデル名。例: claude-sonnet-5。</value>
+  </data>
   <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
     <value>Ollama APIのベースURLは、ドキュメントとクエリの埋め込みを生成するために使用します（例：https://ollama.example.com）。/api/embedは自動的に追加されます。</value>
   </data>
@@ -86,6 +107,9 @@
   </data>
   <data name="Show Contract Header" xml:space="preserve">
     <value>契約ヘッダーを表示</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>AI エディターアシスタント用のシステムプロンプト。{{documentTitle}} と {{documentContentLength}} をプレースホルダーとして使用してください。</value>
   </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>会社またはプロジェクトの住所</value>
