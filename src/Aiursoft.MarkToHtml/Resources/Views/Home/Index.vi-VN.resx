@@ -36,6 +36,12 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
   </data>
+  <data name="AI" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Trợ lý AI</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
   </data>

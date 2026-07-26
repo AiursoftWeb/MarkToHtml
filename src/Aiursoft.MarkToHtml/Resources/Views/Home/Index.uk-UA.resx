@@ -36,6 +36,12 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
   </data>
+  <data name="AI" xml:space="preserve">
+    <value>ШІ</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Помічник ШІ</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Переклади на основі ШІ</value>
   </data>

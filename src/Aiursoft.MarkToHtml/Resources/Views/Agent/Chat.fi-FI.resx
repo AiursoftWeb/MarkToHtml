@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Assistant" xml:space="preserve">
+    <value>Tekoälyavustaja</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Hyväksy</value>
+  </data>
+  <data name="Approved - applying..." xml:space="preserve">
+    <value>Hyväksytty – sovelletaan...</value>
+  </data>
+  <data name="Edit applied successfully!" xml:space="preserve">
+    <value>Muokkaus sovellettu onnistuneesti!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Virhe</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Virhe:</value>
+  </data>
+  <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
+    <value>Hei! Olen muokkausavustajasi. Liitä asiakkaasi palaute tai kuvaile halutut muutokset, niin ehdotan korjauksia.</value>
+  </data>
+  <data name="Network error:" xml:space="preserve">
+    <value>Verkkovirhe:</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Uusi</value>
+  </data>
+  <data name="Paste client feedback or describe changes you want..." xml:space="preserve">
+    <value>Liitä asiakaspalautetta tai kuvaile halutut muutokset...</value>
+  </data>
+  <data name="Please save the document first before using the AI assistant." xml:space="preserve">
+    <value>Tallenna asiakirja ennen tekoälyavustajan käyttöä.</value>
+  </data>
+  <data name="Proposed Edit" xml:space="preserve">
+    <value>Ehdotettu muutos</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Valmis</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Hylkää</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Hylätty</value>
+  </data>
+  <data name="Replace with" xml:space="preserve">
+    <value>Korvaa tekstillä</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Lähetä</value>
+  </data>
+  <data name="Start a new conversation" xml:space="preserve">
+    <value>Aloita uusi keskustelu</value>
+  </data>
+  <data name="Thinking..." xml:space="preserve">
+    <value>Ajattelee...</value>
+  </data>
+  <data name="Waiting for approval" xml:space="preserve">
+    <value>Odottaa hyväksyntää</value>
+  </data>
+
+</root>
