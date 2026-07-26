@@ -7,6 +7,7 @@ using Aiursoft.MarkToHtml.InMemory;
 using Aiursoft.MarkToHtml.MySql;
 using Aiursoft.MarkToHtml.Services.Authentication;
 using Aiursoft.MarkToHtml.Sqlite;
+using Aiursoft.UiStack;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Ganss.Xss;
@@ -109,6 +110,7 @@ public class Startup : IWebStartup
     {
         app.UseExceptionHandler("/Error/Code500");
         app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
+        app.UseUIStack();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();
