@@ -36,6 +36,12 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Αφού κάνετε αυτό το έγγραφο ιδιωτικό, ο υπάρχων δημόσιος σύνδεσμος δεν θα λειτουργεί πλέον. Είστε σίγουροι ότι θέλετε να συνεχίσετε;</value>
   </data>
+  <data name="AI" xml:space="preserve">
+    <value>Τεχνητή Νοημοσύνη</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Βοηθός Τεχνητής Νοημοσύνης</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Μεταφράσεις με Τεχνητή Νοημοσύνη</value>
   </data>

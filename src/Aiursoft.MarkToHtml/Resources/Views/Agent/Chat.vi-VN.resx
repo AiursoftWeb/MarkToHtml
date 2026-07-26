@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Assistant" xml:space="preserve">
+    <value>Trợ lý AI</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Approved - applying..." xml:space="preserve">
+    <value>Đã phê duyệt - đang áp dụng...</value>
+  </data>
+  <data name="Edit applied successfully!" xml:space="preserve">
+    <value>Đã áp dụng chỉnh sửa thành công!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Lỗi:</value>
+  </data>
+  <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
+    <value>Chào bạn! Tôi là trợ lý chỉnh sửa của bạn. Hãy dán phản hồi từ khách hàng hoặc mô tả những thay đổi bạn muốn, tôi sẽ đề xuất các chỉnh sửa.</value>
+  </data>
+  <data name="Network error:" xml:space="preserve">
+    <value>Lỗi mạng:</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Mới</value>
+  </data>
+  <data name="Paste client feedback or describe changes you want..." xml:space="preserve">
+    <value>Dán phản hồi từ khách hàng hoặc mô tả các thay đổi bạn muốn...</value>
+  </data>
+  <data name="Please save the document first before using the AI assistant." xml:space="preserve">
+    <value>Vui lòng lưu tài liệu trước khi sử dụng trợ lý AI.</value>
+  </data>
+  <data name="Proposed Edit" xml:space="preserve">
+    <value>Chỉnh sửa đề xuất</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Sẵn sàng</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Từ chối</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Bị từ chối</value>
+  </data>
+  <data name="Replace with" xml:space="preserve">
+    <value>Thay thế bằng</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Gửi</value>
+  </data>
+  <data name="Start a new conversation" xml:space="preserve">
+    <value>Bắt đầu cuộc trò chuyện mới</value>
+  </data>
+  <data name="Thinking..." xml:space="preserve">
+    <value>Đang suy nghĩ...</value>
+  </data>
+  <data name="Waiting for approval" xml:space="preserve">
+    <value>Đang chờ phê duyệt</value>
+  </data>
+
+</root>

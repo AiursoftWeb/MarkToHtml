@@ -36,6 +36,12 @@
   <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
     <value>Po ustawieniu tego dokumentu jako prywatny, istniejący publiczny link przestanie działać. Czy na pewno chcesz kontynuować?</value>
   </data>
+  <data name="AI" xml:space="preserve">
+    <value>SI</value>
+  </data>
+  <data name="AI Assistant" xml:space="preserve">
+    <value>Asystent AI</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Tłumaczenia Wspomagane Sztuczną Inteligencją</value>
   </data>

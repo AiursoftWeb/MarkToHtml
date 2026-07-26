@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Assistant" xml:space="preserve">
+    <value>AI-assistent</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Godkänn</value>
+  </data>
+  <data name="Approved - applying..." xml:space="preserve">
+    <value>Godkänd - tillämpar...</value>
+  </data>
+  <data name="Edit applied successfully!" xml:space="preserve">
+    <value>Ändring tillämpad!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fel</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Fel:</value>
+  </data>
+  <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
+    <value>Hej! Jag är din redigeringsassistent. Klistra in kundens feedback eller beskriv de ändringar du vill göra, så föreslår jag redigeringar.</value>
+  </data>
+  <data name="Network error:" xml:space="preserve">
+    <value>Nätverksfel:</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="Paste client feedback or describe changes you want..." xml:space="preserve">
+    <value>Klistra in kundens återkoppling eller beskriv de ändringar du vill ha...</value>
+  </data>
+  <data name="Please save the document first before using the AI assistant." xml:space="preserve">
+    <value>Spara dokumentet först innan du använder AI-assistenten.</value>
+  </data>
+  <data name="Proposed Edit" xml:space="preserve">
+    <value>Föreslagen redigering</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Avvisa</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Avvisad</value>
+  </data>
+  <data name="Replace with" xml:space="preserve">
+    <value>Ersätt med</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Skicka</value>
+  </data>
+  <data name="Start a new conversation" xml:space="preserve">
+    <value>Starta en ny konversation</value>
+  </data>
+  <data name="Thinking..." xml:space="preserve">
+    <value>Tänker...</value>
+  </data>
+  <data name="Waiting for approval" xml:space="preserve">
+    <value>Väntar på godkännande</value>
+  </data>
+
+</root>
