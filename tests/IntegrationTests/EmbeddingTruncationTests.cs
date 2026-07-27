@@ -1,5 +1,6 @@
 using System.Net;
 using System.Text;
+using Aiursoft.Canon;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Services.BackgroundJobs;
 using Newtonsoft.Json;
@@ -80,6 +81,7 @@ public class EmbeddingTruncationTests
             null!,
             null!,
             httpClientFactory,
+            new RetryEngine(),
             loggerFactory.CreateLogger<GenerateDocumentEmbeddingsJob>());
     }
 
