@@ -92,12 +92,16 @@ public class GlobalSettingsService(
 
     public async Task<string> GetEmbeddingEndpointAsync()
     {
-        return await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        return endpoint.TrimEnd('/');
     }
 
     public async Task<string> GetEmbeddingTokenAsync()
     {
-        return await GetSettingValueAsync(SettingsMap.EmbeddingApiToken);
+        var dedicated = await GetSettingValueAsync(SettingsMap.EmbeddingApiToken);
+        if (!string.IsNullOrWhiteSpace(dedicated)) return dedicated;
+
+        return await GetSettingValueAsync(SettingsMap.AgentApiToken);
     }
 
     public bool IsOverriddenByConfig(string key)

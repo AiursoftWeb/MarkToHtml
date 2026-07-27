@@ -167,7 +167,7 @@ public class GenerateDocumentEmbeddingsJob(
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>();
+                var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>(timeoutCts.Token);
                 if (result?.Embeddings == null || result.Embeddings.Length == 0)
                     throw new InvalidOperationException($"Ollama returned no embeddings for document '{doc.Title}'.");
 

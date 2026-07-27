@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Util;
 
 namespace Aiursoft.MarkToHtml.Services;
 
@@ -14,7 +15,7 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
     internal const int MaxCachedDocumentEmbeddings = 10000;
     private Dictionary<Guid, float[]> _cache = [];
-    private readonly object _lock = new();
+    private readonly Lock _lock = new();
 
     public int Count
     {
@@ -48,7 +49,7 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         var newCache = new Dictionary<Guid, float[]>();
         foreach (var item in embeddings)
         {
-            var vector = Deserialize(item.Embedding!);
+            var vector = EmbeddingHelper.Deserialize(item.Embedding!);
             if (vector != null)
             {
                 newCache[item.Id] = vector;
@@ -66,11 +67,4 @@ public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
         }
     }
 
-    private static float[]? Deserialize(byte[] bytes)
-    {
-        if (bytes.Length % 4 != 0) return null;
-        var floats = new float[bytes.Length / 4];
-        Buffer.BlockCopy(bytes, 0, floats, 0, bytes.Length);
-        return floats;
-    }
 }

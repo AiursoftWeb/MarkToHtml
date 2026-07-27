@@ -47,7 +47,7 @@ public class DocumentVectorSearchService(
             var expectedDimension = snapshot.Values.First().Length;
             queryVector = await EmbedQueryAsync(query, expectedDimension, ct);
         }
-        catch
+        catch (Exception)
         {
             return (false, [], 0);
         }
