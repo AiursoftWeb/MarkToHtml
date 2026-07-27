@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.MarkToHtml.Entities;
 
@@ -8,6 +9,7 @@ namespace Aiursoft.MarkToHtml.Services;
 /// Loaded at startup and refreshed periodically via <see cref="BackgroundJobs.RefreshDocumentEmbeddingCacheJob"/>.
 /// Registered as a singleton — thread-safe via an atomic snapshot swap.
 /// </summary>
+[ExcludeFromCodeCoverage]
 public class DocumentEmbeddingCache(ILogger<DocumentEmbeddingCache> logger)
 {
     internal const int MaxCachedDocumentEmbeddings = 10000;

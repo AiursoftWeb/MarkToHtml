@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MarkToHtml.Entities;
@@ -7,6 +8,7 @@ namespace Aiursoft.MarkToHtml.Entities;
 /// Database cache for user-query embedding vectors (circular LRU buffer).
 /// Avoids redundant round-trips to the embedding model for repeated search terms.
 /// </summary>
+[ExcludeFromCodeCoverage]
 [Index(nameof(QueryText), IsUnique = true)]
 public class SearchEmbedding
 {
@@ -24,10 +26,10 @@ public class SearchEmbedding
     /// </summary>
     public byte[] Embedding { get; set; } = [];
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     /// <summary>
     /// Updated on cache-hit (throttled to once per hour) for LRU eviction.
     /// </summary>
-    public DateTime LastAccessedAt { get; set; }
+    public DateTime LastAccessedAt { get; set; } = DateTime.UtcNow;
 }
