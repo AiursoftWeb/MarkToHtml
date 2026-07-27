@@ -18,7 +18,7 @@ public class SettingsMap
     public const string ShowContractHeader = "ShowContractHeader";
 
     // ── AI: Embedding / Vector Search ──────────────────────────────────────────
-    public const string EmbeddingEndpoint = "EmbeddingEndpoint";
+    public const string EmbeddingOllamaInstance = "EmbeddingOllamaInstance";
     public const string EmbeddingModel = "EmbeddingModel";
     public const string EmbeddingApiToken = "EmbeddingApiToken";
     public const string EnableEmbeddingBasedSearch = "EnableEmbeddingBasedSearch";
@@ -143,7 +143,7 @@ public class SettingsMap
         },
         new GlobalSettingDefinition
         {
-            Key = EmbeddingEndpoint,
+            Key = EmbeddingOllamaInstance,
             Name = Localizer["Embedding Endpoint"],
             Description = Localizer["Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically."],
             Type = SettingType.Text,

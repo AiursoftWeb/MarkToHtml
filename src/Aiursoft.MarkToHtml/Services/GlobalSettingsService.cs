@@ -86,13 +86,13 @@ public class GlobalSettingsService(
 
     public async Task<bool> IsAiSearchEnabledAsync()
     {
-        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingOllamaInstance);
         return !string.IsNullOrWhiteSpace(endpoint);
     }
 
     public async Task<string> GetEmbeddingEndpointAsync()
     {
-        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingEndpoint);
+        var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingOllamaInstance);
         return endpoint.TrimEnd('/');
     }
 
