@@ -1,7 +1,9 @@
 using System.Text;
+using Aiursoft.Canon;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.Util;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
@@ -16,6 +18,7 @@ public class GenerateDocumentEmbeddingsJob(
     TemplateDbContext db,
     GlobalSettingsService settingsService,
     IHttpClientFactory httpClientFactory,
+    RetryEngine retryEngine,
     ILogger<GenerateDocumentEmbeddingsJob> logger) : IBackgroundJob
 {
     internal const int MaxDocumentsPerRun = 50;
@@ -102,8 +105,13 @@ public class GenerateDocumentEmbeddingsJob(
                 try
                 {
                     var sourceUpdatedAt = doc.UpdatedAt;
-                    var embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
-                    if (await TrySaveEmbeddingIfDocumentUnchangedAsync(db, doc, sourceUpdatedAt, embedding))
+                    float[]? embedding = null;
+                    await retryEngine.RunWithRetry(async _ =>
+                    {
+                        embedding = await CallEmbedApiAsync(endpoint, model, token, doc);
+                    });
+
+                    if (await TrySaveEmbeddingIfDocumentUnchangedAsync(db, doc, sourceUpdatedAt, embedding!))
                     {
                         succeeded++;
                     }
@@ -164,7 +172,7 @@ public class GenerateDocumentEmbeddingsJob(
                     throw new InvalidOperationException($"Ollama returned no embeddings for document '{doc.Title}'.");
 
                 var vector = result.Embeddings[0];
-                Normalize(vector);
+                EmbeddingHelper.Normalize(vector);
                 return vector;
             }
 
@@ -217,7 +225,7 @@ public class GenerateDocumentEmbeddingsJob(
         DateTime sourceUpdatedAt,
         float[] embedding)
     {
-        var serialized = Serialize(embedding);
+        var serialized = EmbeddingHelper.Serialize(embedding);
         if (db.Database.IsRelational())
         {
             var updated = await db.MarkdownDocuments
@@ -238,23 +246,6 @@ public class GenerateDocumentEmbeddingsJob(
         doc.LastEmbeddedAt = sourceUpdatedAt;
         await db.SaveChangesAsync();
         return true;
-    }
-
-    private static void Normalize(float[] v)
-    {
-        var sumSq = 0f;
-        foreach (var x in v) sumSq += x * x;
-        var norm = MathF.Sqrt(sumSq);
-        if (norm > 0)
-            for (var i = 0; i < v.Length; i++)
-                v[i] /= norm;
-    }
-
-    private static byte[] Serialize(float[] v)
-    {
-        var bytes = new byte[v.Length * 4];
-        Buffer.BlockCopy(v, 0, bytes, 0, bytes.Length);
-        return bytes;
     }
 
     private class OllamaEmbedResponse
