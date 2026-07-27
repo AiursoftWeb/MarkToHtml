@@ -34,7 +34,7 @@ public class DocumentVectorSearchService(
         int pageSize,
         CancellationToken ct = default)
     {
-        if (!await ShouldAttemptVectorSearch())
+        if (!await ShouldAttemptVectorSearchAsync())
             return (false, [], 0);
 
         var snapshot = cache.Snapshot();
@@ -160,7 +160,7 @@ public class DocumentVectorSearchService(
         return sb.ToString();
     }
 
-    private async Task<bool> ShouldAttemptVectorSearch()
+    private async Task<bool> ShouldAttemptVectorSearchAsync()
     {
         var enabled = await settingsService.GetBoolSettingAsync(SettingsMap.EnableEmbeddingBasedSearch);
         if (!enabled) return false;
