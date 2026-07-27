@@ -81,7 +81,7 @@ public class EmbeddingTruncationTests
             null!,
             null!,
             httpClientFactory,
-            new RetryEngine(),
+            new RetryEngine(loggerFactory.CreateLogger<RetryEngine>()),
             loggerFactory.CreateLogger<GenerateDocumentEmbeddingsJob>());
     }
 
