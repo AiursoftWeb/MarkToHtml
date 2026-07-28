@@ -6,6 +6,21 @@
 @{
     var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
     var canManageAnyShare = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
+    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
+}
+
+@if (Model.SavedSuccessfully)
+{
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert-icon">
+            <i class="align-middle" data-lucide="alert-triangle"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Success!"]</strong>
+            @Localizer["Document updated successfully."]
+        </div>
+    </div>
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -29,24 +44,10 @@
     </div>
 </div>
 
-@if (Model.SavedSuccessfully)
-{
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="alert-triangle"></i>
-        </div>
-        <div class="alert-message">
-            <strong>@Localizer["Success!"]</strong>
-            @Localizer["Document updated successfully."]
-        </div>
-    </div>
-}
-
-<form asp-action="EditDocument" method="post">
+<form asp-action="EditDocument" method="post" id="markdown-form">
     <input type="hidden" asp-for="DocumentId" />
 
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-header">
             <h5 class="card-title mb-0">
                 <i class="align-middle" data-lucide="file-pen-line">&nbsp;</i>
@@ -67,14 +68,40 @@
                 </select>
                 <span asp-validation-for="SelectedUserId" class="text-danger"></span>
             </div>
+        </div>
+    </div>
 
-            <div class="mb-3">
-                <label asp-for="InputMarkdown" class="form-label">@Localizer["Markdown Content"]</label>
-                <textarea asp-for="InputMarkdown" class="form-control" id="markdown-editor"
-                          placeholder="@Localizer["Type your Markdown here..."]"></textarea>
-                <span asp-validation-for="InputMarkdown" class="text-danger"></span>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">
+                <i class="align-middle" data-lucide="code-2">&nbsp;</i>
+                @Localizer["Markdown Content"]
+            </h5>
+            <div class="btn-group btn-group-sm" role="group" aria-label="View mode">
+                <input type="radio" class="btn-check" name="view-mode" id="view-split" value="split" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="view-split" title="@Localizer["Split View"]"><i class="align-middle" data-lucide="columns"></i></label>
+
+                <input type="radio" class="btn-check" name="view-mode" id="view-editor" value="editor" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="view-editor" title="@Localizer["Editor Only"]"><i class="align-middle" data-lucide="code-2"></i></label>
+
+                <input type="radio" class="btn-check" name="view-mode" id="view-preview" value="preview" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="view-preview" title="@Localizer["Preview Only"]"><i class="align-middle" data-lucide="eye"></i></label>
             </div>
         </div>
+        <div class="card-body p-0">
+            <div class="row g-0" style="min-height: 60vh;">
+                <div id="editor-column" class="col-md-6 border-end">
+                    <div class="position-relative" style="height: 100%; min-height: 60vh;">
+                        <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
+                        <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
+                    </div>
+                </div>
+                <div id="preview-column" class="col-md-6 overflow-auto bg-light-subtle">
+                    <div id="preview-content" class="markdown-content p-4" style="min-height: 60vh;"></div>
+                </div>
+            </div>
+        </div>
+        <span asp-validation-for="InputMarkdown" class="text-danger px-3"></span>
     </div>
 
     <div class="row mt-3">
@@ -92,54 +119,572 @@
     </div>
 </form>
 
-@{
-    var isDarkMode = Context.Request.Cookies[ThemeController.ThemeCookieKey] == true.ToString();
-    var theme = isDarkMode ? "material" : "eclipse";
-}
-
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section styles {
     <link rel="stylesheet" href="~/node_modules/@@fontsource/cascadia-code/index.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/node_modules/codemirror/lib/codemirror.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/node_modules/codemirror/theme/@(theme).css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/styles/markdown-reader.css" asp-append-version="true" />
+    @if (isDarkMode)
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github-dark.min.css" asp-append-version="true" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
+    }
     <style>
-        .CodeMirror {
-            border: 1px solid #dee2e6;
-            height: 60vh;
-            font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+        main.content {
+            padding: 0 !important;
+        }
+        @@media (max-width: 767.98px) {
+            #editor-column,
+            #preview-column {
+                width: 100%;
+                display: none;
+            }
+            .view-mode-editor #editor-column,
+            .view-mode-preview #preview-column {
+                display: block;
+            }
         }
     </style>
 }
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script src="~/node_modules/codemirror/lib/codemirror.js" asp-append-version="true"></script>
-    <script src="~/node_modules/codemirror/mode/markdown/markdown.js" asp-append-version="true"></script>
+    @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // --- jQuery Validation Setup ---
             if ($.validator) {
                 $.validator.setDefaults({
                     ignore: []
                 });
             }
 
-            // --- CodeMirror Initialization ---
-            if (typeof CodeMirror !== 'undefined') {
-                const editorElement = document.getElementById('markdown-editor');
-                if (editorElement && !editorElement.CodeMirror) {
-                    const markdownEditorInstance = CodeMirror.fromTextArea(editorElement, {
-                        lineNumbers: true,
-                        mode: 'markdown',
-                        theme: '@(theme)',
-                        viewportMargin: Infinity
+            require(['vs/editor/editor.main'], function () {
+                let markdownEditorInstance;
+                const markdownEditorElement = document.getElementById('markdown-editor');
+                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+
+                // --- Monaco Editor Setup ---
+                if (markdownEditorElement) {
+                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
+                        value: markdownEditorElement.value,
+                        language: 'markdown',
+                        theme: monacoTheme,
+                        automaticLayout: true,
+                        wordWrap: 'on',
+                        'semanticHighlighting.enabled': true,
+                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                        fontSize: 14,
+                        fontLigatures: true
                     });
 
-                    markdownEditorInstance.on('change', function() {
-                        markdownEditorInstance.save();
+                    // --- Math plugin for markdown-it ---
+                    function mathPlugin(md) {
+                        md.block.ruler.before('fence', 'math_block', function (state, startLine, endLine, silent) {
+                            let pos = state.bMarks[startLine] + state.tShift[startLine];
+                            let max = state.eMarks[startLine];
+                            if (pos + 2 > max) return false;
+                            if (state.src.slice(pos, pos + 2) !== '$$') return false;
+                            if (silent) return true;
+                            let firstLine = state.src.slice(pos + 2, max).trim();
+                            let found = false, nextLine = startLine;
+                            while (nextLine < endLine) {
+                                nextLine++;
+                                if (nextLine >= endLine) break;
+                                let linePos = state.bMarks[nextLine] + state.tShift[nextLine];
+                                let lineMax = state.eMarks[nextLine];
+                                if (state.src.slice(linePos, linePos + 2) === '$$') { found = true; break; }
+                            }
+                            let lines = firstLine ? [firstLine] : [];
+                            for (let i = startLine + 1; i < nextLine; i++) {
+                                lines.push(state.src.slice(state.bMarks[i], state.eMarks[i]));
+                            }
+                            state.line = found ? nextLine + 1 : nextLine;
+                            let token = state.push('math_block', 'math', 0);
+                            token.content = lines.join('\n').trim();
+                            token.map = [startLine, state.line];
+                            token.markup = '$$';
+                            return true;
+                        });
+
+                        md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
+                            let pos = state.pos;
+                            if (state.src[pos] !== '$') return false;
+                            if (state.src[pos + 1] === '$') return false;
+                            let start = pos + 1;
+                            if (start >= state.posMax) return false;
+                            if (state.src[start] === ' ') return false;
+                            let end = state.src.indexOf('$', start);
+                            while (end > 0 && state.src[end - 1] === '\\') {
+                                end = state.src.indexOf('$', end + 1);
+                            }
+                            if (end < 0 || end === start) return false;
+                            if (state.src[end - 1] === ' ') return false;
+                            let content = state.src.slice(start, end);
+                            if (content.indexOf('\n') >= 0) return false;
+                            if (!silent) {
+                                let token = state.push('math_inline', '', 0);
+                                token.markup = '$';
+                                token.content = content;
+                            }
+                            state.pos = end + 1;
+                            return true;
+                        });
+
+                        md.renderer.rules.math_inline = function (tokens, idx) {
+                            return '\\(' + tokens[idx].content + '\\)';
+                        };
+                        md.renderer.rules.math_block = function (tokens, idx) {
+                            return '<p>\\[' + tokens[idx].content + '\\]</p>\n';
+                        };
+                    }
+
+                    // --- Real-time Markdown Preview ---
+                    const md = window.markdownit({
+                        html: false,
+                        linkify: true,
+                        typographer: true,
+                        highlight: function (str, lang) {
+                            if (lang === 'mermaid') {
+                                return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
+                            }
+                            if (window.hljs && window.hljs.getLanguage(lang)) {
+                                try {
+                                    return '<pre><code class="hljs language-' + lang + '">' +
+                                        window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                                        '</code></pre>';
+                                } catch (_) {}
+                            }
+                            return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
+                        }
+                    }).use(mathPlugin);
+
+                    let previewTimer = null;
+                    function schedulePreviewUpdate(markdown) {
+                        clearTimeout(previewTimer);
+                        previewTimer = setTimeout(function () {
+                            const previewContent = document.getElementById('preview-content');
+                            if (!previewContent) return;
+                            const html = md.render(markdown);
+                            previewContent.innerHTML = html;
+                            stylePreviewTables();
+                            renderMermaid();
+                            renderMath();
+                        }, 300);
+                    }
+
+                    markdownEditorInstance.onDidChangeModelContent(() => {
+                        const currentValue = markdownEditorInstance.getValue();
+                        markdownEditorElement.value = currentValue;
+                        schedulePreviewUpdate(currentValue);
+                    });
+
+                    // Initial preview render
+                    schedulePreviewUpdate(markdownEditorElement.value);
+
+                    // --- Enter Key Handler for List Continuation ---
+                    markdownEditorInstance.onKeyDown((e) => {
+                        if (e.keyCode === monaco.KeyCode.Enter && !e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+
+                            const unorderedMatch = lineContent.match(/^(\s*)([\-\*\+])\s(.*)$/);
+                            const orderedMatch = lineContent.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+
+                            if (unorderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = unorderedMatch[1];
+                                const marker = unorderedMatch[2];
+                                const content = unorderedMatch[3];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const insertText = '\n' + indent + marker + ' ';
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    }]);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            } else if (orderedMatch) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const indent = orderedMatch[1];
+                                const number = parseInt(orderedMatch[2]);
+                                const dot = orderedMatch[3];
+                                const content = orderedMatch[4];
+
+                                if (!content.trim()) {
+                                    markdownEditorInstance.executeEdits('markdown-list', [{
+                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                        text: '',
+                                        forceMoveMarkers: true
+                                    }]);
+                                } else {
+                                    const edits = [];
+                                    const nextNumber = number + 1;
+                                    const insertText = '\n' + indent + nextNumber + dot + ' ';
+
+                                    edits.push({
+                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
+                                        text: insertText,
+                                        forceMoveMarkers: true
+                                    });
+
+                                    for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
+                                        const nextLine = model.getLineContent(i);
+                                        const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
+                                        if (nextLineMatch && nextLineMatch[1] === indent) {
+                                            const oldNum = parseInt(nextLineMatch[2]);
+                                            const newNum = oldNum + 1;
+                                            const newLineText = indent + newNum + dot + ' ' + nextLineMatch[4];
+                                            edits.push({
+                                                range: new monaco.Range(i, 1, i, nextLine.length + 1),
+                                                text: newLineText
+                                            });
+                                        } else {
+                                            break;
+                                        }
+                                    }
+
+                                    markdownEditorInstance.executeEdits('markdown-list-renumber', edits);
+                                    markdownEditorInstance.setPosition({
+                                        lineNumber: position.lineNumber + 1,
+                                        column: insertText.length
+                                    });
+                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
+                                }
+                            }
+                        }
+                    });
+
+                    // --- Keyboard Shortcuts ---
+                    function wrapSelection(startStr, endStr) {
+                        const selection = markdownEditorInstance.getSelection();
+                        const model = markdownEditorInstance.getModel();
+                        const text = model.getValueInRange(selection);
+                        markdownEditorInstance.executeEdits('markdown-shortcut', [{
+                            range: selection,
+                            text: startStr + text + endStr,
+                            forceMoveMarkers: true
+                        }]);
+                    }
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, () => wrapSelection('**', '**'));
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, () => wrapSelection('*', '*'));
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, () => {
+                        const selection = markdownEditorInstance.getSelection();
+                        if (selection.startLineNumber !== selection.endLineNumber) {
+                            wrapSelection('```\n', '\n```');
+                        } else {
+                            wrapSelection('`', '`');
+                        }
+                    });
+
+                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => wrapSelection('[', '](url)'));
+
+                    for (let i = 1; i <= 6; i++) {
+                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | (monaco.KeyCode.Digit0 + i), () => {
+                            const position = markdownEditorInstance.getPosition();
+                            const model = markdownEditorInstance.getModel();
+                            const lineContent = model.getLineContent(position.lineNumber);
+                            const cleanContent = lineContent.replace(/^#+\s*/, '');
+                            const hashes = '#'.repeat(i) + ' ';
+                            markdownEditorInstance.executeEdits('markdown-heading', [{
+                                range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
+                                text: hashes + cleanContent,
+                                forceMoveMarkers: true
+                            }]);
+                        });
+                    }
+
+                    // --- Image Paste / Drag Upload ---
+                    (function() {
+                        var uploadUrl = '/Storage/Upload?container=markdown-images';
+                        var MAX_CONCURRENT = 3;
+                        var uploadQueue = [];
+                        var activeUploads = 0;
+
+                        function enqueueUpload(slot) {
+                            uploadQueue.push(slot);
+                            pumpUploadQueue();
+                        }
+
+                        function pumpUploadQueue() {
+                            while (activeUploads < MAX_CONCURRENT && uploadQueue.length > 0) {
+                                var slot = uploadQueue.shift();
+                                activeUploads++;
+                                uploadImage(slot).catch(function () {}).finally(function () {
+                                    activeUploads--;
+                                    pumpUploadQueue();
+                                });
+                            }
+                        }
+
+                        function createImagePlaceholders(uploads) {
+                            var slots = uploads.map(function (upload) {
+                                var ext = (upload.ext || 'png').replace('jpeg', 'jpg').split('+')[0];
+                                var filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
+                                return {
+                                    blob: upload.blob,
+                                    filename: filename,
+                                    placeholder: '![uploading...](' + filename + ')'
+                                };
+                            });
+                            var model = markdownEditorInstance.getModel();
+                            var selection = markdownEditorInstance.getSelection();
+                            var lineContent = model.getLineContent(selection.startLineNumber);
+                            var needsLeadingNewline = lineContent.trim() !== '' && selection.startColumn > 1;
+                            var text = (needsLeadingNewline ? '\n' : '') +
+                                slots.map(function (s) { return s.placeholder; }).join('\n') + '\n';
+                            markdownEditorInstance.executeEdits('paste-image', [{
+                                range: selection,
+                                text: text,
+                                forceMoveMarkers: true
+                            }]);
+                            return slots;
+                        }
+
+                        function uploadImage(slot) {
+                            return new Promise(function (resolve, reject) {
+                                var form = new FormData();
+                                form.append('file', slot.blob, slot.filename);
+                                fetch(uploadUrl, { method: 'POST', body: form })
+                                    .then(function (res) {
+                                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                                        return res.json();
+                                    })
+                                    .then(function (data) {
+                                        var model = markdownEditorInstance.getModel();
+                                        model.setValue(model.getValue().replace(slot.placeholder, '![](' + data.InternetPath + ')'));
+                                        resolve();
+                                    })
+                                    .catch(function (err) {
+                                        var model = markdownEditorInstance.getModel();
+                                        model.setValue(model.getValue().replace(slot.placeholder, ''));
+                                        console.error('Image upload failed:', err);
+                                        reject(err);
+                                    });
+                            });
+                        }
+
+                        document.addEventListener('paste', function (e) {
+                            if (!markdownEditorInstance.hasTextFocus()) return;
+                            var items = e.clipboardData && e.clipboardData.items;
+                            if (!items) return;
+                            var imageItems = [];
+                            for (var i = 0; i < items.length; i++) {
+                                if (items[i].type && items[i].type.startsWith('image/')) {
+                                    imageItems.push(items[i]);
+                                }
+                            }
+                            if (imageItems.length === 0) return;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            var uploads = imageItems.map(function (item) {
+                                return { blob: item.getAsFile(), ext: item.type.split('/')[1] };
+                            }).filter(function (upload) { return upload.blob; });
+                            createImagePlaceholders(uploads).forEach(function (slot) {
+                                enqueueUpload(slot);
+                            });
+                        }, true);
+
+                        var editorDomNode = markdownEditorInstance.getDomNode();
+                        editorDomNode.addEventListener('dragover', function (e) {
+                            var hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
+                                return it.kind === 'file' && it.type.startsWith('image/');
+                            });
+                            if (hasImage) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                        }, true);
+
+                        editorDomNode.addEventListener('drop', function (e) {
+                            var files = e.dataTransfer && e.dataTransfer.files;
+                            if (!files || files.length === 0) return;
+                            var imageFiles = Array.from(files).filter(function (f) {
+                                return f.type.startsWith('image/');
+                            });
+                            if (imageFiles.length === 0) return;
+                            e.preventDefault();
+                            e.stopPropagation();
+                            markdownEditorInstance.focus();
+                            var uploads = imageFiles.map(function (file) {
+                                return { blob: file, ext: file.type.split('/')[1] };
+                            });
+                            createImagePlaceholders(uploads).forEach(function (slot) {
+                                enqueueUpload(slot);
+                            });
+                        }, true);
+                    })();
+                }
+
+                // --- Markdown Completion Provider ---
+                monaco.languages.registerCompletionItemProvider('markdown', {
+                    provideCompletionItems: function(model, position) {
+                        const word = model.getWordUntilPosition(position);
+                        const range = {
+                            startLineNumber: position.lineNumber,
+                            endLineNumber: position.lineNumber,
+                            startColumn: word.startColumn,
+                            endColumn: word.endColumn
+                        };
+                        return {
+                            suggestions: [{
+                                label: 'table',
+                                kind: monaco.languages.CompletionItemKind.Snippet,
+                                insertText: [
+                                    '| ${1:Header1} | ${2:Header2} |',
+                                    '|---|---|',
+                                    '| ${3:Content1} | ${4:Content2} |',
+                                    ''
+                                ].join('\\n'),
+                                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+                                documentation: 'Table',
+                                range: range
+                            }]
+                        };
+                    }
+                });
+
+                // --- View Mode Switcher ---
+                const editorCol = document.getElementById('editor-column');
+                const previewCol = document.getElementById('preview-column');
+                const formRoot = document.getElementById('markdown-form');
+                const radios = document.querySelectorAll('input[name="view-mode"]');
+
+                function setViewMode(mode) {
+                    if (!editorCol || !previewCol || !formRoot) return;
+                    localStorage.setItem('admin-markdown-view-mode', mode);
+
+                    const radio = document.querySelector('input[name="view-mode"][value="' + mode + '"]');
+                    if (radio) radio.checked = true;
+
+                    formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
+
+                    if (window.innerWidth >= 768) {
+                        if (mode === 'split') {
+                            editorCol.classList.remove('d-none', 'col-md-12');
+                            editorCol.classList.add('col-md-6');
+                            previewCol.classList.remove('d-none', 'col-md-12');
+                            previewCol.classList.add('col-md-6');
+                        } else if (mode === 'editor') {
+                            editorCol.classList.remove('d-none', 'col-md-6');
+                            editorCol.classList.add('col-md-12');
+                            previewCol.classList.add('d-none');
+                        } else if (mode === 'preview') {
+                            editorCol.classList.add('d-none');
+                            previewCol.classList.remove('d-none', 'col-md-6');
+                            previewCol.classList.add('col-md-12');
+                        }
+                    } else {
+                        formRoot.classList.add('view-mode-' + mode);
+                    }
+
+                    if (mode === 'split' || mode === 'preview') {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
+                    }
+                }
+
+                radios.forEach(function(r) {
+                    r.addEventListener('change', function(e) { setViewMode(e.target.value); });
+                });
+
+                var savedMode = localStorage.getItem('admin-markdown-view-mode') || 'split';
+                setViewMode(savedMode);
+
+                // --- Table & Mermaid Rendering ---
+                function stylePreviewTables() {
+                    const p = document.getElementById('preview-content');
+                    if(!p) return;
+                    p.querySelectorAll('table').forEach(t => {
+                        t.classList.add('table', 'table-striped', 'table-bordered');
+                        if (!t.parentElement.classList.contains('table-responsive')) {
+                            const w = document.createElement('div'); w.className = 'table-responsive';
+                            t.parentNode.insertBefore(w, t); w.appendChild(t);
+                        }
                     });
                 }
-            }
+
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                function renderMermaid() {
+                    const p = document.getElementById('preview-content');
+                    if (!p || !window.mermaid) return;
+                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
+                        const code = b.textContent || '';
+                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
+                        try {
+                            mermaid.parse(code);
+                            mermaid.render(id, code).then(({ svg }) => {
+                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
+                            }).catch(e => console.error(e));
+                        } catch (e) { console.error(e); }
+                    });
+                }
+
+                function renderMath() {
+                    if (window.MathJax && window.MathJax.typesetPromise) {
+                        const preview = document.getElementById('preview-content');
+                        if(preview) window.MathJax.typesetPromise([preview]);
+                    }
+                }
+
+                function renderHighlight() {
+                    if (window.hljs) {
+                        hljs.highlightAll();
+                    }
+                }
+
+                // Initial render
+                if (savedMode === 'split' || savedMode === 'preview') {
+                    setTimeout(function() {
+                        renderMermaid();
+                        renderMath();
+                        renderHighlight();
+                    }, 200);
+                }
+
+                // Sync hidden textarea before form submit
+                document.getElementById('markdown-form').addEventListener('submit', function() {
+                    if (markdownEditorInstance) {
+                        markdownEditorElement.value = markdownEditorInstance.getValue();
+                    }
+                });
+            });
         });
     </script>
 }
