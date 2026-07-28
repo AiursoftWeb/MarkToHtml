@@ -7,17 +7,15 @@
   "dependencies": {
     "@fontsource/cascadia-code": "^5.2.3",
     "@highlightjs/cdn-assets": "^11.11.1",
-    "codemirror": "^5.65.20",
     "dropify": "^0.2.2",
     "markdown-it": "^14.1.0",
     "mathjax": "^3.2.2",
-    "mermaid": "^11.12.1",
+    "mermaid": "^11.16.0",
     "monaco-editor": "^0.55.1"
   },
   "keep": {
     "@fontsource/cascadia-code": ".",
     "@highlightjs/cdn-assets": ".",
-    "codemirror": ".",
     "dropify": "dist",
     "markdown-it": "dist",
     "mathjax": "es5",
