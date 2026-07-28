@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>แก้ไขเอกสาร</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>เฉพาะตัวแก้ไขข้อความ</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>ป้อนชื่อเอกสาร</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>แก้ไขเนื้อหาเอกสาร ชื่อเรื่อง และเจ้าของ</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>แสดงเฉพาะตัวอย่าง</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>บันทึกการเปลี่ยนแปลง</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>มุมมองแบบแยกหน้าจอ</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>สำเร็จ!</value>

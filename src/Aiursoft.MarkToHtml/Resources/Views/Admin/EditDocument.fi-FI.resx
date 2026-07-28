@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Muokkaa dokumenttia</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Vain editori</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>Kirjoita asiakirjan otsikko</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Muokkaa asiakirjan sisältöä, otsikkoa ja omistajaa.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Vain esikatselu</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Tallenna muutokset</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Jaettu näkymä</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>Onnistui!</value>

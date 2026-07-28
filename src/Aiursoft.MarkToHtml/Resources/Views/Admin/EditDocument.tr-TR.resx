@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Belgeyi Düzenle</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Sadece Düzenleyici</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>Belge başlığını girin</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Belge içeriğini, başlığını ve sahibini değiştirin.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Yalnızca Önizleme</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Değişiklikleri Kaydet</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Bölünmüş Görünüm</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>Başarılı!</value>
