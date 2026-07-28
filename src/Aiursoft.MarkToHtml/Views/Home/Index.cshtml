@@ -319,7 +319,7 @@
     @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js,
        because Monaco's AMD loader hijacks global require/define, causing UMD
        modules loaded after it to register via AMD instead of setting window globals. *@
-    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script src="~/scripts/tts-player.js" asp-append-version="true"></script>
@@ -465,24 +465,7 @@
                     }
 
                     // --- Real-time Markdown Preview ---
-                    const md = window.markdownit({
-                        html: false,
-                        linkify: true,
-                        typographer: true,
-                        highlight: function (str, lang) {
-                            if (lang === 'mermaid') {
-                                return `<div class="mermaid">${md.utils.escapeHtml(str)}</div>`;
-                            }
-                            if (window.hljs && window.hljs.getLanguage(lang)) {
-                                try {
-                                    return '<pre><code class="hljs language-' + lang + '">' +
-                                        window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                                        '</code></pre>';
-                                } catch (_) {}
-                            }
-                            return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-                        }
-                    }).use(mathPlugin).use(lineBreakPlugin);
+                    const md = { render: window.AiursoftMarkdownUi.renderMarkdown };
 
                     let previewTimer = null;
                     function schedulePreviewUpdate(markdown) {
@@ -1046,36 +1029,14 @@
                     });
                 }
                 setTimeout(stylePreviewTables, 100);
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
                 function renderMermaid() {
-                    const p = document.getElementById('preview-column');
-                    if (!p || !window.mermaid) return;
-                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                        const code = b.textContent || '';
-                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                        try {
-                            mermaid.parse(code);
-                            mermaid.render(id, code).then(({ svg }) => {
-                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                            }).catch(e => console.error(e));
-                        } catch (e) { console.error(e); }
-                    });
+                    window.AiursoftMarkdownUi.enhanceMarkdown({
+                        container: '#preview-column',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                    }).catch(console.error);
                 }
-
-                // --- MathJax Rendering ---
-                function renderMath() {
-                    if (window.MathJax && window.MathJax.typesetPromise) {
-                        const preview = document.getElementById('preview-column');
-                        if(preview) window.MathJax.typesetPromise([preview]);
-                    }
-                }
-
-                // --- Highlight.js Rendering ---
-                function renderHighlight() {
-                    if (window.hljs) {
-                        document.querySelectorAll('#preview-column pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
-                    }
-                }
+                function renderMath() {}
+                function renderHighlight() {}
                 
                 // Initial render for split view or preview
                 const currentMode = localStorage.getItem('markdown-view-mode') || 'split';

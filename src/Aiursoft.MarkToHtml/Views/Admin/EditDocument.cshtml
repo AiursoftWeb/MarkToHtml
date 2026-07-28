@@ -152,7 +152,7 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
-    <script src="~/node_modules/markdown-it/dist/markdown-it.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
@@ -258,24 +258,7 @@
                     }
 
                     // --- Real-time Markdown Preview ---
-                    const md = window.markdownit({
-                        html: false,
-                        linkify: true,
-                        typographer: true,
-                        highlight: function (str, lang) {
-                            if (lang === 'mermaid') {
-                                return '<div class="mermaid">' + md.utils.escapeHtml(str) + '</div>';
-                            }
-                            if (window.hljs && window.hljs.getLanguage(lang)) {
-                                try {
-                                    return '<pre><code class="hljs language-' + lang + '">' +
-                                        window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                                        '</code></pre>';
-                                } catch (_) {}
-                            }
-                            return '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>';
-                        }
-                    }).use(mathPlugin);
+                    const md = { render: window.AiursoftMarkdownUi.renderMarkdown };
 
                     let previewTimer = null;
                     function schedulePreviewUpdate(markdown) {
@@ -640,34 +623,14 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
                 function renderMermaid() {
-                    const p = document.getElementById('preview-content');
-                    if (!p || !window.mermaid) return;
-                    p.querySelectorAll('pre.mermaid, .mermaid').forEach((b, i) => {
-                        const code = b.textContent || '';
-                        const id = 'm-' + (i + 1) + '-' + Math.random().toString(36).slice(2);
-                        try {
-                            mermaid.parse(code);
-                            mermaid.render(id, code).then(({ svg }) => {
-                                const w = document.createElement('div'); w.innerHTML = svg; b.replaceWith(w);
-                            }).catch(e => console.error(e));
-                        } catch (e) { console.error(e); }
-                    });
+                    window.AiursoftMarkdownUi.enhanceMarkdown({
+                        container: '#preview-content',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                    }).catch(console.error);
                 }
-
-                function renderMath() {
-                    if (window.MathJax && window.MathJax.typesetPromise) {
-                        const preview = document.getElementById('preview-content');
-                        if(preview) window.MathJax.typesetPromise([preview]);
-                    }
-                }
-
-                function renderHighlight() {
-                    if (window.hljs) {
-                        document.querySelectorAll('#preview-column pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
-                    }
-                }
+                function renderMath() {}
+                function renderHighlight() {}
 
                 // Initial render
                 if (savedMode === 'split' || savedMode === 'preview') {

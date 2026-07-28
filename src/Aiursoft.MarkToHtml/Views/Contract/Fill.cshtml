@@ -161,52 +161,13 @@ else
     <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
+    <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (window.mermaid) {
-                mermaid.initialize({
-                    startOnLoad: false,
-                    securityLevel: 'strict',
-                    theme: 'default' // Contracts usually printed on white paper
-                });
-
-                function renderMermaid() {
-                    const container = document.querySelector('.contract-content');
-                    if (!container) return;
-
-                    container.querySelectorAll('pre.mermaid, .mermaid').forEach((block, index) => {
-                        const code = block.textContent || '';
-                        const id = 'm-contract-' + index + '-' + Math.random().toString(36).slice(2);
-
-                        try {
-                            mermaid.parse(code);
-                            mermaid.render(id, code).then(({ svg }) => {
-                                const div = document.createElement('div');
-                                div.innerHTML = svg;
-                                block.replaceWith(div);
-                            });
-                        } catch (e) { console.error(e); }
-                    });
-                }
-                renderMermaid();
-
-                // --- MathJax Rendering ---
-                function renderMath() {
-                    if (window.MathJax && window.MathJax.typesetPromise) {
-                        const preview = document.querySelector('.contract-content');
-                        if(preview) window.MathJax.typesetPromise([preview]);
-                    }
-                }
-                renderMath();
-
-                // --- Highlight.js Rendering ---
-                function renderHighlight() {
-                    if (window.hljs) {
-                        document.querySelectorAll('.contract-content pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
-                    }
-                }
-                renderHighlight();
-            }
+            window.AiursoftMarkdownUi.enhanceMarkdown({
+                container: '.contract-content',
+                mermaidTheme: 'default'
+            }).catch(console.error);
         });
     </script>
 }
