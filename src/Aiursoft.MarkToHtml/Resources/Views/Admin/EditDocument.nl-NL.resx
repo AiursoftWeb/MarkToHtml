@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Document bewerken</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Alleen bewerken</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>Voer de documenttitel in</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Wijzig documentinhoud, titel en eigenaar.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Alleen voorbeeldweergave</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Wijzigingen opslaan</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Gesplitste weergave</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>Gelukt!</value>

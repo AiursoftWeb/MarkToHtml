@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>تحرير المستند</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>المحرر فقط</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>أدخل عنوان المستند</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>تعديل محتوى المستند والعنوان والمالك.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>معاينة فقط</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>حفظ التغييرات</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>عرض تقسيم</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>تم بنجاح!</value>

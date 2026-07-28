@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Editează Documentul</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Doar editor</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>Introduceți titlul documentului</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Modifică conținutul documentului, titlul și proprietarul.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Doar previzualizare</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Salvează modificările</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Vizualizare împărțită</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>Succes!</value>

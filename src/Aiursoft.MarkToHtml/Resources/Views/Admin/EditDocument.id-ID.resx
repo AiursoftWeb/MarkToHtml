@@ -39,6 +39,9 @@
   <data name="Edit Document" xml:space="preserve">
     <value>Edit Dokumen</value>
   </data>
+  <data name="Editor Only" xml:space="preserve">
+    <value>Hanya Editor</value>
+  </data>
   <data name="Enter the document title" xml:space="preserve">
     <value>Masukkan judul dokumen</value>
   </data>
@@ -51,8 +54,14 @@
   <data name="Modify document content, title, and owner." xml:space="preserve">
     <value>Ubah konten dokumen, judul, dan pemilik.</value>
   </data>
+  <data name="Preview Only" xml:space="preserve">
+    <value>Pratinjau Saja</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>
+  </data>
+  <data name="Split View" xml:space="preserve">
+    <value>Tampilan Terpisah</value>
   </data>
   <data name="Success!" xml:space="preserve">
     <value>Berhasil!</value>
