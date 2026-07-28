@@ -350,7 +350,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -367,13 +368,14 @@
 
             // 1. Highlight.js (Synchronous)
             if (window.hljs) {
-                hljs.highlightAll();
+                document.querySelectorAll('#printable-area pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
             }
 
             // 2. Mermaid (Asynchronous)
             if (window.mermaid) {
                 mermaid.initialize({
                     startOnLoad: false,
+                    securityLevel: 'strict',
                     theme: '@(isDarkMode ? "dark" : "default")'
                 });
 

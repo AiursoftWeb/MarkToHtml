@@ -329,8 +329,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -1046,7 +1046,7 @@
                     });
                 }
                 setTimeout(stylePreviewTables, 100);
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
                 function renderMermaid() {
                     const p = document.getElementById('preview-column');
                     if (!p || !window.mermaid) return;
@@ -1073,7 +1073,7 @@
                 // --- Highlight.js Rendering ---
                 function renderHighlight() {
                     if (window.hljs) {
-                        hljs.highlightAll();
+                        document.querySelectorAll('#preview-column pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
                     }
                 }
                 

@@ -160,8 +160,8 @@
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
-                displayMath: [['\\[', '\\]']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -640,7 +640,7 @@
                     });
                 }
 
-                if (window.mermaid) mermaid.initialize({ startOnLoad: false, theme: '@(isDarkMode ? "dark" : "default")' });
+                if (window.mermaid) mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: '@(isDarkMode ? "dark" : "default")' });
                 function renderMermaid() {
                     const p = document.getElementById('preview-content');
                     if (!p || !window.mermaid) return;
@@ -665,7 +665,7 @@
 
                 function renderHighlight() {
                     if (window.hljs) {
-                        hljs.highlightAll();
+                        document.querySelectorAll('#preview-column pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
                     }
                 }
 

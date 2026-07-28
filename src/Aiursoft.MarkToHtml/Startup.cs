@@ -95,7 +95,7 @@ public class Startup : IWebStartup
             .AddDataAnnotationsLocalization();
 
         // Add the markdown pipeline and HTML sanitizer
-        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().DisableHtml().Build();
         services.AddSingleton(pipeline);
         services.AddSingleton(_ =>
         {

@@ -150,7 +150,8 @@ else
     <script>
         window.MathJax = {
             tex: {
-                inlineMath: [['\\(', '\\)']],
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
             },
             svg: {
                 fontCache: 'global'
@@ -165,6 +166,7 @@ else
             if (window.mermaid) {
                 mermaid.initialize({
                     startOnLoad: false,
+                    securityLevel: 'strict',
                     theme: 'default' // Contracts usually printed on white paper
                 });
 
@@ -200,7 +202,7 @@ else
                 // --- Highlight.js Rendering ---
                 function renderHighlight() {
                     if (window.hljs) {
-                        hljs.highlightAll();
+                        document.querySelectorAll('.contract-content pre code:not(.language-mermaid)').forEach(block => hljs.highlightElement(block));
                     }
                 }
                 renderHighlight();
