@@ -152,7 +152,7 @@
             <div class="h-100 d-flex flex-column bg-white">
                 <div class="flex-grow-1 position-relative editor-wrapper">
                     <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
-                    <textarea asp-for="InputMarkdown" id="markdown-editor" style="display: none;"></textarea>
+                    <textarea asp-for="InputMarkdown" id="markdown-editor" class="form-control" rows="20"></textarea>
                 </div>
                 <span asp-validation-for="InputMarkdown" class="text-danger px-2 bg-white"></span>
             </div>
@@ -337,9 +337,9 @@
             }
         };
     </script>
-    <script id="MathJax-script" async src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
+    <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", async function () {
             // ── AI Assistant: always init widget (it renders unconditionally) ──
             const _tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
             const _antiForgeryToken = _tokenInput ? _tokenInput.value : '';
@@ -352,7 +352,6 @@
                 });
             }
 
-            require(['vs/editor/editor.main'], async function () {
                 let markdownEditorInstance;
                 let markdownEditorController;
                 const markdownEditorElement = document.getElementById('markdown-editor');
@@ -412,7 +411,7 @@
                         editorPane: document.getElementById('editor-column'),
                         previewPane: document.getElementById('preview-column'),
                         form: document.getElementById('markdown-form'),
-                        monaco: monaco,
+                        loadMonaco: function () { return window.AiursoftMarkdownUi.loadMonacoFromAmd(); },
                         theme: monacoTheme,
                         initialViewMode: 'split',
                         viewModeStorageKey: 'markdown-view-mode',
@@ -436,7 +435,6 @@
                             if (htmlOutput) {
                                 htmlOutput.value = window.AiursoftMarkdownUi.renderMarkdown(markdown);
                             }
-                            stylePreviewTables();
                         },
                         imageUploadOptions: {
                             onError: function (error) {
@@ -448,6 +446,7 @@
                             }
                         },
                         onError: function (error) {
+                            document.getElementById('markdown-editor-container').hidden = true;
                             console.error('Markdown editor error:', error);
                         }
                     });
@@ -469,540 +468,8 @@
                         }
                     }
                     if (saveButton) saveButton.addEventListener('click', doSave);
-
-                    // Disabled during the 1.1.0 migration. These behaviors now come from
-                    // createMarkdownEditor and remain here only until the pilot is accepted.
-                    if (false) {
-                    // --- State ---
-                    let isDirty = false;
-                    const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
-                    const isEditing = @(Model.IsEditing.ToString().ToLower());
-                    const saveButton = document.getElementById('save-button');
-
-                    // --- Save Button State ---
-                    function updateSaveButtonState() {
-                        if (!saveButton || !isAuthenticated) return;
-                        if (!isEditing || isDirty) {
-                            saveButton.disabled = false;
-                            saveButton.classList.replace('btn-secondary', 'btn-primary');
-                        } else {
-                            saveButton.disabled = true;
-                            saveButton.classList.replace('btn-primary', 'btn-secondary');
-                        }
-                    }
-                    updateSaveButtonState();
-
-                    // --- Math plugin for markdown-it ---
-                    // Converts $...$ → \(...\) and $$...$$ → \[...\] so MathJax can render them.
-                    function mathPlugin(md) {
-                        // Block math: $$\n...\n$$
-                        md.block.ruler.before('fence', 'math_block', function (state, startLine, endLine, silent) {
-                            let pos = state.bMarks[startLine] + state.tShift[startLine];
-                            let max = state.eMarks[startLine];
-                            if (pos + 2 > max) return false;
-                            if (state.src.slice(pos, pos + 2) !== '$$') return false;
-                            if (silent) return true;
-                            let firstLine = state.src.slice(pos + 2, max).trim();
-                            let found = false, nextLine = startLine;
-                            while (nextLine < endLine) {
-                                nextLine++;
-                                if (nextLine >= endLine) break;
-                                let linePos = state.bMarks[nextLine] + state.tShift[nextLine];
-                                let lineMax = state.eMarks[nextLine];
-                                if (state.src.slice(linePos, linePos + 2) === '$$') { found = true; break; }
-                            }
-                            let lines = firstLine ? [firstLine] : [];
-                            for (let i = startLine + 1; i < nextLine; i++) {
-                                lines.push(state.src.slice(state.bMarks[i], state.eMarks[i]));
-                            }
-                            state.line = found ? nextLine + 1 : nextLine;
-                            let token = state.push('math_block', 'math', 0);
-                            token.content = lines.join('\n').trim();
-                            token.map = [startLine, state.line];
-                            token.markup = '$$';
-                            return true;
-                        });
-
-                        // Inline math: $...$ (no space after opening $, no space before closing $)
-                        md.inline.ruler.before('escape', 'math_inline', function (state, silent) {
-                            let pos = state.pos;
-                            if (state.src[pos] !== '$') return false;
-                            if (state.src[pos + 1] === '$') return false; // skip $$
-                            let start = pos + 1;
-                            if (start >= state.posMax) return false;
-                            if (state.src[start] === ' ') return false; // no leading space
-                            let end = state.src.indexOf('$', start);
-                            while (end > 0 && state.src[end - 1] === '\\') {
-                                end = state.src.indexOf('$', end + 1);
-                            }
-                            if (end < 0 || end === start) return false;
-                            if (state.src[end - 1] === ' ') return false; // no trailing space
-                            let content = state.src.slice(start, end);
-                            if (content.indexOf('\n') >= 0) return false; // single line only
-                            if (!silent) {
-                                let token = state.push('math_inline', '', 0);
-                                token.markup = '$';
-                                token.content = content;
-                            }
-                            state.pos = end + 1;
-                            return true;
-                        });
-
-                        md.renderer.rules.math_inline = function (tokens, idx) {
-                            return '\\(' + tokens[idx].content + '\\)';
-                        };
-                        md.renderer.rules.math_block = function (tokens, idx) {
-                            return '<p>\\[' + tokens[idx].content + '\\]</p>\n';
-                        };
-                    }
-
-                    function lineBreakPlugin(md) {
-                        md.inline.ruler.before('escape', 'allowed_line_break', function (state, silent) {
-                            const match = state.src.slice(state.pos).match(/^<br\s*\/?\s*>/i);
-                            if (!match) return false;
-                            if (!silent) state.push('hardbreak', 'br', 0);
-                            state.pos += match[0].length;
-                            return true;
-                        });
-                    }
-
-                    // --- Real-time Markdown Preview ---
-                    const md = { render: window.AiursoftMarkdownUi.renderMarkdown };
-
-                    let previewTimer = null;
-                    function schedulePreviewUpdate(markdown) {
-                        clearTimeout(previewTimer);
-                        previewTimer = setTimeout(function () {
-                            const printableArea = document.getElementById('printable-area');
-                            const htmlOutput = document.getElementById('html-output');
-                            if (!printableArea) return;
-                            const html = md.render(markdown);
-                            printableArea.innerHTML = html;
-                            if (htmlOutput) htmlOutput.value = html;
-                            stylePreviewTables();
-                            renderMermaid();
-                            renderMath();
-                        }, 300);
-                    }
-
-                    // --- Unsaved Changes Warning ---
-                    if (isAuthenticated) {
-                        window.addEventListener('beforeunload', function (e) {
-                            if (isDirty) {
-                                e.preventDefault();
-                                e.returnValue = '';
-                            }
-                        });
-
-                        const titleInput = document.getElementById('Title');
-                        if (titleInput) {
-                            titleInput.addEventListener('input', () => {
-                                isDirty = true;
-                                updateSaveButtonState();
-                            });
-                        }
-                    }
-
-                    markdownEditorInstance.onDidChangeModelContent(() => {
-                        const currentValue = markdownEditorInstance.getValue();
-                        markdownEditorElement.value = currentValue;
-                        schedulePreviewUpdate(currentValue);
-
-                        if (isAuthenticated) {
-                            isDirty = true;
-                            updateSaveButtonState();
-                        }
-                    });
-
-                    // Initial preview render
-                    schedulePreviewUpdate(markdownEditorElement.value);
-
-                    // --- Markdown All In One Features ---
-
-                    // 1. Enter Key Handler for List Continuation
-                    markdownEditorInstance.onKeyDown((e) => {
-                        if (e.keyCode === monaco.KeyCode.Enter && !e.ctrlKey && !e.altKey && !e.metaKey && !e.shiftKey) {
-                            const position = markdownEditorInstance.getPosition();
-                            const model = markdownEditorInstance.getModel();
-                            const lineContent = model.getLineContent(position.lineNumber);
-
-                            const unorderedMatch = lineContent.match(/^(\s*)([\-\*\+])\s(.*)$/);
-                            const orderedMatch = lineContent.match(/^(\s*)(\d+)(\.)\s(.*)$/);
-
-                            if (unorderedMatch) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                const indent = unorderedMatch[1];
-                                const marker = unorderedMatch[2];
-                                const content = unorderedMatch[3];
-
-                                if (!content.trim()) {
-                                    markdownEditorInstance.executeEdits('markdown-list', [{
-                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
-                                        text: '',
-                                        forceMoveMarkers: true
-                                    }]);
-                                } else {
-                                    const insertText = `\n${indent}${marker} `;
-                                    markdownEditorInstance.executeEdits('markdown-list', [{
-                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
-                                        text: insertText,
-                                        forceMoveMarkers: true
-                                    }]);
-                                    markdownEditorInstance.setPosition({
-                                        lineNumber: position.lineNumber + 1,
-                                        column: insertText.length
-                                    });
-                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
-                                }
-                            } else if (orderedMatch) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                const indent = orderedMatch[1];
-                                const number = parseInt(orderedMatch[2]);
-                                const dot = orderedMatch[3];
-                                const content = orderedMatch[4];
-
-                                if (!content.trim()) {
-                                    markdownEditorInstance.executeEdits('markdown-list', [{
-                                        range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
-                                        text: '',
-                                        forceMoveMarkers: true
-                                    }]);
-                                } else {
-                                    const edits = [];
-                                    const nextNumber = number + 1;
-                                    const insertText = `\n${indent}${nextNumber}${dot} `;
-
-                                    edits.push({
-                                        range: new monaco.Range(position.lineNumber, position.column, position.lineNumber, position.column),
-                                        text: insertText,
-                                        forceMoveMarkers: true
-                                    });
-
-                                    for (let i = position.lineNumber + 1; i <= model.getLineCount(); i++) {
-                                        const nextLine = model.getLineContent(i);
-                                        const nextLineMatch = nextLine.match(/^(\s*)(\d+)(\.)\s(.*)$/);
-                                        if (nextLineMatch && nextLineMatch[1] === indent) {
-                                            const oldNum = parseInt(nextLineMatch[2]);
-                                            const newNum = oldNum + 1;
-                                            const newLineText = `${indent}${newNum}${dot} ${nextLineMatch[4]}`;
-                                            edits.push({
-                                                range: new monaco.Range(i, 1, i, nextLine.length + 1),
-                                                text: newLineText
-                                            });
-                                        } else {
-                                            break;
-                                        }
-                                    }
-
-                                    markdownEditorInstance.executeEdits('markdown-list-renumber', edits);
-                                    markdownEditorInstance.setPosition({
-                                        lineNumber: position.lineNumber + 1,
-                                        column: insertText.length
-                                    });
-                                    markdownEditorInstance.revealPositionInCenterIfOutsideViewport(markdownEditorInstance.getPosition());
-                                }
-                            }
-                        }
-                    });
-
-                    // 2. Shortcuts
-
-                    function wrapSelection(startStr, endStr) {
-                        const selection = markdownEditorInstance.getSelection();
-                        const model = markdownEditorInstance.getModel();
-                        const text = model.getValueInRange(selection);
-
-                        markdownEditorInstance.executeEdits('markdown-shortcut', [{
-                            range: selection,
-                            text: `${startStr}${text}${endStr}`,
-                            forceMoveMarkers: true
-                        }]);
-                    }
-
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyB, () => wrapSelection('**', '**'));
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI, () => wrapSelection('*', '*'));
-
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyK, () => {
-                        const selection = markdownEditorInstance.getSelection();
-                        if (selection.startLineNumber !== selection.endLineNumber) {
-                            wrapSelection('```\n', '\n```');
-                        } else {
-                            wrapSelection('`', '`');
-                        }
-                    });
-
-                    markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyL, () => wrapSelection('[', '](url)'));
-
-                    for (let i = 1; i <= 6; i++) {
-                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | (monaco.KeyCode.Digit0 + i), () => {
-                            const position = markdownEditorInstance.getPosition();
-                            const model = markdownEditorInstance.getModel();
-                            const lineContent = model.getLineContent(position.lineNumber);
-
-                            const cleanContent = lineContent.replace(/^#+\s*/, '');
-                            const hashes = '#'.repeat(i) + ' ';
-
-                            markdownEditorInstance.executeEdits('markdown-heading', [{
-                                range: new monaco.Range(position.lineNumber, 1, position.lineNumber, lineContent.length + 1),
-                                text: hashes + cleanContent,
-                                forceMoveMarkers: true
-                            }]);
-                        });
-                    }
-
-                    // --- Unified Save ---
-                    // New doc (isEditing=false): form submit → POST SaveNew (full reload).
-                    // Existing doc (isEditing=true): AJAX → POST SaveUpdate (no reload).
-                    function doSave() {
-                        if (!isAuthenticated) return;
-                        if (isEditing && !isDirty) return;
-
-                        if (!isEditing) {
-                            // New doc: sync the hidden textarea then submit the form normally.
-                            markdownEditorElement.value = markdownEditorInstance.getValue();
-                            isDirty = false;
-                            document.getElementById('markdown-form').submit();
-                            return;
-                        }
-
-                        // Existing doc: SaveUpdate via AJAX.
-                        const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
-                        const token = tokenInput ? tokenInput.value : '';
-                        const title = document.getElementById('Title')?.value || '';
-                        const markdown = markdownEditorInstance.getValue();
-                        const documentId = document.getElementById('DocumentId')?.value || '';
-
-                        const formData = new FormData();
-                        formData.append('InputMarkdown', markdown);
-                        formData.append('Title', title);
-                        formData.append('DocumentId', documentId);
-                        formData.append('__RequestVerificationToken', token);
-
-                        fetch('/Home/SaveUpdate', {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(function (response) {
-                            if (!response.ok) throw new Error('Save failed');
-                            return response.json();
-                        })
-                        .then(function (data) {
-                            if (data.success) {
-                                isDirty = false;
-                                updateSaveButtonState();
-                                var banner = document.getElementById('quick-save-banner');
-                                banner.classList.add('show');
-                                setTimeout(function () { banner.classList.remove('show'); }, 1500);
-                            }
-                        })
-                        .catch(function (err) {
-                            console.error('Quick save failed:', err);
-                        });
-                    }
-
-                    if (saveButton) {
-                        saveButton.addEventListener('click', doSave);
-                    }
-                    if (isAuthenticated) {
-                        markdownEditorInstance.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, doSave);
-                    }
-
-                    // --- Paste / Drop Image Upload (authenticated users only) ---
-                    if (isAuthenticated) {
-                        const pasteUploadUrl = '@Html.Raw(Storage.GetUploadUrl("markdown-images"))';
-                        const editorDomNode = markdownEditorInstance.getDomNode();
-
-                        // Bounded-concurrency upload queue with automatic retry on rate limiting.
-                        // Prevents "upload failed" when many images are inserted in a short time,
-                        // which would otherwise exceed the server's per-minute upload limit.
-                        const MAX_CONCURRENT_UPLOADS = 3;
-                        const MAX_UPLOAD_RETRIES = 5;
-                        const RATE_LIMIT_RETRY_DELAY_MS = 60000;
-                        const uploadQueue = [];
-                        let activeUploads = 0;
-
-                        function showUploadErrorBanner() {
-                            const errBanner = document.getElementById('upload-error-banner');
-                            if (!errBanner) return;
-                            errBanner.classList.add('show');
-                            setTimeout(function () { errBanner.classList.remove('show'); }, 2000);
-                        }
-
-                        function enqueueUpload(slot) {
-                            uploadQueue.push(slot);
-                            pumpUploadQueue();
-                        }
-
-                        function pumpUploadQueue() {
-                            while (activeUploads < MAX_CONCURRENT_UPLOADS && uploadQueue.length > 0) {
-                                const slot = uploadQueue.shift();
-                                activeUploads++;
-                                Promise.resolve()
-                                    .then(function () { return uploadImage(slot); })
-                                    .catch(function () { /* failures handled inside the task */ })
-                                    .finally(function () {
-                                        activeUploads--;
-                                        pumpUploadQueue();
-                                    });
-                            }
-                        }
-
-                        // Inserts unique placeholders on their own lines at the current cursor and
-                        // returns their ids. A leading newline is added when the current line already
-                        // has content, and a trailing newline is always appended, so that multiple
-                        // pasted/dropped images each render on a separate line.
-                        function createImagePlaceholders(uploads) {
-                            const slots = uploads.map(function (upload) {
-                                const ext = (upload.ext || 'png').replace('jpeg', 'jpg').split('+')[0];
-                                const filename = 'paste-' + crypto.randomUUID().replace(/-/g, '') + '.' + ext;
-                                return {
-                                    blob: upload.blob,
-                                    filename: filename,
-                                    placeholder: '![uploading...](' + filename + ')'
-                                };
-                            });
-                            const model = markdownEditorInstance.getModel();
-                            const selection = markdownEditorInstance.getSelection();
-                            const lineContent = model.getLineContent(selection.startLineNumber);
-                            const needsLeadingNewline = lineContent.trim() !== '' && selection.startColumn > 1;
-                            const text = (needsLeadingNewline ? '\n' : '') +
-                                slots.map(function (slot) { return slot.placeholder; }).join('\n') + '\n';
-                            markdownEditorInstance.executeEdits('paste-image', [{
-                                range: selection,
-                                text: text,
-                                forceMoveMarkers: true
-                            }]);
-                            return slots;
-                        }
-
-                        // Uploads a blob and swaps its placeholder for the final markdown image.
-                        function uploadImage(slot) {
-                            return new Promise(function (resolve, reject) {
-                                function attempt(tryIndex) {
-                                    const form = new FormData();
-                                    form.append('file', slot.blob, slot.filename);
-                                    fetch(pasteUploadUrl, { method: 'POST', body: form })
-                                        .then(function (res) {
-                                            if (res.status === 429) {
-                                                const retryAfter = parseInt(res.headers.get('Retry-After') || '0', 10);
-                                                const err = new Error('HTTP 429');
-                                                err.retryAfter = retryAfter > 0 ? retryAfter * 1000 : 0;
-                                                throw err;
-                                            }
-                                            if (!res.ok) throw new Error('HTTP ' + res.status);
-                                            return res.json();
-                                        })
-                                        .then(function (data) {
-                                            const model = markdownEditorInstance.getModel();
-                                            model.setValue(model.getValue().replace(slot.placeholder, '![](' + data.InternetPath + ')'));
-                                            resolve();
-                                        })
-                                        .catch(function (err) {
-                                            const isRateLimit = err && err.message === 'HTTP 429';
-                                            if (isRateLimit && tryIndex < MAX_UPLOAD_RETRIES) {
-                                                const delay = err.retryAfter > 0
-                                                    ? err.retryAfter
-                                                    : RATE_LIMIT_RETRY_DELAY_MS;
-                                                setTimeout(function () { attempt(tryIndex + 1); }, delay);
-                                                return;
-                                            }
-                                            const model = markdownEditorInstance.getModel();
-                                            model.setValue(model.getValue().replace(slot.placeholder, ''));
-                                            console.error('Image upload failed:', err);
-                                            showUploadErrorBanner();
-                                            reject(err);
-                                        });
-                                }
-                                attempt(0);
-                            });
-                        }
-
-                        // Intercept paste at document level (capture phase) so we run before
-                        // Monaco's own paste handler. Only act when Monaco has keyboard focus.
-                        document.addEventListener('paste', function (e) {
-                            if (!markdownEditorInstance.hasTextFocus()) return;
-                            const items = e.clipboardData && e.clipboardData.items;
-                            if (!items) return;
-                            const imageItems = [];
-                            for (let i = 0; i < items.length; i++) {
-                                if (items[i].type && items[i].type.startsWith('image/')) {
-                                    imageItems.push(items[i]);
-                                }
-                            }
-                            if (imageItems.length === 0) return;
-                            e.preventDefault();
-                            e.stopPropagation();
-                            const uploads = imageItems.map(function (item) {
-                                return { blob: item.getAsFile(), ext: item.type.split('/')[1] };
-                            }).filter(function (upload) {
-                                return upload.blob;
-                            });
-                            createImagePlaceholders(uploads).forEach(function (slot) {
-                                enqueueUpload(slot);
-                            });
-                        }, true);
-
-                        // Support drag-and-drop of image files onto the editor.
-                        editorDomNode.addEventListener('dragover', function (e) {
-                            const hasImage = e.dataTransfer && Array.from(e.dataTransfer.items).some(function (it) {
-                                return it.kind === 'file' && it.type.startsWith('image/');
-                            });
-                            if (hasImage) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                            }
-                        }, true);
-
-                        editorDomNode.addEventListener('drop', function (e) {
-                            const files = e.dataTransfer && e.dataTransfer.files;
-                            if (!files || files.length === 0) return;
-                            const imageFiles = Array.from(files).filter(function (f) {
-                                return f.type.startsWith('image/');
-                            });
-                            if (imageFiles.length === 0) return;
-                            e.preventDefault();
-                            e.stopPropagation();
-                            markdownEditorInstance.focus();
-                            const uploads = imageFiles.map(function (file) {
-                                return { blob: file, ext: file.type.split('/')[1] };
-                            });
-                            createImagePlaceholders(uploads).forEach(function (slot) {
-                                enqueueUpload(slot);
-                            });
-                        }, true);
-                    }
-                    }
                 }
 
-                // --- Markdown Completion Provider ---
-                monaco.languages.registerCompletionItemProvider('markdown', {
-                    provideCompletionItems: function(model, position) {
-                        const word = model.getWordUntilPosition(position);
-                        const range = {
-                            startLineNumber: position.lineNumber,
-                            endLineNumber: position.lineNumber,
-                            startColumn: word.startColumn,
-                            endColumn: word.endColumn
-                        };
-                        return {
-                            suggestions: [{
-                                label: 'table',
-                                kind: monaco.languages.CompletionItemKind.Snippet,
-                                insertText: [
-                                    '| ${1:Header1} | ${2:Header2} |',
-                                    '|---|---|',
-                                    '| ${3:Content1} | ${4:Content2} |',
-                                    ''
-                                ].join('\\n'),
-                                insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-                                documentation: 'Table',
-                                range: range
-                            }]
-                        };
-                    }
-                });
 
                 // --- View Mode Switcher ---
                 const editorCol = document.getElementById('editor-column');
@@ -1116,38 +583,6 @@
                     idleClass: 'btn-white'
                 });
 
-                // --- Table & Mermaid Rendering ---
-                function stylePreviewTables() {
-                    const p = document.getElementById('preview-column');
-                    if(!p) return;
-                    p.querySelectorAll('table').forEach(t => {
-                        t.classList.add('table', 'table-striped', 'table-bordered');
-                        if (!t.parentElement.classList.contains('table-responsive')) {
-                            const w = document.createElement('div'); w.className = 'table-responsive';
-                            t.parentNode.insertBefore(w, t); w.appendChild(t);
-                        }
-                    });
-                }
-                setTimeout(stylePreviewTables, 100);
-                function renderMermaid() {
-                    window.AiursoftMarkdownUi.enhanceMarkdown({
-                        container: '#preview-column',
-                        mermaidTheme: '@(isDarkMode ? "dark" : "default")'
-                    }).catch(console.error);
-                }
-                function renderMath() {}
-                function renderHighlight() {}
-                
-                // Initial render for split view or preview
-                const currentMode = localStorage.getItem('markdown-view-mode') || 'split';
-                if (currentMode === 'split' || currentMode === 'preview') {
-                    setTimeout(() => {
-                        renderMermaid();
-                        renderMath();
-                        renderHighlight();
-                    }, 200);
-                }
-
                 // --- Public Link Copy ---
                 const cpLink = document.getElementById('copy-link-button');
                 const pubInp = document.getElementById('public-link');
@@ -1173,7 +608,6 @@
                         }
                     );
                 }
-            });
         });
     </script>
 }
