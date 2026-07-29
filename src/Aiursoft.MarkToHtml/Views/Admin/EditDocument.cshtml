@@ -177,25 +177,42 @@
                 });
             }
 
-            require(['vs/editor/editor.main'], function () {
+            require(['vs/editor/editor.main'], async function () {
                 let markdownEditorInstance;
+                let markdownEditorController;
                 const markdownEditorElement = document.getElementById('markdown-editor');
                 const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
 
-                // --- Monaco Editor Setup ---
                 if (markdownEditorElement) {
-                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
-                        value: markdownEditorElement.value,
-                        language: 'markdown',
+                    markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
+                        editorContainer: document.getElementById('markdown-editor-container'),
+                        textarea: markdownEditorElement,
+                        previewContainer: document.getElementById('preview-content'),
+                        editorPane: document.getElementById('editor-column'),
+                        previewPane: document.getElementById('preview-column'),
+                        form: document.getElementById('markdown-form'),
+                        monaco: monaco,
                         theme: monacoTheme,
-                        automaticLayout: true,
-                        wordWrap: 'on',
-                        'semanticHighlighting.enabled': true,
-                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                        fontSize: 14,
-                        fontLigatures: true
+                        initialViewMode: 'split',
+                        viewModeStorageKey: 'admin-markdown-view-mode',
+                        uploadUrl: '/Storage/Upload?container=markdown-images',
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")',
+                        editorOptions: {
+                            'semanticHighlighting.enabled': true,
+                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                            fontSize: 14,
+                            fontLigatures: true
+                        },
+                        onPreviewRendered: stylePreviewTables,
+                        onError: function (error) {
+                            console.error('Markdown editor error:', error);
+                        }
                     });
+                    markdownEditorInstance = markdownEditorController.editor;
 
+                    // Disabled during the 1.1.0 migration. These behaviors now come from
+                    // createMarkdownEditor and remain here only until the pilot is accepted.
+                    if (false) {
                     // --- Math plugin for markdown-it ---
                     function mathPlugin(md) {
                         md.block.ruler.before('fence', 'math_block', function (state, startLine, endLine, silent) {
@@ -532,6 +549,7 @@
                             });
                         }, true);
                     })();
+                    }
                 }
 
                 // --- Markdown Completion Provider ---
@@ -571,6 +589,9 @@
                 function setViewMode(mode) {
                     if (!editorCol || !previewCol || !formRoot) return;
                     localStorage.setItem('admin-markdown-view-mode', mode);
+                    if (markdownEditorController) {
+                        void markdownEditorController.setViewMode(mode);
+                    }
 
                     const radio = document.querySelector('input[name="view-mode"][value="' + mode + '"]');
                     if (radio) radio.checked = true;
@@ -596,11 +617,6 @@
                         formRoot.classList.add('view-mode-' + mode);
                     }
 
-                    if (mode === 'split' || mode === 'preview') {
-                        renderMermaid();
-                        renderMath();
-                        renderHighlight();
-                    }
                 }
 
                 radios.forEach(function(r) {
@@ -641,12 +657,7 @@
                     }, 200);
                 }
 
-                // Sync hidden textarea before form submit
-                document.getElementById('markdown-form').addEventListener('submit', function() {
-                    if (markdownEditorInstance) {
-                        markdownEditorElement.value = markdownEditorInstance.getValue();
-                    }
-                });
+                // Form synchronization is owned by createMarkdownEditor.
             });
         });
     </script>

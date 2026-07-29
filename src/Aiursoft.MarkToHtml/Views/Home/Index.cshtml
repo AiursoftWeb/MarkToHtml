@@ -352,25 +352,127 @@
                 });
             }
 
-            require(['vs/editor/editor.main'], function () {
+            require(['vs/editor/editor.main'], async function () {
                 let markdownEditorInstance;
+                let markdownEditorController;
                 const markdownEditorElement = document.getElementById('markdown-editor');
                 const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
+                let isDirty = false;
+                const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
+                const isEditing = @(Model.IsEditing.ToString().ToLower());
+                const saveButton = document.getElementById('save-button');
 
-                // --- Monaco Editor Setup ---
+                function updateSaveButtonState() {
+                    if (!saveButton || !isAuthenticated) return;
+                    if (!isEditing || isDirty) {
+                        saveButton.disabled = false;
+                        saveButton.classList.replace('btn-secondary', 'btn-primary');
+                    } else {
+                        saveButton.disabled = true;
+                        saveButton.classList.replace('btn-primary', 'btn-secondary');
+                    }
+                }
+
+                async function doSave() {
+                    if (!isAuthenticated || (isEditing && !isDirty)) return;
+                    markdownEditorElement.value = markdownEditorController.getValue();
+                    if (!isEditing) {
+                        isDirty = false;
+                        document.getElementById('markdown-form').submit();
+                        return;
+                    }
+
+                    const tokenInput = document.querySelector('input[name="__RequestVerificationToken"]');
+                    const formData = new FormData();
+                    formData.append('InputMarkdown', markdownEditorController.getValue());
+                    formData.append('Title', document.getElementById('Title')?.value || '');
+                    formData.append('DocumentId', document.getElementById('DocumentId')?.value || '');
+                    formData.append('__RequestVerificationToken', tokenInput ? tokenInput.value : '');
+                    try {
+                        const response = await fetch('/Home/SaveUpdate', { method: 'POST', body: formData });
+                        if (!response.ok) throw new Error('Save failed');
+                        const data = await response.json();
+                        if (data.success) {
+                            isDirty = false;
+                            updateSaveButtonState();
+                            const banner = document.getElementById('quick-save-banner');
+                            banner.classList.add('show');
+                            setTimeout(function () { banner.classList.remove('show'); }, 1500);
+                        }
+                    } catch (error) {
+                        console.error('Quick save failed:', error);
+                    }
+                }
+
                 if (markdownEditorElement) {
-                    markdownEditorInstance = monaco.editor.create(document.getElementById('markdown-editor-container'), {
-                        value: markdownEditorElement.value,
-                        language: 'markdown',
+                    markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
+                        editorContainer: document.getElementById('markdown-editor-container'),
+                        textarea: markdownEditorElement,
+                        previewContainer: document.getElementById('printable-area'),
+                        editorPane: document.getElementById('editor-column'),
+                        previewPane: document.getElementById('preview-column'),
+                        form: document.getElementById('markdown-form'),
+                        monaco: monaco,
                         theme: monacoTheme,
-                        automaticLayout: true,
-                        wordWrap: 'on',
-                        'semanticHighlighting.enabled': true,
-                        fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                        fontSize: 14,
-                        fontLigatures: true
+                        initialViewMode: 'split',
+                        viewModeStorageKey: 'markdown-view-mode',
+                        uploadUrl: isAuthenticated ? '@Html.Raw(Storage.GetUploadUrl("markdown-images"))' : undefined,
+                        mermaidTheme: '@(isDarkMode ? "dark" : "default")',
+                        editorOptions: {
+                            'semanticHighlighting.enabled': true,
+                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
+                            fontSize: 14,
+                            fontLigatures: true
+                        },
+                        onSave: doSave,
+                        onChange: function () {
+                            if (isAuthenticated) {
+                                isDirty = true;
+                                updateSaveButtonState();
+                            }
+                        },
+                        onPreviewRendered: function (markdown) {
+                            const htmlOutput = document.getElementById('html-output');
+                            if (htmlOutput) {
+                                htmlOutput.value = window.AiursoftMarkdownUi.renderMarkdown(markdown);
+                            }
+                            stylePreviewTables();
+                        },
+                        imageUploadOptions: {
+                            onError: function (error) {
+                                console.error('Image upload failed:', error);
+                                const banner = document.getElementById('upload-error-banner');
+                                if (!banner) return;
+                                banner.classList.add('show');
+                                setTimeout(function () { banner.classList.remove('show'); }, 2000);
+                            }
+                        },
+                        onError: function (error) {
+                            console.error('Markdown editor error:', error);
+                        }
                     });
+                    markdownEditorInstance = markdownEditorController.editor;
+                    updateSaveButtonState();
 
+                    if (isAuthenticated) {
+                        window.addEventListener('beforeunload', function (event) {
+                            if (!isDirty) return;
+                            event.preventDefault();
+                            event.returnValue = '';
+                        });
+                        const titleInput = document.getElementById('Title');
+                        if (titleInput) {
+                            titleInput.addEventListener('input', function () {
+                                isDirty = true;
+                                updateSaveButtonState();
+                            });
+                        }
+                    }
+                    if (saveButton) saveButton.addEventListener('click', doSave);
+
+                    // Disabled during the 1.1.0 migration. These behaviors now come from
+                    // createMarkdownEditor and remain here only until the pilot is accepted.
+                    if (false) {
                     // --- State ---
                     let isDirty = false;
                     const isAuthenticated = @((User.Identity?.IsAuthenticated ?? false).ToString().ToLower());
@@ -871,6 +973,7 @@
                             });
                         }, true);
                     }
+                    }
                 }
 
                 // --- Markdown Completion Provider ---
@@ -920,6 +1023,9 @@
                     }
                     
                     localStorage.setItem('markdown-view-mode', mode);
+                    if (markdownEditorController) {
+                        void markdownEditorController.setViewMode(mode);
+                    }
 
                     // Sync radio buttons
                     const desktopRadio = document.querySelector(`input[name="view-mode-desktop"][value="${mode}"]`);
@@ -954,12 +1060,6 @@
                          formRoot.classList.add(`view-mode-${mode}`);
                     }
                     
-                    // Render interactive content when switching to preview
-                    if (mode === 'split' || mode === 'preview') {
-                        renderMermaid();
-                        renderMath();
-                        renderHighlight();
-                    }
                 }
                 
                 function applyInitialViewMode() {
@@ -1064,12 +1164,12 @@
                 // ── AI Assistant: wire up Monaco-dependent callbacks ──
                 if (typeof AgentChat !== 'undefined' && AgentChat.updateCallbacks) {
                     AgentChat.updateCallbacks(
-                        function() { return markdownEditorInstance.getValue(); },
+                        function() { return markdownEditorController.getValue(); },
                         function(content) {
-                            markdownEditorInstance.getModel().setValue(content);
+                            markdownEditorController.setValue(content);
                             isDirty = false; // agent already saved to DB
                             updateSaveButtonState();
-                            schedulePreviewUpdate(content);
+                            void markdownEditorController.refreshPreview();
                         }
                     );
                 }
