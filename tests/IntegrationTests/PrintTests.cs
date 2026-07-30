@@ -195,6 +195,8 @@ public class PrintTests : TestBase
         Assert.IsTrue(html.Contains("await markdownEditorController.refreshPreview();"));
         Assert.IsTrue(html.Contains("await window.AiursoftMarkdownUi.printMarkdown({"));
         Assert.IsFalse(html.Contains("} else {\n                            window.print();"));
+        Assert.IsTrue(html.Contains("id=\"quick-save-banner\" class=\"quick-save-banner d-print-none\""));
+        Assert.IsTrue(html.Contains("id=\"upload-error-banner\" class=\"quick-save-banner d-print-none\""));
     }
 
     [TestMethod]
