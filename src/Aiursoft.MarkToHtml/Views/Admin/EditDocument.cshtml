@@ -202,9 +202,11 @@
                             fontSize: 14,
                             fontLigatures: true
                         },
-                        onError: function (error) {
-                            document.getElementById('markdown-editor-container').hidden = true;
-                            console.error('Markdown editor error:', error);
+                        onInitializationError: function (error) {
+                            console.error('Markdown editor initialization error:', error);
+                        },
+                        onPreviewError: function (error) {
+                            console.error('Markdown preview error:', error);
                         }
                     });
                     markdownEditorInstance = markdownEditorController.editor;
