@@ -554,13 +554,24 @@
                 if (themeBtn) themeBtn.addEventListener('click', () => setTimeout(() => document.getElementById('markdown-form').submit(), 1000));
                 const printBtn = document.getElementById('print-button');
                 if (printBtn) {
-                    printBtn.addEventListener('click', () => {
+                    printBtn.addEventListener('click', async () => {
                         const isEditing = @(Model.IsEditing.ToString().ToLower());
                         if (isEditing) {
                             const printUrl = '@Url.Action("Print", "Public", new { id = Model.DocumentId })';
                             window.open(printUrl, '_blank');
                         } else {
-                            window.print();
+                            printBtn.disabled = true;
+                            try {
+                                await markdownEditorController.refreshPreview();
+                                await window.AiursoftMarkdownUi.printMarkdown({
+                                    container: '#printable-area',
+                                    mermaidTheme: '@(isDarkMode ? "dark" : "default")'
+                                });
+                            } catch (error) {
+                                console.error('Markdown printing failed:', error);
+                            } finally {
+                                printBtn.disabled = false;
+                            }
                         }
                     });
                 }

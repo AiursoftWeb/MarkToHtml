@@ -378,6 +378,14 @@
                 }));
             }
 
+            const contentImagePromises = Array.from(
+                document.querySelectorAll('#printable-area img')
+            ).filter(image => !image.complete).map(image => new Promise(resolve => {
+                image.addEventListener('load', resolve, { once: true });
+                image.addEventListener('error', resolve, { once: true });
+            }));
+            promises.push(Promise.all(contentImagePromises));
+
             const renderingReady = Promise.all(promises).catch(err => {
                 console.error("Error during rendering before print:", err);
             });

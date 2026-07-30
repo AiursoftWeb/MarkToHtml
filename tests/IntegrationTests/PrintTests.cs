@@ -178,7 +178,23 @@ public class PrintTests : TestBase
         Assert.IsTrue(html.Contains("const renderingReady = Promise.all(promises)"));
         Assert.IsTrue(html.Contains("renderingReady.finally(() => window.print())"));
         Assert.IsTrue(html.Contains("printNow.disabled = true;"));
+        Assert.IsTrue(html.Contains("document.querySelectorAll('#printable-area img')"));
+        Assert.IsTrue(html.Contains("promises.push(Promise.all(contentImagePromises))"));
         Assert.IsTrue(html.Contains("addEventListener('change', applyPrintSettings)"));
+    }
+
+    [TestMethod]
+    public async Task NewDocument_PrintWaitsForLatestMarkdownPreview()
+    {
+        // Act
+        var response = await Http.GetAsync("/");
+
+        // Assert
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("await markdownEditorController.refreshPreview();"));
+        Assert.IsTrue(html.Contains("await window.AiursoftMarkdownUi.printMarkdown({"));
+        Assert.IsFalse(html.Contains("} else {\n                            window.print();"));
     }
 
     [TestMethod]

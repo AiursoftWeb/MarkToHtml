@@ -77,7 +77,7 @@ else
 {
     <div class="d-print-none mb-3">
         <button type="button" class="btn btn-secondary" onclick="window.history.back()">@Localizer["Back"]</button>
-        <button type="button" class="btn btn-primary" onclick="window.print()">@Localizer["Print"]</button>
+        <button type="button" class="btn btn-primary" id="print-contract">@Localizer["Print"]</button>
     </div>
 
     <div class="contract-container">
@@ -164,10 +164,34 @@ else
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.AiursoftMarkdownUi.initializeMarkdownReader({
+            const readerOptions = {
                 container: '.contract-content',
                 mermaidTheme: 'default'
-            }).catch(console.error);
+            };
+            const renderingReady = window.AiursoftMarkdownUi.initializeMarkdownReader(readerOptions);
+            const printButton = document.getElementById('print-contract');
+
+            if (printButton) {
+                printButton.disabled = true;
+                renderingReady
+                    .catch(error => console.error('Contract rendering failed:', error))
+                    .finally(() => {
+                        printButton.disabled = false;
+                    });
+                printButton.addEventListener('click', async function () {
+                    printButton.disabled = true;
+                    try {
+                        await renderingReady;
+                        await window.AiursoftMarkdownUi.printMarkdown(readerOptions);
+                    } catch (error) {
+                        console.error('Contract printing failed:', error);
+                    } finally {
+                        printButton.disabled = false;
+                    }
+                });
+            } else {
+                renderingReady.catch(error => console.error('Contract rendering failed:', error));
+            }
         });
     </script>
 }

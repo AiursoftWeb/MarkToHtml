@@ -135,6 +135,8 @@ public class ContractTests
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
         Assert.Contains("TEST-001", html);
+        Assert.Contains("await window.AiursoftMarkdownUi.printMarkdown(readerOptions);", html);
+        Assert.DoesNotContain("onclick=\"window.print()\"", html);
     }
 
     [TestMethod]
