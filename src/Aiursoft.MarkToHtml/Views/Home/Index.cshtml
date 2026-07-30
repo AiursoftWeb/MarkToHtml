@@ -417,12 +417,6 @@
                         viewModeStorageKey: 'markdown-view-mode',
                         uploadUrl: isAuthenticated ? '@Html.Raw(Storage.GetUploadUrl("markdown-images"))' : undefined,
                         mermaidTheme: '@(isDarkMode ? "dark" : "default")',
-                        editorOptions: {
-                            'semanticHighlighting.enabled': true,
-                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                            fontSize: 14,
-                            fontLigatures: true
-                        },
                         onSave: doSave,
                         onChange: function () {
                             if (isAuthenticated) {

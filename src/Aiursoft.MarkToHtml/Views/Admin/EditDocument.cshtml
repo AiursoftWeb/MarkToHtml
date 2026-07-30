@@ -44,6 +44,13 @@
     </div>
 </div>
 
+<div id="upload-error-banner" class="quick-save-banner">
+    <div class="quick-save-banner-content" style="background: linear-gradient(135deg, #ef4444, #dc2626); box-shadow: 0 8px 32px rgba(239,68,68,0.35);">
+        <i class="align-middle" data-lucide="alert-circle"></i>
+        <span>@Localizer["Image upload failed!"]</span>
+    </div>
+</div>
+
 <form asp-action="EditDocument" method="post" id="markdown-form">
     <input type="hidden" asp-for="DocumentId" />
 
@@ -196,11 +203,17 @@
                         viewModeStorageKey: 'admin-markdown-view-mode',
                         uploadUrl: '/Storage/Upload?container=markdown-images',
                         mermaidTheme: '@(isDarkMode ? "dark" : "default")',
-                        editorOptions: {
-                            'semanticHighlighting.enabled': true,
-                            fontFamily: "'Cascadia Code', 'Consolas', 'Courier New', monospace",
-                            fontSize: 14,
-                            fontLigatures: true
+                        onSave: function () {
+                            document.getElementById('markdown-form').requestSubmit();
+                        },
+                        imageUploadOptions: {
+                            onError: function (error) {
+                                console.error('Image upload failed:', error);
+                                const banner = document.getElementById('upload-error-banner');
+                                if (!banner) return;
+                                banner.classList.add('show');
+                                setTimeout(function () { banner.classList.remove('show'); }, 2000);
+                            }
                         },
                         onInitializationError: function (error) {
                             console.error('Markdown editor initialization error:', error);
