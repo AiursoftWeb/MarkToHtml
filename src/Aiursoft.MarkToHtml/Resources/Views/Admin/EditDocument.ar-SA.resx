@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>أدخل عنوان المستند</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>فشل رفع الصورة!</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>إدارة المشاركات</value>
   </data>

@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>ป้อนชื่อเอกสาร</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>การอัปโหลดรูปภาพล้มเหลว!</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>จัดการการแชร์</value>
   </data>

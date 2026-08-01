@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>Введіть назву документа</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Не вдалося завантажити зображення!</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Керувати спільним доступом</value>
   </data>

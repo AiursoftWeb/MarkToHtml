@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>Saisir le titre du document</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Échec du téléchargement de l&apos;image !</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Gérer les partages</value>
   </data>

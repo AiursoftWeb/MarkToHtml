@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>Kirjoita asiakirjan otsikko</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>Kuvan lataus epäonnistui!</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>Hallitse jakoja</value>
   </data>
