@@ -45,6 +45,9 @@
   <data name="Enter the document title" xml:space="preserve">
     <value>输入文档标题</value>
   </data>
+  <data name="Image upload failed!" xml:space="preserve">
+    <value>图片上传失败！</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>管理分享</value>
   </data>
