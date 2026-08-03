@@ -79,4 +79,16 @@
     <value>等待審批中</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>聊天視窗大小</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>小</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>大</value>
+  </data>
 </root>

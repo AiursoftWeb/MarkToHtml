@@ -6,6 +6,8 @@
     var lastMessageCount = 0;
     var token = '';
     var renderedAdviceIds = [];
+    var WINDOW_SIZE_STORAGE_KEY = 'agent-chat-window-size';
+    var WINDOW_SIZES = ['small', 'medium', 'large'];
 
     // ── Adaptive polling ──────────────────────────────────────────
     // State-aware intervals (ms) to avoid 429 rate limiting
@@ -42,6 +44,8 @@
         var sendBtn = document.getElementById('agent-send-btn');
         var input = document.getElementById('agent-input');
         var newChatBtn = document.getElementById('agent-new-chat-btn');
+
+        setWindowSize(readStoredWindowSize());
 
         console.debug('AgentChat: init called, widget=', !!widget, 'sendBtn=', !!sendBtn,
             'input=', !!input, 'newChatBtn=', !!newChatBtn);
@@ -417,6 +421,35 @@
         _setDocumentContent = setDocContent;
     }
 
+    function readStoredWindowSize() {
+        try {
+            return window.localStorage.getItem(WINDOW_SIZE_STORAGE_KEY) || 'medium';
+        } catch (error) {
+            return 'medium';
+        }
+    }
+
+    function setWindowSize(size) {
+        if (WINDOW_SIZES.indexOf(size) === -1) {
+            size = 'medium';
+        }
+
+        var widget = document.getElementById('agent-chat-widget');
+        var selector = document.getElementById('agent-chat-size');
+        if (widget) {
+            widget.setAttribute('data-window-size', size);
+        }
+        if (selector) {
+            selector.value = size;
+        }
+
+        try {
+            window.localStorage.setItem(WINDOW_SIZE_STORAGE_KEY, size);
+        } catch (error) {
+            // The selected size still applies when storage is unavailable.
+        }
+    }
+
     window.AgentChat = {
         init: init,
         updateCallbacks: updateCallbacks,
@@ -425,7 +458,8 @@
         resetConversation: resetConversation,
         handleInputKeydown: handleInputKeydown,
         approveAdvice: approveAdvice,
-        rejectAdvice: rejectAdvice
+        rejectAdvice: rejectAdvice,
+        setWindowSize: setWindowSize
     };
 
     function handleInputKeydown(ev) {

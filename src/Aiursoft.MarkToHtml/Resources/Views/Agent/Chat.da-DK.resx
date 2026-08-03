@@ -79,4 +79,16 @@
     <value>Venter på godkendelse</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Chatvinduets størrelse</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Lille</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mellem</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Stor</value>
+  </data>
 </root>

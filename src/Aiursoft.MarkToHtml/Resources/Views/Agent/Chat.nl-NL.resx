@@ -79,4 +79,16 @@
     <value>Wachten op goedkeuring</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Grootte van chatvenster</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Klein</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Gemiddeld</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Groot</value>
+  </data>
 </root>

@@ -79,4 +79,16 @@
     <value>في انتظار الموافقة</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>حجم نافذة الدردشة</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>صغير</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>متوسط</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>كبير</value>
+  </data>
 </root>

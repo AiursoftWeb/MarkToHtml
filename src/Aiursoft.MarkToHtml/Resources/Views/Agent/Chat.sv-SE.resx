@@ -79,4 +79,16 @@
     <value>Väntar på godkännande</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Chattfönstrets storlek</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Liten</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mellan</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Stor</value>
+  </data>
 </root>

@@ -79,4 +79,16 @@
     <value>Oczekiwanie na zatwierdzenie</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Rozmiar okna czatu</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Mały</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Średni</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Duży</value>
+  </data>
 </root>

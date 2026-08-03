@@ -79,4 +79,16 @@
     <value>În așteptarea aprobării</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Dimensiunea ferestrei de chat</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Mică</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medie</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Mare</value>
+  </data>
 </root>

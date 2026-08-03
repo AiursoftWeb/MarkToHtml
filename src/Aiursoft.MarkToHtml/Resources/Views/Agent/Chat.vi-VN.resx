@@ -79,4 +79,16 @@
     <value>Đang chờ phê duyệt</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Kích thước cửa sổ trò chuyện</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Nhỏ</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Vừa</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Lớn</value>
+  </data>
 </root>
