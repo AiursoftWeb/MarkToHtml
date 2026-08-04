@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Godkendt - anvender...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Chatvinduets størrelse</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Redigering anvendt!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Hej! Jeg er din redigeringsassistent. Indsæt din kundes feedback eller beskriv de ændringer, du ønsker, så foreslår jeg rettelser.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Stor</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mellem</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Netværksfejl:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Send</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Lille</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Start en ny samtale</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Venter på godkendelse</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Chatvinduets størrelse</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Lille</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Mellem</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Stor</value>
-  </data>
 </root>

@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>อนุมัติ - กำลังดำเนินการ...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>ขนาดหน้าต่างแชต</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>แก้ไขสำเร็จแล้ว!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>สวัสดีครับ! ผมเป็นผู้ช่วยแก้ไขข้อความของคุณ โปรดวางความคิดเห็นของลูกค้าหรืออธิบายการเปลี่ยนแปลงที่คุณต้องการ แล้วผมจะเสนอแนะการแก้ไขให้ครับ</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>ใหญ่</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>กลาง</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>ข้อผิดพลาดเครือข่าย:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>ส่ง</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>เล็ก</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>เริ่มการสนทนาใหม่</value>
   </data>
@@ -79,16 +91,4 @@
     <value>รอการอนุมัติ</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>ขนาดหน้าต่างแชต</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>เล็ก</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>กลาง</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>ใหญ่</value>
-  </data>
 </root>

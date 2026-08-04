@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Disetujui - menerapkan...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Ukuran jendela obrolan</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Edit diterapkan dengan sukses!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Halo! Saya asisten penyuntingan Anda. Tempelkan umpan balik klien atau jelaskan perubahan yang diinginkan, dan saya akan mengusulkan revisi.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Besar</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Sedang</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Kesalahan jaringan:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Kirim</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Kecil</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Mulai percakapan baru</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Menunggu persetujuan</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Ukuran jendela obrolan</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Kecil</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Sedang</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Besar</value>
-  </data>
 </root>

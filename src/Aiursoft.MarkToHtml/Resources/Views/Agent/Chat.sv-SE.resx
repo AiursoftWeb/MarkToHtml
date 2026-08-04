@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Godkänd - tillämpar...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Chattfönstrets storlek</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Ändring tillämpad!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Hej! Jag är din redigeringsassistent. Klistra in kundens feedback eller beskriv de ändringar du vill göra, så föreslår jag redigeringar.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Stor</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mellan</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Nätverksfel:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Skicka</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Liten</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Starta en ny konversation</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Väntar på godkännande</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Chattfönstrets storlek</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Liten</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Mellan</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Stor</value>
-  </data>
 </root>
