@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>승인됨 - 적용 중...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>채팅 창 크기</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>편집이 성공적으로 적용되었습니다!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>안녕하세요! 저는 편집 보조 도구입니다. 고객님의 피드백을 붙여넣거나 원하는 변경 사항을 설명해 주시면, 수정안을 제안해 드립니다.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>크게</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>보통</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>네트워크 오류:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>전송</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>작게</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>새 대화 시작하기</value>
   </data>
@@ -79,16 +91,4 @@
     <value>승인 대기 중입니다</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>채팅 창 크기</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>작게</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>보통</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>크게</value>
-  </data>
 </root>

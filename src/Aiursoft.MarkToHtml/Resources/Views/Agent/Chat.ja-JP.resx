@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>承認済み - 適用中...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>チャットウィンドウのサイズ</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>編集が正常に適用されました！</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>こんにちは！私はあなたの編集アシスタントです。クライアントのフィードバックを貼り付けたり、希望する変更内容を説明したりすると、修正案をご提案します。</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>大</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>中</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>ネットワークエラー：</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>送信</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>小</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>新しい会話を開始する</value>
   </data>
@@ -79,16 +91,4 @@
     <value>承認待ち</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>チャットウィンドウのサイズ</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>小</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>中</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>大</value>
-  </data>
 </root>

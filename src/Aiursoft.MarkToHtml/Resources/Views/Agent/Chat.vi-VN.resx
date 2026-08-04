@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Đã phê duyệt - đang áp dụng...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Kích thước cửa sổ trò chuyện</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Đã áp dụng chỉnh sửa thành công!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Chào bạn! Tôi là trợ lý chỉnh sửa của bạn. Hãy dán phản hồi từ khách hàng hoặc mô tả những thay đổi bạn muốn, tôi sẽ đề xuất các chỉnh sửa.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Lớn</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Vừa</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Lỗi mạng:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Gửi</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Nhỏ</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Bắt đầu cuộc trò chuyện mới</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Đang chờ phê duyệt</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Kích thước cửa sổ trò chuyện</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Nhỏ</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Vừa</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Lớn</value>
-  </data>
 </root>

@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Εγκρίθηκε - εφαρμογή...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Μέγεθος παραθύρου συνομιλίας</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Η επεξεργασία εφαρμόστηκε με επιτυχία!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Γεια! Είμαι ο βοηθός επεξεργασίας σας. Επικολλήστε τα σχόλια του πελάτη σας ή περιγράψτε τις αλλαγές που θέλετε και θα προτείνω επεξεργασίες.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Μεγάλο</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Μεσαίο</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Σφάλμα δικτύου:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Αποστολή</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Μικρό</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Έναρξη νέου συνομιλίας</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Αναμονή έγκρισης</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Μέγεθος παραθύρου συνομιλίας</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Μικρό</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Μεσαίο</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Μεγάλο</value>
-  </data>
 </root>

@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Aprobat - se aplică...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Dimensiunea ferestrei de chat</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Modificarea a fost aplicată cu succes!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Salut! Sunt asistentul tău de editare. Lipește feedback-ul clientului sau descrie modificările dorite, iar eu îți voi propune editări.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Mare</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medie</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Eroare de rețea:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Trimite</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Mică</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Începeți o conversație nouă</value>
   </data>
@@ -79,16 +91,4 @@
     <value>În așteptarea aprobării</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Dimensiunea ferestrei de chat</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Mică</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Medie</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Mare</value>
-  </data>
 </root>

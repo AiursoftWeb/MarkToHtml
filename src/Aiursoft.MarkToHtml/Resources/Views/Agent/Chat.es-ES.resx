@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Aprobado - aplicando...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Tamaño de la ventana de chat</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>¡Edición aplicada con éxito!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>¡Hola! Soy tu asistente de edición. Pega los comentarios de tu cliente o describe los cambios que deseas, y te propondré las modificaciones.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mediano</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Error de red:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Enviar</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Pequeño</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Iniciar una nueva conversación</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Esperando aprobación</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Tamaño de la ventana de chat</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Pequeño</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Mediano</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Grande</value>
-  </data>
 </root>

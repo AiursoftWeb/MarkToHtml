@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>Hyväksytty – sovelletaan...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Keskusteluikkunan koko</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>Muokkaus sovellettu onnistuneesti!</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>Hei! Olen muokkausavustajasi. Liitä asiakkaasi palaute tai kuvaile halutut muutokset, niin ehdotan korjauksia.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Suuri</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Keskikokoinen</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>Verkkovirhe:</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>Lähetä</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>Pieni</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>Aloita uusi keskustelu</value>
   </data>
@@ -79,16 +91,4 @@
     <value>Odottaa hyväksyntää</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>Keskusteluikkunan koko</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>Pieni</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Keskikokoinen</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>Suuri</value>
-  </data>
 </root>

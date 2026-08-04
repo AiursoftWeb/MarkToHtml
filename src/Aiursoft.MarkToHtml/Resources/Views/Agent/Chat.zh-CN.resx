@@ -27,6 +27,9 @@
   <data name="Approved - applying..." xml:space="preserve">
     <value>已批准 - 正在应用...</value>
   </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>聊天窗口大小</value>
+  </data>
   <data name="Edit applied successfully!" xml:space="preserve">
     <value>修改已成功应用！</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
     <value>你好！我是你的编辑助手。请粘贴客户的反馈或描述你想要的更改，我将为你提出修改建议。</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>大</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>中</value>
   </data>
   <data name="Network error:" xml:space="preserve">
     <value>网络错误：</value>
@@ -69,6 +78,9 @@
   <data name="Send" xml:space="preserve">
     <value>发送</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>小</value>
+  </data>
   <data name="Start a new conversation" xml:space="preserve">
     <value>开始新对话</value>
   </data>
@@ -79,16 +91,4 @@
     <value>等待批准中</value>
   </data>
 
-  <data name="Chat window size" xml:space="preserve">
-    <value>聊天窗口大小</value>
-  </data>
-  <data name="Small" xml:space="preserve">
-    <value>小</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>中</value>
-  </data>
-  <data name="Large" xml:space="preserve">
-    <value>大</value>
-  </data>
 </root>
