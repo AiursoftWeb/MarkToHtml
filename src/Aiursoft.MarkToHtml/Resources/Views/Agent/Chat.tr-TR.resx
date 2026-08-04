@@ -79,4 +79,16 @@
     <value>Onay bekleniyor</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Sohbet penceresi boyutu</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Küçük</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Orta</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Büyük</value>
+  </data>
 </root>

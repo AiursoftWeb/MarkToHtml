@@ -79,4 +79,16 @@
     <value>Αναμονή έγκρισης</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Μέγεθος παραθύρου συνομιλίας</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Μικρό</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Μεσαίο</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Μεγάλο</value>
+  </data>
 </root>

@@ -79,4 +79,16 @@
     <value>Menunggu persetujuan</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Ukuran jendela obrolan</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Kecil</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Sedang</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Besar</value>
+  </data>
 </root>

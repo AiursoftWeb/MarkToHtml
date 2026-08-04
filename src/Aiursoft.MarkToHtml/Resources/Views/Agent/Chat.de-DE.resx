@@ -79,4 +79,16 @@
     <value>Warten auf Genehmigung</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Größe des Chatfensters</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Klein</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Mittel</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Groß</value>
+  </data>
 </root>

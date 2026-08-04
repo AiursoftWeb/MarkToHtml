@@ -79,4 +79,16 @@
     <value>Очікування схвалення</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Розмір вікна чату</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Малий</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Середній</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Великий</value>
+  </data>
 </root>

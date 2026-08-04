@@ -3,8 +3,10 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 420px;
-    max-height: 600px;
+    width: 600px;
+    height: 600px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
     background: var(--bs-body-bg, #fff);
     border: 1px solid var(--bs-border-color, #dee2e6);
     border-radius: 12px;
@@ -13,6 +15,16 @@
     flex-direction: column;
     z-index: 1050;
     overflow: hidden;
+}
+
+.agent-chat-widget[data-window-size="small"] {
+    width: 420px;
+    height: 480px;
+}
+
+.agent-chat-widget[data-window-size="large"] {
+    width: 800px;
+    height: 800px;
 }
 
 .agent-chat-header {
@@ -28,6 +40,16 @@
 .agent-chat-header h6 {
     margin: 0;
     font-size: .95rem;
+}
+
+.agent-chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.agent-chat-size-selector {
+    width: auto;
 }
 
 .agent-status {

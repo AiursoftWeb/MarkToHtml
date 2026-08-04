@@ -6,7 +6,13 @@
             <h6>@Localizer["AI Assistant"]</h6>
             <span class="agent-status" id="agent-status-text">@Localizer["Ready"]</span>
         </div>
-        <div>
+        <div class="agent-chat-actions">
+            <label class="visually-hidden" for="agent-chat-size">@Localizer["Chat window size"]</label>
+            <select class="form-select form-select-sm agent-chat-size-selector" id="agent-chat-size" title="@Localizer["Chat window size"]" aria-label="@Localizer["Chat window size"]" onchange="AgentChat.setWindowSize(this.value)">
+                <option value="small">@Localizer["Small"]</option>
+                <option value="medium" selected>@Localizer["Medium"]</option>
+                <option value="large">@Localizer["Large"]</option>
+            </select>
             <button class="btn btn-outline-secondary btn-sm" id="agent-new-chat-btn" title="@Localizer["Start a new conversation"]" type="button" onclick="AgentChat.resetConversation()">@Localizer["New"]</button>
         </div>
     </div>

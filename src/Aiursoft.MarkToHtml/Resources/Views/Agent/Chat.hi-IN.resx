@@ -79,4 +79,16 @@
     <value>अनुमोदन की प्रतीक्षा में</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>चैट विंडो का आकार</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>छोटा</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>मध्यम</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>बड़ा</value>
+  </data>
 </root>

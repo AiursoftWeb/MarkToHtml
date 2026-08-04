@@ -79,4 +79,16 @@
     <value>Aguardando aprovação</value>
   </data>
 
+  <data name="Chat window size" xml:space="preserve">
+    <value>Tamanho da janela de chat</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Pequena</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Média</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Grande</value>
+  </data>
 </root>
