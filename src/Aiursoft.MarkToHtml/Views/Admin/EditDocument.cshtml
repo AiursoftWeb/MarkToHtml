@@ -139,8 +139,32 @@
         <link rel="stylesheet" href="~/node_modules/@@highlightjs/cdn-assets/styles/github.min.css" asp-append-version="true" />
     }
     <style>
-        main.content {
-            padding: 0 !important;
+        .quick-save-banner {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(-120%);
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quick-save-banner.show {
+            transform: translateX(-50%) translateY(24px);
+        }
+        .quick-save-banner-content {
+            color: white;
+            padding: 10px 28px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .quick-save-banner-content i {
+            width: 20px;
+            height: 20px;
         }
         @@media (max-width: 767.98px) {
             #editor-column,
