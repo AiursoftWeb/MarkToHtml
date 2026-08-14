@@ -304,7 +304,7 @@ public class AgentService : IAgentService
                             string result;
                             try
                             {
-                                result = await ExecuteTool(sp, tu, conversation.UserId);
+                                result = await ExecuteTool(sp, tu, conversation);
                                 _logger.LogInformation("Read tool executed: {ToolName}", tu.Name);
                             }
                             catch (Exception ex)
@@ -418,7 +418,7 @@ public class AgentService : IAgentService
             }
             else
             {
-                result = await ExecuteToolWithArgs(sp, tool, args, conversation.UserId);
+                result = await ExecuteToolWithArgs(sp, tool, args, conversation);
             }
 
             _adviceService.SetResult(adviceId, result, null);
@@ -535,35 +535,30 @@ public class AgentService : IAgentService
 
     // ── Tool Execution ──────────────────────────────────────────────────────────
 
-    private async Task<string> ExecuteTool(IServiceProvider sp, ClaudeContentBlock toolUse, string userId)
+    private async Task<string> ExecuteTool(
+        IServiceProvider sp,
+        ClaudeContentBlock toolUse,
+        AgentConversation conversation)
     {
         var tool = _toolRegistry.GetTool(toolUse.Name ?? "");
         if (tool == null) return $"Error: Unknown tool '{toolUse.Name}'.";
 
         var args = UnwrapJsonElements(toolUse.Input ?? new());
-        return await ExecuteToolWithArgs(sp, tool, args, userId);
+        return await ExecuteToolWithArgs(sp, tool, args, conversation);
     }
 
-    private async Task<string> ExecuteToolWithArgs(IServiceProvider sp, McpServerTool tool, Dictionary<string, object?> args, string userId)
+    private async Task<string> ExecuteToolWithArgs(
+        IServiceProvider sp,
+        McpServerTool tool,
+        Dictionary<string, object?> args,
+        AgentConversation conversation)
     {
         using var scope = sp.CreateScope();
 
         var currentUser = scope.ServiceProvider.GetRequiredService<CurrentUserService>();
-        currentUser.UserId = userId;
-
-        // Set document content from conversation for read tools
-        var toolName = tool.ProtocolTool.Name;
-        if (toolName == "ReadFullDocument" || toolName == "ReadDocumentLines")
-        {
-            // Find the conversation for this user to get document content
-            var conv = _conversations.Values
-                .FirstOrDefault(c => c.UserId == userId && c.State != AgentState.Error);
-            if (conv != null)
-            {
-                currentUser.DocumentContent = conv.DocumentContent;
-                currentUser.DocumentId = conv.DocumentId;
-            }
-        }
+        currentUser.UserId = conversation.UserId;
+        currentUser.DocumentContent = conversation.DocumentContent;
+        currentUser.DocumentId = conversation.DocumentId;
 
         var jsonArgs = new Dictionary<string, System.Text.Json.JsonElement>();
         foreach (var (key, value) in args)
