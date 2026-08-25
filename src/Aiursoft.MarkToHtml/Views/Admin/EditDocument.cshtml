@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Authorization
 @model Aiursoft.MarkToHtml.Models.AdminViewModels.EditDocumentViewModel
 @inject IAuthorizationService AuthorizationService
+@inject Aiursoft.MarkToHtml.Services.FileStorage.StorageService Storage
 @{
     var canDeleteAnyDocument = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanDeleteAnyDocument)).Succeeded;
     var canManageAnyShare = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageAnyShare)).Succeeded;
@@ -225,7 +226,7 @@
                         theme: monacoTheme,
                         initialViewMode: 'split',
                         viewModeStorageKey: 'admin-markdown-view-mode',
-                        uploadUrl: '/Storage/Upload?container=markdown-images',
+                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
                         mermaidTheme: '@(isDarkMode ? "dark" : "default")',
                         onSave: function () {
                             document.getElementById('markdown-form').requestSubmit();

@@ -67,11 +67,11 @@ public class SettingsMap
         {
             Key = ProjectLogo,
             Name = Localizer["Project Logo"],
-            Description = Localizer["The logo of the project displayed in the navbar and footer. Support jpg, png, svg."],
+            Description = Localizer["The logo of the project displayed in the navbar and footer. Support jpg and png."],
             Type = SettingType.File,
             DefaultValue = "",
             Subfolder = "project-logo",
-            AllowedExtensions = "jpg png svg",
+            AllowedExtensions = "jpg png",
             MaxSizeInMb = 5
         },
         new GlobalSettingDefinition
@@ -126,11 +126,11 @@ public class SettingsMap
         {
             Key = ContractLogo,
             Name = Localizer["Contract Logo"],
-            Description = Localizer["The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo."],
+            Description = Localizer["The logo of the contract displayed in the header. Support jpg and png. Separate from system logo."],
             Type = SettingType.File,
             DefaultValue = "",
             Subfolder = "contract-logo",
-            AllowedExtensions = "jpg png svg",
+            AllowedExtensions = "jpg png",
             MaxSizeInMb = 5
         },
         new GlobalSettingDefinition
