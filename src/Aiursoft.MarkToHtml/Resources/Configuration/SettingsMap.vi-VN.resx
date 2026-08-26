@@ -525,8 +525,14 @@ URL cơ sở của Ollama API để tạo embeddings cho tài liệu và truy v�
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Số giấy phép ICP cho người dùng Trung Quốc đại lục. Để trống để ẩn.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Biểu tượng của hợp đồng được hiển thị trong phần tiêu đề. Hỗ trợ định dạng jpg và png. Tách biệt khỏi biểu tượng hệ thống.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logo của hợp đồng hiển thị trong phần đầu trang. Hỗ trợ jpg, png, svg. Khác biệt với logo hệ thống.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Biểu tượng của dự án được hiển thị trên thanh điều hướng và phần chân trang. Hỗ trợ định dạng jpg và png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo của dự án được hiển thị trong thanh điều hướng và chân trang. Hỗ trợ định dạng jpg, png, svg.</value>

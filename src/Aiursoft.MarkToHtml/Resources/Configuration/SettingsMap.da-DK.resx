@@ -123,8 +123,14 @@
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-licensenr. for brugere i Kina&apos;s hovedland. Lad stå tomt for at skjule.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Logoen for kontrakten, der vises i headeren. Understøtter jpg og png. Adskilt fra systemlogoen.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logoet for kontrakten, der vises i headeren. Understøtter jpg, png, svg. Adskilt fra systemlogoet.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Projektets logo, der vises i navigationsbaren og footeren. Understøtter jpg og png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logoet for projektet vises i navigationen og i foden. Støtter jpg, png, svg.</value>

@@ -123,8 +123,14 @@
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>適用於中國大陸使用者的 ICP 許可證編號。留空以隱藏。</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>合約標誌會顯示在頁首。支援 jpg 和 png 格式。與系統標誌分開。</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>顯示在頁首的合約標誌。支援 jpg、png、svg 格式。與系統標誌分開。</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>顯示在導覽列和頁尾中的專案 Logo。支援 jpg 和 png。</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>專案的圖示會顯示在導覽列與頁尾。支援 jpg、png、svg 格式。</value>

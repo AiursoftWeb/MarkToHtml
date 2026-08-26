@@ -396,8 +396,14 @@ Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https:
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Numer licencji ICP dla użytkowników z Chin. Pozostaw puste, aby ukryć.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Logo umowy wyświetlane w nagłówku. Obsługiwane formaty: JPG i PNG. Oddzielne od logo systemowego.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logo umowy wyświetlany w nagłówku. Obsługiwane formaty: jpg, png, svg. Oddzielny od logo systemu.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Logo projektu wyświetlane w pasku nawigacji i stopce. Obsługiwane formaty: jpg i png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo projektu wyświetlany w pasku nawigacyjnym i stopce. Obsługiwane formaty: jpg, png, svg.</value>

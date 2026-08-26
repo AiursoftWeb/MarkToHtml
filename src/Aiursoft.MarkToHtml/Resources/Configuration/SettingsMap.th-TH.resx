@@ -504,8 +504,14 @@ Thus final answer: (wrap in triple backticks)
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>โลโก้ของสัญญาที่แสดงในส่วนหัว รองรับไฟล์ jpg และ png แยกต่างหากจากโลโก้ของระบบ</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>โลโก้ของสัญญาที่แสดงในส่วนหัว รองรับไฟล์ jpg, png, svg แยกต่างหากจากโลโก้ระบบ</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>โลโก้ของโปรเจกต์ที่แสดงในแถบนำทางและส่วนท้าย รองรับไฟล์ jpg และ png</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>โลโก้ของโครงการที่แสดงไว้ในแถบเมนูและฟุตเตอร์ รองรับไฟล์ jpg, png, svg</value>

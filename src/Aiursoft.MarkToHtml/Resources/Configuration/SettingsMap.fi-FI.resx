@@ -123,8 +123,14 @@
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-luvanumero Kiinan mantereen käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Sopimuksen logo, joka näytetään otsikossa. Tukee jpg- ja png-tiedostotyyppejä. Eri kuin järjestelmän logo.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Sopimuksen logo, joka näytetään otsakkeessa. Tuetut muodot: jpg, png, svg. Eri kuin järjestelmän logo.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Projektin logo, joka näytetään navigaatiopalkissa ja alatunnisteessa. Tukee jpg- ja png-tiedostomuotoja.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Projektin logo näytetään navigointipalkissa ja alatunnisteessa. Tuetut muodot: jpg, png, svg.</value>
