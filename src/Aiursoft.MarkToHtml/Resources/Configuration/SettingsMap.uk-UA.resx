@@ -123,8 +123,14 @@
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Номер ліцензії ICP для користувачів Китайської Народної Республіки. Залиште порожнім, щоб приховати.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Логотип договору, що відображається в заголовку. Підтримуються формати JPG і PNG. Окремо від логотипа системи.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Логотип договору, що відображається у шапці. Підтримуються формати jpg, png, svg. Відмінний від системного логотипа.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Логотип проєкту, що відображається в навігаційній панелі та футері. Підтримуються формати jpg та png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Логотип проекту, який відображається в навбарі та футері. Підтримка jpg, png, svg.</value>

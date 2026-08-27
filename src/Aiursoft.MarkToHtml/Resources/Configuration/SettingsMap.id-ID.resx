@@ -123,8 +123,14 @@
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Nomor lisensi ICP untuk pengguna daratan Tiongkok. Biarkan kosong untuk menyembunyikan.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Logo kontrak yang ditampilkan di header. Mendukung jpg dan png. Terpisah dari logo sistem.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Logo kontrak yang ditampilkan di header. Mendukung jpg, png, svg. Terpisah dari logo sistem.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Logo proyek yang ditampilkan di navbar dan footer. Mendukung jpg dan png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo proyek yang ditampilkan di navbar dan footer. Mendukung jpg, png, svg.</value>

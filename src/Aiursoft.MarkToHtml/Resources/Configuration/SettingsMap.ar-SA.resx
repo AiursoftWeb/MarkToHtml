@@ -348,8 +348,14 @@ Make sure not to output any other content.
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>شعار العقد المعروض في الترويسة. يدعم صيغ jpg و png. منفصل عن شعار النظام.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>شعار العقد المعروض في الرأس. يدعم صيغ jpg وpng وsvg. منفصل عن شعار النظام.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>شعار المشروع المعروض في شريط التنقل والتذييل. يدعم صيغتي jpg وpng.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>الشعار الخاص بالمشروع الذي يُعرض في شريط التنقل والقدم. يدعم jpg, png, svg.</value>

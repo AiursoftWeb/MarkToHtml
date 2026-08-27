@@ -400,8 +400,14 @@ Thus final answer: (as above).
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>O número de licença ICP para utilizadores da China continental. Deixe em branco para ocultar.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>O logótipo do contrato apresentado no cabeçalho. Suporta JPG e PNG. É independente do logótipo do sistema.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>O logótipo do contrato exibido no cabeçalho. Suporta jpg, png, svg. Distinto do logótipo do sistema.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>O logótipo do projeto, apresentado na barra de navegação e no rodapé. Formatos suportados: jpg e png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>O logótipo do projeto exibido na barra de navegação e no rodapé. Suporta jpg, png, svg.</value>

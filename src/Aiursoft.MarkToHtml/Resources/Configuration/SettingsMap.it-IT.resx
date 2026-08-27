@@ -381,8 +381,14 @@ Thus final answer: (wrap in three backticks).
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Il logo del contratto visualizzato nell&apos;intestazione. Supporta jpg e png. Distinto dal logo di sistema.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Il logo del contratto visualizzato nell&apos;intestazione. Supporta jpg, png, svg. Separato dal logo di sistema.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Il logo del progetto visualizzato nella barra di navigazione e nel piè di pagina. Supporta jpg e png.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Il logo del progetto visualizzato nella barra di navigazione e nel piè di pagina. Supporta jpg, png, svg.</value>

@@ -501,8 +501,14 @@ URL de base de l&apos;Ollama API pour la génération d&apos;embeddings de docum
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Le numéro de licence ICP pour les utilisateurs du continent chinois. Laissez vide pour masquer.</value>
   </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Logo du contrat affiché dans l’en-tête. Formats JPG et PNG pris en charge. Indépendant du logo système.</value>
+  </data>
   <data name="The logo of the contract displayed in the header. Support jpg, png, svg. Separate from system logo." xml:space="preserve">
     <value>Le logo du contrat affiché dans l&apos;en-tête. Formats pris en charge : jpg, png, svg. Distinct du logo du système.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Le logo du projet affiché dans la barre de navigation et le pied de page. Formats JPG et PNG pris en charge.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Le logo du projet affiché dans la barre de navigation et le pied de page. Prise en charge des formats jpg, png et svg.</value>
