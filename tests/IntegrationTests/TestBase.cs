@@ -1,6 +1,5 @@
 using System.Net;
 using System.Text.RegularExpressions;
-using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.MarkToHtml.Entities;
 using static Aiursoft.WebTools.Extends;
@@ -9,7 +8,6 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
 public abstract class TestBase
 {
-    protected int Port;
     protected HttpClient Http = null!;
     protected IHost? Server;
 
@@ -18,25 +16,35 @@ public abstract class TestBase
     [TestInitialize]
     public virtual async Task CreateServer()
     {
+        using var reservation = new TestPortReservation();
         var cookieContainer = new CookieContainer();
         var handler = new HttpClientHandler
         {
             CookieContainer = cookieContainer,
             AllowAutoRedirect = false
         };
-        Port = Network.GetAvailablePort();
         Http = new HttpClient(handler)
         {
-            BaseAddress = new Uri($"http://localhost:{Port}")
+            BaseAddress = new Uri($"http://localhost:{reservation.Port}")
         };
 
         StoragePath = Path.Combine(Path.GetTempPath(), "MarkToHtml-Tests-" + Guid.NewGuid());
         Server = await AppAsync<Startup>([
             $"Storage:Path={StoragePath}"
-        ], port: Port);
-        await Server.UpdateDbAsync<TemplateDbContext>();
-        await Server.SeedAsync();
-        await Server.StartAsync();
+        ], port: reservation.Port);
+        try
+        {
+            reservation.ConfigureServer(Server);
+            await Server.UpdateDbAsync<TemplateDbContext>();
+            await Server.SeedAsync();
+            await Server.StartAsync();
+        }
+        catch
+        {
+            Server.Dispose();
+            Server = null;
+            throw;
+        }
     }
 
     [TestCleanup]
