@@ -52,7 +52,11 @@
     </div>
 </div>
 
-<form asp-action="EditDocument" method="post" id="markdown-form">
+<form asp-action="EditDocument" method="post" id="markdown-form"
+      data-monaco-path="@Url.Content("~/node_modules/monaco-editor/min/vs")"
+      data-editor-theme="@(isDarkMode ? "vs-dark" : "vs")"
+      data-mermaid-theme="@(isDarkMode ? "dark" : "default")"
+      data-image-upload-url="@Storage.GetUploadUrl("markdown-images")">
     <input type="hidden" asp-for="DocumentId" />
 
     <div class="card mb-3">
@@ -97,14 +101,14 @@
             </div>
         </div>
         <div class="card-body p-0">
-            <div class="row g-0" style="min-height: 60vh;">
-                <div id="editor-column" class="col-md-6 border-end">
+            <div class="admin-markdown-workspace">
+                <div id="editor-column" class="border-end">
                     <div class="position-relative" style="height: 100%; min-height: 60vh;">
                         <div id="markdown-editor-container" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
                         <textarea asp-for="InputMarkdown" id="markdown-editor" class="form-control" rows="20"></textarea>
                     </div>
                 </div>
-                <div id="preview-column" class="col-md-6 overflow-auto bg-light-subtle">
+                <div id="preview-column" class="overflow-auto bg-light-subtle">
                     <div id="preview-content" class="markdown-content p-4" style="min-height: 60vh;"></div>
                 </div>
             </div>
@@ -167,15 +171,18 @@
             width: 20px;
             height: 20px;
         }
+        .admin-markdown-workspace {
+            display: flex;
+            min-height: 60vh;
+        }
+        .admin-markdown-workspace > div {
+            flex: 1 1 0;
+            min-width: 0;
+            min-height: 60vh;
+        }
         @@media (max-width: 767.98px) {
-            #editor-column,
-            #preview-column {
-                width: 100%;
-                display: none;
-            }
-            .view-mode-editor #editor-column,
-            .view-mode-preview #preview-column {
-                display: block;
+            .admin-markdown-workspace {
+                flex-direction: column;
             }
         }
     </style>
@@ -183,120 +190,11 @@
 
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    @* markdown-it, mermaid, hljs MUST be loaded before Monaco's loader.js *@
+    @* Load UMD dependencies before Monaco installs its AMD loader. *@
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/node_modules/mermaid/dist/mermaid.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
-    <script>var require = { paths: { 'vs': '/node_modules/monaco-editor/min/vs' } };</script>
+    <script src="~/scripts/admin-markdown-editor.js" asp-append-version="true"></script>
     <script src="~/node_modules/monaco-editor/min/vs/loader.js" asp-append-version="true"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
     <script id="MathJax-script" defer src="~/node_modules/mathjax/es5/tex-mml-chtml.js" asp-append-version="true"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", async function () {
-            if ($.validator) {
-                $.validator.setDefaults({
-                    ignore: []
-                });
-            }
-
-                let markdownEditorInstance;
-                let markdownEditorController;
-                const markdownEditorElement = document.getElementById('markdown-editor');
-                const monacoTheme = '@(isDarkMode ? "vs-dark" : "vs")';
-
-                if (markdownEditorElement) {
-                    markdownEditorController = await window.AiursoftMarkdownUi.createMarkdownEditor({
-                        editorContainer: document.getElementById('markdown-editor-container'),
-                        textarea: markdownEditorElement,
-                        previewContainer: document.getElementById('preview-content'),
-                        editorPane: document.getElementById('editor-column'),
-                        previewPane: document.getElementById('preview-column'),
-                        form: document.getElementById('markdown-form'),
-                        loadMonaco: function () { return window.AiursoftMarkdownUi.loadMonacoFromAmd(); },
-                        theme: monacoTheme,
-                        initialViewMode: 'split',
-                        viewModeStorageKey: 'admin-markdown-view-mode',
-                        uploadUrl: '@Html.Raw(Storage.GetUploadUrl("markdown-images"))',
-                        mermaidTheme: '@(isDarkMode ? "dark" : "default")',
-                        onSave: function () {
-                            document.getElementById('markdown-form').requestSubmit();
-                        },
-                        imageUploadOptions: {
-                            onError: function (error) {
-                                console.error('Image upload failed:', error);
-                                const banner = document.getElementById('upload-error-banner');
-                                if (!banner) return;
-                                banner.classList.add('show');
-                                setTimeout(function () { banner.classList.remove('show'); }, 2000);
-                            }
-                        },
-                        onInitializationError: function (error) {
-                            console.error('Markdown editor initialization error:', error);
-                        },
-                        onPreviewError: function (error) {
-                            console.error('Markdown preview error:', error);
-                        }
-                    });
-                    markdownEditorInstance = markdownEditorController.editor;
-                }
-
-
-                // --- View Mode Switcher ---
-                const editorCol = document.getElementById('editor-column');
-                const previewCol = document.getElementById('preview-column');
-                const formRoot = document.getElementById('markdown-form');
-                const radios = document.querySelectorAll('input[name="view-mode"]');
-
-                function setViewMode(mode) {
-                    if (!editorCol || !previewCol || !formRoot) return;
-                    localStorage.setItem('admin-markdown-view-mode', mode);
-                    if (markdownEditorController) {
-                        void markdownEditorController.setViewMode(mode);
-                    }
-
-                    const radio = document.querySelector('input[name="view-mode"][value="' + mode + '"]');
-                    if (radio) radio.checked = true;
-
-                    formRoot.classList.remove('view-mode-editor', 'view-mode-preview');
-
-                    if (window.innerWidth >= 768) {
-                        if (mode === 'split') {
-                            editorCol.classList.remove('d-none', 'col-md-12');
-                            editorCol.classList.add('col-md-6');
-                            previewCol.classList.remove('d-none', 'col-md-12');
-                            previewCol.classList.add('col-md-6');
-                        } else if (mode === 'editor') {
-                            editorCol.classList.remove('d-none', 'col-md-6');
-                            editorCol.classList.add('col-md-12');
-                            previewCol.classList.add('d-none');
-                        } else if (mode === 'preview') {
-                            editorCol.classList.add('d-none');
-                            previewCol.classList.remove('d-none', 'col-md-6');
-                            previewCol.classList.add('col-md-12');
-                        }
-                    } else {
-                        formRoot.classList.add('view-mode-' + mode);
-                    }
-
-                }
-
-                radios.forEach(function(r) {
-                    r.addEventListener('change', function(e) { setViewMode(e.target.value); });
-                });
-
-                var savedMode = localStorage.getItem('admin-markdown-view-mode') || 'split';
-                setViewMode(savedMode);
-
-        });
-    </script>
 }
