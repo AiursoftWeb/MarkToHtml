@@ -1,3 +1,4 @@
+@using Aiursoft.WebTools
 @using Aiursoft.MarkToHtml.Controllers
 @using Aiursoft.MarkToHtml.Configuration
 @model Aiursoft.MarkToHtml.Models.PublicViewModels.PublicDocumentViewModel
@@ -15,7 +16,7 @@
         <div class="text-muted">
             <span class="me-3"><i class="align-middle" data-lucide="user"></i> @Model.AuthorName</span>
             <span class="text-sm"><i class="align-middle" data-lucide="calendar"></i>
-                @Model.CreationTime.ToString("yyyy-MM-dd")</span>
+                <span data-utc-time="@Model.CreationTime.ToHtmlDateTime()"></span></span>
         </div>
     </div>
 </div>
