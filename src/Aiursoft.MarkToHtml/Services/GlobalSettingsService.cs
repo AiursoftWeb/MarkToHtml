@@ -5,15 +5,22 @@ using Aiursoft.MarkToHtml.Models;
 using Aiursoft.MarkToHtml.Services.FileStorage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.DataProtection;
+using System.Security.Cryptography;
 
 namespace Aiursoft.MarkToHtml.Services;
 
 public class GlobalSettingsService(
-    TemplateDbContext dbContext, 
+    TemplateDbContext dbContext,
     IConfiguration configuration,
     StorageService storageService,
-    IMemoryCache cache) : IScopedDependency
+    IMemoryCache cache,
+    IDataProtectionProvider dataProtectionProvider,
+    ILogger<GlobalSettingsService> logger) : IScopedDependency
 {
+    private const string ProtectedValuePrefix = "protected:v1:";
+    private readonly IDataProtector _secretProtector = dataProtectionProvider.CreateProtector("GlobalSettings/Secrets/v1");
+
     private string GetCacheKey(string key) => $"global-setting-{key}";
 
     public async Task<string> GetSettingValueAsync(string key)
@@ -33,15 +40,17 @@ public class GlobalSettingsService(
 
         // 2. Check database
         var dbSetting = await dbContext.GlobalSettings.AsNoTracking().FirstOrDefaultAsync(s => s.Key == key);
+        var definition = SettingsMap.Definitions.FirstOrDefault(d => d.Key == key);
         string result;
         if (dbSetting != null && dbSetting.Value != null)
         {
-            result = dbSetting.Value;
+            result = definition?.Type == SettingType.Secret
+                ? UnprotectSecret(key, dbSetting.Value)
+                : dbSetting.Value;
         }
         else
         {
             // 3. Fallback to default
-            var definition = SettingsMap.Definitions.FirstOrDefault(d => d.Key == key);
             result = definition?.DefaultValue ?? string.Empty;
         }
 
@@ -69,21 +78,6 @@ public class GlobalSettingsService(
         return storageService.RelativePathToInternetUrl(logoPath);
     }
 
-    public async Task<bool> GetBoolSettingAsync(string key)
-    {
-        var value = await GetSettingValueAsync(key);
-        return bool.TryParse(value, out var result) && result;
-    }
-
-    // ReSharper disable once UnusedMember.Global
-    public async Task<int> GetIntSettingAsync(string key)
-    {
-        var value = await GetSettingValueAsync(key);
-        return int.TryParse(value, out var result) ? result : 0;
-    }
-
-    // ── Embedding helpers ────────────────────────────────────────────────────
-
     public async Task<bool> IsAiSearchEnabledAsync()
     {
         var endpoint = await GetSettingValueAsync(SettingsMap.EmbeddingOllamaInstance);
@@ -104,13 +98,26 @@ public class GlobalSettingsService(
         return await GetSettingValueAsync(SettingsMap.AgentApiToken);
     }
 
+    public async Task<bool> GetBoolSettingAsync(string key)
+    {
+        var value = await GetSettingValueAsync(key);
+        return bool.TryParse(value, out var result) && result;
+    }
+
+    // ReSharper disable once UnusedMember.Global
+    public async Task<int> GetIntSettingAsync(string key)
+    {
+        var value = await GetSettingValueAsync(key);
+        return int.TryParse(value, out var result) ? result : 0;
+    }
+
     public bool IsOverriddenByConfig(string key)
     {
         return !string.IsNullOrWhiteSpace(configuration[$"GlobalSettings:{key}"]) ||
                !string.IsNullOrWhiteSpace(configuration[key]);
     }
 
-    public async Task UpdateSettingAsync(string key, string value, bool clearSecret = false)
+    public async Task UpdateSettingAsync(string key, string value)
     {
         if (IsOverriddenByConfig(key))
         {
@@ -119,16 +126,6 @@ public class GlobalSettingsService(
 
         var definition = SettingsMap.Definitions.FirstOrDefault(d => d.Key == key)
                          ?? throw new InvalidOperationException($"Setting {key} is not defined.");
-
-        if (definition.Type == SettingType.Secret && string.IsNullOrEmpty(value) && !clearSecret)
-        {
-            return;
-        }
-
-        if (definition.Type == SettingType.Secret && clearSecret)
-        {
-            value = string.Empty;
-        }
 
         // Validation
         switch (definition.Type)
@@ -171,20 +168,20 @@ public class GlobalSettingsService(
                 }
                 break;
             case SettingType.Text:
-            case SettingType.Secret:
             default:
                 break;
         }
 
+        var storedValue = ProtectSecretIfNeeded(definition, value);
         var dbSetting = await dbContext.GlobalSettings.FirstOrDefaultAsync(s => s.Key == key);
         if (dbSetting == null)
         {
-            dbSetting = new GlobalSetting { Key = key, Value = value };
+            dbSetting = new GlobalSetting { Key = key, Value = storedValue };
             dbContext.GlobalSettings.Add(dbSetting);
         }
         else
         {
-            dbSetting.Value = value;
+            dbSetting.Value = storedValue;
         }
 
         await dbContext.SaveChangesAsync();
@@ -198,9 +195,12 @@ public class GlobalSettingsService(
             var exists = await dbContext.GlobalSettings.AnyAsync(s => s.Key == definition.Key);
             if (!exists)
             {
-                var initialValue = configuration[$"GlobalSettings:{definition.Key}"]
-                                   ?? configuration[definition.Key]
-                                   ?? definition.DefaultValue;
+                // Configuration overrides are read directly and must not be copied into the database.
+                var initialValue = definition.Type == SettingType.Secret
+                    ? definition.DefaultValue
+                    : configuration[$"GlobalSettings:{definition.Key}"]
+                      ?? configuration[definition.Key]
+                      ?? definition.DefaultValue;
                 dbContext.GlobalSettings.Add(new GlobalSetting
                 {
                     Key = definition.Key,
@@ -210,5 +210,34 @@ public class GlobalSettingsService(
             }
         }
         await dbContext.SaveChangesAsync();
+    }
+
+    private string ProtectSecretIfNeeded(GlobalSettingDefinition definition, string value)
+    {
+        if (definition.Type != SettingType.Secret || string.IsNullOrEmpty(value))
+        {
+            return value;
+        }
+
+        return ProtectedValuePrefix + _secretProtector.Protect(value);
+    }
+
+    private string UnprotectSecret(string key, string storedValue)
+    {
+        // Backward compatibility for secrets saved before encrypted settings existed.
+        if (!storedValue.StartsWith(ProtectedValuePrefix, StringComparison.Ordinal))
+        {
+            return storedValue;
+        }
+
+        try
+        {
+            return _secretProtector.Unprotect(storedValue[ProtectedValuePrefix.Length..]);
+        }
+        catch (CryptographicException ex)
+        {
+            logger.LogError(ex, "Could not decrypt secret global setting '{SettingKey}'", key);
+            return string.Empty;
+        }
     }
 }
