@@ -1,6 +1,7 @@
 using Aiursoft.MarkToHtml.Authorization;
 using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Models.GlobalSettingsViewModels;
+using Aiursoft.MarkToHtml.Models;
 using Aiursoft.MarkToHtml.Services;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
@@ -26,6 +27,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
         var model = new IndexViewModel();
         foreach (var definition in SettingsMap.Definitions)
         {
+            var value = await settingsService.GetSettingValueAsync(definition.Key);
             model.Settings.Add(new SettingViewModel
             {
                 Key = definition.Key,
@@ -34,7 +36,9 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
                 Type = definition.Type,
                 DefaultValue = definition.DefaultValue,
                 ChoiceOptions = definition.ChoiceOptions,
-                Value = await settingsService.GetSettingValueAsync(definition.Key),
+                // Secrets must never be sent back to the browser after they are saved.
+                Value = definition.Type == SettingType.Secret ? string.Empty : value,
+                IsConfigured = !string.IsNullOrWhiteSpace(value),
                 IsOverriddenByConfig = settingsService.IsOverriddenByConfig(definition.Key),
                 // File upload settings
                 Subfolder = definition.Subfolder,
@@ -56,7 +60,7 @@ public class GlobalSettingsController(GlobalSettingsService settingsService) : C
 
         try
         {
-            await settingsService.UpdateSettingAsync(model.Key, model.Value ?? string.Empty, model.ClearSecret);
+            await settingsService.UpdateSettingAsync(model.Key, model.Value ?? string.Empty);
         }
         catch (InvalidOperationException e)
         {

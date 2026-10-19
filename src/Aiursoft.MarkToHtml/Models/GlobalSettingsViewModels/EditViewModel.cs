@@ -4,8 +4,10 @@ namespace Aiursoft.MarkToHtml.Models.GlobalSettingsViewModels;
 
 public class EditViewModel
 {
-    [Required]
+    [Required(ErrorMessage = "The {0} is required.")]
+    [Display(Name = "Key")]
     public string Key { get; set; } = string.Empty;
+
+    [Display(Name = "Value")]
     public string? Value { get; set; }
-    public bool ClearSecret { get; set; }
 }

@@ -29,23 +29,27 @@
             <tbody>
             @foreach (var item in Model.Settings)
             {
-                var displayValue = item.Type == SettingType.Secret && !string.IsNullOrEmpty(item.Value)
-                    ? "********"
-                    : item.Value;
                 <tr>
                     <td>
                         <div class="fw-bold">@SettingsLocalizer[item.Name]</div>
                         <code class="small text-muted">@item.Key</code>
                         @if (item.IsOverriddenByConfig)
                         {
-                            <span class="badge bg-warning text-dark ms-1" title="@Localizer["This setting is overridden by configuration."]"><i class="align-middle" data-lucide="shield-alert"></i> CFG</span>
+                            <span class="badge text-bg-warning ms-1" title="@Localizer["This setting is overridden by configuration."]"><i class="align-middle" data-lucide="shield-alert"></i> CFG</span>
                         }
                     </td>
                     <td>@SettingsLocalizer[item.Description]</td>
                     <td>
                         @if (item.IsOverriddenByConfig)
                         {
-                            <span class="text-muted">@displayValue</span>
+                            @if (item.Type == SettingType.Secret)
+                            {
+                                <span class="badge text-bg-success">@(item.IsConfigured ? Localizer["Configured"] : Localizer["Not configured"])</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@item.Value</span>
+                            }
                         }
                         else
                         {
@@ -80,9 +84,9 @@
                                         <input type="password"
                                                name="Value"
                                                value=""
-                                               placeholder="@displayValue"
-                                               class="form-control"
-                                               autocomplete="new-password" />
+                                               autocomplete="new-password"
+                                               placeholder="@(item.IsConfigured ? Localizer["Configured - enter a new value to replace"] : Localizer["Enter secret"] )"
+                                               class="form-control" />
                                         <button class="btn btn-outline-secondary" type="submit">@Localizer["Save"]</button>
                                     </div>
                                 }
@@ -126,15 +130,11 @@
                         }
                     </td>
                     <td class="text-end">
-                        @if (item.Value != item.DefaultValue && !item.IsOverriddenByConfig)
+                        @if ((item.Type == SettingType.Secret ? item.IsConfigured : item.Value != item.DefaultValue) && !item.IsOverriddenByConfig)
                         {
                             <form asp-action="Edit" method="post" class="d-inline">
                                 <input type="hidden" name="Key" value="@item.Key" />
                                 <input type="hidden" name="Value" value="@item.DefaultValue" />
-                                @if (item.Type == SettingType.Secret)
-                                {
-                                    <input type="hidden" name="ClearSecret" value="true" />
-                                }
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-sm btn-outline-secondary" title="@Localizer["Reset to default"]">
                                     <i class="align-middle" data-lucide="rotate-ccw"></i> @Localizer["Reset"]
@@ -151,14 +151,18 @@
 
 @if (ViewData.ModelState.Any(m => m.Value != null && m.Value.Errors.Any()))
 {
-    <div class="alert alert-danger mt-3" role="alert">
-        <div class="alert-icon">
-            <i class="align-middle" data-lucide="alert-triangle"></i>
-        </div>
-        <div class="alert-message">
-            <div asp-validation-summary="All"></div>
+    <div class="mb-3 mt-3">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@Localizer["Close"]"></button>
+            <div class="alert-icon">
+                <i class="far fa-fw fa-bell" aria-hidden="true"></i>
+            </div>
+            <div class="alert-message">
+                <div asp-validation-summary="All"></div>
+            </div>
         </div>
     </div>
+
 }
 
 @* ReSharper disable once Razor.SectionNotResolved *@
