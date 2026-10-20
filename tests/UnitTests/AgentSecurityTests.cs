@@ -6,7 +6,6 @@ using Aiursoft.MarkToHtml.Controllers;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.AgentViewModels;
 using Aiursoft.MarkToHtml.Services.Agent;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -319,6 +318,6 @@ public class AgentSecurityTests
         public void ApproveAdvice(Guid conversationId, Guid adviceId) => throw new NotSupportedException();
         public void RejectAdvice(Guid conversationId, Guid adviceId) => throw new NotSupportedException();
         public void CancelRun(Guid conversationId) => throw new NotSupportedException();
-        public string? GetUpdatedDocumentContent(Guid conversationId) => throw new NotSupportedException();
+        public string GetUpdatedDocumentContent(Guid conversationId) => throw new NotSupportedException();
     }
 }
