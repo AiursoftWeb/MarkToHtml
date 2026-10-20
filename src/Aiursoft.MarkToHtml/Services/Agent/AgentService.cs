@@ -166,7 +166,8 @@ public class AgentService : IAgentService
     public void ApproveAdvice(Guid conversationId, Guid adviceId)
     {
         var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Pending) return;
+        if (advice == null || advice.Status != AdviceStatus.Pending ||
+            advice.ConversationId != conversationId || !_conversations.ContainsKey(conversationId)) return;
 
         _adviceService.UpdateStatus(adviceId, AdviceStatus.Approved);
 
@@ -185,7 +186,8 @@ public class AgentService : IAgentService
     public void RejectAdvice(Guid conversationId, Guid adviceId)
     {
         var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Pending) return;
+        if (advice == null || advice.Status != AdviceStatus.Pending ||
+            advice.ConversationId != conversationId || !_conversations.ContainsKey(conversationId)) return;
 
         _adviceService.UpdateStatus(adviceId, AdviceStatus.Rejected);
 
@@ -367,7 +369,8 @@ public class AgentService : IAgentService
         if (!_conversations.TryGetValue(conversationId, out var conversation)) return;
 
         var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Approved) return;
+        if (advice == null || advice.Status != AdviceStatus.Approved ||
+            advice.ConversationId != conversationId) return;
 
         try
         {

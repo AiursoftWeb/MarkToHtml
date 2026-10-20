@@ -29,9 +29,13 @@ public class AgentController(
         // Continue existing conversation
         if (request.ConversationId.HasValue)
         {
-            // Update document content before continuing
             var conversation = agentService.GetConversation(request.ConversationId.Value);
-            if (conversation != null && !string.IsNullOrWhiteSpace(request.FullDocumentContent))
+            if (conversation == null || conversation.UserId != userId ||
+                conversation.State is AgentState.Thinking or AgentState.AwaitingApproval)
+                return BadRequest(new { Error = "Conversation not found, not yours, or still processing." });
+
+            // Only accept editor content after checking conversation access and state.
+            if (!string.IsNullOrWhiteSpace(request.FullDocumentContent))
             {
                 conversation.DocumentContent = request.FullDocumentContent;
             }

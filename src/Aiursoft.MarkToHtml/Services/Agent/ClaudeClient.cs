@@ -24,7 +24,7 @@ public class ClaudeClient : ISingletonDependency
         _http = new HttpClient { Timeout = TimeSpan.FromMinutes(3) };
     }
 
-    public async Task<ClaudeResponse> SendAsync(
+    public virtual async Task<ClaudeResponse> SendAsync(
         string systemPrompt,
         List<ClaudeMessage> messages,
         List<ClaudeTool>? tools,
