@@ -1,6 +1,11 @@
 using System.Collections.Concurrent;
 using System.Reflection;
+using Aiursoft.Canon.TaskQueue;
+using Aiursoft.MarkToHtml.Entities;
+using Aiursoft.MarkToHtml.InMemory;
 using Aiursoft.MarkToHtml.Services.Agent;
+using Aiursoft.MarkToHtml.Services.Tools;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Aiursoft.MarkToHtml.Tests.UnitTests;
@@ -159,15 +164,232 @@ public class AgentBehaviorTests
         Assert.AreEqual(0, client.Requests.Count);
     }
 
+    [TestMethod]
+    [DataRow("ReadFullDocument", 1, 3, "1|First\n2|Second\n3|Third")]
+    [DataRow("ReadDocumentLines", 2, 2, "2|Second")]
+    [DataRow("ReadDocumentLines", -5, 99, "1|First\n2|Second\n3|Third")]
+    [DataRow("ReadDocumentLines", 99, -5, "3|Third")]
+    public async Task RealReadTools_UseConversationContentAndPreserveCallIdentity(
+        string toolName, int startLine, int endLine, string expected)
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), index => index == 0
+            ? new ClaudeResponse
+            {
+                Content = [ClaudeContentBlock.ToolUse("real-read", toolName,
+                    toolName == "ReadFullDocument" ? new() : new() { ["startLine"] = startLine, ["endLine"] = endLine })]
+            }
+            : new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("Read complete")] });
+        var (service, conversation, _) = CreateService(services, client);
+        conversation.DocumentContent = "First\nSecond\nThird";
+
+        await Run(service, services, conversation.Id);
+
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        var result = ((List<ClaudeContentBlock>)client.Requests[1].Messages[^1].Content).Single();
+        Assert.AreEqual("real-read", result.ToolUseId);
+        Assert.AreEqual(expected.Replace("\n", Environment.NewLine), result.Content);
+        Assert.AreEqual("First\nSecond\nThird", conversation.DocumentContent);
+        Assert.IsFalse(conversation.DocumentContentUpdated);
+        // Tool execution must use a fresh scope, not mutate the caller's context.
+        Assert.AreEqual(string.Empty, services.GetRequiredService<CurrentUserService>().DocumentContent);
+    }
+
+    [TestMethod]
+    public async Task RealReadTool_InvalidArgumentsReturnResultAndContinue()
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), index => index == 0
+            ? new ClaudeResponse
+            {
+                Content = [ClaudeContentBlock.ToolUse("invalid-read", "ReadDocumentLines", new() { ["startLine"] = "not-a-number" })]
+            }
+            : new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("Recovered")] });
+        var (service, conversation, _) = CreateService(services, client);
+
+        await Run(service, services, conversation.Id);
+
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        var result = conversation.Messages.Single(message => message.Role == "tool");
+        Assert.AreEqual("invalid-read", result.ToolCallId);
+        StringAssert.Contains(result.Content!, "Error");
+        Assert.AreEqual("Recovered", conversation.Messages[^1].Content);
+        Assert.AreEqual(2, client.Requests.Count);
+    }
+
+    [TestMethod]
+    public async Task ApprovedReplaceText_PersistsAndExposesUpdatedContentBeforeResume()
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), index => index switch
+        {
+            0 => new ClaudeResponse { Content = [Replacement("write-1", "Original", "Edited")] },
+            1 => new ClaudeResponse { Content = [ClaudeContentBlock.ToolUse("verify", "ReadFullDocument", new())] },
+            _ => new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("Verified")] }
+        });
+        var (service, conversation, advice) = CreateService(services, client);
+        var previousUpdate = DateTime.UtcNow.AddDays(-1);
+        using (var scope = services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = conversation.DocumentId, UserId = conversation.UserId,
+                Content = conversation.DocumentContent, UpdatedAt = previousUpdate
+            });
+            await db.SaveChangesAsync();
+        }
+        await Run(service, services, conversation.Id);
+        var proposal = advice.GetPendingForConversation(conversation.Id).Single();
+
+        service.ApproveAdvice(conversation.Id, proposal.Id);
+        Assert.AreEqual(AdviceStatus.Approved, proposal.Status);
+        Assert.AreEqual("Original document", conversation.DocumentContent);
+        Assert.AreEqual($"AdviceExecute-{proposal.Id}", services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Single().TaskName);
+        await ExecuteApproved(service, services, conversation.Id, proposal.Id);
+
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        Assert.AreEqual(3, client.Requests.Count);
+        Assert.AreEqual("Verified", conversation.Messages[^1].Content);
+        Assert.AreEqual("Edited document", conversation.DocumentContent);
+        Assert.AreEqual("Edited document", service.GetUpdatedDocumentContent(conversation.Id));
+        Assert.IsTrue(conversation.DocumentContentUpdated);
+        Assert.AreEqual(0, conversation.PendingAdviceIds.Count);
+        Assert.AreEqual(AdviceStatus.Executed, proposal.Status);
+        Assert.IsNull(proposal.Error);
+        StringAssert.Contains(proposal.Result!, "Document updated successfully");
+        Assert.AreEqual("write-1", conversation.Messages.First(message => message.Role == "tool").ToolCallId);
+        Assert.IsTrue(conversation.Messages.Any(message => message.Role == "tool" && message.Content == "1|Edited document"));
+        using var verification = services.CreateScope();
+        var stored = await verification.ServiceProvider.GetRequiredService<TemplateDbContext>()
+            .MarkdownDocuments.AsNoTracking().SingleAsync();
+        Assert.AreEqual("Edited document", stored.Content);
+        Assert.IsTrue(stored.UpdatedAt > previousUpdate);
+    }
+
+    [TestMethod]
+    public async Task ContinueRun_ResetsTenRoundBudgetAndAppendsSnapshotWithoutRewritingHistory()
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), index => new ClaudeResponse
+        {
+            Content = [ClaudeContentBlock.ToolUse($"read-{index}", "ReadFullDocument", new())]
+        });
+        var (service, conversation, _) = CreateService(services, client);
+        await Run(service, services, conversation.Id);
+        var history = conversation.Messages.Select(message => (message.Role, message.Content, message.ToolCallId)).ToArray();
+        conversation.DocumentContent = "Updated snapshot\nSecond line";
+
+        Assert.AreEqual(conversation.Id, service.ContinueRun(conversation.Id, "owner", "Continue"));
+        Assert.AreEqual(0, conversation.LoopCount);
+        Assert.AreEqual(AgentState.Thinking, conversation.State);
+        Assert.AreEqual(history.Length + 3, conversation.Messages.Count);
+        CollectionAssert.AreEqual(history, conversation.Messages.Take(history.Length)
+            .Select(message => (message.Role, message.Content, message.ToolCallId)).ToArray());
+        Assert.IsTrue(conversation.Messages[^3].IsMeta);
+        Assert.IsTrue(conversation.Messages[^2].IsMeta);
+        Assert.AreEqual($"<document-content>\n1|Updated snapshot{Environment.NewLine}2|Second line\n</document-content>",
+            conversation.Messages[^2].Content);
+        Assert.AreEqual("Continue", conversation.Messages[^1].Content);
+        Assert.AreEqual($"AgentContinue-{conversation.Id}", services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Single().TaskName);
+        await Run(service, services, conversation.Id);
+
+        Assert.AreEqual(20, client.Requests.Count);
+        Assert.AreEqual(10, conversation.LoopCount);
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        Assert.AreEqual("Question", client.Requests[0].Messages.Single().Content);
+        Assert.AreEqual("Continue", client.Requests[10].Messages[^1].Content);
+    }
+
+    [TestMethod]
+    public async Task MultipleProposals_FirstApprovalResumesModelDespiteOtherPendingAdvice_LegacyBehavior()
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), index => index == 0
+            ? new ClaudeResponse { Content = [Replacement("first", "Original", "Edited"), Replacement("second", "document", "text")] }
+            : new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("Resumed before all decisions")] });
+        var (service, conversation, advice) = CreateService(services, client);
+        await Run(service, services, conversation.Id);
+        var proposals = advice.GetPendingForConversation(conversation.Id);
+        var first = proposals.Single(item => item.ToolCallId == "first");
+        var second = proposals.Single(item => item.ToolCallId == "second");
+
+        service.ApproveAdvice(conversation.Id, first.Id);
+        await ExecuteApproved(service, services, conversation.Id, first.Id);
+
+        // Characterization, not the future contract: OrderedRunner migration should wait for all
+        // approvals/results before resuming instead of sending an unresolved sibling call to the model.
+        Assert.AreEqual(2, client.Requests.Count);
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        Assert.AreEqual(AdviceStatus.Pending, second.Status);
+        CollectionAssert.AreEqual(new[] { second.Id }, conversation.PendingAdviceIds);
+        Assert.AreEqual("Original document", second.DocumentContentSnapshot);
+        Assert.AreEqual("Edited document", conversation.DocumentContent);
+        Assert.IsFalse(conversation.Messages.Any(message => message.Role == "tool" && message.ToolCallId == "second"));
+    }
+
+    [TestMethod]
+    public async Task MultipleProposals_LastRejectionCompletesWithoutResumingModel_LegacyBehavior()
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), _ => new ClaudeResponse
+        {
+            Content = [Replacement("first", "Original", "Edited"), Replacement("second", "document", "text")]
+        });
+        var (service, conversation, advice) = CreateService(services, client);
+        await Run(service, services, conversation.Id);
+        var proposals = advice.GetPendingForConversation(conversation.Id);
+
+        service.RejectAdvice(conversation.Id, proposals[0].Id);
+        Assert.AreEqual(AgentState.AwaitingApproval, conversation.State);
+        Assert.AreEqual(1, conversation.PendingAdviceIds.Count);
+        service.RejectAdvice(conversation.Id, proposals[1].Id);
+
+        // Legacy baseline only: a future runner may resume once every result is present.
+        Assert.AreEqual(AgentState.Completed, conversation.State);
+        Assert.AreEqual(0, conversation.PendingAdviceIds.Count);
+        Assert.IsTrue(proposals.All(item => item.Status == AdviceStatus.Rejected));
+        var results = conversation.Messages.Where(message => message.Role == "tool").ToArray();
+        CollectionAssert.AreEquivalent(new[] { "first", "second" }, results.Select(message => message.ToolCallId).ToArray());
+        Assert.IsTrue(results.All(message => message.Content!.StartsWith("REJECTED:", StringComparison.Ordinal)));
+        Assert.AreEqual("Original document", conversation.DocumentContent);
+        Assert.IsFalse(conversation.DocumentContentUpdated);
+        Assert.AreEqual(1, client.Requests.Count);
+        Assert.AreEqual(0, services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Count());
+    }
+
+    private static ClaudeContentBlock Replacement(string id, string oldText, string newText) =>
+        ClaudeContentBlock.ToolUse(id, "ReplaceText", new() { ["oldString"] = oldText, ["newString"] = newText });
+
+    private static ServiceProvider CreateToolServices()
+    {
+        var services = new ServiceCollection();
+        services.AddLogging();
+        services.AddTaskQueueEngine();
+        services.AddScoped<CurrentUserService>();
+        services.AddScoped<DocumentReadTools>();
+        var databaseName = Guid.NewGuid().ToString();
+        services.AddDbContext<InMemoryContext>(options => options.UseInMemoryDatabase(databaseName));
+        services.AddScoped<TemplateDbContext>(provider => provider.GetRequiredService<InMemoryContext>());
+        return services.BuildServiceProvider();
+    }
+
+    // Keep the real queue stopped: public APIs enqueue normally, then tests invoke the existing
+    // execution seam deterministically without hosted workers, sleeps or a full web application.
+    private static Task ExecuteApproved(AgentService service, IServiceProvider services, Guid id, Guid adviceId) =>
+        (Task)typeof(AgentService).GetMethod("ExecuteAdviceAndResume", BindingFlags.Instance | BindingFlags.NonPublic)!
+            .Invoke(service, [services, id, adviceId])!;
+
     private static (AgentService Service, AgentConversation Conversation, AdviceService Advice) CreateService(
         IServiceProvider services, ClaudeClient client)
     {
         var advice = new AdviceService();
-        var service = new AgentService(null!, new ToolRegistry(services), advice, client,
+        var service = new AgentService(services.GetService<ServiceTaskQueue>()!, new ToolRegistry(services), advice, client,
             services.GetRequiredService<IServiceScopeFactory>(), NullLogger<AgentService>.Instance);
         var conversation = new AgentConversation
         {
             UserId = "owner",
+            DocumentId = Guid.NewGuid(),
             DocumentContent = "Original document",
             Messages =
             [
