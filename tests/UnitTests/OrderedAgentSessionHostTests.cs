@@ -54,7 +54,7 @@ public class OrderedAgentSessionHostTests
         Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
         var rejected = completed.Results.Single(x => x.CallId == "w2");
         Assert.AreEqual(ToolOutcome.Rejected, rejected.Outcome);
-        // Known production blocker: the runner has no rejection-text customization hook.
+        // Canonical evidence stays generic; ClaudeAgentModelClient projects legacy text at the wire boundary.
         Assert.AreEqual("Tool call rejected.", rejected.Error);
         Assert.AreEqual(ToolOutcome.Rejected, fixture.Model.Requests[1].Transcript
             .Single(x => x.Role == TranscriptRole.Tool).ToolResults[1].Outcome);

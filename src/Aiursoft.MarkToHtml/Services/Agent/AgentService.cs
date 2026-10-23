@@ -199,7 +199,7 @@ public class AgentService : IAgentService
             {
                 Role = "tool",
                 ToolCallId = advice.ToolCallId,
-                Content = "REJECTED: User rejected this change. Do NOT retry the same edit. Ask the user what they want instead."
+                Content = AgentToolResultText.Rejected
             });
 
             var stillPending = _adviceService.GetPendingForConversation(conversationId);

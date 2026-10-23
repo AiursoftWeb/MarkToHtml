@@ -214,6 +214,78 @@ public class ClaudeAgentModelClientTests
         Assert.AreEqual(AgentFinishReason.Stop, response.FinishReason);
     }
 
+    [TestMethod]
+    public async Task OrderedRejection_PreservesLegacyTransportTextAndCanonicalEvidence()
+    {
+        using var services = new ServiceCollection().BuildServiceProvider();
+        var client = CreateClient(services);
+        client.Response = new ClaudeResponse
+        {
+            ReasoningContent = "original reasoning",
+            Content =
+            [
+                ClaudeContentBlock.ToolUse("read", "ReadFullDocument", new()),
+                ClaudeContentBlock.ToolUse("approve", "ReplaceText", new()),
+                ClaudeContentBlock.ToolUse("reject", "ReplaceText", new())
+            ]
+        };
+        var registry = new ToolRegistry(services);
+        var writes = 0;
+        var tools = new IAgentTool[]
+        {
+            AgentToolAdapter.ForReadOnly(registry.GetTool("ReadFullDocument")!,
+                (_, _) => ValueTask.FromResult("document")),
+            AgentToolAdapter.ForApprovedWrite(registry.GetTool("ReplaceText")!, (_, _) =>
+            {
+                writes++;
+                return ValueTask.FromResult("updated");
+            })
+        };
+        var adapter = new ClaudeAgentModelClient(client, tools.Select(tool => tool.Definition.Name));
+        var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], tools, adapter);
+        await host.StartAsync();
+        await host.ResolveAsync("approve", ApprovalDecision.Execute);
+        Assert.AreEqual(1, client.Calls);
+        client.Response = new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("done")] };
+
+        var completed = await host.ResolveAsync("reject", ApprovalDecision.Reject);
+
+        Assert.AreEqual(2, client.Calls);
+        Assert.AreEqual(1, writes);
+        Assert.AreEqual("original reasoning", client.Messages[1].ReasoningContent);
+        var results = client.Messages.Skip(2).Select(message => Blocks(message).Single()).ToArray();
+        CollectionAssert.AreEqual(new[] { "read", "approve", "reject" }, results.Select(result => result.ToolUseId).ToArray());
+        Assert.AreEqual("document", results[0].Content);
+        Assert.AreEqual("updated", results[1].Content);
+        Assert.AreEqual("REJECTED: User rejected this change. Do NOT retry the same edit. Ask the user what they want instead.", results[2].Content);
+        var rejected = completed.Results.Single(result => result.CallId == "reject");
+        Assert.AreEqual(ToolOutcome.Rejected, rejected.Outcome);
+        Assert.AreEqual("Tool call rejected.", rejected.Error);
+        Assert.IsNull(rejected.Output);
+    }
+
+    [TestMethod]
+    public async Task ResultText_UsesOutcomeNotErrorStringAndDoesNotMutateEvidence()
+    {
+        using var services = new ServiceCollection().BuildServiceProvider();
+        var client = CreateClient(services);
+        var results = new[]
+        {
+            new ToolResult("failed", "Read", ToolOutcome.Failed, Error: "Tool call rejected."),
+            new ToolResult("success", "Read", ToolOutcome.Succeeded, new JValue("Tool call rejected.")),
+            new ToolResult("rejected", "Write", ToolOutcome.Rejected, new JValue("ignored output"))
+        };
+        var request = new AgentModelRequest([TranscriptMessage.Tool(results)], []);
+        var before = JToken.FromObject(request.Transcript);
+
+        await new ClaudeAgentModelClient(client, []).CompleteAsync(request, default);
+
+        Assert.AreEqual("Tool call rejected.", Blocks(client.Messages[0]).Single().Content);
+        Assert.AreEqual("Tool call rejected.", Blocks(client.Messages[1]).Single().Content);
+        Assert.AreEqual(AgentToolResultText.Rejected, Blocks(client.Messages[2]).Single().Content);
+        Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject(request.Transcript)));
+    }
+
     private static List<ClaudeContentBlock> Blocks(ClaudeMessage message) => (List<ClaudeContentBlock>)message.Content;
     private static CapturingClient CreateClient(ServiceProvider services) => new(services.GetRequiredService<IServiceScopeFactory>());
 
