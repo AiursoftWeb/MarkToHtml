@@ -243,12 +243,19 @@ public class ClaudeAgentModelClientTests
         };
         var adapter = new ClaudeAgentModelClient(client, tools.Select(tool => tool.Definition.Name));
         var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], tools, adapter);
-        await host.StartAsync();
+        var paused = await host.StartAsync();
+        var pausedUi = AgentHistoryMapper.ProjectForUi(paused, adapter.GetReasoningSnapshot());
+        Assert.AreEqual("original reasoning", pausedUi[1].ReasoningContent);
+        Assert.AreEqual("read", pausedUi.Last().ToolCallId);
         await host.ResolveAsync("approve", ApprovalDecision.Execute);
         Assert.AreEqual(1, client.Calls);
-        client.Response = new ClaudeResponse { Content = [ClaudeContentBlock.TextBlock("done")] };
+        client.Response = new ClaudeResponse { ReasoningContent = "final reasoning", Content = [ClaudeContentBlock.TextBlock("done")] };
 
         var completed = await host.ResolveAsync("reject", ApprovalDecision.Reject);
+        var completedUi = AgentHistoryMapper.ProjectForUi(completed, adapter.GetReasoningSnapshot());
+        Assert.AreEqual("final reasoning", completedUi.Last().ReasoningContent);
+        Assert.AreEqual("done", completedUi.Last().Content);
+        Assert.AreEqual(3, completedUi.Count(message => message.Role == "tool"));
 
         Assert.AreEqual(2, client.Calls);
         Assert.AreEqual(1, writes);
@@ -284,6 +291,28 @@ public class ClaudeAgentModelClientTests
         Assert.AreEqual("Tool call rejected.", Blocks(client.Messages[1]).Single().Content);
         Assert.AreEqual(AgentToolResultText.Rejected, Blocks(client.Messages[2]).Single().Content);
         Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject(request.Transcript)));
+    }
+
+    [TestMethod]
+    public async Task ReasoningSnapshot_IsReadOnlyIndependentAndUsesAbsoluteCanonicalIndices()
+    {
+        using var services = new ServiceCollection().BuildServiceProvider();
+        var client = CreateClient(services);
+        var initial = new Dictionary<int, string?> { [2] = "imported" };
+        var adapter = new ClaudeAgentModelClient(client, [], initialReasoning: initial);
+        initial[2] = "changed source";
+        var before = adapter.GetReasoningSnapshot();
+        Assert.AreEqual("imported", before[2]);
+        Assert.ThrowsExactly<NotSupportedException>(() => ((IDictionary<int, string?>)before)[2] = "changed snapshot");
+        client.Response = new ClaudeResponse { ReasoningContent = "new thought", Content = [ClaudeContentBlock.TextBlock("new answer")] };
+        var transcript = new[] { TranscriptMessage.System("system"), TranscriptMessage.User("go"), TranscriptMessage.Assistant([new TextBlock("old")]) };
+        var response = await adapter.CompleteAsync(new AgentModelRequest(transcript, []), default);
+        var after = adapter.GetReasoningSnapshot();
+        Assert.IsFalse(before.ContainsKey(3));
+        Assert.AreEqual("new thought", after[3]);
+        var ui = AgentHistoryMapper.ProjectForUi(transcript.Append(TranscriptMessage.Assistant(response.Content)).ToArray(), after);
+        Assert.AreEqual("imported", ui[2].ReasoningContent);
+        Assert.AreEqual("new thought", ui[3].ReasoningContent);
     }
 
     private static List<ClaudeContentBlock> Blocks(ClaudeMessage message) => (List<ClaudeContentBlock>)message.Content;

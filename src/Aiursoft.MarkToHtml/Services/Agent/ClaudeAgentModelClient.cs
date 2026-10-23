@@ -38,6 +38,11 @@ public sealed class ClaudeAgentModelClient : IAgentModelClient
         _reasoning = initialReasoning?.ToDictionary(pair => pair.Key, pair => pair.Value) ?? new();
     }
 
+    // Independent read-only snapshot; includes pending completion reasoning. Project only with
+    // the matching canonical transcript after that completion has been appended. Sequential use only.
+    internal IReadOnlyDictionary<int, string?> GetReasoningSnapshot() =>
+        new System.Collections.ObjectModel.ReadOnlyDictionary<int, string?>(new Dictionary<int, string?>(_reasoning));
+
     public async ValueTask<AgentModelResponse> CompleteAsync(AgentModelRequest request, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(request);
