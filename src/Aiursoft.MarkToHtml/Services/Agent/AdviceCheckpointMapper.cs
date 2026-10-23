@@ -108,7 +108,8 @@ internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService 
         {
             var advice = adviceService.Get(link.AdviceId)!;
             if (results.TryGetValue(key, out var result) &&
-                advice.Status is AdviceStatus.Pending or AdviceStatus.Approved)
+                (advice.Status is AdviceStatus.Pending or AdviceStatus.Approved ||
+                 advice.Status == AdviceStatus.Rejected && result.Outcome == ToolOutcome.Rejected))
             {
                 if (result.Outcome == ToolOutcome.Rejected)
                 {
@@ -136,6 +137,22 @@ internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService 
                 result.Outcome == ToolOutcome.Deferred || !results.TryAdd(key, result))
                 throw new ArgumentException("Result does not match a unique resolved call.", nameof(run));
         }
+    }
+
+    // Call under the same serialization as Synchronize and dispatch. The absolute batch
+    // position is essential: call IDs may be reused by a later model turn.
+    internal string RequireCurrentPendingCall(Guid adviceId, OrderedAgentRunResult run)
+    {
+        var advice = adviceService.Get(adviceId);
+        var checkpoint = run.Checkpoint;
+        var batch = run.Transcript.Count - 1;
+        if (advice == null || advice.ConversationId != conversationId || advice.Status != AdviceStatus.Pending ||
+            checkpoint == null || !_links.TryGetValue((batch, advice.ToolCallId ?? ""), out var link) ||
+            link.AdviceId != adviceId || advice.ToolName != link.Call.Name ||
+            !JToken.DeepEquals(JToken.FromObject(checkpoint.Transcript), JToken.FromObject(run.Transcript)) ||
+            !checkpoint.Resolutions.Any(item => item.Result == null && SameCall(item.Call, link.Call)))
+            throw new InvalidOperationException("Advice is not a current pending proposal in this session.");
+        return link.Call.Id;
     }
 
     private static bool SameCall(ToolCall left, ToolCall right) => left.Id == right.Id &&
