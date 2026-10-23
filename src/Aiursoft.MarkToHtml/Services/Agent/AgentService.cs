@@ -2,7 +2,6 @@ using System.Collections.Concurrent;
 using System.Text;
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.MarkToHtml.Configuration;
-using Aiursoft.MarkToHtml.Entities;
 using ModelContextProtocol.Server;
 using Newtonsoft.Json;
 
@@ -383,46 +382,7 @@ public class AgentService : IAgentService
 
             var args = new Dictionary<string, object?>(advice.Parameters);
 
-            // For ReplaceText: apply the edit to the in-memory document content
-            string result;
-            if (advice.ToolName == "ReplaceText" &&
-                args.TryGetValue("oldString", out var oldObj) &&
-                args.TryGetValue("newString", out var newObj))
-            {
-                var oldString = oldObj?.ToString() ?? "";
-                var newString = newObj?.ToString() ?? "";
-
-                // Apply the replacement
-                var index = conversation.DocumentContent.IndexOf(oldString, StringComparison.Ordinal);
-                if (index >= 0)
-                {
-                    conversation.DocumentContent = conversation.DocumentContent[..index] +
-                        newString +
-                        conversation.DocumentContent[(index + oldString.Length)..];
-
-                    // Persist to DB
-                    using var scope = _scopeFactory.CreateScope();
-                    var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-                    var document = await db.MarkdownDocuments.FindAsync(conversation.DocumentId);
-                    if (document != null)
-                    {
-                        document.Content = conversation.DocumentContent;
-                        document.UpdatedAt = DateTime.UtcNow;
-                        await db.SaveChangesAsync();
-                    }
-
-                    conversation.DocumentContentUpdated = true;
-                    result = $"Document updated successfully. {oldString.Split('\n').Length} lines replaced with {newString.Split('\n').Length} lines.";
-                }
-                else
-                {
-                    result = "Error: old_string not found in current document. The document may have been modified since the edit was proposed.";
-                }
-            }
-            else
-            {
-                result = await ExecuteToolWithArgs(sp, tool, args, conversation);
-            }
+            var result = await AgentToolExecution.ExecuteApprovedAsync(sp, _scopeFactory, tool, args, conversation);
 
             _adviceService.SetResult(adviceId, result, null);
 
@@ -550,45 +510,12 @@ public class AgentService : IAgentService
         return await ExecuteToolWithArgs(sp, tool, args, conversation);
     }
 
-    private async Task<string> ExecuteToolWithArgs(
+    private Task<string> ExecuteToolWithArgs(
         IServiceProvider sp,
         McpServerTool tool,
         Dictionary<string, object?> args,
-        AgentConversation conversation)
-    {
-        using var scope = sp.CreateScope();
-
-        var currentUser = scope.ServiceProvider.GetRequiredService<CurrentUserService>();
-        currentUser.UserId = conversation.UserId;
-        currentUser.DocumentContent = conversation.DocumentContent;
-        currentUser.DocumentId = conversation.DocumentId;
-
-        var jsonArgs = new Dictionary<string, System.Text.Json.JsonElement>();
-        foreach (var (key, value) in args)
-        {
-            var sanitized = value is string s && s.Length == 0 ? null : value;
-            var json = System.Text.Json.JsonSerializer.SerializeToElement(sanitized);
-            jsonArgs[key] = json;
-        }
-
-        var requestParams = new ModelContextProtocol.Protocol.CallToolRequestParams
-        {
-            Name = tool.ProtocolTool.Name,
-            Arguments = jsonArgs
-        };
-
-        var request = new RequestContext<ModelContextProtocol.Protocol.CallToolRequestParams>(
-            server: NullMcpServer.Instance,
-            jsonRpcRequest: new ModelContextProtocol.Protocol.JsonRpcRequest { Method = "tools/call" },
-            parameters: requestParams)
-        {
-            Services = scope.ServiceProvider
-        };
-
-        var result = await tool.InvokeAsync(request);
-        var textContent = result.Content.OfType<ModelContextProtocol.Protocol.TextContentBlock>().FirstOrDefault();
-        return textContent?.Text ?? result.ToString() ?? "Tool executed.";
-    }
+        AgentConversation conversation) =>
+        AgentToolExecution.ExecuteMcpAsync(sp, tool, args, conversation);
 
     // ── Utilities ────────────────────────────────────────────────────────────────
 

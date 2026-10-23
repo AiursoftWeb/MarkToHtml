@@ -358,6 +358,107 @@ public class AgentBehaviorTests
         Assert.AreEqual(0, services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Count());
     }
 
+    [TestMethod]
+    [DataRow("ReadFullDocument", "1|First\n2|Second")]
+    [DataRow("ReadDocumentLines", "2|Second")]
+    public async Task ExecutionSeam_AdapterUsesRealScopedReadHandler(string toolName, string expected)
+    {
+        using var services = CreateToolServices();
+        var conversation = new AgentConversation
+        {
+            UserId = "trusted-owner", DocumentId = Guid.NewGuid(), DocumentContent = "First\nSecond"
+        };
+        var tool = new ToolRegistry(services).GetTool(toolName)!;
+        IServiceProvider executionServices = services;
+        var adapter = AgentToolAdapter.ForReadOnly(tool, async (arguments, _) =>
+            await AgentToolExecution.ExecuteMcpAsync(executionServices, tool,
+                arguments.ToObject<Dictionary<string, object?>>()!, conversation));
+        var args = Newtonsoft.Json.Linq.JObject.Parse("{\"startLine\":2,\"endLine\":2,\"UserId\":\"untrusted\"}");
+        var original = args.DeepClone();
+
+        var result = await adapter.ExecuteAsync(args, default);
+
+        Assert.AreEqual(expected.Replace("\n", Environment.NewLine), result.ToObject<string>());
+        Assert.IsTrue(Newtonsoft.Json.Linq.JToken.DeepEquals(original, args));
+        Assert.AreEqual(string.Empty, services.GetRequiredService<CurrentUserService>().DocumentContent);
+    }
+
+    [TestMethod]
+    [DataRow("same", "changed", true, "changed same", true)]
+    [DataRow("SAME", "changed", true, "same same", false)]
+    [DataRow("missing", "changed", true, "same same", false)]
+    [DataRow("same", "", true, " same", true)]
+    [DataRow("same", "changed", false, "changed same", true)]
+    public async Task ExecutionSeam_ApprovedAdapterPreservesLegacyReplacement(
+        string oldText, string newText, bool documentExists, string expected, bool updated)
+    {
+        using var services = CreateToolServices();
+        // ReplaceText persistence must use the separately supplied factory, not the MCP provider.
+        using var mcpServices = new ServiceCollection().BuildServiceProvider();
+        var conversation = new AgentConversation
+        {
+            UserId = "owner", DocumentId = Guid.NewGuid(), DocumentContent = "same same"
+        };
+        var previousUpdate = DateTime.UtcNow.AddDays(-1);
+        if (documentExists)
+        {
+            using var scope = services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = conversation.DocumentId, UserId = conversation.UserId,
+                Content = conversation.DocumentContent, UpdatedAt = previousUpdate
+            });
+            await db.SaveChangesAsync();
+        }
+        var tool = new ToolRegistry(services).GetTool("ReplaceText")!;
+        // This fixture is the approving caller; the internal execution seam does not authorize.
+        IServiceProvider executionServices = mcpServices;
+        var persistenceScopes = services.GetRequiredService<IServiceScopeFactory>();
+        var adapter = AgentToolAdapter.ForApprovedWrite(tool, async (arguments, _) =>
+            await AgentToolExecution.ExecuteApprovedAsync(executionServices,
+                persistenceScopes, tool,
+                arguments.ToObject<Dictionary<string, object?>>()!, conversation));
+        var args = new Newtonsoft.Json.Linq.JObject { ["oldString"] = oldText, ["newString"] = newText };
+        var original = args.DeepClone();
+
+        var result = await adapter.ExecuteAsync(args, default);
+
+        Assert.AreEqual(expected, conversation.DocumentContent);
+        Assert.AreEqual(updated, conversation.DocumentContentUpdated);
+        Assert.AreEqual(updated
+            ? "Document updated successfully. 1 lines replaced with 1 lines."
+            : "Error: old_string not found in current document. The document may have been modified since the edit was proposed.",
+            result.ToObject<string>());
+        Assert.IsTrue(Newtonsoft.Json.Linq.JToken.DeepEquals(original, args));
+        using var verification = services.CreateScope();
+        var stored = await verification.ServiceProvider.GetRequiredService<TemplateDbContext>()
+            .MarkdownDocuments.AsNoTracking().SingleOrDefaultAsync();
+        if (documentExists)
+        {
+            Assert.IsNotNull(stored);
+            Assert.AreEqual(expected, stored.Content);
+            if (updated) Assert.IsTrue(stored.UpdatedAt > previousUpdate);
+            else Assert.AreEqual(previousUpdate, stored.UpdatedAt);
+        }
+        else Assert.IsNull(stored);
+    }
+
+    [TestMethod]
+    public async Task ExecutionSeam_PersistenceFailurePropagatesAfterLegacyMemoryMutation()
+    {
+        using var services = new ServiceCollection().BuildServiceProvider();
+        var conversation = new AgentConversation { DocumentContent = "old" };
+        var tool = new ToolRegistry(services).GetTool("ReplaceText")!;
+
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => AgentToolExecution.ExecuteApprovedAsync(
+            services, services.GetRequiredService<IServiceScopeFactory>(), tool,
+            new() { ["oldString"] = "old", ["newString"] = "new" }, conversation));
+
+        Assert.AreEqual("new", conversation.DocumentContent);
+        Assert.IsFalse(conversation.DocumentContentUpdated);
+    }
+
     private static ClaudeContentBlock Replacement(string id, string oldText, string newText) =>
         ClaudeContentBlock.ToolUse(id, "ReplaceText", new() { ["oldString"] = oldText, ["newString"] = newText });
 
