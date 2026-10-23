@@ -269,33 +269,8 @@ public class AgentService : IAgentService
 
                         if (isWrite)
                         {
-                            var tool = _toolRegistry.GetTool(tu.Name);
-                            var displayName = tool?.ProtocolTool.Title ?? tu.Name;
-                            var args = tu.Input ?? new Dictionary<string, object?>();
-                            var (displayText, displayParams) = BuildParameterDisplay(tu.Name, args);
-
-                            // Pre-compute diff hunks for edit tools
-                            List<DiffHunk>? diffHunks = null;
-                            if (tu.Name == "ReplaceText" &&
-                                args.TryGetValue("oldString", out var oldObj) &&
-                                args.TryGetValue("newString", out var newObj))
-                            {
-                                var oldString = oldObj?.ToString() ?? "";
-                                var newString = newObj?.ToString() ?? "";
-                                diffHunks = ComputeDiffHunks(oldString, newString);
-                            }
-
-                            var advice = _adviceService.Create(
-                                conversationId: conversationId,
-                                toolName: tu.Name,
-                                toolDisplayName: displayName,
-                                toolDescription: tool?.ProtocolTool.Description ?? "",
-                                parameters: args,
-                                parameterDisplay: displayText,
-                                toolCallId: tu.Id,
-                                displayParameters: displayParams,
-                                diffHunks: diffHunks,
-                                documentContentSnapshot: conversation.DocumentContent);
+                            var advice = CreateToolAdvice(_adviceService, _toolRegistry, conversation,
+                                tu.Name, tu.Id, tu.Input ?? new Dictionary<string, object?>());
 
                             adviceIds.Add(advice.Id);
                             _logger.LogInformation("Advice created: {AdviceId} for tool {ToolName}", advice.Id, tu.Name);
@@ -592,6 +567,20 @@ public class AgentService : IAgentService
         });
 
         return hunks;
+    }
+
+    internal static Advice CreateToolAdvice(AdviceService adviceService, ToolRegistry registry,
+        AgentConversation conversation, string toolName, string? callId, Dictionary<string, object?> args)
+    {
+        var tool = registry.GetTool(toolName);
+        var (displayText, displayParams) = BuildParameterDisplay(toolName, args);
+        List<DiffHunk>? diffHunks = null;
+        if (toolName == "ReplaceText" &&
+            args.TryGetValue("oldString", out var oldObj) && args.TryGetValue("newString", out var newObj))
+            diffHunks = ComputeDiffHunks(oldObj?.ToString() ?? "", newObj?.ToString() ?? "");
+        return adviceService.Create(conversation.Id, toolName, tool?.ProtocolTool.Title ?? toolName,
+            tool?.ProtocolTool.Description ?? "", args, displayText, callId, displayParams, diffHunks,
+            conversation.DocumentContent);
     }
 
     private static (string DisplayText, List<AdviceParameterItem> Parameters) BuildParameterDisplay(
