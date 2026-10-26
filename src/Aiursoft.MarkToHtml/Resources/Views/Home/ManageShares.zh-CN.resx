@@ -82,7 +82,7 @@
     <value>复制链接</value>
   </data>
   <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
-    <value>无法确认更改。已保留您的输入。请重试，或重新加载以检查保存状态。</value>
+    <value>无法确认更改。已保留您的输入。请重试，或重新加载以查看保存状态。</value>
   </data>
   <data name="Could not copy. Select and copy the link above." xml:space="preserve">
     <value>无法复制。请选中并复制上方的链接。</value>
@@ -148,13 +148,13 @@
     <value>尚未添加用户或角色。</value>
   </data>
   <data name="Not saved. The link above still uses the current access setting." xml:space="preserve">
-    <value>未保存。上方链接仍使用当前访问设置。</value>
+    <value>未保存。上方链接仍使用当前访问权限设置。</value>
   </data>
   <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
     <value>只有您和下方列出的特定用户/角色可以查看此文档。</value>
   </data>
   <data name="People with access" xml:space="preserve">
-    <value>有权限的用户</value>
+    <value>有访问权限的人员</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>权限</value>
@@ -166,19 +166,19 @@
     <value>公开链接</value>
   </data>
   <data name="Public viewing" xml:space="preserve">
-    <value>公开查看</value>
+    <value>公开浏览</value>
   </data>
   <data name="Read Only" xml:space="preserve">
     <value>只读</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>移除</value>
+    <value>删除</value>
   </data>
   <data name="Remove this share? Other access may still apply." xml:space="preserve">
-    <value>要移除此项共享吗？其他访问权限可能仍然生效。</value>
+    <value>要移除此共享吗？其他访问权限可能仍然有效。</value>
   </data>
   <data name="Restricted access" xml:space="preserve">
-    <value>仅限访问</value>
+    <value>受限访问</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>角色</value>
@@ -190,13 +190,13 @@
     <value>保存访问权限</value>
   </data>
   <data name="Search failed. Change the search text to try again." xml:space="preserve">
-    <value>搜索失败。请更改搜索文本后重试。</value>
+    <value>搜索失败。请更改搜索内容后重试。</value>
   </data>
   <data name="Searching..." xml:space="preserve">
-    <value>正在搜索...</value>
+    <value>正在搜索……</value>
   </data>
   <data name="Select a role..." xml:space="preserve">
-    <value>选择角色...</value>
+    <value>选择一个角色...</value>
   </data>
   <data name="Select a user from the search results or choose a role." xml:space="preserve">
     <value>请从搜索结果中选择一个用户，或选择一个角色。</value>
@@ -214,7 +214,7 @@
     <value>共享给</value>
   </data>
   <data name="Sign-in and existing access are required. Copying a link does not grant access." xml:space="preserve">
-    <value>必须登录且已有访问权限。复制链接不会授予访问权限。</value>
+    <value>需要登录并且已有访问权限。复制链接不会授予访问权限。</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>特定用户</value>
