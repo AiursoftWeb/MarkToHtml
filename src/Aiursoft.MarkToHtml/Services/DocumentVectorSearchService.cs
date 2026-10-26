@@ -210,31 +210,45 @@ public class DocumentVectorSearchService(
 
         // Truncate query text to fit bge-m3's 8192-token context window.
         // Queries are typically short, but a user might paste a very long document.
-        const int maxQueryChars = 8000;
-        var input = text.Length > maxQueryChars ? text[..maxQueryChars] : text;
+        var maxChars = 8000;
 
         var http = httpClientFactory.CreateClient();
         var baseUri = new Uri(endpoint);
         var embedUrl = $"{baseUri.Scheme}://{baseUri.Authority}/api/embed?keep_alive=-1";
 
-        var body = new { model, input };
-        var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-        var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
-
-        if (!string.IsNullOrWhiteSpace(token))
-            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-
         using var timeoutCts = new CancellationTokenSource(TimeSpan.FromSeconds(EmbedTimeoutSeconds));
         using var linked     = CancellationTokenSource.CreateLinkedTokenSource(ct, timeoutCts.Token);
+        float[] embedding;
+        while (true)
+        {
+            var input = text.Length > maxChars ? text[..maxChars] : text;
+            var body = new { model, input };
+            var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+            using var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 
-        var response = await http.SendAsync(request, linked.Token);
-        response.EnsureSuccessStatusCode();
+            if (!string.IsNullOrWhiteSpace(token))
+                request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-        var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>(linked.Token);
-        if (result?.Embeddings == null || result.Embeddings.Length == 0)
-            return null;
+            using var response = await http.SendAsync(request, linked.Token);
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync(linked.Token);
+                if (maxChars > 500 && EmbeddingHelper.IsContextLengthError(response.StatusCode, error))
+                {
+                    maxChars /= 2;
+                    continue;
+                }
+                response.EnsureSuccessStatusCode();
+            }
 
-        var embedding = result.Embeddings[0];
+            var result = await response.Content.ReadFromJsonAsync<OllamaEmbedResponse>(linked.Token);
+            if (result?.Embeddings == null || result.Embeddings.Length == 0)
+                return null;
+
+            embedding = result.Embeddings[0];
+            break;
+        }
+
         EmbeddingHelper.Normalize(embedding);
 
         try
