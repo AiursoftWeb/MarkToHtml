@@ -17,6 +17,8 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// </summary>
 public sealed class ClaudeAgentModelClient : IAgentModelClient
 {
+    internal Func<int, ToolResult, string>? ToolResultText { get; init; }
+
     private readonly ClaudeClient _client;
     private readonly string[] _toolOrder;
     private readonly int _maxTokens;
@@ -79,6 +81,7 @@ public sealed class ClaudeAgentModelClient : IAgentModelClient
         var system = request.Transcript.FirstOrDefault(message => message.Role == TranscriptRole.System);
         var systemPrompt = system == null ? "" : GetText(system);
         var messages = new List<ClaudeMessage>();
+        var batch = -1;
         for (var index = 0; index < request.Transcript.Count; index++)
         {
             var message = request.Transcript[index];
@@ -88,6 +91,7 @@ public sealed class ClaudeAgentModelClient : IAgentModelClient
                     messages.Add(ClaudeMessage.User(GetText(message)));
                     break;
                 case TranscriptRole.Assistant:
+                    if (message.ToolCalls.Count > 0) batch = index;
                     var blocks = new List<ClaudeContentBlock>();
                     var text = GetText(message);
                     if (!string.IsNullOrWhiteSpace(text)) blocks.Add(ClaudeContentBlock.TextBlock(text));
@@ -107,7 +111,7 @@ public sealed class ClaudeAgentModelClient : IAgentModelClient
                     {
                         if (string.IsNullOrWhiteSpace(result.CallId))
                             throw new NotSupportedException("AgentKit replay requires a nonblank tool result ID; IDs are never synthesized.");
-                        messages.Add(ClaudeMessage.ToolResult(result.CallId, AgentToolResultText.GetText(result)));
+                        messages.Add(ClaudeMessage.ToolResult(result.CallId, ToolResultText?.Invoke(batch, result) ?? AgentToolResultText.GetText(result)));
                     }
                     break;
             }

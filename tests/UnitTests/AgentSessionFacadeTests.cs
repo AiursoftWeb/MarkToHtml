@@ -138,7 +138,9 @@ public class AgentSessionFacadeTests
         Assert.IsNull(failure.Output);
         Assert.AreEqual("Tool execution failed.", failure.Error);
         Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(ids[0])!.Status);
-        Assert.AreEqual("Tool execution failed.", f.Advice.Get(ids[0])!.Error);
+        StringAssert.StartsWith(f.Advice.Get(ids[0])!.Error!, "DOCUMENT_PERSISTENCE_FAILED:");
+        StringAssert.Contains(f.Advice.Get(ids[0])!.Error!, "saved document state is unknown");
+        StringAssert.Contains(f.Conversation.Messages.Last().Content!, "Do not blindly repeat");
         Assert.AreEqual(AgentState.AwaitingApproval, f.Conversation.State);
         CollectionAssert.AreEqual(new[] { ids[1] }, f.Conversation.PendingAdviceIds.ToArray());
         Assert.AreEqual(1, f.Client.Requests.Count);
@@ -153,6 +155,42 @@ public class AgentSessionFacadeTests
         Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(ids[0])!.Status);
         Assert.AreEqual(2, f.Client.Requests.Count);
         Assert.IsFalse(JToken.FromObject(completed).ToString().Contains("private persistence detail"));
+    }
+
+    [TestMethod]
+    public async Task FailedWrite_FeedbackReachesModel_CorrectedWriteStillRequiresApproval()
+    {
+        using var f = new Fixture(Calls(Write("same", "Original", "Edited")),
+            Calls(Read("verify")), Calls(Write("same", "Edited", "Corrected")), Done());
+        await f.Session.StartAsync();
+        var failedId = f.Conversation.PendingAdviceIds.Single();
+        f.OnDbResolve = () => throw new InvalidOperationException("secret connection string");
+        var retry = await f.Session.ResolveAsync(failedId, ApprovalDecision.Execute);
+        Assert.AreEqual(OrderedAgentRunOutcome.AwaitingApproval, retry.Outcome);
+        Assert.AreEqual(3, f.Client.Requests.Count);
+        var feedback = f.Client.Requests[1].SelectMany(message => message.Content as List<ClaudeContentBlock> ?? [])
+            .Single(block => block.ToolUseId == "same").Content!.ToString()!;
+        StringAssert.Contains(feedback, "DOCUMENT_PERSISTENCE_FAILED");
+        StringAssert.Contains(feedback, "not proof of persistence");
+        Assert.IsFalse(feedback.Contains("secret connection string"));
+        Assert.AreEqual("Edited document", f.Conversation.DocumentContent);
+        Assert.AreEqual("Original document", f.Stored());
+        var correctedId = f.Conversation.PendingAdviceIds.Single();
+        Assert.AreNotEqual(failedId, correctedId);
+        Assert.AreEqual(AdviceStatus.Pending, f.Advice.Get(correctedId)!.Status);
+        f.OnDbResolve = null;
+        var completed = await f.Session.ResolveAsync(correctedId, ApprovalDecision.Execute);
+        Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
+        Assert.AreEqual("Corrected document", f.Stored());
+        Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(failedId)!.Status);
+        Assert.AreEqual(AdviceStatus.Executed, f.Advice.Get(correctedId)!.Status);
+        var replay = f.Client.Requests.Last().SelectMany(message => message.Content as List<ClaudeContentBlock> ?? [])
+            .Where(block => block.ToolUseId == "same").ToArray();
+        Assert.AreEqual(2, replay.Length);
+        StringAssert.StartsWith(replay[0].Content!.ToString()!, "DOCUMENT_PERSISTENCE_FAILED:");
+        StringAssert.StartsWith(replay[1].Content!.ToString()!, "Document updated successfully.");
+        Assert.AreEqual("Tool execution failed.", completed.Transcript.SelectMany(message => message.ToolResults)
+            .Single(result => result.Outcome == ToolOutcome.Failed).Error);
     }
 
     [TestMethod]

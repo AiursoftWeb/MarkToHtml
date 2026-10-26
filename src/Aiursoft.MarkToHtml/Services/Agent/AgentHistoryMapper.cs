@@ -73,7 +73,7 @@ internal static class AgentHistoryMapper
     // Returns a fresh independent list, not an update to AgentConversation.Messages.
     // Absolute canonical indices are used BEFORE any UI-only hiding or tool-result expansion.
     internal static List<ToolMessagesItem> ProjectForUi(IReadOnlyList<TranscriptMessage> transcript,
-        IReadOnlyDictionary<int, string?> reasoning)
+        IReadOnlyDictionary<int, string?> reasoning, Func<int, ToolResult, string>? toolResultText = null)
     {
         ArgumentNullException.ThrowIfNull(transcript);
         ArgumentNullException.ThrowIfNull(reasoning);
@@ -81,12 +81,14 @@ internal static class AgentHistoryMapper
             if (index < 0 || index >= transcript.Count || transcript[index].Role != TranscriptRole.Assistant)
                 throw new ArgumentException("Reasoning indices must identify canonical assistant messages.", nameof(reasoning));
         var projected = new List<ToolMessagesItem>();
+        var batch = -1;
         for (var index = 0; index < transcript.Count; index++)
         {
             var message = transcript[index];
+            if (message.ToolCalls.Count > 0) batch = index;
             if (message.Role == TranscriptRole.Tool)
             {
-                projected.AddRange(message.ToolResults.Select(result => ProjectResult(result, message.IsMeta)));
+                projected.AddRange(message.ToolResults.Select(result => ProjectResult(result, message.IsMeta, toolResultText?.Invoke(batch, result))));
                 continue;
             }
             var text = string.Concat(message.Content.OfType<TextBlock>().Select(block => block.Text));
@@ -109,21 +111,21 @@ internal static class AgentHistoryMapper
     }
 
     internal static List<ToolMessagesItem> ProjectForUi(OrderedAgentRunResult result,
-        IReadOnlyDictionary<int, string?> reasoning)
+        IReadOnlyDictionary<int, string?> reasoning, Func<int, ToolResult, string>? toolResultText = null)
     {
         ArgumentNullException.ThrowIfNull(result);
-        var projected = ProjectForUi(result.Transcript, reasoning);
+        var projected = ProjectForUi(result.Transcript, reasoning, toolResultText);
         // Prior completed batches are already in Transcript. Only unresolved current-batch
         // resolutions carry results absent from it; CompletedResults also includes prior batches.
         if (result.Checkpoint is { } checkpoint)
             projected.AddRange(checkpoint.Resolutions.Where(item => item.Result != null)
-                .Select(item => ProjectResult(item.Result!, false)));
+                .Select(item => ProjectResult(item.Result!, false, toolResultText?.Invoke(result.Transcript.Count - 1, item.Result!))));
         return projected;
     }
 
-    private static ToolMessagesItem ProjectResult(ToolResult result, bool isMeta) => new()
+    private static ToolMessagesItem ProjectResult(ToolResult result, bool isMeta, string? text = null) => new()
     {
-        Role = "tool", ToolCallId = result.CallId, Content = AgentToolResultText.GetText(result), IsMeta = isMeta
+        Role = "tool", ToolCallId = result.CallId, Content = text ?? AgentToolResultText.GetText(result), IsMeta = isMeta
     };
 
     private static void RequireId(string? id)

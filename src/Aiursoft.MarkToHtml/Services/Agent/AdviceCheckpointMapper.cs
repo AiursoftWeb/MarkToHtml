@@ -11,7 +11,8 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Absolute assistant index plus call ID identifies a batch, even when later turns reuse IDs.
 /// Must observe the initial pause: resolved writes never create retroactive proposals/snapshots.
 /// </summary>
-internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService adviceService, ToolRegistry registry)
+internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService adviceService, ToolRegistry registry,
+    AgentToolFailureFeedback? feedback = null)
 {
     private readonly Dictionary<(int Batch, string CallId), (Guid AdviceId, ToolCall Call)> _links = new();
 
@@ -120,7 +121,11 @@ internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService 
                 else if (result.Outcome == ToolOutcome.Succeeded)
                     adviceService.SetResult(advice.Id, AgentToolResultText.GetText(result), null);
                 else if (result.Outcome == ToolOutcome.Failed)
-                    adviceService.SetResult(advice.Id, AgentToolResultText.GetText(result), result.Error ?? "Tool execution failed.");
+                {
+                    var text = feedback?.GetText(key.Batch, result) ?? AgentToolResultText.GetText(result);
+                    adviceService.SetResult(advice.Id, text,
+                        feedback == null ? result.Error ?? "Tool execution failed." : text);
+                }
             }
             if (advice.Status == AdviceStatus.Pending)
             {

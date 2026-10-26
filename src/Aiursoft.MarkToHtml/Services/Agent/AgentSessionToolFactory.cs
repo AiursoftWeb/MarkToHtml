@@ -9,13 +9,13 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// OrderedAgentSessionHost must gate approval before dispatching write handlers.
 /// Legacy business errors and read exceptions remain string outputs (JValue), so
 /// runner Succeeded means dispatch returned, NOT business success. Write exceptions
-/// propagate to the runner as Failed; the runner redacts their details. Preserving legacy
-/// write-error details/text remains a production blocker. This factory does not project Advice.
+/// propagate to the runner as Failed; optional session feedback records safe stage/recovery
+/// information, never raw exception details. This factory does not project Advice.
 /// </summary>
 internal static class AgentSessionToolFactory
 {
     internal static IReadOnlyList<IAgentTool> Create(IServiceScopeFactory scopes,
-        AgentConversation conversation, ToolRegistry registry)
+        AgentConversation conversation, ToolRegistry registry, AgentToolFailureFeedback? feedback = null)
     {
         ArgumentNullException.ThrowIfNull(scopes);
         ArgumentNullException.ThrowIfNull(conversation);
@@ -27,6 +27,7 @@ internal static class AgentSessionToolFactory
             async ValueTask<string> Execute(JToken arguments, CancellationToken cancellationToken)
             {
                 cancellationToken.ThrowIfCancellationRequested();
+                var persistenceStarted = false;
                 try
                 {
                     // Keep this provider alive across the await. The execution helper owns
@@ -34,11 +35,17 @@ internal static class AgentSessionToolFactory
                     using var scope = scopes.CreateScope();
                     var args = arguments.ToObject<Dictionary<string, object?>>()!;
                     return isWrite
-                        ? await AgentToolExecution.ExecuteApprovedAsync(scope.ServiceProvider, scopes, tool, args, conversation)
+                        ? await AgentToolExecution.ExecuteApprovedAsync(scope.ServiceProvider, scopes, tool, args, conversation,
+                            () => persistenceStarted = true)
                         : await AgentToolExecution.ExecuteMcpAsync(scope.ServiceProvider, tool, args, conversation);
                 }
                 catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
                 {
+                    throw;
+                }
+                catch (Exception) when (isWrite)
+                {
+                    feedback?.RecordWriteFailure(tool.ProtocolTool.Name, persistenceStarted);
                     throw;
                 }
                 catch (Exception ex) when (!isWrite)

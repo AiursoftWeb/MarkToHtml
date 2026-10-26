@@ -10,11 +10,12 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Initial legacy history must be completed and is imported lossily once. UI projections are
 /// never replayed. Continue and legacy cancellation semantics are deliberately not supported.
 /// Production blockers: ModelFailure has no legacy exception details (never expose provider
-/// bodies); write exceptions now project Failed, but the runner redacts legacy error details
-/// and tool text. Do not infer business success from canonical Succeeded or parse error text.
+/// bodies); write exceptions project Failed with safe stage/recovery feedback rather than
+/// legacy raw exception text. Do not infer business success from canonical Succeeded or parse error text.
 /// </summary>
 internal sealed class AgentSessionFacade
 {
+    private readonly AgentToolFailureFeedback _feedback = new();
     private readonly AgentConversation _conversation;
     private readonly AdviceService _advice;
     private readonly ClaudeAgentModelClient _model;
@@ -36,10 +37,10 @@ internal sealed class AgentSessionFacade
         _advice = advice;
         var initial = AgentHistoryMapper.ImportCompletedLegacyHistoryLossy(conversation.Messages);
         _model = new ClaudeAgentModelClient(client, registry.AllTools.Select(tool => tool.ProtocolTool.Name),
-            initialReasoning: initial.InitialReasoning);
+            initialReasoning: initial.InitialReasoning) { ToolResultText = _feedback.GetText };
         _host = new OrderedAgentSessionHost(initial.Transcript,
-            AgentSessionToolFactory.Create(scopes, conversation, registry), _model);
-        _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry);
+            AgentSessionToolFactory.Create(scopes, conversation, registry, _feedback), _model);
+        _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry, _feedback);
     }
 
     internal async Task<OrderedAgentRunResult> StartAsync()
@@ -82,7 +83,10 @@ internal sealed class AgentSessionFacade
             _conversation.State = AgentState.Thinking;
             try
             {
-                Synchronize(await _host.ResolveAsync(callId, decision));
+                var call = current.Checkpoint!.Resolutions.Single(item => item.Call.Id == callId).Call;
+                _feedback.Begin(current.Transcript.Count - 1, callId, call.Name);
+                try { Synchronize(await _host.ResolveAsync(callId, decision)); }
+                finally { _feedback.End(); }
                 return Copy(_result!);
             }
             catch
@@ -111,7 +115,7 @@ internal sealed class AgentSessionFacade
             .Where(pair => pair.Key >= 0 && pair.Key < result.Transcript.Count &&
                 result.Transcript[pair.Key].Role == TranscriptRole.Assistant)
             .ToDictionary(pair => pair.Key, pair => pair.Value);
-        var messages = AgentHistoryMapper.ProjectForUi(result, reasoning);
+        var messages = AgentHistoryMapper.ProjectForUi(result, reasoning, _feedback.GetText);
         _mapper.Synchronize(_conversation, result);
         if (result.Outcome == OrderedAgentRunOutcome.MaxIterations)
             messages.Add(new ToolMessagesItem

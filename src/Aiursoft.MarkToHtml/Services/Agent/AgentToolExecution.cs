@@ -20,7 +20,8 @@ internal static class AgentToolExecution
         IServiceScopeFactory persistenceScopes,
         McpServerTool tool,
         Dictionary<string, object?> args,
-        AgentConversation conversation)
+        AgentConversation conversation,
+        Action? persistenceStarting = null)
     {
         if (tool.ProtocolTool.Name == "ReplaceText" &&
             args.TryGetValue("oldString", out var oldObj) &&
@@ -35,6 +36,7 @@ internal static class AgentToolExecution
                     newString +
                     conversation.DocumentContent[(index + oldString.Length)..];
 
+                persistenceStarting?.Invoke();
                 using var scope = persistenceScopes.CreateScope();
                 var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
                 var document = await db.MarkdownDocuments.FindAsync(conversation.DocumentId);
