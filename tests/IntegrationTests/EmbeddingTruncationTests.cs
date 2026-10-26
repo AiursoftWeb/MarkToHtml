@@ -65,7 +65,7 @@ public class EmbeddingTruncationTests
 
     private static HttpResponseMessage OllamaError(string error)
     {
-        return new HttpResponseMessage(HttpStatusCode.InternalServerError)
+        return new HttpResponseMessage(HttpStatusCode.BadRequest)
         {
             Content = new StringContent(
                 JsonConvert.SerializeObject(new { error }),
