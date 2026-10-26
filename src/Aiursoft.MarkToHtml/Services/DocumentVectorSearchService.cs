@@ -223,8 +223,8 @@ public class DocumentVectorSearchService(
         {
             var input = text.Length > maxChars ? text[..maxChars] : text;
             var body = new { model, input };
-            var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
-            using var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
+            using var request = new HttpRequestMessage(HttpMethod.Post, embedUrl);
+            request.Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
             if (!string.IsNullOrWhiteSpace(token))
                 request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
