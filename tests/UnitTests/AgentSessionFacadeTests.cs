@@ -124,6 +124,53 @@ public class AgentSessionFacadeTests
         Assert.AreEqual("Model execution failed.", failure.Conversation.ErrorMessage);
     }
 
+    [TestMethod]
+    public async Task WriteException_FailsAdviceAndWaitsForSibling_WithoutRetryingWrite()
+    {
+        using var f = new Fixture(Calls(Write("w1", "Original", "Edited"), Write("w2", "document", "text")), Done());
+        await f.Session.StartAsync();
+        var ids = f.Conversation.PendingAdviceIds.ToArray();
+        f.OnDbResolve = () => throw new InvalidOperationException("private persistence detail");
+        var partial = await f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute);
+        Assert.AreEqual(OrderedAgentRunOutcome.AwaitingApproval, partial.Outcome);
+        var failure = partial.Checkpoint!.Resolutions.Single(item => item.Call.Id == "w1").Result!;
+        Assert.AreEqual(ToolOutcome.Failed, failure.Outcome);
+        Assert.IsNull(failure.Output);
+        Assert.AreEqual("Tool execution failed.", failure.Error);
+        Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(ids[0])!.Status);
+        Assert.AreEqual("Tool execution failed.", f.Advice.Get(ids[0])!.Error);
+        Assert.AreEqual(AgentState.AwaitingApproval, f.Conversation.State);
+        CollectionAssert.AreEqual(new[] { ids[1] }, f.Conversation.PendingAdviceIds.ToArray());
+        Assert.AreEqual(1, f.Client.Requests.Count);
+        // Legacy execution updates memory before persistence; failure does not roll it back.
+        Assert.AreEqual("Edited document", f.Conversation.DocumentContent);
+        Assert.AreEqual("Original document", f.Stored());
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute));
+        f.OnDbResolve = null;
+        var completed = await f.Session.ResolveAsync(ids[1], ApprovalDecision.Reject);
+        Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
+        Assert.AreEqual(ToolOutcome.Failed, completed.Results.Single(item => item.CallId == "w1").Outcome);
+        Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(ids[0])!.Status);
+        Assert.AreEqual(2, f.Client.Requests.Count);
+        Assert.IsFalse(JToken.FromObject(completed).ToString().Contains("private persistence detail"));
+    }
+
+    [TestMethod]
+    public async Task BusinessErrorText_RemainsExecuted_NotAnExceptionFailure()
+    {
+        using var f = new Fixture(Calls(Write("w", "missing text", "Edited")), Done());
+        await f.Session.StartAsync();
+        var id = f.Conversation.PendingAdviceIds.Single();
+        var completed = await f.Session.ResolveAsync(id, ApprovalDecision.Execute);
+        var result = completed.Results.Single();
+        Assert.AreEqual(ToolOutcome.Succeeded, result.Outcome);
+        StringAssert.StartsWith(result.Output!.Value<string>()!, "Error:");
+        Assert.AreEqual(AdviceStatus.Executed, f.Advice.Get(id)!.Status);
+        Assert.IsNull(f.Advice.Get(id)!.Error);
+        Assert.AreEqual("Original document", f.Stored());
+        Assert.AreEqual(2, f.Client.Requests.Count);
+    }
+
     private static ClaudeContentBlock Read(string id) => ClaudeContentBlock.ToolUse(id, "ReadFullDocument", new());
     private static ClaudeContentBlock Write(string id, string oldText, string newText) =>
         ClaudeContentBlock.ToolUse(id, "ReplaceText", new() { ["oldString"] = oldText, ["newString"] = newText });

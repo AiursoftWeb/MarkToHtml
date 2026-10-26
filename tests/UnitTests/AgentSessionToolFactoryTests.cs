@@ -131,7 +131,7 @@ public class AgentSessionToolFactoryTests
     [TestMethod]
     [DataRow(false)]
     [DataRow(true)]
-    public async Task HandlerExceptions_PreserveLegacyText_NotBusinessSuccess(bool write)
+    public async Task HandlerExceptions_WriteFails_ReadPreservesLegacyText(bool write)
     {
         // Deliberately missing CurrentUserService/DB. No network, host workers or queue.
         using var provider = new ServiceCollection().BuildServiceProvider();
@@ -146,10 +146,18 @@ public class AgentSessionToolFactoryTests
         if (write) result = await host.ResolveAsync("call", ApprovalDecision.Execute);
 
         var output = result.Results.Single();
-        Assert.AreEqual(JTokenType.String, output.Output!.Type);
-        StringAssert.StartsWith(output.Output.Value<string>()!, write ? "Error executing tool: " : "Error executing ReadFullDocument: ");
-        // Compatibility strings are returned dispatches, not a reliable evaluator success signal.
-        Assert.AreEqual(ToolOutcome.Succeeded, output.Outcome);
+        if (write)
+        {
+            Assert.AreEqual(ToolOutcome.Failed, output.Outcome);
+            Assert.IsNull(output.Output);
+            Assert.AreEqual("Tool execution failed.", output.Error);
+        }
+        else
+        {
+            Assert.AreEqual(JTokenType.String, output.Output!.Type);
+            StringAssert.StartsWith(output.Output.Value<string>()!, "Error executing ReadFullDocument: ");
+            Assert.AreEqual(ToolOutcome.Succeeded, output.Outcome);
+        }
         Assert.AreEqual(write ? "Edited document" : "Original document", conversation.DocumentContent);
         Assert.IsFalse(conversation.DocumentContentUpdated);
         Assert.AreEqual(2, model.Requests);

@@ -7,10 +7,10 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Opt-in real tool bindings, not registered in DI or used by AgentService. Supply a
 /// long-lived scope factory and trusted conversation, never a request-scoped provider.
 /// OrderedAgentSessionHost must gate approval before dispatching write handlers.
-/// Legacy business errors and caught exceptions remain string outputs (JValue), so
-/// runner Succeeded means dispatch returned, NOT business success. Evaluators must not
-/// infer success from that outcome alone, just as on the legacy text-returning path.
-/// Production rejection-text mapping remains a blocker; this factory does not implement Advice/UI state.
+/// Legacy business errors and read exceptions remain string outputs (JValue), so
+/// runner Succeeded means dispatch returned, NOT business success. Write exceptions
+/// propagate to the runner as Failed; the runner redacts their details. Preserving legacy
+/// write-error details/text remains a production blocker. This factory does not project Advice.
 /// </summary>
 internal static class AgentSessionToolFactory
 {
@@ -41,11 +41,9 @@ internal static class AgentSessionToolFactory
                 {
                     throw;
                 }
-                catch (Exception ex)
+                catch (Exception ex) when (!isWrite)
                 {
-                    return isWrite
-                        ? $"Error executing tool: {ex.Message}"
-                        : $"Error executing {tool.ProtocolTool.Name}: {ex.Message}";
+                    return $"Error executing {tool.ProtocolTool.Name}: {ex.Message}";
                 }
             }
 

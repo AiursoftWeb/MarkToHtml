@@ -10,8 +10,8 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Initial legacy history must be completed and is imported lossily once. UI projections are
 /// never replayed. Continue and legacy cancellation semantics are deliberately not supported.
 /// Production blockers: ModelFailure has no legacy exception details (never expose provider
-/// bodies); factory-caught write exceptions are string outputs and can project Executed rather
-/// than legacy Failed. Do not infer business success from canonical Succeeded or parse error text.
+/// bodies); write exceptions now project Failed, but the runner redacts legacy error details
+/// and tool text. Do not infer business success from canonical Succeeded or parse error text.
 /// </summary>
 internal sealed class AgentSessionFacade
 {
