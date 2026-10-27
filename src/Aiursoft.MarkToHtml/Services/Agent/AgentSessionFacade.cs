@@ -8,18 +8,23 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Internal opt-in composition for a future queue caller, not production DI/AgentService wiring.
 /// One instance owns one trusted conversation; all session writes must go through this facade.
 /// Initial legacy history must be completed and is imported lossily once. UI projections are
-/// never replayed. Continue and legacy cancellation semantics are deliberately not supported.
+/// never replayed. Each continuation starts a fresh budget from canonical history, retaining
+/// session Advice/feedback associations. Legacy cancellation semantics are not connected.
 /// Production blockers: ModelFailure has no legacy exception details (never expose provider
 /// bodies); write exceptions project Failed with safe stage/recovery feedback rather than
 /// legacy raw exception text. Do not infer business success from canonical Succeeded or parse error text.
 /// </summary>
 internal sealed class AgentSessionFacade
 {
+    private const string MaxStepsMessage = "I've reached the maximum number of steps. Please refine your request or approve pending actions.";
     private readonly AgentToolFailureFeedback _feedback = new();
     private readonly AgentConversation _conversation;
     private readonly AdviceService _advice;
-    private readonly ClaudeAgentModelClient _model;
-    private readonly OrderedAgentSessionHost _host;
+    private ClaudeAgentModelClient _model;
+    private OrderedAgentSessionHost _host;
+    private readonly ClaudeClient _client;
+    private readonly string[] _toolOrder;
+    private readonly IReadOnlyList<IAgentTool> _tools;
     private readonly AdviceCheckpointMapper _mapper;
     private readonly SemaphoreSlim _gate = new(1, 1);
     private OrderedAgentRunResult? _result;
@@ -35,11 +40,13 @@ internal sealed class AgentSessionFacade
             throw new ArgumentException("A new session cannot import pending Advice.", nameof(conversation));
         _conversation = conversation;
         _advice = advice;
+        _client = client;
+        _toolOrder = registry.AllTools.Select(tool => tool.ProtocolTool.Name).ToArray();
+        _tools = AgentSessionToolFactory.Create(scopes, conversation, registry, _feedback);
         var initial = AgentHistoryMapper.ImportCompletedLegacyHistoryLossy(conversation.Messages);
-        _model = new ClaudeAgentModelClient(client, registry.AllTools.Select(tool => tool.ProtocolTool.Name),
+        _model = new ClaudeAgentModelClient(client, _toolOrder,
             initialReasoning: initial.InitialReasoning) { ToolResultText = _feedback.GetText };
-        _host = new OrderedAgentSessionHost(initial.Transcript,
-            AgentSessionToolFactory.Create(scopes, conversation, registry, _feedback), _model);
+        _host = new OrderedAgentSessionHost(initial.Transcript, _tools, _model);
         _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry, _feedback);
     }
 
@@ -99,6 +106,56 @@ internal sealed class AgentSessionFacade
         finally { _gate.Release(); }
     }
 
+    // A trusted caller may supply the latest editor snapshot, but validation must precede
+    // every mutation. Never rebuild continuation history from the mutable UI projection.
+    internal async Task<OrderedAgentRunResult> ContinueAsync(string userId, string userMessage,
+        string? documentContent = null)
+    {
+        await _gate.WaitAsync();
+        try
+        {
+            if (_faulted) throw new InvalidOperationException("This session cannot continue after a dispatch or projection failure.");
+            var current = _result ?? throw new InvalidOperationException("This session has not started.");
+            if (userId != _conversation.UserId || string.IsNullOrWhiteSpace(userMessage) ||
+                current.Checkpoint != null || current.Outcome is not
+                    (OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations or OrderedAgentRunOutcome.ModelFailure))
+                throw new InvalidOperationException("This session cannot continue with this request.");
+
+            var content = string.IsNullOrWhiteSpace(documentContent) ? _conversation.DocumentContent : documentContent;
+            var transcript = current.Transcript.Select(message => message.DeepCopy()).ToList();
+            // Preserve the legacy budget notice on the next turn without importing mutable UI.
+            // This is host-authored context, not an additional model call/completion.
+            if (current.Outcome == OrderedAgentRunOutcome.MaxIterations)
+                transcript.Add(TranscriptMessage.Assistant([new TextBlock(MaxStepsMessage)]));
+            transcript.Add(new TranscriptMessage(TranscriptRole.User, [new TextBlock(AgentService.DocumentSystemReminder)], IsMeta: true));
+            transcript.Add(new TranscriptMessage(TranscriptRole.User,
+                [new TextBlock($"<document-content>\n{AgentService.FormatDocumentWithLineNumbers(content)}\n</document-content>")], IsMeta: true));
+            transcript.Add(TranscriptMessage.User(userMessage));
+            var reasoning = _model.GetReasoningSnapshot()
+                .Where(pair => pair.Key >= 0 && pair.Key < current.Transcript.Count &&
+                    current.Transcript[pair.Key].Role == TranscriptRole.Assistant)
+                .ToDictionary(pair => pair.Key, pair => pair.Value);
+            _model = new ClaudeAgentModelClient(_client, _toolOrder, initialReasoning: reasoning)
+                { ToolResultText = _feedback.GetText };
+            _host = new OrderedAgentSessionHost(transcript, _tools, _model);
+            _conversation.DocumentContent = content;
+            _conversation.State = AgentState.Thinking;
+            _conversation.LastActivity = DateTime.UtcNow;
+            _conversation.LoopCount = 0;
+            try
+            {
+                Synchronize(await _host.StartAsync());
+                return Copy(_result!);
+            }
+            catch
+            {
+                Fault();
+                throw;
+            }
+        }
+        finally { _gate.Release(); }
+    }
+
     internal async Task<OrderedAgentRunResult?> GetSnapshotAsync()
     {
         await _gate.WaitAsync();
@@ -121,7 +178,7 @@ internal sealed class AgentSessionFacade
             messages.Add(new ToolMessagesItem
             {
                 Role = "assistant",
-                Content = "I've reached the maximum number of steps. Please refine your request or approve pending actions."
+                Content = MaxStepsMessage
             });
         _conversation.Messages = messages;
         _conversation.LoopCount = result.Iterations;

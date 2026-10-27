@@ -161,7 +161,7 @@ public class AgentSessionFacadeTests
     public async Task FailedWrite_FeedbackReachesModel_CorrectedWriteStillRequiresApproval()
     {
         using var f = new Fixture(Calls(Write("same", "Original", "Edited")),
-            Calls(Read("verify")), Calls(Write("same", "Edited", "Corrected")), Done());
+            Calls(Read("verify")), Calls(Write("same", "Edited", "Corrected")), Done(), Done());
         await f.Session.StartAsync();
         var failedId = f.Conversation.PendingAdviceIds.Single();
         f.OnDbResolve = () => throw new InvalidOperationException("secret connection string");
@@ -191,6 +191,11 @@ public class AgentSessionFacadeTests
         StringAssert.StartsWith(replay[1].Content!.ToString()!, "Document updated successfully.");
         Assert.AreEqual("Tool execution failed.", completed.Transcript.SelectMany(message => message.ToolResults)
             .Single(result => result.Outcome == ToolOutcome.Failed).Error);
+        await f.Session.ContinueAsync("trusted", "review saved changes");
+        var continuedFeedback = f.Client.Requests.Last().SelectMany(message => message.Content as List<ClaudeContentBlock> ?? [])
+            .First(block => block.ToolUseId == "same").Content!.ToString()!;
+        StringAssert.StartsWith(continuedFeedback, "DOCUMENT_PERSISTENCE_FAILED:");
+        Assert.AreEqual(AdviceStatus.Failed, f.Advice.Get(failedId)!.Status);
     }
 
     [TestMethod]
@@ -206,6 +211,76 @@ public class AgentSessionFacadeTests
         Assert.AreEqual(AdviceStatus.Executed, f.Advice.Get(id)!.Status);
         Assert.IsNull(f.Advice.Get(id)!.Error);
         Assert.AreEqual("Original document", f.Stored());
+        Assert.AreEqual(2, f.Client.Requests.Count);
+    }
+
+    [TestMethod]
+    public async Task Continue_UsesCanonicalHistory_CurrentDocumentAndFreshBudget()
+    {
+        using var f = new Fixture(Done(), Calls(Read("r")), Done());
+        var initial = await f.Session.StartAsync();
+        f.Conversation.Messages.Clear(); // UI is never a replay source.
+        var continued = await f.Session.ContinueAsync("trusted", "review again", "Editor\ncontents");
+        Assert.AreEqual(OrderedAgentRunOutcome.Completed, continued.Outcome);
+        Assert.AreEqual(2, continued.Iterations);
+        Assert.AreEqual(2, f.Conversation.LoopCount);
+        Assert.AreEqual("Editor\ncontents", f.Conversation.DocumentContent);
+        Assert.AreEqual("Original document", f.Stored());
+        var replay = f.Client.Requests[1];
+        Assert.AreEqual("final thought", replay.Single(message => message.Role == "assistant").ReasoningContent);
+        var tail = continued.Transcript.Skip(initial.Transcript.Count).Take(3).ToArray();
+        Assert.AreEqual(AgentService.DocumentSystemReminder, ((TextBlock)tail[0].Content.Single()).Text);
+        Assert.IsTrue(tail[0].IsMeta);
+        Assert.IsTrue(tail[1].IsMeta);
+        StringAssert.Contains(((TextBlock)tail[1].Content.Single()).Text, "1|Editor\n2|contents");
+        Assert.AreEqual("review again", ((TextBlock)tail[2].Content.Single()).Text);
+        Assert.IsFalse(tail[2].IsMeta);
+        Assert.AreEqual("1|Editor\n2|contents", continued.Results.Single().Output!.Value<string>());
+    }
+
+    [TestMethod]
+    public async Task Continue_AfterBudgetOrModelFailure_StartsNewTenCallBudget()
+    {
+        using var budget = new Fixture([.. Enumerable.Range(0, 10).Select(i => Calls(Read($"r{i}"))),
+            .. Enumerable.Range(0, 9).Select(i => Calls(Read($"next{i}"))), Done()]);
+        await budget.Session.StartAsync();
+        var completed = await budget.Session.ContinueAsync("trusted", "continue");
+        Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
+        Assert.AreEqual(10, completed.Iterations);
+        Assert.AreEqual(20, budget.Client.Requests.Count);
+        Assert.IsTrue(budget.Client.Requests[10].SelectMany(message => message.Content as List<ClaudeContentBlock> ?? [])
+            .Any(block => block.Text?.StartsWith("I've reached the maximum number of steps.") == true));
+        using var failure = new Fixture(Done(), Done());
+        failure.Client.Error = new InvalidOperationException("provider failure");
+        await failure.Session.StartAsync();
+        failure.Client.Error = null;
+        completed = await failure.Session.ContinueAsync("trusted", "try again");
+        Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
+        Assert.AreEqual(1, completed.Iterations);
+        Assert.IsNull(failure.Conversation.ErrorMessage);
+    }
+
+    [TestMethod]
+    [DataRow(null)]
+    [DataRow("")]
+    [DataRow(" ")]
+    public async Task Continue_InvalidRequests_DoNotMutateDocumentHistoryOrAdvice(string? editorSnapshot)
+    {
+        using var f = new Fixture(Done(), Calls(Write("w", "Original", "Edited")));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ContinueAsync("trusted", "early", "poison"));
+        await f.Session.StartAsync();
+        var before = JToken.FromObject((await f.Session.GetSnapshotAsync())!);
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ContinueAsync("foreign", "edit", "poison"));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ContinueAsync("trusted", " ", "poison"));
+        Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject((await f.Session.GetSnapshotAsync())!)));
+        await f.Session.ContinueAsync("trusted", "edit", editorSnapshot);
+        var id = f.Conversation.PendingAdviceIds.Single();
+        before = JToken.FromObject((await f.Session.GetSnapshotAsync())!);
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ContinueAsync("trusted", "busy", "poison"));
+        Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject((await f.Session.GetSnapshotAsync())!)));
+        Assert.AreEqual("Original document", f.Conversation.DocumentContent);
+        Assert.AreEqual(id, f.Conversation.PendingAdviceIds.Single());
+        Assert.AreEqual(AdviceStatus.Pending, f.Advice.Get(id)!.Status);
         Assert.AreEqual(2, f.Client.Requests.Count);
     }
 

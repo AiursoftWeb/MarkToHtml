@@ -21,7 +21,7 @@ public class AgentService : IAgentService
     private static readonly TimeSpan ConversationTtl = TimeSpan.FromMinutes(30);
     private static readonly TimeSpan AdviceTtl = TimeSpan.FromMinutes(30);
 
-    private const string DocumentSystemReminder =
+    internal const string DocumentSystemReminder =
         "<system-reminder>\n" +
         "You are editing a Markdown document. The document content is provided with line number prefixes.\n" +
         "When using ReplaceText:\n" +
@@ -494,7 +494,7 @@ public class AgentService : IAgentService
 
     // ── Utilities ────────────────────────────────────────────────────────────────
 
-    private static string FormatDocumentWithLineNumbers(string content)
+    internal static string FormatDocumentWithLineNumbers(string content)
     {
         var lines = content.Split('\n');
         var sb = new StringBuilder();
