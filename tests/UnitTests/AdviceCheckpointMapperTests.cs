@@ -65,7 +65,7 @@ public class AdviceCheckpointMapperTests
         var next = await host.ResolveAsync("b", ApprovalDecision.Reject);
         mapper.Synchronize(conversation, next);
         Assert.AreEqual(AdviceStatus.Rejected, second.Status);
-        Assert.AreEqual(AgentToolResultText.Rejected, second.Result);
+        Assert.AreEqual(AgentToolResultMapper.Rejected, second.Result);
         Assert.IsNull(second.Error);
         var third = service.Get(conversation.PendingAdviceIds.Single())!;
         Assert.AreNotEqual(first.Id, third.Id);

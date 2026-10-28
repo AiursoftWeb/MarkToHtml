@@ -20,7 +20,7 @@ public class AgentHistoryMapperTests
             new() { Role = "assistant", Content = "calls", ReasoningContent = "thought", IsMeta = true,
                 ToolCalls = [LegacyCall("a", "{\"nested\":{\"n\":1},\"array\":[true,null]}"), LegacyCall("b", "{} ")] },
             new() { Role = "tool", ToolCallId = "a", Content = "Error: not outcome evidence", IsMeta = true },
-            new() { Role = "tool", ToolCallId = "b", Content = AgentToolResultText.Rejected }
+            new() { Role = "tool", ToolCallId = "b", Content = AgentToolResultMapper.Rejected }
         };
         var imported = AgentHistoryMapper.ImportCompletedLegacyHistoryLossy(legacy);
         Assert.AreEqual(7, imported.Transcript.Count);
@@ -56,7 +56,7 @@ public class AgentHistoryMapperTests
             new ToolResult("c", "Read", ToolOutcome.Failed, Error: "Tool execution failed.")]) };
         var ui = AgentHistoryMapper.ProjectForUi(transcript, new Dictionary<int, string?>());
         Assert.AreEqual("{\"nested\":[1,2]}", ui[0].Content);
-        Assert.AreEqual(AgentToolResultText.Rejected, ui[1].Content);
+        Assert.AreEqual(AgentToolResultMapper.Rejected, ui[1].Content);
         Assert.AreEqual("Tool execution failed.", ui[2].Content);
         ui[0].Content = "changed";
         Assert.AreEqual(1, transcript[0].ToolResults[0].Output!["nested"]![0]!.Value<int>());
@@ -128,7 +128,7 @@ public class AgentHistoryMapperTests
         reason[4] = "final empty assistant";
         var completeUi = AgentHistoryMapper.ProjectForUi(complete, reason);
         CollectionAssert.AreEqual(new[] { "r1", "w1", "r2", "w2" }, ResultIds(completeUi));
-        Assert.AreEqual(AgentToolResultText.Rejected, completeUi.Last().Content);
+        Assert.AreEqual(AgentToolResultMapper.Rejected, completeUi.Last().Content);
         Assert.AreEqual(5, complete.Transcript.Count);
         Assert.AreEqual(7, completeUi.Count); // Empty final assistant hidden; four individual UI results.
         Assert.AreEqual(2, model.Requests);

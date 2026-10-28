@@ -125,7 +125,7 @@ internal static class AgentHistoryMapper
 
     private static ToolMessagesItem ProjectResult(ToolResult result, bool isMeta, string? text = null) => new()
     {
-        Role = "tool", ToolCallId = result.CallId, Content = text ?? AgentToolResultText.GetText(result), IsMeta = isMeta
+        Role = "tool", ToolCallId = result.CallId, Content = text ?? AgentToolResultMapper.GetText(result), IsMeta = isMeta
     };
 
     private static void RequireId(string? id)

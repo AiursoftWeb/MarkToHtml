@@ -199,7 +199,7 @@ public class AgentService : IAgentService
             {
                 Role = "tool",
                 ToolCallId = advice.ToolCallId,
-                Content = AgentToolResultText.Rejected
+                Content = AgentToolResultMapper.Rejected
             });
 
             var stillPending = _adviceService.GetPendingForConversation(conversationId);

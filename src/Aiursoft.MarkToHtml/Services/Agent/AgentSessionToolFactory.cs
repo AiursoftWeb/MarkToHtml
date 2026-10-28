@@ -15,7 +15,7 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 internal static class AgentSessionToolFactory
 {
     internal static IReadOnlyList<IAgentTool> Create(IServiceScopeFactory scopes,
-        AgentConversation conversation, ToolRegistry registry, AgentToolFailureFeedback? feedback = null)
+        AgentConversation conversation, ToolRegistry registry, AgentToolResultMapper? feedback = null)
     {
         ArgumentNullException.ThrowIfNull(scopes);
         ArgumentNullException.ThrowIfNull(conversation);

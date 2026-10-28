@@ -12,7 +12,7 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// Must observe the initial pause: resolved writes never create retroactive proposals/snapshots.
 /// </summary>
 internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService adviceService, ToolRegistry registry,
-    AgentToolFailureFeedback? feedback = null)
+    AgentToolResultMapper? feedback = null)
 {
     private readonly Dictionary<(int Batch, string CallId), (Guid AdviceId, ToolCall Call)> _links = new();
 
@@ -115,14 +115,14 @@ internal sealed class AdviceCheckpointMapper(Guid conversationId, AdviceService 
                 if (result.Outcome == ToolOutcome.Rejected)
                 {
                     advice.Status = AdviceStatus.Rejected;
-                    advice.Result = AgentToolResultText.Rejected;
+                    advice.Result = AgentToolResultMapper.Rejected;
                     advice.Error = null;
                 }
                 else if (result.Outcome == ToolOutcome.Succeeded)
-                    adviceService.SetResult(advice.Id, AgentToolResultText.GetText(result), null);
+                    adviceService.SetResult(advice.Id, AgentToolResultMapper.GetText(result), null);
                 else if (result.Outcome == ToolOutcome.Failed)
                 {
-                    var text = feedback?.GetText(key.Batch, result) ?? AgentToolResultText.GetText(result);
+                    var text = feedback?.GetText(key.Batch, result) ?? AgentToolResultMapper.GetText(result);
                     adviceService.SetResult(advice.Id, text,
                         feedback == null ? result.Error ?? "Tool execution failed." : text);
                 }

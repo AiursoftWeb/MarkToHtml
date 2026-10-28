@@ -111,7 +111,7 @@ public sealed class ClaudeAgentModelClient : IAgentModelClient
                     {
                         if (string.IsNullOrWhiteSpace(result.CallId))
                             throw new NotSupportedException("AgentKit replay requires a nonblank tool result ID; IDs are never synthesized.");
-                        messages.Add(ClaudeMessage.ToolResult(result.CallId, ToolResultText?.Invoke(batch, result) ?? AgentToolResultText.GetText(result)));
+                        messages.Add(ClaudeMessage.ToolResult(result.CallId, ToolResultText?.Invoke(batch, result) ?? AgentToolResultMapper.GetText(result)));
                     }
                     break;
             }

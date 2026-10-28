@@ -47,13 +47,13 @@ public class AgentSessionFacadeTests
         Assert.AreEqual(AgentState.Completed, f.Conversation.State);
         Assert.AreEqual(2, f.Conversation.LoopCount);
         Assert.AreEqual(AdviceStatus.Rejected, f.Advice.Get(ids[1])!.Status);
-        Assert.AreEqual(AgentToolResultText.Rejected, f.Advice.Get(ids[1])!.Result);
+        Assert.AreEqual(AgentToolResultMapper.Rejected, f.Advice.Get(ids[1])!.Result);
         Assert.AreEqual("Edited document", f.Stored());
         Assert.AreEqual("final thought", f.Conversation.Messages.Last().ReasoningContent);
         var replay = f.Client.Requests[1];
         Assert.AreEqual("batch thought", replay.Single(m => m.Role == "assistant").ReasoningContent);
         Assert.IsTrue(replay.SelectMany(m => m.Content as List<ClaudeContentBlock> ?? []).Any(b =>
-            b.ToolUseId == "w2" && Equals(b.Content, AgentToolResultText.Rejected)));
+            b.ToolUseId == "w2" && Equals(b.Content, AgentToolResultMapper.Rejected)));
         Assert.AreEqual(ToolOutcome.Rejected, completed.Results.Single(r => r.CallId == "w2").Outcome);
         Assert.AreEqual(0, f.Conversation.PendingAdviceIds.Count);
     }

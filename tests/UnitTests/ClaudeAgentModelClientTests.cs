@@ -289,7 +289,7 @@ public class ClaudeAgentModelClientTests
 
         Assert.AreEqual("Tool call rejected.", Blocks(client.Messages[0]).Single().Content);
         Assert.AreEqual("Tool call rejected.", Blocks(client.Messages[1]).Single().Content);
-        Assert.AreEqual(AgentToolResultText.Rejected, Blocks(client.Messages[2]).Single().Content);
+        Assert.AreEqual(AgentToolResultMapper.Rejected, Blocks(client.Messages[2]).Single().Content);
         Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject(request.Transcript)));
     }
 

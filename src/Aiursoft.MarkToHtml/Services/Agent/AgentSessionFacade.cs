@@ -18,7 +18,7 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 public sealed class AgentSessionFacade
 {
     private const string MaxStepsMessage = "I've reached the maximum number of steps. Please refine your request or approve pending actions.";
-    private readonly AgentToolFailureFeedback _feedback = new();
+    private readonly AgentToolResultMapper _feedback = new();
     private readonly AgentConversation _conversation;
     private readonly AdviceService _advice;
     private ClaudeAgentModelClient _model;

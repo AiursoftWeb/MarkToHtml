@@ -1,18 +1,23 @@
 using Aiursoft.AgentKit.Messages;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
 /// <summary>
-/// Session-local safe feedback, keyed by canonical assistant position and call ID, never
-/// exception text. The facade serializes registration/dispatch/projection. Canonical runner
-/// evidence remains unchanged; this supplements model and UI feedback, not business success.
+/// Tool result text projection with optional session-local safe failure feedback. The facade
+/// serializes registration/dispatch/projection. Batch position plus call ID prevents feedback
+/// leaking into later reused IDs. Canonical runner evidence is never rewritten.
 /// </summary>
-internal sealed class AgentToolFailureFeedback
+internal sealed class AgentToolResultMapper
 {
+    internal const string Rejected =
+        "REJECTED: User rejected this change. Do NOT retry the same edit. Ask the user what they want instead.";
+
     private readonly Dictionary<(int Batch, string CallId), Failure> _failures = new();
     private (int Batch, string CallId, string Name)? _active;
 
-    internal sealed record Failure(string Code, string Message, string Recovery)
+    private sealed record Failure(string Code, string Message, string Recovery)
     {
         internal string Text => $"{Code}: {Message} {Recovery}";
     }
@@ -36,5 +41,11 @@ internal sealed class AgentToolFailureFeedback
     internal string GetText(int batch, ToolResult result) =>
         result.Outcome == ToolOutcome.Failed && _failures.TryGetValue((batch, result.CallId), out var failure)
             ? failure.Text
-            : AgentToolResultText.GetText(result);
+            : GetText(result);
+
+    internal static string GetText(ToolResult result) => result.Outcome == ToolOutcome.Rejected
+        ? Rejected
+        : result.Output is JValue { Type: JTokenType.String } value
+            ? value.Value<string>() ?? ""
+            : result.Output?.ToString(Formatting.None) ?? result.Error ?? "";
 }
