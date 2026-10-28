@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Aiursoft.MarkToHtml.AgentExam</AssemblyName>
+    <RootNamespace>Aiursoft.MarkToHtml.AgentExam</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Aiursoft.AgentKit.Evaluator" Version="10.0.1" />
+    <ProjectReference Include="..\Aiursoft.MarkToHtml\Aiursoft.MarkToHtml.csproj" />
+  </ItemGroup>
+</Project>

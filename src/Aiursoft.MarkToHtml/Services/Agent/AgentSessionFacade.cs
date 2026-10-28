@@ -5,7 +5,8 @@ using Aiursoft.AgentKit.Messages;
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
 /// <summary>
-/// Internal opt-in composition for a future queue caller, not production DI/AgentService wiring.
+/// Public opt-in session execution entry point, not production DI/AgentService wiring.
+/// Callers must authorize access to the owned conversation before invoking execution or snapshots.
 /// One instance owns one trusted conversation; all session writes must go through this facade.
 /// Initial legacy history must be completed and is imported lossily once. UI projections are
 /// never replayed. Each continuation starts a fresh budget from canonical history, retaining
@@ -14,7 +15,7 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// bodies); write exceptions project Failed with safe stage/recovery feedback rather than
 /// legacy raw exception text. Do not infer business success from canonical Succeeded or parse error text.
 /// </summary>
-internal sealed class AgentSessionFacade
+public sealed class AgentSessionFacade
 {
     private const string MaxStepsMessage = "I've reached the maximum number of steps. Please refine your request or approve pending actions.";
     private readonly AgentToolFailureFeedback _feedback = new();
@@ -30,8 +31,9 @@ internal sealed class AgentSessionFacade
     private OrderedAgentRunResult? _result;
     private bool _started;
     private bool _faulted;
+    private int _turnStartIndex;
 
-    internal AgentSessionFacade(AgentConversation conversation, ClaudeClient client,
+    public AgentSessionFacade(AgentConversation conversation, ClaudeClient client,
         IServiceScopeFactory scopes, ToolRegistry registry, AdviceService advice)
     {
         ArgumentNullException.ThrowIfNull(conversation);
@@ -47,10 +49,11 @@ internal sealed class AgentSessionFacade
         _model = new ClaudeAgentModelClient(client, _toolOrder,
             initialReasoning: initial.InitialReasoning) { ToolResultText = _feedback.GetText };
         _host = new OrderedAgentSessionHost(initial.Transcript, _tools, _model);
+        _turnStartIndex = initial.Transcript.Count;
         _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry, _feedback);
     }
 
-    internal async Task<OrderedAgentRunResult> StartAsync()
+    public async Task<OrderedAgentRunResult> StartAsync()
     {
         await _gate.WaitAsync();
         try
@@ -72,7 +75,7 @@ internal sealed class AgentSessionFacade
         finally { _gate.Release(); }
     }
 
-    internal async Task<OrderedAgentRunResult> ResolveAsync(Guid adviceId, ApprovalDecision decision)
+    public async Task<OrderedAgentRunResult> ResolveAsync(Guid adviceId, ApprovalDecision decision)
     {
         await _gate.WaitAsync();
         try
@@ -108,7 +111,7 @@ internal sealed class AgentSessionFacade
 
     // A trusted caller may supply the latest editor snapshot, but validation must precede
     // every mutation. Never rebuild continuation history from the mutable UI projection.
-    internal async Task<OrderedAgentRunResult> ContinueAsync(string userId, string userMessage,
+    public async Task<OrderedAgentRunResult> ContinueAsync(string userId, string userMessage,
         string? documentContent = null)
     {
         await _gate.WaitAsync();
@@ -138,6 +141,7 @@ internal sealed class AgentSessionFacade
             _model = new ClaudeAgentModelClient(_client, _toolOrder, initialReasoning: reasoning)
                 { ToolResultText = _feedback.GetText };
             _host = new OrderedAgentSessionHost(transcript, _tools, _model);
+            _turnStartIndex = transcript.Count;
             _conversation.DocumentContent = content;
             _conversation.State = AgentState.Thinking;
             _conversation.LastActivity = DateTime.UtcNow;
@@ -156,10 +160,26 @@ internal sealed class AgentSessionFacade
         finally { _gate.Release(); }
     }
 
-    internal async Task<OrderedAgentRunResult?> GetSnapshotAsync()
+    public async Task<OrderedAgentRunResult?> GetSnapshotAsync()
     {
         await _gate.WaitAsync();
         try { return _result == null ? null : Copy(_result); }
+        finally { _gate.Release(); }
+    }
+
+    // Capture an independent runtime snapshot under the same
+    // gate as canonical history and document updates. The trusted boundary excludes imported
+    // history and earlier turns; evaluation belongs to a separate consumer assembly.
+    public async Task<AgentSessionRuntimeSnapshot> GetRuntimeSnapshotAsync()
+    {
+        await _gate.WaitAsync();
+        try
+        {
+            if (_faulted) throw new InvalidOperationException("Faulted session snapshot is unavailable.");
+            return new AgentSessionRuntimeSnapshot(
+                Copy(_result ?? throw new InvalidOperationException("This session has not started.")),
+                _turnStartIndex, _conversation.DocumentContent, Array.AsReadOnly(_toolOrder.ToArray()));
+        }
         finally { _gate.Release(); }
     }
 

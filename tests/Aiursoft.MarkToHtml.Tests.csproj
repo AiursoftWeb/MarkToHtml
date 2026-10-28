@@ -22,5 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Aiursoft.MarkToHtml\Aiursoft.MarkToHtml.csproj" />
+    <ProjectReference Include="..\src\Aiursoft.MarkToHtml.AgentExam\Aiursoft.MarkToHtml.AgentExam.csproj" />
   </ItemGroup>
 </Project>

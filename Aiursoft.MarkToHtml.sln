@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aiursoft.MarkToHtml.Sqlite", "src\Aiursoft.MarkToHtml.Sqlite\Aiursoft.MarkToHtml.Sqlite.csproj", "{EE97266D-14E3-4DAE-89F1-E5480A6F4E1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aiursoft.MarkToHtml.MySql", "src\Aiursoft.MarkToHtml.MySql\Aiursoft.MarkToHtml.MySql.csproj", "{949A7B0D-C969-4DEB-A5B3-93C9466B439C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aiursoft.MarkToHtml.AgentExam", "src\Aiursoft.MarkToHtml.AgentExam\Aiursoft.MarkToHtml.AgentExam.csproj", "{B19FDA53-031B-4CA6-805B-AAE44B8A428D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{949A7B0D-C969-4DEB-A5B3-93C9466B439C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{949A7B0D-C969-4DEB-A5B3-93C9466B439C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{949A7B0D-C969-4DEB-A5B3-93C9466B439C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19FDA53-031B-4CA6-805B-AAE44B8A428D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19FDA53-031B-4CA6-805B-AAE44B8A428D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19FDA53-031B-4CA6-805B-AAE44B8A428D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19FDA53-031B-4CA6-805B-AAE44B8A428D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{2D040851-BE2F-4800-83EE-6167A380072D} = {D06A8D96-DB83-4EDE-9017-F7F4F7287246}
 		{EE97266D-14E3-4DAE-89F1-E5480A6F4E1A} = {D06A8D96-DB83-4EDE-9017-F7F4F7287246}
 		{949A7B0D-C969-4DEB-A5B3-93C9466B439C} = {D06A8D96-DB83-4EDE-9017-F7F4F7287246}
+		{B19FDA53-031B-4CA6-805B-AAE44B8A428D} = {D06A8D96-DB83-4EDE-9017-F7F4F7287246}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {99B1D64C-C9EB-4F4A-BD58-E028DB8E68A3}
