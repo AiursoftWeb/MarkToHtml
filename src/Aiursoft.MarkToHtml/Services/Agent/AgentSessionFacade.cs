@@ -19,7 +19,8 @@ public sealed class AgentSessionFacade
     private readonly AgentConversation _conversation;
     private readonly AdviceService _advice;
     private ClaudeAgentModelClient _model;
-    private OrderedAgentSessionHost _host;
+    private OrderedAgentRunner _runner;
+    private readonly TranscriptMessage[] _initialTranscript;
     private readonly ClaudeClient _client;
     private readonly string[] _toolOrder;
     private readonly IReadOnlyList<IAgentTool> _tools;
@@ -49,7 +50,8 @@ public sealed class AgentSessionFacade
         _model = new ClaudeAgentModelClient(client, _toolOrder,
             initialReasoning: initial.InitialReasoning)
         { ToolResultText = _feedback.GetText };
-        _host = new OrderedAgentSessionHost(initial.Transcript, _tools, _model);
+        _initialTranscript = initial.Transcript.Select(message => message.DeepCopy()).ToArray();
+        _runner = new OrderedAgentRunner(_model);
         _turnStartIndex = initial.Transcript.Count;
         _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry, _feedback);
     }
@@ -61,10 +63,11 @@ public sealed class AgentSessionFacade
         {
             if (_started) throw new InvalidOperationException("This session has already started.");
             _started = true;
-            _conversation.State = AgentState.Thinking;
+            lock (_decisions) _conversation.State = AgentState.Thinking;
             try
             {
-                Synchronize(await _host.StartAsync());
+                Synchronize(await _runner.RunAsync(new AgentRunRequest(_initialTranscript, _tools,
+                    new AgentRunOptions(MaxIterations: 10))));
                 return Copy(_result!);
             }
             catch
@@ -128,8 +131,8 @@ public sealed class AgentSessionFacade
                 }
                 else callId = _mapper.RequireCurrentPendingCall(adviceId, current);
                 // Validate association first, then change status before any handler executes. This
-                // gate spans status, dispatch and both projections. The private host never calls back
-                // into this gate, so its own serialization cannot invert the lock order.
+                // dispatch gate spans status, dispatch and both projections; this short monitor
+                // is released before any handler/model await.
                 _advice.UpdateStatus(adviceId, decision == ApprovalDecision.Execute ? AdviceStatus.Approved : AdviceStatus.Rejected);
                 _conversation.PendingAdviceIds.RemoveAll(id => id == adviceId);
                 _conversation.State = AgentState.Thinking;
@@ -149,7 +152,7 @@ public sealed class AgentSessionFacade
                         retained.Add(resolution.Call.Id == callId && decision == ApprovalDecision.Execute
                             ? (current.Transcript.Count - 1, callId)
                             : _runnerTraceKeys.Last(key => key.CallId == resolution.Call.Id));
-                try { Synchronize(await _host.ResolveAsync(callId, decision), retained); }
+                try { Synchronize(await _runner.ResolveAsync(current.Checkpoint, _tools, callId, decision), retained); }
                 finally { _feedback.End(); }
                 return Copy(_result!);
             }
@@ -173,12 +176,15 @@ public sealed class AgentSessionFacade
         {
             if (_faulted) throw new InvalidOperationException("This session cannot continue after a dispatch or projection failure.");
             var current = _result ?? throw new InvalidOperationException("This session has not started.");
-            if (userId != _conversation.UserId || string.IsNullOrWhiteSpace(userMessage) ||
-                _reserved.Count != 0 || current.Checkpoint != null || current.Outcome is not
-                    (OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations or OrderedAgentRunOutcome.ModelFailure))
-                throw new InvalidOperationException("This session cannot continue with this request.");
-
-            var content = string.IsNullOrWhiteSpace(documentContent) ? _conversation.DocumentContent : documentContent;
+            string content;
+            lock (_decisions)
+            {
+                if (userId != _conversation.UserId || string.IsNullOrWhiteSpace(userMessage) ||
+                    _reserved.Count != 0 || current.Checkpoint != null || current.Outcome is not
+                        (OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations or OrderedAgentRunOutcome.ModelFailure))
+                    throw new InvalidOperationException("This session cannot continue with this request.");
+                content = string.IsNullOrWhiteSpace(documentContent) ? _conversation.DocumentContent : documentContent;
+            }
             var transcript = current.Transcript.Select(message => message.DeepCopy()).ToList();
             // Preserve the legacy budget notice on the next turn without importing mutable UI.
             // This is host-authored context, not an additional model call/completion.
@@ -194,18 +200,22 @@ public sealed class AgentSessionFacade
                 .ToDictionary(pair => pair.Key, pair => pair.Value);
             _model = new ClaudeAgentModelClient(_client, _toolOrder, initialReasoning: reasoning)
             { ToolResultText = _feedback.GetText };
-            _host = new OrderedAgentSessionHost(transcript, _tools, _model);
+            _runner = new OrderedAgentRunner(_model);
             _turnStartIndex = transcript.Count;
             _observedTraces.Clear();
             _runnerTraceKeys.Clear();
             _traceCorrelationLost = false;
-            _conversation.DocumentContent = content;
-            _conversation.State = AgentState.Thinking;
-            _conversation.LastActivity = DateTime.UtcNow;
-            _conversation.LoopCount = 0;
+            lock (_decisions)
+            {
+                _conversation.DocumentContent = content;
+                _conversation.State = AgentState.Thinking;
+                _conversation.LastActivity = DateTime.UtcNow;
+                _conversation.LoopCount = 0;
+            }
             try
             {
-                Synchronize(await _host.StartAsync());
+                Synchronize(await _runner.RunAsync(new AgentRunRequest(transcript, _tools,
+                    new AgentRunOptions(MaxIterations: 10))));
                 return Copy(_result!);
             }
             catch
@@ -233,13 +243,14 @@ public sealed class AgentSessionFacade
         try
         {
             if (_faulted) throw new InvalidOperationException("Faulted session snapshot is unavailable.");
-            return new AgentSessionRuntimeSnapshot(
-                Copy(_result ?? throw new InvalidOperationException("This session has not started.")),
-                _turnStartIndex, _conversation.DocumentContent, Array.AsReadOnly(_toolOrder.ToArray()))
-            {
-                ObservedTraces = new Dictionary<(int Batch, string CallId), ToolTrace>(
-                    _traceCorrelationLost ? new Dictionary<(int Batch, string CallId), ToolTrace>() : _observedTraces)
-            };
+            lock (_decisions)
+                return new AgentSessionRuntimeSnapshot(
+                    Copy(_result ?? throw new InvalidOperationException("This session has not started.")),
+                    _turnStartIndex, _conversation.DocumentContent, Array.AsReadOnly(_toolOrder.ToArray()))
+                {
+                    ObservedTraces = new Dictionary<(int Batch, string CallId), ToolTrace>(
+                        _traceCorrelationLost ? new Dictionary<(int Batch, string CallId), ToolTrace>() : _observedTraces)
+                };
         }
         finally { _gate.Release(); }
     }

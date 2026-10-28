@@ -1,4 +1,5 @@
 using Aiursoft.AgentKit;
+using Aiursoft.AgentKit.AgentRunner;
 using Aiursoft.AgentKit.Messages;
 using Aiursoft.MarkToHtml.Services.Agent;
 using Newtonsoft.Json.Linq;
@@ -106,25 +107,27 @@ public class AgentHistoryMapperTests
     }
 
     [TestMethod]
-    public async Task OrderedHost_PartialReadAndApprovedResultsProjectInCallOrder_FinalHasNoDuplicates()
+    public async Task OrderedRunner_PartialReadAndApprovedResultsProjectInCallOrder_FinalHasNoDuplicates()
     {
         using var services = new ServiceCollection().BuildServiceProvider();
         var registry = new ToolRegistry(services);
         var read = AgentToolAdapter.ForReadOnly(registry.GetTool("ReadFullDocument")!, (_, _) => ValueTask.FromResult("read"));
         var write = AgentToolAdapter.ForApprovedWrite(registry.GetTool("ReplaceText")!, (_, _) => ValueTask.FromResult("wrote"));
         var model = new ScriptedModel();
-        var host = new OrderedAgentSessionHost([TranscriptMessage.System("system"), TranscriptMessage.User("go")], [read, write], model);
+        IAgentTool[] tools = [read, write];
+        var runner = new OrderedAgentRunner(model);
+        var request = new AgentRunRequest([TranscriptMessage.System("system"), TranscriptMessage.User("go")], tools, new AgentRunOptions(MaxIterations: 10));
         var reason = new Dictionary<int, string?> { [2] = "batch" };
-        var paused = await host.StartAsync();
+        var paused = await runner.RunAsync(request);
         var pausedUi = AgentHistoryMapper.ProjectForUi(paused, reason);
         CollectionAssert.AreEqual(new[] { "r1", "r2" }, ResultIds(pausedUi));
         Assert.AreEqual("batch", pausedUi[2].ReasoningContent);
         Assert.AreEqual(0, paused.Transcript.Count(x => x.Role == TranscriptRole.Tool));
         Assert.AreEqual(2, paused.Checkpoint!.CompletedResults.Count);
-        var partial = await host.ResolveAsync("w1", ApprovalDecision.Execute);
+        var partial = await runner.ResolveAsync(paused.Checkpoint!, tools, "w1", ApprovalDecision.Execute);
         CollectionAssert.AreEqual(new[] { "r1", "w1", "r2" }, ResultIds(AgentHistoryMapper.ProjectForUi(partial, reason)));
         Assert.AreEqual(0, partial.Transcript.Count(x => x.Role == TranscriptRole.Tool));
-        var complete = await host.ResolveAsync("w2", ApprovalDecision.Reject);
+        var complete = await runner.ResolveAsync(partial.Checkpoint!, tools, "w2", ApprovalDecision.Reject);
         reason[4] = "final empty assistant";
         var completeUi = AgentHistoryMapper.ProjectForUi(complete, reason);
         CollectionAssert.AreEqual(new[] { "r1", "w1", "r2", "w2" }, ResultIds(completeUi));

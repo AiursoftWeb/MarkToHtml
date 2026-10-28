@@ -86,9 +86,10 @@ public class AgentSessionToolFactoryTests
             Assert.AreEqual($"1|{finalContent}", request.Transcript.Last().ToolResults.Single().Output!.Value<string>());
             return new AgentModelResponse([new TextBlock("verified")]);
         });
-        var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], tools, model);
+        var runner = new OrderedAgentRunner(model);
+        var request = new AgentRunRequest([TranscriptMessage.User("edit")], tools, new AgentRunOptions(MaxIterations: 10));
 
-        var paused = await host.StartAsync();
+        var paused = await runner.RunAsync(request);
         Assert.AreEqual(OrderedAgentRunOutcome.AwaitingApproval, paused.Outcome);
         Assert.AreEqual(1, model.Requests);
         Assert.AreEqual("Original document", conversation.DocumentContent);
@@ -99,10 +100,11 @@ public class AgentSessionToolFactoryTests
         CollectionAssert.AreEqual(new[] { "1|Original document", "1|Original document" },
             paused.Checkpoint!.CompletedResults.Select(result => result.Output!.Value<string>()).ToArray());
         // Neither returned checkpoints nor the model's own argument objects can alter approval input.
+        var checkpoint = paused.Checkpoint.DeepCopy();
         paused.Checkpoint.Resolutions.Single(item => item.Call.Id == "w1").Call.Arguments["newString"] = "tampered checkpoint";
         firstWrite.Call.Arguments["newString"] = "tampered model";
 
-        var partial = await host.ResolveAsync("w1", ApprovalDecision.Execute);
+        var partial = await runner.ResolveAsync(checkpoint, tools, "w1", ApprovalDecision.Execute);
         Assert.AreEqual(OrderedAgentRunOutcome.AwaitingApproval, partial.Outcome);
         Assert.AreEqual(1, model.Requests);
         Assert.AreEqual("Edited document", conversation.DocumentContent);
@@ -113,7 +115,7 @@ public class AgentSessionToolFactoryTests
         Assert.IsTrue(JToken.DeepEquals(originalArguments, approvedArguments));
         var afterFirstWrite = Stored(provider).UpdatedAt;
 
-        var completed = await host.ResolveAsync("w2", rejectLast ? ApprovalDecision.Reject : ApprovalDecision.Execute);
+        var completed = await runner.ResolveAsync(partial.Checkpoint!, tools, "w2", rejectLast ? ApprovalDecision.Reject : ApprovalDecision.Execute);
         Assert.AreEqual(OrderedAgentRunOutcome.Completed, completed.Outcome);
         Assert.AreEqual("verified", completed.FinalText);
         Assert.AreEqual(3, model.Requests);
@@ -140,10 +142,11 @@ public class AgentSessionToolFactoryTests
         var model = new ScriptedModel((index, _) => index == 0
             ? Calls(write ? Replacement("call", "Original", "Edited") : Read("call"))
             : new AgentModelResponse([new TextBlock("continued")]));
-        var host = new OrderedAgentSessionHost([TranscriptMessage.User("test")],
-            AgentSessionToolFactory.Create(provider.GetRequiredService<IServiceScopeFactory>(), conversation, registry), model);
-        var result = await host.StartAsync();
-        if (write) result = await host.ResolveAsync("call", ApprovalDecision.Execute);
+        var runner = new OrderedAgentRunner(model);
+        var tools = AgentSessionToolFactory.Create(provider.GetRequiredService<IServiceScopeFactory>(), conversation, registry);
+        var request = new AgentRunRequest([TranscriptMessage.User("test")], tools);
+        var result = await runner.RunAsync(request);
+        if (write) result = await runner.ResolveAsync(result.Checkpoint!, tools, "call", ApprovalDecision.Execute);
 
         var output = result.Results.Single();
         if (write)

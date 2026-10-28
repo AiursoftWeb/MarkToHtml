@@ -1,4 +1,5 @@
 using Aiursoft.AgentKit;
+using Aiursoft.AgentKit.AgentRunner;
 using Aiursoft.AgentKit.Messages;
 using Aiursoft.MarkToHtml.Services.Agent;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -242,16 +243,17 @@ public class ClaudeAgentModelClientTests
             })
         };
         var adapter = new ClaudeAgentModelClient(client, tools.Select(tool => tool.Definition.Name));
-        var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], tools, adapter);
-        var paused = await host.StartAsync();
+        var runner = new OrderedAgentRunner(adapter);
+        var request = new AgentRunRequest([TranscriptMessage.User("edit")], tools);
+        var paused = await runner.RunAsync(request);
         var pausedUi = AgentHistoryMapper.ProjectForUi(paused, adapter.GetReasoningSnapshot());
         Assert.AreEqual("original reasoning", pausedUi[1].ReasoningContent);
         Assert.AreEqual("read", pausedUi.Last().ToolCallId);
-        await host.ResolveAsync("approve", ApprovalDecision.Execute);
+        var partial = await runner.ResolveAsync(paused.Checkpoint!, tools, "approve", ApprovalDecision.Execute);
         Assert.AreEqual(1, client.Calls);
         client.Response = new ClaudeResponse { ReasoningContent = "final reasoning", Content = [ClaudeContentBlock.TextBlock("done")] };
 
-        var completed = await host.ResolveAsync("reject", ApprovalDecision.Reject);
+        var completed = await runner.ResolveAsync(partial.Checkpoint!, tools, "reject", ApprovalDecision.Reject);
         var completedUi = AgentHistoryMapper.ProjectForUi(completed, adapter.GetReasoningSnapshot());
         Assert.AreEqual("final reasoning", completedUi.Last().ReasoningContent);
         Assert.AreEqual("done", completedUi.Last().Content);

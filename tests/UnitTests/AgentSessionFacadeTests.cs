@@ -584,6 +584,68 @@ public class AgentSessionFacadeTests
         Assert.IsFalse(result.Assertions.Single(assertion => assertion.Id == "document").Matched);
     }
 
+    [TestMethod]
+    public async Task InvalidAndRepeatedDecisions_KeepCheckpointAndSiblingIntact()
+    {
+        using var f = new Fixture(Calls(Write("w1", "Original", "Edited"), Write("w2", "document", "text")), Done());
+        Assert.IsNull(await f.Session.GetSnapshotAsync());
+        await f.Session.StartAsync();
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.StartAsync());
+        var ids = f.Conversation.PendingAdviceIds.ToArray();
+        var before = JToken.FromObject((await f.Session.GetSnapshotAsync())!);
+        await Assert.ThrowsExactlyAsync<ArgumentOutOfRangeException>(() => f.Session.ResolveAsync(ids[0], ApprovalDecision.Defer));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ResolveAsync(Guid.Empty, ApprovalDecision.Execute));
+        Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject((await f.Session.GetSnapshotAsync())!)));
+        var partial = await f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute);
+        before = JToken.FromObject(partial);
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute));
+        Assert.IsTrue(JToken.DeepEquals(before, JToken.FromObject((await f.Session.GetSnapshotAsync())!)));
+        await f.Session.ResolveAsync(ids[1], ApprovalDecision.Reject);
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute));
+        Assert.AreEqual(1, f.Dispatches);
+        Assert.AreEqual(2, f.Client.Requests.Count);
+    }
+
+    [TestMethod]
+    public async Task PartialSnapshotsAndInitialHistory_CannotAlterDispatchOrCanonicalResults()
+    {
+        using var f = new Fixture(Calls(Read("r"), Write("w1", "Original", "Edited"), Write("w2", "document", "text")), Done());
+        f.Conversation.Messages.Last().Content = "changed after construction";
+        var paused = await f.Session.StartAsync();
+        Assert.AreEqual("edit", f.Client.Requests[0].Last().Content);
+        var ids = f.Conversation.PendingAdviceIds.ToArray();
+        ((JValue)paused.Checkpoint!.CompletedResults.Single().Output!).Value = "poison";
+        paused.Checkpoint.Transcript.Last().ToolCalls[1].Arguments["newString"] = "poison";
+        var partial = await f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute);
+        partial.Checkpoint!.Resolutions.Last().Call.Arguments["newString"] = "poison";
+        var snapshot = (await f.Session.GetSnapshotAsync())!;
+        snapshot.Checkpoint!.Resolutions.Last().Call.Arguments["newString"] = "poison";
+        await f.Session.ResolveAsync(ids[1], ApprovalDecision.Execute);
+        Assert.AreEqual("Edited text", f.Stored());
+        Assert.AreEqual("1|Original document", (await f.Session.GetSnapshotAsync())!.Results.First().Output!.Value<string>());
+    }
+
+    [TestMethod]
+    public async Task ProjectionFailureAfterPersistingWrite_FaultsSessionAndNeverReplaysCheckpoint()
+    {
+        using var f = new Fixture(Calls(Write("w1", "Original", "Edited"), Write("w2", "document", "text")), Done());
+        await f.Session.StartAsync();
+        var ids = f.Conversation.PendingAdviceIds.ToArray();
+        var advice = f.Advice;
+        var conversationId = f.Conversation.Id;
+        f.OnDbResolve = () => advice.RemoveConversationAdvice(conversationId);
+        await Assert.ThrowsExactlyAsync<ArgumentException>(() => f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute));
+        Assert.AreEqual("Edited document", f.Stored());
+        Assert.AreEqual(AgentState.Error, f.Conversation.State);
+        f.OnDbResolve = null;
+        foreach (var id in ids)
+            await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ResolveAsync(id, ApprovalDecision.Execute));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.ContinueAsync("trusted", "retry"));
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => f.Session.GetRuntimeSnapshotAsync());
+        Assert.AreEqual(1, f.Dispatches);
+        Assert.AreEqual(1, f.Client.Requests.Count);
+    }
+
     private static ClaudeContentBlock Read(string id) => ClaudeContentBlock.ToolUse(id, "ReadFullDocument", new());
     private static ClaudeContentBlock Write(string id, string oldText, string newText) =>
         ClaudeContentBlock.ToolUse(id, "ReplaceText", new() { ["oldString"] = oldText, ["newString"] = newText });

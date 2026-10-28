@@ -6,7 +6,7 @@ namespace Aiursoft.MarkToHtml.Services.Agent;
 /// <summary>
 /// Real tool bindings for canonical sessions. Supply a
 /// long-lived scope factory and trusted conversation, never a request-scoped provider.
-/// OrderedAgentSessionHost must gate approval before dispatching write handlers.
+/// The session facade and OrderedAgentRunner gate approval before dispatching write handlers.
 /// Legacy business errors and read exceptions remain string outputs (JValue), so
 /// runner Succeeded means dispatch returned, NOT business success. Write exceptions
 /// propagate to the runner as Failed; optional session feedback records safe stage/recovery

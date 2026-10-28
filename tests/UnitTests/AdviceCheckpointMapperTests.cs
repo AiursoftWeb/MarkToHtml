@@ -27,8 +27,10 @@ public class AdviceCheckpointMapperTests
         });
         var model = new ScriptedModel(Calls(Call("r", "ReadFullDocument"), Replace("a"), Replace("b")),
             Calls(Replace("a")), new AgentModelResponse([new TextBlock("done")]));
-        var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], [read, write], model);
-        var paused = await host.StartAsync();
+        IAgentTool[] tools = [read, write];
+        var runner = new OrderedAgentRunner(model);
+        var request = new AgentRunRequest([TranscriptMessage.User("edit")], tools);
+        var paused = await runner.RunAsync(request);
         mapper.Synchronize(conversation, paused);
         var ids = conversation.PendingAdviceIds.ToArray();
         Assert.AreEqual(2, ids.Length);
@@ -51,7 +53,7 @@ public class AdviceCheckpointMapperTests
         mapper.Synchronize(conversation, paused);
         Assert.AreEqual(AdviceStatus.Approved, first.Status);
         CollectionAssert.AreEqual(new[] { second.Id }, conversation.PendingAdviceIds.ToArray());
-        var partial = await host.ResolveAsync("a", ApprovalDecision.Execute);
+        var partial = await runner.ResolveAsync(paused.Checkpoint!, tools, "a", ApprovalDecision.Execute);
         mapper.Synchronize(conversation, partial);
         Assert.AreEqual(AdviceStatus.Executed, first.Status);
         Assert.AreEqual("Error: business result, not a runner failure", first.Result);
@@ -62,7 +64,7 @@ public class AdviceCheckpointMapperTests
         mapper.Synchronize(conversation, partial);
 
         // Last rejection resumes the model into a new batch which reuses the old call ID.
-        var next = await host.ResolveAsync("b", ApprovalDecision.Reject);
+        var next = await runner.ResolveAsync(partial.Checkpoint!, tools, "b", ApprovalDecision.Reject);
         mapper.Synchronize(conversation, next);
         Assert.AreEqual(AdviceStatus.Rejected, second.Status);
         Assert.AreEqual(AgentToolResultMapper.Rejected, second.Result);
@@ -75,7 +77,7 @@ public class AdviceCheckpointMapperTests
         Assert.AreEqual(1, executed.Count);
         mapper.Synchronize(conversation, next);
         Assert.AreEqual(third.Id, conversation.PendingAdviceIds.Single());
-        var final = await host.ResolveAsync("a", ApprovalDecision.Reject);
+        var final = await runner.ResolveAsync(next.Checkpoint!, tools, "a", ApprovalDecision.Reject);
         mapper.Synchronize(conversation, final);
         mapper.Synchronize(conversation, final);
         Assert.AreEqual(AdviceStatus.Rejected, third.Status);
@@ -94,15 +96,17 @@ public class AdviceCheckpointMapperTests
         var conversation = new AgentConversation();
         var mapper = new AdviceCheckpointMapper(conversation.Id, service, registry);
         var write = AgentToolAdapter.ForApprovedWrite(registry.GetTool("ReplaceText")!, (_, _) => throw new InvalidOperationException("private"));
-        var host = new OrderedAgentSessionHost([TranscriptMessage.User("edit")], [write],
+        IAgentTool[] tools = [write];
+        var runner = new OrderedAgentRunner(
             new ScriptedModel(Calls(Replace("a"), Replace("b")), new AgentModelResponse([new TextBlock("done")])));
-        var paused = await host.StartAsync();
+        var request = new AgentRunRequest([TranscriptMessage.User("edit")], tools);
+        var paused = await runner.RunAsync(request);
         mapper.Synchronize(conversation, paused);
         var ids = conversation.PendingAdviceIds.ToArray();
         var other = new AgentConversation();
         Assert.ThrowsExactly<ArgumentException>(() => mapper.Synchronize(other, paused));
         Assert.AreEqual(0, other.PendingAdviceIds.Count);
-        var partial = await host.ResolveAsync("a", ApprovalDecision.Execute);
+        var partial = await runner.ResolveAsync(paused.Checkpoint!, tools, "a", ApprovalDecision.Execute);
         var mismatched = partial.Checkpoint! with { Transcript = [TranscriptMessage.User("unrelated")] };
         Assert.ThrowsExactly<ArgumentException>(() => mapper.Synchronize(conversation, partial with { Checkpoint = mismatched }));
         Assert.IsTrue(ids.All(id => service.Get(id)!.Status == AdviceStatus.Pending));
@@ -117,7 +121,7 @@ public class AdviceCheckpointMapperTests
         mapper.Synchronize(conversation, partial);
         Assert.AreEqual(AdviceStatus.Failed, service.Get(ids[0])!.Status);
         Assert.AreEqual("Tool execution failed.", service.Get(ids[0])!.Error);
-        var final = await host.ResolveAsync("b", ApprovalDecision.Reject);
+        var final = await runner.ResolveAsync(partial.Checkpoint!, tools, "b", ApprovalDecision.Reject);
         var tampered = final with { Results = [final.Results[0] with { CallId = "wrong-id" }, final.Results[1]] };
         Assert.ThrowsExactly<ArgumentException>(() => mapper.Synchronize(conversation, tampered));
         Assert.AreEqual(AdviceStatus.Pending, service.Get(ids[1])!.Status);
