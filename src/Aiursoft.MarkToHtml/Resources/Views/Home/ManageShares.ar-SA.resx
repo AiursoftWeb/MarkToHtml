@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="{0} and {1} other user" xml:space="preserve">
+    <value>{0} ومستخدم آخر ({1})</value>
+  </data>
+  <data name="{0} and {1} other users" xml:space="preserve">
+    <value>{0} ومستخدمون آخرون عددهم {1}</value>
+  </data>
+  <data name="{0} can edit." xml:space="preserve">
+    <value>يمكن لـ {0} التعديل.</value>
+  </data>
+  <data name="{0} can view." xml:space="preserve">
+    <value>يمكن لـ {0} العرض.</value>
+  </data>
+  <data name="{0} role" xml:space="preserve">
+    <value>دور واحد ({0})</value>
+  </data>
+  <data name="{0} roles" xml:space="preserve">
+    <value>{0} دور</value>
+  </data>
+  <data name="{0} user" xml:space="preserve">
+    <value>مستخدم واحد ({0})</value>
+  </data>
+  <data name="{0} users" xml:space="preserve">
+    <value>{0} مستخدمين</value>
+  </data>
+  <data name="{0}, {1}" xml:space="preserve">
+    <value>{0}، {1}</value>
+  </data>
+  <data name="About access" xml:space="preserve">
+    <value>حول صلاحيات الوصول</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>أضف</value>
+  </data>
+  <data name="Add access" xml:space="preserve">
+    <value>إضافة صلاحية الوصول</value>
   </data>
   <data name="Add New Share" xml:space="preserve">
     <value>إضافة مشاركة جديدة</value>
@@ -33,14 +66,38 @@
   <data name="An error occurred while processing your request." xml:space="preserve">
     <value>حدث خطأ أثناء معالجة طلبك.</value>
   </data>
+  <data name="Anonymous viewing does not change the user or role permissions above." xml:space="preserve">
+    <value>لا يؤدي العرض المجهول إلى تغيير أذونات المستخدم أو الدور المذكورة أعلاه.</value>
+  </data>
+  <data name="Anyone — view only" xml:space="preserve">
+    <value>أي شخص — عرض فقط</value>
+  </data>
   <data name="Anyone with the link can view this document." xml:space="preserve">
     <value>يمكن لأي شخص لديه الرابط عرض هذا المستند.</value>
+  </data>
+  <data name="Anyone with the link can view without signing in." xml:space="preserve">
+    <value>يمكن لأي شخص لديه الرابط عرض المحتوى دون تسجيل الدخول.</value>
   </data>
   <data name="Are you sure you want to remove this share?" xml:space="preserve">
     <value>هل أنت متأكد أنك تريد إزالة هذا المشاركة؟</value>
   </data>
   <data name="Back to Document" xml:space="preserve">
     <value>العودة إلى المستند</value>
+  </data>
+  <data name="Can edit" xml:space="preserve">
+    <value>يمكنه التعديل</value>
+  </data>
+  <data name="Can view" xml:space="preserve">
+    <value>يمكنه العرض</value>
+  </data>
+  <data name="Can view allows reading the document. Can edit also allows changing its content." xml:space="preserve">
+    <value>تتيح صلاحية العرض قراءة المستند، بينما تتيح صلاحية التحرير أيضًا تعديل محتواه.</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>تغيير</value>
+  </data>
+  <data name="Change link access" xml:space="preserve">
+    <value>تغيير صلاحية الوصول عبر الرابط</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>إغلاق</value>
@@ -51,8 +108,17 @@
   <data name="Copy Link" xml:space="preserve">
     <value>نسخ رابط</value>
   </data>
+  <data name="Could not confirm the change. Your input is kept. Try again, or reload to check the saved state." xml:space="preserve">
+    <value>تعذّر تأكيد التغيير. تم الاحتفاظ بإدخالك. حاول مرة أخرى، أو أعد تحميل الصفحة للتحقق من الحالة المحفوظة.</value>
+  </data>
+  <data name="Could not copy. Select and copy the link above." xml:space="preserve">
+    <value>تعذّر النسخ. حدّد الرابط أعلاه وانسخه.</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>تم الإنشاء</value>
+  </data>
+  <data name="Current access" xml:space="preserve">
+    <value>الوصول الحالي</value>
   </data>
   <data name="Document:" xml:space="preserve">
     <value>المستند:</value>
@@ -72,11 +138,26 @@
   <data name="Forbid anonymous viewing (Private / Shared)" xml:space="preserve">
     <value>منع المشاهدة المجهولة (خاص / مشترك)</value>
   </data>
+  <data name="Link access" xml:space="preserve">
+    <value>الوصول عبر الرابط</value>
+  </data>
+  <data name="Link copied." xml:space="preserve">
+    <value>تم نسخ الرابط.</value>
+  </data>
+  <data name="Load more users" xml:space="preserve">
+    <value>تحميل المزيد من المستخدمين</value>
+  </data>
   <data name="Manage Shares" xml:space="preserve">
     <value>إدارة المشاركات</value>
   </data>
+  <data name="Member preview unavailable. You can still share with this role." xml:space="preserve">
+    <value>معاينة العضو غير متاحة. لا يزال بإمكانك المشاركة مع هذا الدور.</value>
+  </data>
   <data name="members" xml:space="preserve">
     <value>أعضاء</value>
+  </data>
+  <data name="Name or username (3+ characters)" xml:space="preserve">
+    <value>الاسم أو اسم المستخدم (٣ أحرف فأكثر)</value>
   </data>
   <data name="No shares yet. Add one above to share this document." xml:space="preserve">
     <value>لا توجد مشاركات بعد. أضف مشاركة أعلاه لمشاركة هذا المستند.</value>
@@ -84,8 +165,26 @@
   <data name="No users found" xml:space="preserve">
     <value>لم يتم العثور على مستخدمين</value>
   </data>
+  <data name="No users found. Try another name or username." xml:space="preserve">
+    <value>لم يتم العثور على مستخدمين. جرّب اسمًا آخر أو اسم مستخدم آخر.</value>
+  </data>
+  <data name="No users or roles added." xml:space="preserve">
+    <value>لم تتم إضافة أي مستخدمين أو أدوار.</value>
+  </data>
+  <data name="Not saved. The link above still uses the current access setting." xml:space="preserve">
+    <value>لم يتم الحفظ. لا يزال الرابط أعلاه يستخدم إعداد الوصول الحالي.</value>
+  </data>
+  <data name="Only authorized people can access." xml:space="preserve">
+    <value>يقتصر الوصول على الأشخاص المصرح لهم.</value>
+  </data>
+  <data name="Only the owner has access." xml:space="preserve">
+    <value>المالك فقط هو من لديه صلاحية الوصول.</value>
+  </data>
   <data name="Only you and specific users/roles listed below can view this document." xml:space="preserve">
     <value>فقط أنت والمستخدمين/الأدوار المحددة المدرجة أدناه يمكنهم عرض هذا المستند.</value>
+  </data>
+  <data name="People with access" xml:space="preserve">
+    <value>الأشخاص لديهم وصول</value>
   </data>
   <data name="Permission" xml:space="preserve">
     <value>الصلاحية</value>
@@ -102,11 +201,38 @@
   <data name="Remove" xml:space="preserve">
     <value>إزالة</value>
   </data>
+  <data name="Remove this share? Other access may still apply." xml:space="preserve">
+    <value>هل تريد إزالة هذه المشاركة؟ قد يظل الوصول متاحًا بطرق أخرى.</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>الدور</value>
   </data>
+  <data name="Role {0}" xml:space="preserve">
+    <value>الدور {0}</value>
+  </data>
+  <data name="Role {0} and {1} other role" xml:space="preserve">
+    <value>الدور {0} ودور آخر واحد</value>
+  </data>
+  <data name="Role {0} and {1} other roles" xml:space="preserve">
+    <value>الدور {0} و{1} من الأدوار الأخرى</value>
+  </data>
+  <data name="role members" xml:space="preserve">
+    <value>أعضاء الدور</value>
+  </data>
+  <data name="Save access" xml:space="preserve">
+    <value>حفظ إعدادات الوصول</value>
+  </data>
+  <data name="Search failed. Change the search text to try again." xml:space="preserve">
+    <value>فشل البحث. غيّر نص البحث وحاول مرة أخرى.</value>
+  </data>
+  <data name="Searching..." xml:space="preserve">
+    <value>جارٍ البحث...</value>
+  </data>
   <data name="Select a role..." xml:space="preserve">
     <value>اختر دورًا...</value>
+  </data>
+  <data name="Select a user from the search results or choose a role." xml:space="preserve">
+    <value>حدّد مستخدمًا من نتائج البحث أو اختر دورًا.</value>
   </data>
   <data name="Share Link" xml:space="preserve">
     <value>مشاركة الرابط</value>
@@ -114,14 +240,26 @@
   <data name="Share with" xml:space="preserve">
     <value>شارك مع</value>
   </data>
+  <data name="Shared access" xml:space="preserve">
+    <value>الوصول المشترك</value>
+  </data>
   <data name="Shared With" xml:space="preserve">
     <value>تمت المشاركة مع</value>
+  </data>
+  <data name="Sign-in and existing access are required. Copying a link does not grant access." xml:space="preserve">
+    <value>يلزم تسجيل الدخول وتوفّر صلاحية وصول مسبقة. نسخ الرابط لا يمنح صلاحية الوصول.</value>
   </data>
   <data name="Specific User" xml:space="preserve">
     <value>مستخدم محدد</value>
   </data>
+  <data name="The owner and authorized sharing administrators can manage access. Role access applies to its members; permissions from other roles or direct shares still apply after removing one share." xml:space="preserve">
+    <value>يمكن للمالك ومسؤولي المشاركة المخوّلين إدارة صلاحيات الوصول. تنطبق صلاحيات الدور على أعضائه؛ وتظل الصلاحيات الممنوحة عبر أدوار أخرى أو مشاركات مباشرة سارية بعد إزالة إحدى المشاركات.</value>
+  </data>
   <data name="This user or role already has access to this document." xml:space="preserve">
     <value>هذا المستخدم أو الدور لديه بالفعل صلاحية الوصول إلى هذا المستند.</value>
+  </data>
+  <data name="This user or role already has access." xml:space="preserve">
+    <value>هذا المستخدم أو الدور لديه صلاحية وصول بالفعل.</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>النوع</value>
@@ -134,6 +272,9 @@
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>الرؤية</value>
+  </data>
+  <data name="Who can use the link?" xml:space="preserve">
+    <value>من يمكنه استخدام الرابط؟</value>
   </data>
 
 </root>
