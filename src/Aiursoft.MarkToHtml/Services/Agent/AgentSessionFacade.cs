@@ -5,15 +5,12 @@ using Aiursoft.AgentKit.Messages;
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
 /// <summary>
-/// Public opt-in session execution entry point, not production DI/AgentService wiring.
-/// Callers must authorize access to the owned conversation before invoking execution or snapshots.
-/// One instance owns one trusted conversation; all session writes must go through this facade.
-/// Initial legacy history must be completed and is imported lossily once. UI projections are
-/// never replayed. Each continuation starts a fresh budget from canonical history, retaining
-/// session Advice/feedback associations. Legacy cancellation semantics are not connected.
-/// Production blockers: ModelFailure has no legacy exception details (never expose provider
-/// bodies); write exceptions project Failed with safe stage/recovery feedback rather than
-/// legacy raw exception text. Do not infer business success from canonical Succeeded or parse error text.
+/// Canonical session execution and UI/Advice projection for production and evaluator callers.
+/// Callers authorize the owned conversation before execution or snapshots. One facade owns
+/// one trusted conversation. Completed initial history is imported lossily once; mutable UI
+/// history and Advice arguments are never replayed. Continuations receive fresh ten-step budgets.
+/// Queue reservations bind approval decisions under the same gate as dispatch and projection.
+/// Removal-only cancellation is handled by the owning service, not in-flight cancellation.
 /// </summary>
 public sealed class AgentSessionFacade
 {
@@ -50,7 +47,8 @@ public sealed class AgentSessionFacade
         _tools = AgentSessionToolFactory.Create(scopes, conversation, registry, _feedback);
         var initial = AgentHistoryMapper.ImportCompletedLegacyHistoryLossy(conversation.Messages);
         _model = new ClaudeAgentModelClient(client, _toolOrder,
-            initialReasoning: initial.InitialReasoning) { ToolResultText = _feedback.GetText };
+            initialReasoning: initial.InitialReasoning)
+        { ToolResultText = _feedback.GetText };
         _host = new OrderedAgentSessionHost(initial.Transcript, _tools, _model);
         _turnStartIndex = initial.Transcript.Count;
         _mapper = new AdviceCheckpointMapper(conversation.Id, advice, registry, _feedback);
@@ -78,7 +76,38 @@ public sealed class AgentSessionFacade
         finally { _gate.Release(); }
     }
 
-    public async Task<OrderedAgentRunResult> ResolveAsync(Guid adviceId, ApprovalDecision decision)
+    private readonly object _decisions = new();
+    private readonly Dictionary<Guid, (string CallId, ApprovalDecision Decision)> _reserved = new();
+
+    // The short projection/reservation lock never spans handler/model awaits. Sibling decisions
+    // can bind against the immutable current checkpoint while serialized dispatch is in flight.
+    // Never trust mutable Advice arguments.
+    internal bool ReserveDecision(Guid adviceId, ApprovalDecision decision)
+    {
+        lock (_decisions)
+        {
+            try
+            {
+                if (_faulted || _result == null || _reserved.ContainsKey(adviceId)) return false;
+                var callId = _mapper.RequireCurrentPendingCall(adviceId, _result);
+                _reserved.Add(adviceId, (callId, decision));
+                _advice.UpdateStatus(adviceId, decision == ApprovalDecision.Execute ? AdviceStatus.Approved : AdviceStatus.Rejected);
+                _conversation.PendingAdviceIds.RemoveAll(id => id == adviceId);
+                _conversation.State = AgentState.Thinking;
+                _conversation.LastActivity = DateTime.UtcNow;
+                return true;
+            }
+            catch (InvalidOperationException) { return false; }
+        }
+    }
+
+    public Task<OrderedAgentRunResult> ResolveAsync(Guid adviceId, ApprovalDecision decision) =>
+        ResolveCoreAsync(adviceId, decision, false);
+
+    internal Task<OrderedAgentRunResult> DispatchReservedAsync(Guid adviceId, ApprovalDecision decision) =>
+        ResolveCoreAsync(adviceId, decision, true);
+
+    private async Task<OrderedAgentRunResult> ResolveCoreAsync(Guid adviceId, ApprovalDecision decision, bool reserved)
     {
         await _gate.WaitAsync();
         try
@@ -87,13 +116,24 @@ public sealed class AgentSessionFacade
             if (decision is not (ApprovalDecision.Execute or ApprovalDecision.Reject))
                 throw new ArgumentOutOfRangeException(nameof(decision));
             var current = _result ?? throw new InvalidOperationException("This session has not started.");
-            var callId = _mapper.RequireCurrentPendingCall(adviceId, current);
-            // Validate association first, then change status before any handler executes. This
-            // gate spans status, dispatch and both projections. The private host never calls back
-            // into this gate, so its own serialization cannot invert the lock order.
-            _advice.UpdateStatus(adviceId, decision == ApprovalDecision.Execute ? AdviceStatus.Approved : AdviceStatus.Rejected);
-            _conversation.PendingAdviceIds.RemoveAll(id => id == adviceId);
-            _conversation.State = AgentState.Thinking;
+            string callId;
+            lock (_decisions)
+            {
+                if (reserved)
+                {
+                    if (!_reserved.TryGetValue(adviceId, out var reservation) || reservation.Decision != decision)
+                        throw new InvalidOperationException("Advice has no queued reservation.");
+                    callId = reservation.CallId;
+                    _reserved.Remove(adviceId); // Consume before any side effect, including failures.
+                }
+                else callId = _mapper.RequireCurrentPendingCall(adviceId, current);
+                // Validate association first, then change status before any handler executes. This
+                // gate spans status, dispatch and both projections. The private host never calls back
+                // into this gate, so its own serialization cannot invert the lock order.
+                _advice.UpdateStatus(adviceId, decision == ApprovalDecision.Execute ? AdviceStatus.Approved : AdviceStatus.Rejected);
+                _conversation.PendingAdviceIds.RemoveAll(id => id == adviceId);
+                _conversation.State = AgentState.Thinking;
+            }
             try
             {
                 var call = current.Checkpoint!.Resolutions.Single(item => item.Call.Id == callId).Call;
@@ -134,7 +174,7 @@ public sealed class AgentSessionFacade
             if (_faulted) throw new InvalidOperationException("This session cannot continue after a dispatch or projection failure.");
             var current = _result ?? throw new InvalidOperationException("This session has not started.");
             if (userId != _conversation.UserId || string.IsNullOrWhiteSpace(userMessage) ||
-                current.Checkpoint != null || current.Outcome is not
+                _reserved.Count != 0 || current.Checkpoint != null || current.Outcome is not
                     (OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations or OrderedAgentRunOutcome.ModelFailure))
                 throw new InvalidOperationException("This session cannot continue with this request.");
 
@@ -153,7 +193,7 @@ public sealed class AgentSessionFacade
                     current.Transcript[pair.Key].Role == TranscriptRole.Assistant)
                 .ToDictionary(pair => pair.Key, pair => pair.Value);
             _model = new ClaudeAgentModelClient(_client, _toolOrder, initialReasoning: reasoning)
-                { ToolResultText = _feedback.GetText };
+            { ToolResultText = _feedback.GetText };
             _host = new OrderedAgentSessionHost(transcript, _tools, _model);
             _turnStartIndex = transcript.Count;
             _observedTraces.Clear();
@@ -206,6 +246,11 @@ public sealed class AgentSessionFacade
 
     private void Synchronize(OrderedAgentRunResult result, List<(int Batch, string CallId)>? retained = null)
     {
+        lock (_decisions) SynchronizeCore(result, retained);
+    }
+
+    private void SynchronizeCore(OrderedAgentRunResult result, List<(int Batch, string CallId)>? retained)
+    {
         CaptureTraces(result, retained ?? []);
         _result = Copy(result); // Canonical evidence survives independently of the lossy UI.
         // A completion rejected by runner validation may have adapter reasoning but no
@@ -228,7 +273,7 @@ public sealed class AgentSessionFacade
         _conversation.ErrorMessage = result.Outcome == OrderedAgentRunOutcome.ModelFailure ? "Model execution failed." : null;
         _conversation.State = result.Outcome switch
         {
-            OrderedAgentRunOutcome.AwaitingApproval => AgentState.AwaitingApproval,
+            OrderedAgentRunOutcome.AwaitingApproval => _reserved.Count == 0 ? AgentState.AwaitingApproval : AgentState.Thinking,
             OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations => AgentState.Completed,
             _ => AgentState.Error // Unsupported terminal outcomes are not silently presented as success.
         };
@@ -275,6 +320,11 @@ public sealed class AgentSessionFacade
     }
 
     private void Fault()
+    {
+        lock (_decisions) FaultCore();
+    }
+
+    private void FaultCore()
     {
         _faulted = true;
         _conversation.State = AgentState.Error;

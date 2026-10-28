@@ -5,7 +5,7 @@ using Aiursoft.AgentKit.Messages;
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
 /// <summary>
-/// Opt-in, single-session coordinator; deliberately not registered or used by AgentService.
+/// Single-session OrderedRunner coordinator used by the facade.
 /// Callers supply scoped tool handlers. This does not implement MCP execution, persistence,
 /// Advice state, legacy error/rejection text, or production terminal-state mapping.
 /// </summary>

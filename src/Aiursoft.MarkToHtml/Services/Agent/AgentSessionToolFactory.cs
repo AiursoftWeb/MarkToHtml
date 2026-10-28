@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
 /// <summary>
-/// Opt-in real tool bindings, not registered in DI or used by AgentService. Supply a
+/// Real tool bindings for canonical sessions. Supply a
 /// long-lived scope factory and trusted conversation, never a request-scoped provider.
 /// OrderedAgentSessionHost must gate approval before dispatching write handlers.
 /// Legacy business errors and read exceptions remain string outputs (JValue), so

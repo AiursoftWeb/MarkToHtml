@@ -138,12 +138,12 @@ public class AgentSecurityTests
         var adviceBefore = JsonSerializer.Serialize(advice);
         var ownerBefore = JsonSerializer.Serialize(ownerConversation);
         var otherBefore = JsonSerializer.Serialize(otherConversation);
-        var execute = typeof(AgentService).GetMethod("ExecuteAdviceAndResume",
+        var execute = typeof(AgentService).GetMethod("ExecuteDecision",
             BindingFlags.Instance | BindingFlags.NonPublic);
         Assert.IsNotNull(execute);
 
         // Invoke the queued callback directly: no task runner, tools or model are started.
-        await (Task)execute.Invoke(service, new object?[] { null, otherConversation.Id, advice.Id })!;
+        await (Task)execute.Invoke(service, new object?[] { otherConversation.Id, advice.Id, Aiursoft.AgentKit.ApprovalDecision.Execute })!;
 
         Assert.AreEqual(adviceBefore, JsonSerializer.Serialize(advice));
         Assert.AreEqual(ownerBefore, JsonSerializer.Serialize(ownerConversation));
@@ -153,7 +153,7 @@ public class AgentSecurityTests
     [TestMethod]
     [DataRow(false)]
     [DataRow(true)]
-    public void RejectAdvice_OwnConversation_RejectsAndUpdatesPendingState(bool hasOtherPendingAdvice)
+    public void RejectAdvice_UnboundProposalDoesNotMutateState(bool hasOtherPendingAdvice)
     {
         var conversation = CreateConversation("owner", AgentState.AwaitingApproval);
         var adviceService = new AdviceService();
@@ -167,30 +167,14 @@ public class AgentSecurityTests
 
         service.RejectAdvice(conversation.Id, advice.Id);
 
-        Assert.AreEqual(AdviceStatus.Rejected, advice.Status);
-        Assert.IsFalse(conversation.PendingAdviceIds.Contains(advice.Id));
-        Assert.AreEqual(hasOtherPendingAdvice ? AgentState.AwaitingApproval : AgentState.Completed,
-            conversation.State);
-        Assert.IsTrue(conversation.LastActivity > lastActivityBefore);
-        Assert.IsTrue(conversation.LastActivity >= beforeCall);
-        Assert.IsTrue(conversation.LastActivity <= DateTime.UtcNow);
+        // A public Advice object without a canonical checkpoint cannot authorize a decision.
+        Assert.AreEqual(AdviceStatus.Pending, advice.Status);
+        Assert.IsTrue(conversation.PendingAdviceIds.Contains(advice.Id));
+        Assert.AreEqual(AgentState.AwaitingApproval, conversation.State);
+        CollectionAssert.AreEqual(messagesBefore, conversation.Messages);
         Assert.AreEqual(contentBefore, conversation.DocumentContent);
-        Assert.AreEqual(messagesBefore.Length + 1, conversation.Messages.Count);
-        CollectionAssert.AreEqual(messagesBefore, conversation.Messages.Take(messagesBefore.Length).ToArray());
-        var toolReply = conversation.Messages[^1];
-        Assert.AreEqual("tool", toolReply.Role);
-        Assert.AreEqual(advice.ToolCallId, toolReply.ToolCallId);
-        Assert.AreEqual("REJECTED: User rejected this change. Do NOT retry the same edit. Ask the user what they want instead.",
-            toolReply.Content);
-        if (remaining != null)
-        {
-            Assert.AreEqual(AdviceStatus.Pending, remaining.Status);
-            CollectionAssert.AreEqual(new[] { remaining.Id }, conversation.PendingAdviceIds);
-        }
-        else
-        {
-            Assert.AreEqual(0, conversation.PendingAdviceIds.Count);
-        }
+        Assert.AreEqual(lastActivityBefore, conversation.LastActivity);
+        if (remaining != null) Assert.AreEqual(AdviceStatus.Pending, remaining.Status);
     }
 
     private static async Task AssertContinuationRejected(AgentConversation conversation, string userId)

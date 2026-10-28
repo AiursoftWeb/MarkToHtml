@@ -1,9 +1,8 @@
 using System.Collections.Concurrent;
 using System.Text;
+using Aiursoft.AgentKit;
 using Aiursoft.Canon.TaskQueue;
 using Aiursoft.MarkToHtml.Configuration;
-using ModelContextProtocol.Server;
-using Newtonsoft.Json;
 
 namespace Aiursoft.MarkToHtml.Services.Agent;
 
@@ -17,7 +16,8 @@ public class AgentService : IAgentService
     private readonly ClaudeClient _claudeClient;
     private readonly ILogger<AgentService> _logger;
 
-    private const int MaxLoops = 10;
+    private readonly ConcurrentDictionary<Guid, AgentSessionFacade> _sessions = new();
+    private readonly object _lifecycle = new();
     private static readonly TimeSpan ConversationTtl = TimeSpan.FromMinutes(30);
     private static readonly TimeSpan AdviceTtl = TimeSpan.FromMinutes(30);
 
@@ -103,57 +103,31 @@ public class AgentService : IAgentService
         _taskQueue.QueueWithDependency<IServiceProvider>(
             queueName: "MarkToHtmlAgent",
             taskName: $"AgentRun-{conversation.Id}",
-            task: async (sp) => await ExecuteReActLoop(sp, conversation.Id));
+            task: async _ => await ExecuteSession(conversation.Id));
 
         return conversation.Id;
     }
 
     public Guid? ContinueRun(Guid conversationId, string userId, string userMessage)
     {
-        if (!_conversations.TryGetValue(conversationId, out var conversation))
-            return null;
-
-        if (conversation.UserId != userId)
-            return null;
-
-        if (conversation.State is AgentState.Thinking or AgentState.AwaitingApproval)
-            return null;
-
-        if (string.IsNullOrWhiteSpace(userMessage))
-            return null;
-
-        // Inject current document content snapshot
-        conversation.Messages.Add(new ToolMessagesItem
+        lock (_lifecycle)
         {
-            Role = "user",
-            Content = DocumentSystemReminder,
-            IsMeta = true
-        });
-
-        var numberedDoc = FormatDocumentWithLineNumbers(conversation.DocumentContent);
-        conversation.Messages.Add(new ToolMessagesItem
-        {
-            Role = "user",
-            Content = $"<document-content>\n{numberedDoc}\n</document-content>",
-            IsMeta = true
-        });
-
-        conversation.Messages.Add(new ToolMessagesItem
-        {
-            Role = "user",
-            Content = userMessage
-        });
-
-        conversation.State = AgentState.Thinking;
-        conversation.LastActivity = DateTime.UtcNow;
-        conversation.LoopCount = 0;
-
-        _taskQueue.QueueWithDependency<IServiceProvider>(
-            queueName: "MarkToHtmlAgent",
-            taskName: $"AgentContinue-{conversation.Id}",
-            task: async (sp) => await ExecuteReActLoop(sp, conversation.Id));
-
-        return conversation.Id;
+            if (!_conversations.TryGetValue(conversationId, out var conversation) ||
+                conversation.UserId != userId || string.IsNullOrWhiteSpace(userMessage) ||
+                conversation.State is AgentState.Thinking or AgentState.AwaitingApproval ||
+                !_sessions.TryGetValue(conversationId, out var session)) return null;
+            conversation.State = AgentState.Thinking;
+            conversation.LastActivity = DateTime.UtcNow;
+            conversation.LoopCount = 0;
+            var content = conversation.DocumentContent;
+            _taskQueue.QueueWithDependency<IServiceProvider>("MarkToHtmlAgent", $"AgentContinue-{conversation.Id}",
+                async _ =>
+                {
+                    if (_conversations.ContainsKey(conversationId))
+                        await session.ContinueAsync(userId, userMessage, content);
+                });
+            return conversation.Id;
+        }
     }
 
     public AgentConversation? GetConversation(Guid conversationId)
@@ -164,335 +138,66 @@ public class AgentService : IAgentService
 
     public void ApproveAdvice(Guid conversationId, Guid adviceId)
     {
-        var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Pending ||
-            advice.ConversationId != conversationId || !_conversations.ContainsKey(conversationId)) return;
+        QueueDecision(conversationId, adviceId, ApprovalDecision.Execute);
+    }
 
-        _adviceService.UpdateStatus(adviceId, AdviceStatus.Approved);
+    public void RejectAdvice(Guid conversationId, Guid adviceId) =>
+        QueueDecision(conversationId, adviceId, ApprovalDecision.Reject);
 
-        if (_conversations.TryGetValue(conversationId, out var conversation))
+    private void QueueDecision(Guid conversationId, Guid adviceId, ApprovalDecision decision)
+    {
+        lock (_lifecycle)
         {
-            conversation.PendingAdviceIds.Remove(adviceId);
-            conversation.LastActivity = DateTime.UtcNow;
-
-            _taskQueue.QueueWithDependency<IServiceProvider>(
-                queueName: "MarkToHtmlAgent",
-                taskName: $"AdviceExecute-{adviceId}",
-                task: async (sp) => await ExecuteAdviceAndResume(sp, conversationId, adviceId));
+            if (!_conversations.ContainsKey(conversationId) || !_sessions.TryGetValue(conversationId, out var session) ||
+                !session.ReserveDecision(adviceId, decision)) return;
+            _taskQueue.QueueWithDependency<IServiceProvider>("MarkToHtmlAgent", $"AdviceExecute-{adviceId}",
+                async _ => await ExecuteDecision(conversationId, adviceId, decision));
         }
     }
 
-    public void RejectAdvice(Guid conversationId, Guid adviceId)
+    private async Task ExecuteDecision(Guid conversationId, Guid adviceId, ApprovalDecision decision)
     {
-        var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Pending ||
-            advice.ConversationId != conversationId || !_conversations.ContainsKey(conversationId)) return;
-
-        _adviceService.UpdateStatus(adviceId, AdviceStatus.Rejected);
-
-        if (_conversations.TryGetValue(conversationId, out var conversation))
-        {
-            conversation.PendingAdviceIds.Remove(adviceId);
-            conversation.LastActivity = DateTime.UtcNow;
-
-            conversation.Messages.Add(new ToolMessagesItem
-            {
-                Role = "tool",
-                ToolCallId = advice.ToolCallId,
-                Content = AgentToolResultMapper.Rejected
-            });
-
-            var stillPending = _adviceService.GetPendingForConversation(conversationId);
-            if (stillPending.Count > 0)
-            {
-                conversation.State = AgentState.AwaitingApproval;
-            }
-            else
-            {
-                conversation.State = AgentState.Completed;
-            }
-        }
+        if (!_conversations.ContainsKey(conversationId) || !_sessions.TryGetValue(conversationId, out var session)) return;
+        try { await session.DispatchReservedAsync(adviceId, decision); }
+        catch (Exception ex) { _logger.LogError(ex, "Agent decision failed for {ConversationId}", conversationId); }
     }
 
     public void CancelRun(Guid conversationId)
     {
-        if (_conversations.TryRemove(conversationId, out _))
+        lock (_lifecycle)
         {
-            _adviceService.RemoveConversationAdvice(conversationId);
+            if (_conversations.TryRemove(conversationId, out _))
+            {
+                _sessions.TryRemove(conversationId, out _);
+                _adviceService.RemoveConversationAdvice(conversationId);
+            }
         }
     }
 
-    // ── ReAct Loop ───────────────────────────────────────────────────────────────
-
-    private async Task ExecuteReActLoop(IServiceProvider sp, Guid conversationId)
+    private async Task ExecuteSession(Guid conversationId)
     {
-        if (!_conversations.TryGetValue(conversationId, out var conversation)) return;
-
+        AgentConversation? conversation = null;
         try
         {
-            while (conversation.LoopCount < MaxLoops)
+            AgentSessionFacade session;
+            lock (_lifecycle)
             {
-                conversation.LoopCount++;
-                conversation.State = AgentState.Thinking;
-                conversation.LastActivity = DateTime.UtcNow;
-
-                var response = await CallLlmWithTools(conversation);
-
-                var toolUses = response.GetToolUses();
-                if (toolUses.Count > 0)
-                {
-                    var assistantToolCalls = toolUses.Select(tu => new ToolCallData
-                    {
-                        Id = tu.Id,
-                        Type = "function",
-                        Function = new ToolCallFunction
-                        {
-                            Name = tu.Name,
-                            Arguments = JsonConvert.SerializeObject(UnwrapJsonElements(tu.Input ?? new()))
-                        }
-                    }).ToList();
-
-                    conversation.Messages.Add(new ToolMessagesItem
-                    {
-                        Role = "assistant",
-                        Content = response.GetText(),
-                        ToolCalls = assistantToolCalls,
-                        ReasoningContent = response.ReasoningContent
-                    });
-
-                    var adviceIds = new List<Guid>();
-
-                    foreach (var tu in toolUses)
-                    {
-                        if (string.IsNullOrEmpty(tu.Name)) continue;
-                        var isWrite = _toolRegistry.IsWriteTool(tu.Name);
-
-                        if (isWrite)
-                        {
-                            var advice = CreateToolAdvice(_adviceService, _toolRegistry, conversation,
-                                tu.Name, tu.Id, tu.Input ?? new Dictionary<string, object?>());
-
-                            adviceIds.Add(advice.Id);
-                            _logger.LogInformation("Advice created: {AdviceId} for tool {ToolName}", advice.Id, tu.Name);
-                        }
-                        else
-                        {
-                            string result;
-                            try
-                            {
-                                result = await ExecuteTool(sp, tu, conversation);
-                                _logger.LogInformation("Read tool executed: {ToolName}", tu.Name);
-                            }
-                            catch (Exception ex)
-                            {
-                                result = $"Error executing {tu.Name}: {ex.Message}";
-                                _logger.LogWarning(ex, "Read tool failed: {ToolName}", tu.Name);
-                            }
-                            conversation.Messages.Add(new ToolMessagesItem
-                            {
-                                Role = "tool",
-                                ToolCallId = tu.Id,
-                                Content = result
-                            });
-                        }
-                    }
-
-                    if (adviceIds.Count > 0)
-                    {
-                        conversation.PendingAdviceIds.AddRange(adviceIds);
-                        conversation.State = AgentState.AwaitingApproval;
-                        return;
-                    }
-
-                    continue;
-                }
-
-                // Text response, conversation complete
-                var text = response.GetText();
-                if (!string.IsNullOrWhiteSpace(text))
-                {
-                    conversation.Messages.Add(new ToolMessagesItem
-                    {
-                        Role = "assistant",
-                        Content = text,
-                        ReasoningContent = response.ReasoningContent
-                    });
-                }
-
-                conversation.State = AgentState.Completed;
-                return;
+                if (!_conversations.TryGetValue(conversationId, out conversation)) return;
+                session = _sessions.GetOrAdd(conversationId, _ => new AgentSessionFacade(conversation,
+                    _claudeClient, _scopeFactory, _toolRegistry, _adviceService));
             }
-
-            conversation.Messages.Add(new ToolMessagesItem
-            {
-                Role = "assistant",
-                Content = "I've reached the maximum number of steps. Please refine your request or approve pending actions."
-            });
-            conversation.State = AgentState.Completed;
+            await session.StartAsync();
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Agent ReAct loop failed for conversation {ConversationId}", conversationId);
-            conversation.State = AgentState.Error;
-            conversation.ErrorMessage = ex.Message;
+            if (conversation != null)
+            {
+                conversation.State = AgentState.Error;
+                conversation.ErrorMessage = "Session execution failed.";
+            }
+            _logger.LogError(ex, "Agent session failed for {ConversationId}", conversationId);
         }
     }
-
-    private async Task ExecuteAdviceAndResume(IServiceProvider sp, Guid conversationId, Guid adviceId)
-    {
-        if (!_conversations.TryGetValue(conversationId, out var conversation)) return;
-
-        var advice = _adviceService.Get(adviceId);
-        if (advice == null || advice.Status != AdviceStatus.Approved ||
-            advice.ConversationId != conversationId) return;
-
-        try
-        {
-            var tool = _toolRegistry.GetTool(advice.ToolName);
-            if (tool == null)
-            {
-                _adviceService.SetResult(adviceId, null, $"Tool not found: {advice.ToolName}");
-                return;
-            }
-
-            var args = new Dictionary<string, object?>(advice.Parameters);
-
-            var result = await AgentToolExecution.ExecuteApprovedAsync(sp, _scopeFactory, tool, args, conversation);
-
-            _adviceService.SetResult(adviceId, result, null);
-
-            conversation.Messages.Add(new ToolMessagesItem
-            {
-                Role = "tool",
-                ToolCallId = advice.ToolCallId,
-                Content = result
-            });
-
-            // Update document context for next steps
-            var stillPending = _adviceService.GetPendingForConversation(conversationId);
-            if (stillPending.Count > 0)
-            {
-                conversation.State = AgentState.AwaitingApproval;
-            }
-            else
-            {
-                conversation.State = AgentState.Thinking;
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Advice execution failed for {AdviceId}", adviceId);
-            _adviceService.SetResult(adviceId, null, ex.Message);
-
-            conversation.Messages.Add(new ToolMessagesItem
-            {
-                Role = "tool",
-                ToolCallId = advice.ToolCallId,
-                Content = $"Error executing tool: {ex.Message}"
-            });
-
-            var stillPending = _adviceService.GetPendingForConversation(conversationId);
-            if (stillPending.Count > 0)
-            {
-                conversation.State = AgentState.AwaitingApproval;
-                return;
-            }
-        }
-
-        await ExecuteReActLoop(sp, conversationId);
-    }
-
-    // ── LLM Communication ──────────────────────────────────────────────────────
-
-    private async Task<ClaudeResponse> CallLlmWithTools(AgentConversation conversation)
-    {
-        var systemPrompt = conversation.Messages
-            .Where(m => m.Role == "system")
-            .Select(m => m.Content)
-            .FirstOrDefault() ?? "";
-
-        var claudeMessages = ConvertToClaudeMessages(conversation.Messages);
-        var tools = BuildClaudeTools();
-
-        return await _claudeClient.SendAsync(systemPrompt, claudeMessages, tools);
-    }
-
-    private static List<ClaudeMessage> ConvertToClaudeMessages(List<ToolMessagesItem> messages)
-    {
-        var result = new List<ClaudeMessage>();
-
-        foreach (var msg in messages.Where(m => m.Role != "system"))
-        {
-            if (msg.Role == "user")
-            {
-                result.Add(ClaudeMessage.User(msg.Content ?? ""));
-            }
-            else if (msg.Role == "assistant")
-            {
-                var blocks = new List<ClaudeContentBlock>();
-
-                if (!string.IsNullOrWhiteSpace(msg.Content))
-                    blocks.Add(ClaudeContentBlock.TextBlock(msg.Content));
-
-                if (msg.ToolCalls != null)
-                {
-                    foreach (var tc in msg.ToolCalls)
-                    {
-                        var input = TryParseArgs(tc.Function?.Arguments ?? "{}");
-                        blocks.Add(ClaudeContentBlock.ToolUse(
-                            tc.Id ?? Guid.NewGuid().ToString(),
-                            tc.Function?.Name ?? "",
-                            input));
-                    }
-                }
-
-                result.Add(ClaudeMessage.Assistant(blocks, msg.ReasoningContent));
-            }
-            else if (msg.Role == "tool")
-            {
-                result.Add(ClaudeMessage.ToolResult(msg.ToolCallId ?? "", msg.Content ?? ""));
-            }
-        }
-
-        return result;
-    }
-
-    private List<ClaudeTool> BuildClaudeTools()
-    {
-        return _toolRegistry.AllTools.Select(tool =>
-        {
-            var proto = tool.ProtocolTool;
-            return new ClaudeTool
-            {
-                Name = proto.Name,
-                Description = proto.Description,
-                InputSchema = System.Text.Json.JsonSerializer.Deserialize<object>(proto.InputSchema.GetRawText())!
-            };
-        }).ToList();
-    }
-
-    // ── Tool Execution ──────────────────────────────────────────────────────────
-
-    private async Task<string> ExecuteTool(
-        IServiceProvider sp,
-        ClaudeContentBlock toolUse,
-        AgentConversation conversation)
-    {
-        var tool = _toolRegistry.GetTool(toolUse.Name ?? "");
-        if (tool == null) return $"Error: Unknown tool '{toolUse.Name}'.";
-
-        var args = UnwrapJsonElements(toolUse.Input ?? new());
-        return await ExecuteToolWithArgs(sp, tool, args, conversation);
-    }
-
-    private Task<string> ExecuteToolWithArgs(
-        IServiceProvider sp,
-        McpServerTool tool,
-        Dictionary<string, object?> args,
-        AgentConversation conversation) =>
-        AgentToolExecution.ExecuteMcpAsync(sp, tool, args, conversation);
-
-    // ── Utilities ────────────────────────────────────────────────────────────────
 
     internal static string FormatDocumentWithLineNumbers(string content)
     {
@@ -619,46 +324,6 @@ public class AgentService : IAgentService
         return (displayText, displayParams);
     }
 
-    private static Dictionary<string, object?> UnwrapJsonElements(Dictionary<string, object?> args)
-    {
-        var result = new Dictionary<string, object?>();
-        foreach (var (key, value) in args)
-        {
-            result[key] = value switch
-            {
-                System.Text.Json.JsonElement el => UnwrapJsonElement(el),
-                _ => value
-            };
-        }
-        return result;
-    }
-
-    private static object? UnwrapJsonElement(System.Text.Json.JsonElement el)
-    {
-        return el.ValueKind switch
-        {
-            System.Text.Json.JsonValueKind.String => el.GetString(),
-            System.Text.Json.JsonValueKind.Number => el.TryGetInt64(out var l) ? l : el.GetDouble(),
-            System.Text.Json.JsonValueKind.True => true,
-            System.Text.Json.JsonValueKind.False => false,
-            System.Text.Json.JsonValueKind.Null => null,
-            _ => el.GetRawText()
-        };
-    }
-
-    private static Dictionary<string, object?> TryParseArgs(string json)
-    {
-        try
-        {
-            var dict = JsonConvert.DeserializeObject<Dictionary<string, object?>>(json) ?? new();
-            return UnwrapJsonElements(dict);
-        }
-        catch
-        {
-            return new();
-        }
-    }
-
     private void CleanupExpiredConversations()
     {
         var conversationCutoff = DateTime.UtcNow - ConversationTtl;
@@ -666,8 +331,7 @@ public class AgentService : IAgentService
 
         foreach (var (id, conv) in _conversations)
         {
-            if (conv.LastActivity < conversationCutoff && _conversations.TryRemove(id, out _))
-                _adviceService.RemoveConversationAdvice(id);
+            if (conv.LastActivity < conversationCutoff) CancelRun(id);
         }
 
         _adviceService.RemoveExpiredAdvice(adviceCutoff);
