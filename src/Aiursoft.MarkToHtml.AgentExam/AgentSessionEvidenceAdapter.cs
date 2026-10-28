@@ -51,10 +51,15 @@ internal static class AgentSessionEvidenceAdapter
             }
         }
 
-        var traces = run.Checkpoint?.CompletedTraces ?? run.Traces;
-        // OrderedRunner may lose earlier traces when resolving a reused call ID. Never
-        // reconstruct a dispatch duration or claim complete evidence from lossy correlation.
+        // Supplemental observations preserve exact batch identity across runner coalescing;
+        // canonical Run collections are deliberately not rewritten. Without a ledger retain
+        // the strict positional check for standalone snapshots.
+        var traces = snapshot.ObservedTraces == null
+            ? run.Checkpoint?.CompletedTraces ?? run.Traces
+            : dispatched.Where(item => snapshot.ObservedTraces.ContainsKey((item.Batch, item.Call.Id)))
+                .Select(item => snapshot.ObservedTraces[(item.Batch, item.Call.Id)]).ToArray();
         var correlated = traces.Count == dispatched.Count &&
+            (snapshot.ObservedTraces == null || snapshot.ObservedTraces.Count == dispatched.Count) &&
             dispatched.All(item => availableTools.Contains(item.Call.Name));
         for (var i = 0; correlated && i < traces.Count; i++)
         {

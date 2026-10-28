@@ -1,3 +1,4 @@
+using Aiursoft.AgentKit;
 using Aiursoft.AgentKit.AgentRunner;
 
 namespace Aiursoft.MarkToHtml.Services.Agent;
@@ -12,4 +13,9 @@ public sealed record AgentSessionRuntimeSnapshot(
     OrderedAgentRunResult Run,
     int TurnStartIndex,
     string DocumentContent,
-    IReadOnlyCollection<string> AvailableTools);
+    IReadOnlyCollection<string> AvailableTools)
+{
+    // Supplemental, observed execution evidence keyed by absolute assistant batch and call ID.
+    // Run remains the unmodified canonical runner result, including any coalesced traces.
+    public IReadOnlyDictionary<(int Batch, string CallId), ToolTrace>? ObservedTraces { get; init; }
+}

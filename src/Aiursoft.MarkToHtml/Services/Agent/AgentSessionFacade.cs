@@ -32,6 +32,9 @@ public sealed class AgentSessionFacade
     private bool _started;
     private bool _faulted;
     private int _turnStartIndex;
+    private readonly Dictionary<(int Batch, string CallId), ToolTrace> _observedTraces = new();
+    private List<(int Batch, string CallId)> _runnerTraceKeys = [];
+    private bool _traceCorrelationLost;
 
     public AgentSessionFacade(AgentConversation conversation, ClaudeClient client,
         IServiceScopeFactory scopes, ToolRegistry registry, AdviceService advice)
@@ -95,7 +98,18 @@ public sealed class AgentSessionFacade
             {
                 var call = current.Checkpoint!.Resolutions.Single(item => item.Call.Id == callId).Call;
                 _feedback.Begin(current.Transcript.Count - 1, callId, call.Name);
-                try { Synchronize(await _host.ResolveAsync(callId, decision)); }
+                // Resolve coalesces *all* earlier IDs, then orders current resolutions.
+                // Preserve the already observed ledger; predict only the runner's retained
+                // prefix, never correlate a new trace to an earlier call by bare ID.
+                var resolutionIds = current.Checkpoint.Resolutions.Select(item => item.Call.Id).ToHashSet(StringComparer.Ordinal);
+                var retained = _runnerTraceKeys.Where(key => !resolutionIds.Contains(key.CallId)).ToList();
+                foreach (var resolution in current.Checkpoint.Resolutions)
+                    if (_runnerTraceKeys.Any(key => key.CallId == resolution.Call.Id) ||
+                        resolution.Call.Id == callId && decision == ApprovalDecision.Execute)
+                        retained.Add(resolution.Call.Id == callId && decision == ApprovalDecision.Execute
+                            ? (current.Transcript.Count - 1, callId)
+                            : _runnerTraceKeys.Last(key => key.CallId == resolution.Call.Id));
+                try { Synchronize(await _host.ResolveAsync(callId, decision), retained); }
                 finally { _feedback.End(); }
                 return Copy(_result!);
             }
@@ -142,6 +156,9 @@ public sealed class AgentSessionFacade
                 { ToolResultText = _feedback.GetText };
             _host = new OrderedAgentSessionHost(transcript, _tools, _model);
             _turnStartIndex = transcript.Count;
+            _observedTraces.Clear();
+            _runnerTraceKeys.Clear();
+            _traceCorrelationLost = false;
             _conversation.DocumentContent = content;
             _conversation.State = AgentState.Thinking;
             _conversation.LastActivity = DateTime.UtcNow;
@@ -178,13 +195,18 @@ public sealed class AgentSessionFacade
             if (_faulted) throw new InvalidOperationException("Faulted session snapshot is unavailable.");
             return new AgentSessionRuntimeSnapshot(
                 Copy(_result ?? throw new InvalidOperationException("This session has not started.")),
-                _turnStartIndex, _conversation.DocumentContent, Array.AsReadOnly(_toolOrder.ToArray()));
+                _turnStartIndex, _conversation.DocumentContent, Array.AsReadOnly(_toolOrder.ToArray()))
+            {
+                ObservedTraces = new Dictionary<(int Batch, string CallId), ToolTrace>(
+                    _traceCorrelationLost ? new Dictionary<(int Batch, string CallId), ToolTrace>() : _observedTraces)
+            };
         }
         finally { _gate.Release(); }
     }
 
-    private void Synchronize(OrderedAgentRunResult result)
+    private void Synchronize(OrderedAgentRunResult result, List<(int Batch, string CallId)>? retained = null)
     {
+        CaptureTraces(result, retained ?? []);
         _result = Copy(result); // Canonical evidence survives independently of the lossy UI.
         // A completion rejected by runner validation may have adapter reasoning but no
         // appended assistant. Pending reasoning is not canonical evidence and cannot project.
@@ -210,6 +232,46 @@ public sealed class AgentSessionFacade
             OrderedAgentRunOutcome.Completed or OrderedAgentRunOutcome.MaxIterations => AgentState.Completed,
             _ => AgentState.Error // Unsupported terminal outcomes are not silently presented as success.
         };
+    }
+
+    private void CaptureTraces(OrderedAgentRunResult result, List<(int Batch, string CallId)> retained)
+    {
+        if (_traceCorrelationLost) return;
+        var dispatched = new Dictionary<(int Batch, string CallId), ToolResult>();
+        for (var batch = _turnStartIndex; batch < result.Transcript.Count; batch++)
+        {
+            var message = result.Transcript[batch];
+            if (message.Role != TranscriptRole.Assistant) continue;
+            foreach (var call in message.ToolCalls)
+            {
+                var output = batch + 1 < result.Transcript.Count
+                    ? result.Transcript[batch + 1].ToolResults.SingleOrDefault(item => item.CallId == call.Id)
+                    : result.Checkpoint?.Resolutions.SingleOrDefault(item => item.Call.Id == call.Id)?.Result;
+                if (output?.Outcome is ToolOutcome.Succeeded or ToolOutcome.Failed)
+                    dispatched.Add((batch, call.Id), output);
+            }
+        }
+        var keys = retained.Concat(dispatched.Keys.Where(key => !_observedTraces.ContainsKey(key) && !retained.Contains(key))).ToList();
+        var traces = result.Checkpoint?.CompletedTraces ?? result.Traces;
+        if (keys.Count != traces.Count)
+        {
+            _traceCorrelationLost = true;
+            return;
+        }
+        for (var i = 0; i < keys.Count; i++)
+        {
+            var trace = traces[i];
+            var key = keys[i];
+            if (!dispatched.TryGetValue(key, out var output) || trace.CallId != key.CallId ||
+                trace.ToolName != output.Name || trace.Outcome != output.Outcome ||
+                _observedTraces.TryGetValue(key, out var observed) && observed != trace)
+            {
+                _traceCorrelationLost = true;
+                return;
+            }
+        }
+        for (var i = 0; i < keys.Count; i++) _observedTraces[keys[i]] = traces[i];
+        _runnerTraceKeys = keys;
     }
 
     private void Fault()

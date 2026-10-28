@@ -435,16 +435,76 @@ public class AgentSessionFacadeTests
     }
 
     [TestMethod]
-    public async Task Evidence_ReusedIdApprovalTraceLoss_FailsClosed()
+    public async Task Evidence_ReusedIdApprovalTraceLoss_PreservesObservedDispatches()
     {
         using var f = new Fixture(Calls(Read("same")), Calls(Write("same", "Original", "Edited")), Done());
         await f.Session.StartAsync();
+        var before = await f.Session.GetRuntimeSnapshotAsync();
+        var readTrace = before.Run.Checkpoint!.CompletedTraces.Single();
         await f.Session.ResolveAsync(f.Conversation.PendingAdviceIds.Single(), ApprovalDecision.Execute);
+        var snapshot = await f.Session.GetRuntimeSnapshotAsync();
         var evidence = await f.GetEvidenceAsync(0);
-        Assert.IsFalse(evidence.Valid);
-        Assert.AreEqual(0, evidence.Tools.Count);
-        StringAssert.Contains(evidence.Error!, "without loss");
+        Assert.IsTrue(evidence.Valid);
+        Assert.AreEqual(2, evidence.Tools.Count);
+        Assert.AreEqual(2, evidence.Tools.Select(tool => tool.CallId).Distinct().Count());
+        Assert.AreEqual(readTrace.Duration, evidence.Tools[0].Elapsed);
+        Assert.AreEqual(snapshot.Run.Traces.Single().Duration, evidence.Tools[1].Elapsed);
+        Assert.IsTrue(evidence.Tools.All(tool => tool.Outcome == ToolOutcome.Succeeded));
+        Assert.AreEqual(1, snapshot.Run.Traces.Count); // Canonical runner result stays lossy.
         Assert.AreEqual("Edited document", f.Stored());
+        var missing = AgentSessionEvidenceAdapter.ToStepEvidence(0, snapshot with { ObservedTraces = null });
+        Assert.IsFalse(missing.Valid);
+        Assert.AreEqual(0, missing.Tools.Count);
+        var ledger = (Dictionary<(int Batch, string CallId), ToolTrace>)snapshot.ObservedTraces!;
+        ledger.Clear();
+        Assert.IsFalse(AgentSessionEvidenceAdapter.ToStepEvidence(0, snapshot).Valid);
+        Assert.IsTrue((await f.GetEvidenceAsync(0)).Valid);
+    }
+
+    [TestMethod]
+    public async Task Evidence_LaterReusedBatches_PartialApprovalRejectionAndNewReads_AreNotDoubleCounted()
+    {
+        using var f = new Fixture(Calls(Read("same")),
+            Calls(Write("same", "Original", "Edited"), Write("other", "document", "text")),
+            Calls(Read("fresh"), Write("same", "Edited", "Final"), Write("other", "missing", "ignored")),
+            Calls(Read("after")), Done(), Calls(Write("same", "Final", "Next")), Done());
+        await f.Session.StartAsync();
+        var first = (await f.Session.GetRuntimeSnapshotAsync()).Run.Checkpoint!.CompletedTraces.Single();
+        var ids = f.Conversation.PendingAdviceIds.ToArray();
+        await f.Session.ResolveAsync(ids[1], ApprovalDecision.Reject);
+        var partial = await f.GetEvidenceAsync(0);
+        Assert.IsFalse(partial.Valid);
+        Assert.AreEqual(1, partial.Tools.Count);
+        await f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute);
+        partial = await f.GetEvidenceAsync(0);
+        Assert.AreEqual(3, partial.Tools.Count); // Original read, approved write, newly generated read.
+        Assert.AreEqual(first.Duration, partial.Tools[0].Elapsed);
+        ids = f.Conversation.PendingAdviceIds.ToArray();
+        await f.Session.ResolveAsync(ids[1], ApprovalDecision.Reject);
+        partial = await f.GetEvidenceAsync(0);
+        Assert.AreEqual(3, partial.Tools.Count);
+        await f.Session.ResolveAsync(ids[0], ApprovalDecision.Execute);
+        var snapshot = await f.Session.GetRuntimeSnapshotAsync();
+        var evidence = await f.GetEvidenceAsync(0);
+        Assert.IsTrue(evidence.Valid);
+        Assert.AreEqual(5, evidence.Tools.Count);
+        Assert.AreEqual(5, evidence.Tools.Select(tool => tool.CallId).Distinct().Count());
+        CollectionAssert.AreEqual(new[] { 1, 2, 3, 3, 4 }, evidence.Tools.Select(tool => tool.Iteration).ToArray());
+        Assert.AreEqual(2, evidence.State["Resolutions"]!.Count(item => item["Outcome"]!.Value<string>() == "Rejected"));
+        foreach (var tool in evidence.Tools)
+        {
+            var trace = snapshot.ObservedTraces!.Single(pair => $"{pair.Key.Batch}:{pair.Key.CallId}" == tool.CallId).Value;
+            Assert.AreEqual(trace.Duration, tool.Elapsed);
+            Assert.AreEqual(trace.Outcome, tool.Outcome);
+        }
+        Assert.AreEqual("Final document", f.Stored());
+        await f.Session.ContinueAsync("trusted", "next");
+        await f.Session.ResolveAsync(f.Conversation.PendingAdviceIds.Single(), ApprovalDecision.Execute);
+        var next = await f.GetEvidenceAsync(1);
+        Assert.IsTrue(next.Valid);
+        Assert.AreEqual(1, next.Tools.Count);
+        Assert.IsFalse(evidence.Tools.Any(tool => tool.CallId == next.Tools.Single().CallId));
+        Assert.AreEqual(1, (await f.Session.GetRuntimeSnapshotAsync()).ObservedTraces!.Count);
     }
 
     [TestMethod]
