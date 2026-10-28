@@ -149,6 +149,62 @@ public class AgentBehaviorTests
     }
 
     [TestMethod]
+    [DataRow(null)]
+    [DataRow("")]
+    [DataRow(" ")]
+    public async Task WriteProposal_MissingOrBlankCallIdStillCreatesAdvice_LegacyBehavior(string? callId)
+    {
+        using var services = CreateToolServices();
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), _ => new ClaudeResponse
+        {
+            Content = [new ClaudeContentBlock
+            {
+                Type = "tool_use", Id = callId, Name = "ReplaceText",
+                Input = new() { ["oldString"] = "Original", ["newString"] = "Edited" }
+            }]
+        });
+        var (service, conversation, advice) = CreateService(services, client);
+
+        await Run(service, services, conversation.Id);
+
+        // Characterization only: strict IDs in the opt-in facade are not an approved production change.
+        Assert.AreEqual(AgentState.AwaitingApproval, conversation.State);
+        Assert.AreEqual(callId, advice.GetPendingForConversation(conversation.Id).Single().ToolCallId);
+        Assert.AreEqual(callId, conversation.Messages.Last().ToolCalls!.Single().Id);
+        Assert.AreEqual(1, conversation.PendingAdviceIds.Count);
+        Assert.AreEqual("Original document", conversation.DocumentContent);
+        Assert.AreEqual(1, client.Requests.Count);
+    }
+
+    [TestMethod]
+    public async Task CancelRun_DuringModelCallDoesNotStopCapturedConversationOrNewAdvice_LegacyBehavior()
+    {
+        using var services = CreateToolServices();
+        Action cancel = () => Assert.Fail("Cancellation callback was not initialized.");
+        var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), _ =>
+        {
+            // ExecuteReActLoop already captured the conversation before entering this model call.
+            cancel();
+            return new ClaudeResponse { Content = [Replacement("late-write", "Original", "Edited")] };
+        });
+        var (service, conversation, advice) = CreateService(services, client);
+        var existing = advice.Create(conversation.Id, "ReplaceText", "", "", new(), "", "existing");
+        cancel = () => service.CancelRun(conversation.Id);
+
+        await Run(service, services, conversation.Id);
+
+        Assert.IsNull(service.GetConversation(conversation.Id));
+        Assert.IsNull(advice.Get(existing.Id));
+        var late = advice.GetPendingForConversation(conversation.Id).Single();
+        Assert.AreEqual("late-write", late.ToolCallId);
+        CollectionAssert.AreEqual(new[] { late.Id }, conversation.PendingAdviceIds);
+        Assert.AreEqual(AgentState.AwaitingApproval, conversation.State);
+        Assert.AreEqual("Original document", conversation.DocumentContent);
+        Assert.AreEqual(1, client.Requests.Count);
+        Assert.AreEqual(0, services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Count());
+    }
+
+    [TestMethod]
     public async Task CancelRun_RemovesConversationAndAdviceWithoutCallingModel()
     {
         using var services = new ServiceCollection().BuildServiceProvider();

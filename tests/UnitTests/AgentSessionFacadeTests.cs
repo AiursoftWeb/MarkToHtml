@@ -127,6 +127,34 @@ public class AgentSessionFacadeTests
     }
 
     [TestMethod]
+    [DataRow(null)]
+    [DataRow("")]
+    [DataRow(" ")]
+    public async Task WriteProposal_MissingOrBlankCallIdBecomesModelFailure_OptInOnly(string? callId)
+    {
+        using var f = new Fixture(Calls(new ClaudeContentBlock
+        {
+            Type = "tool_use", Id = callId, Name = "ReplaceText",
+            Input = new() { ["oldString"] = "Original", ["newString"] = "Edited" }
+        }));
+
+        var result = await f.Session.StartAsync();
+
+        // Unlike the LegacyBehavior baseline, validation rejects the entire completion before
+        // canonical append or Advice creation. This difference still blocks production wiring.
+        Assert.AreEqual(OrderedAgentRunOutcome.ModelFailure, result.Outcome);
+        Assert.AreEqual(AgentState.Error, f.Conversation.State);
+        Assert.AreEqual("Model execution failed.", f.Conversation.ErrorMessage);
+        Assert.IsNull(result.Checkpoint);
+        Assert.AreEqual(0, result.Transcript.Count(message => message.Role == TranscriptRole.Assistant));
+        Assert.AreEqual(0, f.Conversation.PendingAdviceIds.Count);
+        Assert.AreEqual(0, f.Advice.GetPendingForConversation(f.Conversation.Id).Count);
+        Assert.AreEqual("Original document", f.Stored());
+        Assert.AreEqual(0, f.Dispatches);
+        Assert.AreEqual(1, f.Client.Requests.Count);
+    }
+
+    [TestMethod]
     public async Task WriteException_FailsAdviceAndWaitsForSibling_WithoutRetryingWrite()
     {
         using var f = new Fixture(Calls(Write("w1", "Original", "Edited"), Write("w2", "document", "text")), Done());
