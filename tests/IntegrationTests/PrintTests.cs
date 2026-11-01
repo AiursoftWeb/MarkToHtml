@@ -184,7 +184,7 @@ public class PrintTests : TestBase
     }
 
     [TestMethod]
-    public async Task NewDocument_PrintWaitsForLatestMarkdownPreview()
+    public async Task NewDocument_LoadsEditorForPrintingAndUploadFeedback()
     {
         // Act
         var response = await Http.GetAsync("/");
@@ -192,10 +192,8 @@ public class PrintTests : TestBase
         // Assert
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var html = await response.Content.ReadAsStringAsync();
-        Assert.IsTrue(html.Contains("await markdownEditorController.refreshPreview();"));
-        Assert.IsTrue(html.Contains("await window.AiursoftMarkdownUi.printMarkdown({"));
-        Assert.IsFalse(html.Contains("} else {\n                            window.print();"));
-        Assert.IsTrue(html.Contains("id=\"quick-save-banner\" class=\"quick-save-banner d-print-none\""));
+        Assert.IsTrue(html.Contains("/scripts/document-editor.js"));
+        Assert.IsTrue(html.Contains("id=\"print-button\""));
         Assert.IsTrue(html.Contains("id=\"upload-error-banner\" class=\"quick-save-banner d-print-none\""));
     }
 

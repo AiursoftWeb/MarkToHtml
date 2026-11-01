@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>保存更改</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>保存失败，请重试。</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>已保存</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>保存成功！</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>正在保存…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>无缝集成任何 OpenID Connect 提供商，并支持自动角色同步。</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>在此输入您的 Markdown 内容...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>未保存的更改</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>无标题文档</value>
