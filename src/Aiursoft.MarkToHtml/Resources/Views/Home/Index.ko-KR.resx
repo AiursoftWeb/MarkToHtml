@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>변경 사항 저장</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>저장에 실패했습니다. 다시 시도해 주세요.</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>저장됨</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>저장 성공!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>저장 중…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>어떤 OpenID Connect 공급자와도 원활하게 통합되며, 자동 역할 동기화를 지원합니다.</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>여기에 Markdown을 입력하세요...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>저장되지 않은 변경 사항</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>제목 없음 문서</value>
