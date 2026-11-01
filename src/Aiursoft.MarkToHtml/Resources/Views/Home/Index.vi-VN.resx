@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Lưu thay đổi</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>Lưu không thành công. Hãy thử lại.</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Đã lưu</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Đã lưu thành công!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>Đang lưu…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Tích hợp liền mạch với bất kỳ nhà cung cấp OpenID Connect nào, đồng thời tự động đồng bộ hóa vai trò.</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Nhập Markdown của bạn tại đây...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>Thay đổi chưa được lưu</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Tài liệu chưa đặt tên</value>

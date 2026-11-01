@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Değişiklikleri Kaydet</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>Kaydedilemedi. Tekrar deneyin.</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Kaydedildi</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Başarıyla kaydedildi!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>Kaydediliyor…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Herhangi bir OpenID Connect sağlayıcısıyla sorunsuz bir şekilde entegre olun, otomatik rol senkronizasyonu ile.</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Markdown&apos;ınızı buraya yazın...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>Kaydedilmemiş değişiklikler</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Başlıksız Belge</value>

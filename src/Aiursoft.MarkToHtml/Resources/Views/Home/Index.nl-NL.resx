@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Wijzigingen opslaan</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>Opslaan mislukt. Probeer het opnieuw.</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Opgeslagen</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Succesvol opgeslagen!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>Opslaan…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integreer naadloos met elke OpenID Connect-provider, met automatische rollensynchronisatie.</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Typ hier je Markdown...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>Niet-opgeslagen wijzigingen</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Naamloos document</value>

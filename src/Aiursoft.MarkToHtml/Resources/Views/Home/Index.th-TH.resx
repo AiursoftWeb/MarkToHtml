@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>บันทึกการเปลี่ยนแปลง</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>บันทึกไม่สำเร็จ โปรดลองอีกครั้ง</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>บันทึกแล้ว</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>บันทึกสำเร็จ!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>กำลังบันทึก…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>ผสานรวมได้อย่างราบรื่นกับผู้ให้บริการ OpenID Connect ใดก็ได้ พร้อมการซิงโครไนซ์บทบาทอัตโนมัติ</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>พิมพ์ Markdown ของคุณที่นี่...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>เอกสารที่ยังไม่ได้ตั้งชื่อ</value>

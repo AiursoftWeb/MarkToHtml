@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>परिवर्तन सहेजें</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>सहेजा नहीं जा सका। फिर से कोशिश करें।</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>सहेजा गया</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>सफलतापूर्वक सहेजा गया!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>सहेजा जा रहा है…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>किसी भी OpenID Connect प्रदाता के साथ सहज एकीकरण, स्वचालित भूमिका सिंक्रनाइज़ेशन के साथ।</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>अपना मार्कडाउन यहाँ टाइप करें...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>सहेजे नहीं गए बदलाव</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>अनामांकित दस्तावेज़</value>

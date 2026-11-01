@@ -261,8 +261,17 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>
   </data>
+  <data name="Save failed. Try again." xml:space="preserve">
+    <value>Gagal menyimpan. Coba lagi.</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Tersimpan</value>
+  </data>
   <data name="Saved successfully!" xml:space="preserve">
     <value>Berhasil disimpan!</value>
+  </data>
+  <data name="Saving…" xml:space="preserve">
+    <value>Menyimpan…</value>
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Terintegrasi dengan mulus bersama penyedia OpenID Connect apa pun, dengan sinkronisasi peran otomatis.</value>
@@ -305,6 +314,9 @@
   </data>
   <data name="Type your Markdown here..." xml:space="preserve">
     <value>Ketik Markdown Anda di sini...</value>
+  </data>
+  <data name="Unsaved changes" xml:space="preserve">
+    <value>Perubahan belum disimpan</value>
   </data>
   <data name="Untitled Document" xml:space="preserve">
     <value>Dokumen Tanpa Judul</value>
