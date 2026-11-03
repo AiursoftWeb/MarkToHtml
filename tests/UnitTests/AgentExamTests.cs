@@ -30,6 +30,29 @@ public class AgentExamTests
     }
 
     [TestMethod]
+    [DataRow(ExamScenario.FailedWrite, 6, 1, 2)]
+    [DataRow(ExamScenario.Continuation, 7, 0, 4)]
+    public async Task RecoveryAndContinuation_VerifyMemoryPersistenceAndTurnBoundary(ExamScenario scenario,
+        int assertions, int dispatches, int modelCalls)
+    {
+        var result = await new ExamExecutor().RunAsync(scenario);
+        Assert.IsTrue(result.Valid, result.Error);
+        Assert.IsTrue(result.Passed, string.Join("; ", result.Assertions.Where(a => !a.Matched).Select(a => a.Id)));
+        Assert.AreEqual(assertions, result.Assertions.Count);
+        var evidence = result.Steps!.Single();
+        Assert.AreEqual("Edited document", evidence.State["DocumentContent"]!.Value<string>());
+        Assert.AreEqual("Original document", evidence.State["PersistedDocumentContent"]!.Value<string>());
+        Assert.AreEqual(dispatches, evidence.State["PersistenceDispatches"]!.Value<int>());
+        Assert.AreEqual(modelCalls, evidence.State["ModelInvocations"]!.Value<int>());
+        Assert.AreEqual(2, evidence.IterationCount);
+        Assert.AreEqual(1, evidence.Tools.Count);
+        if (scenario == ExamScenario.FailedWrite)
+            Assert.AreEqual("Failed", evidence.Tools.Single().Outcome.ToString());
+        else
+            Assert.AreEqual("1|Edited document", evidence.Tools.Single().Result.Value<string>());
+    }
+
+    [TestMethod]
     public async Task WrongPersistedDocument_FailsEvenWhenFacadeMemoryLooksCorrect()
     {
         var result = await new ExamExecutor().RunAsync(ExamScenario.ApprovedWrite);
