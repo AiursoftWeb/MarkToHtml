@@ -2,6 +2,7 @@ using System.Collections.Concurrent;
 using System.Reflection;
 using System.Security.Claims;
 using System.Text.Json;
+using Aiursoft.AgentKit;
 using Aiursoft.MarkToHtml.Controllers;
 using Aiursoft.MarkToHtml.Entities;
 using Aiursoft.MarkToHtml.Models.AgentViewModels;
@@ -143,7 +144,7 @@ public class AgentSecurityTests
         Assert.IsNotNull(execute);
 
         // Invoke the queued callback directly: no task runner, tools or model are started.
-        await (Task)execute.Invoke(service, new object?[] { otherConversation.Id, advice.Id, Aiursoft.AgentKit.ApprovalDecision.Execute })!;
+        await (Task)execute.Invoke(service, new object?[] { otherConversation.Id, advice.Id, ApprovalDecision.Execute })!;
 
         Assert.AreEqual(adviceBefore, JsonSerializer.Serialize(advice));
         Assert.AreEqual(ownerBefore, JsonSerializer.Serialize(ownerConversation));
@@ -163,7 +164,6 @@ public class AgentSecurityTests
         var messagesBefore = conversation.Messages.ToArray();
         var contentBefore = conversation.DocumentContent;
         var lastActivityBefore = conversation.LastActivity;
-        var beforeCall = DateTime.UtcNow;
 
         service.RejectAdvice(conversation.Id, advice.Id);
 

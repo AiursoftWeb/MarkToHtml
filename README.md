@@ -81,6 +81,77 @@ The docker image has the following context:
 | Data path   | /data                           |
 | Config path | /data/appsettings.json          |
 
+## Agent runtime and offline evaluation
+
+The document-editing agent uses AgentKit's `OrderedAgentRunner`. `AgentService` owns
+conversations and queue admission; `AgentSessionFacade` owns canonical execution,
+approval decisions, continuation budgets and UI/Advice projection.
+
+### Approval and recovery behavior
+
+- Read tools run without write approval. Proposed writes do not persist until explicitly approved.
+- Approving a write executes that operation; the model resumes only after every call in the
+  current batch has a result. Rejecting the final pending write can also resume the model.
+- Each user turn has a ten-model-attempt budget. A continuation retains canonical history and
+  reasoning, appends the latest document context, and starts a fresh budget.
+- Missing or blank tool call IDs are protocol failures. Model failures use a safe generic message
+  rather than exposing raw provider exception text.
+- Write exceptions remain failed executions and provide safe recovery guidance. A failure can
+  occur after updating in-memory content, so it does not prove that nothing changed. Do not
+  blindly retry; reading the current in-memory document is not proof of persisted content.
+- A tool returning ordinary business-error text is still a returned dispatch, not necessarily
+  a successful edit. Evaluate document state separately from the runner outcome.
+
+Cancellation currently removes the conversation and its Advice; it does **not** cancel work
+already in flight. Such work can finish and create orphan Advice. This is a known limitation,
+not a guarantee of rollback or a safe signal to retry a write.
+
+### Run the offline exam
+
+From the repository root, with the .NET 10 SDK installed:
+
+```bash
+dotnet run --project src/Aiursoft.MarkToHtml.ExamRunner
+```
+
+The runner executes five deterministic scenarios: read-only, approved write, rejected write,
+failed persistence, and continuation. It uses a scripted model, real tool bindings and isolated
+EF Core InMemory data. It does not start the web application, load application credentials or
+call a model endpoint. Package restore may require network access on the first run.
+
+Human-readable PASS/FAIL summaries go to stderr; evaluator results are JSON on stdout. To save
+only the JSON yourself:
+
+```bash
+dotnet run --project src/Aiursoft.MarkToHtml.ExamRunner --no-build --no-restore > exam-results.json
+```
+
+The second command requires an existing build. Exit codes are `0` for all cases passing,
+`1` for an evaluation/execution failure, and `2` for unsupported arguments. There are currently
+no CLI options or live-model mode. A PASS for the failed-write scenario means the expected
+failure and recovery boundaries were handled correctly, not that the write succeeded.
+
+`Aiursoft.MarkToHtml.AgentExam` references the application and AgentKit Evaluator;
+`Aiursoft.MarkToHtml.ExamRunner` references AgentExam. The web application does not reference
+Evaluator or either exam project.
+
+Evidence covers only the current turn, excludes imported legacy-history placeholders, and
+counts actual dispatches rather than unresolved proposals or rejected writes. Model iteration
+counts include failed attempts. Canonical runner results are preserved; supplemental observed
+traces retain absolute batch/call identity when the runner coalesces reused IDs. Missing or
+inconsistent trace correlation invalidates evidence rather than inventing records or timings.
+
+Runtime document snapshots are explicitly in-memory and do not verify persistence. The exam
+separately checks seeded database content through a fresh context. These checks are execution
+contracts, not a real-model quality benchmark, HTTP authorization test, or proof of relational
+transaction durability. Tool durations vary; step-level elapsed timing is unavailable.
+
+Run only the relevant tests when changing the exam or session boundary:
+
+```bash
+dotnet test tests/Aiursoft.MarkToHtml.Tests.csproj --filter 'FullyQualifiedName~AgentExamTests|FullyQualifiedName~AgentSessionFacadeTests'
+```
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.

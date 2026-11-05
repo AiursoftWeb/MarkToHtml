@@ -178,16 +178,16 @@ public class AgentBehaviorTests
     public async Task CancelRun_DuringModelCallDoesNotStopCapturedConversationOrNewAdvice_LegacyBehavior()
     {
         using var services = CreateToolServices();
-        Action cancel = () => Assert.Fail("Cancellation callback was not initialized.");
+        var cancel = new TaskCompletionSource<Action>();
         var client = new ScriptedClient(services.GetRequiredService<IServiceScopeFactory>(), _ =>
         {
-            // ExecuteReActLoop already captured the conversation before entering this model call.
-            cancel();
+            // Session execution already captured the conversation before entering this model call.
+            cancel.Task.GetAwaiter().GetResult()();
             return new ClaudeResponse { Content = [Replacement("late-write", "Original", "Edited")] };
         });
         var (service, conversation, advice) = CreateService(services, client);
 
-        cancel = () => service.CancelRun(conversation.Id);
+        cancel.SetResult(() => service.CancelRun(conversation.Id));
 
         await Run(service, services, conversation.Id);
 
@@ -305,7 +305,7 @@ public class AgentBehaviorTests
         proposal.Parameters["newString"] = "untrusted mutation";
         Assert.AreEqual("Original document", conversation.DocumentContent);
         Assert.AreEqual($"AdviceExecute-{proposal.Id}", services.GetRequiredService<ServiceTaskQueue>().GetPendingTasks().Single().TaskName);
-        await ExecuteApproved(service, services, conversation.Id, proposal.Id);
+        await DrainDecisions(services);
 
         Assert.AreEqual(AgentState.Completed, conversation.State);
         Assert.AreEqual(3, client.Requests.Count);
@@ -364,7 +364,7 @@ public class AgentBehaviorTests
         var second = advice.GetPendingForConversation(conversation.Id).Single(item => item.ToolCallId == "second");
         service.ApproveAdvice(conversation.Id, first.Id);
         pause.Armed = true;
-        var dispatch = DrainDecisions(service, services);
+        var dispatch = DrainDecisions(services);
         await pause.Entered.Task.WaitAsync(TimeSpan.FromSeconds(5));
         try
         {
@@ -377,7 +377,7 @@ public class AgentBehaviorTests
         }
         finally { pause.Release.TrySetResult(); }
         await dispatch;
-        await DrainDecisions(service, services);
+        await DrainDecisions(services);
         Assert.AreEqual(AdviceStatus.Executed, first.Status);
         Assert.AreEqual(AdviceStatus.Executed, second.Status);
         Assert.AreEqual("Edited text", conversation.DocumentContent);
@@ -419,7 +419,7 @@ public class AgentBehaviorTests
         service.ApproveAdvice(conversation.Id, proposal.Id);
         service.CancelRun(conversation.Id);
         service.ApproveAdvice(conversation.Id, proposal.Id);
-        await DrainDecisions(service, services);
+        await DrainDecisions(services);
         Assert.IsNull(service.GetConversation(conversation.Id));
         Assert.IsNull(advice.Get(proposal.Id));
         Assert.AreEqual("Original document", conversation.DocumentContent);
@@ -443,8 +443,8 @@ public class AgentBehaviorTests
         Assert.AreEqual(AgentState.Thinking, conversation.State);
         Assert.AreEqual(0, conversation.PendingAdviceIds.Count);
         Assert.IsNull(service.ContinueRun(conversation.Id, "owner", "must wait"));
-        await DrainDecisions(service, services);
-        await DrainDecisions(service, services);
+        await DrainDecisions(services);
+        await DrainDecisions(services);
         Assert.AreEqual("Original edited document", conversation.DocumentContent);
         Assert.AreEqual(2, client.Requests.Count);
         Assert.AreEqual(AgentState.Completed, conversation.State);
@@ -492,7 +492,7 @@ public class AgentBehaviorTests
         var second = proposals.Single(item => item.ToolCallId == "second");
 
         service.ApproveAdvice(conversation.Id, first.Id);
-        await ExecuteApproved(service, services, conversation.Id, first.Id);
+        await DrainDecisions(services);
 
         Assert.AreEqual(1, client.Requests.Count);
         Assert.AreEqual(AgentState.AwaitingApproval, conversation.State);
@@ -521,7 +521,7 @@ public class AgentBehaviorTests
 
         Assert.AreEqual(AgentState.Thinking, conversation.State);
         Assert.IsNull(service.ContinueRun(conversation.Id, "owner", "racing continuation"));
-        await DrainDecisions(service, services);
+        await DrainDecisions(services);
         Assert.AreEqual(0, conversation.PendingAdviceIds.Count);
         Assert.IsTrue(proposals.All(item => item.Status == AdviceStatus.Rejected));
         var results = conversation.Messages.Where(message => message.Role == "tool").ToArray();
@@ -661,10 +661,7 @@ public class AgentBehaviorTests
 
     // Keep the real queue stopped: public APIs enqueue normally, then tests invoke the existing
     // execution seam deterministically without hosted workers, sleeps or a full web application.
-    private static Task ExecuteApproved(AgentService service, IServiceProvider services, Guid id, Guid adviceId) =>
-        DrainDecisions(service, services);
-
-    private static async Task DrainDecisions(AgentService service, IServiceProvider services)
+    private static async Task DrainDecisions(IServiceProvider services)
     {
         var queue = services.GetRequiredService<ServiceTaskQueue>();
         foreach (var task in queue.GetPendingTasks().ToArray())
@@ -695,7 +692,7 @@ public class AgentBehaviorTests
 
     private static Task Run(AgentService service, IServiceProvider services, Guid id) =>
         services.GetService<ServiceTaskQueue>()?.GetPendingTasks().Any() == true
-            ? DrainDecisions(service, services)
+            ? DrainDecisions(services)
             : (Task)typeof(AgentService).GetMethod("ExecuteSession", BindingFlags.Instance | BindingFlags.NonPublic)!
                 .Invoke(service, [id])!;
 

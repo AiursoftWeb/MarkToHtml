@@ -98,7 +98,7 @@ public class AgentService : IAgentService
             Content = userMessage
         });
 
-        _conversations[conversation.Id] = conversation;
+        lock (_lifecycle) _conversations[conversation.Id] = conversation;
 
         _taskQueue.QueueWithDependency<IServiceProvider>(
             queueName: "MarkToHtmlAgent",
@@ -123,8 +123,11 @@ public class AgentService : IAgentService
             _taskQueue.QueueWithDependency<IServiceProvider>("MarkToHtmlAgent", $"AgentContinue-{conversation.Id}",
                 async _ =>
                 {
-                    if (_conversations.ContainsKey(conversationId))
-                        await session.ContinueAsync(userId, userMessage, content);
+                    lock (_lifecycle)
+                    {
+                        if (!_conversations.ContainsKey(conversationId)) return;
+                    }
+                    await session.ContinueAsync(userId, userMessage, content);
                 });
             return conversation.Id;
         }
@@ -132,8 +135,11 @@ public class AgentService : IAgentService
 
     public AgentConversation? GetConversation(Guid conversationId)
     {
-        _conversations.TryGetValue(conversationId, out var conversation);
-        return conversation;
+        lock (_lifecycle)
+        {
+            _conversations.TryGetValue(conversationId, out var conversation);
+            return conversation;
+        }
     }
 
     public void ApproveAdvice(Guid conversationId, Guid adviceId)
@@ -157,7 +163,11 @@ public class AgentService : IAgentService
 
     private async Task ExecuteDecision(Guid conversationId, Guid adviceId, ApprovalDecision decision)
     {
-        if (!_conversations.ContainsKey(conversationId) || !_sessions.TryGetValue(conversationId, out var session)) return;
+        AgentSessionFacade session;
+        lock (_lifecycle)
+        {
+            if (!_conversations.ContainsKey(conversationId) || !_sessions.TryGetValue(conversationId, out session!)) return;
+        }
         try { await session.DispatchReservedAsync(adviceId, decision); }
         catch (Exception ex) { _logger.LogError(ex, "Agent decision failed for {ConversationId}", conversationId); }
     }
@@ -329,9 +339,12 @@ public class AgentService : IAgentService
         var conversationCutoff = DateTime.UtcNow - ConversationTtl;
         var adviceCutoff = DateTime.UtcNow - AdviceTtl;
 
-        foreach (var (id, conv) in _conversations)
+        lock (_lifecycle)
         {
-            if (conv.LastActivity < conversationCutoff) CancelRun(id);
+            foreach (var (id, conv) in _conversations)
+            {
+                if (conv.LastActivity < conversationCutoff) CancelRun(id);
+            }
         }
 
         _adviceService.RemoveExpiredAdvice(adviceCutoff);
@@ -343,7 +356,10 @@ public class AgentService : IAgentService
     /// </summary>
     public string? GetUpdatedDocumentContent(Guid conversationId)
     {
-        _conversations.TryGetValue(conversationId, out var conversation);
-        return conversation?.DocumentContent;
+        lock (_lifecycle)
+        {
+            _conversations.TryGetValue(conversationId, out var conversation);
+            return conversation?.DocumentContent;
+        }
     }
 }
