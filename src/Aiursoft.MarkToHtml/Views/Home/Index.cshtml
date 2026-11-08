@@ -288,8 +288,12 @@
             background-color: #f6f8fa;
         }
         @@media screen {
-            html[data-bs-theme="dark"] .markdown-content table th {
+            html[data-bs-theme="dark"] .markdown-content table th,
+            html[data-bs-theme="dark"] .markdown-content table tr:nth-child(2n) {
                 background-color: #2a3544;
+            }
+            html[data-bs-theme="dark"] .markdown-content pre {
+                background-color: #0d1117;
             }
         }
 
