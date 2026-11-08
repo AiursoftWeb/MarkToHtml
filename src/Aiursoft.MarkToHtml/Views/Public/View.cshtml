@@ -89,7 +89,7 @@
                                     class="d-none d-sm-inline">@Localizer["Raw"]</span>
                             </a>
                             <button type="button" id="copy-markdown-button" class="btn btn-sm btn-outline-primary"
-                                title="@Localizer["Copy"]">
+                                title="@Localizer["Copy"]" aria-describedby="source-copy-status">
                                 <i class="align-middle" data-lucide="copy"></i> <span
                                     class="d-none d-sm-inline">@Localizer["Copy"]</span>
                             </button>
@@ -110,6 +110,7 @@
 
                     @* Pane 2: Markdown *@
                     <div class="tab-pane" id="markdown" role="tabpanel">
+                        <div id="source-copy-status" class="small px-3 py-2" role="status" aria-live="polite" hidden></div>
                         @* Use a clean, borderless textarea that spans comfortably *@
                         <textarea class="form-control border-0 p-3" id="markdown-viewer" readonly
                             style="font-family: 'Cascadia Code', 'Consolas', monospace; font-size: 0.9rem; min-height: 600px; resize: vertical;">@Model.MarkdownContent</textarea>
@@ -118,6 +119,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="source-copy-text" hidden>
+    <span data-key="copied">@Localizer["Source copied."]</span>
+    <span data-key="manual">@Localizer["Could not copy. Copy the selected source manually."]</span>
 </div>
 
 <script>
@@ -161,24 +167,6 @@
             idleClass: 'btn-outline-secondary'
         });
 
-        // 4. Copy Markdown Button
-        const copyBtn = document.getElementById('copy-markdown-button');
-        if (copyBtn) {
-            copyBtn.addEventListener('click', function () {
-                const viewer = document.getElementById('markdown-viewer');
-                if (viewer) {
-                    navigator.clipboard.writeText(viewer.value).then(() => {
-                        const originalHtml = copyBtn.innerHTML;
-                        copyBtn.innerHTML = `<i class="align-middle" data-lucide="check"></i> <span class="d-none d-sm-inline">@Localizer["Copied!"]</span>`;
-                        copyBtn.classList.replace('btn-outline-primary', 'btn-success');
-                        setTimeout(() => {
-                            copyBtn.innerHTML = originalHtml;
-                            copyBtn.classList.replace('btn-success', 'btn-outline-primary');
-                        }, 2000);
-                    });
-                }
-            });
-        }
     });
 </script>
 
@@ -224,6 +212,7 @@
     <script src="~/node_modules/@@highlightjs/cdn-assets/highlight.min.js" asp-append-version="true"></script>
     <script src="~/node_modules/@@aiursoft/uistack-markdown-ui/dist/index.global.js" asp-append-version="true"></script>
     <script src="~/scripts/tts-player.js" asp-append-version="true"></script>
+    <script src="~/scripts/public-source-copy.js" asp-append-version="true" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const render = () => window.AiursoftMarkdownUi.initializeMarkdownReader({
