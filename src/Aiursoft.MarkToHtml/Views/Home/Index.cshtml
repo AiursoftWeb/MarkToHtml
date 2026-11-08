@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<form asp-action="SaveNew" method="post" id="markdown-form" data-document-id="@Model.DocumentId" data-authenticated="@((User.Identity?.IsAuthenticated ?? false).ToString().ToLowerInvariant())" data-editing="@Model.IsEditing.ToString().ToLowerInvariant()" data-dark-mode="@isDarkMode.ToString().ToLowerInvariant()" data-image-upload-url="@(User.Identity?.IsAuthenticated == true ? Storage.GetUploadUrl("markdown-images", generateUniqueFileName: true) : null)" data-save-url="@Url.Action("SaveUpdate", "Home")" data-print-url="@Url.Action("Print", "Public", new { id = Model.DocumentId })" class="d-flex flex-column h-100 pb-0">
+<form asp-action="SaveNew" method="post" id="markdown-form" data-document-id="@Model.DocumentId" data-authenticated="@((User.Identity?.IsAuthenticated ?? false).ToString().ToLowerInvariant())" data-editing="@Model.IsEditing.ToString().ToLowerInvariant()" data-dark-mode="@isDarkMode.ToString().ToLowerInvariant()" data-image-upload-url="@(User.Identity?.IsAuthenticated == true ? Storage.GetUploadUrl("markdown-images") : null)" data-save-url="@Url.Action("SaveUpdate", "Home")" data-print-url="@Url.Action("Print", "Public", new { id = Model.DocumentId })" class="d-flex flex-column h-100 pb-0">
     <!-- Unified Sticky Toolbar -->
     <div class="document-toolbar sticky-top bg-white border-bottom py-2 px-3 mb-0 d-flex align-items-center justify-content-between z-3" style="box-shadow: 0 2px 4px rgba(0,0,0,.04);">
         <!-- Left: View Switcher -->
