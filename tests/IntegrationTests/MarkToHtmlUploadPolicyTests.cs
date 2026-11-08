@@ -52,7 +52,7 @@ public class MarkToHtmlUploadPolicyTests : TestBase
             }
         };
 
-        var uploadResponse = await Http.PostAsync(storage.GetUploadUrl("markdown-images"), request);
+        var uploadResponse = await Http.PostAsync(storage.GetUploadUrl("markdown-images", generateUniqueFileName: true), request);
         uploadResponse.EnsureSuccessStatusCode();
         var upload = await uploadResponse.Content.ReadFromJsonAsync<UploadResult>();
 
