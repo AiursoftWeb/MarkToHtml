@@ -201,42 +201,44 @@
         main.content {
             padding: 0 !important;
         }
-        /* Toolbar adjustments for dark mode */
-        body[data-theme="dark"] .sticky-top {
-            background-color: #222e3c !important; /* AdminKit dark background */
-            border-bottom: 1px solid #323d4b !important;
+        @@media screen {
+            /* Toolbar adjustments for dark mode */
+            html[data-bs-theme="dark"] .sticky-top {
+                background-color: #222e3c !important; /* AdminKit dark background */
+                border-bottom: 1px solid #323d4b !important;
+            }
+            html[data-bs-theme="dark"] #preview-column {
+                background-color: #1e2530 !important;
+            }
+            html[data-bs-theme="dark"] #printable-area {
+                background-color: #222e3c !important;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+            }
+            html[data-bs-theme="dark"] .form-control.bg-transparent {
+                color: #e9ecef !important;
+            }
+            html[data-bs-theme="dark"] .bg-white {
+                background-color: #222e3c !important;
+            }
+            html[data-bs-theme="dark"] .btn-white {
+                background-color: #2f3e50 !important;
+                border-color: #3f5268 !important;
+                color: #d1d8e0 !important;
+            }
+            html[data-bs-theme="dark"] .btn-white:hover {
+                background-color: #3f5268 !important;
+                color: #fff !important;
+            }
+            html[data-bs-theme="dark"] #voice-select {
+                background-color: #2f3e50 !important;
+                border-color: #3f5268 !important;
+                color: #d1d8e0 !important;
+            }
+            html[data-bs-theme="dark"] .border-end {
+                border-color: #323d4b !important;
+            }
         }
-        body[data-theme="dark"] #preview-column {
-            background-color: #1e2530 !important;
-        }
-        body[data-theme="dark"] #printable-area {
-            background-color: #222e3c !important;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
-        }
-        body[data-theme="dark"] .form-control.bg-transparent {
-            color: #e9ecef !important;
-        }
-        body[data-theme="dark"] .bg-white {
-            background-color: #222e3c !important;
-        }
-        body[data-theme="dark"] .btn-white {
-            background-color: #2f3e50 !important;
-            border-color: #3f5268 !important;
-            color: #d1d8e0 !important;
-        }
-        body[data-theme="dark"] .btn-white:hover {
-            background-color: #3f5268 !important;
-            color: #fff !important;
-        }
-        body[data-theme="dark"] #voice-select {
-            background-color: #2f3e50 !important;
-            border-color: #3f5268 !important;
-            color: #d1d8e0 !important;
-        }
-        body[data-theme="dark"] .border-end {
-            border-color: #323d4b !important;
-        }
-        
+
         @@media (max-width: 991.98px) {
             #editor-column,
             #preview-column {
@@ -275,16 +277,20 @@
             background-color: rgba(0,0,0,0.03) !important;
             border-radius: 4px;
         }
-        body[data-theme="dark"] #Title:focus {
-            background-color: rgba(255,255,255,0.05) !important;
+        @@media screen {
+            html[data-bs-theme="dark"] #Title:focus {
+                background-color: rgba(255,255,255,0.05) !important;
+            }
         }
 
         /* Table header background in preview area (Bootstrap .table overrides markdown-reader.css) */
         .markdown-content table th {
             background-color: #f6f8fa;
         }
-        body[data-theme="dark"] .markdown-content table th {
-            background-color: #2a3544;
+        @@media screen {
+            html[data-bs-theme="dark"] .markdown-content table th {
+                background-color: #2a3544;
+            }
         }
 
         /* Quick save banner */
