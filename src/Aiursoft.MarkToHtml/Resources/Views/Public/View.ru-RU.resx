@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Скопировать Markdown в буфер обмена</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>Не удалось скопировать. Скопируйте выбранный источник вручную.</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Предпросмотр документа</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Исходный код</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>Источник скопирован.</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>

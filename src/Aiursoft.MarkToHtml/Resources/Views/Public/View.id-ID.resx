@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Salin Markdown ke papan klip</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>Gagal menyalin. Salin sumber yang dipilih secara manual.</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Pratinjau Dokumen</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Sumber</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>Sumber disalin.</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>

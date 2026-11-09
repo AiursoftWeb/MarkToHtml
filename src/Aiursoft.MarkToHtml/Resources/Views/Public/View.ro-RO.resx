@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Copiază Markdown în clipboard</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>Nu s-a putut copia. Copiați sursa selectată manual.</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Previzualizare Document</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Sursă</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>Sursă copiată.</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>
