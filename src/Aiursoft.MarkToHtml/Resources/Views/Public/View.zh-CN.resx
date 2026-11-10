@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>将 Markdown 复制到剪贴板</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>无法复制。请手动复制选中的源内容。</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>文档预览</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>源代码</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>源已复制。</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>停止朗读</value>

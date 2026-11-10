@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Markdownをクリップボードにコピー</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>コピーに失敗しました。選択したソースを手動でコピーしてください。</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>ドキュメントプレビュー</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>ソース</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>ソースをコピーしました。</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>

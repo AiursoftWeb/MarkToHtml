@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Αντιγραφή Markdown στο πρόχειρο</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>Αποτυχία αντιγραφής. Αντιγράψτε τον επιλεγμένο κώδικα πηγής χειροκίνητα.</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Προεπισκόπηση Εγγράφου</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Πηγή</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>Το πηγαιώδες κείμενο αντιγράφηκε.</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>

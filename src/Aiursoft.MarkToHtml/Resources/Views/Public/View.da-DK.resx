@@ -30,6 +30,9 @@
   <data name="Copy Markdown to clipboard" xml:space="preserve">
     <value>Kopier Markdown til udklipsholder</value>
   </data>
+  <data name="Could not copy. Copy the selected source manually." xml:space="preserve">
+    <value>Kunne ikke kopiere. Kopiér den valgte kilde manuelt.</value>
+  </data>
   <data name="Document Preview" xml:space="preserve">
     <value>Dokumentforhåndsvisning</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Source" xml:space="preserve">
     <value>Kilde</value>
+  </data>
+  <data name="Source copied." xml:space="preserve">
+    <value>Kilde kopieret.</value>
   </data>
   <data name="Stop Reading" xml:space="preserve">
     <value>Stop Reading</value>
