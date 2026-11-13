@@ -1,3 +1,4 @@
+using System.Globalization;
 using Aiursoft.UiStack.Layout;
 using System.ComponentModel.DataAnnotations;
 
@@ -22,10 +23,10 @@ public class ContractViewModel : UiStackLayoutViewModel
     public string ContentHtml { get; set; } = string.Empty;
 
     [Display(Name = "Contract Number")]
-    public string ContractNumber { get; set; } = "AIUR-" + DateTime.Now.ToString("yyyyMMdd") + "-001";
+    public string ContractNumber { get; set; } = "AIUR-" + DateTime.Now.ToString("yyyyMMdd", CultureInfo.InvariantCulture) + "-001";
     
     [Display(Name = "Sign Date")]
-    public string SignDate { get; set; } = DateTime.Now.ToString("yyyy年 MM 月 dd 日");
+    public string SignDate { get; set; } = DateTime.Now.ToString("yyyy年 MM 月 dd 日", CultureInfo.InvariantCulture);
     
     [Display(Name = "Sign Location")]
     public string SignLocation { get; set; } = "西京市";
