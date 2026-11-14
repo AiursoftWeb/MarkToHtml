@@ -48,11 +48,11 @@
   <data name="Modify user details or manage their assigned roles below." xml:space="preserve">
     <value>قم بتعديل تفاصيل المستخدم أو إدارة الأدوار المخصصة لهم أدناه.</value>
   </data>
-  <data name="New avatar file" xml:space="preserve">
-    <value>ملف الصورة الشخصية الجديد</value>
-  </data>
   <data name="New Password" xml:space="preserve">
     <value>كلمة المرور الجديدة</value>
+  </data>
+  <data name="New avatar file" xml:space="preserve">
+    <value>ملف الصورة الشخصية الجديد</value>
   </data>
   <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
     <value>تم تفعيل OpenID Connect (OIDC). يتم مزامنة المستخدمين من مزود هوية خارجي. نوصي بشدة بإنشاء مستخدمين جدد على مزود OIDC الخاص بك للتأكد من إدارتهم بشكل مركزي. سيقوم هذا النموذج بإنشاء مستخدم محلي فقط يوجد ضمن هذا التطبيق فقط.</value>

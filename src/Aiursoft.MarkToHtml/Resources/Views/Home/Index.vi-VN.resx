@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Một công cụ đơn giản để chuyển đổi Markdown của bạn thành HTML sạch và an toàn.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>AI</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Sau khi chuyển tài liệu này sang chế độ riêng tư, liên kết công khai hiện tại sẽ không còn hoạt động. Bạn có chắc chắn muốn tiếp tục?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Tất cả các dependency đều được tự động đăng ký và luôn sẵn sàng thông qua constructor injection.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Tích hợp hệ thống quản lý tập tin với tính năng nén ảnh đại diện tự động.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Xin chào thế giới!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Bản xem trước HTML sẽ xuất hiện ở đây sau khi chuyển đổi.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Xin chào thế giới!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Nếu bạn chuyển tài liệu này thành riêng tư, liên kết công khai hiện tại sẽ ngay lập tức ngừng hoạt động với mọi người.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>Logo</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Chuyển tài liệu thành riêng tư</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Chuyển thành Riêng tư</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Công khai</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Chuyển tài liệu thành riêng tư</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Đầu vào Markdown</value>

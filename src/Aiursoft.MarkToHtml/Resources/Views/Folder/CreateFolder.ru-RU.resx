@@ -27,14 +27,14 @@
   <data name="Create New Folder" xml:space="preserve">
     <value>Создать новую папку</value>
   </data>
-  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
-    <value>например, Работа, Личное, Проекты</value>
-  </data>
   <data name="Folder Details" xml:space="preserve">
     <value>Сведения о папке</value>
   </data>
   <data name="Folder Name" xml:space="preserve">
     <value>Имя папки</value>
+  </data>
+  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
+    <value>например, Работа, Личное, Проекты</value>
   </data>
 
 </root>

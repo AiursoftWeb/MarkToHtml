@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>계정 관리</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>인증 공급자</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>아바타 설정</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>프로필이 업데이트되었습니다.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>인증 공급자</value>
   </data>
 
 </root>

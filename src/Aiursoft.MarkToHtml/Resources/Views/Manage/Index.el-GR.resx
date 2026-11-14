@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>Διαχείριση Λογαριασμού</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>παροχέας ταυτοποίησης</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>Ρυθμίσεις Avatar</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>Το προφίλ σας έχει ενημερωθεί.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>παροχέας ταυτοποίησης</value>
   </data>
 
 </root>

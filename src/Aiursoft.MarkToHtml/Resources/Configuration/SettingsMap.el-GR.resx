@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Διακριτικό API (κεφάλαιο x-api-key) για το Τέλος Σύνδεσης API του Agent.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Τελικό σημείο API πράκτορα</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Το τελικό σημείο (endpoint) Anthropic Messages API για τον βοηθό επεξεργασίας AI (π.χ. https://api.anthropic.com/v1/messages). Αφήστε κενό για απενεργοποίηση.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Διακριτικό API (κεφάλαιο x-api-key) για το Τέλος Σύνδεσης API του Agent.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Συμβολική φράση για το EndPoint Ενσωμάτωσης. Αφήστε κενό εάν δεν απαιτείται πιστοποίηση.</value>
@@ -75,11 +75,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Μοντέλο Ενσωμάτωσης</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Το όνομα του μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Όριο Προκαταχωρημένης Μνήμης Ερωτήσεων Embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Το όνομα του μοντέλου ενσωμάτωσης για αναζήτηση διανυσμάτων, π.χ. bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Ενεργοποίηση αναζήτησης βάσει ενσωμάτωσης</value>
@@ -111,6 +111,12 @@
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Εντολή συστήματος για τον βοηθό επεξεργασίας AI. Χρησιμοποιήστε τα {{documentTitle}} και {{documentContentLength}} ως υποκαταστάτες.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Ο αριθμός άδειας ICP για χρήστες της Κίνας. Αφήστε κενό για να κρυφτεί.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Η διεύθυνση URL της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Η διεύθυνση της εταιρείας ή του έργου.</value>
   </data>
@@ -119,9 +125,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Το διεύθυνση ηλεκτρονικού ταχυδρομείου της εταιρείας ή του έργου.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Ο αριθμός άδειας ICP για χρήστες της Κίνας. Αφήστε κενό για να κρυφτεί.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Το λογότυπο του συμβολαίου που εμφανίζεται στο κεφαλάκι. Υποστηρίζει jpg και png. Διαχωρισμένο από το λογότυπο του συστήματος.</value>
@@ -143,9 +146,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Το ταχυδρομικό κώδικας της εταιρείας ή του έργου.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Η διεύθυνση URL της εταιρείας ή του έργου. Π.χ. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Αν θα εμφανίζεται η κεφαλίδα της σύμβασης (Λογότυπο, διεύθυνση κ.λπ.) στην προβολή της σύμβασης.</value>

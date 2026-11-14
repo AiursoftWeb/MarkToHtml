@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>एजेंट API एंडपॉइंट के लिए API टोकन (x-api-key हेडर)।</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>एजेंट एपीआई एंडपॉइंट</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>AI एडिटर सहायक के लिए Anthropic Messages API एंडपॉइंट (उदा. https://api.anthropic.com/v1/messages)। अक्षम करने के लिए खाली छोड़ें।</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>एजेंट API एंडपॉइंट के लिए API टोकन (x-api-key हेडर)।</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Embedding Endpoint के लिए Bearer टोकन। यदि कोई प्रमाणीकरण आवश्यक नहीं है, तो इसे खाली छोड़ें।</value>
@@ -75,11 +75,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>एम्बेडिंग मॉडल</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>वेक्टर खोज के लिए एम्बेडिंग मॉडल का नाम, उदाहरण: bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>एम्बेडिंग क्वेरी कैश सीमा</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>वेक्टर खोज के लिए एम्बेडिंग मॉडल का नाम, उदाहरण: bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>एम्बेडिंग-आधारित खोज को सक्षम करें</value>
@@ -111,6 +111,12 @@
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>AI संपादक सहायक के लिए सिस्टम प्रॉम्प्ट। {{documentTitle}} और {{documentContentLength}} को प्लेसहोल्डर के रूप में उपयोग करें।</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए ICP लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>कंपनी या प्रोजेक्ट का URL। उदाहरण के लिए https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का पता</value>
   </data>
@@ -119,9 +125,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का ईमेल पता।</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>चीन मुख्यभूमि के उपयोगकर्ताओं के लिए ICP लाइसेंस संख्या। छिपाने के लिए खाली छोड़ दें।</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>हेडर में प्रदर्शित अनुबंध का लोगो। jpg और png का समर्थन। सिस्टम लोगो से अलग।</value>
@@ -143,9 +146,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>कंपनी या प्रोजेक्ट का पोस्टकोड</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>कंपनी या प्रोजेक्ट का URL। उदाहरण के लिए https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>क्या अनुबंध दृश्य में अनुबंध शीर्षक (लोगो, पता, आदि) प्रदर्शित किया जाना चाहिए।</value>

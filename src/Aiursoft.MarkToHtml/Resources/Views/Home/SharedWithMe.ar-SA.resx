@@ -21,9 +21,6 @@
       <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
-  <data name="characters" xml:space="preserve">
-    <value>أحرف</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>مشاركة مباشرة</value>
   </data>
@@ -74,6 +71,9 @@
   </data>
   <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
     <value>عندما يشارك شخص ما مستندًا معك أو مع دورك، سيظهر هنا.</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>أحرف</value>
   </data>
 
 </root>

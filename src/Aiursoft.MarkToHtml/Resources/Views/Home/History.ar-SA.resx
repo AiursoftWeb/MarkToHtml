@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>مسح</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>إنشاء مستند جديد</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>إنشاء مجلد</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>إنشاء مستند جديد</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>وقت الإنشاء</value>

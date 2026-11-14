@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>Tyhjennä</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>Luo uusi asiakirja</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>Luo kansio</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Luo uusi asiakirja</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Luomisaika</value>

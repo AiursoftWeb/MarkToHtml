@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>一個簡單工具，將您的 Markdown 轉換為乾淨、安全的 HTML。</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>將此文件設為私人後，現有嘅公開連結將會失效。你確定要繼續嗎？</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>AI</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>人工智能驅動翻譯</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>將此文件設為私人後，現有嘅公開連結將會失效。你確定要繼續嗎？</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>所有依賴項都會自動註冊，並可隨時透過構造函數注入使用。</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>內置檔案管理系統，具備自動頭像壓縮功能。</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>你好世界！</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>轉換後，HTML 預覽將會在此顯示。</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>你好世界！</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>如果你將此文件設為私人，現有的公開連結將會立即失效，所有人都無法再存取。</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>標誌</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>將文件設為私人</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>設為私人</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>公開</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>將文件設為私人</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown 輸入</value>

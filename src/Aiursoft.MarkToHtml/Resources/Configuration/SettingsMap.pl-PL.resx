@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Token API (nagłówek x-api-key) dla punktu końcowego Agent API.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Punkt końcowy API agenta</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Punkt końcowy Anthropic Messages API dla asystenta AI edytora (np. https://api.anthropic.com/v1/messages). Zostaw puste, aby wyłączyć.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Token API (nagłówek x-api-key) dla punktu końcowego Agent API.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Token Bearer dla punktu Embedding. Zostaw puste, jeśli uwierzytelnianie nie jest wymagane.
@@ -168,6 +168,23 @@ Thus final answer: triple backticks containing &quot;Model osadzania&quot;. Let&
 
 ```Model osadzania</value>
   </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Limit cache zapytań osadzania
+```
+
+But maybe we need to preserve &quot;Cache&quot; capitalized? &quot;Cache&quot; is often used as &quot;Cache&quot;. The phrase &quot;Embedding Query Cache Limit&quot; - maybe we can translate &quot;Embedding&quot; as &quot;osadzający&quot;? Actually &quot;embedding&quot; refers to &quot;embedding model&quot;. In Polish, &quot;embedding&quot; is &quot;osadzanie&quot;. So &quot;Embedding Query Cache Limit&quot; could be &quot;Limit cache zapytań osadzania&quot;. &quot;Cache limit&quot; could be &quot;limit cache&quot;. So I&apos;d produce &quot;Limit cache zapytań osadzania&quot;. Another possible translation: &quot;Limit pamięci podręcznej zapytań osadzania&quot;. This may be more accurate but longer. But is &quot;cache&quot; as &quot;pamięć podręczna&quot;? In many UI translations, &quot;cache&quot; remains &quot;cache&quot; as it&apos;s a technical term. So I&apos;d keep &quot;cache&quot;. So &quot;Limit cache zapytań osadzania&quot;. Good.
+
+Now check if any additional instructions: They want only the translated content wrapped in three backticks. So output:
+
+```Limit cache zapytań osadzania```
+
+Thus final answer is:
+
+```Limit cache zapytań osadzania```
+&lt;/think&gt;
+
+```Limit cache zapytań osadzania</value>
+  </data>
   <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
     <value>), like this:
 
@@ -224,23 +241,6 @@ Thus final answer.
 
 ``` 
 Nazwa modelu osadzania do wyszukiwania wektorowego, np. bge-m3:latest.</value>
-  </data>
-  <data name="Embedding Query Cache Limit" xml:space="preserve">
-    <value>Limit cache zapytań osadzania
-```
-
-But maybe we need to preserve &quot;Cache&quot; capitalized? &quot;Cache&quot; is often used as &quot;Cache&quot;. The phrase &quot;Embedding Query Cache Limit&quot; - maybe we can translate &quot;Embedding&quot; as &quot;osadzający&quot;? Actually &quot;embedding&quot; refers to &quot;embedding model&quot;. In Polish, &quot;embedding&quot; is &quot;osadzanie&quot;. So &quot;Embedding Query Cache Limit&quot; could be &quot;Limit cache zapytań osadzania&quot;. &quot;Cache limit&quot; could be &quot;limit cache&quot;. So I&apos;d produce &quot;Limit cache zapytań osadzania&quot;. Another possible translation: &quot;Limit pamięci podręcznej zapytań osadzania&quot;. This may be more accurate but longer. But is &quot;cache&quot; as &quot;pamięć podręczna&quot;? In many UI translations, &quot;cache&quot; remains &quot;cache&quot; as it&apos;s a technical term. So I&apos;d keep &quot;cache&quot;. So &quot;Limit cache zapytań osadzania&quot;. Good.
-
-Now check if any additional instructions: They want only the translated content wrapped in three backticks. So output:
-
-```Limit cache zapytań osadzania```
-
-Thus final answer is:
-
-```Limit cache zapytań osadzania```
-&lt;/think&gt;
-
-```Limit cache zapytań osadzania</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Włącz wyszukiwanie oparte na wektorach```
@@ -384,6 +384,12 @@ Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https:
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Systemowy prompt dla asystenta edytora AI. Użyj {{documentTitle}} i {{documentContentLength}} jako zmiennych zastępczych.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Numer licencji ICP dla użytkowników z Chin. Pozostaw puste, aby ukryć.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Adres URL firmy lub projektu. Przykładowo: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Adres firmy lub projektu.</value>
   </data>
@@ -392,9 +398,6 @@ Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https:
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Adres e-mail firmy lub projektu.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Numer licencji ICP dla użytkowników z Chin. Pozostaw puste, aby ukryć.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Logo umowy wyświetlane w nagłówku. Obsługiwane formaty: JPG i PNG. Oddzielne od logo systemowego.</value>
@@ -416,9 +419,6 @@ Ollama API bazowy URL do generowania osadzeń dokumentów i zapytań (np. https:
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Kod pocztowy firmy lub projektu.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Adres URL firmy lub projektu. Przykładowo: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Czy wyświetlać nagłówek umowy (logo, adres itp.) w widoku umowy.</value>

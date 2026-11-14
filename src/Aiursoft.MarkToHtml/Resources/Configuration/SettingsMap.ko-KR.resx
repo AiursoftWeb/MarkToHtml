@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Agent API 엔드포인트를 위한 API 토큰(x-api-key 헤더)입니다.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>에이전트 API 엔드포인트</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>AI 편집자 보조를 위한 Anthropic Messages API 엔드포인트(예: https://api.anthropic.com/v1/messages). 비활성화하려면 비워 둡니다.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Agent API 엔드포인트를 위한 API 토큰(x-api-key 헤더)입니다.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>임베딩 엔드포인트용 Bearer 토큰. 인증이 필요하지 않으면 빈칸으로 두세요.</value>
@@ -75,11 +75,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>임베딩 모델</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>벡터 검색을 위한 임베딩 모델 이름, 예: bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>임베딩 쿼리 캐시 제한</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>벡터 검색을 위한 임베딩 모델 이름, 예: bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>임베딩 기반 검색 활성화</value>
@@ -111,6 +111,12 @@
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>AI 편집 도우미의 시스템 프롬프트입니다. {{documentTitle}}과 {{documentContentLength}}를 플레이스홀더로 사용하세요.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 주소</value>
   </data>
@@ -119,9 +125,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 이메일 주소입니다.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>중국 본토 사용자를 위한 ICP 라이선스 번호입니다. 숨기려면 비워 두세요.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>헤더에 표시되는 계약 로고. jpg 및 png를 지원합니다. 시스템 로고와 별도로 관리됩니다.</value>
@@ -143,9 +146,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>회사 또는 프로젝트의 우편번호입니다.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>회사 또는 프로젝트의 URL입니다. 예: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>계약 뷰에 계약 헤더 (로고, 주소 등) 를 표시할지 여부입니다.</value>

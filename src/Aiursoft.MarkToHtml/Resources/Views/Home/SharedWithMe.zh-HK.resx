@@ -21,9 +21,6 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
-  <data name="characters" xml:space="preserve">
-    <value>字元</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>直接分享</value>
   </data>
@@ -74,6 +71,9 @@
   </data>
   <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
     <value>當有人與您或您的角色分享文件時，它會在此處顯示。</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>字元</value>
   </data>
 
 </root>

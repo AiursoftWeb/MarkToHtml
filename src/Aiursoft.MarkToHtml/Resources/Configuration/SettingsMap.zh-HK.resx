@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Agent API Endpoint 嘅 API token（x-api-key header）</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Agent API 端點</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>用於 AI 編輯助手的 Anthropic Messages API 端點（例如 https://api.anthropic.com/v1/messages）。留空即可停用。</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Agent API Endpoint 嘅 API token（x-api-key header）</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token for the Embedding Endpoint. 如無需驗證，請留空。</value>
@@ -75,11 +75,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>嵌入模型</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>嵌入模型名稱，用於向量搜尋，例如 bge-m3:latest。</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>嵌入查詢快取限制</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>嵌入模型名稱，用於向量搜尋，例如 bge-m3:latest。</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>啟用嵌入式搜尋</value>
@@ -111,6 +111,12 @@
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>AI 編輯助理嘅系統提示詞。請使用 {{documentTitle}} 同埋 {{documentContentLength}} 作為佔位符。</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>適用於中國內地用戶的ICP備案號碼。留空則隱藏。</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>公司或項目的網址。例如 https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>公司或項目的地址</value>
   </data>
@@ -119,9 +125,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>公司或項目的電郵地址</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>適用於中國內地用戶的ICP備案號碼。留空則隱藏。</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>顯示於頁首嘅合約標誌。支援 jpg 同 png 格式。同系統標誌分開。</value>
@@ -143,9 +146,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>公司或項目的郵政編碼</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>公司或項目的網址。例如 https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>是否在合約視圖中顯示合約標頭（標誌、地址等）。</value>

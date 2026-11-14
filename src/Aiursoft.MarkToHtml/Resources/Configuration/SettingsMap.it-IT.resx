@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Token API (intestazione x-api-key) per l&apos;endpoint dell&apos;API Agent.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Endpoint API Agente</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Endpoint API Anthropic Messages per l&apos;assistente editor AI (es. https://api.anthropic.com/v1/messages). Lasciare vuoto per disabilitare.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Token API (intestazione x-api-key) per l&apos;endpoint dell&apos;API Agent.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Translated word here...
@@ -159,30 +159,6 @@ Thus final answer. Ensure no extra text.
 
 ```Modello di embedding</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
-
-Double-check translation quality: &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; That is clear, correct grammar.
-
-We must not output any other content, only the translation. Provide in triple backticks exactly as required.
-
-Thus output:
-
-```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
-
-Check if punctuation: original sentence ends with a period. So we keep period. Italian punctuation uses period.
-
-Check for &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; It&apos;s a description of a setting for model name. Italian translation &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; Should be fine.
-
-Potential nuance: &quot;Embedding&quot; could be &quot;embedding&quot;, but it&apos;s okay.
-
-Now consider if translation should preserve capital letters? In Italian, &quot;Embedding&quot; can be capitalized? Usually we keep lower-case &quot;embedding&quot;. The phrase &quot;Nome del modello di embedding per la ricerca vettoriale&quot; is fine.
-
-Thus final answer.
-&lt;/think&gt;
-
-```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Limite della cache delle query di embedding
 ```
@@ -229,6 +205,30 @@ Thus final answer: triple backticks with translation.
 &lt;/think&gt;
 
 ```Limite della cache delle query di embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
+
+Double-check translation quality: &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; That is clear, correct grammar.
+
+We must not output any other content, only the translation. Provide in triple backticks exactly as required.
+
+Thus output:
+
+```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.```
+
+Check if punctuation: original sentence ends with a period. So we keep period. Italian punctuation uses period.
+
+Check for &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; It&apos;s a description of a setting for model name. Italian translation &quot;Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.&quot; Should be fine.
+
+Potential nuance: &quot;Embedding&quot; could be &quot;embedding&quot;, but it&apos;s okay.
+
+Now consider if translation should preserve capital letters? In Italian, &quot;Embedding&quot; can be capitalized? Usually we keep lower-case &quot;embedding&quot;. The phrase &quot;Nome del modello di embedding per la ricerca vettoriale&quot; is fine.
+
+Thus final answer.
+&lt;/think&gt;
+
+```Nome del modello di embedding per la ricerca vettoriale, es. bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Attiva ricerca basata su embedding
@@ -369,6 +369,12 @@ Thus final answer: (wrap in three backticks).
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Prompt di sistema per l&apos;assistente editoriale AI. Usa {{documentTitle}} e {{documentContentLength}} come segnaposto.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>L&apos;URL dell&apos;azienda o del progetto. Esempio: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>L&apos;indirizzo della società o del progetto.</value>
   </data>
@@ -377,9 +383,6 @@ Thus final answer: (wrap in three backticks).
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>L&apos;indirizzo email della società o del progetto.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Il numero di licenza ICP per gli utenti della Cina continentale. Lasciare vuoto per nascondere.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Il logo del contratto visualizzato nell&apos;intestazione. Supporta jpg e png. Distinto dal logo di sistema.</value>
@@ -401,9 +404,6 @@ Thus final answer: (wrap in three backticks).
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Il codice postale dell&apos;azienda o del progetto.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>L&apos;URL dell&apos;azienda o del progetto. Esempio: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Se mostrare l&apos;intestazione del contratto (Logo, indirizzo, ecc.) nella visualizzazione del contratto.</value>

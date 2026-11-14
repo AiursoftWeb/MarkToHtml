@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>Καθαρισμός</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>Δημιουργία νέου εγγράφου</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>Δημιουργία φακέλου</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Δημιουργία νέου εγγράφου</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Χρόνος Δημιουργίας</value>

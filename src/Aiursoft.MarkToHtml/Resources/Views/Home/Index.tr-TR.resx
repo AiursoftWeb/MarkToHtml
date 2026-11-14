@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdown&apos;ınızı temiz, güvenli HTML&apos;ye dönüştürmek için basit bir araç.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>AI</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Yapay Zeka Destekli Çeviriler</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Bu belgeyi gizli yaptıktan sonra, mevcut herkese açık bağlantı artık çalışmayacaktır. Devam etmek istediğinizden emin misiniz?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Tüm bağımlılıklar otomatik olere kaydedilir ve constructor injection yoluyla her zaman kullanılabilir.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Otomatik avatar sıkıştırmalı, dahili bir dosya yönetim sistemi özelliği sunar.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Merhaba Dünya!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>HTML önizlemesi dönüşümden sonra burada görünecektir.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Merhaba Dünya!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Bu belgeyi özel yaparsanız, mevcut herkese açık bağlantı hemen herkes için çalışmayı durduracaktır.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>Logo</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Belgeyi Gizli Yap</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Gizle</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Herkese Açık Yap</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Belgeyi Gizli Yap</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Markdown Girişi</value>

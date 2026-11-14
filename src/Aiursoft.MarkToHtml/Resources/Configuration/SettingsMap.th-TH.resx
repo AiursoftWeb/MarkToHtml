@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>โทเค็น API (ส่วนหัว x-api-key) สำหรับจุดสิ้นสุด API ของเอเจนต์</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>จุดสิ้นสุด API ตัวเอเจนต์</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>จุดสิ้นสุด API ของ Anthropic Messages สำหรับผู้ช่วยแก้ไข AI (เช่น https://api.anthropic.com/v1/messages) ทิ้งว่างไว้เพื่อปิดการใช้งาน</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>โทเค็น API (ส่วนหัว x-api-key) สำหรับจุดสิ้นสุด API ของเอเจนต์</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token สำหรับ Embedding Endpoint หากไม่ต้องการยืนยันตัวตน ให้เว้นว่างไว้
@@ -196,6 +196,18 @@ Will produce:
   <data name="Embedding Model" xml:space="preserve">
     <value>โมเดลการฝังตัว</value>
   </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Embedding Query Cache Limit
+```. That is it.
+
+Double-check: The instructions say &quot;please translate only the sentence or word `Embedding Query Cache Limit` ... into target language Thai.&quot; So they want translation, but also they give instruction about proper nouns. &quot;Embedding Query Cache Limit&quot; is a technical term, but not a human name, not a trademark. It&apos;s a proper noun? It&apos;s a setting key. Usually these are left unchanged. But the instruction says proper nouns must be output as is. So we must decide if it&apos;s a proper noun. It&apos;s a combination of &quot;Embedding&quot;, &quot;Query&quot;, &quot;Cache&quot;, &quot;Limit&quot;. This is a proper noun in the context of software configuration. So we output unchanged.
+
+Thus final answer: three backticks with unchanged text. Ensure no extra content.
+&lt;/think&gt;
+
+```
+Embedding Query Cache Limit</value>
+  </data>
   <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
     <value>ชื่อโมเดล Embedding สำหรับการค้นหาเวกเตอร์ เช่น bge-m3:latest.
 ```
@@ -219,18 +231,6 @@ Proceed.
 
 ``` 
 ชื่อโมเดล Embedding สำหรับการค้นหาเวกเตอร์ เช่น bge-m3:latest.</value>
-  </data>
-  <data name="Embedding Query Cache Limit" xml:space="preserve">
-    <value>Embedding Query Cache Limit
-```. That is it.
-
-Double-check: The instructions say &quot;please translate only the sentence or word `Embedding Query Cache Limit` ... into target language Thai.&quot; So they want translation, but also they give instruction about proper nouns. &quot;Embedding Query Cache Limit&quot; is a technical term, but not a human name, not a trademark. It&apos;s a proper noun? It&apos;s a setting key. Usually these are left unchanged. But the instruction says proper nouns must be output as is. So we must decide if it&apos;s a proper noun. It&apos;s a combination of &quot;Embedding&quot;, &quot;Query&quot;, &quot;Cache&quot;, &quot;Limit&quot;. This is a proper noun in the context of software configuration. So we output unchanged.
-
-Thus final answer: three backticks with unchanged text. Ensure no extra content.
-&lt;/think&gt;
-
-```
-Embedding Query Cache Limit</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>), like this:
@@ -492,6 +492,12 @@ Thus final answer: (wrap in triple backticks)
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>คำสั่งระบบสำหรับผู้ช่วยแก้ไข AI ใช้ {{documentTitle}} และ {{documentContentLength}} เป็นตัวแปรแทนค่า</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL ของบริษัทหรือโครงการ เช่น https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>ที่อยู่ของบริษัทหรือโครงการ</value>
   </data>
@@ -500,9 +506,6 @@ Thus final answer: (wrap in triple backticks)
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>ที่อยู่อีเมลของบริษัทหรือโครงการ</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>หมายเลขใบอนุญาต ICP สำหรับผู้ใช้ในแผ่นดินใหญ่จีน ปล่อยว่างเปล่าเพื่อซ่อน</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>โลโก้ของสัญญาที่แสดงในส่วนหัว รองรับไฟล์ jpg และ png แยกต่างหากจากโลโก้ของระบบ</value>
@@ -524,9 +527,6 @@ Thus final answer: (wrap in triple backticks)
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>รหัสไปรษณีย์ของบริษัทหรือโครงการ</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL ของบริษัทหรือโครงการ เช่น https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>การแสดงส่วนหัวของสัญญา (โลโก้, ที่อยู่, ฯลฯ) ในมุมมองสัญญาหรือไม่</value>

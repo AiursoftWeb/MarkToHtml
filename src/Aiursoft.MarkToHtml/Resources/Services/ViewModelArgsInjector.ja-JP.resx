@@ -153,11 +153,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>ドキュメントを移動</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>マイドキュメント</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>マイドキュメントの履歴</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>マイドキュメント</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>見つかりません</value>

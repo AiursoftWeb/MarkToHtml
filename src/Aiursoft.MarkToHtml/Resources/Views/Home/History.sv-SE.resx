@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>Rensa</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>Skapa ett nytt dokument</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>Skapa mapp</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Skapa ett nytt dokument</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Skapad</value>

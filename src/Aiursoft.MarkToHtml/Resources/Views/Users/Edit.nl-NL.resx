@@ -48,11 +48,11 @@
   <data name="Modify user details or manage their assigned roles below." xml:space="preserve">
     <value>Wijzig gebruikersgegevens of beheer hun toegewezen rollen hieronder.</value>
   </data>
-  <data name="New avatar file" xml:space="preserve">
-    <value>Nieuw avatar-bestand</value>
-  </data>
   <data name="New Password" xml:space="preserve">
     <value>Nieuw wachtwoord</value>
+  </data>
+  <data name="New avatar file" xml:space="preserve">
+    <value>Nieuw avatar-bestand</value>
   </data>
   <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
     <value>OpenID Connect (OIDC) is ingeschakeld. Gebruikers worden gesynchroniseerd vanaf een externe identiteitsprovider. We raden sterk aan om nieuwe gebruikers aan te maken op uw OIDC-provider om ervoor te zorgen dat ze centraal worden beheerd. Dit formulier zal een gebruiker aanmaken die alleen lokaal bestaat binnen deze applicatie.</value>

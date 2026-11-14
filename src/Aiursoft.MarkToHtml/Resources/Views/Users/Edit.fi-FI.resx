@@ -48,11 +48,11 @@
   <data name="Modify user details or manage their assigned roles below." xml:space="preserve">
     <value>Muokkaa käyttäjän tietoja tai hallitse hänelle määritettyjä rooleja alla.</value>
   </data>
-  <data name="New avatar file" xml:space="preserve">
-    <value>Uusi avatar-tiedosto</value>
-  </data>
   <data name="New Password" xml:space="preserve">
     <value>Uusi salasana</value>
+  </data>
+  <data name="New avatar file" xml:space="preserve">
+    <value>Uusi avatar-tiedosto</value>
   </data>
   <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
     <value>OpenID Connect (OIDC) on käytössä. Käyttäjät synkronoidaan ulkoisesta tunnistustarjoajasta. Suosittelemme voimakkaasti uusien käyttäjien luomista OIDC-tarjoajasi, jotta ne hallitaan keskitetysti. Tämä lomake luo paikallisen käyttäjän, joka on olemassa vain tässä sovelluksessa.</value>

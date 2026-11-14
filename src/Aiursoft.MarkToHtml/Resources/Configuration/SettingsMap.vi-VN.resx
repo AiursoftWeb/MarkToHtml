@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Mã thông báo API (tiêu đề x-api-key) cho Điểm cuối API Agent.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Điểm cuối API của Agent</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Điểm cuối Anthropic Messages API cho trợ lý chỉnh sửa AI (ví dụ: https://api.anthropic.com/v1/messages). Để trống để tắt.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Mã thông báo API (tiêu đề x-api-key) cho Điểm cuối API Agent.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>`Bearer token cho Embedding Endpoint. Để trống nếu không cần xác thực.````
@@ -164,44 +164,6 @@ Thus final answer: triple backticks containing translation.
 
 ```Mô hình nhúng</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Tên mô hình embedding cho tìm kiếm vector, ví dụ: bge-m3:latest.```
-
-But we need to be careful: the user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` is one of them.&quot; So we need to treat &quot;bge-m3:latest&quot; as a proper noun (model name) and not translate it. So we keep it as is. Also &quot;Embedding model name&quot; perhaps is a proper name? The user says if you don&apos;t understand what you want to translate, output it as is. But we understand.
-
-Thus translation: &quot;Embedding model name for vector search&quot; could be translated as &quot;Tên mô hình embedding cho tìm kiếm vector&quot;. Or &quot;Tên mô hình embedding cho tìm kiếm theo vector&quot;. We need to think about proper Vietnamese translation. In Vietnamese, &quot;embedding&quot; might be left as &quot;embedding&quot; because it&apos;s a technical term. It could be &quot;embedding model name&quot; might be &quot;tên mô hình embedding&quot;. We could also translate &quot;vector search&quot; as &quot;tìm kiếm vector&quot;. So &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; could be &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; Or with colon: &quot;ví dụ: bge-m3:latest&quot;. The original uses &quot;e.g.&quot; abbreviation for example, in Vietnamese we can say &quot;ví dụ:&quot; or &quot;ví dụ&quot;. Should we preserve &quot;e.g.&quot;? The user wants to translate the sentence, not preserve &quot;e.g.&quot;? Might be fine to translate &quot;e.g.&quot; as &quot;ví dụ&quot;. But maybe keep &quot;e.g.&quot; as is? The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` is one of them.&quot; So &quot;e.g.&quot; is an abbreviation for &quot;example&quot;, not a proper noun. It&apos;s a Latin phrase &quot;exempli gratia&quot;. It&apos;s not a proper noun but it&apos;s a abbreviation. Should we translate it? Usually we can translate &quot;e.g.&quot; to Vietnamese &quot;ví dụ&quot;. But the instruction says not translate proper nouns symbols etc. But &quot;e.g.&quot; is not a proper noun. We can translate it to &quot;ví dụ&quot;. However, we must output only the translation of that sentence. So we need to decide how to translate &quot;e.g.&quot; properly.
-
-We could translate as: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ: bge-m3:latest.&quot; That&apos;s a translation. Or &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; Or &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ như bge-m3:latest.&quot; The &quot;ví dụ&quot; translation is correct.
-
-Thus final translation: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot;
-
-But we need to ensure we preserve &quot;bge-m3:latest&quot; as is. So we output:
-
-```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
-
-But we need to check: Should we preserve &quot;e.g.&quot;? Probably we can replace &quot;e.g.&quot; with &quot;ví dụ&quot;. That is more natural Vietnamese. So final output is something like:
-
-```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
-
-Alternatively we could say &quot;ví dụ: bge-m3:latest&quot;. Let&apos;s consider punctuation. The original has a period at the end. So we should keep period: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; So we output exactly that.
-
-One more nuance: The translation of &quot;Embedding model name for vector search&quot;. In Vietnamese, &quot;embedding model name&quot; could be &quot;tên mô hình embedding&quot;. Usually &quot;embedding&quot; is used as an adjective. So &quot;mô hình embedding&quot; is correct. So &quot;tên mô hình embedding&quot; is good. &quot;Vector search&quot; is &quot;tìm kiếm vector&quot;. So &quot;tìm kiếm vector&quot; is fine. So we get &quot;tên mô hình embedding cho tìm kiếm vector&quot;. Then &quot;ví dụ&quot; for example. So &quot;ví dụ bge-m3:latest&quot;. That is correct.
-
-Thus final answer:
-
-```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
-
-Double-check: The instruction says wrap in three backticks and output nothing else. So final output is exactly that with triple backticks. Ensure no extra content. So output:
-
-```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
-
-Will we include any extra text? No, just the translation inside triple backticks.
-
-Thus answer.
-&lt;/think&gt;
-
-```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Giới hạn bộ nhớ đệm truy vấn nhúng
 ```
@@ -276,6 +238,44 @@ Given the instructions, we must not output anything else. So final answer is tha
 
 ``` 
 Giới hạn bộ nhớ đệm truy vấn nhúng</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Tên mô hình embedding cho tìm kiếm vector, ví dụ: bge-m3:latest.```
+
+But we need to be careful: the user says &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` is one of them.&quot; So we need to treat &quot;bge-m3:latest&quot; as a proper noun (model name) and not translate it. So we keep it as is. Also &quot;Embedding model name&quot; perhaps is a proper name? The user says if you don&apos;t understand what you want to translate, output it as is. But we understand.
+
+Thus translation: &quot;Embedding model name for vector search&quot; could be translated as &quot;Tên mô hình embedding cho tìm kiếm vector&quot;. Or &quot;Tên mô hình embedding cho tìm kiếm theo vector&quot;. We need to think about proper Vietnamese translation. In Vietnamese, &quot;embedding&quot; might be left as &quot;embedding&quot; because it&apos;s a technical term. It could be &quot;embedding model name&quot; might be &quot;tên mô hình embedding&quot;. We could also translate &quot;vector search&quot; as &quot;tìm kiếm vector&quot;. So &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; could be &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; Or with colon: &quot;ví dụ: bge-m3:latest&quot;. The original uses &quot;e.g.&quot; abbreviation for example, in Vietnamese we can say &quot;ví dụ:&quot; or &quot;ví dụ&quot;. Should we preserve &quot;e.g.&quot;? The user wants to translate the sentence, not preserve &quot;e.g.&quot;? Might be fine to translate &quot;e.g.&quot; as &quot;ví dụ&quot;. But maybe keep &quot;e.g.&quot; as is? The instruction: &quot;Human names, Nicknames, Proper nouns, symbols, trademarks, etc. must be output as it is and do not translate them! So please consider if the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` is one of them.&quot; So &quot;e.g.&quot; is an abbreviation for &quot;example&quot;, not a proper noun. It&apos;s a Latin phrase &quot;exempli gratia&quot;. It&apos;s not a proper noun but it&apos;s a abbreviation. Should we translate it? Usually we can translate &quot;e.g.&quot; to Vietnamese &quot;ví dụ&quot;. But the instruction says not translate proper nouns symbols etc. But &quot;e.g.&quot; is not a proper noun. We can translate it to &quot;ví dụ&quot;. However, we must output only the translation of that sentence. So we need to decide how to translate &quot;e.g.&quot; properly.
+
+We could translate as: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ: bge-m3:latest.&quot; That&apos;s a translation. Or &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; Or &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ như bge-m3:latest.&quot; The &quot;ví dụ&quot; translation is correct.
+
+Thus final translation: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot;
+
+But we need to ensure we preserve &quot;bge-m3:latest&quot; as is. So we output:
+
+```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
+
+But we need to check: Should we preserve &quot;e.g.&quot;? Probably we can replace &quot;e.g.&quot; with &quot;ví dụ&quot;. That is more natural Vietnamese. So final output is something like:
+
+```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
+
+Alternatively we could say &quot;ví dụ: bge-m3:latest&quot;. Let&apos;s consider punctuation. The original has a period at the end. So we should keep period: &quot;Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.&quot; So we output exactly that.
+
+One more nuance: The translation of &quot;Embedding model name for vector search&quot;. In Vietnamese, &quot;embedding model name&quot; could be &quot;tên mô hình embedding&quot;. Usually &quot;embedding&quot; is used as an adjective. So &quot;mô hình embedding&quot; is correct. So &quot;tên mô hình embedding&quot; is good. &quot;Vector search&quot; is &quot;tìm kiếm vector&quot;. So &quot;tìm kiếm vector&quot; is fine. So we get &quot;tên mô hình embedding cho tìm kiếm vector&quot;. Then &quot;ví dụ&quot; for example. So &quot;ví dụ bge-m3:latest&quot;. That is correct.
+
+Thus final answer:
+
+```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
+
+Double-check: The instruction says wrap in three backticks and output nothing else. So final output is exactly that with triple backticks. Ensure no extra content. So output:
+
+```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.```
+
+Will we include any extra text? No, just the translation inside triple backticks.
+
+Thus answer.
+&lt;/think&gt;
+
+```Tên mô hình embedding cho tìm kiếm vector, ví dụ bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Bật Tìm Kiếm Dựa Trên Nhúng
@@ -513,6 +513,12 @@ URL cơ sở của Ollama API để tạo embeddings cho tài liệu và truy v�
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Lời nhắc hệ thống cho trợ lý chỉnh sửa AI. Sử dụng {{documentTitle}} và {{documentContentLength}} làm chỗ giữ chỗ.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Số giấy phép ICP cho người dùng Trung Quốc đại lục. Để trống để ẩn.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>Địa chỉ URL của công ty hoặc dự án. Ví dụ: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Địa chỉ của công ty hoặc dự án.</value>
   </data>
@@ -521,9 +527,6 @@ URL cơ sở của Ollama API để tạo embeddings cho tài liệu và truy v�
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Địa chỉ email của công ty hoặc dự án.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Số giấy phép ICP cho người dùng Trung Quốc đại lục. Để trống để ẩn.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Biểu tượng của hợp đồng được hiển thị trong phần tiêu đề. Hỗ trợ định dạng jpg và png. Tách biệt khỏi biểu tượng hệ thống.</value>
@@ -545,9 +548,6 @@ URL cơ sở của Ollama API để tạo embeddings cho tài liệu và truy v�
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Mã bưu chính của công ty hoặc dự án</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>Địa chỉ URL của công ty hoặc dự án. Ví dụ: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Có hiển thị phần đầu hợp đồng (Logo, địa chỉ, v.v.) trong chế độ xem hợp đồng không.</value>

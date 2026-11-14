@@ -27,14 +27,14 @@
   <data name="Create New Folder" xml:space="preserve">
     <value>สร้างโฟลเดอร์ใหม่</value>
   </data>
-  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
-    <value>เช่น งาน ส่วนตัว โครงการ</value>
-  </data>
   <data name="Folder Details" xml:space="preserve">
     <value>รายละเอียดโฟลเดอร์</value>
   </data>
   <data name="Folder Name" xml:space="preserve">
     <value>ชื่อโฟลเดอร์</value>
+  </data>
+  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
+    <value>เช่น งาน ส่วนตัว โครงการ</value>
   </data>
 
 </root>

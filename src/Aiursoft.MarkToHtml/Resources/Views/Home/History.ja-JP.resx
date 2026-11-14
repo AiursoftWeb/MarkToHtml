@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>クリア</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>新規ドキュメントを作成</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>フォルダーを作成</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>新規ドキュメントを作成</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>作成日時</value>
