@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Markdown을 깔끔하고 안전한 HTML로 변환해주는 간단한 도구입니다.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>이 문서를 비공개로 설정하면 기존 공개 링크가 더 이상 작동하지 않습니다. 계속 진행하시겠습니까?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>AI</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI 기반 번역</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>이 문서를 비공개로 설정하면 기존 공개 링크가 더 이상 작동하지 않습니다. 계속 진행하시겠습니까?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>모든 종속성은 자동으로 등록되며 생성자 주입을 통해 항상 사용할 수 있습니다.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>자동 아바타 압축 기능이 포함된 내장 파일 관리 시스템을 갖추고 있습니다.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>안녕하세요 세계!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>변환 후 HTML 미리보기가 여기에 나타납니다.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>안녕하세요 세계!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>이 문서를 비공개로 설정하면 기존 공개 링크가 모든 사용자에게 즉시 작동을 멈춥니다.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>로고</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>문서 비공개로 전환</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>비공개로 전환</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>공개하기</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>문서 비공개로 전환</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>마크다운 입력</value>

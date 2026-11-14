@@ -150,11 +150,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>نقل المستند</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>مستنداتي</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>سجل وثائقي</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>مستنداتي</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>غير موجود</value>

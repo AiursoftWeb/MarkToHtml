@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Una herramienta sencilla para convertir tu Markdown en HTML limpio y saneado.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Después de hacer este documento privado, el enlace público existente dejará de funcionar. ¿Está seguro de que desea continuar?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>IA</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traducciones con IA</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Después de hacer este documento privado, el enlace público existente dejará de funcionar. ¿Está seguro de que desea continuar?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Todas las dependencias se registran automáticamente y están siempre disponibles mediante inyección de constructor.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Incluye un sistema de gestión de archivos integrado con compresión automática de avatares.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>¡Hola Mundo!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>La vista previa del HTML aparecerá aquí después de la conversión.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>¡Hola Mundo!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Si haces este documento privado, el enlace público existente dejará de funcionar inmediatamente para todos.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>Logotipo</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Hacer documento privado</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Hacer privado</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Hacer Público</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Hacer documento privado</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Entrada Markdown</value>

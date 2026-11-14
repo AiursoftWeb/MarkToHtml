@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>Gestionare Cont</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>furnizor de autentificare</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>Setări avatar</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>Profilul tău a fost actualizat.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>furnizor de autentificare</value>
   </data>
 
 </root>

@@ -48,11 +48,11 @@
   <data name="Modify user details or manage their assigned roles below." xml:space="preserve">
     <value>请在下方修改用户详细信息或管理其分配的角色。</value>
   </data>
-  <data name="New avatar file" xml:space="preserve">
-    <value>新头像文件</value>
-  </data>
   <data name="New Password" xml:space="preserve">
     <value>新密码</value>
+  </data>
+  <data name="New avatar file" xml:space="preserve">
+    <value>新头像文件</value>
   </data>
   <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
     <value>OpenID Connect (OIDC) 已启用。用户将从外部身份提供商同步。我们强烈建议在您的 OIDC 提供商上创建新用户，以确保它们得到集中管理。此表单将创建一个仅限本地的用户，该用户仅存在于此应用程序中。</value>

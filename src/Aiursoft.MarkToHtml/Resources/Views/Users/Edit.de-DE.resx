@@ -48,11 +48,11 @@
   <data name="Modify user details or manage their assigned roles below." xml:space="preserve">
     <value>Ändern Sie die Benutzerdetails oder verwalten Sie unten ihre zugewiesenen Rollen.</value>
   </data>
-  <data name="New avatar file" xml:space="preserve">
-    <value>Neue Avatar-Datei</value>
-  </data>
   <data name="New Password" xml:space="preserve">
     <value>Neues Passwort</value>
+  </data>
+  <data name="New avatar file" xml:space="preserve">
+    <value>Neue Avatar-Datei</value>
   </data>
   <data name="OpenID Connect (OIDC) is enabled. Users are synchronized from an external identity provider. We strongly recommend creating new users on your OIDC provider to ensure they are managed centrally. This form will create a local-only user that exists solely within this application." xml:space="preserve">
     <value>OpenID Connect (OIDC) ist aktiviert. Benutzer werden von einem externen Identitätsanbieter synchronisiert. Wir empfehlen dringend, neue Benutzer bei Ihrem OIDC-Anbieter zu erstellen, um sicherzustellen, dass sie zentral verwaltet werden. Dieses Formular erstellt einen nur lokal existierenden Benutzer, der ausschließlich innerhalb dieser Anwendung vorhanden ist.</value>

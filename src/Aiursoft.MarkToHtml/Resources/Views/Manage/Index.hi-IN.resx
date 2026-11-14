@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>खाता प्रबंधन</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>प्रमाणीकरण प्रदाता</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>अवतार सेटिंग्स</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>आपका प्रोफ़ाइल अपडेट कर दिया गया है।</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>प्रमाणीकरण प्रदाता</value>
   </data>
 
 </root>

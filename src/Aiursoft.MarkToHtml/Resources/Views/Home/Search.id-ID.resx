@@ -18,11 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
-    <value>Aksi</value>
-  </data>
-  <data name="AI-powered search (Vector Database)" xml:space="preserve">
+      <data name="AI-powered search (Vector Database)" xml:space="preserve">
     <value>Pencarian berbasis AI (Database Vektor)</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aksi</value>
   </data>
   <data name="Back to My Documents" xml:space="preserve">
     <value>Kembali ke Dokumen Saya</value>

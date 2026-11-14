@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>清除</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>建立新文件</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>新增資料夾</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>建立新文件</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>建立時間</value>

@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>Wissen</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>Nieuw document maken</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>Map maken</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Nieuw document maken</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>Aanmaaktijd</value>

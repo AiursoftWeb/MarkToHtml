@@ -27,14 +27,14 @@
   <data name="Create New Folder" xml:space="preserve">
     <value>Skapa ny mapp</value>
   </data>
-  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
-    <value>t.ex. Arbete, Personligt, Projekt</value>
-  </data>
   <data name="Folder Details" xml:space="preserve">
     <value>Mappinformation</value>
   </data>
   <data name="Folder Name" xml:space="preserve">
     <value>Mappnamn</value>
+  </data>
+  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
+    <value>t.ex. Arbete, Personligt, Projekt</value>
   </data>
 
 </root>

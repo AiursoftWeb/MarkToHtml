@@ -21,9 +21,6 @@
       <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
-  <data name="characters" xml:space="preserve">
-    <value>caractere</value>
-  </data>
   <data name="Direct Share" xml:space="preserve">
     <value>Partajare Directă</value>
   </data>
@@ -74,6 +71,9 @@
   </data>
   <data name="When someone shares a document with you or your role, it will appear here." xml:space="preserve">
     <value>Când cineva partajează un document cu tine sau cu rolul tău, acesta va apărea aici.</value>
+  </data>
+  <data name="characters" xml:space="preserve">
+    <value>caractere</value>
   </data>
 
 </root>

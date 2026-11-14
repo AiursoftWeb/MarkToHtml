@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>Quản lý Tài khoản</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>nhà cung cấp xác thực</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>Cài đặt Avatar</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>Hồ sơ của bạn đã được cập nhật.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>nhà cung cấp xác thực</value>
   </data>
 
 </root>

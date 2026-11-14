@@ -150,11 +150,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>Pindahkan Dokumen</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Dokumen Saya</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Riwayat Dokumen Saya</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Dokumen Saya</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Tidak Ditemukan</value>

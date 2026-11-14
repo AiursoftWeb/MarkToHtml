@@ -27,14 +27,14 @@
   <data name="Create New Folder" xml:space="preserve">
     <value>新增資料夾</value>
   </data>
-  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
-    <value>例如：工作、個人、項目</value>
-  </data>
   <data name="Folder Details" xml:space="preserve">
     <value>資料夾詳細資料</value>
   </data>
   <data name="Folder Name" xml:space="preserve">
     <value>資料夾名稱</value>
+  </data>
+  <data name="e.g. Work, Personal, Projects" xml:space="preserve">
+    <value>例如：工作、個人、項目</value>
   </data>
 
 </root>

@@ -33,11 +33,11 @@
   <data name="Clear" xml:space="preserve">
     <value>지우기</value>
   </data>
-  <data name="Create a new document" xml:space="preserve">
-    <value>새 문서 만들기</value>
-  </data>
   <data name="Create Folder" xml:space="preserve">
     <value>폴더 만들기</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>새 문서 만들기</value>
   </data>
   <data name="Creation Time" xml:space="preserve">
     <value>생성 시간</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>API token (x-api-key header) for the Agent API Endpoint.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Agent API Endpoint</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>API token (x-api-key header) for the Agent API Endpoint.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token for the Embedding Endpoint. Leave blank if no authentication required.</value>
@@ -75,11 +75,11 @@
   <data name="Embedding Model" xml:space="preserve">
     <value>Embedding Model</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Embedding model name for vector search, e.g. bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Embedding Query Cache Limit</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Embedding model name for vector search, e.g. bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Enable Embedding-Based Search</value>
@@ -111,6 +111,12 @@
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>System prompt for the AI editor assistant. Use {{documentTitle}} and {{documentContentLength}} as placeholders.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>The ICP licence number for China mainland users. Leave empty to hide.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>The URL of the company or project. E.g. https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>The address of the company or project.</value>
   </data>
@@ -119,9 +125,6 @@
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>The email address of the company or project.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>The ICP licence number for China mainland users. Leave empty to hide.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>The logo of the contract displayed in the header. Supports jpg and png. Separate from the system logo.</value>
@@ -143,9 +146,6 @@
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>The postcode of the company or project.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>The URL of the company or project. E.g. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Whether to show the contract header (Logo, address, etc.) in the contract view.</value>

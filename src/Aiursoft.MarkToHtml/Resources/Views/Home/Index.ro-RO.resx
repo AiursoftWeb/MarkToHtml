@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Un instrument simplu pentru a converti Markdown-ul tău în HTML curat și sânatizat.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>După ce acest document devine privat, linkul public existent nu va mai funcționa. Sigur doriți să continuați?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>IA</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traduceri alimentate de IA</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>După ce acest document devine privat, linkul public existent nu va mai funcționa. Sigur doriți să continuați?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Toate dependențele sunt înregistrate automat și sunt întotdeauna disponibile prin injectare în constructor.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Include un sistem integrat de gestionare a fișierelor cu compresie automată a avatarurilor.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Salut Lume!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Previzualizarea HTML va apărea aici după conversie.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Salut Lume!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Dacă faci acest document privat, linkul public existent va înceta să funcționeze imediat pentru toată lumea.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>Logo</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Faceți documentul privat</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Faceți-l privat</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Faceți public</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Faceți documentul privat</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Intrare Markdown</value>

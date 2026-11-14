@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>رمز واجهة برمجة التطبيقات (رأس x-api-key) لنقطة نهاية واجهة برمجة تطبيقات الوكيل.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>نقطة نهاية واجهة برمجة التطبيقات للوكيل</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>نقطة نهاية واجهة برمجة التطبيقات Anthropic Messages لمساعد محرر الذكاء الاصطناعي (مثل https://api.anthropic.com/v1/messages). اتركه فارغًا للإيقاف.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>رمز واجهة برمجة التطبيقات (رأس x-api-key) لنقطة نهاية واجهة برمجة تطبيقات الوكيل.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token لـ Embedding Endpoint. اتركه فارغًا إذا لم يُطلب المصادقة.
@@ -133,29 +133,6 @@ Thus final.
 ``` 
 نموذج التضمين</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.
-```
-
-But we need to ensure that &quot;bge-m3:latest&quot; remains unchanged. The &quot;e.g.&quot; is &quot;مثل&quot; in Arabic (like &quot;like&quot; or &quot;for example&quot;) is fine. So the translated phrase: &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; Could be &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Also &quot;Embedding&quot; can be &quot;التضمين&quot; is the noun for embedding. But we may use &quot;نموذج التضمين&quot; (embedding model). However, the Arabic translation of &quot;Embedding model name&quot; is &quot;اسم نموذج التضمين&quot;. Could also be &quot;اسم نموذج التضمين&quot; or &quot;اسم نموذج التضمين&quot;. So &quot;Embedding model name for vector search&quot; becomes &quot;اسم نموذج التضمين للبحث المتجهي&quot;. That&apos;s the translation.
-
-Check if any part is a proper noun that should not be translated: &quot;Embedding model name&quot; is not a proper noun; &quot;vector search&quot; is technical but can be translated; &quot;bge-m3:latest&quot; is a proper noun (model identifier) and must be left unchanged.
-
-Thus final output:
-
-```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
-
-We need to ensure correct Arabic diacritics? Probably not needed.
-
-Wrap in triple backticks with code fences. Use only translation content. No extra output.
-
-Thus answer:
-
-```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
-&lt;/think&gt;
-
-```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>حدّ ذاكرة التخزين المؤقتة للاستعلامات المضمنة
 ```
@@ -225,6 +202,29 @@ Thus output:
 
 ``` 
 الحدّ الأقصى لذاكرة التخزين المؤقتة لاستعلامات التضمين</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.
+```
+
+But we need to ensure that &quot;bge-m3:latest&quot; remains unchanged. The &quot;e.g.&quot; is &quot;مثل&quot; in Arabic (like &quot;like&quot; or &quot;for example&quot;) is fine. So the translated phrase: &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; Or &quot;اسم نموذج التضمين للبحث المتجهي، مثال: bge-m3:latest.&quot; The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; Could be &quot;اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.&quot; Also &quot;Embedding&quot; can be &quot;التضمين&quot; is the noun for embedding. But we may use &quot;نموذج التضمين&quot; (embedding model). However, the Arabic translation of &quot;Embedding model name&quot; is &quot;اسم نموذج التضمين&quot;. Could also be &quot;اسم نموذج التضمين&quot; or &quot;اسم نموذج التضمين&quot;. So &quot;Embedding model name for vector search&quot; becomes &quot;اسم نموذج التضمين للبحث المتجهي&quot;. That&apos;s the translation.
+
+Check if any part is a proper noun that should not be translated: &quot;Embedding model name&quot; is not a proper noun; &quot;vector search&quot; is technical but can be translated; &quot;bge-m3:latest&quot; is a proper noun (model identifier) and must be left unchanged.
+
+Thus final output:
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
+
+We need to ensure correct Arabic diacritics? Probably not needed.
+
+Wrap in triple backticks with code fences. Use only translation content. No extra output.
+
+Thus answer:
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.```
+&lt;/think&gt;
+
+```اسم نموذج التضمين للبحث المتجهي، مثل bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>تمكين البحث المستند إلى التضمين```.
@@ -336,6 +336,12 @@ Make sure not to output any other content.
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>الرسالة النظامية لمساعد محرر الذكاء الاصطناعي. استخدم {{documentTitle}} و{{documentContentLength}} كعناصر نائبة.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>عنوان الشركة أو المشروع.</value>
   </data>
@@ -344,9 +350,6 @@ Make sure not to output any other content.
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>عنوان البريد الإلكتروني للشركة أو المشروع.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>رقم ترخيص ICP للمستخدمين في الصين القارية. اتركه فارغًا لإخفائه.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>شعار العقد المعروض في الترويسة. يدعم صيغ jpg و png. منفصل عن شعار النظام.</value>
@@ -368,9 +371,6 @@ Make sure not to output any other content.
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>الرمز البريدي للشركة أو المشروع.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>عنوان URL للشركة أو المشروع. مثال: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>ما إذا كان سيتم عرض رأس العقد (الشعار، العنوان، إلخ) في عرض العقد.</value>

@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>Gestion du compte</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>fournisseur d&apos;authentification</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>Paramètres de l&apos;avatar</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>Votre profil a été mis à jour.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>fournisseur d&apos;authentification</value>
   </data>
 
 </root>

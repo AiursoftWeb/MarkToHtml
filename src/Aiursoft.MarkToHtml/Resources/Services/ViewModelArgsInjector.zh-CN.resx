@@ -153,11 +153,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>移动文档</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>我的文档</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>我的文档历史</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>我的文档</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>

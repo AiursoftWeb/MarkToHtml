@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>أداة بسيطة لتحويل Markdown الخاص بك إلى HTML نظيف ومعالج.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>بعد جعل هذا المستند خاصًا، لن يعمل الرابط العام الحالي بعد الآن. هل أنت متأكد أنك تريد المتابعة؟</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>الذكاء الاصطناعي</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>الترجمات المدعومة بالذكاء الاصطناعي</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>بعد جعل هذا المستند خاصًا، لن يعمل الرابط العام الحالي بعد الآن. هل أنت متأكد أنك تريد المتابعة؟</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>يتم تسجيل جميع التبعيات تلقائيًا وهي متاحة دائمًا عبر حقن المُنشئ.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>يتميز بنظام مدمج لإدارة الملفات مع ضغط تلقائي للصور الشخصية.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>مرحبًا أيها العالم!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>ستظهر معاينة HTML هنا بعد التحويل.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>مرحبًا أيها العالم!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>إذا جعلت هذا المستند خاصًا، فسيتم إيقاف الرابط العام الحالي فورًا عن العمل للجميع.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>شعار</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>جعل المستند خاصًا</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>جعل خاص</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>جعلها عامة</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>جعل المستند خاصًا</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>إدخال Markdown</value>

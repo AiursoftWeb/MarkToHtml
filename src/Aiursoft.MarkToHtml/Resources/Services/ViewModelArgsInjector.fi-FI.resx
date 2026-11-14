@@ -150,11 +150,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>Siirrä asiakirja</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Omat dokumentit</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Minun asiakirjojen historia</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Omat dokumentit</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Ei löytynyt</value>

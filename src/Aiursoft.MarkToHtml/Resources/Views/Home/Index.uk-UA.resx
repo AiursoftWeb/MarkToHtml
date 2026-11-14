@@ -33,9 +33,6 @@
   <data name="A simple tool to convert your Markdown into clean, sanitized HTML." xml:space="preserve">
     <value>Простий інструмент для перетворення вашого Markdown у чистий, безпечний HTML.</value>
   </data>
-  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
-    <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
-  </data>
   <data name="AI" xml:space="preserve">
     <value>ШІ</value>
   </data>
@@ -44,6 +41,9 @@
   </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Переклади на основі ШІ</value>
+  </data>
+  <data name="After making this document private, the existing public link will no longer work. Are you sure you want to proceed?" xml:space="preserve">
+    <value>Після того, як цей документ стане приватним, наявне публічне посилання припинить роботу. Ви впевнені, що бажаєте продовжити?</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію конструктора.</value>
@@ -162,11 +162,11 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Містить вбудовану систему керування файлами з автоматичним стисненням аватарів.</value>
   </data>
-  <data name="Hello World!" xml:space="preserve">
-    <value>Привіт, Світе!</value>
-  </data>
   <data name="HTML preview will appear here after conversion." xml:space="preserve">
     <value>Попередній перегляд HTML з’явиться тут після конвертації.</value>
+  </data>
+  <data name="Hello World!" xml:space="preserve">
+    <value>Привіт, Світе!</value>
   </data>
   <data name="If you make this document private, the existing public link will immediately stop working for everyone." xml:space="preserve">
     <value>Якщо ви зробите цей документ приватним, наявне публічне посилання негайно припинить працювати для всіх.</value>
@@ -189,14 +189,14 @@
   <data name="Logo" xml:space="preserve">
     <value>Логотип</value>
   </data>
-  <data name="Make document private" xml:space="preserve">
-    <value>Зробити документ приватним</value>
-  </data>
   <data name="Make Private" xml:space="preserve">
     <value>Зробити приватним</value>
   </data>
   <data name="Make Public" xml:space="preserve">
     <value>Зробити публічним</value>
+  </data>
+  <data name="Make document private" xml:space="preserve">
+    <value>Зробити документ приватним</value>
   </data>
   <data name="Markdown Input" xml:space="preserve">
     <value>Вхідні дані Markdown</value>

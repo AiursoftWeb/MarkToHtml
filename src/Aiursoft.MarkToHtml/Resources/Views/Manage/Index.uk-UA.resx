@@ -21,9 +21,6 @@
       <data name="Account Management" xml:space="preserve">
     <value>Керування обліковим записом</value>
   </data>
-  <data name="auth provider" xml:space="preserve">
-    <value>постачальника автентифікації</value>
-  </data>
   <data name="Avatar settings" xml:space="preserve">
     <value>Налаштування аватара</value>
   </data>
@@ -65,6 +62,9 @@
   </data>
   <data name="Your profile has been updated." xml:space="preserve">
     <value>Ваш профіль оновлено.</value>
+  </data>
+  <data name="auth provider" xml:space="preserve">
+    <value>постачальника автентифікації</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Token de API (cabeçalho x-api-key) para o Endpoint da API do Agente.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Ponto de extremidade da API do Agente</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Endpoint da API Anthropic Messages para o assistente de edição de IA (por exemplo, https://api.anthropic.com/v1/messages). Deixe vazio para desativar.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Token de API (cabeçalho x-api-key) para o Endpoint da API do Agente.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Token Bearer para o Endpoint de Embedding. Deixe vazio se nenhuma autenticação for necessária.
@@ -190,30 +190,6 @@ Thus final answer:
 
 ```Modelo de Embedding</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.```
-
-Check if any proper nouns: &quot;Embedding&quot; is a technical term, but it&apos;s a concept, not a trademark. It&apos;s okay to translate as &quot;embedding&quot;. &quot;vector search&quot; translation is &quot;pesquisa vetorial&quot; or &quot;busca vetorial&quot;. &quot;Embedding model name&quot; translation is &quot;nome do modelo de embedding&quot;. That&apos;s fine.
-
-Thus output should be just the translation, wrapped in triple backticks.
-
-Double-check: The user wants only the sentence translation. They said &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language pt-BR, Português (Brasil).&quot; So we need to output the translation only.
-
-Hence final answer: a triple backtick block containing the translated sentence.
-
-Thus output:
-
-```Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.```
-
-Check punctuation: they used a period at the end. We preserve period.
-
-Yes.
-
-Thus final.
-&lt;/think&gt;
-
-```Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Limite do Cache de Consulta de Embedding
 ```
@@ -255,6 +231,30 @@ Thus final.
 
 ``` 
 Limite do cache de consulta de embedding</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.```
+
+Check if any proper nouns: &quot;Embedding&quot; is a technical term, but it&apos;s a concept, not a trademark. It&apos;s okay to translate as &quot;embedding&quot;. &quot;vector search&quot; translation is &quot;pesquisa vetorial&quot; or &quot;busca vetorial&quot;. &quot;Embedding model name&quot; translation is &quot;nome do modelo de embedding&quot;. That&apos;s fine.
+
+Thus output should be just the translation, wrapped in triple backticks.
+
+Double-check: The user wants only the sentence translation. They said &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language pt-BR, Português (Brasil).&quot; So we need to output the translation only.
+
+Hence final answer: a triple backtick block containing the translated sentence.
+
+Thus output:
+
+```Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.```
+
+Check punctuation: they used a period at the end. We preserve period.
+
+Yes.
+
+Thus final.
+&lt;/think&gt;
+
+```Nome do modelo de embedding para pesquisa vetorial, p. ex. bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Translated word here...
@@ -518,6 +518,12 @@ URL base da API Ollama para gerar embeddings de documentos e consultas (exemplo:
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Prompt do sistema para o assistente de edição da IA. Use {{documentTitle}} e {{documentContentLength}} como marcadores de posição.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>O número de licença ICP para usuários da China continental. Deixe em branco para ocultar.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>A URL da empresa ou projeto. Exemplo: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>O endereço da empresa ou projeto.</value>
   </data>
@@ -526,9 +532,6 @@ URL base da API Ollama para gerar embeddings de documentos e consultas (exemplo:
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>O endereço de e-mail da empresa ou projeto.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>O número de licença ICP para usuários da China continental. Deixe em branco para ocultar.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>O logotipo do contrato exibido no cabeçalho. Suporta jpg e png. Separado do logotipo do sistema.</value>
@@ -550,9 +553,6 @@ URL base da API Ollama para gerar embeddings de documentos e consultas (exemplo:
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>O CEP da empresa ou projeto.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>A URL da empresa ou projeto. Exemplo: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Se deve exibir o cabeçalho do contrato (Logotipo, endereço, etc.) na visualização do contrato.</value>

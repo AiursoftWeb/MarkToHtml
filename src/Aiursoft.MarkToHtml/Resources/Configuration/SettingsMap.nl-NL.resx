@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>API-token (x-api-key-header) voor het Agent API-eindpunt.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Agent-API-eindpunt</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Anthropic Messages API-eindpunt voor de AI-bewerkassistent (bijv. https://api.anthropic.com/v1/messages). Laat leeg om uit te schakelen.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>API-token (x-api-key-header) voor het Agent API-eindpunt.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token voor het Embedding-eindpunt. Leeg laten als er geen authenticatie vereist is.
@@ -242,22 +242,6 @@ Proceed to final.
 
 ```Inbeddingsmodel</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.
-```
-
-Check that we preserve &quot;bge-m3:latest&quot; as is. Yes.
-
-Thus answer: triple backticks with translation.
-
-Edge cases: The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation: &quot;Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.&quot; That is correct.
-
-Thus output in triple backticks.
-&lt;/think&gt;
-
-```na
-Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Limiet voor invoerquery-cache```
 
@@ -293,6 +277,22 @@ Thus answer: &quot;```Cache-limiet voor invoerquery```&quot;.
 &lt;/think&gt;
 
 ```Cache-limiet voor invoerquery</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.
+```
+
+Check that we preserve &quot;bge-m3:latest&quot; as is. Yes.
+
+Thus answer: triple backticks with translation.
+
+Edge cases: The phrase &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation: &quot;Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.&quot; That is correct.
+
+Thus output in triple backticks.
+&lt;/think&gt;
+
+```na
+Naam van het embed-model voor vectorzoekopdracht, bijv. bge-m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Inschakelen van op embeddings gebaseerde zoekopdracht
@@ -417,6 +417,12 @@ Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv.
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Systeemprompt voor de AI-redactiehulp. Gebruik {{documentTitle}} en {{documentContentLength}} als vervangingswaarden.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Het ICP-licentienummer voor gebruikers in het Chinese binnenland. Laat leeg om te verbergen.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>De URL van het bedrijf of project. Bijv. https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Het adres van het bedrijf of project.</value>
   </data>
@@ -425,9 +431,6 @@ Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv.
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Het e-mailadres van het bedrijf of project.</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Het ICP-licentienummer voor gebruikers in het Chinese binnenland. Laat leeg om te verbergen.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Het logo van het contract dat in de koptekst wordt weergegeven. Ondersteunt jpg en png. Apart van het systeemlogo.</value>
@@ -449,9 +452,6 @@ Ollama API basis-URL voor het genereren van document- en query-embeddings (bijv.
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Het postcode van het bedrijf of project.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>De URL van het bedrijf of project. Bijv. https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Of de contractkop (logo, adres, enz.) in de contractweergave moet worden weergegeven.</value>

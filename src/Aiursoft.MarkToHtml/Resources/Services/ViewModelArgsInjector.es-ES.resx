@@ -153,11 +153,11 @@
   <data name="Move Document" xml:space="preserve">
     <value>Mover documento</value>
   </data>
-  <data name="My documents" xml:space="preserve">
-    <value>Mis documentos</value>
-  </data>
   <data name="My Documents History" xml:space="preserve">
     <value>Historial de mis documentos</value>
+  </data>
+  <data name="My documents" xml:space="preserve">
+    <value>Mis documentos</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>No encontrado</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Agent API Endpoint" xml:space="preserve">
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>Токен API (заголовок x-api-key) для конечной точки Agent API.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
     <value>Конечная точка API агента</value>
   </data>
   <data name="Agent API Model" xml:space="preserve">
@@ -38,9 +41,6 @@
   </data>
   <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
     <value>Конечная точка Anthropic Messages API для AI-ассистента редактора (например, https://api.anthropic.com/v1/messages). Оставьте пустым, чтобы отключить.</value>
-  </data>
-  <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
-    <value>Токен API (заголовок x-api-key) для конечной точки Agent API.</value>
   </data>
   <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
     <value>Bearer token for the Embedding Endpoint. Оставьте пустым, если аутентификация не требуется.
@@ -286,38 +286,6 @@ Proceed.
 ``` 
 Модель вложения</value>
   </data>
-  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
-    <value>Название модели эмбеддингов для векторного поиска, например bge‑m3:latest.```
-
-But perhaps we need to preserve the &quot;e.g.&quot; as &quot;например&quot;. So &quot;название модели эмбеддингов для векторного поиска, например bge‑m3:latest.&quot; That seems correct. Let&apos;s think about the style: Russian uses &quot;например&quot;. The phrase &quot;e.g.&quot; is &quot;напр.&quot;, &quot;например&quot;. &quot;Embedding model name&quot; could be &quot;имя модели эмбеддингов&quot;. But &quot;model name&quot; is &quot;название модели&quot;. So &quot;название модели эмбеддингов&quot;. That is okay.
-
-Alternatively, could be &quot;Имя модели встраивания для векторного поиска, например bge‑m3:latest.&quot; But &quot;embedding model&quot; might be &quot;модель встраивания&quot;. Which is more natural? &quot;модель встраивания&quot; might be better. But &quot;встраивание&quot; is more like &quot;embedding&quot; as &quot;embedding of data&quot;. However, in vector search, &quot;embedding&quot; is &quot;эмбеддинг&quot;. So &quot;модель эмбеддингов&quot;. Many Russian translations for embedding models use &quot;модель эмбеддинга&quot; or &quot;модель эмбеддинга&quot;. I&apos;d go with &quot;модель эмбеддинга&quot;. So &quot;название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That seems okay.
-
-We need to preserve &quot;bge-m3:latest&quot;. Should we preserve &quot;bge-m3:latest&quot;? Yes, because it&apos;s a technical name, not translatable. So we must keep &quot;bge‑m3:latest&quot;. Should we preserve the colon and maybe hyphen? &quot;bge-m3:latest&quot; is unchanged.
-
-Also need to consider that the user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot; So we output only:
-
-```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
-
-But check the request: &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language ru-RU, Русский (Россия).&quot; So we need to translate that sentence. There&apos;s no mention of not translating &quot;Embedding&quot; (the key). The sentence includes &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation we propose is: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Or maybe &quot;Имя модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Which one is more appropriate? In Russian, &quot;Имя модели&quot; is used less often than &quot;название модели&quot;. &quot;Имя модели&quot; is unnatural; &quot;название модели&quot; is okay. &quot;Имя&quot; is like &quot;name&quot;. &quot;Название модели&quot; means &quot;model name&quot;. So &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot;
-
-Alternatively, &quot;Наименование модели эмбеддинга&quot; might be used, but &quot;название модели&quot; is fine. Also &quot;модель эмбеддинга&quot; is maybe &quot;embedding model&quot;. So &quot;модель эмбеддинга&quot; = &quot;embedding model&quot;. So &quot;Название модели эмбеддинга&quot;. That seems good.
-
-Thus final answer: wrap in triple backticks. Must not output any other content. Ensure output only the translation. Let&apos;s double-check that we are not adding extra punctuation or content. Should we preserve the period at the end? Yes, the original ends with a period. We need to include the period in Russian translation. Russian punctuation includes period: &quot;например bge‑m3:latest.&quot; The period after the English name should be kept as part of the sentence. So final translation: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That&apos;s good.
-
-Now we output:
-
-```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
-
-Check for any special characters: hyphen in &quot;bge‑m3&quot; is a normal hyphen. The colon is there. Use standard hyphen. This is fine.
-
-Thus output exactly that. Ensure no extra text. Output within triple backticks.
-
-We must ensure we do not output any other content. That is final.
-&lt;/think&gt;
-
-```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.</value>
-  </data>
   <data name="Embedding Query Cache Limit" xml:space="preserve">
     <value>Лимит кэша запросов внедрений
 ```
@@ -354,6 +322,38 @@ Thus final output:
 &lt;/think&gt;
 
 ```Лимит кэша запросов вложений</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Название модели эмбеддингов для векторного поиска, например bge‑m3:latest.```
+
+But perhaps we need to preserve the &quot;e.g.&quot; as &quot;например&quot;. So &quot;название модели эмбеддингов для векторного поиска, например bge‑m3:latest.&quot; That seems correct. Let&apos;s think about the style: Russian uses &quot;например&quot;. The phrase &quot;e.g.&quot; is &quot;напр.&quot;, &quot;например&quot;. &quot;Embedding model name&quot; could be &quot;имя модели эмбеддингов&quot;. But &quot;model name&quot; is &quot;название модели&quot;. So &quot;название модели эмбеддингов&quot;. That is okay.
+
+Alternatively, could be &quot;Имя модели встраивания для векторного поиска, например bge‑m3:latest.&quot; But &quot;embedding model&quot; might be &quot;модель встраивания&quot;. Which is more natural? &quot;модель встраивания&quot; might be better. But &quot;встраивание&quot; is more like &quot;embedding&quot; as &quot;embedding of data&quot;. However, in vector search, &quot;embedding&quot; is &quot;эмбеддинг&quot;. So &quot;модель эмбеддингов&quot;. Many Russian translations for embedding models use &quot;модель эмбеддинга&quot; or &quot;модель эмбеддинга&quot;. I&apos;d go with &quot;модель эмбеддинга&quot;. So &quot;название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That seems okay.
+
+We need to preserve &quot;bge-m3:latest&quot;. Should we preserve &quot;bge-m3:latest&quot;? Yes, because it&apos;s a technical name, not translatable. So we must keep &quot;bge‑m3:latest&quot;. Should we preserve the colon and maybe hyphen? &quot;bge-m3:latest&quot; is unchanged.
+
+Also need to consider that the user says &quot;Do not output any other content. Only output the translated content and wrap it in three backticks.&quot; So we output only:
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
+
+But check the request: &quot;Please translate only the sentence or word `Embedding model name for vector search, e.g. bge-m3:latest.` in the paragraph into the target language ru-RU, Русский (Россия).&quot; So we need to translate that sentence. There&apos;s no mention of not translating &quot;Embedding&quot; (the key). The sentence includes &quot;Embedding model name for vector search, e.g. bge-m3:latest.&quot; The translation we propose is: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Or maybe &quot;Имя модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; Which one is more appropriate? In Russian, &quot;Имя модели&quot; is used less often than &quot;название модели&quot;. &quot;Имя модели&quot; is unnatural; &quot;название модели&quot; is okay. &quot;Имя&quot; is like &quot;name&quot;. &quot;Название модели&quot; means &quot;model name&quot;. So &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot;
+
+Alternatively, &quot;Наименование модели эмбеддинга&quot; might be used, but &quot;название модели&quot; is fine. Also &quot;модель эмбеддинга&quot; is maybe &quot;embedding model&quot;. So &quot;модель эмбеддинга&quot; = &quot;embedding model&quot;. So &quot;Название модели эмбеддинга&quot;. That seems good.
+
+Thus final answer: wrap in triple backticks. Must not output any other content. Ensure output only the translation. Let&apos;s double-check that we are not adding extra punctuation or content. Should we preserve the period at the end? Yes, the original ends with a period. We need to include the period in Russian translation. Russian punctuation includes period: &quot;например bge‑m3:latest.&quot; The period after the English name should be kept as part of the sentence. So final translation: &quot;Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.&quot; That&apos;s good.
+
+Now we output:
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.```
+
+Check for any special characters: hyphen in &quot;bge‑m3&quot; is a normal hyphen. The colon is there. Use standard hyphen. This is fine.
+
+Thus output exactly that. Ensure no extra text. Output within triple backticks.
+
+We must ensure we do not output any other content. That is final.
+&lt;/think&gt;
+
+```Название модели эмбеддинга для векторного поиска, например bge‑m3:latest.</value>
   </data>
   <data name="Enable Embedding-Based Search" xml:space="preserve">
     <value>Включить поиск на основе эмбеддингов
@@ -506,6 +506,12 @@ Now final answer.
   <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
     <value>Системный промпт для ИИ-ассистента редактора. Используйте {{documentTitle}} и {{documentContentLength}} в качестве заполнителей.</value>
   </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Номер лицензии ICP для пользователей из материкового Китая. Оставьте пустым, чтобы скрыть.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL компании или проекта. Например: https://www.aiursoft.com</value>
+  </data>
   <data name="The address of the company or project." xml:space="preserve">
     <value>Адрес компании или проекта.</value>
   </data>
@@ -514,9 +520,6 @@ Now final answer.
   </data>
   <data name="The email address of the company or project." xml:space="preserve">
     <value>Адрес электронной почты компании или проекта</value>
-  </data>
-  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
-    <value>Номер лицензии ICP для пользователей из материкового Китая. Оставьте пустым, чтобы скрыть.</value>
   </data>
   <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
     <value>Логотип договора, отображаемый в заголовке. Поддерживаются форматы jpg и png. Отличается от системного логотипа.</value>
@@ -538,9 +541,6 @@ Now final answer.
   </data>
   <data name="The postcode of the company or project." xml:space="preserve">
     <value>Индекс компании или проекта.</value>
-  </data>
-  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
-    <value>URL компании или проекта. Например: https://www.aiursoft.com</value>
   </data>
   <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
     <value>Отображать ли заголовок договора (логотип, адрес и т. д.) в просмотре договора.</value>
