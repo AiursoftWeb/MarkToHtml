@@ -1,4 +1,6 @@
-# MarkToHtml
+# Aiursoft MarkToHtml
+
+<a name="marktohtml"></a>
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/markToHtml/blob/master/LICENSE)
 [![Pipeline stat](https://badge-proxy.aiursoft.com/aiursoft/markToHtml/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/markToHtml/-/pipelines)
@@ -14,11 +16,11 @@ A simple tool to convert your Markdown into clean, sanitized HTML.
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
 
-## Try
+## Overview
 
-Try a running MarkToHtml [here](https://marktohtml.aiursoft.com).
+### What is MarkToHtml?
 
-## Why MarkToHtml for Your Organization
+<a name="why-marktohtml-for-your-organization"></a>
 
 MarkToHtml is a production-ready, enterprise-grade knowledge base platform designed for teams that value simplicity without sacrificing essential features. While commercial solutions like Notion charge $10+ per user monthly and lack self-hosting options, MarkToHtml delivers a comprehensive document collaboration system that deploys in minutes and costs nothing to run on your own infrastructure.
 
@@ -31,6 +33,10 @@ Key enterprise features include:
 **Fine-Grained Access Control.** Role-Based Access Control system with comprehensive permissions for users, roles, and documents. Dynamic navigation automatically adapts to user permissions, ensuring users only see what they should.
 
 **Global-Ready Platform.** AI-powered translation supporting 27 languages enables worldwide team collaboration without language barriers. Comprehensive localization coverage ensures consistent user experience across cultures.
+
+## Try
+
+Try a running MarkToHtml [here](https://marktohtml.aiursoft.com).
 
 ## Install with Docker
 
@@ -81,6 +87,93 @@ The docker image has the following context:
 | Data path   | /data                           |
 | Config path | /data/appsettings.json          |
 
+## Usage
+
+Open the application at the URL selected in the installation or run steps above.
+
+## Configuration
+
+The application defaults are defined in [`src/Aiursoft.MarkToHtml/appsettings.json`](src/Aiursoft.MarkToHtml/appsettings.json). The Docker image initializes `/data/appsettings.json` on its first start and keeps it for later starts; persist `/data`. Override nested values with double-underscore environment variables, such as `Logging__LogLevel__Default`.
+
+```jsonc
+{
+  "ConnectionStrings": {
+    "AllowCache": "True",
+
+    "DbType": "Sqlite",
+    "DefaultConnection": "DataSource=app.db;Cache=Shared"
+
+    // sudo docker run -d --name db -e MYSQL_RANDOM_ROOT_PASSWORD=true -e MYSQL_DATABASE=template -e MYSQL_USER=template -e MYSQL_PASSWORD=template_password -p 3306:3306 hub.aiursoft.com/mysql
+    //"DbType": "MySql",
+    //"DefaultConnection": "Server=localhost;Database=template;Uid=template;Pwd=template_password;"
+  },
+  "Storage": {
+    "Path": "/tmp/data",
+    "PublicOrigin": "",
+    "RequireDedicatedInlineOrigin": false,
+    "AllowArbitraryInlineOnDedicatedOrigin": false,
+    "SafeInlineMediaExtensions": [ "svg" ],
+    "SafeInlineSvgSubfolders": [ "markdown-images" ],
+    "UploadPolicy": {
+      "RequireAuthenticatedUser": true,
+      "ReplaceSpacesWithHyphens": true
+    }
+  },
+  "AppSettings": {
+    "AuthProvider": "Local", // OIDC or Local
+    "DefaultRole": "",
+    "PersistsSignIn": false,
+    "OIDC": {
+      // https://auth.aiursoft.com/application/o/template
+      "Authority": "https://auth.aiursoft.com/application/o/template",
+      "ClientId": "",
+      "ClientSecret": "",
+      "RolePropertyName": "groups",
+      "UsernamePropertyName": "preferred_username",
+      "UserDisplayNamePropertyName": "name",
+      "EmailPropertyName": "email",
+      "UserIdentityPropertyName": "sub"
+    },
+    "Local": {
+      "AllowRegister": true,
+      "AllowWeakPassword": true
+    }
+  },
+  "TtsSettings": {
+    "BaseUrl": "https://tts.aiursoft.com/",
+    "ApiToken": "",
+    "DefaultVoice": "reporter-zh",
+    "DefaultFormat": "mp3",
+    "DefaultSpeed": 1.0
+  },
+  "GlobalSettings": {
+    // You can initialize or override global settings here.
+    // "Allow_User_Adjust_Nickname": "True"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "Clickhouse": {
+      "Enabled": false,
+      "ConnectionString": "Host=localhost;Protocol=http;Port=8123;User=default;Password=;Database=AspNetCoreLogs",
+      "TableName": "MarkToHtmlLogs"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### Shared settings
+
+- `ConnectionStrings` selects the database provider and connection. Prepare the external database before choosing MySQL; keep the SQLite file persistent when using SQLite.
+- `Storage` configures local application files. Keep the storage directory persistent and use the documented hostname and upload policies for shared downloads.
+- `AppSettings` controls authentication and account synchronization. Choose local accounts or configure the OIDC authority, client and `/signin-oidc` callback; use environment variables for credentials.
+- Uncommented `GlobalSettings` entries override the database-backed administration settings. Leave entries commented to use the stored values or application defaults.
+- `Logging:LogLevel` controls application and framework verbosity. Configure the optional ClickHouse exporter only when its server and credentials are ready.
+- `AllowedHosts` is the ASP.NET Core Host-header allowlist, not a CORS setting.
+
 ## How to contribute
 
 There are many ways to contribute to the project: logging bugs, submitting pull requests, reporting issues, and creating suggestions.
@@ -88,3 +181,7 @@ There are many ways to contribute to the project: logging bugs, submitting pull 
 Even if you with push rights on the repository, you should create a personal fork and create feature branches there when you need them. This keeps the main repository clean and your workflow cruft out of sight.
 
 We're also interested in your feedback on the future of this project. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
+
+## License
+
+Licensed under the [MIT License](LICENSE).
