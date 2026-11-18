@@ -208,9 +208,9 @@ public class DocumentVectorSearchService(
         var model    = await settingsService.GetSettingValueAsync(SettingsMap.EmbeddingModel);
         var token    = await settingsService.GetEmbeddingTokenAsync();
 
-        // Truncate query text to fit bge-m3's 8192-token context window.
+        // Apply the same character budget as background indexing; context errors reduce it further.
         // Queries are typically short, but a user might paste a very long document.
-        var maxChars = 8000;
+        var maxChars = BackgroundJobs.GenerateDocumentEmbeddingsJob.MaxInputCharacters;
 
         var http = httpClientFactory.CreateClient();
         var baseUri = new Uri(endpoint);
@@ -221,8 +221,8 @@ public class DocumentVectorSearchService(
         float[] embedding;
         while (true)
         {
-            var input = text.Length > maxChars ? text[..maxChars] : text;
-            var body = new { model, input };
+            var input = BackgroundJobs.GenerateDocumentEmbeddingsJob.TruncateForEmbedding(text, maxChars);
+            var body = new { model, input, truncate = false };
             using var request = new HttpRequestMessage(HttpMethod.Post, embedUrl);
             request.Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
@@ -233,7 +233,7 @@ public class DocumentVectorSearchService(
             if (!response.IsSuccessStatusCode)
             {
                 var error = await response.Content.ReadAsStringAsync(linked.Token);
-                if (maxChars > 500 && EmbeddingHelper.IsContextLengthError(response.StatusCode, error))
+                if (maxChars > 512 && EmbeddingHelper.IsContextLengthError(response.StatusCode, error))
                 {
                     maxChars /= 2;
                     continue;

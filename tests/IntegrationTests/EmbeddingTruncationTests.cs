@@ -122,28 +122,28 @@ public class EmbeddingTruncationTests
     {
         // Build text where the tail portion is entirely 'B' so we can verify ends-with.
         // 8000 'A' + 2000 'B' = 10000 chars. After head+tail truncation to 8000:
-        //   head = 6000 'A', tail = 1995 'B' (since last 1995 of original are all 'B').
+        //   head = 6396 'A', tail = 1599 'B' (since last 1599 of original are all 'B').
         var text = new string('A', 8000) + new string('B', 2000);
         var result = GenerateDocumentEmbeddingsJob.TruncateForEmbedding(text, 8000);
 
         Assert.AreEqual(8000, result.Length);
-        // Head: first 6000 chars (75% of 8000) should be 'A'
-        Assert.IsTrue(result.StartsWith(new string('A', 6000)));
+        // Head: first 6396 chars (80% of the text budget) should be 'A'
+        Assert.IsTrue(result.StartsWith(new string('A', 6396)));
         // Separator
         Assert.IsTrue(result.Contains("\n...\n"));
-        // Tail: last 1995 chars (8000 - 6000 - 5) are all 'B'
-        Assert.IsTrue(result.EndsWith(new string('B', 1995)));
+        // Tail: last 1599 chars (8000 - 6396 - 5) are all 'B'
+        Assert.IsTrue(result.EndsWith(new string('B', 1599)));
     }
 
     [TestMethod]
-    public void TruncateForEmbedding_MaxTooShortForHeadTail_SimpleHardTruncation()
+    public void TruncateForEmbedding_SmallBudget_IncludesTheSeparator()
     {
         var text = new string('x', 100);
-        // 10 is too short for head+tail (75% of 10 = 7, tail = 10-7-5 = -2)
+        // Reserve five characters for the marker, then retain four from the head and one from the tail.
         var result = GenerateDocumentEmbeddingsJob.TruncateForEmbedding(text, 10);
         Assert.AreEqual(10, result.Length);
-        Assert.IsFalse(result.Contains("\n...\n"));
-        Assert.AreEqual(new string('x', 10), result);
+        Assert.IsTrue(result.Contains("\n...\n"));
+        Assert.AreEqual("xxxx\n...\nx", result);
     }
 
     [TestMethod]
@@ -155,9 +155,9 @@ public class EmbeddingTruncationTests
 
         Assert.AreEqual(500, result.Length);
         Assert.IsTrue(result.Contains("\n...\n"));
-        // head = 375 (75% of 500), tail = 500 - 375 - 5 = 120
-        Assert.IsTrue(result.StartsWith(new string('H', 375)));
-        Assert.IsTrue(result.EndsWith(new string('T', 120)));
+        // head = 396 (80% of 495), tail = 99, plus the five-character marker
+        Assert.IsTrue(result.StartsWith(new string('H', 396)));
+        Assert.IsTrue(result.EndsWith(new string('T', 99)));
     }
 
     // ══════════════════════════════════════════════════════════════════════════════
@@ -202,8 +202,8 @@ public class EmbeddingTruncationTests
         // Should succeed on second attempt with halved text
         Assert.AreEqual(2, result.Length);
         Assert.AreEqual(2, handler.SentInputs.Count);
-        Assert.AreEqual(8000, handler.SentInputs[0].Length);
-        Assert.AreEqual(4000, handler.SentInputs[1].Length);
+        Assert.AreEqual(8192, handler.SentInputs[0].Length);
+        Assert.AreEqual(4096, handler.SentInputs[1].Length);
         Assert.IsTrue(handler.SentInputs[1].Contains("\n...\n"));
     }
 
@@ -230,13 +230,13 @@ public class EmbeddingTruncationTests
 
         Assert.IsNotNull(ex);
         Assert.IsTrue(ex.Message.Contains("'Huge'"));
-        // Binary search: 8000 → 4000 → 2000 → 1000 → 500 (5 attempts, then 500 <= 500 throws)
+        // Binary search: 8192 → 4096 → 2048 → 1024 → 512 (5 attempts, then 512 <= 512 throws)
         Assert.AreEqual(5, handler.SentInputs.Count);
-        Assert.AreEqual(8000, handler.SentInputs[0].Length);
-        Assert.AreEqual(4000, handler.SentInputs[1].Length);
-        Assert.AreEqual(2000, handler.SentInputs[2].Length);
-        Assert.AreEqual(1000, handler.SentInputs[3].Length);
-        Assert.AreEqual(500, handler.SentInputs[4].Length);
+        Assert.AreEqual(8192, handler.SentInputs[0].Length);
+        Assert.AreEqual(4096, handler.SentInputs[1].Length);
+        Assert.AreEqual(2048, handler.SentInputs[2].Length);
+        Assert.AreEqual(1024, handler.SentInputs[3].Length);
+        Assert.AreEqual(512, handler.SentInputs[4].Length);
     }
 
     [TestMethod]
@@ -266,7 +266,7 @@ public class EmbeddingTruncationTests
         Assert.IsNotNull(ex);
         Assert.IsTrue(ex.Message.Contains("'Tiny'"));
         // Text is short, so length is unchanged across retries, but binary search
-        // still halves maxChars each time: 8000 → 4000 → 2000 → 1000 → 500 → throw
+        // still halves maxChars each time: 8192 → 4096 → 2048 → 1024 → 512 → throw
         Assert.AreEqual(5, handler.SentInputs.Count);
     }
 
