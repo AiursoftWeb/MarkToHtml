@@ -22,6 +22,7 @@ public class GenerateDocumentEmbeddingsJob(
     ILogger<GenerateDocumentEmbeddingsJob> logger) : IBackgroundJob
 {
     internal const int MaxDocumentsPerRun = 50;
+    internal const int MaxInputCharacters = 8192;
     private static readonly SemaphoreSlim RunLock = new(1, 1);
 
     public string Name => "Generate Document Embeddings";
@@ -146,16 +147,13 @@ public class GenerateDocumentEmbeddingsJob(
         var baseUri  = new Uri(endpoint);
         var embedUrl = $"{baseUri.Scheme}://{baseUri.Authority}/api/embed?keep_alive=-1";
 
-        // bge-m3 has an 8192-token context window. Characters map to tokens at different
-        // rates per language (CJK ≈ 1:1, English ≈ 1:4). Start with 8000 chars (safe for
-        // all languages) and use binary-search fallback if Ollama still reports the input
-        // is too long.
-        var maxChars = 8000;
+        // Apply a character budget, then reduce it on explicit context errors.
+        var maxChars = MaxInputCharacters;
         while (true)
         {
             var input = TruncateForEmbedding(text, maxChars);
 
-            var body    = new { model, input };
+            var body    = new { model, input, truncate = false };
             var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
             var request = new HttpRequestMessage(HttpMethod.Post, embedUrl) { Content = content };
 
@@ -179,7 +177,7 @@ public class GenerateDocumentEmbeddingsJob(
             // If the input is too long, halve the limit and retry. Otherwise fail.
             var errorBody = await response.Content.ReadAsStringAsync();
             var isContextError = EmbeddingHelper.IsContextLengthError(response.StatusCode, errorBody);
-            if (!isContextError || maxChars <= 500)
+            if (!isContextError || maxChars <= 512)
             {
                 throw new HttpRequestException(
                     $"Ollama embedding request failed for '{doc.Title}' (HTTP {(int)response.StatusCode}): {errorBody}");
@@ -201,20 +199,20 @@ public class GenerateDocumentEmbeddingsJob(
         return sb.ToString();
     }
 
-    /// <summary>
-    /// Truncates text to fit within bge-m3's 8192-token context window.
-    /// Uses head+tail preservation: keeps the first 75% and last ~25% of the budget
-    /// so both the introduction and conclusion contribute to the embedding.
-    /// </summary>
     internal static string TruncateForEmbedding(string text, int maxChars)
     {
         if (text.Length <= maxChars) return text;
 
-        var head = (int)(maxChars * 0.75);
-        var tail = maxChars - head - 5; // 5 for "\n...\n" separator
-        if (tail <= 0) return text[..maxChars];
+        const string separator = "\n...\n";
+        var contentBudget = maxChars - separator.Length;
+        var head = contentBudget * 4 / 5;
+        var tailStart = text.Length - (contentBudget - head);
 
-        return string.Concat(text.AsSpan(0, head), "\n...\n", text.AsSpan(text.Length - tail));
+        // Do not split a UTF-16 surrogate pair at either retained boundary.
+        if (char.IsHighSurrogate(text[head - 1]) && char.IsLowSurrogate(text[head])) head--;
+        if (char.IsLowSurrogate(text[tailStart]) && char.IsHighSurrogate(text[tailStart - 1])) tailStart++;
+
+        return string.Concat(text.AsSpan(0, head), separator, text.AsSpan(tailStart));
     }
 
     internal static async Task<bool> TrySaveEmbeddingIfDocumentUnchangedAsync(
