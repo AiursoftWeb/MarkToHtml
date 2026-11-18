@@ -32,6 +32,9 @@
     <ProjectReference Include="..\Aiursoft.MarkToHtml.MySql\Aiursoft.MarkToHtml.MySql.csproj" />
     <ProjectReference Include="..\Aiursoft.MarkToHtml.Sqlite\Aiursoft.MarkToHtml.Sqlite.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot/print-themes/**/*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
   <Target Name="PrepareFrontendResources" BeforeTargets="AssignTargetPaths" Condition="'$(DesignTimeBuild)' != 'true'">
     <!-- Docker supplies the slimmed assets from its Node build stage. -->
     <Exec Command="npm ci" WorkingDirectory="$(MSBuildProjectDirectory)/wwwroot" Condition="'$(SkipFrontendBuild)' != 'true'" />
