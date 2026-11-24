@@ -1,5 +1,6 @@
 using System.Net;
 using Aiursoft.MarkToHtml.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
