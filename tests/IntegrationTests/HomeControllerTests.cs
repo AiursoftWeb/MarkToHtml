@@ -1,4 +1,5 @@
 using System.Net;
+using Aiursoft.MarkToHtml.Entities;
 
 namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 
@@ -54,7 +55,7 @@ public class HomeControllerTests : TestBase
     [TestMethod]
     public async Task DocumentLifecycle_CreateEditDownloadVisibilityDelete()
     {
-        var (_, _) = await RegisterAndLoginAsync();
+        await RegisterAndLoginAsync();
 
         // 1. SaveNew
         var createResponse = await PostForm("/Home/SaveNew", new Dictionary<string, string>
@@ -106,7 +107,7 @@ public class HomeControllerTests : TestBase
 
         // Verify document is deleted
         using var scope = Server!.Services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<Aiursoft.MarkToHtml.Entities.TemplateDbContext>();
+        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
         var doc = await db.MarkdownDocuments.FindAsync(docId);
         Assert.IsNull(doc);
     }
