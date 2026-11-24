@@ -41,6 +41,84 @@ public class AdminControllerTests : TestBase
         Assert.IsFalse(html.Contains("padding: 0 !important;"));
     }
 
+    [TestMethod]
+    public async Task EditDocument_Post_UpdatesDocument()
+    {
+        await LoginAsAdmin();
+
+        Guid documentId;
+        string adminId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            adminId = (await db.Users.FirstAsync(u => u.Email == "admin@default.com")).Id;
+            documentId = Guid.NewGuid();
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = documentId,
+                Title = "Before Edit",
+                Content = "# Old Content",
+                UserId = adminId,
+                CreationTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var response = await PostForm($"/Admin/EditDocument/{documentId}", new Dictionary<string, string>
+        {
+            { "DocumentId", documentId.ToString() },
+            { "Title", "After Edit" },
+            { "InputMarkdown", "# New Content" },
+            { "SelectedUserId", adminId }
+        });
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var doc = await db.MarkdownDocuments.FindAsync(documentId);
+            Assert.IsNotNull(doc);
+            Assert.AreEqual("After Edit", doc.Title);
+            Assert.AreEqual("# New Content", doc.Content);
+        }
+    }
+
+    [TestMethod]
+    public async Task DeleteDocument_Lifecycle_Success()
+    {
+        await LoginAsAdmin();
+
+        Guid documentId;
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var adminId = (await db.Users.FirstAsync(u => u.Email == "admin@default.com")).Id;
+            documentId = Guid.NewGuid();
+            db.MarkdownDocuments.Add(new MarkdownDocument
+            {
+                Id = documentId,
+                Title = "To Delete",
+                Content = "# Delete me",
+                UserId = adminId,
+                CreationTime = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+        }
+
+        var getResponse = await Http.GetAsync($"/Admin/DeleteDocument/{documentId}");
+        Assert.AreEqual(HttpStatusCode.OK, getResponse.StatusCode);
+
+        var postResponse = await PostForm($"/Admin/DeleteDocument/{documentId}", new Dictionary<string, string>());
+        Assert.AreEqual(HttpStatusCode.Found, postResponse.StatusCode);
+
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var doc = await db.MarkdownDocuments.FindAsync(documentId);
+            Assert.IsNull(doc);
+        }
+    }
+
     // Bug: AdminController.AllDocuments uses EF.Functions.Like with unescaped user input.
     // On InMemory DB, EF.Functions.Like throws → 500. After fix (Contains) → 200.
     [TestMethod]

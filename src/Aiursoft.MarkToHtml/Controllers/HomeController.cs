@@ -48,7 +48,7 @@ public class HomeController(
         if (!ModelState.IsValid)
         {
             await PopulateFolderListAsync(userManager.GetUserId(User));
-            return this.StackView(model);
+            return this.StackView(model: model, viewName: nameof(Index));
         }
 
         var userId = userManager.GetUserId(User);
@@ -131,7 +131,7 @@ public class HomeController(
                 "An anonymous user submitted a document with ID: '{Id}'. It was not saved to the database.",
                 model.DocumentId);
             model.OutputHtml = mtohService.ConvertMarkdownToHtml(model.InputMarkdown);
-            return this.StackView(model);
+            return this.StackView(model: model, viewName: nameof(Index));
         }
     }
 
