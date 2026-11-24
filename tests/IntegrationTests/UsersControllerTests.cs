@@ -97,4 +97,24 @@ public class UsersControllerTests : TestBase
         var response = await Http.GetAsync("/Users/Delete/invalid-id");
         Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
     }
+
+    [TestMethod]
+    public async Task TestSearchUsers()
+    {
+        // Anonymous -> Redirect to login (Found) or Unauthorized
+        var unauth = await Http.GetAsync("/api/users/search?query=admin");
+        Assert.IsTrue(unauth.StatusCode is HttpStatusCode.Unauthorized or HttpStatusCode.Found);
+
+        await LoginAsAdmin();
+
+        // Short query -> empty list
+        var shortResponse = await Http.GetAsync("/api/users/search?query=a");
+        Assert.AreEqual(HttpStatusCode.OK, shortResponse.StatusCode);
+
+        // Valid query -> find admin
+        var response = await Http.GetAsync("/api/users/search?query=admin&page=1&pageSize=10");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var content = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(content.Contains("admin"));
+    }
 }

@@ -1,10 +1,67 @@
+using System.Net;
+using System.Text;
+using Aiursoft.MarkToHtml.Configuration;
 using Aiursoft.MarkToHtml.Services;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 
 namespace Aiursoft.MarkToHtml.Tests.UnitTests;
 
 [TestClass]
 public class TtsServiceTests
 {
+    private class FakeHttpMessageHandler(HttpResponseMessage response) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            return Task.FromResult(response);
+        }
+    }
+
+    private class FakeHttpClientFactory(HttpClient client) : IHttpClientFactory
+    {
+        public HttpClient CreateClient(string name) => client;
+    }
+
+    [TestMethod]
+    public async Task GetVoicesAsync_ReturnsVoices()
+    {
+        var jsonResponse = "[{\"name\":\"alloy\",\"filename\":\"alloy.wav\",\"size_kb\":123.4}]";
+        var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new StringContent(jsonResponse, Encoding.UTF8, "application/json")
+        };
+        var handler = new FakeHttpMessageHandler(fakeResponse);
+        var httpClient = new HttpClient(handler);
+        var factory = new FakeHttpClientFactory(httpClient);
+        var settings = Options.Create(new TtsSettings { BaseUrl = "http://tts.local", ApiToken = "token" });
+
+        var service = new TtsService(factory, settings, NullLogger<TtsService>.Instance);
+        var voices = await service.GetVoicesAsync();
+
+        Assert.AreEqual(1, voices.Count);
+        Assert.AreEqual("alloy", voices[0].Name);
+    }
+
+    [TestMethod]
+    public async Task GenerateSpeechAsync_ReturnsStreamAndContentType()
+    {
+        var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new ByteArrayContent([1, 2, 3, 4])
+        };
+        var handler = new FakeHttpMessageHandler(fakeResponse);
+        var httpClient = new HttpClient(handler);
+        var factory = new FakeHttpClientFactory(httpClient);
+        var settings = Options.Create(new TtsSettings { BaseUrl = "http://tts.local", ApiToken = "token" });
+
+        var service = new TtsService(factory, settings, NullLogger<TtsService>.Instance);
+        var (stream, contentType) = await service.GenerateSpeechAsync("hello", format: "mp3");
+
+        Assert.IsNotNull(stream);
+        Assert.AreEqual("audio/mpeg", contentType);
+    }
+
     [TestMethod]
     [DataRow(null)]
     [DataRow("")]
@@ -30,7 +87,6 @@ public class TtsServiceTests
         var result = TtsService.ChunkText(text);
 
         Assert.IsTrue(result.Count > 1);
-        // Every chunk except possibly the last should end with a delimiter
         for (var i = 0; i < result.Count - 1; i++)
         {
             var endsWithDelimiter = result[i].EndsWith('.') || result[i].EndsWith('。') ||
@@ -67,12 +123,10 @@ public class TtsServiceTests
     [TestMethod]
     public void ChunkText_NoDelimiter_FallbackSplit()
     {
-        // A long string without any delimiters
         var text = new string('A', 500);
         var result = TtsService.ChunkText(text, 100);
 
         Assert.IsTrue(result.Count > 1);
-        // Recombined text should match original (trimmed)
         var recombined = string.Join("", result);
         Assert.AreEqual(text, recombined);
     }
