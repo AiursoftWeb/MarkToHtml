@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="AI Assistant" xml:space="preserve">
+    <value>AI asistent</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Odobri</value>
+  </data>
+  <data name="Approved - applying..." xml:space="preserve">
+    <value>Odobreno - primjenjuje se...</value>
+  </data>
+  <data name="Chat window size" xml:space="preserve">
+    <value>Veličina prozora za chat</value>
+  </data>
+  <data name="Edit applied successfully!" xml:space="preserve">
+    <value>Uredak je uspješno primijenjen!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Pogreška</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Pogreška:</value>
+  </data>
+  <data name="Hi! I&apos;m your editing assistant. Paste your client&apos;s feedback or describe the changes you want, and I&apos;ll propose edits." xml:space="preserve">
+    <value>Bok! Ja sam tvoj pomoćnik za uređivanje. Zalijepite povratne informacije vašeg klijenta ili opišite promjene koje želite, a ja ću predložiti izmjene.</value>
+  </data>
+  <data name="Large" xml:space="preserve">
+    <value>Velika</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Srednje</value>
+  </data>
+  <data name="Network error:" xml:space="preserve">
+    <value>Greška u mreži:</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Novo</value>
+  </data>
+  <data name="Paste client feedback or describe changes you want..." xml:space="preserve">
+    <value>Zalijepite povratne informacije klijenta ili opišite promjene koje želite...</value>
+  </data>
+  <data name="Please save the document first before using the AI assistant." xml:space="preserve">
+    <value>Prvo spremite dokument prije korištenja AI asistenta.</value>
+  </data>
+  <data name="Proposed Edit" xml:space="preserve">
+    <value>Predložena izmjena</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Spremno</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Odbij</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>Odbijeno</value>
+  </data>
+  <data name="Replace with" xml:space="preserve">
+    <value>Zamijeni s</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Pošalji</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Malo</value>
+  </data>
+  <data name="Start a new conversation" xml:space="preserve">
+    <value>Započni novi razgovor</value>
+  </data>
+  <data name="Thinking..." xml:space="preserve">
+    <value>Razmišljam...</value>
+  </data>
+  <data name="Waiting for approval" xml:space="preserve">
+    <value>Čeka odobrenje</value>
+  </data>
+
+</root>
