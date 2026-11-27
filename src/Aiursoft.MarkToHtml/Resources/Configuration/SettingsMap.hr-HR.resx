@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="API token (x-api-key header) for the Agent API Endpoint." xml:space="preserve">
+    <value>API token (x-api-key zaglavlje) za Agent API Endpoint.</value>
+  </data>
+  <data name="Agent API Endpoint" xml:space="preserve">
+    <value>Agent API Endpoint</value>
+  </data>
+  <data name="Agent API Model" xml:space="preserve">
+    <value>Agent API Model</value>
+  </data>
+  <data name="Agent API Token" xml:space="preserve">
+    <value>Agent API Token</value>
+  </data>
+  <data name="Agent System Prompt" xml:space="preserve">
+    <value>Sustavni uput za agenta</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Dozvoli korisniku prilagodbu nadimka</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Dozvolite korisnicima da prilagode svoje nadimke na stranici za upravljanje profilom.</value>
+  </data>
+  <data name="Anthropic Messages API endpoint for the AI editor assistant (e.g. https://api.anthropic.com/v1/messages). Leave empty to disable." xml:space="preserve">
+    <value>Anthropic Messages API krajnja točka za AI pomoćnika urednika (npr. https://api.anthropic.com/v1/messages). Ostavite prazno za onemogućavanje.</value>
+  </data>
+  <data name="Bearer token for the Embedding Endpoint. Leave empty if no auth required." xml:space="preserve">
+    <value>Bearer token za točku za ugrađivanje. Ostavite prazno ako autenticacija nije potrebna.</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL početne stranice brenda</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Naziv brenda</value>
+  </data>
+  <data name="Company Address" xml:space="preserve">
+    <value>Adresa tvrtke</value>
+  </data>
+  <data name="Company Email" xml:space="preserve">
+    <value>E-mail tvrtke</value>
+  </data>
+  <data name="Company Phone" xml:space="preserve">
+    <value>Telefon tvrtke</value>
+  </data>
+  <data name="Company Postcode" xml:space="preserve">
+    <value>Poštanski broj tvrtke</value>
+  </data>
+  <data name="Contract Logo" xml:space="preserve">
+    <value>Logo ugovora</value>
+  </data>
+  <data name="Embedding API Token" xml:space="preserve">
+    <value>API token za embedding</value>
+  </data>
+  <data name="Embedding Endpoint" xml:space="preserve">
+    <value>Točkovi za ugrađivanje</value>
+  </data>
+  <data name="Embedding Model" xml:space="preserve">
+    <value>Model za ugradnju</value>
+  </data>
+  <data name="Embedding Query Cache Limit" xml:space="preserve">
+    <value>Ograničenje predmemorije upita ugrađivanja</value>
+  </data>
+  <data name="Embedding model name for vector search, e.g. bge-m3:latest." xml:space="preserve">
+    <value>Naziv embedding modela za vektorsko pretraživanje, npr. bge-m3:latest.</value>
+  </data>
+  <data name="Enable Embedding-Based Search" xml:space="preserve">
+    <value>Omogući pretraživanje temeljeno na ugrađivanju</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP broj</value>
+  </data>
+  <data name="Master switch for semantic (vector-based) search. Falls back to keyword search when disabled." xml:space="preserve">
+    <value>Glavni prekidač za semantičku (vektorsku) pretragu. Kad je onemogućen, vraća se na pretragu po ključnim riječima.</value>
+  </data>
+  <data name="Maximum number of cached search-query embeddings stored in the database (LRU). Default 2000." xml:space="preserve">
+    <value>Maksimalan broj predmemorisanih embeddinga upita za pretragu pohranjenih u bazu podataka (LRU). Zadano 2000.</value>
+  </data>
+  <data name="Model name for the AI editor assistant, e.g. claude-sonnet-5." xml:space="preserve">
+    <value>Naziv modela za AI pomoćnika urednika, npr. claude-sonnet-5.</value>
+  </data>
+  <data name="Ollama API base URL for generating document and query embeddings (e.g. https://ollama.example.com). /api/embed is appended automatically." xml:space="preserve">
+    <value>Osnovni URL Ollama API-ja za generiranje ugrađivanja dokumenata i upita (npr. https://ollama.example.com). Putanja /api/embed automatski se dodaje.</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Logo projekta</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Naziv projekta</value>
+  </data>
+  <data name="Show Contract Header" xml:space="preserve">
+    <value>Prikaži zaglavlje ugovora</value>
+  </data>
+  <data name="System prompt for the AI editor assistant. Use {documentTitle} and {documentContentLength} as placeholders." xml:space="preserve">
+    <value>Sustavni prompt za AI pomoćnika za uređivanje. Koristite {{documentTitle}} i {{documentContentLength}} kao zamjenske vrijednosti.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>ICP broj licence za korisnike iz kontinentalne Kine. Ostavite prazno za skrivanje.</value>
+  </data>
+  <data name="The URL of the company or project. E.g. https://www.aiursoft.com" xml:space="preserve">
+    <value>URL tvrtke ili projekta. Npr. https://www.aiursoft.com</value>
+  </data>
+  <data name="The address of the company or project." xml:space="preserve">
+    <value>Adresa tvrtke ili projekta.</value>
+  </data>
+  <data name="The brand name of the company or project. E.g. Aiursoft." xml:space="preserve">
+    <value>Naziv brenda tvrtke ili projekta. Npr. Aiursoft.</value>
+  </data>
+  <data name="The email address of the company or project." xml:space="preserve">
+    <value>E-mail adresa tvrtke ili projekta.</value>
+  </data>
+  <data name="The logo of the contract displayed in the header. Support jpg and png. Separate from system logo." xml:space="preserve">
+    <value>Logo ugovora prikazan u zaglavlju. Podržava se jpg i png. Odvojeno od logotipa sustava.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg and png." xml:space="preserve">
+    <value>Logo projekta prikazan u navigacijskoj traci i podnožju. Podržani su formati jpg i png.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Naziv projekta prikazan u prednjoj aplikaciji.</value>
+  </data>
+  <data name="The phone number of the company or project." xml:space="preserve">
+    <value>Broj telefona tvrtke ili projekta.</value>
+  </data>
+  <data name="The postcode of the company or project." xml:space="preserve">
+    <value>Poštanski broj tvrtke ili projekta.</value>
+  </data>
+  <data name="Whether to show the contract header (Logo, address, etc.) in the contract view." xml:space="preserve">
+    <value>Prikazuje li se zaglavlje ugovora (logo, adresa itd.) u prikazu ugovora.</value>
+  </data>
+
+</root>
