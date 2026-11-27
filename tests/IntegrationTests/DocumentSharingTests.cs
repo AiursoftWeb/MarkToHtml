@@ -12,6 +12,11 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 [TestClass]
 public class DocumentSharingTests
 {
+    private static readonly HttpClient AnonymousVisitor = new(new HttpClientHandler
+    {
+        AllowAutoRedirect = false,
+        UseCookies = false
+    });
     private int _port;
     private HttpClient _http = null!;
     private IHost? _server;
@@ -509,14 +514,11 @@ public class DocumentSharingTests
             }));
         Assert.AreEqual(HttpStatusCode.OK, makePublicResponse.StatusCode);
 
-        using var visitor = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false })
-        {
-            BaseAddress = _http.BaseAddress
-        };
-        var sharedRoutes = new[] { $"/share/{documentId}", $"/share/{documentId}/print" };
+        var sharedLink = new Uri(_http.BaseAddress!, $"/share/{documentId}");
+        var sharedRoutes = new[] { sharedLink, new Uri(sharedLink + "/print") };
         foreach (var route in sharedRoutes)
         {
-            Assert.Contains(documentText, await visitor.GetStringAsync(route));
+            Assert.Contains(documentText, await AnonymousVisitor.GetStringAsync(route));
         }
 
         // Act & Assert - Can make private
@@ -529,7 +531,7 @@ public class DocumentSharingTests
         Assert.AreEqual(HttpStatusCode.OK, makePrivateResponse.StatusCode);
         foreach (var route in sharedRoutes)
         {
-            using var revoked = await visitor.GetAsync(route);
+            using var revoked = await AnonymousVisitor.GetAsync(route);
             Assert.AreEqual(HttpStatusCode.Found, revoked.StatusCode);
             StringAssert.Contains(revoked.Headers.Location!.AbsolutePath, "/Account/Login");
             Assert.Contains(documentText, await _http.GetStringAsync(route));
