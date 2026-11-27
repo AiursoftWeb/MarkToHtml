@@ -480,7 +480,8 @@ public class DocumentSharingTests
         var password = "Password123!";
         
         var ownerId = await RegisterAndLoginUser(ownerEmail, password);
-        var documentId = await CreateDocument(ownerId, "Owner's Document", "# Content");
+        const string documentText = "Minutes from the editorial review";
+        var documentId = await CreateDocument(ownerId, "Owner's Document", documentText);
         _ = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", password);
         await Logout();
         
@@ -508,6 +509,16 @@ public class DocumentSharingTests
             }));
         Assert.AreEqual(HttpStatusCode.OK, makePublicResponse.StatusCode);
 
+        using var visitor = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false })
+        {
+            BaseAddress = _http.BaseAddress
+        };
+        var sharedRoutes = new[] { $"/share/{documentId}", $"/share/{documentId}/print" };
+        foreach (var route in sharedRoutes)
+        {
+            Assert.Contains(documentText, await visitor.GetStringAsync(route));
+        }
+
         // Act & Assert - Can make private
         var token2 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
         var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
@@ -516,6 +527,13 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token2 }
             }));
         Assert.AreEqual(HttpStatusCode.OK, makePrivateResponse.StatusCode);
+        foreach (var route in sharedRoutes)
+        {
+            using var revoked = await visitor.GetAsync(route);
+            Assert.AreEqual(HttpStatusCode.Found, revoked.StatusCode);
+            StringAssert.Contains(revoked.Headers.Location!.AbsolutePath, "/Account/Login");
+            Assert.Contains(documentText, await _http.GetStringAsync(route));
+        }
 
         // Act & Assert - Can delete
         var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
