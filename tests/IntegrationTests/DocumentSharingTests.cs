@@ -12,6 +12,11 @@ namespace Aiursoft.MarkToHtml.Tests.IntegrationTests;
 [TestClass]
 public class DocumentSharingTests
 {
+    private static readonly HttpClient AnonymousVisitor = new(new HttpClientHandler
+    {
+        AllowAutoRedirect = false,
+        UseCookies = false
+    });
     private int _port;
     private HttpClient _http = null!;
     private IHost? _server;
@@ -480,7 +485,8 @@ public class DocumentSharingTests
         var password = "Password123!";
         
         var ownerId = await RegisterAndLoginUser(ownerEmail, password);
-        var documentId = await CreateDocument(ownerId, "Owner's Document", "# Content");
+        const string documentText = "Minutes from the editorial review";
+        var documentId = await CreateDocument(ownerId, "Owner's Document", documentText);
         _ = await RegisterAndLoginUser($"viewer-{Guid.NewGuid()}@test.com", password);
         await Logout();
         
@@ -508,6 +514,13 @@ public class DocumentSharingTests
             }));
         Assert.AreEqual(HttpStatusCode.OK, makePublicResponse.StatusCode);
 
+        var sharedLink = new Uri(_http.BaseAddress!, $"/share/{documentId}");
+        var sharedRoutes = new[] { sharedLink, new Uri(sharedLink + "/print") };
+        foreach (var route in sharedRoutes)
+        {
+            Assert.Contains(documentText, await AnonymousVisitor.GetStringAsync(route));
+        }
+
         // Act & Assert - Can make private
         var token2 = await GetAntiCsrfToken($"/Home/ManageShares/{documentId}");
         var makePrivateResponse = await _http.PostAsync($"/Home/MakePrivate/{documentId}", 
@@ -516,6 +529,13 @@ public class DocumentSharingTests
                 { "__RequestVerificationToken", token2 }
             }));
         Assert.AreEqual(HttpStatusCode.OK, makePrivateResponse.StatusCode);
+        foreach (var route in sharedRoutes)
+        {
+            using var revoked = await AnonymousVisitor.GetAsync(route);
+            Assert.AreEqual(HttpStatusCode.Found, revoked.StatusCode);
+            StringAssert.Contains(revoked.Headers.Location!.AbsolutePath, "/Account/Login");
+            Assert.Contains(documentText, await _http.GetStringAsync(route));
+        }
 
         // Act & Assert - Can delete
         var deletePageResponse = await _http.GetAsync($"/Home/Delete/{documentId}");
