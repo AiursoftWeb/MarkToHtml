@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A list of folders and documents in this location." xml:space="preserve">
+    <value>Popis mapa i dokumenata na ovom mjestu.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="All My Documents" xml:space="preserve">
+    <value>Svi moji dokumenti</value>
+  </data>
+  <data name="Create Folder" xml:space="preserve">
+    <value>Izradi mapu</value>
+  </data>
+  <data name="Create a new document" xml:space="preserve">
+    <value>Napravi novi dokument</value>
+  </data>
+  <data name="Creation Time" xml:space="preserve">
+    <value>Vrijeme kreiranja</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Preuzmi</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Go up to parent folder" xml:space="preserve">
+    <value>Idi na nadređenu mapu</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Interno</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Pomakni</value>
+  </data>
+  <data name="Move to folder" xml:space="preserve">
+    <value>Pomakni u mapu</value>
+  </data>
+  <data name="My Documents" xml:space="preserve">
+    <value>Moje dokumenti</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Private" xml:space="preserve">
+    <value>Privatno</value>
+  </data>
+  <data name="Public" xml:space="preserve">
+    <value>Javno</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>Preimenuj</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Podijeli</value>
+  </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Podijeljeno</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Veličina</value>
+  </data>
+  <data name="This folder is empty. Create a new document or folder to get started." xml:space="preserve">
+    <value>Ova mapa je prazna. Stvorite novi dokument ili mapu za početak.</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Gore</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Vidljivost</value>
+  </data>
+
+</root>
